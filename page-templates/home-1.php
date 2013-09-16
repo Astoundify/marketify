@@ -26,7 +26,9 @@ get_header(); ?>
 		<section id="primary" class="content-area full">
 			<main id="main" class="site-main" role="main">
 
-				<?php dynamic_sidebar( 'home-1' ); ?>
+				<div class="container">
+					<?php dynamic_sidebar( 'home-1' ); ?>
+				</div>
 
 			</main><!-- #main -->
 		</section><!-- #primary -->

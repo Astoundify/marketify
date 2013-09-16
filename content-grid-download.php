@@ -1,0 +1,40 @@
+<?php
+/**
+ * @package Marketify
+ */
+?>
+
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'content-grid-download' ); ?>>
+	<div class="entry-image">
+		<div class="overlay">
+			<div class="actions">
+				<a href="<?php the_permalink(); ?>" rel="bookmark" class="button">Buy Now</a>
+				<a href="<?php the_permalink(); ?>" rel="bookmark" class="button">Details</a>
+			</div>
+
+			<strong class="item-price"><span>Item Price: $55</span></strong>
+		</div>
+
+		<?php the_post_thumbnail( 'content-grid-download' ); ?>
+	</div>
+
+	<header class="entry-header">
+		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+
+		<div class="entry-meta">
+			<?php if ( marketify_is_multi_vendor() ) : ?>
+				<?php
+					printf( 
+						__( '<span class="byline"> by %1$s</span>', 'marketify' ),
+						sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s %4$s</a></span>',
+							esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+							esc_attr( sprintf( __( 'View all %s by %s', 'marketify' ), edd_get_label_plural(), get_the_author() ) ),
+							esc_html( get_the_author() ),
+							get_avatar( get_the_author_meta( 'ID' ), 25, apply_filters( 'marketify_default_avatar', null ) )
+						)
+					);
+				?>
+			<?php endif; ?>
+		</div>
+	</header><!-- .entry-header -->
+</article><!-- #post-## -->

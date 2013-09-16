@@ -5,7 +5,7 @@
  * @package Marketify
  */
 ?>
-	<div id="secondary" class="download-widget-area" role="complementary">
+	<div id="secondary" class="download-widget-area col-sm-3" role="complementary">
 		<?php do_action( 'before_sidebar' ); ?>
 		<?php if ( ! dynamic_sidebar( 'sidebar-download' ) ) : ?>
 

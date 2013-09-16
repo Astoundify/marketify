@@ -24,7 +24,8 @@ and Blueprint http://www.blueprintcss.org/
 
 .site-header,
 .site-footer,
-.page-header {
+.page-header,
+.content-grid-download .entry-image .overlay {
 	background: #515a63;
 }
 
@@ -341,7 +342,7 @@ a:visited {
 a:hover,
 a:focus,
 a:active {
-	
+	text-decoration: none;
 }
 
 /* Buttons */
@@ -349,7 +350,7 @@ a:active {
 .main-navigation a,
 .home-widget-title span,
 .section-title span {
-	font: 400 13px/normal 'Montserrat', sans-serif;
+	font: 800 13px/normal 'Montserrat', sans-serif;
 	color: #fff;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -358,6 +359,8 @@ a:active {
 	border: 2px solid #fff;
 }
 
+.button:active,
+.button:visited,
 .button:hover {
 	color: #fff;
 }
@@ -430,46 +433,6 @@ a:active {
 .site-content:after,
 .site-footer:after {
 	clear: both;
-}
-
-/* =Structure
------------------------------------------------ */
-
-.container,
-.site-content,
-.site-info,
-.page-title {
-	width: 90%;
-	max-width: 1170px;
-	margin: 0 auto;
-}
-
-.content-area {
-	width: 71%;
-	float: right;
-	padding-left: 4%;
-	position: relative;
-}
-
-.content-area:before {
-	background: #bdc3c7;
-	width: 1px;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	content: ' ';
-	display: block;
-}
-
-.content-area.full {
-	width: 100%;
-	float: none;
-}
-
-.download-widget-area {
-	width: 25%;
-	float: left;
 }
 
 /* =Header
@@ -555,20 +518,27 @@ a:active {
 	left: 100%;
 	top: 0;
 }
+
 .main-navigation ul ul a {
 	width: 200px;
 }
+
 .main-navigation ul ul li {
 }
+
 .main-navigation li:hover > a {
 }
+
 .main-navigation ul ul :hover > a {
 }
+
 .main-navigation ul ul a:hover {
 }
+
 .main-navigation ul li:hover > ul {
 	display: block;
 }
+
 .main-navigation li.current_page_item a,
 .main-navigation li.current-menu-item a {
 }
@@ -578,18 +548,6 @@ a:active {
 	display: none;
 	cursor: pointer;
 }
-
-@media screen and (max-width: 600px) {
-	.menu-toggle,
-	.main-navigation.toggled .nav-menu {
-		display: block;
-	}
-
-	.main-navigation ul {
-		display: none;
-	}
-}
-
 
 /* =Page
 ----------------------------------------------- */
@@ -613,6 +571,10 @@ a:active {
 
 /* =Homepages
 ----------------------------------------------- */
+
+.home-widget {
+	margin-bottom: 70px;
+}
 
 .home-widget-title,
 .section-title {
@@ -638,7 +600,7 @@ a:active {
 	font-size: 15px;
 	color: #bdc3c7;
 	text-align: center;
-	margin: 0 auto;
+	margin: 0 10px;
 	background: #fff;
 	border-color: #bdc3c7;
 	border-width: 3px;
@@ -691,7 +653,7 @@ a:active {
 .hentry {
 	margin: 0 0 1.5em;
 }
-.byline,
+
 .updated {
 	display: none;
 }
@@ -709,6 +671,146 @@ a:active {
 	margin: 0 0 1.5em;
 }
 
+
+/* =Download Grid
+----------------------------------------------- */
+
+.content-grid-download {
+	margin-bottom: 30px;
+}
+
+.content-grid-download .entry-image {
+	position: relative;
+}
+
+.content-grid-download .entry-image a,
+.content-grid-download .entry-image img {
+	display: block;
+}
+
+.content-grid-download .entry-image .overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	text-align: center;
+	z-index: 10;
+	background: transparent;
+	opacity: 0;
+
+	-webkit-transition: all 0.3s;
+	-moz-transition:    all 0.3s;
+	transition:         all 0.3s;
+}
+
+.content-grid-download .entry-image .actions {
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform:    translate(-50%, -50%);
+	transform:         translate(-50%, -50%);
+}
+
+.content-grid-download .entry-image .button {
+	margin: 0 10px;
+	padding: 10px 15px;
+	border-width: 3px;
+	display: inline-block;
+}
+
+.content-grid-download .entry-image .item-price {
+	position: absolute;
+	top: 73%;
+	left: 0;
+	width: 100%;
+}
+
+.content-grid-download .entry-image .item-price span {
+	font: 400 13px 'Montserrat', sans-serif;
+	color: #fff;
+	text-transform: uppercase;
+	padding-bottom: 10px;
+	border-bottom: 2px solid #fff;
+}
+
+.content-grid-download .entry-image:hover .overlay {
+	opacity: 1;
+	background: rgba( 81, 90, 99, .82 );
+}
+
+.content-grid-download .entry-header {
+	padding: 15px 20px;
+	background: #fff;
+	border: 1px solid #bdc3c7;
+}
+
+.content-grid-download .entry-title {
+	font: 400 15px/normal 'Roboto Slab', serif;
+}
+
+.content-grid-download .entry-title a {
+	text-decoration: none;
+}
+
+.content-grid-download .entry-meta {
+	color: #bdc3c7;
+	font-size: 13px;
+	margin-top: 10px;
+}
+
+.content-grid-download .entry-meta a {
+	color: #82878e;
+	text-decoration: none;
+}
+
+.content-grid-download .entry-meta .byline img {
+	display: inline-block;
+	margin: -4px 0 0 8px;
+	vertical-align: middle;
+	border-radius: 50%;
+}
+
+/* =Features
+----------------------------------------------- */
+
+.feature {
+	margin-bottom: 3em;
+	text-align: center;
+}
+
+.feature a {
+	display: inline-block;
+}
+
+.feature img {
+	width: 50%;
+	height: 50%;
+}
+
+.feature-title {
+	font: 800 16px 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.10em;
+	margin-top: 1.25em;
+}
+
+.feature-title a {
+	text-decoration: none;
+}
+
+.feature-content {
+	color: #515a63;
+	line-height: 1.75;
+	margin: 1.5em 0 0;
+}
+
+.woothemes-feature.secondary {
+
+}
 
 /* =Asides
 ----------------------------------------------- */
@@ -815,13 +917,15 @@ object {
 	display: none;
 }
 
-/* Download Widgets
+/* Home Widgets
 ----------------------------------------------- */
 
-.download-widget-area {
-	text-align: right;
-	direction: rtl;
+.marketify_widget_featured_popular .entry-header {
+	display: none;
 }
+
+/* Download Widgets
+----------------------------------------------- */
 
 .download-widget {
 	margin-bottom: 40px;
@@ -875,3 +979,31 @@ object {
 .infinity-end.neverending .site-footer {
 	display: block;
 }
+
+/* =Flexslider
+----------------------------------------------- */
+
+.flexslider {
+
+}
+
+.flexslider .slides {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+
+.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {width: 100%; display: block;}
+.flex-pauseplay span {text-transform: capitalize;}
+
+/* Clearfix for the .slides element */
+.slides:after {content: "\0020"; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+html[xmlns] .slides {display: block;}
+* html .slides {height: 1%;}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child {display: block;}

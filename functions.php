@@ -40,6 +40,7 @@ function marketify_setup() {
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
 	add_theme_support( 'post-thumbnails' );
+	add_image_size( 'content-grid-download', 740, 600, true );
 
 	/**
 	 * This theme uses wp_nav_menu() in one location.
@@ -68,6 +69,14 @@ add_action( 'after_setup_theme', 'marketify_setup' );
  * Register widgetized area and update sidebar with default widgets
  */
 function marketify_widgets_init() {
+	register_widget( 'Marketify_Widget_Recent_Downloads' );
+	register_widget( 'Marketify_Widget_Featured_Popular' );
+
+	if ( class_exists( 'Woothemes_Features' ) ) {
+		unregister_widget( 'Woothemes_Widget_Features' );
+		register_widget( 'Marketify_Widget_Features_Primary' );
+	}
+
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', 'marketify' ),
 		'id'            => 'sidebar-1',
@@ -142,10 +151,10 @@ function marketify_fonts_url() {
 			$font_families[] = 'Source Sans Pro:300,400,700,300italic,400italic,700italic';
 
 		if ( 'off' !== $roboto )
-			$font_families[] = 'Roboto Slab:300';
+			$font_families[] = 'Roboto Slab:300,400';
 
 		if ( 'off' !== $montserrat )
-			$font_families[] = 'Montserrat:400';
+			$font_families[] = 'Montserrat:400,800';
 
 		if ( 'off' !== $pacifico )
 			$font_families[] = 'Pacifico';
@@ -165,7 +174,9 @@ function marketify_fonts_url() {
  */
 function marketify_scripts() {
 	wp_enqueue_style( 'marketify-fonts', marketify_fonts_url() );
+	wp_enqueue_style( 'marketify-grid', get_template_directory_uri() . '/css/bootstrap.css' );
 	wp_enqueue_style( 'marketify-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'marketify-responsive', get_template_directory_uri() . '/css/responsive.css' );
 
 	wp_enqueue_script( 'marketify-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
@@ -178,6 +189,9 @@ function marketify_scripts() {
 	if ( is_singular() && wp_attachment_is_image() ) {
 		wp_enqueue_script( 'marketify-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
 	}
+
+	wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/js/jquery.flexslider-min.js', array( 'jquery' ), '20130916' );
+	wp_enqueue_script( 'marketify', get_template_directory_uri() . '/js/marketify.js', array( 'jquery' ), '20130916' );
 }
 add_action( 'wp_enqueue_scripts', 'marketify_scripts' );
 
@@ -195,19 +209,18 @@ function marketify_is_multi_vendor() {
 
 	if ( false === ( $is_multi_vendor = get_transient( 'marketify_is_multi_vendor' ) ) ) {
 		$vendors = get_users( array(
-			'role' => 'shop_vendor',
-			'count_total' => true
+			'role' => 'shop_vendor'
 		) );
+
+		print_r( $vendors );
 
 		$total = count( $vendors );
 		$is_multi_vendor = $total > 0 ? true : false;
 
-		if ( $vendors > 0 )
-			set_transient( 'marketify_is_multi_vendor', $is_multi_vendor );
+		set_transient( 'marketify_is_multi_vendor', $is_multi_vendor );
 	}
 
-	if ( $vendors > 0 )
-		return true;
+	return $is_multi_vendor;
 }
 
 /**
@@ -248,3 +261,14 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Load Widgets
+ */
+require get_template_directory() . '/inc/class-widget.php';
+require get_template_directory() . '/inc/class-widget-downloads-recent.php';
+require get_template_directory() . '/inc/class-widget-featured-popular.php';
+
+if ( class_exists( 'Woothemes_Features' ) ) {
+	require get_template_directory() . '/inc/class-widget-features-primary.php';
+}
