@@ -8,3 +8,31 @@
 		display: none;
 	}
 }
+
+@media screen and (max-width: 768px) {
+	.download-widget-area {
+		text-align: left;
+	}
+
+	.download-widget:first-child {
+		padding-top: 40px;
+	}
+
+	.download-widget:last-child {
+		padding-bottom: 0;
+	}
+
+	.download-widget {
+		border-right: 0;
+	}
+
+	.download-widget li a {
+		padding-left: 0;
+		padding-right: 0;
+		display: inline-block;
+	}
+
+	.download-widget li a:hover {
+		background: none;
+	}
+}

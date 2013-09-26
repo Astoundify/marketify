@@ -41,12 +41,14 @@ function marketify_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 	add_image_size( 'content-grid-download', 740, 600, true );
+	add_image_size( 'content-single-download', 9999, 300, true );
 
 	/**
 	 * This theme uses wp_nav_menu() in one location.
 	 */
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'marketify' ),
+		'social'  => __( 'Footer Social', 'marketify' )
 	) );
 
 	/**
@@ -69,13 +71,9 @@ add_action( 'after_setup_theme', 'marketify_setup' );
  * Register widgetized area and update sidebar with default widgets
  */
 function marketify_widgets_init() {
+	register_widget( 'Marketify_Widget_Slider' );
 	register_widget( 'Marketify_Widget_Recent_Downloads' );
-	register_widget( 'Marketify_Widget_Featured_Popular' );
-
-	if ( class_exists( 'Woothemes_Features' ) ) {
-		unregister_widget( 'Woothemes_Widget_Features' );
-		register_widget( 'Marketify_Widget_Features_Primary' );
-	}
+	register_widget( 'Marketify_Widget_Featured_Popular_Downloads' );
 
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', 'marketify' ),
@@ -104,8 +102,32 @@ function marketify_widgets_init() {
 		'before_title'  => '<h1 class="home-widget-title"><span>',
 		'after_title'   => '</span></h1>',
 	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Footer', 'marketify' ),
+		'description'   => __( 'Widgets that appear in the page footer', 'marketify' ),
+		'id'            => 'footer-1',
+		'before_widget' => '<aside id="%1$s" class="footer-widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h1 class="footer-widget-title">',
+		'after_title'   => '</h1>',
+	) );
 }
 add_action( 'widgets_init', 'marketify_widgets_init' );
+
+function marketify_dynamic_sidebar_params( $params ) {
+	if ( 'footer-1' !== $params[0][ 'id' ] )
+		return $params;
+	
+	$the_sidebars = wp_get_sidebars_widgets();
+	$count        = count( $the_sidebars[ 'footer-1' ] );
+	$count        = 12 / $count;
+
+	$params[0][ 'before_widget' ] = str_replace( '">', ' col-md-' . $count . '">', $params[0][ 'before_widget' ] );
+	
+	return $params;
+}
+add_filter( 'dynamic_sidebar_params', 'marketify_dynamic_sidebar_params' );
 
 /**
  * Returns the Google font stylesheet URL, if available.
@@ -175,7 +197,7 @@ function marketify_fonts_url() {
 function marketify_scripts() {
 	wp_enqueue_style( 'marketify-fonts', marketify_fonts_url() );
 	wp_enqueue_style( 'marketify-grid', get_template_directory_uri() . '/css/bootstrap.css' );
-	wp_enqueue_style( 'marketify-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'marketify-base', get_stylesheet_uri() );
 	wp_enqueue_style( 'marketify-responsive', get_template_directory_uri() . '/css/responsive.css' );
 
 	wp_enqueue_script( 'marketify-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
@@ -238,6 +260,32 @@ add_action( 'profile_update', '__marketify_clear_multi_vendor_cache' );
 add_action( 'user_register',  '__marketify_clear_multi_vendor_cache' );
 
 /**
+ * 
+ *
+ * @since Marketify 1.0
+ *
+ * @return void
+ */
+function marketify_woothemes_features_item( $widget ) {
+	if ( 'widget_woothemes_features' != $widget[ 'classname' ] )
+		return $widget;
+
+	add_filter( 'woothemes_features_item_template', 'marketify_woothemes_features_item_template', 10, 2 );
+}
+add_action( 'dynamic_sidebar', 'marketify_woothemes_features_item' );
+
+/**
+ * 
+ *
+ * @since Marketify 1.0
+ *
+ * @return void
+ */
+function marketify_woothemes_features_item_template( $template, $args ) {
+	return '<div class="%%CLASS%% col-lg-4 col-sm-6 col-xs-12">%%IMAGE%%<h3 class="feature-title">%%TITLE%%</h3><div class="feature-content">%%CONTENT%%</div></div>';
+}
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
@@ -266,9 +314,6 @@ require get_template_directory() . '/inc/jetpack.php';
  * Load Widgets
  */
 require get_template_directory() . '/inc/class-widget.php';
-require get_template_directory() . '/inc/class-widget-downloads-recent.php';
-require get_template_directory() . '/inc/class-widget-featured-popular.php';
-
-if ( class_exists( 'Woothemes_Features' ) ) {
-	require get_template_directory() . '/inc/class-widget-features-primary.php';
-}
+require get_template_directory() . '/inc/widgets/class-widget-slider.php';
+require get_template_directory() . '/inc/widgets/class-widget-downloads-recent.php';
+require get_template_directory() . '/inc/widgets/class-widget-featured-popular.php';

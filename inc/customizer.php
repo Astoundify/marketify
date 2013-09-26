@@ -47,6 +47,11 @@ function marketify_customize_register_sections( $wp_customize ) {
 		'title'      => _x( 'General', 'Theme customizer section title', 'marketify' ),
 		'priority'   => 10,
 	) );
+
+	$wp_customize->add_section( 'marketify_footer', array(
+		'title'      => _x( 'Footer', 'Theme customizer section title', 'marketify' ),
+		'priority'   => 100,
+	) );
 }
 add_action( 'customize_register', 'marketify_customize_register_sections' );
 
@@ -71,13 +76,25 @@ function marketify_get_theme_mods( $args = array() ) {
 				'type'    => 'checkbox',
 				'default' => 1
 			),
-			'footer-style' => array(
-				'title'   => __( 'Footer Style', 'marketify' ),
+		),
+		'marketify_footer' => array(
+			'style' => array(
+				'title'   => __( 'Style', 'marketify' ),
 				'type'    => 'select',
 				'choices' => array(
 					0 => __( 'Dark', 'marketify' ),
 					1 => __( 'Light', 'marketify' )
 				),
+				'default' => 0
+			),
+			'contact-address' => array(
+				'title'   => __( 'Contact Address', 'marketify' ),
+				'type'    => 'Marketify_Customize_Textarea_Control',
+				'default' => "393 Bay Street, 2nd Floor\nToronto, Ontario, Canada, L9T8S2"
+			),
+			'logo' => array(
+				'title'   => __( 'Logo', 'marketify' ),
+				'type'    => 'WP_Customize_Image_Control',
 				'default' => 0
 			)
 		),
@@ -210,7 +227,7 @@ function marketify_customize_textarea_control( $wp_customize ) {
 	 *
 	 * @since Marketify 1.0
 	 */
-	class Jobify_Customize_Textarea_Control extends WP_Customize_Control {
+	class Marketify_Customize_Textarea_Control extends WP_Customize_Control {
 		public $type = 'textarea';
 
 		public function render_content() {
@@ -232,6 +249,20 @@ add_action( 'customize_register', 'marketify_customize_textarea_control', 1, 1 )
  * @since Marketify 1.0
  */
 function marketify_header_css() {
+	$css = "
+		.site-header,
+		.site-footer,
+		.page-header,
+		.content-grid-download .entry-image .overlay {
+			background: #515a63;
+		}
 
+		a,
+		a:hover,
+		.button:hover {
+			color: #515a63;
+		}";
+
+	wp_add_inline_style( 'marketify-base', $css );
 }
-add_action( 'wp_head', 'marketify_header_css' );
+add_action( 'wp_enqueue_scripts', 'marketify_header_css' );

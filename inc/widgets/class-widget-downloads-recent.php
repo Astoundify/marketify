@@ -13,7 +13,7 @@ class Marketify_Widget_Recent_Downloads extends Marketify_Widget {
 		$this->widget_cssclass    = 'marketify_widget_recent_downloads';
 		$this->widget_description = sprintf( __( 'Display recent %s in a grid.', 'marketify' ), edd_get_label_plural() );
 		$this->widget_id          = 'marketify_widget_recent_downloads';
-		$this->widget_name        = sprintf( __( 'Recent %s', 'marketify' ), edd_get_label_plural() );
+		$this->widget_name        = sprintf( __( 'Marketify Recent %s', 'marketify' ), edd_get_label_plural() );
 		$this->settings           = array(
 			'title' => array(
 				'type'  => 'text',

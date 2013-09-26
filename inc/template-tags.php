@@ -7,6 +7,54 @@
  * @package Marketify
  */
 
+/**
+ * Get a nav menu object. 
+ *
+ * @uses get_nav_menu_locations To get all available locations
+ * @uses get_term To get the specific theme location
+ *
+ * @since Marketify 1.0
+ *
+ * @param string $theme_location The slug of the theme location
+ * @return object $menu_obj The found menu object
+ */
+function marketify_get_theme_menu( $theme_location ) {
+	$theme_locations = get_nav_menu_locations();
+
+	if( ! isset( $theme_locations[$theme_location] ) ) 
+		return false;
+ 
+	$menu_obj = get_term( $theme_locations[$theme_location], 'nav_menu' );
+	
+	if( ! $menu_obj ) 
+		return false;
+ 
+	return $menu_obj;
+}
+
+/**
+ * Get a nav menu name
+ *
+ * @uses marketify_get_theme_menu To get the menu object
+ *
+ * @since Marketify 1.0
+ *
+ * @param string $theme_location The slug of the theme location
+ * @return string The name of the nav menu location
+ */
+function marketify_get_theme_menu_name( $theme_location ) {
+	$menu_obj = marketify_get_theme_menu( $theme_location );
+	$default  = _x( 'Menu', 'noun', 'marketify' );
+
+	if( ! $menu_obj ) 
+		return $defalt;
+ 
+	if( ! isset( $menu_obj->name ) ) 
+		return $default;
+ 
+	return $menu_obj->name;
+}
+
 if ( ! function_exists( 'marketify_content_nav' ) ) :
 /**
  * Display navigation to next/previous pages when applicable

@@ -4,7 +4,7 @@
  *
  * @since Marketify 1.0
  */
-class Marketify_Widget_Featured_Popular extends Marketify_Widget {
+class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 	
 	/**
 	 * Constructor
@@ -13,7 +13,7 @@ class Marketify_Widget_Featured_Popular extends Marketify_Widget {
 		$this->widget_cssclass    = 'marketify_widget_featured_popular';
 		$this->widget_description = sprintf( __( 'Display featured and popular %s in sliding grid.', 'marketify' ), edd_get_label_plural() );
 		$this->widget_id          = 'marketify_widget_featured_popular';
-		$this->widget_name        = sprintf( __( 'Featured &amp; Popular %s', 'marketify' ), edd_get_label_plural() );
+		$this->widget_name        = sprintf( __( 'Marketify Featured &amp; Popular %s', 'marketify' ), edd_get_label_plural() );
 		$this->settings           = array(
 			'number' => array(
 				'type'  => 'number',
@@ -88,12 +88,14 @@ class Marketify_Widget_Featured_Popular extends Marketify_Widget {
 			</ul>
 		</div>
 
-		<div id="items-popular" class="row">
-			<?php while ( $popular->have_posts() ) : $popular->the_post(); ?>
-			<div class="col-lg-4 col-sm-6">
-				<?php get_template_part( 'content-grid', 'download' ); ?>
-			</div>
-			<?php endwhile; ?>
+		<div id="items-popular" class="row flexslider">
+			<ul class="slides">
+				<?php while ( $popular->have_posts() ) : $popular->the_post(); ?>
+				<li class="col-lg-3 col-sm-6">
+					<?php get_template_part( 'content-grid', 'download' ); ?>
+				</li>
+				<?php endwhile; ?>
+			</ul>
 		</div>
 
 		<?php

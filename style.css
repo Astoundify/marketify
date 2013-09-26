@@ -22,20 +22,6 @@ along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normali
 and Blueprint http://www.blueprintcss.org/
 */
 
-.site-header,
-.site-footer,
-.page-header,
-.content-grid-download .entry-image .overlay {
-	background: #515a63;
-}
-
-a,
-a:active,
-a:visited,
-a:hover {
-	color: #515a63;
-}
-
 
 /* =Reset
 -------------------------------------------------------------- */
@@ -359,6 +345,10 @@ a:active {
 	border: 2px solid #fff;
 }
 
+.button:hover {
+	background: #fff;
+}
+
 .button:active,
 .button:visited,
 .button:hover {
@@ -421,7 +411,9 @@ a:active {
 .site-content:before,
 .site-content:after,
 .site-footer:before,
-.site-footer:after {
+.site-footer:after,
+.home-widget:before,
+.home-widget:after {
 	content: '';
 	display: table;
 }
@@ -431,7 +423,8 @@ a:active {
 .comment-content:after,
 .site-header .container:after,
 .site-content:after,
-.site-footer:after {
+.site-footer:after,
+.home-widget:after {
 	clear: both;
 }
 
@@ -458,6 +451,10 @@ a:active {
 .site-title a {
 	color: #fff;
 	text-decoration: none;
+}
+
+.site-title a:hover {
+	color: #fff;
 }
 
 /* =Menu
@@ -501,6 +498,7 @@ a:active {
 }
 
 .main-navigation a:hover {
+	color: #fff;
 	border-color: #fff;
 }
 
@@ -573,14 +571,14 @@ a:active {
 ----------------------------------------------- */
 
 .home-widget {
-	margin-bottom: 70px;
+	margin-bottom: 100px;
 }
 
 .home-widget-title,
 .section-title {
 	text-align: center;
 	width: 100%;
-	margin: 70px 0;
+	margin: 0 0 70px;
 	position: relative;
 }
 
@@ -608,6 +606,10 @@ a:active {
 	position: relative;
 }
 
+.section-title {
+	margin-top: 70px;
+}
+
 /* =Homepage 1
 ----------------------------------------------- */
 
@@ -616,6 +618,7 @@ a:active {
 }
 
 .home-1 .page-header {
+	margin-bottom: 70px;
 	padding-bottom: 0;
 }
 
@@ -627,7 +630,7 @@ a:active {
 	margin: 0 15px;
 }
 
-.home-1 p {
+.home-1 .page-header p {
 	font: 300 20px 'Roboto Slab', serif;
 	color: #fff;
 }
@@ -671,6 +674,27 @@ a:active {
 	margin: 0 0 1.5em;
 }
 
+/* =Download
+----------------------------------------------- */
+
+.single-download .page-header {
+	padding-bottom: 0;
+}
+
+.single-download .featured-image {
+	max-height: 400px;
+	overflow: hidden;
+}
+
+.single-download .featured-image img {
+	margin: 0 auto;
+	max-width: 90%;
+	display: block;
+}
+
+.download-actions {
+	margin: 40px 0;
+}
 
 /* =Download Grid
 ----------------------------------------------- */
@@ -927,12 +951,17 @@ object {
 /* Download Widgets
 ----------------------------------------------- */
 
+.download-widget-area {
+	text-align: right;
+}
+
 .download-widget {
-	margin-bottom: 40px;
+	padding-bottom: 40px;
+	border-right: 1px solid #bdc3c7;
 }
 
 .download-widget:first-child {
-	margin-top: 82px;
+	padding-top: 82px;
 }
 
 .download-widget-title {
@@ -966,6 +995,119 @@ object {
 	background: #f6f7f8;
 }
 
+.download-widget form,
+.download-widget select,
+.download-widget #calendar_wrap {
+	margin-right: 25px;
+	direction: ltr;
+}
+
+.download-widget form input {
+	width: 95%;
+}
+
+/** Calendar */
+.download-widget #wp-calendar {
+	margin: 0;
+	width: 100%;
+}
+
+.download-widget #wp-calendar th,
+.download-widget #wp-calendar td,
+.download-widget #wp-calendar caption {
+	text-align: left;
+}
+
+.download-widget #wp-calendar caption {
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.download-widget #wp-calendar #next {
+	padding-right: 24px;
+	text-align: right;
+}
+
+/** RSS */
+.download-widget.widget_rss li {
+	margin-right: 25px;
+	margin-bottom: 20px;
+}
+
+.download-widget.widget_rss li a {
+	text-transform: uppercase;
+	font-weight: bold;
+	padding: 0;
+}
+
+.download-widget.widget_rss li a:hover {
+	background: none;
+}
+
+.download-widget.widget_rss .rss-date {
+	font-size: 13px;
+	display: block;
+	margin: 5px 0;
+}
+
+/** Text */
+.download-widget .textwidget,
+.download-widget .tagcloud {
+	margin-right: 25px;
+}
+
+/* =Footer
+----------------------------------------------- */
+
+.site-footer {
+	margin-top: 100px;
+	padding: 63px 0 100px;
+}
+
+.footer-widget,
+.footer-widget a,
+.footer-widget-title {
+	line-height: 25px;
+	color: #fff;
+}
+
+.footer-widget a:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+
+.footer-widget-title {
+	font: 400 16px/normal 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+}
+
+.footer-widget ol,
+.footer-widget ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.footer-widget ol ol,
+.footer-widget ul ul {
+	margin: 10px 0 0 10px;
+	list-style: disc;
+	list-style-position: inside;
+}
+
+.footer-widget li {
+	margin-bottom: 6px;
+}
+
+.footer-widget a {
+	text-decoration: none;
+}
+
+.site-info {
+	margin-top: 75px;
+}
+
 /* =Infinite Scroll
 ----------------------------------------------- */
 
@@ -983,6 +1125,11 @@ object {
 /* =Flexslider
 ----------------------------------------------- */
 
+.flex-viewport {
+	position: relative;
+	padding: 0 15px;
+}
+
 .flexslider {
 
 }
@@ -994,7 +1141,7 @@ object {
 }
 
 
-.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden; padding: 0; margin-right: 30px;} /* Hide the slides before the JS is loaded. Avoids image jumping */
 .flexslider .slides img {width: 100%; display: block;}
 .flex-pauseplay span {text-transform: capitalize;}
 
