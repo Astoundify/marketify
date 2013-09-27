@@ -253,7 +253,8 @@ function marketify_header_css() {
 		.site-header,
 		.site-footer,
 		.page-header,
-		.content-grid-download .entry-image .overlay {
+		.content-grid-download .entry-image .overlay,
+		.widget .cart_item.edd_checkout a:hover {
 			background: #515a63;
 		}
 

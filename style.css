@@ -348,13 +348,15 @@ a:active {
 	border: 2px solid #fff;
 }
 
-.button:hover {
+.button:hover,
+.widget .cart_item.edd_checkout a:hover {
 	background: #fff;
 }
 
 .button:active,
 .button:visited,
-.button:hover {
+.button:hover,
+.widget .cart_item.edd_checkout a:hover {
 	color: #fff;
 }
 
@@ -420,7 +422,11 @@ a:active {
 .search-form:before,
 .search-form:after,
 .edd-cart-item:before,
-.edd-cart-item:after {
+.edd-cart-item:after,
+.widget-related-entries:before,
+.widget-most-recent:before,
+.widget-related-entries:after,
+.widget-most-recent:after {
 	content: '';
 	display: table;
 }
@@ -433,7 +439,9 @@ a:active {
 .site-footer:after,
 .home-widget:after,
 .search-form:after,
-.edd-cart-item:after {
+.edd-cart-item:after
+.widget-related-entries:after,
+.widget-most-recent:after {
 	clear: both;
 }
 
@@ -977,14 +985,9 @@ object {
 /* =Widgets
 ----------------------------------------------- */
 
-.widget {
-	margin: 0 0 1.5em;
-}
-
 /* Make sure select elements fit in widgets */
 .widget select {
 	max-width: 100%;
-	min-width: 100%;
 }
 
 /* Cart */
@@ -1031,6 +1034,30 @@ object {
 .widget .cart_item.edd_checkout a {
 	text-align: center;
 	display: block;
+}
+
+/** Related/Recent/ETC */
+.widget-related-entries,
+.widget-most-recent {
+	overflow: hidden;
+}
+
+.widget-related-entries li,
+.widget-most-recent li {
+	margin: 0 4% 4% 0;
+	float: left;
+	width: 29%;
+}
+
+.widget-related-entries .widget-download-title,
+.widget-most-recent .widget-download-title {
+	display: none;
+}
+
+.widget-related-entries li img,
+.widget-most-recent li img {
+	min-width: 100%;
+	height: auto;
 }
 
 /** Calendar */
@@ -1101,7 +1128,7 @@ object {
 	text-align: center;
 	background: #515a63;
 	border: 0;
-	width: 50px;
+	width: 30%;
 	float: right;
 	padding: 8px 0;
 }
@@ -1152,7 +1179,7 @@ object {
 }
 
 .download-archive-widget p,
-.download-archive-widget a {
+.download-archive-widget li a {
 	font-size: 15px;
 	color: #515a63;
 	text-decoration: none;
@@ -1170,7 +1197,9 @@ object {
 
 .download-archive-widget form,
 .download-archive-widget select,
-.download-archive-widget #calendar_wrap {
+.download-archive-widget #calendar_wrap,
+#recentcomments,
+.download-archive-widget .widget-download-price {
 	margin-right: 25px;
 	direction: ltr;
 }
@@ -1179,6 +1208,31 @@ object {
 .download-archive-widget .textwidget,
 .download-archive-widget .tagcloud {
 	margin-right: 25px;
+}
+
+/** EDD */
+.download-archive-widget .edd-cart {
+	margin: 0;
+	padding-left: 0;
+}
+
+.download-archive-widget .edd-cart a {
+	display: inline-block;
+	padding: 0;
+}
+
+.download-archive-widget .edd-cart-number-of-items {
+	margin-right: 25px;
+}
+
+.download-archive-widget .edd-cart a:hover,
+.download-archive-widget li .rsswidget:hover {
+	background: none;
+}
+
+/** RSS */
+.download-archive-widget .rsswidget {
+	padding: 0;
 }
 
 /* Download Single Widgets

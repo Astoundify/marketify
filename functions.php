@@ -87,7 +87,7 @@ function marketify_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Download Archive Sidebar', 'marketify' ),
 		'id'            => 'sidebar-download',
-		'before_widget' => '<aside id="%1$s" class="download-archive-widget %2$s">',
+		'before_widget' => '<aside id="%1$s" class="widget download-archive-widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h1 class="download-archive-widget-title">',
 		'after_title'   => '</h1>',
