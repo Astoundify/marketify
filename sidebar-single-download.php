@@ -4,9 +4,12 @@
  *
  * @package Marketify
  */
+
+if ( ! is_active_sidebar( 'sidebar-download-single' ) )
+	return;
 ?>
 	<div id="secondary" class="col-sm-4 col-xs-12" role="complementary">
 			
-		<h2 class="section-title"><span>Product Details</span></h2>
+		<?php dynamic_sidebar( 'sidebar-download-single' ); ?>
 
 	</div><!-- #secondary -->

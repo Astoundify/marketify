@@ -17,7 +17,7 @@ get_header(); ?>
 	<div class="container">
 		<div id="content" class="site-content row">
 
-			<?php get_sidebar( 'download' ); ?>
+			<?php get_sidebar( 'archive-download' ); ?>
 
 			<section id="primary" class="content-area col-sm-9 col-xs-12">
 				<main id="main" class="site-main" role="main">

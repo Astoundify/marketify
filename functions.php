@@ -85,11 +85,20 @@ function marketify_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => __( 'Downloads Sidebar', 'marketify' ),
+		'name'          => __( 'Download Archive Sidebar', 'marketify' ),
 		'id'            => 'sidebar-download',
-		'before_widget' => '<aside id="%1$s" class="download-widget %2$s">',
+		'before_widget' => '<aside id="%1$s" class="download-archive-widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="download-widget-title">',
+		'before_title'  => '<h1 class="download-archive-widget-title">',
+		'after_title'   => '</h1>',
+	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Download Single Sidebar', 'marketify' ),
+		'id'            => 'sidebar-download-single',
+		'before_widget' => '<aside id="%1$s" class="widget download-single-widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h1 class="download-single-widget-title">',
 		'after_title'   => '</h1>',
 	) );
 
@@ -195,6 +204,9 @@ function marketify_fonts_url() {
  * Enqueue scripts and styles
  */
 function marketify_scripts() {
+	wp_enqueue_style( 'entypo', get_template_directory_uri() . '/css/entypo.css' );
+	wp_enqueue_style( 'magnific-popup', get_template_directory_uri() . '/css/magnific-popup.css' );
+
 	wp_enqueue_style( 'marketify-fonts', marketify_fonts_url() );
 	wp_enqueue_style( 'marketify-grid', get_template_directory_uri() . '/css/bootstrap.css' );
 	wp_enqueue_style( 'marketify-base', get_stylesheet_uri() );

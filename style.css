@@ -229,31 +229,29 @@ button,
 input {
 	line-height: normal; /* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
 }
+
 button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: 1px solid #ccc;
-	border-color: #ccc #ccc #bbb #ccc;
-	border-radius: 3px;
-	background: #e6e6e6;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
-	color: rgba(0, 0, 0, .8);
-	cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
-	-webkit-appearance: button; /* Corrects inability to style clickable 'input' types in iOS */
-	font-size: 12px;
-	font-size: 1.2rem;
-	line-height: 1;
-	padding: .6em 1em .4em;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+	font: 800 13px/normal 'Montserrat', sans-serif;
+	color: #515a63;
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 10px 20px;
+	border: 2px solid #515a63;
+	background: #fff;
+	cursor: pointer;
+	-webkit-appearance: button; 
 }
+
 button:hover,
 html input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-	border-color: #ccc #bbb #aaa #bbb;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
+	
 }
+
 button:focus,
 html input[type="button"]:focus,
 input[type="reset"]:focus,
@@ -262,56 +260,60 @@ button:active,
 html input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-	border-color: #aaa #bbb #bbb #bbb;
-	box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
+	
 }
+
 input[type="checkbox"],
 input[type="radio"] {
 	box-sizing: border-box; /* Addresses box sizing set to content-box in IE8/9 */
 	padding: 0; /* Addresses excess padding in IE8/9 */
 }
+
 input[type="search"] {
 	-webkit-appearance: textfield; /* Addresses appearance set to searchfield in S5, Chrome */
 	-webkit-box-sizing: content-box; /* Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof) */
 	-moz-box-sizing:    content-box;
 	box-sizing:         content-box;
 }
+
 input[type="search"]::-webkit-search-decoration { /* Corrects inner padding displayed oddly in S5, Chrome on OSX */
 	-webkit-appearance: none;
 }
+
 button::-moz-focus-inner,
 input::-moz-focus-inner { /* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
 	border: 0;
 	padding: 0;
 }
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
 input[type="password"],
 input[type="search"],
 textarea {
-	color: #666;
-	border: 1px solid #ccc;
-	border-radius: 3px;
+	line-height: 25px;
+	color: #515a63;
+	padding: 10px;
+	background: #fff;
+	border: 1px solid #bdc3c7;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-siding:    border-box;
+	box-sizing:         border-box;
 }
+
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="url"]:focus,
 input[type="password"]:focus,
 input[type="search"]:focus,
 textarea:focus {
-	color: #111;
+	outline: 0;
 }
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"] {
-	padding: 3px;
-}
+
 textarea {
 	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
-	padding-left: 3px;
 	vertical-align: top; /* Improves readability and alignment in all browsers */
 	width: 98%;
 }
@@ -335,7 +337,8 @@ a:active {
 .button,
 .main-navigation a,
 .home-widget-title span,
-.section-title span {
+.section-title span,
+.widget .cart_item.edd_checkout a {
 	font: 800 13px/normal 'Montserrat', sans-serif;
 	color: #fff;
 	text-transform: uppercase;
@@ -413,7 +416,11 @@ a:active {
 .site-footer:before,
 .site-footer:after,
 .home-widget:before,
-.home-widget:after {
+.home-widget:after,
+.search-form:before,
+.search-form:after,
+.edd-cart-item:before,
+.edd-cart-item:after {
 	content: '';
 	display: table;
 }
@@ -424,7 +431,9 @@ a:active {
 .site-header .container:after,
 .site-content:after,
 .site-footer:after,
-.home-widget:after {
+.home-widget:after,
+.search-form:after,
+.edd-cart-item:after {
 	clear: both;
 }
 
@@ -493,6 +502,7 @@ a:active {
 }
 
 .main-navigation a {
+	font-weight: 400;
 	display: block;
 	border-color: transparent;
 }
@@ -541,6 +551,31 @@ a:active {
 .main-navigation li.current-menu-item a {
 }
 
+/* Search */
+.main-navigation .menu-menu-1-container {
+	float: right;
+}
+
+.main-navigation .search-form {
+	margin-right: 12px;
+	float: left;
+}
+
+.main-navigation .search-form .search-wrapper {
+	display: none;
+	float: right;
+	margin-top: 4px;
+	margin-right: 20px;
+}
+
+.main-navigation .search-form .icon-search {
+	font-size: 16px;
+	color: #fff;
+	line-height: 40px;
+	float: right;
+	cursor: pointer;
+}
+
 /* Small menu */
 .menu-toggle {
 	display: none;
@@ -564,6 +599,7 @@ a:active {
 .page-header .button {
 	font-size: 18px;
 	border-width: 3px;
+	margin: 0 15px;
 	padding: 14px 24px;
 }
 
@@ -626,10 +662,6 @@ a:active {
 	margin-bottom: 35px;
 }
 
-.home-1 .page-header .button {
-	margin: 0 15px;
-}
-
 .home-1 .page-header p {
 	font: 300 20px 'Roboto Slab', serif;
 	color: #fff;
@@ -653,6 +685,7 @@ a:active {
 
 .sticky {
 }
+
 .hentry {
 	margin: 0 0 1.5em;
 }
@@ -660,15 +693,32 @@ a:active {
 .updated {
 	display: none;
 }
+
 .single .byline,
 .group-blog .byline {
 	display: inline;
 }
+
 .page-content,
 .entry-content,
 .entry-summary {
+	line-height: 25px;
 	margin: 1.5em 0 0;
 }
+
+.entry-content h2,
+.download-single-widget-title {
+	font: 800 16px 'Montserrat', sans-serif;
+	color: #515a63;
+	letter-spacing: 0.10em;
+	text-transform: uppercase;
+	margin: 2em 0;
+}
+
+.entry-content h2:first-child {
+	margin-top: 0;
+}
+
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
@@ -934,11 +984,134 @@ object {
 /* Make sure select elements fit in widgets */
 .widget select {
 	max-width: 100%;
+	min-width: 100%;
+}
+
+/* Cart */
+.widget .edd-cart {
+	margin: 0 -25px;
+	padding: 0 25px;
+	border-top: 1px solid #bdc3c7;
+}
+
+.widget .edd-cart-item {
+	margin: 0 -25px;
+	padding: 20px 25px;
+	border-bottom: 1px solid #bdc3c7;
+}
+
+.widget .edd-cart-item .edd-cart-item-title {
+	display: block;
+}
+
+.widget .edd-cart-item .edd-cart-item-separator {
+	display: none;
+}
+
+.widget .edd-cart-item .edd-cart-item-price {
+	font: 400 16px 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	margin-left: -4px;
+}
+
+.widget .edd-remove-from-cart:before {
+	content: '\2715';
+}
+
+.widget .cart_item.edd_subtotal {
+	font-weight: normal;
+	font-style: normal;
+	margin: 15px 0;
+}
+
+.widget .cart_item.edd_subtotal .subtotal {
+	font-weight: bold;
+}
+
+.widget .cart_item.edd_checkout a {
+	text-align: center;
+	display: block;
+}
+
+/** Calendar */
+#wp-calendar {
+	margin: 0;
+	width: 100%;
+}
+
+#wp-calendar th,
+#wp-calendar td,
+#wp-calendar caption {
+	text-align: left;
+}
+
+#wp-calendar caption {
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+#wp-calendar #next {
+	padding-right: 24px;
+	text-align: right;
+}
+
+/** RSS */
+.widget_rss li {
+	margin-right: 25px;
+	margin-bottom: 20px;
+}
+
+.widget_rss li a {
+	text-transform: uppercase;
+	font-weight: bold;
+	padding: 0;
+}
+
+.widget_rss li a:hover {
+	background: none;
+}
+
+.widget_rss .rss-date {
+	font-size: 13px;
+	display: block;
+	margin: 5px 0;
 }
 
 /* Search widget */
-.widget_search .search-submit {
-	display: none;
+.widget_search .search-form input[type="search"],
+.main-navigation .search-form input[type="search"] {
+	font: 400 13px 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	color: #fff;
+	padding: 7px;
+	background: #bdc3c7;
+	width: 70%;
+	float: right;
+}
+
+.main-navigation .search-form input[type="search"] {
+	background-color: #3e464d;
+	border-color: #3e464d;
+}
+
+.widget_search .search-form .search-submit,
+.main-navigation .search-form .search-submit {
+	color: #fff;
+	text-transform: uppercase;
+	text-align: center;
+	background: #515a63;
+	border: 0;
+	width: 50px;
+	float: right;
+	padding: 8px 0;
+}
+
+.main-navigation .search-form .search-submit {
+	background-color: #4ed0aa;
+}
+
+.widget_search .search-form input[type=search]::-webkit-input-placeholder { 
+	color: #fff;
 }
 
 /* Home Widgets
@@ -948,112 +1121,93 @@ object {
 	display: none;
 }
 
-/* Download Widgets
+/* Download Archive Widgets
 ----------------------------------------------- */
 
-.download-widget-area {
+.download-archive-widget-area {
 	text-align: right;
 }
 
-.download-widget {
+.download-archive-widget {
 	padding-bottom: 40px;
 	border-right: 1px solid #bdc3c7;
 }
 
-.download-widget:first-child {
+.download-archive-widget:first-child {
 	padding-top: 82px;
 }
 
-.download-widget-title {
+.download-archive-widget-title {
 	font: 400 16px 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	color: #515a63;
 	margin: 0 25px 18px 0;
 }
 
-.download-widget-area ul,
-.download-widget-area ol {
+.download-archive-widget-area ul,
+.download-archive-widget-area ol {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-.download-widget p,
-.download-widget a {
+.download-archive-widget p,
+.download-archive-widget a {
 	font-size: 15px;
 	color: #515a63;
 	text-decoration: none;
 }
 
-.download-widget li a {
+.download-archive-widget li a {
 	padding: 7px 25px;
 	display: block;
 }
 
-.download-widget li a:hover,
-.download-widget li.current-cat a {
+.download-archive-widget li a:hover,
+.download-archive-widget li.current-cat a {
 	background: #f6f7f8;
 }
 
-.download-widget form,
-.download-widget select,
-.download-widget #calendar_wrap {
+.download-archive-widget form,
+.download-archive-widget select,
+.download-archive-widget #calendar_wrap {
 	margin-right: 25px;
 	direction: ltr;
 }
 
-.download-widget form input {
-	width: 95%;
-}
-
-/** Calendar */
-.download-widget #wp-calendar {
-	margin: 0;
-	width: 100%;
-}
-
-.download-widget #wp-calendar th,
-.download-widget #wp-calendar td,
-.download-widget #wp-calendar caption {
-	text-align: left;
-}
-
-.download-widget #wp-calendar caption {
-	text-transform: uppercase;
-	font-weight: bold;
-}
-
-.download-widget #wp-calendar #next {
-	padding-right: 24px;
-	text-align: right;
-}
-
-/** RSS */
-.download-widget.widget_rss li {
-	margin-right: 25px;
-	margin-bottom: 20px;
-}
-
-.download-widget.widget_rss li a {
-	text-transform: uppercase;
-	font-weight: bold;
-	padding: 0;
-}
-
-.download-widget.widget_rss li a:hover {
-	background: none;
-}
-
-.download-widget.widget_rss .rss-date {
-	font-size: 13px;
-	display: block;
-	margin: 5px 0;
-}
-
 /** Text */
-.download-widget .textwidget,
-.download-widget .tagcloud {
+.download-archive-widget .textwidget,
+.download-archive-widget .tagcloud {
 	margin-right: 25px;
+}
+
+/* Download Single Widgets
+----------------------------------------------- */
+
+.download-single-widget {
+	border: 1px solid #bdc3c7;
+	margin: 0 0 45px;
+	padding: 25px;
+}
+
+.download-single-widget:first-child {
+	margin-top: 70px;
+}
+
+.download-single-widget-title {
+	margin: 0 0 15px;
+}
+
+.download-single-widget ol,
+.download-single-widget ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.download-single-widget ol:last-child,
+.download-single-widget ul:last-child {
+	margin-bottom: 0;
 }
 
 /* =Footer

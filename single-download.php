@@ -26,7 +26,7 @@ get_header(); ?>
 	<div class="container">
 		<div id="content" class="site-content row">
 
-			<section id="primary" class="content-area col-sm-8 col-xs-12">
+			<section id="primary" class="content-area <?php echo ! is_active_sidebar( 'sidebar-download-single' ) ? 'col-xs-12' : 'col-sm-8 col-xs-12'; ?>">
 				<main id="main" class="site-main" role="main">
 
 				<?php while ( have_posts() ) : the_post(); ?>

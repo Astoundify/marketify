@@ -35,4 +35,17 @@
 	.download-widget li a:hover {
 		background: none;
 	}
+
+	/* Search widget */
+	.widget_search .search-form {
+		margin-right: 0;
+	}
+
+	.widget_search .search-form input[type="search"] {
+		width: 70%;
+	}
+
+	.widget_search .search-form .search-submit {
+		width: 30%;
+	}
 }

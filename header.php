@@ -34,7 +34,7 @@
 
 				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 
-				<?php get_search_form(); ?>
+				<?php locate_template( array( 'searchform-header.php' ), true ); ?>
 			</nav><!-- #site-navigation -->
 		</div>
 	</header><!-- #masthead -->

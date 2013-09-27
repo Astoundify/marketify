@@ -1,6 +1,22 @@
 var Marketify = {};
 
-Marketify.Widgets = ( function($	) {
+Marketify.App = ( function($) {
+	function menuSearch() {
+		$( '.menu-search-toggle' ).click(function(e) {
+			e.preventDefault();
+
+			$( '.main-navigation .search-wrapper' ).fadeToggle();
+		});
+	}
+
+	return {
+		init : function() {
+			menuSearch();
+		}
+	}
+} )(jQuery);
+
+Marketify.Widgets = ( function($) {
 
 	function marketify_widget_featured_popular() {
 		var slider = $( '.flexslider' ).flexslider({
@@ -38,5 +54,6 @@ Marketify.Widgets = ( function($	) {
 } )(jQuery);
 
 jQuery(function($) {
+	Marketify.App.init();
 	Marketify.Widgets.init();
 });

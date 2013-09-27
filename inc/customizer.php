@@ -259,8 +259,13 @@ function marketify_header_css() {
 
 		a,
 		a:hover,
-		.button:hover {
+		.button:hover,
+		.widget .cart_item.edd_checkout a {
 			color: #515a63;
+		}
+
+		.widget .cart_item.edd_checkout a {
+			border-color: #515a63;
 		}";
 
 	wp_add_inline_style( 'marketify-base', $css );
