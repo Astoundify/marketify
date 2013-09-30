@@ -1,3 +1,9 @@
+@media screen and (min-width: 1200px) {
+	.page-template-page-templatesminimal-php .col-lg-offset-3 {
+		margin-left: 30%;
+	}
+}
+
 @media screen and (max-width: 992px) {
 	.menu-toggle,
 	.main-navigation.toggled .nav-menu {

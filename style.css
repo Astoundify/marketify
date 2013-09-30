@@ -117,6 +117,7 @@ textarea {
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
 }
+
 hr {
 	background-color: #ccc;
 	border: 0;
@@ -128,38 +129,49 @@ hr {
 p {
 	margin-bottom: 1.5em;
 }
+
 ul, ol {
 	margin: 0 0 1.5em 3em;
 }
+
 ul {
 	list-style: disc;
 }
+
 ol {
 	list-style: decimal;
 }
+
 li > ul,
 li > ol {
 	margin-bottom: 0;
 	margin-left: 1.5em;
 }
+
 dt {
 	font-weight: bold;
 }
+
 dd {
 	margin: 0 1.5em 1.5em;
 }
+
 b, strong {
 	font-weight: bold;
 }
+
 dfn, cite, em, i {
 	font-style: italic;
 }
+
 blockquote {
 	margin: 0 1.5em;
 }
+
 address {
 	margin: 0 0 1.5em;
 }
+
 pre {
 	background: #eee;
 	font-family: "Courier 10 Pitch", Courier, monospace;
@@ -171,17 +183,21 @@ pre {
 	overflow: auto;
 	max-width: 100%;
 }
+
 code, kbd, tt, var {
 	font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 }
+
 abbr, acronym {
 	border-bottom: 1px dotted #666;
 	cursor: help;
 }
+
 mark, ins {
 	background: #fff9c0;
 	text-decoration: none;
 }
+
 sup,
 sub {
 	font-size: 75%;
@@ -190,32 +206,42 @@ sub {
 	position: relative;
 	vertical-align: baseline;
 }
+
 sup {
 	bottom: 1ex;
 }
+
 sub {
 	top: .5ex;
 }
+
 small {
 	font-size: 75%;
 }
+
 big {
 	font-size: 125%;
 }
+
 figure {
 	margin: 0;
 }
+
 table {
 	margin: 0 0 1.5em;
 	width: 100%;
 }
+
 th {
 	font-weight: bold;
 }
+
 img {
 	height: auto; /* Make sure images are scaled correctly. */
 	max-width: 100%; /* Adhere to container width. */
 }
+
+/** Forms */
 button,
 input,
 select,
@@ -225,6 +251,7 @@ textarea {
 	vertical-align: baseline; /* Improves appearance and consistency in all browsers */
 	*vertical-align: middle; /* Improves appearance and consistency in all browsers */
 }
+
 button,
 input {
 	line-height: normal; /* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
@@ -297,6 +324,8 @@ textarea {
 	padding: 10px;
 	background: #fff;
 	border: 1px solid #bdc3c7;
+	display: block;
+	width: 100%;
 
 	-webkit-box-sizing: border-box;
 	-moz-box-siding:    border-box;
@@ -479,6 +508,15 @@ a:active {
 
 .site-title a:hover {
 	color: #fff;
+}
+
+/** Minimal */
+.site-header-minimal {
+	margin: 90px auto 45px;
+}
+
+.site-header-minimal .site-title {
+	text-align: center;
 }
 
 /* =Menu
@@ -731,6 +769,16 @@ a:active {
 	margin: 0 0 1.5em;
 }
 
+/** Minimal Page */
+.page-template-page-templatesminimal-php .entry-header {
+	display: none;
+}
+
+.page-template-page-templatesminimal-php input[type="submit"] {
+	display: block;
+	width: 100%;
+}
+
 /* =Download
 ----------------------------------------------- */
 
@@ -809,6 +857,15 @@ a:active {
 	padding: 10px 15px;
 	border-width: 3px;
 	display: inline-block;
+}
+
+.content-grid-download .entry-image .edd_download_purchase_form {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.content-grid-download .entry-image .edd-cart-ajax-alert {
+	display: none !important;
 }
 
 .content-grid-download .entry-image .item-price {
@@ -1392,6 +1449,30 @@ object {
 
 .edd-submit.button {
 	border-radius: 0;
+}
+
+.edd-submit.button:active {
+	box-shadow: none;
+}
+
+#edd_login_form span legend {
+	display: none;
+}
+
+.edd_form p {
+	margin-bottom: 1.75em;
+}
+
+.edd_form label {
+	font: 800 16px/normal 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.10em;
+	margin-bottom: 10px;
+	display: block;
+}
+
+.edd-lost-password {
+	text-align: center;
 }
 
 /* =Footer

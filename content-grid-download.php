@@ -8,7 +8,7 @@
 	<div class="entry-image">
 		<div class="overlay">
 			<div class="actions">
-				<a href="<?php the_permalink(); ?>" rel="bookmark" class="button">Buy Now</a>
+				<?php marketify_purchase_link( get_the_ID() ); ?>
 				<a href="<?php the_permalink(); ?>" rel="bookmark" class="button">Details</a>
 			</div>
 
@@ -37,4 +37,6 @@
 			<?php endif; ?>
 		</div>
 	</header><!-- .entry-header -->
+
+	<?php locate_template( array( 'modal-download-purchase.php' ), true ); ?>
 </article><!-- #post-## -->

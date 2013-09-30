@@ -12,23 +12,39 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<div class="container">
+		<div id="content" class="site-content row">
+			<div id="primary" class="content-area col-sm-9">
+				<main id="main" class="site-main" role="main">
 
-			<?php while ( have_posts() ) : the_post(); ?>
+				<?php if ( have_posts() ) : ?>
 
-				<?php get_template_part( 'content', 'page' ); ?>
+					<?php /* Start the Loop */ ?>
+					<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php
-					// If comments are open or we have at least one comment, load up the comment template
-					if ( comments_open() || '0' != get_comments_number() )
-						comments_template();
-				?>
+						<?php get_template_part( 'content', 'page' ); ?>
 
-			<?php endwhile; // end of the loop. ?>
+						<?php
+							// If comments are open or we have at least one comment, load up the comment template
+							if ( comments_open() || '0' != get_comments_number() )
+								comments_template();
+						?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+					<?php endwhile; ?>
 
-<?php get_sidebar(); ?>
+					<?php marketify_content_nav( 'nav-below' ); ?>
+
+				<?php else : ?>
+
+					<?php get_template_part( 'no-results', 'index' ); ?>
+
+				<?php endif; ?>
+
+				</main><!-- #main -->
+			</div><!-- #primary -->
+
+			<?php get_sidebar(); ?>
+		</div>
+	</div>
+	
 <?php get_footer(); ?>

@@ -8,7 +8,7 @@
  */
 
 function marketify_purchase_link( $download_id ) {
-	global $edd_options;
+	global $post, $edd_options;
 
 	$variable = edd_has_variable_prices( $download_id );
 
@@ -17,8 +17,61 @@ function marketify_purchase_link( $download_id ) {
 	} else {
 		$button = ! empty( $edd_options[ 'add_to_cart_text' ] ) ? $edd_options[ 'add_to_cart_text' ] : __( 'Purchase', 'marketify' );
 
-		printf( '<a href="#modal-buy-now" class="button buy-now popup-trigger">%s</a>', $button );
+		printf( '<a href="#buy-now-%s" class="button buy-now popup-trigger">%s</a>', $post->ID, $button );
 	}
+}
+
+function marketify_comment( $comment, $args, $depth ) {
+	$GLOBALS['comment'] = $comment;
+
+	if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) : ?>
+
+	<li id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
+		<div class="comment-body">
+			<?php _e( 'Pingback:', '_s' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', '_s' ), '<span class="edit-link">', '</span>' ); ?>
+		</div>
+
+	<?php else : ?>
+
+	<li id="comment-<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
+		<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<?php if ( 0 != $args['avatar_size'] ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
+					<?php printf( __( '%s <span class="says">says:</span>', '_s' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
+				</div><!-- .comment-author -->
+
+				<div class="comment-metadata">
+					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
+						<time datetime="<?php comment_time( 'c' ); ?>">
+							<?php printf( _x( '%1$s at %2$s', '1: date, 2: time', '_s' ), get_comment_date(), get_comment_time() ); ?>
+						</time>
+					</a>
+					<?php edit_comment_link( __( 'Edit', '_s' ), '<span class="edit-link">', '</span>' ); ?>
+				</div><!-- .comment-metadata -->
+
+				<?php if ( '0' == $comment->comment_approved ) : ?>
+				<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', '_s' ); ?></p>
+				<?php endif; ?>
+			</footer><!-- .comment-meta -->
+
+			<div class="comment-content">
+				<?php comment_text(); ?>
+			</div><!-- .comment-content -->
+
+			<?php
+				comment_reply_link( array_merge( $args, array(
+					'add_below' => 'div-comment',
+					'depth'     => $depth,
+					'max_depth' => $args['max_depth'],
+					'before'    => '<div class="reply">',
+					'after'     => '</div>',
+				) ) );
+			?>
+		</article><!-- .comment-body -->
+
+	<?php
+	endif;
 }
 
 /**
@@ -116,58 +169,6 @@ function marketify_content_nav( $nav_id ) {
 	<?php
 }
 endif; // marketify_content_nav
-
-if ( ! function_exists( 'marketify_the_attached_image' ) ) :
-/**
- * Prints the attached image with a link to the next attached image.
- */
-function marketify_the_attached_image() {
-	$post                = get_post();
-	$attachment_size     = apply_filters( 'marketify_attachment_size', array( 1200, 1200 ) );
-	$next_attachment_url = wp_get_attachment_url();
-
-	/**
-	 * Grab the IDs of all the image attachments in a gallery so we can get the
-	 * URL of the next adjacent image in a gallery, or the first image (if
-	 * we're looking at the last image in a gallery), or, in a gallery of one,
-	 * just the link to that image file.
-	 */
-	$attachment_ids = get_posts( array(
-		'post_parent'    => $post->post_parent,
-		'fields'         => 'ids',
-		'numberposts'    => -1,
-		'post_status'    => 'inherit',
-		'post_type'      => 'attachment',
-		'post_mime_type' => 'image',
-		'order'          => 'ASC',
-		'orderby'        => 'menu_order ID'
-	) );
-
-	// If there is more than 1 attachment in a gallery...
-	if ( count( $attachment_ids ) > 1 ) {
-		foreach ( $attachment_ids as $attachment_id ) {
-			if ( $attachment_id == $post->ID ) {
-				$next_id = current( $attachment_ids );
-				break;
-			}
-		}
-
-		// get the URL of the next image attachment...
-		if ( $next_id )
-			$next_attachment_url = get_attachment_link( $next_id );
-
-		// or get the URL of the first image attachment.
-		else
-			$next_attachment_url = get_attachment_link( array_shift( $attachment_ids ) );
-	}
-
-	printf( '<a href="%1$s" title="%2$s" rel="attachment">%3$s</a>',
-		esc_url( $next_attachment_url ),
-		the_title_attribute( array( 'echo' => false ) ),
-		wp_get_attachment_image( $post->ID, $attachment_size )
-	);
-}
-endif;
 
 if ( ! function_exists( 'marketify_posted_on' ) ) :
 /**

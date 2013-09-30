@@ -264,12 +264,14 @@ function marketify_header_css() {
 		.widget .cart_item.edd_checkout a,
 		.entry-content .edd-submit.button,
 		.popup .edd-submit.button:hover,
-		.page-header .button:hover {
+		.page-header .button:hover,
+		.site-header-minimal .site-title a,
+		label {
 			color: #515a63;
 		}
 
 		.widget .cart_item.edd_checkout a,
-		.edd-submit.button,
+		.entry-content .edd-submit.button,
 		.popup .edd-submit.button:hover,
 		.popup .edd_price_options input:checked {
 			border-color: #515a63;

@@ -18,9 +18,5 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<div id="modal-buy-now" class="popup">
-		<h1 class="section-title"><span><?php _e( 'Buying Options', 'marketify' ); ?></span></h1>
-
-		<?php echo edd_get_purchase_link(); ?>
-	</div>
+	<?php locate_template( array( 'modal-download-purchase.php' ), true ); ?>
 </article><!-- #post-## -->
