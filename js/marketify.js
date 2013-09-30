@@ -9,10 +9,80 @@ Marketify.App = ( function($) {
 		});
 	}
 
+	function menuMobile() {
+		var container, button, menu;
+
+		container = $( '#site-navigation' );
+
+		if ( ! container )
+			return;
+
+		button = container.find( $( 'h1' ) );
+		
+		if ( 'undefined' === typeof button )
+			return;
+
+		menu = container.find( $( 'ul:first-of-type' ) );
+
+		// Hide menu toggle button if menu is empty and return early.
+		if ( 'undefined' === typeof menu ) {
+			button.css( 'display', 'none' );
+			
+			return;
+		}
+
+		if ( ! menu.hasClass( 'nav-menu' ) )
+			menu.addClass( 'nav-menu' );
+
+		button.click(function() {
+			container.toggleClass( 'toggled' );
+		});
+	}
+
+	function skipLink() {
+		var is_webkit = navigator.userAgent.toLowerCase().indexOf( 'webkit' ) > -1,
+		    is_opera  = navigator.userAgent.toLowerCase().indexOf( 'opera' )  > -1,
+		    is_ie     = navigator.userAgent.toLowerCase().indexOf( 'msie' )   > -1;
+
+		if ( ( is_webkit || is_opera || is_ie ) && 'undefined' !== typeof( document.getElementById ) ) {
+			var eventMethod = ( window.addEventListener ) ? 'addEventListener' : 'attachEvent';
+			window[ eventMethod ]( 'hashchange', function() {
+				var element = document.getElementById( location.hash.substring( 1 ) );
+
+				if ( element ) {
+					if ( ! /^(?:a|select|input|button|textarea)$/i.test( element.tagName ) )
+						element.tabIndex = -1;
+
+					element.focus();
+				}
+			}, false );
+		}
+	}
+
 	return {
 		init : function() {
 			menuSearch();
-		}
+			menuMobile();
+			skipLink();
+
+			$( '.popup-trigger' ).click(function(e) {
+				e.preventDefault();
+
+				Marketify.App.popup({
+					items : {
+						src : $(this).attr( 'href' )
+					}
+				});
+			});
+		},
+
+		popup : function( args ) {
+			return $.magnificPopup.open( $.extend( args, { 
+				type            : 'inline',
+				fixedContentPos : false,
+				alignTop        : true
+			} ) );
+		},
 	}
 } )(jQuery);
 

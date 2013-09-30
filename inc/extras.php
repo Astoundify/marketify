@@ -71,3 +71,10 @@ function marketify_wp_title( $title, $sep ) {
 	return $title;
 }
 add_filter( 'wp_title', 'marketify_wp_title', 10, 2 );
+
+function marketify_edd_product_supports( $supports ) {
+	$supports[] = 'comments';
+
+	return $supports;	
+}
+add_filter( 'edd_download_supports', 'marketify_edd_product_supports' );

@@ -7,6 +7,20 @@
  * @package Marketify
  */
 
+function marketify_purchase_link( $download_id ) {
+	global $edd_options;
+
+	$variable = edd_has_variable_prices( $download_id );
+
+	if ( ! $variable ) {
+		echo edd_get_purchase_link( array( 'download_id' => $download_id, 'price' => false ) );
+	} else {
+		$button = ! empty( $edd_options[ 'add_to_cart_text' ] ) ? $edd_options[ 'add_to_cart_text' ] : __( 'Purchase', 'marketify' );
+
+		printf( '<a href="#modal-buy-now" class="button buy-now popup-trigger">%s</a>', $button );
+	}
+}
+
 /**
  * Get a nav menu object. 
  *

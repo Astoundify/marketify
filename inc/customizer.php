@@ -261,11 +261,17 @@ function marketify_header_css() {
 		a,
 		a:hover,
 		.button:hover,
-		.widget .cart_item.edd_checkout a {
+		.widget .cart_item.edd_checkout a,
+		.entry-content .edd-submit.button,
+		.popup .edd-submit.button:hover,
+		.page-header .button:hover {
 			color: #515a63;
 		}
 
-		.widget .cart_item.edd_checkout a {
+		.widget .cart_item.edd_checkout a,
+		.edd-submit.button,
+		.popup .edd-submit.button:hover,
+		.popup .edd_price_options input:checked {
 			border-color: #515a63;
 		}";
 

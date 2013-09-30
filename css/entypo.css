@@ -19,7 +19,11 @@
 */
 [class^="icon-"]:before,
 [class*=" icon-"]:before,
-.edd-remove-from-cart:before {
+.edd-remove-from-cart:before,
+.edd-add-to-cart-label:before,
+.edd_go_to_checkout:before,
+input[type="checkbox"] + label::before,
+input[type="radio"] + label::before {
   font-family: 'fontello';
   font-style: normal;
   font-weight: normal;

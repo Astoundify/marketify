@@ -13,9 +13,13 @@ get_header(); ?>
 		<?php the_post(); ?>
 		<h1 class="page-title"><?php the_title(); ?></h1>
 			
-		<p class="download-actions">
-			<a href="#" class="button">Buy Now</a> <a href="#" class="button">Try the Demo</a>
-		</p>
+		<div class="download-actions">
+			<?php marketify_purchase_link( get_the_ID() ); ?>
+		</div>
+
+		<div class="download-info">
+			<?php echo edd_currency_filter( edd_format_amount( edd_get_download_price( $post->ID ) ) ); ?>
+		</div>
 
 		<div class="featured-image container">
 			<?php the_post_thumbnail( 'fullsize' ); ?>
@@ -30,13 +34,8 @@ get_header(); ?>
 				<main id="main" class="site-main" role="main">
 
 				<?php while ( have_posts() ) : the_post(); ?>
-
-					<h2 class="section-title"><span>About the Product</span></h2>
-
 					<?php get_template_part( 'content-single', 'download' ); ?>
-
-					<?php comments_template(); ?>
-				<?php endwhile; ?>
+				<?php endwhile; rewind_posts(); ?>
 
 				</main><!-- #main -->
 			</section><!-- #primary -->
@@ -44,6 +43,16 @@ get_header(); ?>
 			<?php get_sidebar( 'single-download' ); ?>
 
 		</div><!-- #content -->
+
+		<div id="comments" class="row">
+			<section id="primary" class="content-area col-sm-8 col-xs-12">
+				<?php comments_template(); ?>
+			</section>
+
+			<div class="col-sm-4">
+				Tst
+			</div>
+		</div>
 	</div>
 	
 <?php get_footer(); ?>
