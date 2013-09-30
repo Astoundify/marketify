@@ -82,10 +82,10 @@ function marketify_get_theme_mods( $args = array() ) {
 				'title'   => __( 'Style', 'marketify' ),
 				'type'    => 'select',
 				'choices' => array(
-					0 => __( 'Dark', 'marketify' ),
-					1 => __( 'Light', 'marketify' )
+					'dark'  => __( 'Dark', 'marketify' ),
+					'light' => __( 'Light', 'marketify' )
 				),
-				'default' => 0
+				'default' => 'dark'
 			),
 			'contact-address' => array(
 				'title'   => __( 'Contact Address', 'marketify' ),
@@ -206,7 +206,7 @@ add_action( 'customize_register', 'marketify_customize_register_transport' );
  * @since Marketify 1.0
  */
 function marketify_customize_preview_js() {
-	wp_enqueue_script( 'marketify-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), 20130704, true );
+	wp_enqueue_script( 'marketify-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), 20131001, true );
 }
 add_action( 'customize_preview_init', 'marketify_customize_preview_js' );
 

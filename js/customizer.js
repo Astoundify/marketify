@@ -19,13 +19,15 @@
 	// Header text color.
 	wp.customize( 'header_textcolor', function( value ) {
 		value.bind( function( to ) {
+			console.log( 'wat' );
 			if ( 'blank' === to ) {
-				$( '.site-title, .site-description' ).css( {
+				$( '.site-title' ).css( {
 					'clip': 'rect(1px, 1px, 1px, 1px)',
 					'position': 'absolute'
 				} );
 			} else {
-				$( '.site-title, .site-description' ).css( {
+				console.log( 'wat' );
+				$( '.site-title a' ).css( {
 					'clip': 'auto',
 					'color': to,
 					'position': 'relative'

@@ -8,7 +8,7 @@
  */
 ?>
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
+	<footer id="colophon" class="site-footer <?php echo marketify_theme_mod( 'marketify_footer', 'style' ); ?>" role="contentinfo">
 		<div class="container">
 
 			<?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
