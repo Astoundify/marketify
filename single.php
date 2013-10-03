@@ -7,25 +7,49 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<?php the_post(); ?>
 
-		<?php while ( have_posts() ) : the_post(); ?>
+		<?php get_template_part( 'content', 'author' ); ?>
 
-			<?php get_template_part( 'content', 'single' ); ?>
+		<h1 class="entry-title"><?php the_title(); ?></h1>
 
-			<?php marketify_content_nav( 'nav-below' ); ?>
+	</div><!-- .header-outer -->
+	<?php rewind_posts(); ?>
 
-			<?php
-				// If comments are open or we have at least one comment, load up the comment template
-				if ( comments_open() || '0' != get_comments_number() )
-					comments_template();
-			?>
+	<div class="container">
+		<div id="content" class="site-content row">
 
-		<?php endwhile; // end of the loop. ?>
+			<div id="primary" class="content-area col-sm-8">
+				<main id="main" class="site-main" role="main">
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+				<?php if ( have_posts() ) : ?>
 
-<?php get_sidebar(); ?>
+					<?php while ( have_posts() ) : the_post(); ?>
+
+						<?php get_template_part( 'content', get_post_format() ); ?>
+
+					<?php endwhile; ?>
+
+					<?php marketify_content_nav( 'nav-below' ); ?>
+
+					<?php
+						// If comments are open or we have at least one comment, load up the comment template
+						if ( comments_open() || '0' != get_comments_number() )
+							comments_template();
+					?>
+
+				<?php else : ?>
+
+					<?php get_template_part( 'no-results', 'index' ); ?>
+
+				<?php endif; ?>
+
+				</main><!-- #main -->
+			</div><!-- #primary -->
+
+			<?php get_sidebar(); ?>
+			
+		</div>
+	</div>
+	
 <?php get_footer(); ?>

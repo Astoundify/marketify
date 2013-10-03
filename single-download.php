@@ -18,11 +18,20 @@ get_header(); ?>
 		</div>
 
 		<div class="download-info">
-			<?php echo edd_currency_filter( edd_format_amount( edd_get_download_price( $post->ID ) ) ); ?>
+			<?php do_action( 'marketify_download_info' ); ?>
 		</div>
 
 		<div class="featured-image container">
-			<?php the_post_thumbnail( 'fullsize' ); ?>
+			<?php if ( 'audio' == get_post_format( get_the_ID() ) ) : ?>
+				<?php
+					$attachments = get_attached_media( 'audio', $post->ID );
+					$media       = wp_get_attachment_url( current( $attachments )->ID );
+
+					echo do_shortcode( '[audio src="' . $media . '"][/audio]' );
+				?>
+			<?php else : ?>
+				<?php the_post_thumbnail( 'fullsize' ); ?>
+			<?php endif; ?>
 		</div>
 		<?php rewind_posts(); ?>
 	</header><!-- .page-header -->
@@ -53,6 +62,8 @@ get_header(); ?>
 				Tst
 			</div>
 		</div>
+
+		<?php do_action( 'marketify_single_download_after' ); ?>
 	</div>
 	
 <?php get_footer(); ?>

@@ -70,14 +70,14 @@ function marketify_get_theme_mods( $args = array() ) {
 	$args = wp_parse_args( $args, $defaults );
 
 	$mods = array(
-		'marketify_general' => array(
+		'general' => array(
 			'responsive' => array(
 				'title'   => __( 'Enable Responsive Design', 'marketify' ),
 				'type'    => 'checkbox',
 				'default' => 1
 			),
 		),
-		'marketify_footer' => array(
+		'footer' => array(
 			'style' => array(
 				'title'   => __( 'Style', 'marketify' ),
 				'type'    => 'select',
@@ -103,6 +103,11 @@ function marketify_get_theme_mods( $args = array() ) {
 				'title'   => __( 'Primary Color', 'marketify' ),
 				'type'    => 'WP_Customize_Color_Control',
 				'default' => '#515a63'
+			),
+			'accent' => array(
+				'title'   => __( 'Accent Color', 'marketify' ),
+				'type'    => 'WP_Customize_Color_Control',
+				'default' => '#4ed0aa'
 			)
 		),
 	);
@@ -254,8 +259,10 @@ function marketify_header_css() {
 		.site-footer,
 		.page-header,
 		.content-grid-download .entry-image .overlay,
-		.widget .cart_item.edd_checkout a:hover {
-			background: #515a63;
+		.widget .cart_item.edd_checkout a:hover,
+		body.page-template-page-templatesminimal-php,
+		body.custom-background.page-template-page-templatesminimal-php {
+			background-color: #515a63;
 		}
 
 		a,
@@ -265,8 +272,8 @@ function marketify_header_css() {
 		.entry-content .edd-submit.button,
 		.popup .edd-submit.button:hover,
 		.page-header .button:hover,
-		.site-header-minimal .site-title a,
-		label {
+		label,
+		.site-footer.light .footer-social a {
 			color: #515a63;
 		}
 
@@ -275,6 +282,16 @@ function marketify_header_css() {
 		.popup .edd-submit.button:hover,
 		.popup .edd_price_options input:checked {
 			border-color: #515a63;
+		}
+
+		.page-template-page-templatesminimal-php,
+		.page-template-page-templatesminimal-php label,
+		.page-template-page-templatesminimal-php a {
+			color: #fff;
+		}
+
+		.page-template-page-templatesminimal-php input[type=submit] {
+			background-color: #4ed0aa;
 		}";
 
 	wp_add_inline_style( 'marketify-base', $css );

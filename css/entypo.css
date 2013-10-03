@@ -23,7 +23,8 @@
 .edd-add-to-cart-label:before,
 .edd_go_to_checkout:before,
 input[type="checkbox"] + label::before,
-input[type="radio"] + label::before {
+input[type="radio"] + label::before,
+.footer-social a:before {
   font-family: 'fontello';
   font-style: normal;
   font-weight: normal;

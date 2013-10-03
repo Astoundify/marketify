@@ -25,7 +25,7 @@ function marketify_body_classes( $classes ) {
 		$classes[] = 'group-blog';
 	}
 
-	if ( is_page_template( 'page-templates/home-1.php' ) )
+	if ( is_page_template( 'page-templates/home.php' ) )
 		$classes[] = 'home-1';
 
 	return $classes;

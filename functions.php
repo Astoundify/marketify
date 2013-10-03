@@ -54,7 +54,12 @@ function marketify_setup() {
 	/**
 	 * Enable support for Post Formats
 	 */
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
+	add_theme_support( 'post-formats', array( 'audio', 'video' ) );
+
+	/** 
+	 * Enable Post Formats for Downloads
+	 */
+	add_post_type_support( 'download', 'post-formats' );
 
 	/**
 	 * Setup the WordPress core custom background feature.
@@ -66,6 +71,40 @@ function marketify_setup() {
 }
 endif; // marketify_setup
 add_action( 'after_setup_theme', 'marketify_setup' );
+
+function marketify_remove_post_formats() {
+	 remove_post_type_support( 'post', 'post-formats' );
+}
+add_action( 'init', 'marketify_remove_post_formats' );
+
+function marketify_before_shim() {
+	if ( ! ( is_singular( 'post' ) || is_page_template( 'page-templates/home.php' ) ) )
+		return;
+
+	global $post;
+
+	$background = null;
+
+	if ( has_post_thumbnail( $post->ID ) )
+		$background = wp_get_attachment_image_src( get_post_thumbnail_id(), 'fullsize' );
+
+	printf( '<div class="header-outer" style="background-image: url(%s);">', $background[0] );
+}
+add_action( 'before', 'marketify_before_shim' );
+
+function marketify_before_shim_css() {
+	if ( ! ( is_singular( 'post' ) || is_page_template( 'page-templates/home.php' ) ) )
+		return;
+
+	global $post;
+
+	$background = wp_get_attachment_image_src( get_post_thumbnail_id() );
+
+	if ( $background ) {
+		wp_add_inline_style( 'marketify-base', '.site-header, .page-template-page-templateshome-php .page-header { background-color: transparent; }' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'marketify_before_shim_css', 11 );
 
 /**
  * Register widgetized area and update sidebar with default widgets
@@ -81,8 +120,8 @@ function marketify_widgets_init() {
 		'id'            => 'sidebar-1',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
+		'before_title'  => '<h1 class="widget-title section-title"><span>',
+		'after_title'   => '</span></h1>',
 	) );
 
 	register_sidebar( array(
@@ -297,6 +336,11 @@ add_action( 'dynamic_sidebar', 'marketify_woothemes_features_item' );
 function marketify_woothemes_features_item_template( $template, $args ) {
 	return '<div class="%%CLASS%% col-lg-4 col-sm-6 col-xs-12">%%IMAGE%%<h3 class="feature-title">%%TITLE%%</h3><div class="feature-content">%%CONTENT%%</div></div>';
 }
+
+/**
+ * EDD
+ */
+require get_template_directory() . '/inc/edd.php';
 
 /**
  * Implement the Custom Header feature.

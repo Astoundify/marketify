@@ -8,7 +8,7 @@
  */
 ?>
 
-	<footer id="colophon" class="site-footer <?php echo marketify_theme_mod( 'marketify_footer', 'style' ); ?>" role="contentinfo">
+	<footer id="colophon" class="site-footer <?php echo marketify_theme_mod( 'footer', 'style' ); ?>" role="contentinfo">
 		<div class="container">
 
 			<?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
@@ -22,14 +22,24 @@
 					<h1 class="footer-widget-title"><?php echo marketify_get_theme_menu_name( 'social' ); ?></h1>
 
 					<?php
-						wp_nav_menu( array(
-							'theme_location' => 'social'
+						$social = wp_nav_menu( array(
+							'theme_location'  => 'social',
+							'container_class' => 'footer-social',
+							'items_wrap'      => '%3$s',
+							'depth'           => 1,
+							'echo'            => false,
+							'link_before'     => '<span class="screen-reader-text">',
+							'link_after'      => '</span>',
 						) );
+
+						echo strip_tags( $social, '<a><div><span>' );
 					?>
 				</div>
 
 				<div class="col-sm-4">
 					<h1 class="footer-widget-title"><?php _e( 'Contact Us', 'marketify' ); ?></h1>
+
+					<?php echo marketify_theme_mod( 'footer', 'contact-address' ); ?>
 				</div>
 
 				<div class="col-sm-4">
