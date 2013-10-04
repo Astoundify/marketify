@@ -4,7 +4,20 @@
 	}
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (min-width: 992px) {
+	/* Footer */
+	.site-footer.light .footer-widget,
+	.site-footer.light .site-info [class^="col-"] {
+		border-right: 1px solid #bdc3c7;
+		border-bottom: 0;
+	}
+
+	.site-footer.light .site-info {
+		border-top: 1px solid #bdc3c7;
+	}
+}
+
+@media screen and (max-width: 768px) {
 	.menu-toggle,
 	.main-navigation.toggled .nav-menu {
 		display: block;
@@ -13,9 +26,7 @@
 	.main-navigation ul {
 		display: none;
 	}
-}
-
-@media screen and (max-width: 768px) {
+	
 	.download-widget-area {
 		text-align: left;
 	}

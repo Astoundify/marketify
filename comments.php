@@ -34,7 +34,7 @@ if ( post_password_required() )
 				 * define marketify_comment() and that will be used instead.
 				 * See marketify_comment() in inc/template-tags.php for more.
 				 */
-				wp_list_comments( array( 'callback' => 'marketify_comment' ) );
+				wp_list_comments( array( 'callback' => 'marketify_comment', 'avatar_size' => 90 ) );
 			?>
 		</ol><!-- .comment-list -->
 
@@ -48,6 +48,10 @@ if ( post_password_required() )
 
 	<?php endif; // have_comments() ?>
 
-	<?php comment_form(); ?>
+	<?php 
+		comment_form( array(
+			'comment_notes_after' => ''
+		) ); 
+	?>
 
 </div><!-- #comments -->

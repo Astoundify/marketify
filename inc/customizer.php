@@ -43,12 +43,12 @@ function marketify_theme_mod( $section, $key, $_default = false ) {
  * @return void
  */
 function marketify_customize_register_sections( $wp_customize ) {
-	$wp_customize->add_section( 'marketify_general', array(
+	$wp_customize->add_section( 'general', array(
 		'title'      => _x( 'General', 'Theme customizer section title', 'marketify' ),
 		'priority'   => 10,
 	) );
 
-	$wp_customize->add_section( 'marketify_footer', array(
+	$wp_customize->add_section( 'footer', array(
 		'title'      => _x( 'Footer', 'Theme customizer section title', 'marketify' ),
 		'priority'   => 100,
 	) );
@@ -70,15 +70,8 @@ function marketify_get_theme_mods( $args = array() ) {
 	$args = wp_parse_args( $args, $defaults );
 
 	$mods = array(
-		'general' => array(
-			'responsive' => array(
-				'title'   => __( 'Enable Responsive Design', 'marketify' ),
-				'type'    => 'checkbox',
-				'default' => 1
-			),
-		),
 		'footer' => array(
-			'style' => array(
+			'footer-style' => array(
 				'title'   => __( 'Style', 'marketify' ),
 				'type'    => 'select',
 				'choices' => array(
@@ -87,12 +80,12 @@ function marketify_get_theme_mods( $args = array() ) {
 				),
 				'default' => 'dark'
 			),
-			'contact-address' => array(
+			'footer-contact-address' => array(
 				'title'   => __( 'Contact Address', 'marketify' ),
 				'type'    => 'Marketify_Customize_Textarea_Control',
 				'default' => "393 Bay Street, 2nd Floor\nToronto, Ontario, Canada, L9T8S2"
 			),
-			'logo' => array(
+			'footer-logo' => array(
 				'title'   => __( 'Logo', 'marketify' ),
 				'type'    => 'WP_Customize_Image_Control',
 				'default' => 0
@@ -198,9 +191,12 @@ function marketify_customize_register_transport( $wp_customize ) {
 	$marketify   = marketify_get_theme_mods( array( 'keys_only' => true ) );
 	
 	$transport = array_merge( $built_in, $marketify );
-
+	
 	foreach ( $transport as $key => $default ) {
-		$wp_customize->get_setting( $key )->transport = 'postMessage';
+		if ( in_array( $key, array( 'footer-style' ) ) )
+			$wp_customize->get_setting( $key )->transport = 'refresh';
+		else
+			$wp_customize->get_setting( $key )->transport = 'postMessage';
 	}
 }
 add_action( 'customize_register', 'marketify_customize_register_transport' );
@@ -274,6 +270,7 @@ function marketify_header_css() {
 		.popup .edd-submit.button:hover,
 		.page-header .button:hover,
 		label,
+		.site-footer.light,
 		.site-footer.light .footer-social a,
 		input.edd-submit.button, 
 		a.edd-submit.button, 

@@ -59,11 +59,32 @@ Marketify.App = ( function($) {
 		}
 	}
 
+	function footerHeight() {
+		var checks = $( '.site-info, .site-footer .row' );
+
+		checks.each(function() {
+			var min      = 0;
+			var children = $(this).children();
+
+			children.each(function() {
+				if ( $(this).outerHeight() > min )
+					min = $(this).outerHeight();
+			});
+
+			children.css( 'height', min );
+		});
+	}
+
 	return {
 		init : function() {
 			menuSearch();
 			menuMobile();
 			skipLink();
+			footerHeight();
+
+			$(window).resize(function() {
+				footerHeight();
+			});
 
 			$( '.popup-trigger' ).click(function(e) {
 				e.preventDefault();
