@@ -261,7 +261,8 @@ function marketify_header_css() {
 		.content-grid-download .entry-image .overlay,
 		.widget .cart_item.edd_checkout a:hover,
 		body.page-template-page-templatesminimal-php,
-		body.custom-background.page-template-page-templatesminimal-php {
+		body.custom-background.page-template-page-templatesminimal-php,
+		.header-outer {
 			background-color: #515a63;
 		}
 
@@ -273,21 +274,40 @@ function marketify_header_css() {
 		.popup .edd-submit.button:hover,
 		.page-header .button:hover,
 		label,
-		.site-footer.light .footer-social a {
+		.site-footer.light .footer-social a,
+		input.edd-submit.button, 
+		a.edd-submit.button, 
+		a.edd-submit.button:visited, 
+		.edd-submit.button,
+		#edd-purchase-button, 
+		input[type=submit].edd-submit {
 			color: #515a63;
 		}
 
 		.widget .cart_item.edd_checkout a,
 		.entry-content .edd-submit.button,
 		.popup .edd-submit.button:hover,
-		.popup .edd_price_options input:checked {
+		.popup .edd_price_options input:checked,
+		input.edd-submit.button, 
+		a.edd-submit.button, 
+		a.edd-submit.button:visited, 
+		.edd-submit.button,
+		#edd-purchase-button, 
+		input[type=submit].edd-submit {
 			border-color: #515a63;
 		}
 
 		.page-template-page-templatesminimal-php,
 		.page-template-page-templatesminimal-php label,
-		.page-template-page-templatesminimal-php a {
+		.page-template-page-templatesminimal-php a,
+		.content-grid-download a.edd-submit.button,
+		.content-grid-download .edd-submit.button {
 			color: #fff;
+		}
+
+		.content-grid-download a.edd-submit.button,
+		.content-grid-download .edd-submit.button {
+			border-color: #fff;
 		}
 
 		.page-template-page-templatesminimal-php input[type=submit] {

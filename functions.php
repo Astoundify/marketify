@@ -78,7 +78,7 @@ function marketify_remove_post_formats() {
 add_action( 'init', 'marketify_remove_post_formats' );
 
 function marketify_before_shim() {
-	if ( ! ( is_singular( 'post' ) || is_page_template( 'page-templates/home.php' ) ) )
+	if ( ! ( is_singular( array( 'page', 'post' ) ) || is_page_template( 'page-templates/home.php' ) ) )
 		return;
 
 	global $post;
@@ -88,12 +88,12 @@ function marketify_before_shim() {
 	if ( has_post_thumbnail( $post->ID ) )
 		$background = wp_get_attachment_image_src( get_post_thumbnail_id(), 'fullsize' );
 
-	printf( '<div class="header-outer" style="background-image: url(%s);">', $background[0] );
+	printf( '<div class="header-outer%2$s" style="background-image: url(%1$s);">', $background[0], $background ? ' custom-featured-image' : '' );
 }
 add_action( 'before', 'marketify_before_shim' );
 
 function marketify_before_shim_css() {
-	if ( ! ( is_singular( 'post' ) || is_page_template( 'page-templates/home.php' ) ) )
+	if ( ! ( is_singular( array( 'page', 'post' ) ) || is_page_template( 'page-templates/home.php' ) ) )
 		return;
 
 	global $post;
@@ -105,6 +105,36 @@ function marketify_before_shim_css() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'marketify_before_shim_css', 11 );
+
+function marketify_entry_page_title() {
+	the_post();
+?>
+
+		<div class="entry-page-title container">
+			<?php get_template_part( 'content', 'author' ); ?>
+
+			<h1 class="entry-title"><?php the_title(); ?></h1>
+
+			<?php
+				$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+				if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) )
+					$time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';
+
+				if ( is_singular( 'post' ) )
+					printf( $time_string,
+						esc_attr( get_the_date( 'c' ) ),
+						esc_html( get_the_date() ),
+						esc_attr( get_the_modified_date( 'c' ) ),
+						esc_html( get_the_modified_date() )
+					);
+			?>
+		</div>
+
+	</div><!-- .header-outer -->
+<?php
+	rewind_posts();
+}
+add_action( 'marketify_entry_before', 'marketify_entry_page_title' );
 
 /**
  * Register widgetized area and update sidebar with default widgets

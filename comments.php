@@ -24,7 +24,7 @@ if ( post_password_required() )
 	<?php // You can start editing here -- including this comment! ?>
 
 	<?php if ( have_comments() ) : ?>
-		<h2 class="comments-title section-title"><span><?php _e( 'Customer Comments', 'marketify' ); ?></span></h2>
+		<h2 class="comments-title section-title"><span><?php _e( 'Comments', 'marketify' ); ?></span></h2>
 
 		<ol class="comment-list">
 			<?php

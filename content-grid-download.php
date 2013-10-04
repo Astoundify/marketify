@@ -12,7 +12,7 @@
 				<a href="<?php the_permalink(); ?>" rel="bookmark" class="button">Details</a>
 			</div>
 
-			<strong class="item-price"><span>Item Price: $55</span></strong>
+			<strong class="item-price"><span><?php printf( __( 'Item Price: %s', 'marketify' ), edd_price( get_the_ID(), false ) ); ?></span></strong>
 		</div>
 
 		<?php the_post_thumbnail( 'content-grid-download' ); ?>

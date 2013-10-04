@@ -24,7 +24,14 @@
 .edd_go_to_checkout:before,
 input[type="checkbox"] + label::before,
 input[type="radio"] + label::before,
-.footer-social a:before {
+.footer-social a:before,
+.widget-area .widget .edd-taxonomy-widget li:before,
+.widget-area .widget.widget_nav_menu li:before,
+.widget-area .widget.widget_recent_entries li:before,
+.widget-area .widget.widget_meta li:before,
+.widget-area .widget.widget_pages li:before,
+.widget-area .widget.widget_categories li:before,
+.widget-area .widget.widget_archive li:before {
   font-family: 'fontello';
   font-style: normal;
   font-weight: normal;

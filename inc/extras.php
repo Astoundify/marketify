@@ -8,6 +8,29 @@
  */
 
 /**
+ * Add extra contact fields to the user profile. This information
+ * is used in the author info and byline on entries.
+ *
+ * @since Marketify 1.0
+ *
+ * @param array $methods Existing contact methods
+ * @param object $user The current user that is being edited
+ * @return array $methods The modified contact methods
+ */
+function marketify_user_contactmethods( $methods, $user ) {
+	unset( $methods[ 'aim' ] );
+	unset( $methods[ 'yim' ] );
+	unset( $methods[ 'jabber' ] );
+
+	$methods[ 'twitter' ]  = 'Twitter';
+	$methods[ 'facebook' ] = 'Facebook';
+	$methods[ 'gplus' ]    = 'Google+';
+
+	return $methods;
+}
+add_filter( 'user_contactmethods', 'marketify_user_contactmethods', 10, 2 );
+
+/**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
  */
 function marketify_page_menu_args( $args ) {

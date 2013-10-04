@@ -7,14 +7,7 @@
 
 get_header(); ?>
 
-	<?php the_post(); ?>
-
-		<?php get_template_part( 'content', 'author' ); ?>
-
-		<h1 class="entry-title"><?php the_title(); ?></h1>
-
-	</div><!-- .header-outer -->
-	<?php rewind_posts(); ?>
+	<?php do_action( 'marketify_entry_before' ); ?>
 
 	<div class="container">
 		<div id="content" class="site-content row">
@@ -26,7 +19,7 @@ get_header(); ?>
 
 					<?php while ( have_posts() ) : the_post(); ?>
 
-						<?php get_template_part( 'content', get_post_format() ); ?>
+						<?php get_template_part( 'content', 'single' ); ?>
 
 					<?php endwhile; ?>
 
