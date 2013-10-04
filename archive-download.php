@@ -25,6 +25,8 @@ get_header(); ?>
 				<div class="section-title"><span>
 					<?php if ( is_tax() ) : ?>
 						<?php single_term_title(); ?>
+					<?php elseif ( is_search() ) : ?>
+						<?php echo esc_attr( get_search_query() ); ?>
 					<?php else : ?>
 						<?php _e( 'Recent', 'marketify' ); ?>
 					<?php endif; ?>

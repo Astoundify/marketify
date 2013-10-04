@@ -117,14 +117,14 @@ Marketify.Widgets = ( function($) {
 			minItems      : 1,
 			maxItems      : 3,
 			directionNav  : false,
+			start         : function(slider) {
+				slider.css( 'display', 'none' );
+
+				$( '.marketify_widget_featured_popular .flexslider:first-of-type' ).fadeIn( 'slow' );
+			}
 		});
 
-		$( '.marketify_widget_featured_popular .flexslider' ).hide().filter( ':first-of-type' ).fadeIn( 'slow' );
-
 		$( '.marketify_widget_featured_popular .home-widget-title span' ).click(function() {
-			console.log( slider );
-			slider.resize();
-
 			if ( 0 == $(this).index() ) {
 				$( '.marketify_widget_featured_popular .flexslider' ).hide();
 				$( '.marketify_widget_featured_popular .flexslider:first-of-type' ).fadeIn();
@@ -132,6 +132,8 @@ Marketify.Widgets = ( function($) {
 				$( '.marketify_widget_featured_popular .flexslider' ).hide();
 				$( '.marketify_widget_featured_popular .flexslider:last-of-type' ).fadeIn();
 			}
+
+			slider.resize();
 		});
 	}
 

@@ -13,6 +13,13 @@
 
 get_header(); ?>
 
+	<?php if ( is_search() ) : ?>
+	<header class="page-header">
+		<h1 class="page-title">
+			<?php printf( __( 'Search Results: %s', 'marketify' ), esc_attr( get_search_query() ) ); ?></h1>
+	</header><!-- .page-header -->
+	<?php endif; ?>
+
 	<div class="container">
 		<div id="content" class="site-content row">
 

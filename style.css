@@ -538,7 +538,7 @@ a.edd-submit.button:visited,
 
 /** Minimal */
 .site-header-minimal {
-	margin: 90px auto 0;
+	margin: 90px auto 45px;
 }
 
 .site-header-minimal .site-title {
@@ -729,7 +729,7 @@ a.edd-submit.button:visited,
 
 .home-1 .page-header {
 	margin-bottom: 70px;
-	padding-bottom: 0;
+	padding: 0;
 }
 
 .home-1 .page-header .page-title {
@@ -762,7 +762,6 @@ a.edd-submit.button:visited,
 }
 
 .archive .site-content,
-.search .site-content,
 .single-download .site-content {
 	margin-top: 0;
 }
@@ -775,8 +774,7 @@ a.edd-submit.button:visited,
 }
 
 .updated,
-.single-post .entry-header,
-.page .entry-header {
+.single-post .entry-header {
 	display: none;
 }
 
@@ -800,7 +798,9 @@ a.edd-submit.button:visited,
 .entry-content h2,
 .download-single-widget-title,
 .marketify_widget_download_details .download-author a,
-.comment-reply-title {
+.comment-reply-title,
+.entry-content .edd-slg-social-container legend,
+.page-template-page-templatesminimal-php .entry-title  {
 	font: 800 16px 'Montserrat', sans-serif;
 	color: #515a63;
 	letter-spacing: 0.10em;
@@ -937,8 +937,13 @@ a.edd-submit.button:visited,
 }
 
 /** Minimal Page */
-.page-template-page-templatesminimal-php .entry-header {
-	display: none;
+.page-template-page-templatesminimal-php .site-content {
+	margin-top: 0;
+}
+
+.page-template-page-templatesminimal-php .entry-title {
+	color: #fff;
+	text-align: center;
 }
 
 .page-template-page-templatesminimal-php input[type="submit"] {
@@ -1478,6 +1483,45 @@ object {
 	display: none;
 }
 
+.marketify_widget_featured_popular .home-widget-title {
+	margin-bottom: 100px;
+}
+
+.marketify_widget_featured_popular {
+	position: relative;
+}
+
+.marketify_widget_featured_popular .flex-control-nav {
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position: absolute;
+	width: 100%;
+	top: 80px;
+	left: 0;
+}
+
+.marketify_widget_featured_popular .flex-control-nav li {
+	float: none;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.marketify_widget_featured_popular .flex-control-nav a {
+	margin: 0 3px;
+	width: 10px;
+	height: 10px;
+	text-indent: -9999em;
+	border-radius: 50%;
+	background: #bdc3c7;
+	display: block;
+}
+
+.marketify_widget_featured_popular .flex-control-nav .flex-active {
+	background: #515a63;
+}
+
 /** Features */
 .feature {
 	margin-bottom: 3em;
@@ -1787,6 +1831,23 @@ object {
 
 .edd-lost-password {
 	text-align: center;
+}
+
+/* Social */
+.entry-content .edd-slg-social-container {
+	border: 0;
+	padding: 0;
+}
+
+.entry-content .edd-slg-social-container legend,
+.entry-content .edd-slg-social-wrap {
+	color: #fff;
+	text-align: center;
+}
+
+.entry-content .edd-slg-social-wrap .edd-slg-login-wrapper {
+	display: inline-block;
+	float: none;
 }
 
 /* =Footer
