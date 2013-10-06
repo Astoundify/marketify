@@ -113,19 +113,22 @@ function marketify_get_theme_menu_name( $theme_location ) {
 	return $menu_obj->name;
 }
 
-function marketify_entry_author_social() {
+function marketify_entry_author_social( $user_id = null ) {
 	global $post;
 
 	$methods = _wp_get_user_contactmethods();
 	$social  = array();
 
+	if ( ! $user_id )
+		$user_id = get_the_author_meta( 'ID' );
+
 	foreach ( $methods as $key => $method ) {
-		$field = get_the_author_meta( $key );
+		$field = get_the_author_meta( $key, $user_id );
 
 		if ( ! $field )
 			continue;
 
-		$social[ $key ] = sprintf( '<a href="%1$s"><i class="icon-%2$s"></i></a>', $field, $key );
+		$social[ $key ] = sprintf( '<a href="%1$s" target="_blank"><i class="icon-%2$s"></i></a>', $field, $key );
 	}
 
 	$social = implode( ' ', $social );
@@ -159,19 +162,19 @@ function marketify_content_nav( $nav_id ) {
 	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'marketify' ); ?></h1>
 
-	<?php if ( is_single() ) : // navigation links for single posts ?>
+	<?php if ( is_single() && apply_filters( 'marketify_single_content_nav', false ) ) : // navigation links for single posts ?>
 
-		<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'marketify' ) . '</span> %title' ); ?>
-		<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'marketify' ) . '</span>' ); ?>
+		<?php previous_post_link( '<div class="nav-previous">%link</div>', '<i class="icon-left-open-mini"></i> <span class="nav-title">%title</span>' ); ?>
+		<?php next_post_link( '<div class="nav-next">%link</div>', '<span class="nav-title">%title</span> <i class="icon-right-open-mini"></i>' ); ?>
 
 	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
 
 		<?php if ( get_next_posts_link() ) : ?>
-		<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'marketify' ) ); ?></div>
+		<div class="nav-previous"><?php next_posts_link( '<i class="icon-left-open-mini"></i>' ); ?></div>
 		<?php endif; ?>
 
 		<?php if ( get_previous_posts_link() ) : ?>
-		<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'marketify' ) ); ?></div>
+		<div class="nav-next"><?php previous_posts_link( '<i class="icon-right-open-mini"></i>' ); ?></div>
 		<?php endif; ?>
 
 	<?php endif; ?>

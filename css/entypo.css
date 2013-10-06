@@ -31,7 +31,8 @@ input[type="radio"] + label::before,
 .widget-area .widget.widget_meta li:before,
 .widget-area .widget.widget_pages li:before,
 .widget-area .widget.widget_categories li:before,
-.widget-area .widget.widget_archive li:before {
+.widget-area .widget.widget_archive li:before,
+#cancel-comment-reply-link:before {
   font-family: 'fontello';
   font-style: normal;
   font-weight: normal;

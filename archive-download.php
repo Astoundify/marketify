@@ -19,7 +19,7 @@ get_header(); ?>
 
 			<?php get_sidebar( 'archive-download' ); ?>
 
-			<section id="primary" class="content-area col-sm-9 col-xs-12">
+			<section id="primary" class="content-area col-sm-<?php echo is_active_sidebar( 'sidebar-download' ) ? '9' : '12'; ?> col-xs-12">
 				<main id="main" class="site-main" role="main">
 
 				<div class="section-title"><span>

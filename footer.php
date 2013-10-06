@@ -47,7 +47,13 @@
 				<?php endif; ?>
 
 				<div class="col-md-<?php echo $contact ? '4' : '8'; ?>">
-					<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
+					<h1 class="site-title"><a href="<?php echo home_url(); ?>">
+						<?php if ( marketify_theme_mod( 'footer', 'footer-logo' ) ) : ?>
+							<img src="<?php echo marketify_theme_mod( 'footer', 'footer-logo' ); ?>" />
+						<?php else : ?>
+							<?php bloginfo( 'name' ); ?>
+						<?php endif; ?>
+					</a></h1>
 
 					<?php printf( __( '&copy; %d %s. All rights reserved.', 'marketify' ), date( 'Y' ), get_bloginfo( 'name' ) ); ?>
 				</div>

@@ -368,6 +368,52 @@ function marketify_woothemes_features_item_template( $template, $args ) {
 }
 
 /**
+ * 
+ *
+ * @since Marketify 1.0
+ *
+ * @return void
+ */
+function marketify_woothemes_testimonials_item( $widget ) {
+	if ( 'widget_woothemes_testimonials' != $widget[ 'classname' ] )
+		return $widget;
+
+	$options = get_option( $widget[ 'classname' ] );
+	$options = $options[ $widget[ 'params' ][0][ 'number' ] ];
+
+	if ( 1 == $options[ 'display_avatar' ] && null == $options[ 'display_author' ] ) {
+		add_filter( 'woothemes_testimonials_item_template', 'marketify_woothemes_testimonials_item_template', 10, 2 );
+	} else {
+		add_filter( 'woothemes_testimonials_item_template', 'marketify_woothemes_testimonials_item_template_individual', 10, 2 );
+	}
+
+	return $widget;
+}
+add_action( 'dynamic_sidebar', 'marketify_woothemes_testimonials_item' );
+
+/**
+ * 
+ *
+ * @since Marketify 1.0
+ *
+ * @return void
+ */
+function marketify_woothemes_testimonials_item_template( $template, $args ) {
+	return '<div class="%%CLASS%% company-testimonial">%%AVATAR%%</div>';
+}
+
+/**
+ * 
+ *
+ * @since Marketify 1.0
+ *
+ * @return void
+ */
+function marketify_woothemes_testimonials_item_template_individual( $template, $args ) {
+	return '<div id="quote-%%ID%%" class="%%CLASS%% individual-testimonial col-md-6 col-sm-12"><blockquote class="testimonials-text">%%TEXT%%</blockquote>%%AVATAR%% %%AUTHOR%%<div class="fix"></div></div>';
+}
+
+/**
  * EDD
  */
 require get_template_directory() . '/inc/edd.php';

@@ -62,7 +62,6 @@ function marketify_download_entry_meta_rating() {
 	if ( 0 == $rating )
 		return;
 ?>
-
 	<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="star-rating">
 		<?php for ( $i = 1; $i <= $rating; $i++ ) : ?>
 		<i class="icon-star"></i>

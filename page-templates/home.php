@@ -14,10 +14,6 @@ get_header(); ?>
 
 					<?php the_content(); ?>
 				</div>
-
-				<!--<div class="hero-image">
-					<?php the_post_thumbnail( 'fullsize' ); ?>
-				</div>-->
 			<?php endwhile; ?>
 		</header><!-- .page-header -->
 

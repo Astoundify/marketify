@@ -65,4 +65,9 @@
 	.widget_search .search-form .search-submit {
 		width: 30%;
 	}
+
+	/** Footer */
+	.footer-widget {
+		height: auto !important;
+	}
 }
