@@ -32,7 +32,14 @@ input[type="radio"] + label::before,
 .widget-area .widget.widget_pages li:before,
 .widget-area .widget.widget_categories li:before,
 .widget-area .widget.widget_archive li:before,
-#cancel-comment-reply-link:before {
+#cancel-comment-reply-link:before,
+.edd-slg-social-login-facebook span:before,
+.edd-slg-social-login-twitter span:before,
+.edd-slg-social-login-googleplus span:before,
+.edd-slg-social-login-linkedin span:before,
+.edd-slg-social-login-yahoo span:before,
+.edd-slg-social-login-windowslive span:before,
+#edd_checkout_form_wrap fieldset#edd_cc_fields > span legend:before {
   font-family: 'fontello';
   font-style: normal;
   font-weight: normal;

@@ -100,6 +100,13 @@ Marketify.App = ( function($) {
 					}
 				});
 			});
+
+			$( '.edd-slg-login-wrapper' ).each(function() {
+				var link  = $(this).find( 'a' );
+				var title = link.attr( 'title' );
+
+				link.html(title).prepend( '<span></span' );
+			});
 		},
 
 		popup : function( args ) {

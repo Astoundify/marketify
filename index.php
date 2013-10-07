@@ -13,12 +13,13 @@
 
 get_header(); ?>
 
-	<?php if ( is_search() ) : ?>
 	<header class="page-header">
-		<h1 class="page-title">
-			<?php printf( __( 'Search Results: %s', 'marketify' ), esc_attr( get_search_query() ) ); ?></h1>
+		<?php if ( is_search() ) : ?>
+			<h1 class="page-title"><?php printf( __( 'Search Results: %s', 'marketify' ), esc_attr( get_search_query() ) ); ?></h1>
+		<?php else : ?>
+			<h1 class="page-title"><?php echo get_option( 'page_for_posts' ) ? get_the_title( get_option( 'page_for_posts' ) ) : _x( 'Blog', 'blog page title', 'jobify' ); ?></h1>
+		<?php endif; ?>
 	</header><!-- .page-header -->
-	<?php endif; ?>
 
 	<div class="container">
 		<div id="content" class="site-content row">

@@ -51,6 +51,9 @@ function marketify_body_classes( $classes ) {
 	if ( is_page_template( 'page-templates/home.php' ) )
 		$classes[] = 'home-1';
 
+	if ( is_page_template( 'page-templates/minimal.php' ) )
+		$classes[] = 'minimal';
+
 	return $classes;
 }
 add_filter( 'body_class', 'marketify_body_classes' );

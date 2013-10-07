@@ -269,7 +269,9 @@ function marketify_header_css() {
 		body.custom-background.page-template-page-templatesminimal-php,
 		.header-outer,
 		.search-form .search-submit,
-		.marketify_widget_featured_popular .flex-control-nav .flex-active {
+		.marketify_widget_featured_popular .flex-control-nav .flex-active,
+		.entry-content .edd-slg-social-container span legend,
+		#edd_checkout_form_wrap fieldset#edd_cc_fields > span:after {
 			background-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 		}
 
@@ -300,7 +302,11 @@ function marketify_header_css() {
 		.page-header .edd-submit.button:hover, 
 		.page-header a.edd-submit.button:hover, 
 		.page-header a.edd-submit.button:visited:hover,
-		.page-header .edd-submit.button.gray:hover {
+		.page-header .edd-submit.button.gray:hover,
+		.popup .edd-add-to-cart.button.edd-submit:hover,
+		.popup a.edd_go_to_checkout.button.edd-submit:hover,
+		#edd_checkout_form_wrap fieldset#edd_cc_fields > span legend,
+		.minimal .edd_cart_actions a {
 			color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 		}
 
@@ -317,10 +323,14 @@ function marketify_header_css() {
 		.edd-submit.button.gray,
 		.widget .cart_item.edd_checkout a,
 		.popup .edd_price_options input:checked,
-		.popup .edd_price_options input:checked {
+		.popup .edd_price_options input:checked,
+		.edd-add-to-cart.button.edd-submit:hover,
+		.edd_go_to_checkout.button.edd-submit:hover,
+		#edd_checkout_form_wrap fieldset#edd_cc_fields > span legend {
 			border-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 		}
 
+		#edd-purchase-button,
 		.page-template-page-templatesminimal-php input[type=submit],
 		.main-navigation .search-form.active .search-submit {
 			background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
@@ -353,7 +363,8 @@ function marketify_header_css() {
 		.page-header .edd-submit.button:hover, 
 		.page-header a.edd-submit.button:hover, 
 		.page-header a.edd-submit.button:visited:hover,
-		.page-header .edd-submit.button.gray:hover {
+		.page-header .edd-submit.button.gray:hover,
+		.edd-add-to-cart.button.edd-submit:hover {
 			background-color: #fff;
 		}
 
