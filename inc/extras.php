@@ -43,6 +43,8 @@ add_filter( 'wp_page_menu_args', 'marketify_page_menu_args' );
  * Adds custom classes to the array of body classes.
  */
 function marketify_body_classes( $classes ) {
+	global $wp_query;
+
 	// Adds a class of group-blog to blogs with more than 1 published author
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
@@ -53,6 +55,9 @@ function marketify_body_classes( $classes ) {
 
 	if ( is_page_template( 'page-templates/minimal.php' ) )
 		$classes[] = 'minimal';
+
+	if ( get_query_var( 'author_ptype' ) )
+		$classes[] = 'archive-download';
 
 	return $classes;
 }

@@ -22,19 +22,35 @@ function marketify_purchase_link( $download_id ) {
 }
 
 function marketify_comment( $comment, $args, $depth ) {
+	global $post;
+
 	$GLOBALS['comment'] = $comment;
 ?>
 	<li id="comment-<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
 		<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
+
 			<footer class="comment-meta">
 				<div class="comment-author vcard">
 					<?php if ( 0 != $args['avatar_size'] ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
-					<?php printf( '<cite class="fn">%s</cite>', get_comment_author_link() ); ?>
+
+					<?php if ( $depth == 1 ) : ?>
+						<?php printf( '<cite class="fn">%s</cite>', get_comment_author_link() ); ?>
+
+						<?php
+							if ( get_option( 'comment_registration' ) && edd_has_user_purchased( $comment->user_id, $post->ID ) ) :
+						?>
+							<a class="button purchased"><?php _e( 'Purchased', 'marketify' ); ?></a>
+						<?php endif; ?>
+					<?php endif; ?>
 				</div><!-- .comment-author -->
 			</footer><!-- .comment-meta -->
 
 			<div class="comment-content">
 				<div class="comment-metadata">
+					<?php if ( $depth > 1 ) : ?>
+					<?php printf( '<cite class="fn">%s</cite>', get_comment_author_link() ); ?>
+					<?php endif; ?>
+
 					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
 						<time datetime="<?php comment_time( 'c' ); ?>">
 							<?php printf( _x( '%1$s at %2$s', '1: date, 2: time', '_s' ), get_comment_date(), get_comment_time() ); ?>

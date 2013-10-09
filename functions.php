@@ -144,6 +144,7 @@ function marketify_widgets_init() {
 	register_widget( 'Marketify_Widget_Recent_Downloads' );
 	register_widget( 'Marketify_Widget_Featured_Popular_Downloads' );
 	register_widget( 'Marketify_Widget_Download_Details' );
+	register_widget( 'Marketify_Widget_Download_Share' );
 
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', 'marketify' ),
@@ -280,8 +281,7 @@ function marketify_scripts() {
 	wp_enqueue_style( 'marketify-fonts', marketify_fonts_url() );
 	wp_enqueue_style( 'marketify-grid', get_template_directory_uri() . '/css/bootstrap.css' );
 	wp_enqueue_style( 'marketify-base', get_stylesheet_uri() );
-	wp_enqueue_style( 'marketify-responsive', get_template_directory_uri() . '/css/responsive.css' );
-
+	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -451,3 +451,4 @@ require get_template_directory() . '/inc/widgets/class-widget-slider.php';
 require get_template_directory() . '/inc/widgets/class-widget-downloads-recent.php';
 require get_template_directory() . '/inc/widgets/class-widget-featured-popular.php';
 require get_template_directory() . '/inc/widgets/class-widget-download-details.php';
+require get_template_directory() . '/inc/widgets/class-widget-download-share.php';

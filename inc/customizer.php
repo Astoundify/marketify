@@ -271,7 +271,8 @@ function marketify_header_css() {
 		.search-form .search-submit,
 		.marketify_widget_featured_popular .flex-control-nav .flex-active,
 		.entry-content .edd-slg-social-container span legend,
-		#edd_checkout_form_wrap fieldset#edd_cc_fields > span:after {
+		#edd_checkout_form_wrap fieldset#edd_cc_fields > span:after,
+		div.fes-form fieldset .fes-fields a.file-selector:hover {
 			background-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 		}
 
@@ -306,7 +307,10 @@ function marketify_header_css() {
 		.popup .edd-add-to-cart.button.edd-submit:hover,
 		.popup a.edd_go_to_checkout.button.edd-submit:hover,
 		#edd_checkout_form_wrap fieldset#edd_cc_fields > span legend,
-		.minimal .edd_cart_actions a {
+		.minimal .edd_cart_actions a,
+		.fes-menu .active a,
+		#wraper nav ul li.active a,
+		#wraper nav ul li:hover a {
 			color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 		}
 
@@ -326,13 +330,15 @@ function marketify_header_css() {
 		.popup .edd_price_options input:checked,
 		.edd-add-to-cart.button.edd-submit:hover,
 		.edd_go_to_checkout.button.edd-submit:hover,
-		#edd_checkout_form_wrap fieldset#edd_cc_fields > span legend {
+		#edd_checkout_form_wrap fieldset#edd_cc_fields > span legend,
+		div.fes-form fieldset .fes-fields a.file-selector:hover {
 			border-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 		}
 
 		#edd-purchase-button,
 		.page-template-page-templatesminimal-php input[type=submit],
-		.main-navigation .search-form.active .search-submit {
+		.main-navigation .search-form.active .search-submit,
+		div.fes-form .fes-submit input[type=submit] {
 			background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 		}
 
@@ -351,7 +357,7 @@ function marketify_header_css() {
 		.page-header a.edd-submit.button:visited,
 		.page-header .edd-submit.button.gray {
 			color: #fff;
-			border-color: #fff;
+			border-color: #fff !important;
 		}
 
 		.page-header .button:hover,
@@ -364,7 +370,7 @@ function marketify_header_css() {
 		.page-header a.edd-submit.button:hover, 
 		.page-header a.edd-submit.button:visited:hover,
 		.page-header .edd-submit.button.gray:hover,
-		.edd-add-to-cart.button.edd-submit:hover {
+		.page-header .edd-add-to-cart.button.edd-submit:hover {
 			background-color: #fff;
 		}
 

@@ -318,7 +318,13 @@ input[type="email"],
 input[type="url"],
 input[type="password"],
 input[type="search"],
-textarea {
+textarea,
+div.fes-form fieldset .fes-fields input[type=text], 
+div.fes-form fieldset .fes-fields input[type=password], 
+div.fes-form fieldset .fes-fields input[type=email], 
+div.fes-form fieldset .fes-fields input[type=url], 
+div.fes-form fieldset .fes-fields input[type=number], 
+div.fes-form fieldset .fes-fields textarea {
 	line-height: 25px;
 	color: #515a63;
 	padding: 10px;
@@ -326,6 +332,7 @@ textarea {
 	border: 1px solid #bdc3c7;
 	display: block;
 	width: 100%;
+	box-shadow: none;
 
 	-webkit-box-sizing: border-box;
 	-moz-box-siding:    border-box;
@@ -379,7 +386,9 @@ input[type="submit"],
 a.edd-submit.button, 
 a.edd-submit.button:visited,
 .edd-submit.button.gray,
-#edd-purchase-button {
+#edd-purchase-button,
+div.fes-form fieldset .fes-fields a.file-selector,
+div.fes-form .fes-submit input[type=submit] {
 	font: 800 13px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -403,6 +412,17 @@ a.edd-submit.button:visited:hover,
 .edd-submit.button.gray:hover,
 #edd-purchase-button:hover {
 	color: #fff;
+}
+
+a.button.purchased,
+a.button.purchased:hover {
+	font-size: 10px;
+	margin: 10px auto;
+	padding: 5px 10px;
+	display: block;
+	border-color: #bdc3c7;
+	color: #bdc3c7;
+	background: transparent;
 }
 
 /* Alignment */
@@ -485,7 +505,9 @@ a.edd-submit.button:visited:hover,
 .page-navigation:before,
 .page-navigation:after,
 .comment-navigation:before,
-.comment-navigation:after {
+.comment-navigation:after,
+.fes-menu ul:before,
+.fes-menu ul:after {
 	content: '';
 	display: table;
 }
@@ -507,7 +529,8 @@ a.edd-submit.button:visited:hover,
 .edd_downloads_list:after,
 .post-navigation:after,
 .page-navigation:after,
-.comment-navigation:after {
+.comment-navigation:after,
+.fes-menu ul:after {
 	clear: both;
 }
 
@@ -821,7 +844,8 @@ a.edd-submit.button:visited:hover,
 }
 
 .post-type-archive-download .site-content,
-.single-download .site-content {
+.single-download .site-content,
+.author.archive.archive-download .site-content {
 	margin-top: 0;
 }
 
@@ -853,6 +877,33 @@ a.edd-submit.button:visited:hover,
 .page .entry-content,
 .error-404 .page-content {
 	margin-top: 0;
+}
+
+.entry-content table,
+.comment-content table {
+	border-bottom: 1px solid #ededed;
+	color: #757575;
+	margin: 0 0 24px;
+	width: 100%;
+}
+
+.entry-content table caption,
+.comment-content table caption {
+	margin: 24px 0;
+}
+
+.entry-content td,
+.comment-content td {
+	border-top: 1px solid #ededed;
+	padding: 6px 10px 6px 0;
+}
+
+.entry-content th,
+.comment-content th {
+	font: 400 14px 'Montserrat', sans-serif;
+	color: #bdc3c7;
+	text-transform: uppercase;
+	padding: 6px 10px 6px 0;
 }
 
 .entry-content h2,
@@ -1375,8 +1426,11 @@ object {
 	padding: 25px;
 	border: 1px solid #bdc3c7;
 	background: #fff;
-	margin-left: 140px;
 	position: relative;
+}
+
+.comment.depth-1 .comment-content {
+	margin-left: 140px;
 }
 
 .comment-content:after {
@@ -1403,6 +1457,22 @@ object {
 	left: -16px;
 }
 
+.comment-list .children {
+	margin: 25px 0 0 140px;
+	padding: 0;
+	list-style: none;
+}
+
+.comment-list .children .comment-author.vcard img {
+	margin-top: 26px;
+	width: 40px;
+	height: 40px;
+}
+
+.comment-list .children .comment-content {
+	margin-left: 65px;
+}
+
 .comment-metadata {
 	font-size: 13px;
 	color: #82878e;
@@ -1424,7 +1494,8 @@ object {
 	word-wrap: break-word;
 }
 
-.comment-author .fn {
+.comment-author .fn,
+.comment-metadata .fn {
 	font: 400 10px 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 0.10em;
@@ -1433,6 +1504,10 @@ object {
 	text-align: center;
 }
 
+.comment-metadata .fn  {
+	font-size: 12px;
+	text-align: left;
+}
 .comment-author .fn a {
 	text-decoration: none;
 }
@@ -1898,6 +1973,12 @@ object {
 	margin-bottom: 0;
 }
 
+.download-single-widget .widget-description {
+	font-size: 13px;
+	display: block;
+	margin: -10px 0 0;
+}
+
 /** Product Details */
 .marketify_widget_download_details {
 	border: 0;
@@ -1924,19 +2005,21 @@ object {
 	text-decoration: none;
 	margin: 6px 0 4px;
 	display: block;
-	float: left;
 }
 
 .download-product-details .download-author .author-joined,
 .download-product-details .download-purchases,
-.download-product-details .download-comments {
+.download-product-details .download-comments,
+.download-product-details .download-ratings {
 	font-size: 13px;
 	color: #82878e;
 	float: left;
+	display: block;
 }
 
 .download-product-details .download-purchases,
-.download-product-details .download-comments {
+.download-product-details .download-comments,
+.download-product-details .download-ratings {
 	text-align: center;
 	padding: 30px 25px;
 	width: 49%;
@@ -1947,17 +2030,24 @@ object {
 	border-right: 1px solid #bdc3c7
 }
 
-.download-product-details .download-comments a {
+.download-product-details .download-comments a,
+.download-product-details .download-ratings a {
 	text-decoration: none;
 }
 
 .download-product-details .download-purchases strong,
-.download-product-details .download-comments strong {
+.download-product-details .download-comments strong,
+.download-product-details .download-ratings strong {
 	font: 800 21px/normal 'Montserrat', sans-serif;
 	color: #505965;
 	text-transform: uppercase;
 	display: block;
 	margin-bottom: 4px;
+}
+
+.download-product-details .download-ratings strong i {
+	font-size: 17px;
+	margin: 0 -2px;
 }
 
 /** Cart */
@@ -1978,11 +2068,17 @@ object {
 	background: #fbfbfb;
 }
 
+.marketify_widget_download_share iframe:first-child {
+	width: 100% important;
+	display: block;
+}
+
 /* =EDD
 ----------------------------------------------- */
 
 #edd_checkout_cart a.edd-cart-saving-button {
 	font-weight: 800;
+	margin-left: 5px;
 }
 
 .edd-submit.button:active {
@@ -1999,6 +2095,7 @@ object {
 
 .edd_form label,
 .edd-label,
+.fes-label,
 .comment-form label {
 	font: 800 16px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
@@ -2242,6 +2339,101 @@ object {
 
 .edd-slg-social-login-windowslive {
 	background: #0072C6;
+}
+
+/* =FES
+----------------------------------------------- */
+
+#wraper .fes-menu nav {
+	margin: -20px 0 55px;
+	border-bottom: 3px solid #bdc3c7;
+	background: none;
+}
+
+#wraper nav ul li:hover {
+	background: none;
+}
+
+#wrapper .fes-menu nav li a,
+#wraper nav > ul > li > a {
+	font: 400 14px 'Montserrat', sans-serif;
+	color: #bdc3c7;
+	text-transform: uppercase;
+	text-decoration: none;
+	margin: 0 0 -3px;
+	padding: 14px 20px;
+	border: 3px solid transparent;
+	border-width: 3px 3px 0;
+	display: block;
+}
+
+#wrapper .fes-menu nav li.active a,
+#wraper nav ul li.active a {
+	border-color: #bdc3c7;
+	background: #fff;
+}
+
+#wraper nav ul li.active {
+	background: none;
+}
+
+.fes-menu [class*=" icon-"] {
+	display: none !important;
+}
+
+/** Form */
+
+.fes-form {
+
+}
+
+div.fes-form fieldset {
+	padding: 0;
+	margin-bottom: 35px;
+}
+
+div.fes-form fieldset .fes-label {
+	font-size: 95%;
+	float: none;
+	width: auto;
+}
+
+div.fes-form fieldset .fes-fields {
+	float: none;
+	width: auto;
+}
+
+div.fes-form fieldset .fes-fields textarea#post_content {
+	height: 250px;
+}
+
+div.fes-form fieldset .fes-fields a.file-selector {
+	height: auto;
+	display: inline-block;
+	box-shadow: none;
+	text-shadow: none;
+	border-color: #bdc3c7;
+	color: #bdc3c7;
+}
+
+div.fes-form .fes-submit input[type=submit] {
+	font-size: 16px;
+	box-shadow: none;
+	padding: 14px 20px;
+	width: 100%;
+	display: block;
+}
+
+div.fes-form fieldset .fes-fields a.file-selector:hover,
+div.fes-form .fes-submit input[type=submit]:hover {
+	color: #fff;
+	text-shadow: none;
+	background-image: none;
+	box-shadow: none;
+}
+
+.fes-menu .fes-submit {
+	float: none;
 }
 
 /* =Footer

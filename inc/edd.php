@@ -1,5 +1,52 @@
 <?php
 
+class Marketify_Author {
+	public function __construct() {
+		add_filter( 'query_vars', array( $this, 'query_vars' ) ); 
+		add_filter( 'generate_rewrite_rules', array( $this, 'rewrites' ) );
+		add_action( 'pre_get_posts', array( $this, 'filter_endpoints' ) );
+	}
+
+	public static function init() {
+		new self;
+	}
+
+	public function query_vars( $query_vars ) {
+		$query_vars[] = 'author_ptype';
+
+		return $query_vars;
+	}
+
+	public function rewrites() {
+		global $wp_rewrite;
+
+		$new_rules = array(
+			'author/([^/]+)/([^/]+)/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_ptype=' . $wp_rewrite->preg_index(2),
+		);
+
+		$wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
+
+		return $wp_rewrite->rules;
+	}
+
+	public function filter_endpoints( $query ) {
+		if ( is_admin() || ! $query->is_main_query() )
+			return;
+
+		$type = get_query_var( 'author_ptype' );
+
+		if ( ! $type )
+			return $query;
+
+		if ( ! in_array( $type, array( 'downloads' ) ) )
+			return $query;
+
+		$query->set( 'post_type', 'download' );
+		$query->set( 'is_author', true );
+	}
+}
+add_action( 'init', array( 'Marketify_Author', 'init' ), 100 );
+
 function marketify_download_price() {
 	global $post;
 

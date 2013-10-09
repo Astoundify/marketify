@@ -37,6 +37,8 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 		if ( $this->get_cached_widget( $args ) )
 			return;
 
+		global $post;
+
 		ob_start();
 
 		extract( $args );
@@ -59,14 +61,30 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 				</div>
 				
 				<div class="download-purchases">
-					<strong>3000</strong>
-					Purchases
+					<strong><?php echo edd_get_download_sales_stats( get_the_ID() ); ?></strong>
+					<?php echo _n( 'Purchase', 'Purchases', edd_get_download_sales_stats( get_the_ID() ), 'marketify' ); ?>
 				</div>
 				
-				<div class="download-comments">
-					<a href="#"><strong>450</strong>
-					Comments</a>
+				<?php if ( class_exists( 'EDD_Reviews' ) ) : ?>
+				<?php $rating = edd_reviews()->average_rating( false ); ?>
+				<div class="download-ratings">
+					<a href="#edd_reviews"><strong>
+						<?php for ( $i = 1; $i <= $rating; $i++ ) : ?>
+						<i class="icon-star"></i>
+						<?php endfor; ?>
+
+						<?php for( $i = 0; $i < ( 5 - $rating ); $i++ ) : ?>
+						<i class="icon-star-empty"></i>
+						<?php endfor; ?>
+					</strong>
+					<?php _e( 'Average Rating', 'marketify' ); ?></a>
 				</div>
+				<?php else : ?>
+				<div class="download-comments">
+					<a href="#comments"><strong><?php echo get_comments_number(); ?></strong>
+					<?php echo _n( 'Comment', 'Comments', get_comments_number(), 'marketify' ); ?></a>
+				</div>
+				<?php endif; ?>
 
 				<?php do_action( 'marketify_product_details_after', $instance ); ?>
 			</div>
