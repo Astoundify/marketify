@@ -379,6 +379,7 @@ input[type="submit"],
 .main-navigation a,
 .home-widget-title span,
 .section-title span,
+.fes-section-wrap h2,
 #edd_checkout_form_wrap fieldset > span legend,
 #edd_checkout_form_wrap fieldset#edd_cc_fields > span legend,
 .widget .cart_item.edd_checkout a,
@@ -766,7 +767,8 @@ a.button.purchased:hover {
 .section-title,
 .home-widget-title,
 #edd_checkout_form_wrap fieldset > span,
-#edd_checkout_form_wrap fieldset#edd_cc_fields > span {
+#edd_checkout_form_wrap fieldset#edd_cc_fields > span,
+.fes-section-wrap {
 	text-align: center;
 	width: 100%;
 	margin: 70px 0;
@@ -776,7 +778,8 @@ a.button.purchased:hover {
 .section-title:after,
 .home-widget-title:after,
 #edd_checkout_form_wrap fieldset > span:after,
-#edd_checkout_form_wrap fieldset#edd_cc_fields > span:after {
+#edd_checkout_form_wrap fieldset#edd_cc_fields > span:after,
+.fes-section-wrap:after {
 	content: ' ';
 	position: absolute;
 	left: 0;
@@ -789,7 +792,8 @@ a.button.purchased:hover {
 .section-title span,
 .home-widget-title span,
 #edd_checkout_form_wrap fieldset > span legend,
-#edd_checkout_form_wrap fieldset#edd_cc_fields > span legend {
+#edd_checkout_form_wrap fieldset#edd_cc_fields > span legend,
+.fes-section-wrap h2 {
 	font-size: 15px;
 	color: #bdc3c7;
 	text-align: center;
@@ -2434,6 +2438,15 @@ div.fes-form .fes-submit input[type=submit]:hover {
 
 .fes-menu .fes-submit {
 	float: none;
+}
+
+div.fes-form fieldset .fes-section-wrap {
+	margin: 70px 0 25px;
+	border-bottom: 0;
+}
+
+div.fes-form fieldset .fes-section-wrap .fes-section-details {
+	display: none;
 }
 
 /* =Footer
