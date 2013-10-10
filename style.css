@@ -324,7 +324,13 @@ div.fes-form fieldset .fes-fields input[type=password],
 div.fes-form fieldset .fes-fields input[type=email], 
 div.fes-form fieldset .fes-fields input[type=url], 
 div.fes-form fieldset .fes-fields input[type=number], 
-div.fes-form fieldset .fes-fields textarea {
+div.fes-form fieldset .fes-fields textarea,
+.entry-content .fes_form input[type=text], 
+.entry-content .fes_form input[type=password], 
+.entry-content .fes_form input[type=email], 
+.entry-content .fes_form input[type=url], 
+.entry-content .fes_form input[type=number], 
+.entry-content .fes_form textarea {
 	line-height: 25px;
 	color: #515a63;
 	padding: 10px;
@@ -333,6 +339,7 @@ div.fes-form fieldset .fes-fields textarea {
 	display: block;
 	width: 100%;
 	box-shadow: none;
+	border: 0;
 
 	-webkit-box-sizing: border-box;
 	-moz-box-siding:    border-box;
@@ -916,7 +923,8 @@ a.button.purchased:hover {
 .comment-reply-title,
 .entry-content .edd-slg-social-container legend,
 .page-template-page-templatesminimal-php .entry-title,
-.page-template-page-templatesteam-php .byline  {
+.page-template-page-templatesteam-php .byline,
+.fes_header {
 	font: 800 16px 'Montserrat', sans-serif;
 	color: #515a63;
 	letter-spacing: 0.10em;
@@ -2100,6 +2108,7 @@ object {
 .edd_form label,
 .edd-label,
 .fes-label,
+.fes_form label,
 .comment-form label {
 	font: 800 16px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
@@ -2447,6 +2456,28 @@ div.fes-form fieldset .fes-section-wrap {
 
 div.fes-form fieldset .fes-section-wrap .fes-section-details {
 	display: none;
+}
+
+/** Other */
+
+.minimal .fes_header {
+	color: #fff;
+	text-align: center;
+	margin: 1em 0 3em;
+}
+
+.entry-content .fes_form table {
+	border: 0;
+}
+
+.fes_form td {
+	border: 0;
+	padding: 0;
+	display: block;
+}
+
+.fes_form td:last-child {
+	margin-bottom: 1.75em;
 }
 
 /* =Footer
