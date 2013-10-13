@@ -43,8 +43,8 @@ Marketify.App = ( function($) {
 
 	function skipLink() {
 		var is_webkit = navigator.userAgent.toLowerCase().indexOf( 'webkit' ) > -1,
-		    is_opera  = navigator.userAgent.toLowerCase().indexOf( 'opera' )  > -1,
-		    is_ie     = navigator.userAgent.toLowerCase().indexOf( 'msie' )   > -1;
+			is_opera  = navigator.userAgent.toLowerCase().indexOf( 'opera' )  > -1,
+			is_ie     = navigator.userAgent.toLowerCase().indexOf( 'msie' )   > -1;
 
 		if ( ( is_webkit || is_opera || is_ie ) && 'undefined' !== typeof( document.getElementById ) ) {
 			var eventMethod = ( window.addEventListener ) ? 'addEventListener' : 'attachEvent';
@@ -149,9 +149,32 @@ Marketify.Widgets = ( function($) {
 		});
 	}
 
+	function widget_woothemes_testimonials() {
+		var quotes = $('.individual-testimonial');
+
+		quotes.find( ':first-child, :nth-child(2n)' ).addClass( 'active' );
+
+		function cycleQuotes () {
+			var current = quotes.filter(".active"), next;
+			
+			if (current.length == 0 || (next = current.next().next()).length == 0 ) {
+				next = quotes.slice(0,2);
+			}
+			
+			current.removeClass( 'active' ).fadeOut(400).promise().done(function(){
+				next.addClass( 'active' ).fadeIn(); 
+			});
+
+			setTimeout(cycleQuotes,3000);
+		}
+		
+		cycleQuotes();
+	}
+
 	return {
 		init : function() {
 			marketify_widget_featured_popular();
+			widget_woothemes_testimonials();
 		}
 	}
 

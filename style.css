@@ -339,7 +339,6 @@ div.fes-form fieldset .fes-fields textarea,
 	display: block;
 	width: 100%;
 	box-shadow: none;
-	border: 0;
 
 	-webkit-box-sizing: border-box;
 	-moz-box-siding:    border-box;
@@ -396,7 +395,8 @@ a.edd-submit.button:visited,
 .edd-submit.button.gray,
 #edd-purchase-button,
 div.fes-form fieldset .fes-fields a.file-selector,
-div.fes-form .fes-submit input[type=submit] {
+div.fes-form .fes-submit input[type=submit],
+.entry-content div.fes-form fieldset .fes-fields a.file-selector {
 	font: 800 13px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -500,8 +500,8 @@ a.button.purchased:hover {
 .widget-most-recent:before,
 .widget-related-entries:after,
 .widget-most-recent:after,
-.marketify_widget_download_details .download-author:before,
-.marketify_widget_download_details .download-author:after,
+.download-author:before,
+.download-author:after,
 .download-product-details:before,
 .download-product-details:after,
 .content-grid-download .entry-meta:before,
@@ -515,7 +515,9 @@ a.button.purchased:hover {
 .comment-navigation:before,
 .comment-navigation:after,
 .fes-menu ul:before,
-.fes-menu ul:after {
+.fes-menu ul:after,
+.fix:before,
+.fix:after {
 	content: '';
 	display: table;
 }
@@ -531,14 +533,15 @@ a.button.purchased:hover {
 .edd-cart-item:after
 .widget-related-entries:after,
 .widget-most-recent:after,
-.marketify_widget_download_details .download-author:after,
+.download-author:after,
 .download-product-details:after,
 .content-grid-download .entry-meta:after,
 .edd_downloads_list:after,
 .post-navigation:after,
 .page-navigation:after,
 .comment-navigation:after,
-.fes-menu ul:after {
+.fes-menu ul:after,
+.fix:after {
 	clear: both;
 }
 
@@ -800,7 +803,7 @@ a.button.purchased:hover {
 .home-widget-title span,
 #edd_checkout_form_wrap fieldset > span legend,
 #edd_checkout_form_wrap fieldset#edd_cc_fields > span legend,
-.fes-section-wrap h2 {
+.entry-content .fes-section-wrap h2 {
 	font-size: 15px;
 	color: #bdc3c7;
 	text-align: center;
@@ -855,8 +858,7 @@ a.button.purchased:hover {
 }
 
 .post-type-archive-download .site-content,
-.single-download .site-content,
-.author.archive.archive-download .site-content {
+.single-download .site-content {
 	margin-top: 0;
 }
 
@@ -919,7 +921,7 @@ a.button.purchased:hover {
 
 .entry-content h2,
 .download-single-widget-title,
-.marketify_widget_download_details .download-author a,
+.download-author a,
 .comment-reply-title,
 .entry-content .edd-slg-social-container legend,
 .page-template-page-templatesminimal-php .entry-title,
@@ -1791,12 +1793,13 @@ object {
 	display: inline-block;
 }
 
-.feature img {
+.feature.feature-large img {
 	width: 50%;
 	height: 50%;
 }
 
-.feature-title {
+.feature-title,
+.individual-testimonial .author {
 	font: 800 16px 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 0.10em;
@@ -1811,22 +1814,101 @@ object {
 	color: #515a63;
 	line-height: 1.75;
 	margin: 1.5em 0 0;
+	clear: both;
 }
 
-.woothemes-feature.secondary {
+.feature-mini {
+	text-align: left;
+}
 
+.feature-mini h3,
+.feature-mini a:first-child {
+	font-size: 16px;
+	margin: 0;
+	float: left;
+	clear: none;
+}
+
+.feature-mini h3 {
+	margin: 3px 0 0 10px;
+}
+
+.feature-mini .feature-content {
+	margin: 2.75em 0 0;
 }
 
 /** Testimonials */
-.widget_woothemes_testimonials {
-	text-align: center;
-}
-
 .company-testimonial {
+	text-align: center;
 	display: inline-block;
 	margin: 0 40px;
 }
 
+.testimonials-text {
+	font-weight: 300;
+	font-size: 20px;
+	font-style: italic;
+	line-height: 25px;
+	margin: 0 0 30px;
+	padding: 0;
+}
+
+.individual-testimonial {
+	margin-bottom: 4em;
+	clear: both;
+	display: none;
+}
+
+.individual-testimonial:last-child {
+	margin-bottom: 0;
+}
+
+.individual-testimonial .testimonials-text {
+	margin-left: 27px;
+}
+
+.individual-testimonial .testimonials-text:before,
+.individual-testimonial .testimonials-text:after {
+	color: #bdc3c7;
+	content: '\275e';
+}
+
+.individual-testimonial .testimonials-text:before {
+	top: -2px;
+	left: 0;
+	position: absolute;
+	font-size: 30px;
+
+	-webkit-transform: rotate(-180deg);
+	-moz-transform:    rotate(-180deg);
+	transform:         rotate(-180deg);
+}
+
+.individual-testimonial .avatar-link,
+.individual-testimonial .author {
+	float: left;
+}
+
+.individual-testimonial .avatar-link {
+	margin-left: 27px;
+	margin-right: 20px;
+}
+
+.individual-testimonial .avatar-link img {
+	border-radius: 50%;
+}
+
+.individual-testimonial .author {
+	margin-top: 1em;
+}
+
+.individual-testimonial .author .excerpt {
+	font: 400 15px 'Source Sans Pro', sans-serif;
+	text-transform: none;
+	letter-spacing: 0;
+	margin-top: 5px;
+	display: block;
+}
 
 /* Download Archive Widgets
 ----------------------------------------------- */
@@ -2001,19 +2083,22 @@ object {
 	padding: 0;
 }
 
-.marketify_widget_download_details .download-author {
+.download-author,
+.download-author-bio,
+.download-author-social,
+.download-author-sales {
 	margin: 0;
 	padding: 25px;
 	border-bottom: 1px solid #bdc3c7
 }
 
-.marketify_widget_download_details .download-author img {
+.download-author img {
 	margin-right: 20px;
 	border-radius: 50%;
 	float: left;
 }
 
-.marketify_widget_download_details .download-author .author-link {
+.download-author .author-link {
 	text-decoration: none;
 	margin: 6px 0 4px;
 	display: block;
@@ -2022,16 +2107,17 @@ object {
 .download-product-details .download-author .author-joined,
 .download-product-details .download-purchases,
 .download-product-details .download-comments,
-.download-product-details .download-ratings {
+.download-product-details .download-ratings,
+.download-product-details .download-author-sales {
 	font-size: 13px;
 	color: #82878e;
-	float: left;
 	display: block;
 }
 
 .download-product-details .download-purchases,
 .download-product-details .download-comments,
-.download-product-details .download-ratings {
+.download-product-details .download-ratings,
+.download-product-details .download-author-sales {
 	text-align: center;
 	padding: 30px 25px;
 	width: 49%;
@@ -2049,7 +2135,8 @@ object {
 
 .download-product-details .download-purchases strong,
 .download-product-details .download-comments strong,
-.download-product-details .download-ratings strong {
+.download-product-details .download-ratings strong,
+.download-product-details .download-author-sales strong {
 	font: 800 21px/normal 'Montserrat', sans-serif;
 	color: #505965;
 	text-transform: uppercase;
@@ -2060,6 +2147,37 @@ object {
 .download-product-details .download-ratings strong i {
 	font-size: 17px;
 	margin: 0 -2px;
+}
+
+.download-product-details.author-archive .download-author {
+	padding: 20px;
+}
+
+.download-product-details.author-archive .author-link {
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.download-product-details.author-archive img {
+	margin-right: 10px;
+}
+
+.download-author-social {
+	text-align: center;
+	border-bottom: 0;
+}
+
+.download-author-bio {
+	line-height: 25px;
+}
+
+.download-author-social a {
+	font-size: 20px;
+}
+
+.download-product-details .download-author-sales {
+	float: none;
+	width: 100%;
 }
 
 /** Cart */
@@ -2420,12 +2538,12 @@ div.fes-form fieldset .fes-fields textarea#post_content {
 	height: 250px;
 }
 
-div.fes-form fieldset .fes-fields a.file-selector {
+.entry-content div.fes-form fieldset .fes-fields a.file-selector {
 	height: auto;
 	display: inline-block;
 	box-shadow: none;
 	text-shadow: none;
-	border-color: #bdc3c7;
+	border: 2px solid #bdc3c7 !important;
 	color: #bdc3c7;
 }
 
@@ -2456,6 +2574,11 @@ div.fes-form fieldset .fes-section-wrap {
 
 div.fes-form fieldset .fes-section-wrap .fes-section-details {
 	display: none;
+}
+
+.fes-el.radio_group label,
+.fes-el.checkbox_group label {
+	display: block;
 }
 
 /** Other */
@@ -2806,6 +2929,17 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 
 	.site-footer.light .site-info {
 		border-top: 1px solid #bdc3c7;
+	}
+
+	/** Testimonials */
+	.individual-testimonial {
+		float: left;
+		clear: none;
+		margin-bottom: 0;
+	}
+
+	.individual-testimonial .testimonials-text {
+		max-width: 90%;
 	}
 }
 

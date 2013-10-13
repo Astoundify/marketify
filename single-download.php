@@ -22,13 +22,10 @@ get_header(); ?>
 		</div>
 
 		<div class="featured-image container">
-			<?php if ( 'audio' == get_post_format( get_the_ID() ) ) : ?>
-				<?php
-					$attachments = get_attached_media( 'audio', $post->ID );
-					$media       = wp_get_attachment_url( current( $attachments )->ID );
-
-					echo do_shortcode( '[audio src="' . $media . '"][/audio]' );
-				?>
+			<?php if ( 'audio' == get_post_format() ) : ?>
+				<?php marketify_download_audio_player(); ?>
+			<?php elseif ( 'video' == get_post_format() ) : ?>
+				<?php marketify_download_video_player(); ?>
 			<?php else : ?>
 				<?php the_post_thumbnail( 'fullsize' ); ?>
 			<?php endif; ?>

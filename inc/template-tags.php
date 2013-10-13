@@ -7,6 +7,108 @@
  * @package Marketify
  */
 
+function marketify_download_video_player() {
+	global $post;
+
+	$field = apply_filters( 'marketify_video_field', 'video' );
+	$video = get_post_meta( $post->ID, $field, true );
+
+	$oembed = wp_oembed_get( $video );
+
+	if ( $oembed ) {
+		global $wp_embed;
+
+		$output = $wp_embed->run_shortcode( '[embed]' . $video . '[/embed]' );
+	} else {
+		$file = wp_get_attachment_url( $video );
+		$info = wp_check_filetype( $file );
+
+		$output = do_shortcode( sprintf( '[video %s="%s"]', $info[ 'ext' ], $video ) );
+	}
+	?>
+		<div class="download-video"><?php echo $output; ?></div>
+	<?php
+}
+
+function marketify_download_audio_player() {
+	global $post;
+
+	$download_id = $post->ID;
+
+	wp_enqueue_style( 'jplayer', get_template_directory_uri() . '/css/jplayer.css' );
+	wp_enqueue_script( 'jplayer', get_template_directory_uri() . '/js/jquery.jplayer.min.js', array( 'jquery' ) );
+	wp_enqueue_script( 'jplaylist', get_template_directory_uri() . '/js/jplayer.playlist.min.js' );
+
+	$attachments = get_attached_media( 'audio', $download_id );
+	$audio       = array();
+	$exts        = array();
+
+	//print_r( $attachments );
+
+	foreach ( $attachments as $attachment ) {
+		$file = wp_get_attachment_url( $attachment->ID );
+		$info = wp_check_filetype( $file );
+
+		if ( ! in_array( $info[ 'ext' ], $exts ) )
+			$exts[] = $info[ 'ext' ];
+
+		$audio[] = array(
+			'title'          => get_the_title( $attachment->ID ),
+			$info[ 'ext' ]   => $file
+		);
+	}
+	?>
+	<script type="text/javascript">
+		//<![CDATA[
+		jQuery(document).ready(function($){
+			new jPlayerPlaylist({
+				jPlayer: "#jplayer_<?php echo $download_id; ?>",
+				cssSelectorAncestor: "#jp_container_<?php echo $download_id; ?>"
+			}, <?php echo json_encode( $audio ); ?>, {
+				swfPath        : "<?php echo get_template_directory_uri(); ?>/js",
+				supplied       : "<?php echo implode( ', ', $exts ); ?>",
+				wmode          : "window",
+				smoothPlayBar  : true,
+				keyEnabled     : true
+			});
+		});
+		//]]>
+		</script>
+
+	<div id="jplayer_<?php echo $download_id; ?>" class="jp-jplayer"></div>
+
+	<div id="jp_container_<?php echo $download_id; ?>" class="jp-audio">
+		<div class="jp-type-playlist">
+			<div class="jp-playlist">
+				<ul>
+					<li></li>
+				</ul>
+			</div>
+			<div class="jp-gui jp-interface">
+				<ul class="jp-controls">
+					<li><a href="javascript:;" class="jp-previous" tabindex="1"><i class="icon-fast-backward"></i></a></li>
+					<li><a href="javascript:;" class="jp-play" tabindex="1"><i class="icon-play"></i></a></li>
+					<li><a href="javascript:;" class="jp-pause" tabindex="1"><i class="icon-pause"></i></a></li>
+					<li><a href="javascript:;" class="jp-next" tabindex="1"><i class="icon-fast-forward"></i></a></li>
+				</ul>
+				<div class="jp-progress">
+					<div class="jp-seek-bar">
+						<div class="jp-play-bar"></div>
+					</div>
+				</div>
+				<div class="jp-volume-bar">
+					<div class="jp-volume-bar-value"></div>
+				</div>
+			</div>
+			<div class="jp-no-solution">
+				<span>Update Required</span>
+				To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+			</div>
+		</div>
+	</div>
+	<?php
+}
+
 function marketify_purchase_link( $download_id ) {
 	global $post, $edd_options;
 

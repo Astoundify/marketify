@@ -331,7 +331,7 @@ function marketify_header_css() {
 		.edd-add-to-cart.button.edd-submit:hover,
 		.edd_go_to_checkout.button.edd-submit:hover,
 		#edd_checkout_form_wrap fieldset#edd_cc_fields > span legend,
-		div.fes-form fieldset .fes-fields a.file-selector:hover {
+		.entry-content div.fes-form fieldset .fes-fields a.file-selector:hover {
 			border-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 		}
 
