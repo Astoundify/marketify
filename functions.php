@@ -78,10 +78,10 @@ function marketify_remove_post_formats() {
 add_action( 'init', 'marketify_remove_post_formats' );
 
 function marketify_before_shim() {
-	if ( ! ( is_singular( array( 'page', 'post' ) ) || is_page_template( 'page-templates/home.php' ) ) )
-		return;
-
 	global $post;
+
+	if ( ! marketify_has_header_background() )
+		return;
 
 	$background = null;
 
@@ -93,18 +93,28 @@ function marketify_before_shim() {
 add_action( 'before', 'marketify_before_shim' );
 
 function marketify_before_shim_css() {
-	if ( ! ( is_singular( array( 'page', 'post' ) ) || is_page_template( 'page-templates/home.php' ) ) )
-		return;
-
 	global $post;
+
+	if ( ! marketify_has_header_background() )
+		return;
 
 	$background = wp_get_attachment_image_src( get_post_thumbnail_id() );
 
 	if ( $background ) {
-		wp_add_inline_style( 'marketify-base', '.site-header, .page-template-page-templateshome-php .page-header { background-color: transparent; }' );
+		wp_add_inline_style( 'marketify-base', '.site-header, .page-template-page-templateshome-php .page-header, .single-download .page-header { background-color: transparent; }' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'marketify_before_shim_css', 11 );
+
+function marketify_has_header_background() {
+	global $post;
+
+	return apply_filters( 'marketify_has_header_background', ( 
+		( is_singular( 'download' ) && 'video' == get_post_format() ) || 
+		is_singular( array( 'page', 'post' ) ) || 
+		is_page_template( 'page-templates/home.php' )
+	) );
+}
 
 function marketify_entry_page_title() {
 	the_post();
@@ -145,6 +155,8 @@ function marketify_widgets_init() {
 	register_widget( 'Marketify_Widget_Featured_Popular_Downloads' );
 	register_widget( 'Marketify_Widget_Download_Details' );
 	register_widget( 'Marketify_Widget_Download_Share' );
+	register_widget( 'Marketify_Widget_Price_Table' );
+	register_widget( 'Marketify_Widget_Price_Option' );
 
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', 'marketify' ),
@@ -156,7 +168,7 @@ function marketify_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => __( 'Download Archive Sidebar', 'marketify' ),
+		'name'          => sprintf( __( '%s Archive Sidebar', 'marketify' ), edd_get_label_singular() ),
 		'id'            => 'sidebar-download',
 		'before_widget' => '<aside id="%1$s" class="widget download-archive-widget %2$s">',
 		'after_widget'  => '</aside>',
@@ -165,7 +177,7 @@ function marketify_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => __( 'Download Single Sidebar', 'marketify' ),
+		'name'          => sprintf( __( '%s Single Sidebar', 'marketify' ), edd_get_label_singular() ),
 		'id'            => 'sidebar-download-single',
 		'before_widget' => '<aside id="%1$s" class="widget download-single-widget %2$s">',
 		'after_widget'  => '</aside>',
@@ -174,7 +186,7 @@ function marketify_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => __( 'Homepage 1', 'marketify' ),
+		'name'          => __( 'Homepage', 'marketify' ),
 		'description'   => __( 'Widgets that appear on the "Homepage 1" Page Template', 'marketify' ),
 		'id'            => 'home-1',
 		'before_widget' => '<aside id="%1$s" class="home-widget %2$s">',
@@ -183,31 +195,33 @@ function marketify_widgets_init() {
 		'after_title'   => '</span></h1>',
 	) );
 
+	$the_sidebars = wp_get_sidebars_widgets();
+	$count        = count( $the_sidebars[ 'footer-1' ] );
+	$count        = floor( 12 / $count );
+
 	register_sidebar( array(
 		'name'          => __( 'Footer', 'marketify' ),
 		'description'   => __( 'Widgets that appear in the page footer', 'marketify' ),
 		'id'            => 'footer-1',
-		'before_widget' => '<aside id="%1$s" class="footer-widget %2$s">',
+		'before_widget' => '<aside id="%1$s" class="footer-widget %2$s col-md-' . $count . '">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h1 class="footer-widget-title">',
 		'after_title'   => '</h1>',
 	) );
+
+
+	$count = count( $the_sidebars[ 'widget-area-price-options' ] );
+	$count = floor( 12 / $count );
+
+	register_sidebar( array(
+		'name'          => __( 'Price Table', 'marketify' ),
+		'id'            => 'widget-area-price-options',
+		'description'   => __( 'Drag multiple "Price Option" widgets here. Then drag the "Pricing Table" widget to the "Homepage" Widget Area.', 'marketify' ),
+		'before_widget' => '<div id="%1$s" class="pricing-table-widget %2$s col-lg-' . $count . ' col-md-6">',
+		'after_widget'  => '</div>'
+	) );
 }
 add_action( 'widgets_init', 'marketify_widgets_init' );
-
-function marketify_dynamic_sidebar_params( $params ) {
-	if ( 'footer-1' !== $params[0][ 'id' ] )
-		return $params;
-	
-	$the_sidebars = wp_get_sidebars_widgets();
-	$count        = count( $the_sidebars[ 'footer-1' ] );
-	$count        = 12 / $count;
-
-	$params[0][ 'before_widget' ] = str_replace( '">', ' col-md-' . $count . '">', $params[0][ 'before_widget' ] );
-	
-	return $params;
-}
-add_filter( 'dynamic_sidebar_params', 'marketify_dynamic_sidebar_params' );
 
 /**
  * Returns the Google font stylesheet URL, if available.
@@ -430,6 +444,12 @@ function marketify_woothemes_testimonials_item_template_individual( $template, $
 	return '<div id="quote-%%ID%%" class="%%CLASS%% individual-testimonial col-md-6 col-sm-12"><blockquote class="testimonials-text">%%TEXT%%</blockquote>%%AVATAR%% %%AUTHOR%%<div class="fix"></div></div>';
 }
 
+function marketify_download_author_before_zilla() {
+	if ( function_exists( 'zilla_likes' ) ) 
+		zilla_likes();
+}
+add_action( 'marketify_download_author_before', 'marketify_download_author_before_zilla' );
+
 /**
  * EDD
  */
@@ -469,3 +489,5 @@ require get_template_directory() . '/inc/widgets/class-widget-downloads-recent.p
 require get_template_directory() . '/inc/widgets/class-widget-featured-popular.php';
 require get_template_directory() . '/inc/widgets/class-widget-download-details.php';
 require get_template_directory() . '/inc/widgets/class-widget-download-share.php';
+require get_template_directory() . '/inc/widgets/class-widget-price-option.php';
+require get_template_directory() . '/inc/widgets/class-widget-price-table.php';

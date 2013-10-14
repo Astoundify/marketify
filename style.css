@@ -405,6 +405,10 @@ div.fes-form .fes-submit input[type=submit],
 	border: 2px solid transparent;
 	background: transparent;
 	border-radius: 0;
+
+	-webkit-transition: all 0.2s;
+	-moz-transition:    all 0.2s;
+	transition:         all 0.2s;
 }
 
 button:hover,
@@ -1195,15 +1199,19 @@ a.button.purchased:hover {
 	padding-bottom: 0;
 }
 
-.single-download .featured-image {
-	max-height: 400px;
-	overflow: hidden;
-}
-
 .single-download .featured-image img {
 	margin: 0 auto;
 	max-width: 90%;
 	display: block;
+}
+
+.single-download .featured-image .download-video {
+	margin-bottom: 60px;
+}
+
+.single-download .featured-image .download-video video,
+.single-download .featured-image .download-video > div {
+	margin: 0 auto;
 }
 
 .download-actions,
@@ -1270,6 +1278,8 @@ a.button.purchased:hover {
 	z-index: 10;
 	background: transparent;
 	opacity: 0;
+	overflow: hidden;
+	border: 1px solid transparent;
 
 	-webkit-transition: all 0.3s;
 	-moz-transition:    all 0.3s;
@@ -1282,6 +1292,16 @@ a.button.purchased:hover {
 	top: 50%;
 	left: 50%;
 
+	-webkit-transition: all 0.3s;
+	-moz-transition:    all 0.3s;
+	transition:         all 0.3s;
+
+	-webkit-transform: translate(-50%, 10%);
+	-moz-transform:    translate(-50%, 10%);
+	transform:         translate(-50%, 10%);
+}
+
+.content-grid-download .entry-image:hover .actions {
 	-webkit-transform: translate(-50%, -50%);
 	-moz-transform:    translate(-50%, -50%);
 	transform:         translate(-50%, -50%);
@@ -1305,9 +1325,17 @@ a.button.purchased:hover {
 
 .content-grid-download .entry-image .item-price {
 	position: absolute;
-	top: 73%;
+	top: 100%;
 	left: 0;
 	width: 100%;
+
+	-webkit-transition: all 0.3s;
+	-moz-transition:    all 0.3s;
+	transition:         all 0.3s;
+}
+
+.content-grid-download .entry-image:hover .item-price {
+	top: 73%;
 }
 
 .content-grid-download .entry-image .item-price span {
@@ -1321,6 +1349,7 @@ a.button.purchased:hover {
 .content-grid-download .entry-image:hover .overlay {
 	opacity: 1;
 	background: rgba( 81, 90, 99, .82 );
+	border: 1px solid rgba( 81, 90, 99, .82 );
 }
 
 .content-grid-download .entry-header {
@@ -1361,6 +1390,10 @@ a.button.purchased:hover {
 
 .content-grid-download .entry-meta .star-rating {
 	float: right;
+}
+
+.content-grid-download .edd_purchase_tax_rate {
+	display: none;
 }
 
 
@@ -1910,6 +1943,55 @@ object {
 	display: block;
 }
 
+/** Pricing */
+.pricing-table-widget {
+	margin-bottom: 30px;
+}
+
+.pricing-table-option {
+	padding: 20px;
+}
+
+.pricing-table-widget-description {
+	color: #fff;
+	text-align: center;
+	padding: 20px;
+	border: 5px solid #fff;
+}
+
+.pricing-table-widget-description h2,
+.pricing-table-widget-description h3 {
+	font: 800 50px 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.10em;
+	margin: 0;
+}
+
+.pricing-table-widget-description h3 {
+	font-size: 13px;
+}
+
+.pricing-table-widget-description sup {
+	font-size: 28px;
+	font-weight: 400;
+}
+
+.pricing-table-widget-description ul {
+	margin: 20px 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.pricing-table-widget-description p,
+.pricing-table-widget-description li {
+	font-size: 16px;
+	line-height: 25px;
+}
+
+.pricing-table-widget-description li {
+	margin: 4px 0;
+}
+
 /* Download Archive Widgets
 ----------------------------------------------- */
 
@@ -2089,7 +2171,12 @@ object {
 .download-author-sales {
 	margin: 0;
 	padding: 25px;
-	border-bottom: 1px solid #bdc3c7
+	border-bottom: 1px solid #bdc3c7;
+	position: relative;
+}
+
+.download-author {
+	overflow: hidden;
 }
 
 .download-author img {
@@ -2908,6 +2995,67 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 
 .infinity-end.neverending .site-footer {
 	display: block;
+}
+
+/* =ZillaLikes
+----------------------------------------------- */
+
+.zilla-likes-count {
+	font-size: 0px;
+	position: relative;
+	z-index: 5;
+	visibility: hidden;
+	color: #ea626f;
+}
+
+.zilla-likes-count:before {
+	font-size: 16px;
+	content: '\2661';
+	visibility: visible;
+	margin: 6px 5px 0 0;
+	font-size: 18px;
+	width: auto;
+	text-align: right;
+}
+
+.zilla-likes.active .zilla-likes-count:before {
+	content: '\2665';
+}
+
+.content-grid-download .zilla-likes {
+	float: right;
+	position: relative;
+}
+
+.content-grid-download .zilla-likes:after,
+.download-author .zilla-likes:after {
+	background: #fff;
+	width: 100px;
+	height: 45px;
+	position: absolute;
+	right: -31px;
+	top: -26px;
+	content: ' ';
+
+	-webkit-transform: rotate(43deg);
+	-moz-transform:    rotate(43deg);
+	-ms-transform:     rotate(43deg);
+	transform:         rotate(43deg);
+}
+
+.download-author .zilla-likes {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+}
+
+.download-author .zilla-likes:after {
+	background-color: #bdc3c7;
+}
+
+.download-author .zilla-likes-count {
+	color: #fff;
 }
 
 /* =Responsive Suppliments

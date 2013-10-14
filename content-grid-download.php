@@ -7,6 +7,8 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'content-grid-download' ); ?>>
 	<div class="entry-image">
 		<div class="overlay">
+			<?php if ( function_exists( 'zilla_likes' ) ) zilla_likes(); ?>
+
 			<div class="actions">
 				<?php marketify_purchase_link( get_the_ID() ); ?>
 				<a href="<?php the_permalink(); ?>" rel="bookmark" class="button">Details</a>

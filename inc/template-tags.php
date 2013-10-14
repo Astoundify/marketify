@@ -43,8 +43,6 @@ function marketify_download_audio_player() {
 	$audio       = array();
 	$exts        = array();
 
-	//print_r( $attachments );
-
 	foreach ( $attachments as $attachment ) {
 		$file = wp_get_attachment_url( $attachment->ID );
 		$info = wp_check_filetype( $file );
@@ -101,8 +99,8 @@ function marketify_download_audio_player() {
 				</div>
 			</div>
 			<div class="jp-no-solution">
-				<span>Update Required</span>
-				To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+				<span><?php _e( 'Update Required', 'marketify' ); ?></span>
+				<?php _e( 'To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.', 'marketify' ); ?>
 			</div>
 		</div>
 	</div>

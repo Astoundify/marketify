@@ -33,6 +33,8 @@ get_header(); ?>
 		<?php rewind_posts(); ?>
 	</header><!-- .page-header -->
 
+	<?php echo 'video' == get_post_format() ? '</div>' : ''; ?>
+
 	<div class="container">
 		<div id="content" class="site-content row">
 
