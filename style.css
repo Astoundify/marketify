@@ -3012,7 +3012,7 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 	font-size: 16px;
 	content: '\2661';
 	visibility: visible;
-	margin: 6px 5px 0 0;
+	margin: 6px 6px 0 0;
 	font-size: 18px;
 	width: auto;
 	text-align: right;
@@ -3029,18 +3029,14 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 
 .content-grid-download .zilla-likes:after,
 .download-author .zilla-likes:after {
-	background: #fff;
-	width: 100px;
-	height: 45px;
+	width: 0;
+	height: 0;
 	position: absolute;
-	right: -31px;
-	top: -26px;
+	right: 0;
+	top: 0;
 	content: ' ';
-
-	-webkit-transform: rotate(43deg);
-	-moz-transform:    rotate(43deg);
-	-ms-transform:     rotate(43deg);
-	transform:         rotate(43deg);
+	border-top: 44px solid #fff;
+	border-left: 44px solid transparent;
 }
 
 .download-author .zilla-likes {
@@ -3051,11 +3047,15 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 }
 
 .download-author .zilla-likes:after {
-	background-color: #bdc3c7;
+	border-top-color: #bdc3c7;
 }
 
 .download-author .zilla-likes-count {
 	color: #fff;
+}
+
+.download-author .zilla-likes-count:before {
+	margin-right: 4px;
 }
 
 /* =Responsive Suppliments

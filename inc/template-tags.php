@@ -2,11 +2,49 @@
 /**
  * Custom template tags for this theme.
  *
- * Eventually, some of the functionality here could be replaced by core features
- *
  * @package Marketify
  */
 
+if ( ! function_exists( 'marketify_entry_author_social' ) ) :
+/**
+ * Social Links
+ *
+ * @since Marketify 1.0
+ *
+ * @return void
+ */
+function marketify_entry_author_social( $user_id = null ) {
+	global $post;
+
+	$methods = _wp_get_user_contactmethods();
+	$social  = array();
+
+	if ( ! $user_id )
+		$user_id = get_the_author_meta( 'ID' );
+
+	foreach ( $methods as $key => $method ) {
+		$field = get_the_author_meta( $key, $user_id );
+
+		if ( ! $field )
+			continue;
+
+		$social[ $key ] = sprintf( '<a href="%1$s" target="_blank"><i class="icon-%2$s"></i></a>', $field, $key );
+	}
+
+	$social = implode( ' ', $social );
+
+	return $social;
+}
+endif;
+
+if ( ! function_exists( 'marketify_download_video_player' ) ) :
+/**
+ * Download Video Player
+ *
+ * @since Marketify 1.0
+ *
+ * @return void
+ */
 function marketify_download_video_player() {
 	global $post;
 
@@ -29,7 +67,16 @@ function marketify_download_video_player() {
 		<div class="download-video"><?php echo $output; ?></div>
 	<?php
 }
+endif;
 
+if ( ! function_exists( 'marketify_download_audio_player' ) ) :
+/**
+ * Download Audio Player
+ *
+ * @since Marketify 1.0
+ *
+ * @return void
+ */
 function marketify_download_audio_player() {
 	global $post;
 
@@ -106,7 +153,16 @@ function marketify_download_audio_player() {
 	</div>
 	<?php
 }
+endif;
 
+if ( ! function_exists( 'marketify_purchase_link' ) ) :
+/**
+ * Download Purchase Link
+ *
+ * @since Marketify 1.0
+ *
+ * @return void
+ */
 function marketify_purchase_link( $download_id ) {
 	global $post, $edd_options;
 
@@ -120,7 +176,16 @@ function marketify_purchase_link( $download_id ) {
 		printf( '<a href="#buy-now-%s" class="button buy-now popup-trigger">%s</a>', $post->ID, $button );
 	}
 }
+endif;
 
+if ( ! function_exists( 'marketify_comment' ) ) :
+/**
+ * Comments
+ *
+ * @since Marketify 1.0
+ *
+ * @return void
+ */
 function marketify_comment( $comment, $args, $depth ) {
 	global $post;
 
@@ -180,7 +245,9 @@ function marketify_comment( $comment, $args, $depth ) {
 
 	<?php
 }
+endif;
 
+if ( ! function_exists( 'marketify_get_theme_menu' ) ) :
 /**
  * Get a nav menu object. 
  *
@@ -205,7 +272,9 @@ function marketify_get_theme_menu( $theme_location ) {
  
 	return $menu_obj;
 }
+endif;
 
+if ( ! function_exists( 'marketify_get_theme_menu_name' ) ) :
 /**
  * Get a nav menu name
  *
@@ -228,29 +297,7 @@ function marketify_get_theme_menu_name( $theme_location ) {
  
 	return $menu_obj->name;
 }
-
-function marketify_entry_author_social( $user_id = null ) {
-	global $post;
-
-	$methods = _wp_get_user_contactmethods();
-	$social  = array();
-
-	if ( ! $user_id )
-		$user_id = get_the_author_meta( 'ID' );
-
-	foreach ( $methods as $key => $method ) {
-		$field = get_the_author_meta( $key, $user_id );
-
-		if ( ! $field )
-			continue;
-
-		$social[ $key ] = sprintf( '<a href="%1$s" target="_blank"><i class="icon-%2$s"></i></a>', $field, $key );
-	}
-
-	$social = implode( ' ', $social );
-
-	return $social;
-}
+endif;
 
 if ( ! function_exists( 'marketify_content_nav' ) ) :
 /**

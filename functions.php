@@ -9,7 +9,7 @@
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) )
-	$content_width = 640; /* pixels */
+	$content_width = 750; /* pixels */
 
 if ( ! function_exists( 'marketify_setup' ) ) :
 /**
@@ -18,6 +18,10 @@ if ( ! function_exists( 'marketify_setup' ) ) :
  * Note that this function is hooked into the after_setup_theme hook, which runs
  * before the init hook. The init hook is too late for some features, such as indicating
  * support post thumbnails.
+ *
+ * @since Marketify 1.0
+ *
+ * @return void
  */
 function marketify_setup() {
 
@@ -72,82 +76,158 @@ function marketify_setup() {
 endif; // marketify_setup
 add_action( 'after_setup_theme', 'marketify_setup' );
 
+/**
+ * Remove Post Formats from Posts
+ *
+ * Since `add_theme_support( 'post-formats' )` cant specify a post type, we need
+ * to remove the formats from the standard post type as we just want downloads.
+ *
+ * @since Marketify 1.0
+ *
+ * @return void
+ */
 function marketify_remove_post_formats() {
 	 remove_post_type_support( 'post', 'post-formats' );
 }
 add_action( 'init', 'marketify_remove_post_formats' );
 
+/**
+ * Hip Header Start
+ *
+ * If the current page qualifies, add a wrapping div above everything else
+ * in order to create full width header backgrounds that cover the main
+ * header as well as extend below the page title.
+ *
+ * @since Marketify 1.0
+ *
+ * @return mixed
+ */
 function marketify_before_shim() {
 	global $post;
 
-	if ( ! marketify_has_header_background() )
+	if ( ! $background = marketify_has_header_background() )
 		return;
-
-	$background = null;
-
-	if ( has_post_thumbnail( $post->ID ) )
-		$background = wp_get_attachment_image_src( get_post_thumbnail_id(), 'fullsize' );
 
 	printf( '<div class="header-outer%2$s" style="background-image: url(%1$s);">', $background[0], $background ? ' custom-featured-image' : '' );
 }
 add_action( 'before', 'marketify_before_shim' );
 
+/**
+ * Hip Header End
+ *
+ * If the current page qualifies, end the hip header.
+ *
+ * @since Marketify 1.0
+ *
+ * @return mixed
+ */
+function marketify_entry_header_background_end() {
+	if ( ! marketify_has_header_background() )
+		return;
+
+	echo '</div><!-- .header-outer -->';
+}
+add_action( 'marketify_entry_before', 'marketify_entry_header_background_end', 100 );
+
+/**
+ * Hip Header CSS
+ *
+ * If the current page qualifies, add extra CSS so the hip header
+ * background shines through.
+ *
+ * @since Marketify 1.0
+ *
+ * @return mixed
+ */
 function marketify_before_shim_css() {
 	global $post;
 
 	if ( ! marketify_has_header_background() )
 		return;
 
-	$background = wp_get_attachment_image_src( get_post_thumbnail_id() );
-
-	if ( $background ) {
-		wp_add_inline_style( 'marketify-base', '.site-header, .page-template-page-templateshome-php .page-header, .single-download .page-header { background-color: transparent; }' );
-	}
+	wp_add_inline_style( 'marketify-base', '.site-header, .page-header { background-color: transparent; }' );
 }
 add_action( 'wp_enqueue_scripts', 'marketify_before_shim_css', 11 );
 
+/**
+ * Hip Header Qualification
+ *
+ * @since Marketify 1.0
+ *
+ * @return mixed boolean|string False if not qualified or no header, URL to image if one exists.
+ */
 function marketify_has_header_background() {
 	global $post;
 
-	return apply_filters( 'marketify_has_header_background', ( 
+	$_post = $post;
+
+	$is_correct = apply_filters( 'marketify_has_header_background', ( 
 		( is_singular( 'download' ) && 'video' == get_post_format() ) || 
 		is_singular( array( 'page', 'post' ) ) || 
-		is_page_template( 'page-templates/home.php' )
+		is_page_template( 'page-templates/home.php' ) ||
+		is_home()
 	) );
+
+	if ( ! $is_correct )
+		return false;
+
+	if ( is_home() ) {
+		$post = get_post( get_option( 'page_for_posts' ) );
+	}
+
+	$background = false;
+
+	if ( has_post_thumbnail( $post->ID ) )
+		$background = wp_get_attachment_image_src( get_post_thumbnail_id(), 'fullsize' );
+
+	$post = $_post;
+
+	return $background;
 }
 
+/**
+ * On posts and pages, add extra header information.
+ *
+ * @since Marketify 1.0
+ *
+ * @return void
+ */
 function marketify_entry_page_title() {
+	if ( ! is_singular( 'post', 'page' ) )
+		return;
+
 	the_post();
 ?>
+	<div class="entry-page-title container">
+		<?php get_template_part( 'content', 'author' ); ?>
 
-		<div class="entry-page-title container">
-			<?php get_template_part( 'content', 'author' ); ?>
+		<h1 class="entry-title"><?php the_title(); ?></h1>
 
-			<h1 class="entry-title"><?php the_title(); ?></h1>
+		<?php
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+			if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) )
+				$time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';
 
-			<?php
-				$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-				if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) )
-					$time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';
-
-				if ( is_singular( 'post' ) )
-					printf( $time_string,
-						esc_attr( get_the_date( 'c' ) ),
-						esc_html( get_the_date() ),
-						esc_attr( get_the_modified_date( 'c' ) ),
-						esc_html( get_the_modified_date() )
-					);
-			?>
-		</div>
-
-	</div><!-- .header-outer -->
+			if ( is_singular( 'post' ) )
+				printf( $time_string,
+					esc_attr( get_the_date( 'c' ) ),
+					esc_html( get_the_date() ),
+					esc_attr( get_the_modified_date( 'c' ) ),
+					esc_html( get_the_modified_date() )
+				);
+		?>
+	</div>
 <?php
 	rewind_posts();
 }
 add_action( 'marketify_entry_before', 'marketify_entry_page_title' );
 
 /**
- * Register widgetized area and update sidebar with default widgets
+ * Sidebars and Widgets
+ *
+ * @since Marketify 1.0
+ *
+ * @return void
  */
 function marketify_widgets_init() {
 	register_widget( 'Marketify_Widget_Slider' );
@@ -158,6 +238,7 @@ function marketify_widgets_init() {
 	register_widget( 'Marketify_Widget_Price_Table' );
 	register_widget( 'Marketify_Widget_Price_Option' );
 
+	/* Standard Sidebar */
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', 'marketify' ),
 		'id'            => 'sidebar-1',
@@ -167,6 +248,7 @@ function marketify_widgets_init() {
 		'after_title'   => '</span></h1>',
 	) );
 
+	/* Download Achive (archive-download.php) */
 	register_sidebar( array(
 		'name'          => sprintf( __( '%s Archive Sidebar', 'marketify' ), edd_get_label_singular() ),
 		'id'            => 'sidebar-download',
@@ -176,6 +258,7 @@ function marketify_widgets_init() {
 		'after_title'   => '</h1>',
 	) );
 
+	/* Download Single (single-download.php) */
 	register_sidebar( array(
 		'name'          => sprintf( __( '%s Single Sidebar', 'marketify' ), edd_get_label_singular() ),
 		'id'            => 'sidebar-download-single',
@@ -185,6 +268,7 @@ function marketify_widgets_init() {
 		'after_title'   => '</h1>',
 	) );
 
+	/* Custom Homepage */
 	register_sidebar( array(
 		'name'          => __( 'Homepage', 'marketify' ),
 		'description'   => __( 'Widgets that appear on the "Homepage 1" Page Template', 'marketify' ),
@@ -195,10 +279,14 @@ function marketify_widgets_init() {
 		'after_title'   => '</span></h1>',
 	) );
 
+	/*
+	 * Figure out how many columns the footer has
+	 */
 	$the_sidebars = wp_get_sidebars_widgets();
 	$count        = count( $the_sidebars[ 'footer-1' ] );
 	$count        = floor( 12 / $count );
 
+	/* Footer */
 	register_sidebar( array(
 		'name'          => __( 'Footer', 'marketify' ),
 		'description'   => __( 'Widgets that appear in the page footer', 'marketify' ),
@@ -209,10 +297,13 @@ function marketify_widgets_init() {
 		'after_title'   => '</h1>',
 	) );
 
-
+	/*
+	 * Figure out how many columns the price table has
+	 */
 	$count = count( $the_sidebars[ 'widget-area-price-options' ] );
 	$count = floor( 12 / $count );
 
+	/* Price Table */
 	register_sidebar( array(
 		'name'          => __( 'Price Table', 'marketify' ),
 		'id'            => 'widget-area-price-options',
@@ -279,6 +370,7 @@ function marketify_fonts_url() {
 			'family' => urlencode( implode( '|', $font_families ) ),
 			'subset' => urlencode( 'latin,latin-ext' ),
 		);
+
 		$fonts_url = add_query_arg( $query_args, "//fonts.googleapis.com/css" );
 	}
 
@@ -286,26 +378,43 @@ function marketify_fonts_url() {
 }
 
 /**
- * Enqueue scripts and styles
+ * Scripts and Styles
+ *
+ * Load Styles and Scripts depending on certain conditions. Not all assets
+ * will be loaded on every page.
+ *
+ * @since Marketify 1.0
+ *
+ * @return void
  */
 function marketify_scripts() {
+	/*
+	 * Styles
+	 */
+
+	/* Supplimentary CSS */
 	wp_enqueue_style( 'entypo', get_template_directory_uri() . '/css/entypo.css' );
 	wp_enqueue_style( 'magnific-popup', get_template_directory_uri() . '/css/magnific-popup.css' );
-
 	wp_enqueue_style( 'marketify-fonts', marketify_fonts_url() );
 	wp_enqueue_style( 'marketify-grid', get_template_directory_uri() . '/css/bootstrap.css' );
+
+	/* Custom CSS */
 	wp_enqueue_style( 'marketify-base', get_stylesheet_uri() );
 	
+	/*
+	 * Scripts
+	 */
+
+	/* Comments */
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	if ( is_singular() && wp_attachment_is_image() ) {
-		wp_enqueue_script( 'marketify-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
-	}
-
+	/* Supplimentary Scripts */
 	wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/js/jquery.flexslider-min.js', array( 'jquery' ), '20130916' );
 	wp_enqueue_script( 'magnific-popup', get_template_directory_uri() . '/js/jquery.magnific-popup.min.js', array( 'jquery' ), '20130916' );
+
+	/** Custom JS */
 	wp_enqueue_script( 'marketify', get_template_directory_uri() . '/js/marketify.js', array( 'jquery' ), '20130916' );
 
 	/** Misc Support */
@@ -314,49 +423,10 @@ function marketify_scripts() {
 add_action( 'wp_enqueue_scripts', 'marketify_scripts' );
 
 /**
- * Check if we are a standard Easy Digital Download install,
- * or a multi-vendor marketplace.
+ * Features by WooThemes
  *
- * @since Marketify 1.0
- *
- * @return boolean
- */
-function marketify_is_multi_vendor() {
-	if ( ! class_exists( 'Easy_Digital_Downloads' ) )
-		return false;
-
-	if ( false === ( $is_multi_vendor = get_transient( 'marketify_is_multi_vendor' ) ) ) {
-		$vendors = get_users( array(
-			'role' => 'shop_vendor'
-		) );
-
-		print_r( $vendors );
-
-		$total = count( $vendors );
-		$is_multi_vendor = $total > 0 ? true : false;
-
-		set_transient( 'marketify_is_multi_vendor', $is_multi_vendor );
-	}
-
-	return $is_multi_vendor;
-}
-
-/**
- * When a user is updated, or created, clear the multi vendor
- * cache check.
- *
- * @since Marketify 1.0
- *
- * @return void
- */
-function __marketify_clear_multi_vendor_cache() {
-	delete_transient( 'marketify_is_multi_vendor' );
-}
-add_action( 'profile_update', '__marketify_clear_multi_vendor_cache' );
-add_action( 'user_register',  '__marketify_clear_multi_vendor_cache' );
-
-/**
- * 
+ * Depending on the settings of the features widgets, apply a filter to
+ * the output.
  *
  * @since Marketify 1.0
  *
@@ -377,29 +447,32 @@ function marketify_woothemes_features_item( $widget ) {
 add_action( 'dynamic_sidebar', 'marketify_woothemes_features_item' );
 
 /**
- * 
+ * Standard Features
  *
  * @since Marketify 1.0
  *
- * @return void
+ * @return string
  */
 function marketify_woothemes_features_item_template( $template, $args ) {
 	return '<div class="%%CLASS%% col-lg-4 col-sm-6 col-xs-12 feature-large">%%IMAGE%%<h3 class="feature-title">%%TITLE%%</h3><div class="feature-content">%%CONTENT%%</div></div>';
 }
 
 /**
- * 
+ * Mini Features
  *
  * @since Marketify 1.0
  *
- * @return void
+ * @return string
  */
 function marketify_woothemes_features_item_template_mini( $template, $args ) {
 	return '<div class="%%CLASS%% col-lg-3 col-md-4 col-sm-6 col-xs-12 feature-mini">%%IMAGE%%<h3 class="feature-title">%%TITLE%%</h3><div class="feature-content">%%CONTENT%%</div></div>';
 }
 
 /**
- * 
+ * Testimonials by WooThemes
+ *
+ * Depending on the settings of the testimonials widgets, apply a filter to
+ * the output.
  *
  * @since Marketify 1.0
  *
@@ -423,29 +496,29 @@ function marketify_woothemes_testimonials_item( $widget ) {
 add_action( 'dynamic_sidebar', 'marketify_woothemes_testimonials_item' );
 
 /**
- * 
+ * Company Testimonial 
  *
  * @since Marketify 1.0
  *
- * @return void
+ * @return string
  */
 function marketify_woothemes_testimonials_item_template( $template, $args ) {
 	return '<div class="%%CLASS%% company-testimonial">%%AVATAR%%</div>';
 }
 
 /**
- * 
+ * Individual Testimonial
  *
  * @since Marketify 1.0
  *
- * @return void
+ * @return string
  */
 function marketify_woothemes_testimonials_item_template_individual( $template, $args ) {
 	return '<div id="quote-%%ID%%" class="%%CLASS%% individual-testimonial col-md-6 col-sm-12"><blockquote class="testimonials-text">%%TEXT%%</blockquote>%%AVATAR%% %%AUTHOR%%<div class="fix"></div></div>';
 }
 
 function marketify_download_author_before_zilla() {
-	if ( function_exists( 'zilla_likes' ) ) 
+	if ( function_exists( 'zilla_likes' ) && is_singular( 'download' ) ) 
 		zilla_likes();
 }
 add_action( 'marketify_download_author_before', 'marketify_download_author_before_zilla' );
