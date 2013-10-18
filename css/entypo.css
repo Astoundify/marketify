@@ -42,7 +42,9 @@ input[type="radio"] + label::before,
 #edd_checkout_form_wrap fieldset#edd_cc_fields > span legend:before,
 .individual-testimonial .testimonials-text:after,
 .individual-testimonial .testimonials-text:before,
-.zilla-likes-count:before {
+.zilla-likes-count:before,
+.edd_error:before,
+.fes_login_errors .error:before {
   font-family: 'fontello';
   font-style: normal;
   font-weight: normal;

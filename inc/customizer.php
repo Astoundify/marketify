@@ -270,7 +270,7 @@ function marketify_header_css() {
 		.header-outer,
 		.search-form .search-submit,
 		.marketify_widget_featured_popular .flex-control-nav .flex-active,
-		.entry-content .edd-slg-social-container span legend,
+		.minimal .entry-content .edd-slg-social-container span legend,
 		#edd_checkout_form_wrap fieldset#edd_cc_fields > span:after,
 		div.fes-form fieldset .fes-fields a.file-selector:hover {
 			background-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";

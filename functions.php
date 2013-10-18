@@ -175,7 +175,7 @@ function marketify_has_header_background() {
 		$post = get_post( get_option( 'page_for_posts' ) );
 	}
 
-	$background = false;
+	$background = is_singular( 'page' ) ? true : false;
 
 	if ( has_post_thumbnail( $post->ID ) )
 		$background = wp_get_attachment_image_src( get_post_thumbnail_id(), 'fullsize' );
