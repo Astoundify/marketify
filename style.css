@@ -1231,7 +1231,6 @@ a.button.purchased:hover {
 
 .single-download .featured-image img {
 	margin: 0 auto;
-	max-width: 90%;
 	display: block;
 }
 
@@ -1280,6 +1279,39 @@ a.button.purchased:hover {
 	margin-left: -100px;
 	left: 50%;
 	width: 200px;
+}
+
+.download-image {
+	position: relative;
+}
+
+.download-image .slides {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.download-image .flex-direction-nav {
+	position: absolute;
+	top: 50%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 100%;
+	z-index: 10;
+}
+
+.download-image .flex-direction-nav li:first-child {
+	float: left;
+}
+
+.download-image .flex-direction-nav li:last-child {
+	float: right;
+}
+
+.download-image .flex-direction-nav a {
+	font-size: 28px;
+	color: #fff;
 }
 
 /* =Download Grid
@@ -3116,7 +3148,8 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 		margin-bottom: 0;
 	}
 
-	.individual-testimonial .testimonials-text {
+	.individual-testimonial .testimonials-text,
+	.single-download .featured-image img {
 		max-width: 90%;
 	}
 }

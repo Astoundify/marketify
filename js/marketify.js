@@ -80,12 +80,27 @@ Marketify.App = ( function($) {
 		});
 	}
 
+	function downloadStandard() {
+		$( '.download-image' ).flexslider({
+			animation     : 'fade',
+			animationLoop : false,
+			itemWidth     : 360,
+			itemMargin    : 0,
+			minItems      : 1,
+			maxItems      : 1,
+			controlNav    : false,
+			prevText      : '<i class="icon-left-open-big"></i>',
+			nextText      : '<i class="icon-right-open-big"></i>'
+		});
+	}
+
 	return {
 		init : function() {
 			menuSearch();
 			menuMobile();
 			skipLink();
 			footerHeight();
+			downloadStandard();
 
 			$(window).resize(function() {
 				footerHeight();

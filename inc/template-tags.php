@@ -37,6 +37,51 @@ function marketify_entry_author_social( $user_id = null ) {
 }
 endif;
 
+function marketify_download_viewer() {
+	global $post;
+
+	$format = get_post_format();
+
+	if ( 'audio' == $format ) {
+		marketify_download_audio_player();
+	} elseif ( 'video' == $format ) {
+		marketify_download_video_player();
+	} else {
+		marketify_download_standard_player();
+	}
+}
+
+function marketify_download_standard_player() {
+	global $post;
+
+	$images = get_attached_media( 'image', $post->ID );
+	$before = '<div class="download-image">';
+	$after  = '</div>';
+
+	/*
+	 * Just one image and it's featured.
+	 */
+	if ( count( $images ) == 1 && has_post_thumbnail() ) {
+		echo $before;
+		the_post_thumbnail( 'fullsize' );
+		echo $after;
+
+		return;
+	}
+
+	echo $before;
+	?>
+
+	<ul class="slides">
+		<?php foreach ( $images as $image ) : ?>
+		<li><?php echo wp_get_attachment_image( $image->ID, 'fullsize' ); ?></li>
+		<?php endforeach; ?>
+	</ul>
+
+	<?php
+	echo $after;
+}
+
 if ( ! function_exists( 'marketify_download_video_player' ) ) :
 /**
  * Download Video Player
