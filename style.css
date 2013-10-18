@@ -870,7 +870,37 @@ a.button.purchased:hover {
 }
 
 .hentry {
-	margin: 0 0 1.5em;
+	margin: 0 0 4em;
+}
+
+.hentry .entry-title {
+	font: 800 20px 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	margin: 0 0 1em;
+}
+
+.hentry .entry-title a {
+	text-decoration: none;
+}
+
+.blog-archive-image img {
+	border-radius: 50%;
+}
+
+.entry-meta,
+.entry-meta a {
+	font-size: 14px;
+	color: #82878e;
+	text-decoration: none;
+}
+
+.entry-meta > span {
+	margin-right: 10px;
+}
+
+.hentry.post .entry-meta .byline img {
+	margin-left: 0;
+	margin-right: 6px;
 }
 
 .updated,
@@ -887,7 +917,7 @@ a.button.purchased:hover {
 .entry-content,
 .entry-summary {
 	line-height: 25px;
-	margin: 1.5em 0 0;
+	margin: 1em 0 0;
 }
 
 .single-post .entry-content,
@@ -1381,7 +1411,7 @@ a.button.purchased:hover {
 	float: left;
 }
 
-.content-grid-download .entry-meta img {
+.byline img {
 	display: inline-block;
 	vertical-align: middle;
 	border-radius: 50%;

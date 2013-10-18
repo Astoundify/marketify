@@ -102,3 +102,8 @@ function marketify_wp_title( $title, $sep ) {
 	return $title;
 }
 add_filter( 'wp_title', 'marketify_wp_title', 10, 2 );
+
+/**
+ * Remove ellipsis from the excerpt
+ */
+add_filter( 'excerpt_more', '__return_false' );
