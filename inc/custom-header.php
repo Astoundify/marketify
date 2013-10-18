@@ -50,19 +50,19 @@ function marketify_header_style() {
 			clip: rect(1px, 1px, 1px, 1px);
 		}
 	<?php
+		$header_text_color = 'fff';
 		// If the user has set a custom color for the text use that
-		else :
+		endif;
 	?>
-		.site-title a,
-		.site-description,
-		.main-navigation a {
-			color: #<?php echo $header_text_color; ?>;
-		}
+	.site-title a,
+	.site-description,
+	.main-navigation a {
+		color: #<?php echo $header_text_color; ?>;
+	}
 
-		.site-title {
-			line-height: <?php echo get_custom_header()->height; ?>px
-		}
-	<?php endif; ?>
+	.site-title {
+		line-height: <?php echo get_custom_header()->height; ?>px
+	}
 	</style>
 	<?php
 }

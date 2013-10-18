@@ -304,8 +304,6 @@ function marketify_header_css() {
 		.page-header a.edd-submit.button:hover, 
 		.page-header a.edd-submit.button:visited:hover,
 		.page-header .edd-submit.button.gray:hover,
-		.popup .edd-add-to-cart.button.edd-submit:hover,
-		.popup a.edd_go_to_checkout.button.edd-submit:hover,
 		#edd_checkout_form_wrap fieldset#edd_cc_fields > span legend,
 		.minimal .edd_cart_actions a,
 		.fes-menu .active a,
@@ -326,10 +324,13 @@ function marketify_header_css() {
 		a.edd-submit.button:visited,
 		.edd-submit.button.gray,
 		.widget .cart_item.edd_checkout a,
-		.popup .edd_price_options input:checked,
-		.popup .edd_price_options input:checked,
+		.edd_price_options input:checked,
 		.edd-add-to-cart.button.edd-submit:hover,
 		.edd_go_to_checkout.button.edd-submit:hover,
+		.edd-add-to-cart.edd-submit.button:hover, 
+		a.edd-add-to-cart.edd-submit.button:hover,
+		.edd_go_to_checkout.edd-submit.button:hover, 
+		a.edd_go_to_checkout.edd-submit.button:hover,
 		#edd_checkout_form_wrap fieldset#edd_cc_fields > span legend,
 		.entry-content div.fes-form fieldset .fes-fields a.file-selector:hover {
 			border-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
@@ -344,6 +345,20 @@ function marketify_header_css() {
 
 		.site-footer.light {
 			background-color: #" . get_theme_mod( 'background_color' ) . ";
+		}
+
+		.edd-add-to-cart.edd-submit.button, 
+		a.edd-add-to-cart.edd-submit.button,
+		.edd_go_to_checkout.edd-submit.button, 
+		a.edd_go_to_checkout.edd-submit.button {
+			border-color: #bcc3c8;
+		}
+
+		.edd-add-to-cart.edd-submit.button, 
+		a.edd-add-to-cart.edd-submit.button,
+		.edd_go_to_checkout.edd-submit.button, 
+		a.edd_go_to_checkout.edd-submit.button {
+			color: #bcc3c8;
 		}
 
 		.page-header .button,
@@ -376,7 +391,9 @@ function marketify_header_css() {
 
 		.page-template-page-templatesminimal-php,
 		.page-template-page-templatesminimal-php label,
-		.page-template-page-templatesminimal-php a {
+		.page-template-page-templatesminimal-php a,
+		.edd-add-to-cart.button.edd-submit:hover,
+		.edd_go_to_checkout.button.edd-submit:hover {
 			color: #fff;
 		}";
 

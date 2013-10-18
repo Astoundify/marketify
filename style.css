@@ -873,13 +873,13 @@ a.button.purchased:hover {
 	margin: 0 0 4em;
 }
 
-.hentry .entry-title {
+.hentry.post .entry-title {
 	font: 800 20px 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	margin: 0 0 1em;
 }
 
-.hentry .entry-title a {
+.hentry.post .entry-title a {
 	text-decoration: none;
 }
 
@@ -970,6 +970,19 @@ a.button.purchased:hover {
 
 .entry-content h2:first-child {
 	margin-top: 0;
+}
+
+.entry-content .edd_download_purchase_form {
+	padding-bottom: 40px;
+	border: 1px solid #bdc3c7;
+	border-radius: 3px;
+	float: left;
+	margin: 0 1.5em 1.5em 0;
+}
+
+.entry-content .edd_download_purchase_form:last-of-type {
+	clear: both;
+	float: none;
 }
 
 .page-links {
@@ -1293,11 +1306,12 @@ a.button.purchased:hover {
 
 .download-image .flex-direction-nav {
 	position: absolute;
-	top: 50%;
+	top: 48%;
+	left: 5%;
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	width: 100%;
+	width: 90%;
 	z-index: 10;
 }
 
@@ -2355,6 +2369,83 @@ object {
 /* =EDD
 ----------------------------------------------- */
 
+/** Purchase Link */
+.edd_download_purchase_form .edd_price_options li {
+	color: #515a63;
+	font-size: 16px;
+	padding: 20px 40px;
+	border-bottom: 1px solid #bdc3c7;
+}
+
+.edd_price_options li input {
+	margin-right: 10px;
+}
+
+.edd_price_options li input:focus {
+	outline: 0;
+}
+
+.edd_purchase_submit_wrapper {
+	text-align: center;
+	margin-top: 40px;
+}
+
+.edd-add-to-cart.button.edd-submit,
+.edd_go_to_checkout.button.edd-submit {
+	color: #bdc3c7;
+	border-radius: 50%;
+	border: 3px solid #bdc3c7;
+	background: none;
+	padding: 10px;
+	position: relative;
+	width: 75px;
+	height: 75px;
+}
+
+.edd-add-to-cart-label {
+	font-size: 1px;
+	visibility: hidden;
+}
+
+.edd-add-to-cart-label:before,
+.edd_go_to_checkout:before {
+	font-size: 40px;
+	visibility: visible;
+	display: block;
+	text-indent: 0;
+	content: '\2713';
+	position: absolute;
+	top: 16px;
+	left: 7px;
+}
+
+.edd_go_to_checkout {
+	font-size: 0px !important;
+}
+
+.edd_go_to_checkout:before {
+	top: 19px;
+	left: 10px;
+	font-size: 34px;
+	content: '\e73d';
+}
+
+.edd_price_options label {
+	cursor: pointer;
+}
+
+.edd_price_options input {
+	padding: 3px;
+	border: 6px solid #bcc3c8;
+	background: #fff;
+	border-radius: 50%;
+	vertical-align: middle;
+	margin-top: -4px;
+
+	-webkit-appearance: none;
+	-moz-appearance:    none;
+}
+
 #edd_checkout_cart a.edd-cart-saving-button {
 	font-weight: 800;
 	margin-left: 5px;
@@ -2963,82 +3054,6 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 	margin-bottom: 0;
 }
 
-.popup .edd_price_options li {
-	color: #515a63;
-	font-size: 16px;
-	padding: 20px 40px;
-	border-bottom: 1px solid #bdc3c7;
-}
-
-.popup .edd_price_options li input {
-	margin-right: 10px;
-}
-
-.popup .edd_price_options li input:focus {
-	outline: 0;
-}
-
-.popup .edd_purchase_submit_wrapper {
-	text-align: center;
-	margin-top: 40px;
-}
-
-.popup .edd-add-to-cart.button.edd-submit,
-.popup .edd_go_to_checkout.button.edd-submit {
-	color: #bdc3c7;
-	border-radius: 50%;
-	border: 3px solid #bdc3c7;
-	background: none;
-	padding: 10px;
-	position: relative;
-	width: 75px;
-	height: 75px;
-}
-
-.popup .edd-add-to-cart-label {
-	font-size: 1px;
-	visibility: hidden;
-}
-
-.popup .edd-add-to-cart-label:before,
-.popup .edd_go_to_checkout:before {
-	font-size: 40px;
-	visibility: visible;
-	display: block;
-	text-indent: 0;
-	content: '\2713';
-	position: absolute;
-	top: 16px;
-	left: 7px;
-}
-
-.popup .edd_go_to_checkout {
-	font-size: 0px !important;
-}
-
-.popup .edd_go_to_checkout:before {
-	top: 19px;
-	left: 10px;
-	font-size: 34px;
-	content: '\e73d';
-}
-
-.popup .edd_price_options label {
-	cursor: pointer;
-}
-
-.popup .edd_price_options input {
-	padding: 3px;
-	border: 6px solid #bcc3c8;
-	background: #fff;
-	border-radius: 50%;
-	vertical-align: middle;
-	margin-top: -4px;
-
-	-webkit-appearance: none;
-	-moz-appearance:    none;
-}
-
 .mfp-close-btn-in .mfp-close {
 	color: #fff;
 	text-shadow: rgba(0, 0, 0, .40) 0 3px 0;
@@ -3129,6 +3144,18 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 	}
 }
 
+@media screen and (max-width: 992px) {
+	/** Menu */
+	.menu-toggle,
+	.main-navigation.toggled .nav-menu {
+		display: block;
+	}
+
+	.main-navigation ul {
+		display: none;
+	}
+}
+
 @media screen and (min-width: 992px) {
 	/* Footer */
 	.site-footer.light .footer-widget,
@@ -3148,22 +3175,21 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 		margin-bottom: 0;
 	}
 
-	.individual-testimonial .testimonials-text,
-	.single-download .featured-image img {
+	.individual-testimonial .testimonials-text{
 		max-width: 90%;
+	}
+
+	.download-image .flex-direction-nav {
+		width: 100%;
+		left: 0;
+	}
+
+	.single-download .featured-image img {
+		max-width: 85%;
 	}
 }
 
 @media screen and (max-width: 768px) {
-	.menu-toggle,
-	.main-navigation.toggled .nav-menu {
-		display: block;
-	}
-
-	.main-navigation ul {
-		display: none;
-	}
-	
 	.download-widget-area {
 		text-align: left;
 	}
