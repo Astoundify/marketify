@@ -2270,6 +2270,7 @@ object {
 .download-product-details .download-author .author-joined,
 .download-product-details .download-purchases,
 .download-product-details .download-comments,
+.download-product-details .download-comments a,
 .download-product-details .download-ratings,
 .download-product-details .download-author-sales {
 	font-size: 13px;
@@ -2385,13 +2386,16 @@ object {
 	outline: 0;
 }
 
-.edd_purchase_submit_wrapper {
+.entry-content .edd_purchase_submit_wrapper,
+.popup .edd_purchase_submit_wrapper {
 	text-align: center;
 	margin-top: 40px;
 }
 
-.edd-add-to-cart.button.edd-submit,
-.edd_go_to_checkout.button.edd-submit {
+.entry-content .edd-add-to-cart.button.edd-submit,
+.entry-content .edd_go_to_checkout.button.edd-submit,
+.popup .edd-add-to-cart.button.edd-submit,
+.popup .edd_go_to_checkout.button.edd-submit {
 	color: #bdc3c7;
 	border-radius: 50%;
 	border: 3px solid #bdc3c7;
@@ -2402,13 +2406,16 @@ object {
 	height: 75px;
 }
 
-.edd-add-to-cart-label {
+.entry-content .edd-add-to-cart-label,
+.popup .edd-add-to-cart-label {
 	font-size: 1px;
 	visibility: hidden;
 }
 
-.edd-add-to-cart-label:before,
-.edd_go_to_checkout:before {
+.entry-content .edd-add-to-cart-label:before,
+.entry-content .edd_go_to_checkout:before,
+.popup .edd-add-to-cart-label:before,
+.popup .edd_go_to_checkout:before {
 	font-size: 40px;
 	visibility: visible;
 	display: block;
@@ -2419,11 +2426,13 @@ object {
 	left: 7px;
 }
 
-.edd_go_to_checkout {
+.entry-content .edd_go_to_checkout,
+.popup .edd_go_to_checkout {
 	font-size: 0px !important;
 }
 
-.edd_go_to_checkout:before {
+.entry-content .edd_go_to_checkout:before,
+.popup .edd_go_to_checkout:before {
 	top: 19px;
 	left: 10px;
 	font-size: 34px;
@@ -2987,6 +2996,7 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 
 /** Light */
 .site-footer.light {
+	color: #404040;
 	padding-top: 0;
 	background: #fff;
 }

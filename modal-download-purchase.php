@@ -2,6 +2,8 @@
 /**
  *
  */
+
+global $post;
 ?>
 
 <div id="buy-now-<?php the_ID(); ?>" class="popup">

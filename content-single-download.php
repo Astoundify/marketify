@@ -18,5 +18,5 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<?php locate_template( array( 'modal-download-purchase.php' ), true ); ?>
+	<?php locate_template( array( 'modal-download-purchase.php' ), true, false ); ?>
 </article><!-- #post-## -->

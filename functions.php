@@ -193,7 +193,7 @@ function marketify_has_header_background() {
  * @return void
  */
 function marketify_entry_page_title() {
-	if ( ! is_singular( 'post', 'page' ) )
+	if ( ! is_singular( array( 'post', 'page' ) ) )
 		return;
 
 	the_post();
