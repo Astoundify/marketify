@@ -51,9 +51,11 @@ get_header(); ?>
 				<?php comments_template(); ?>
 			</section>
 
+			<?php if ( class_exists( 'EDD_Reviews' ) ) : ?>
 			<div class="col-sm-4">
 				Tst
 			</div>
+			<?php endif; ?>
 		</div>
 
 		<?php do_action( 'marketify_single_download_after' ); ?>
