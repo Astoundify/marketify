@@ -102,7 +102,8 @@ body,
 button,
 input,
 select,
-textarea {
+textarea,
+.whistles {
 	color: #404040;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 15px;
@@ -2806,7 +2807,8 @@ object {
 /* =FES
 ----------------------------------------------- */
 
-#wraper .fes-menu nav {
+#wraper .fes-menu nav,
+.whistles-tabs .whistles-tabs-nav {
 	margin: -20px 0 55px;
 	border-bottom: 3px solid #bdc3c7;
 	background: none;
@@ -2817,7 +2819,8 @@ object {
 }
 
 #wrapper .fes-menu nav li a,
-#wraper nav > ul > li > a {
+#wraper nav > ul > li > a,
+.whistles-tabs .whistles-tabs-nav li a {
 	font: 400 14px 'Montserrat', sans-serif;
 	color: #bdc3c7;
 	text-transform: uppercase;
@@ -2830,7 +2833,8 @@ object {
 }
 
 #wrapper .fes-menu nav li.active a,
-#wraper nav ul li.active a {
+#wraper nav ul li.active a,
+.whistles-tabs .whistles-tabs-nav li[aria-selected="true"] a {
 	border-color: #bdc3c7;
 	background: #fff;
 }
@@ -3230,6 +3234,48 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 .download-author .zilla-likes-count:before {
 	margin-right: 4px;
 }
+
+/* =Whistles
+----------------------------------------------- */
+
+.whistles-tabs .whistles-tabs-nav {
+	margin: 0;
+}
+
+.whistles-tabs .whistles-tabs-nav li a,
+.whistles-tabs .whistles-tabs-nav li a:hover {
+	background: transparent;
+}
+
+.whistles-tabs .whistles-tabs-nav li[aria-selected='true'] a:hover {
+	background: #fff;
+}
+
+.whistles-tabs .whistles-tabs-nav li:last-child a {
+	border-right-width: 3px;
+}
+
+.whistles-tabs .whistles-tabs-wrap {
+	margin: 2em 0 0;
+	padding: 0;
+	border: 0;
+}
+
+.whistles-toggle .whistle-content, 
+.whistles-accordion .whistle-content {
+	border-color: #bdc3c7;
+}
+
+.whistles-toggle .whistle-title, 
+.whistles-accordion .whistle-title {
+	font: 800 13px/normal 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 10px 20px;
+	border-color: #bdc3c7;
+	background: #fff;
+}
+
 
 /* =Responsive Suppliments
 ----------------------------------------------- */

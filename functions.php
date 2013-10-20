@@ -108,7 +108,7 @@ function marketify_before_shim() {
 	if ( ! $background = marketify_has_header_background() )
 		return;
 
-	printf( '<div class="header-outer%2$s" style="background-image: url(%1$s);">', $background[0], $background ? ' custom-featured-image' : '' );
+	printf( '<div class="header-outer%2$s" style="background-image: url(%1$s);">', $background[0], is_array( $background ) ? ' custom-featured-image' : '' );
 }
 add_action( 'before', 'marketify_before_shim' );
 

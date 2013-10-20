@@ -272,7 +272,8 @@ function marketify_header_css() {
 		.marketify_widget_featured_popular .flex-control-nav .flex-active,
 		.minimal .entry-content .edd-slg-social-container span legend,
 		#edd_checkout_form_wrap fieldset#edd_cc_fields > span:after,
-		div.fes-form fieldset .fes-fields a.file-selector:hover {
+		div.fes-form fieldset .fes-fields a.file-selector:hover,
+		div.fes-form .fes-submit input[type=submit]:hover {
 			background-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 		}
 
@@ -312,7 +313,9 @@ function marketify_header_css() {
 		.minimal .edd_cart_actions a,
 		.fes-menu .active a,
 		#wraper nav ul li.active a,
-		#wraper nav ul li:hover a {
+		#wraper nav ul li:hover a,
+		.whistles-tabs .whistles-tabs-nav li[aria-selected='true'] a,
+		div.fes-form .fes-submit input[type=submit] {
 			color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 		}
 
@@ -336,14 +339,14 @@ function marketify_header_css() {
 		.edd_go_to_checkout.edd-submit.button:hover, 
 		a.edd_go_to_checkout.edd-submit.button:hover,
 		#edd_checkout_form_wrap fieldset#edd_cc_fields > span legend,
-		.entry-content div.fes-form fieldset .fes-fields a.file-selector:hover {
+		.entry-content div.fes-form fieldset .fes-fields a.file-selector:hover,
+		div.fes-form .fes-submit input[type=submit] {
 			border-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 		}
 
 		#edd-purchase-button,
 		.page-template-page-templatesminimal-php input[type=submit],
 		.main-navigation .search-form.active .search-submit,
-		div.fes-form .fes-submit input[type=submit],
 		#edd_checkout_cart a.edd-cart-saving-button {
 			background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 		}
@@ -407,7 +410,8 @@ function marketify_header_css() {
 		.page-template-page-templatesminimal-php a,
 		.edd-add-to-cart.button.edd-submit:hover,
 		.edd_go_to_checkout.button.edd-submit:hover,
-		#edd_checkout_cart a.edd-cart-saving-button {
+		#edd_checkout_cart a.edd-cart-saving-button,
+		div.fes-form .fes-submit input[type=submit]:hover {
 			color: #fff;
 		}";
 
