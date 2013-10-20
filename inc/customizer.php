@@ -248,6 +248,24 @@ function marketify_customize_textarea_control( $wp_customize ) {
 }
 add_action( 'customize_register', 'marketify_customize_textarea_control', 1, 1 );
 
+function marketify_hex2rgb($hex) {
+	$hex = str_replace( '#', '', $hex);
+
+	if ( strlen( $hex ) == 3 ) {
+		$r = hexdec(substr($hex,0,1).substr($hex,0,1));
+		$g = hexdec(substr($hex,1,1).substr($hex,1,1));
+		$b = hexdec(substr($hex,2,1).substr($hex,2,1));
+	} else {
+		$r = hexdec(substr($hex,0,2));
+		$g = hexdec(substr($hex,2,2));
+		$b = hexdec(substr($hex,4,2));
+	}
+
+	$rgb = array($r, $g, $b);
+	
+	return implode(",", $rgb);
+}
+
 /**
  * Output the basic extra CSS for primary and accent colors.
  * Split away from widget colors for brevity. 
@@ -261,7 +279,8 @@ function marketify_header_css() {
 		.page-header,
 		body.page-template-page-templatesminimal-php,
 		body.custom-background.page-template-page-templatesminimal-php,
-		.header-outer {
+		.header-outer,
+		.minimal .entry-content .edd-slg-social-container span legend {
 			background-color: " . marketify_theme_mod( 'colors', 'header' ) . ";
 		}
 
@@ -278,7 +297,6 @@ function marketify_header_css() {
 		.widget .cart_item.edd_checkout a:hover,
 		.search-form .search-submit,
 		.marketify_widget_featured_popular .flex-control-nav .flex-active,
-		.minimal .entry-content .edd-slg-social-container span legend,
 		#edd_checkout_form_wrap fieldset#edd_cc_fields > span:after,
 		div.fes-form fieldset .fes-fields a.file-selector:hover,
 		div.fes-form .fes-submit input[type=submit]:hover,
@@ -288,7 +306,7 @@ function marketify_header_css() {
 
 		.widget .cart_item.edd_checkout a,
 		.site-footer.light .footer-social a,
-		.site-info [class^='col-'] .site-title a,
+		.site-footer.light .site-title a,
 		button,
 		html input[type=button],
 		input[type=reset],
@@ -369,6 +387,11 @@ function marketify_header_css() {
 
 		.site-footer.light {
 			background-color: #" . get_theme_mod( 'background_color' ) . ";
+		}
+
+		.content-grid-download .entry-image:hover .overlay {
+			background: rgba( " . marketify_hex2rgb( marketify_theme_mod( 'colors', 'primary' ) ) . ", .80 );
+			border: 1px solid rgba( " . marketify_hex2rgb( marketify_theme_mod( 'colors', 'primary' ) ) . ", .80 );
 		}
 
 		.edd-add-to-cart.edd-submit.button, 

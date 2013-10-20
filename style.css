@@ -1450,8 +1450,6 @@ input[type=submit]:hover {
 
 .content-grid-download .entry-image:hover .overlay {
 	opacity: 1;
-	background: rgba( 81, 90, 99, .82 );
-	border: 1px solid rgba( 81, 90, 99, .82 );
 }
 
 .content-grid-download .entry-header {
@@ -1738,12 +1736,14 @@ object {
 }
 
 .widget .edd-remove-from-cart {
+	font-size: 0;
 	text-decoration: none;
 	visibility: hidden;
 }
 
 .widget .edd-remove-from-cart:before,
 #cancel-comment-reply-link:before {
+	font-size: 15px;
 	visibility: visible;
 	content: '\2715';
 }
@@ -2133,36 +2133,12 @@ object {
 	text-decoration: none;
 }
 
-.download-archive-widget li a {
-	padding: 7px 25px;
-	display: block;
-}
-
 .download-archive-widget form,
 .download-archive-widget select,
 .download-archive-widget #calendar_wrap,
 #recentcomments,
 .download-archive-widget .widget-download-price {
 	direction: ltr;
-}
-
-/** EDD */
-.download-archive-widget.widget_edd_cart_widget {
-	padding-right: 0;
-}
-
-.download-archive-widget.widget_edd_cart_widget .download-archive-widget-title,
-.download-archive-widget.widget_edd_cart_widget .edd-cart-number-of-items {
-	margin-right: 25px;
-}
-
-.download-archive-widget .edd-cart {
-	margin: 0;
-	padding-left: 0;
-}
-
-.download-archive-widget.widget_edd_cart_widget .edd-cart-item {
-	margin-left: 0;
 }
 
 /** RSS */
@@ -2181,8 +2157,19 @@ object {
 .download-archive-widget.widget_meta ul,
 .download-archive-widget.widget_pages ul,
 .download-archive-widget.widget_categories ul,
-.download-archive-widget.widget_recent_archive ul {
+.download-archive-widget.widget_archive ul {
 	margin-right: -25px;
+}
+
+.download-archive-widget .edd-taxonomy-widget a,
+.download-archive-widget.widget_nav_menu ul a,
+.download-archive-widget.widget_recent_entries ul a,
+.download-archive-widget.widget_meta ul a,
+.download-archive-widget.widget_pages ul a,
+.download-archive-widget.widget_categories ul a,
+.download-archive-widget.widget_archive ul a {
+	padding: 7px 25px;
+	display: block;
 }
 
 .download-archive-widget.widget_nav_menu ul ul,
@@ -2190,7 +2177,7 @@ object {
 .download-archive-widget.widget_meta ul ul,
 .download-archive-widget.widget_pages ul ul,
 .download-archive-widget.widget_categories ul ul,
-.download-archive-widget.widget_recent_archive ul ul {
+.download-archive-widget.widget_archive ul ul {
 	margin-right: 0;
 }
 
@@ -2199,7 +2186,7 @@ object {
 .download-archive-widget.widget_meta ul ul a,
 .download-archive-widget.widget_pages ul ul a,
 .download-archive-widget.widget_categories ul ul a,
-.download-archive-widget.widget_recent_archive ul ul a {
+.download-archive-widget.widget_archive ul ul a {
 	font-size: 12px;
 }
 
@@ -2209,7 +2196,7 @@ object {
 .download-archive-widget.widget_meta ul a:hover,
 .download-archive-widget.widget_pages ul a:hover,
 .download-archive-widget.widget_categories ul a,:hover
-.download-archive-widget.widget_recent_archive ul a:hover {
+.download-archive-widget.widget_archive ul a:hover {
 	background-color: #f6f7f8;
 }
 
@@ -2371,17 +2358,17 @@ object {
 }
 
 /** Cart */
-.download-single-widget .edd-cart {
+.widget .edd-cart {
 	margin: 0 -25px;
 	padding: 0 25px;
 	border-top: 1px solid #bdc3c7;
 }
 
-.download-single-widget .edd-cart .cart_item.empty {
+.edd-cart .cart_item.empty {
 	margin-top: 25px;
 }
 
-.download-single-widget .edd-cart-item {
+.widget .edd-cart-item {
 	margin: 0 -25px;
 	padding: 20px 25px;
 	border-bottom: 1px solid #bdc3c7;
@@ -2788,23 +2775,23 @@ object {
 	margin-right: 10px;
 }
 
-.fes_login_errors .error {
+#edd_checkout_wrap .edd_errors p.edd_error {
+	margin-bottom: 10px !important;
+}
+
+/*.fes_login_errors .error {
 	color: #e65b45;
 	border-color: #e65b45;
 }
 
 .fes_login_errors .error:before {
 	content: '\2715';
-}
+}*/
 
-.minimal .edd_error {
-	color: #fff;
-	background: #ffb400;
-}
-
+.minimal .edd_error,
 .minimal .fes_login_errors .error {
 	color: #fff;
-	background: #e65b45;
+	background: #ffb400;
 }
 
 /* =FES
@@ -2941,6 +2928,10 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 	margin-bottom: 1.75em;
 }
 
+.fes_form tr:last-child td {
+	margin-bottom: 0;
+}
+
 .entry-content .fes_header {
 	margin-top: 0;
 }
@@ -2996,7 +2987,7 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 	text-decoration: none;
 }
 
-.site-info {
+.site-footer.light .site-info {
 	margin-top: 75px;
 }
 
