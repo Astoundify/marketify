@@ -126,8 +126,7 @@ Marketify.App = ( function($) {
 
 		popup : function( args ) {
 			return $.magnificPopup.open( $.extend( args, { 
-				type            : 'inline',
-				alignTop        : true
+				type            : 'inline'
 			} ) );
 		},
 	}

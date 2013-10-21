@@ -284,6 +284,10 @@ function marketify_header_css() {
 			background-color: " . marketify_theme_mod( 'colors', 'header' ) . ";
 		}
 
+		.page-header .button:hover {
+			color: " . marketify_theme_mod( 'colors', 'header' ) . ";
+		}
+
 		button:hover,
 		html input[type=button]:hover,
 		input[type=reset]:hover,
@@ -324,7 +328,6 @@ function marketify_header_css() {
 		a.edd-add-to-cart.edd-submit.button:hover,
 		.edd_go_to_checkout.edd-submit.button:hover,
 		a.edd_go_to_checkout.edd-submit.button:hover,
-		.page-header .button:hover,
 		.entry-image .button:hover,
 		.entry-image .edd-submit.button:hover, 
 		.entry-image a.edd-submit.button:hover, 

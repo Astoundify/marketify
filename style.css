@@ -2504,6 +2504,15 @@ object {
 	-moz-appearance:    none;
 }
 
+.edd-variable-pricing-desc {
+	font-size: 13px;
+	margin: 0;
+}
+
+.edd_price_option_price {
+	font-weight: bold;
+}
+
 #edd_checkout_cart a.edd-cart-saving-button {
 	font-weight: 800;
 	margin-left: 5px;
@@ -2825,9 +2834,44 @@ object {
 }*/
 
 .minimal .edd_error,
-.minimal .fes_login_errors .error {
+.minimal .fes_login_errors .error,
+.page-header .edd_error {
 	color: #fff;
 	background: #ffb400;
+}
+
+.page-header .edd_errors {
+	max-width: 50%;
+	margin: 20px auto;
+}
+
+.edd_download_purchase_form .edd_errors {
+	width: 90%;
+	margin: 20px auto 10px;
+}
+
+/** Custom Prices */
+.edd-cp-container {
+	margin: 0;
+	padding: 20px 40px;
+	border-bottom: 1px solid #bdc3c7;
+}
+
+.edd_cp_price {
+	width: 100% !important;
+}
+
+.page-header .edd-cp-container {
+	color: #fff;
+	max-width: 300px;
+	margin: 0 auto 20px;
+	padding: 0;
+	border: 0;
+}
+
+.page-header .edd-cp-container input[type="text"] {
+	margin: 10px 0;
+	border: 0;
 }
 
 /* =FES
@@ -3165,7 +3209,7 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 .popup {
 	max-width: 420px;
 	background: #fff;
-	margin: 150px auto 0;
+	margin: 0 auto 0;
 	padding: 50px 0 40px;
 	position: relative;
 	display: none;
