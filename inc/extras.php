@@ -64,6 +64,19 @@ function marketify_body_classes( $classes ) {
 add_filter( 'body_class', 'marketify_body_classes' );
 
 /**
+ * Adds custom classes to the array of post classes.
+ */
+function marketify_post_classes( $classes ) {
+	global $wp_query, $post;
+
+	if ( is_singular( 'download' ) && edd_has_variable_prices( $post->ID ) )
+		$classes[] = 'download-variable';
+
+	return $classes;
+}
+add_filter( 'post_class', 'marketify_post_classes' );
+
+/**
  * Filter in a link to a content ID attribute for the next/previous image links on image attachment pages
  */
 function marketify_enhanced_image_navigation( $url, $id ) {

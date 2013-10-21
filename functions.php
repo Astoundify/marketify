@@ -382,6 +382,13 @@ function marketify_fonts_url() {
 	return $fonts_url;
 }
 
+/**
+ * Load fonts in TinyMCE
+ *
+ * @since Marketify 1.0
+ *
+ * @return string $css
+ */
 function marketify_mce_css( $css ) {
 	$css .= ', ' . marketify_fonts_url();
 
@@ -529,6 +536,13 @@ function marketify_woothemes_testimonials_item_template_individual( $template, $
 	return '<div id="quote-%%ID%%" class="%%CLASS%% individual-testimonial col-md-6 col-sm-12"><blockquote class="testimonials-text">%%TEXT%%</blockquote>%%AVATAR%% %%AUTHOR%%<div class="fix"></div></div>';
 }
 
+/**
+ * Output ZillaLikes
+ *
+ * @since Marketify 1.0
+ *
+ * @return void
+ */
 function marketify_download_author_before_zilla() {
 	if ( function_exists( 'zilla_likes' ) && is_singular( 'download' ) ) 
 		zilla_likes();

@@ -883,13 +883,15 @@ input[type=submit]:hover {
 	margin: 0 0 4em;
 }
 
-.hentry.post .entry-title {
+.hentry.post .entry-title,
+.edd_download_title {
 	font: 800 20px 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	margin: 0 0 1em;
 }
 
-.hentry.post .entry-title a {
+.hentry.post .entry-title a,
+.edd_download_title a {
 	text-decoration: none;
 }
 
@@ -956,7 +958,8 @@ input[type=submit]:hover {
 }
 
 .entry-content th,
-.comment-content th {
+.comment-content th,
+.edd_download_title {
 	font: 400 14px 'Montserrat', sans-serif;
 	color: #bdc3c7;
 	text-transform: uppercase;
@@ -983,11 +986,15 @@ input[type=submit]:hover {
 }
 
 .entry-content .edd_download_purchase_form {
-	padding-bottom: 40px;
+	padding-bottom: 20px;
 	border: 1px solid #bdc3c7;
 	border-radius: 3px;
 	float: left;
 	margin: 0 1.5em 1.5em 0;
+}
+
+.download-variable .entry-content .edd_download_purchase_form {
+	padding-bottom: 40px;
 }
 
 .entry-content .edd_download_purchase_form:last-of-type {
@@ -2392,12 +2399,25 @@ object {
 /* =EDD
 ----------------------------------------------- */
 
+.edd_download_image {
+	margin-bottom: 1em;
+}
+
+.edd_download_image img {
+	min-width: 100%;
+}
+
 /** Purchase Link */
 .edd_download_purchase_form .edd_price_options li {
 	color: #515a63;
 	font-size: 16px;
-	padding: 20px 40px;
+	padding: 10px 20px;
 	border-bottom: 1px solid #bdc3c7;
+}
+
+.download-variable .edd_download_purchase_form .edd_price_options li,
+.popup .edd_download_purchase_form .edd_price_options li {
+	padding: 20px 40px;
 }
 
 .edd_price_options li input {
@@ -2411,11 +2431,16 @@ object {
 .entry-content .edd_purchase_submit_wrapper,
 .popup .edd_purchase_submit_wrapper {
 	text-align: center;
+	margin-top: 20px;
+}
+
+.download-variable .entry-content .edd_purchase_submit_wrapper,
+.popup .edd_purchase_submit_wrapper {
 	margin-top: 40px;
 }
 
-.entry-content .edd-add-to-cart.button.edd-submit,
-.entry-content .edd_go_to_checkout.button.edd-submit,
+.download-variable .entry-content .edd-add-to-cart.button.edd-submit,
+.download-variable .entry-content .edd_go_to_checkout.button.edd-submit,
 .popup .edd-add-to-cart.button.edd-submit,
 .popup .edd_go_to_checkout.button.edd-submit {
 	color: #bdc3c7;
@@ -2428,14 +2453,14 @@ object {
 	height: 75px;
 }
 
-.entry-content .edd-add-to-cart-label,
+.download-variable .entry-content .edd-add-to-cart-label,
 .popup .edd-add-to-cart-label {
 	font-size: 1px;
 	visibility: hidden;
 }
 
-.entry-content .edd-add-to-cart-label:before,
-.entry-content .edd_go_to_checkout:before,
+.download-variable .entry-content .edd-add-to-cart-label:before,
+.download-variable .entry-content .edd_go_to_checkout:before,
 .popup .edd-add-to-cart-label:before,
 .popup .edd_go_to_checkout:before {
 	font-size: 40px;
@@ -2448,12 +2473,12 @@ object {
 	left: 7px;
 }
 
-.entry-content .edd_go_to_checkout,
+.download-variable .entry-content .edd_go_to_checkout,
 .popup .edd_go_to_checkout {
 	font-size: 0px !important;
 }
 
-.entry-content .edd_go_to_checkout:before,
+.download-variable .entry-content .edd_go_to_checkout:before,
 .popup .edd_go_to_checkout:before {
 	top: 19px;
 	left: 10px;
@@ -2461,11 +2486,13 @@ object {
 	content: '\e73d';
 }
 
-.edd_price_options label {
+.download-variable .edd_price_options label,
+.popup .edd_price_options label {
 	cursor: pointer;
 }
 
-.edd_price_options input {
+.download-variable .edd_price_options input,
+.popup .edd_price_options input {
 	padding: 3px;
 	border: 6px solid #bcc3c8;
 	background: #fff;
