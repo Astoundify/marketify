@@ -66,6 +66,11 @@ function marketify_setup() {
 	add_post_type_support( 'download', 'post-formats' );
 
 	/**
+	 * Editor Style
+	 */
+	add_editor_style( 'css/editor-style.css' );
+
+	/**
 	 * Setup the WordPress core custom background feature.
 	 */
 	add_theme_support( 'custom-background', apply_filters( 'marketify_custom_background_args', array(
@@ -175,7 +180,7 @@ function marketify_has_header_background() {
 		$post = get_post( get_option( 'page_for_posts' ) );
 	}
 
-	$background = is_singular( 'page' ) ? true : false;
+	$background = is_singular( array( 'post', 'page' ) ) ? true : false;
 
 	if ( has_post_thumbnail( $post->ID ) )
 		$background = wp_get_attachment_image_src( get_post_thumbnail_id(), 'fullsize' );
@@ -376,6 +381,13 @@ function marketify_fonts_url() {
 
 	return $fonts_url;
 }
+
+function marketify_mce_css( $css ) {
+	$css .= ', ' . marketify_fonts_url();
+
+	return $css;
+}
+add_filter( 'mce_css', 'marketify_mce_css' );
 
 /**
  * Scripts and Styles
