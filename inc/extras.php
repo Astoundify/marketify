@@ -66,15 +66,18 @@ add_filter( 'body_class', 'marketify_body_classes' );
 /**
  * Adds custom classes to the array of post classes.
  */
-function marketify_post_classes( $classes ) {
-	global $wp_query, $post;
+function marketify_edd_purchase_download_form( $purchase_form, $args ) {
+	$download_id = $args[ 'download_id' ];
 
-	if ( is_singular( 'download' ) && edd_has_variable_prices( $post->ID ) )
-		$classes[] = 'download-variable';
+	if ( ! $download_id )
+		return $purchase_form;
 
-	return $classes;
+	if ( is_singular( 'download' ) && edd_has_variable_prices( $download_id ) )
+		$purchase_form = str_replace( 'class="edd_download_purchase_form"', 'class="edd_download_purchase_form download-variable"', $purchase_form );
+
+	return $purchase_form;
 }
-add_filter( 'post_class', 'marketify_post_classes' );
+add_filter( 'edd_purchase_download_form', 'marketify_edd_purchase_download_form', 10, 2 );
 
 /**
  * Filter in a link to a content ID attribute for the next/previous image links on image attachment pages

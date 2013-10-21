@@ -1000,6 +1000,7 @@ input[type=submit]:hover {
 .entry-content .edd_download_purchase_form:last-of-type {
 	clear: both;
 	float: none;
+	margin-right: 0;
 }
 
 .page-links {
@@ -1499,7 +1500,9 @@ input[type=submit]:hover {
 	float: right;
 }
 
-.content-grid-download .edd_purchase_tax_rate {
+.content-grid-download .edd_purchase_tax_rate,
+.content-grid-download .edd-cp-container,
+.content-grid-download .edd-cp-container + .edd_purchase_submit_wrapper > .edd-add-to-cart {
 	display: none;
 }
 
@@ -2399,6 +2402,11 @@ object {
 /* =EDD
 ----------------------------------------------- */
 
+.edd_download .edd_price {
+	font-weight: bold;
+	font-size: 16px;
+}
+
 .edd_download_image {
 	margin-bottom: 1em;
 }
@@ -2872,6 +2880,41 @@ object {
 .page-header .edd-cp-container input[type="text"] {
 	margin: 10px 0;
 	border: 0;
+}
+
+/** Upsells */
+.edd-csau-products {
+	border: 0;
+	margin: 0 -15px;
+}
+
+.entry-content .edd-csau-products h2, 
+.edd-csau-products h2 {
+	margin: 40px 0 20px 15px;
+}
+
+.edd-csau-products .edd_download_inner {
+	padding: 0 15px;
+}
+
+.edd-csau-products .edd_download_excerpt {
+	display: none;
+}
+
+.edd-csau-products .edd_download_purchase_form {
+	text-align: left;
+	border: 0;
+	padding: 0;
+}
+
+.edd-csau-products .edd_purchase_submit_wrapper {
+	text-align: left;
+}
+
+.edd-csau-products .edd_price_options li,
+.edd-csau-products .edd-cp-container {
+	padding-left: 0;
+	padding-right: 0;
 }
 
 /* =FES
