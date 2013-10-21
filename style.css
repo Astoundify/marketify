@@ -2494,13 +2494,12 @@ object {
 	content: '\e73d';
 }
 
-.download-variable .edd_price_options label,
+.edd_price_options label,
 .popup .edd_price_options label {
 	cursor: pointer;
 }
 
-.download-variable .edd_price_options input,
-.popup .edd_price_options input {
+.edd_price_options input {
 	padding: 3px;
 	border: 6px solid #bcc3c8;
 	background: #fff;
@@ -2915,6 +2914,12 @@ object {
 .edd-csau-products .edd-cp-container {
 	padding-left: 0;
 	padding-right: 0;
+	border-bottom: 0;
+}
+
+/** Misc */
+#edd_checkout_form_wrap fieldset fieldset#edd_mailchimp {
+	margin-bottom: 20px;
 }
 
 /* =FES
