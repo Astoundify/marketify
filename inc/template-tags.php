@@ -335,7 +335,7 @@ function marketify_get_theme_menu_name( $theme_location ) {
 	$default  = _x( 'Menu', 'noun', 'marketify' );
 
 	if( ! $menu_obj ) 
-		return $defalt;
+		return $default;
  
 	if( ! isset( $menu_obj->name ) ) 
 		return $default;

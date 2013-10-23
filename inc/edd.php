@@ -5,6 +5,24 @@
  * @package Marketify
  */
 
+add_filter( 'edd_csau_show_excerpt', '__return_false' );
+add_filter( 'edd_csau_show_price', '__return_false' );
+
+function marketify_edd_download_class( $class, $id, $atts ) {
+	return $class . ' content-grid-download';
+}
+add_filter( 'edd_download_class', 'marketify_edd_download_class', 10, 3 );
+
+function marketify_shortcode_atts_downloads( $atts ) {
+	$atts[ 'excerpt' ] = 'no';
+	$atts[ 'full_content' ] = 'no';
+	$atts[ 'price' ] = 'no';
+	$atts[ 'buy_button' ] = 'no';
+
+	return $atts;
+}
+add_filter( 'shortcode_atts_downloads', 'marketify_shortcode_atts_downloads' );
+
 /**
  * Add standard comments to the Downloads post type.
  *

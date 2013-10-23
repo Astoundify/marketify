@@ -7,6 +7,7 @@
 
 get_header(); ?>
 
+		<?php the_post(); if ( '' != $post->post_content && '' != $post->post_title ) : ?>
 		<header class="page-header">
 			<?php while ( have_posts() ) : the_post(); ?>
 				<div class="container">
@@ -16,6 +17,7 @@ get_header(); ?>
 				</div>
 			<?php endwhile; ?>
 		</header><!-- .page-header -->
+		<?php endif; rewind_posts(); ?>
 
 	</div>
 

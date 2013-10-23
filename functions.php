@@ -273,6 +273,16 @@ function marketify_widgets_init() {
 		'after_title'   => '</h1>',
 	) );
 
+	/* Download Single Comments/Reviews (single-download.php) */
+	register_sidebar( array(
+		'name'          => sprintf( __( '%s Single Comments Sidebar', 'marketify' ), edd_get_label_singular() ),
+		'id'            => 'sidebar-download-single-comments',
+		'before_widget' => '<aside id="%1$s" class="widget download-single-widget comments %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h1 class="download-single-widget-title">',
+		'after_title'   => '</h1>',
+	) );
+
 	/* Custom Homepage */
 	register_sidebar( array(
 		'name'          => __( 'Homepage', 'marketify' ),
@@ -289,7 +299,7 @@ function marketify_widgets_init() {
 	 */
 	$the_sidebars = wp_get_sidebars_widgets();
 	$count        = count( $the_sidebars[ 'footer-1' ] );
-	$count        = floor( 12 / $count );
+	$count        = floor( 12 / ( $count == 0 ? 1 : $count ) );
 
 	/* Footer */
 	register_sidebar( array(

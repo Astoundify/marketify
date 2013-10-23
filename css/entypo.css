@@ -44,7 +44,8 @@ input[type="radio"] + label::before,
 .individual-testimonial .testimonials-text:before,
 .zilla-likes-count:before,
 .edd_error:before,
-.fes_login_errors .error:before {
+.fes_login_errors .error:before,
+.main-navigation li ul li a:first-child:nth-last-child(2):before {
   font-family: 'fontello';
   font-style: normal;
   font-weight: normal;

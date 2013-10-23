@@ -17,7 +17,8 @@
 				</div>
 			<?php endif; ?>
 
-			<div class="site-info row">
+			<div class="site-info row<?php echo is_active_sidebar( 'footer-1' ) ? ' has-widgets' : ''; ?>">
+				<?php if ( marketify_get_theme_menu( 'social' ) ) : ?>
 				<div class="col-md-4">
 					<h1 class="footer-widget-title"><?php echo marketify_get_theme_menu_name( 'social' ); ?></h1>
 
@@ -35,6 +36,7 @@
 						echo strip_tags( $social, '<a><div><span>' );
 					?>
 				</div>
+				<?php endif; ?>
 
 				<?php $contact = marketify_theme_mod( 'footer', 'footer-contact-address' ); ?>
 
@@ -46,7 +48,16 @@
 				</div>
 				<?php endif; ?>
 
-				<div class="col-md-<?php echo $contact ? '4' : '8'; ?>">
+				<?php
+					$cols = 4;
+
+					if ( ! $contact && ! marketify_get_theme_menu( 'social' ) )
+						$cols = 12;
+					else if ( ! $contact || ! marketify_get_theme_menu( 'social' ) )
+						$cols = 8;
+				?>
+
+				<div class="col-md-<?php echo $cols; ?>">
 					<h1 class="site-title"><a href="<?php echo home_url(); ?>">
 						<?php if ( marketify_theme_mod( 'footer', 'footer-logo' ) ) : ?>
 							<img src="<?php echo marketify_theme_mod( 'footer', 'footer-logo' ); ?>" />

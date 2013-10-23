@@ -629,6 +629,7 @@ input[type=submit]:hover {
 	position: absolute;
 	top: 50%;
 	right: 0;
+	z-index: 999;
 
 	-webkit-transform: translate(0, -50%);
 	-moz-transform:    translate(0, -50%);
@@ -660,25 +661,64 @@ input[type=submit]:hover {
 }
 
 .main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	background: #fff;
+	box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.08);
+	border-radius: 4px;
 	display: none;
 	float: left;
 	position: absolute;
-		top: 1.5em;
-		left: 0;
+	top: 2.75em;
+	right: 50%;
+	margin-right: -22px;
 	z-index: 99999;
 }
 
+.main-navigation ul ul:after {
+	width: 0; 
+	height: 0; 
+	border: 7px solid transparent; 
+	border-bottom: 7px solid #fff; 
+	content: ' ';
+	position: absolute;
+	top: -14px;
+	right: 14px;
+}
+
 .main-navigation ul ul ul {
-	left: 100%;
-	top: 0;
+	right: 100%;
+	top: -1px;
+	z-index: 5;
+	margin-right: 0;
+}
+
+.main-navigation ul ul ul:after {
+	border-width: 0 0 0 7px;
+	top: 14px;
+	right: -14px;
 }
 
 .main-navigation ul ul a {
+	font-size: 12px;
+	letter-spacing: 0;
+	color: #515a63;
+	padding: 12px;
+	border: 0;
 	width: 200px;
 }
 
+.main-navigation ul ul li:first-child a {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
 .main-navigation ul ul li {
+	margin-left: 0;
+}
+
+.main-navigation ul ul li:last-child a {
+	border-bottom: 0;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
 }
 
 .main-navigation li:hover > a {
@@ -688,6 +728,9 @@ input[type=submit]:hover {
 }
 
 .main-navigation ul ul a:hover {
+	color: #404040;
+	border: 0;
+	background: #fbfbfb;
 }
 
 .main-navigation ul li:hover > ul {
@@ -696,6 +739,15 @@ input[type=submit]:hover {
 
 .main-navigation li.current_page_item a,
 .main-navigation li.current-menu-item a {
+}
+
+.main-navigation > li a:first-child:nth-last-child(2):hover {
+	border-color: transparent;
+}
+
+.main-navigation li ul li a:first-child:nth-last-child(2):before {
+	content: '\e761';
+	margin-right: 2px;
 }
 
 /* Search */
@@ -883,6 +935,10 @@ input[type=submit]:hover {
 	margin: 0 0 4em;
 }
 
+.single-download .hentry {
+	margin-bottom: 2em;
+}
+
 .hentry.post .entry-title,
 .edd_download_title {
 	font: 800 20px 'Montserrat', sans-serif;
@@ -985,7 +1041,7 @@ input[type=submit]:hover {
 	margin-top: 0;
 }
 
-.entry-content .edd_download_purchase_form {
+.single-download .entry-content div[itemprop=description] .edd_download_purchase_form {
 	padding-bottom: 20px;
 	border: 1px solid #bdc3c7;
 	border-radius: 3px;
@@ -997,10 +1053,11 @@ input[type=submit]:hover {
 	padding-bottom: 40px;
 }
 
-.entry-content .edd_download_purchase_form:last-of-type {
+.entry-content div[itemprop=description] .edd_download_purchase_form:last-of-type {
 	clear: both;
 	float: none;
 	margin-right: 0;
+	margin-top: 40px;
 }
 
 .page-links {
@@ -1568,6 +1625,14 @@ object {
 	max-width: 100%;
 }
 
+.column-group {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.column-group:last-child {
+	margin-bottom: 0;
+}
 
 /* =Comments
 ----------------------------------------------- */
@@ -2241,6 +2306,10 @@ object {
 	margin-top: 70px;
 }
 
+.download-single-widget.comments:first-child {
+	margin-top: 92px;
+}
+
 .download-single-widget-title {
 	margin: 0 0 15px;
 }
@@ -2436,7 +2505,7 @@ object {
 	outline: 0;
 }
 
-.entry-content .edd_purchase_submit_wrapper,
+.single-download .entry-content div[itemprop=description] .edd_purchase_submit_wrapper,
 .popup .edd_purchase_submit_wrapper {
 	text-align: center;
 	margin-top: 20px;
@@ -2887,6 +2956,10 @@ object {
 	margin: 0 -15px;
 }
 
+.edd-csau-products .edd_download_buy_button {
+	display: none;
+}
+
 .entry-content .edd-csau-products h2, 
 .edd-csau-products h2 {
 	margin: 40px 0 20px 15px;
@@ -3073,6 +3146,10 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 	padding: 63px 0 100px;
 }
 
+.home-1 .site-footer {
+	margin-top: 0;
+}
+
 .footer-widget,
 .footer-widget a,
 .footer-widget-title {
@@ -3223,6 +3300,10 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 	border-top: 1px solid #bdc3c7;
 }
 
+.site-footer.light .site-info:not(.has-widgets) {
+	border-top: 0;
+}
+
 .site-footer.light .footer-widget,
 .site-footer.light .site-info [class^="col-"] {
 	border-right: 0;
@@ -3249,6 +3330,10 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 
 .site-info [class^="col-"] .site-title a {
 	display: block;
+}
+
+.site-info .col-md-12 {
+	text-align: center;
 }
 
 /* =Modals
