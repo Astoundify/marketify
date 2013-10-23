@@ -236,12 +236,15 @@ add_action( 'marketify_entry_before', 'marketify_entry_page_title' );
  */
 function marketify_widgets_init() {
 	register_widget( 'Marketify_Widget_Slider' );
-	register_widget( 'Marketify_Widget_Recent_Downloads' );
-	register_widget( 'Marketify_Widget_Featured_Popular_Downloads' );
-	register_widget( 'Marketify_Widget_Download_Details' );
-	register_widget( 'Marketify_Widget_Download_Share' );
 	register_widget( 'Marketify_Widget_Price_Table' );
 	register_widget( 'Marketify_Widget_Price_Option' );
+
+	if ( marketify_is_edd() ) {
+		register_widget( 'Marketify_Widget_Recent_Downloads' );
+		register_widget( 'Marketify_Widget_Featured_Popular_Downloads' );
+		register_widget( 'Marketify_Widget_Download_Details' );
+		register_widget( 'Marketify_Widget_Download_Share' );
+	}
 
 	/* Standard Sidebar */
 	register_sidebar( array(
@@ -253,35 +256,37 @@ function marketify_widgets_init() {
 		'after_title'   => '</span></h1>',
 	) );
 
-	/* Download Achive (archive-download.php) */
-	register_sidebar( array(
-		'name'          => sprintf( __( '%s Archive Sidebar', 'marketify' ), edd_get_label_singular() ),
-		'id'            => 'sidebar-download',
-		'before_widget' => '<aside id="%1$s" class="widget download-archive-widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="download-archive-widget-title">',
-		'after_title'   => '</h1>',
-	) );
+	if ( marketify_is_edd() ) {
+		/* Download Achive (archive-download.php) */
+		register_sidebar( array(
+			'name'          => sprintf( __( '%s Archive Sidebar', 'marketify' ), edd_get_label_singular() ),
+			'id'            => 'sidebar-download',
+			'before_widget' => '<aside id="%1$s" class="widget download-archive-widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h1 class="download-archive-widget-title">',
+			'after_title'   => '</h1>',
+		) );
 
-	/* Download Single (single-download.php) */
-	register_sidebar( array(
-		'name'          => sprintf( __( '%s Single Sidebar', 'marketify' ), edd_get_label_singular() ),
-		'id'            => 'sidebar-download-single',
-		'before_widget' => '<aside id="%1$s" class="widget download-single-widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="download-single-widget-title">',
-		'after_title'   => '</h1>',
-	) );
+		/* Download Single (single-download.php) */
+		register_sidebar( array(
+			'name'          => sprintf( __( '%s Single Sidebar', 'marketify' ), edd_get_label_singular() ),
+			'id'            => 'sidebar-download-single',
+			'before_widget' => '<aside id="%1$s" class="widget download-single-widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h1 class="download-single-widget-title">',
+			'after_title'   => '</h1>',
+		) );
 
-	/* Download Single Comments/Reviews (single-download.php) */
-	register_sidebar( array(
-		'name'          => sprintf( __( '%s Single Comments Sidebar', 'marketify' ), edd_get_label_singular() ),
-		'id'            => 'sidebar-download-single-comments',
-		'before_widget' => '<aside id="%1$s" class="widget download-single-widget comments %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="download-single-widget-title">',
-		'after_title'   => '</h1>',
-	) );
+		/* Download Single Comments/Reviews (single-download.php) */
+		register_sidebar( array(
+			'name'          => sprintf( __( '%s Single Comments Sidebar', 'marketify' ), edd_get_label_singular() ),
+			'id'            => 'sidebar-download-single-comments',
+			'before_widget' => '<aside id="%1$s" class="widget download-single-widget comments %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h1 class="download-single-widget-title">',
+			'after_title'   => '</h1>',
+		) );
+	}
 
 	/* Custom Homepage */
 	register_sidebar( array(
@@ -298,7 +303,8 @@ function marketify_widgets_init() {
 	 * Figure out how many columns the footer has
 	 */
 	$the_sidebars = wp_get_sidebars_widgets();
-	$count        = count( $the_sidebars[ 'footer-1' ] );
+	$footer       = isset ( $the_sidebars[ 'footer-1' ] ) ? $the_sidebars[ 'footer-1' ] : array();
+	$count        = count( $footer );
 	$count        = floor( 12 / ( $count == 0 ? 1 : $count ) );
 
 	/* Footer */
@@ -315,8 +321,9 @@ function marketify_widgets_init() {
 	/*
 	 * Figure out how many columns the price table has
 	 */
-	$count = count( $the_sidebars[ 'widget-area-price-options' ] );
-	$count = floor( 12 / $count );
+	$prices = isset ( $the_sidebars[ 'widget-area-price-options' ] ) ? $the_sidebars[ 'widget-area-price-options' ] : array();
+	$count = count( $prices );
+	$count = floor( 12 / ( $count == 0 ? 1 : $count ) );
 
 	/* Price Table */
 	register_sidebar( array(
@@ -594,9 +601,12 @@ require get_template_directory() . '/inc/jetpack.php';
  */
 require get_template_directory() . '/inc/class-widget.php';
 require get_template_directory() . '/inc/widgets/class-widget-slider.php';
-require get_template_directory() . '/inc/widgets/class-widget-downloads-recent.php';
-require get_template_directory() . '/inc/widgets/class-widget-featured-popular.php';
-require get_template_directory() . '/inc/widgets/class-widget-download-details.php';
-require get_template_directory() . '/inc/widgets/class-widget-download-share.php';
 require get_template_directory() . '/inc/widgets/class-widget-price-option.php';
 require get_template_directory() . '/inc/widgets/class-widget-price-table.php';
+
+if ( marketify_is_edd() ) {
+	require get_template_directory() . '/inc/widgets/class-widget-downloads-recent.php';
+	require get_template_directory() . '/inc/widgets/class-widget-featured-popular.php';
+	require get_template_directory() . '/inc/widgets/class-widget-download-details.php';
+	require get_template_directory() . '/inc/widgets/class-widget-download-share.php';
+}

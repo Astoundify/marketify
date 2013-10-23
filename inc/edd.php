@@ -5,6 +5,10 @@
  * @package Marketify
  */
 
+function marketify_is_edd() {
+	return class_exists( 'Easy_Digital_Downloads' );
+}
+
 add_filter( 'edd_csau_show_excerpt', '__return_false' );
 add_filter( 'edd_csau_show_price', '__return_false' );
 

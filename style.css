@@ -741,7 +741,7 @@ input[type=submit]:hover {
 .main-navigation li.current-menu-item a {
 }
 
-.main-navigation > li a:first-child:nth-last-child(2):hover {
+.main-navigation li a:first-child:nth-last-child(2):hover {
 	border-color: transparent;
 }
 
@@ -1523,7 +1523,8 @@ input[type=submit]:hover {
 	border: 1px solid #bdc3c7;
 }
 
-.content-grid-download .entry-title {
+.content-grid-download .entry-title,
+.widget-download-title {
 	font: 400 15px/normal 'Roboto Slab', serif;
 }
 
