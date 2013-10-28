@@ -59,8 +59,6 @@ function marketify_is_multi_vendor() {
 			'role' => 'shop_vendor'
 		) );
 
-		print_r( $vendors );
-
 		$total = count( $vendors );
 		$is_multi_vendor = $total > 0 ? true : false;
 

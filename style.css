@@ -346,6 +346,10 @@ div.fes-form fieldset .fes-fields textarea,
 	box-sizing:         border-box;
 }
 
+input:disabled {
+	opacity: .50;
+}
+
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="url"]:focus,
@@ -2879,7 +2883,8 @@ object {
 }
 
 .edd_error,
-.fes_login_errors .error {
+.fes_login_errors .error,
+.fes-success {
 	font: 800 15px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	color: #ffb400;
@@ -2899,6 +2904,11 @@ object {
 
 #edd_checkout_wrap .edd_errors p.edd_error {
 	margin-bottom: 10px !important;
+}
+
+.fes-success {
+	color: #49a776;
+	border-color: #49a776;
 }
 
 /*.fes_login_errors .error {
@@ -3006,6 +3016,16 @@ object {
 	background: none;
 }
 
+#wraper nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#wraper nav ul li {
+	float: left;
+}
+
 #wraper nav ul li:hover {
 	background: none;
 }
@@ -3050,7 +3070,8 @@ div.fes-form fieldset {
 	margin-bottom: 35px;
 }
 
-div.fes-form fieldset .fes-label {
+div.fes-form fieldset .fes-label,
+.fes_form label {
 	font-size: 95%;
 	float: none;
 	width: auto;

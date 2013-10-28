@@ -44,8 +44,20 @@ function marketify_setup() {
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
 	add_theme_support( 'post-thumbnails' );
-	add_image_size( 'content-grid-download', 740, 600, true );
-	add_image_size( 'content-single-download', 9999, 300, true );
+
+	add_image_size( 
+		'content-grid-download', 
+		apply_filters( 'marketify_image_content_grid_download_w', 740  ),
+		apply_filters( 'marketify_image_content_grid_download_h', 600  ), 
+		apply_filters( 'marketify_image_content_grid_download_c', true )
+	);
+
+	add_image_size( 
+		'content-single-download', 
+		apply_filters( 'marketify_image_content_single_download_w', 9999 ),
+		apply_filters( 'marketify_image_content_single_download_h', 300  ), 
+		apply_filters( 'marketify_image_content_single_download_c', true )
+	);
 
 	/**
 	 * This theme uses wp_nav_menu() in one location.
