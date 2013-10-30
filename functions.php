@@ -258,6 +258,17 @@ function marketify_widgets_init() {
 		register_widget( 'Marketify_Widget_Download_Share' );
 	}
 
+	/* Custom Homepage */
+	register_sidebar( array(
+		'name'          => __( 'Homepage', 'marketify' ),
+		'description'   => __( 'Widgets that appear on the "Homepage 1" Page Template', 'marketify' ),
+		'id'            => 'home-1',
+		'before_widget' => '<aside id="%1$s" class="home-widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h1 class="home-widget-title"><span>',
+		'after_title'   => '</span></h1>',
+	) );
+
 	/* Standard Sidebar */
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', 'marketify' ),
@@ -299,17 +310,6 @@ function marketify_widgets_init() {
 			'after_title'   => '</h1>',
 		) );
 	}
-
-	/* Custom Homepage */
-	register_sidebar( array(
-		'name'          => __( 'Homepage', 'marketify' ),
-		'description'   => __( 'Widgets that appear on the "Homepage 1" Page Template', 'marketify' ),
-		'id'            => 'home-1',
-		'before_widget' => '<aside id="%1$s" class="home-widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="home-widget-title"><span>',
-		'after_title'   => '</span></h1>',
-	) );
 
 	/*
 	 * Figure out how many columns the footer has
@@ -465,6 +465,12 @@ function marketify_scripts() {
 	/** Custom JS */
 	wp_enqueue_script( 'marketify', get_template_directory_uri() . '/js/marketify.js', array( 'jquery' ), '20130916' );
 
+	wp_localize_script( 'marketify', 'marketifySettings', apply_filters( 'marketify_jsparams', array(
+		'widgets' => array(
+			'testimonialSpeed' => 3000
+		)
+	) ) );
+
 	/** Misc Support */
 	wp_dequeue_style( 'edd-software-specs' );
 }
@@ -515,6 +521,20 @@ function marketify_woothemes_features_item_template( $template, $args ) {
 function marketify_woothemes_features_item_template_mini( $template, $args ) {
 	return '<div class="%%CLASS%% col-lg-3 col-md-4 col-sm-6 col-xs-12 feature-mini">%%IMAGE%%<h3 class="feature-title">%%TITLE%%</h3><div class="feature-content">%%CONTENT%%</div></div>';
 }
+
+/**
+ * Feature arguments
+ *
+ * @since Marketify 1.0
+ *
+ * @return array
+ */
+function marketify_woothemes_features_args( $args ) {
+	$args[ 'link_title' ] = false;
+
+	return $args;
+}
+add_filter( 'woothemes_features_args', 'marketify_woothemes_features_args' );
 
 /**
  * Testimonials by WooThemes

@@ -1,6 +1,6 @@
 /*
 Theme Name: Marketify
-Theme URI: http://underscores.me/
+Theme URI: http://astoundify.com/themes/marketify
 Author: Astoundify
 Author URI: http://astoundify.com
 Description: Your beautiful handcrafted digital marketplace.
@@ -9,7 +9,7 @@ License: GNU General Public License
 License URI: license.txt
 Text Domain: marketify
 Domain Path: /languages/
-Tags:
+Tags: white, two-column, one-column, right-sidebar, left-sidebar, flexible-width, custom-background, custom-header, theme-options, full-width-template, featured-images, flexible-header, custom-menu, translation-ready
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -112,6 +112,8 @@ textarea,
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing:    border-box;
 	box-sizing:         border-box;
+
+	-webkit-font-smoothing: antialiased; 
 }
 
 /* Headings */
@@ -609,6 +611,7 @@ input[type=submit]:hover {
 
 /** Minimal */
 .site-header-minimal {
+	text-align: center;
 	padding: 90px 0 45px;
 }
 
@@ -638,6 +641,10 @@ input[type=submit]:hover {
 	-webkit-transform: translate(0, -50%);
 	-moz-transform:    translate(0, -50%);
 	transform:         translate(0, -50%);
+}
+
+.main-navigation .main-menu {
+	float: right;
 }
 
 .main-navigation ul {
@@ -1330,6 +1337,38 @@ input[type=submit]:hover {
 	margin: 14px 0 0 -5px;
 }
 
+/** Password */
+.post-password-form p {
+	overflow: hidden;
+}
+
+.post-password-form label {
+	width: 80%;
+	float: left;
+}
+
+.post-password-form input[type="submit"] {
+	margin-top: 25px;
+	padding: 13px 20px 14px;
+	width: 19%;
+	float: right;
+}
+
+/** Page Links */
+.page-links {
+	font-weight: bold;
+}
+
+.page-links a {
+	font-weight: normal;
+	text-decoration: none;
+	margin: 0 3px;
+	padding: 0 7px;
+	border: 1px solid #ccc;
+	display: inline-block;
+	border-radius: 3px;
+}
+
 /* =Download
 ----------------------------------------------- */
 
@@ -1648,13 +1687,18 @@ object {
 	list-style: none;
 }
 
-.comment {
+.comment,
+.pingback {
 	margin-bottom: 55px;
 }
 
 .comment-meta {
 	width: 90px;
 	float: left;
+}
+
+.comment-meta {
+	display: none;
 }
 
 .comment-content {
@@ -1669,7 +1713,7 @@ object {
 	margin-left: 140px;
 }
 
-.comment-content:after {
+.comment .comment-content:after {
 	width: 0; 
 	height: 0; 
 	border-top: 14px solid transparent;
@@ -1681,7 +1725,7 @@ object {
 	left: -15px;
 }
 
-.comment-content:before {
+.comment .comment-content:before {
 	width: 0; 
 	height: 0; 
 	border-top: 14px solid transparent;
@@ -2015,11 +2059,6 @@ object {
 
 .feature a {
 	display: inline-block;
-}
-
-.feature.feature-large img {
-	width: 50%;
-	height: 50%;
 }
 
 .feature-title,
@@ -3168,7 +3207,7 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 	padding: 63px 0 100px;
 }
 
-.home-1 .site-footer {
+.home-1 .site-footer:not(.light) {
 	margin-top: 0;
 }
 

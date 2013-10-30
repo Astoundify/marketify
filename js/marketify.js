@@ -166,6 +166,9 @@ Marketify.Widgets = ( function($) {
 	function widget_woothemes_testimonials() {
 		var quotes = $('.individual-testimonial');
 
+		if ( quotes.length == 2 )
+			return;
+
 		quotes.find( ':first-child, :nth-child(2n)' ).addClass( 'active' );
 
 		function cycleQuotes () {
@@ -179,7 +182,7 @@ Marketify.Widgets = ( function($) {
 				next.addClass( 'active' ).fadeIn(); 
 			});
 
-			setTimeout(cycleQuotes,3000);
+			setTimeout(cycleQuotes, marketifySettings.widgets.testimonialSpeed);
 		}
 		
 		cycleQuotes();

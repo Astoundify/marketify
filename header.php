@@ -38,7 +38,7 @@
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<h1 class="menu-toggle"><?php _e( 'Menu', 'marketify' ); ?></h1>
 				
-				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container_class' => 'main-menu' ) ); ?>
 
 				<?php locate_template( array( 'searchform-header.php' ), true ); ?>
 			</nav><!-- #site-navigation -->
