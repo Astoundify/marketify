@@ -660,7 +660,6 @@ input[type=submit]:hover {
 }
 
 .main-navigation a {
-	font-weight: 400;
 	display: block;
 	border-color: transparent;
 }
