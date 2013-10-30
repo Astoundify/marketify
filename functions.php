@@ -55,7 +55,7 @@ function marketify_setup() {
 	add_image_size( 
 		'content-single-download', 
 		apply_filters( 'marketify_image_content_single_download_w', 9999 ),
-		apply_filters( 'marketify_image_content_single_download_h', 300  ), 
+		apply_filters( 'marketify_image_content_single_download_h', 400  ), 
 		apply_filters( 'marketify_image_content_single_download_c', true )
 	);
 

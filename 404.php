@@ -14,7 +14,7 @@ get_header(); ?>
 	<div class="container">
 		<div id="content" class="site-content row">
 			
-			<div id="primary" class="content-area col-sm-8">
+			<div id="primary" class="content-area col-sm-<?php echo is_active_sidebar( 'sidebar-1' ) ? '8' : '12'; ?>">
 				<main id="main" class="site-main" role="main">
 
 				<section class="error-404 not-found">

@@ -7,15 +7,13 @@
 
 get_header(); ?>
 
-		<?php the_post(); if ( '' != $post->post_content && '' != $post->post_title ) : ?>
+		<?php the_post(); if ( ! ( '' == $post->post_content && '' == $post->post_title ) ) : ?>
 		<header class="page-header">
-			<?php while ( have_posts() ) : the_post(); ?>
-				<div class="container">
-					<h1 class="page-title"><?php the_title(); ?></h1>
+			<div class="container">
+				<h1 class="page-title"><?php the_title(); ?></h1>
 
-					<?php the_content(); ?>
-				</div>
-			<?php endwhile; ?>
+				<?php the_content(); ?>
+			</div>
 		</header><!-- .page-header -->
 		<?php endif; rewind_posts(); ?>
 

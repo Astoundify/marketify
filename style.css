@@ -755,7 +755,7 @@ input[type=submit]:hover {
 }
 
 /* Search */
-.main-navigation .menu-menu-1-container {
+.main-navigation div:first-child {
 	float: right;
 }
 

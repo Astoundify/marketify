@@ -20,7 +20,7 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 				'step'  => 1,
 				'min'   => 1,
 				'max'   => '',
-				'std'   => 8,
+				'std'   => 6,
 				'label' => __( 'Number to display:', 'marketify' )
 			),
 		);
