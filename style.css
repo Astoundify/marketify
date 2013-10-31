@@ -2060,11 +2060,6 @@ object {
 	display: inline-block;
 }
 
-.feature.feature-large img {
-	width: 50%;
-	height: 50%;
-}
-
 .feature-title,
 .individual-testimonial .author {
 	font: 800 16px 'Montserrat', sans-serif;
