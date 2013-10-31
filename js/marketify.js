@@ -166,8 +166,11 @@ Marketify.Widgets = ( function($) {
 	function widget_woothemes_testimonials() {
 		var quotes = $('.individual-testimonial');
 
-		if ( quotes.length == 2 )
+		if ( quotes.length == 2 ) {
+			$( '.individual-testimonial' ).fadeIn();
+			
 			return;
+		}
 
 		quotes.find( ':first-child, :nth-child(2n)' ).addClass( 'active' );
 

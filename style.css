@@ -1981,8 +1981,8 @@ object {
 .main-navigation .search-form .search-field {
 	padding: 5px;
 	font-size: 13px;
-	background-color: #3e464d;
-	border-color: #3e464d;
+	background: rgba(255, 255, 255, .40);
+	border: 1px solid transparent;
 }
 
 .search-form .search-submit {
@@ -2100,10 +2100,19 @@ object {
 }
 
 /** Testimonials */
+.testimonial-list {
+	text-align: center;
+}
+
 .company-testimonial {
 	text-align: center;
 	display: inline-block;
-	margin: 0 40px;
+	margin: 0;
+}
+
+.company-testimonial img {
+	width: 200px;
+	height: auto;
 }
 
 .testimonials-text {
@@ -2116,6 +2125,7 @@ object {
 }
 
 .individual-testimonial {
+	text-align: left;
 	margin-bottom: 4em;
 	clear: both;
 	display: none;
