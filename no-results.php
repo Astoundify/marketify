@@ -17,7 +17,10 @@
 		<?php elseif ( is_search() ) : ?>
 
 			<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'marketify' ); ?></p>
+
+			<?php if ( ! is_post_type_archive( 'download' ) ) : ?>
 			<?php get_search_form(); ?>
+			<?php endif; ?>
 
 		<?php else : ?>
 

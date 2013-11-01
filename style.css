@@ -328,12 +328,12 @@ div.fes-form fieldset .fes-fields input[type=email],
 div.fes-form fieldset .fes-fields input[type=url], 
 div.fes-form fieldset .fes-fields input[type=number], 
 div.fes-form fieldset .fes-fields textarea,
-.entry-content .fes_form input[type=text], 
-.entry-content .fes_form input[type=password], 
-.entry-content .fes_form input[type=email], 
-.entry-content .fes_form input[type=url], 
-.entry-content .fes_form input[type=number], 
-.entry-content .fes_form textarea {
+.entry-content .fes-form input[type=text], 
+.entry-content .fes-form input[type=password], 
+.entry-content .fes-form input[type=email], 
+.entry-content .fes-form input[type=url], 
+.entry-content .fes-form input[type=number], 
+.entry-content .fes-form textarea {
 	line-height: 25px;
 	color: #515a63;
 	padding: 10px;
@@ -409,6 +409,7 @@ div.fes-form .fes-submit input[type=submit],
 	font: 800 13px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
+	text-shadow: none;
 	display: inline-block;
 	padding: 10px 20px;
 	border: 2px solid transparent;
@@ -925,6 +926,10 @@ input[type=submit]:hover {
 /* =Content
 ----------------------------------------------- */
 
+.content-area {
+	padding-bottom: 100px;
+}
+
 .content-area.full {
 	margin-bottom: -25px;
 }
@@ -1222,12 +1227,12 @@ input[type=submit]:hover {
 .minimal div.fes-form fieldset .fes-fields input[type=url], 
 .minimal div.fes-form fieldset .fes-fields input[type=number], 
 .minimal div.fes-form fieldset .fes-fields textarea,
-.minimal .entry-content .fes_form input[type=text], 
-.minimal .entry-content .fes_form input[type=password], 
-.minimal .entry-content .fes_form input[type=email], 
-.minimal .entry-content .fes_form input[type=url], 
-.minimal .entry-content .fes_form input[type=number], 
-.minimal .entry-content .fes_form textarea {
+.minimal .entry-content .fes-form input[type=text], 
+.minimal .entry-content .fes-form input[type=password], 
+.minimal .entry-content .fes-form input[type=email], 
+.minimal .entry-content .fes-form input[type=url], 
+.minimal .entry-content .fes-form input[type=number], 
+.minimal .entry-content .fes-form textarea {
 	border-color: #fff;
 }
 
@@ -1695,7 +1700,7 @@ object {
 	float: left;
 }
 
-.comment-meta {
+.pingback .comment-meta {
 	display: none;
 }
 
@@ -1816,6 +1821,10 @@ object {
 /* =Global Widgets
 ----------------------------------------------- */
 
+.widget-area {
+	margin-bottom: 100px;
+}
+
 .widget-area .section-title {
 	margin: 55px 0;
 }
@@ -1866,14 +1875,18 @@ object {
 	margin-left: -4px;
 }
 
-.widget .edd-remove-from-cart {
+.widget .edd-remove-from-cart,
+.edd-fes-adf-submission-option-remove a,
+.edd_repeatable_upload_field_container .edd_upload_file a {
 	font-size: 0;
 	text-decoration: none;
 	visibility: hidden;
 }
 
 .widget .edd-remove-from-cart:before,
-#cancel-comment-reply-link:before {
+#cancel-comment-reply-link:before,
+.edd-fes-adf-submission-option-remove a:before,
+.edd_repeatable_upload_field_container .edd_upload_file a:before {
 	font-size: 15px;
 	visibility: visible;
 	content: '\2715';
@@ -2240,6 +2253,17 @@ object {
 
 .download-archive-widget-area {
 	text-align: right;
+	position: relative;
+}
+
+.download-archive-widget-area:after {
+	content: ' ';
+	width: 1px;
+	height: 100%;
+	position: absolute;
+	right: 15px;
+	top: 0;
+	background: #bdc3c7;
 }
 
 .download-archive-widget {
@@ -2250,6 +2274,10 @@ object {
 
 .download-archive-widget:first-child {
 	padding-top: 82px;
+}
+
+.download-archive-widget.widget li {
+	margin: 0;
 }
 
 .download-archive-widget-title,
@@ -2666,7 +2694,7 @@ object {
 .edd_form label,
 .edd-label,
 .fes-label,
-.fes_form label,
+.fes-form label,
 .comment-form label {
 	font: 800 16px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
@@ -3123,10 +3151,11 @@ div.fes-form fieldset {
 }
 
 div.fes-form fieldset .fes-label,
-.fes_form label {
+.fes-form label {
 	font-size: 95%;
 	float: none;
 	width: auto;
+	overflow: hidden;
 }
 
 div.fes-form fieldset .fes-fields {
@@ -3189,21 +3218,21 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 	margin: 1em 0 3em;
 }
 
-.entry-content .fes_form table {
+.entry-content .fes-form table {
 	border: 0;
 }
 
-.fes_form td {
+.fes-form td {
 	border: 0;
 	padding: 0;
 	display: block;
 }
 
-.fes_form td:last-child {
+.fes-form td:last-child {
 	margin-bottom: 1.75em;
 }
 
-.fes_form tr:last-child td {
+.fes-form tr:last-child td {
 	margin-bottom: 0;
 }
 
@@ -3211,17 +3240,81 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 	margin-top: 0;
 }
 
+.entry-content #fes_half {
+	margin-right: 4%;
+	border-top: 0;
+}
+
+.entry-content #fes_half:last-child {
+	margin-right: 0;
+}
+
+/** Price and Files */
+.edd-fes-adf-submission-option-description {
+	width: 46%;
+}
+
+.edd-fes-adf-submission-option-remove {
+	width: 2%;
+}
+
+.edd-fes-adf-submission-option-file {
+	margin-right: 1%;
+}
+
+.edd-fes-adf-submission-option-remove a {
+	padding-top: 11px;
+	display: block;
+	font-weight: bold;
+}
+
+.edd-fes-adf-submission-option:first-child .edd-fes-adf-submission-option-remove {
+	text-indent: -9999em;
+}
+
+.edd_repeatable_upload_field_container {
+	position: relative;
+}
+
+.edd_repeatable_upload_field_container .edd_upload_file {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	padding-left: 8px;
+	background: white;
+}
+
+.edd_repeatable_upload_field_container .edd_upload_file a:before {
+	content: '\e711';
+	margin: 6px 10px 0 0;
+	font-size: 25px;
+}
+
+.edd-fes-adf-submission-add-option-button {
+	font-size: 13px;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.edd-fes-adf-submission-add-option-button:hover em {
+	text-decoration: underline;
+}
+
+.edd-fes-adf-submission-add-option-button em {
+	font-style: normal;
+}
+
+.edd-fes-adf-submission-option:nth-child(2) .edd-fes-adf-submission-option-remove {
+	display: none;
+}
+
 /* =Footer
 ----------------------------------------------- */
 
 .site-footer {
 	color: #fff;
-	margin-top: 100px;
 	padding: 63px 0 100px;
-}
-
-.home-1 .site-footer:not(.light) {
-	margin-top: 0;
 }
 
 .footer-widget,

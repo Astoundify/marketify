@@ -23,7 +23,7 @@ get_header(); ?>
 
 						<?php get_search_form(); ?>
 
-						<br />
+						<br /><br />
 
 						<div class="row">
 							<div class="col-md-6">

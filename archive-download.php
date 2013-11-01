@@ -48,7 +48,7 @@ get_header(); ?>
 
 				<?php else : ?>
 
-					<?php get_template_part( 'no-results', 'archive' ); ?>
+					<?php get_template_part( 'no-results', 'download' ); ?>
 
 				<?php endif; ?>
 

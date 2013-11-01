@@ -80,6 +80,21 @@ Marketify.App = ( function($) {
 		});
 	}
 
+	function sidebarHeight() {
+		var height = $( '.content-area' ).outerHeight();
+		var area   = $( '.download-archive-widget-area' );
+
+		if ( area.outerHeight() > height )
+			return;
+
+		area.css( 'height', height );
+
+		if ( $(window).width() < 750 )
+			area.css( 'height', 'auto' );
+		else
+			area.css( 'height', height );
+	}
+
 	function downloadStandard() {
 		$( '.download-image' ).flexslider({
 			animation     : 'fade',
@@ -100,10 +115,12 @@ Marketify.App = ( function($) {
 			menuMobile();
 			skipLink();
 			footerHeight();
+			sidebarHeight();
 			downloadStandard();
 
 			$(window).resize(function() {
 				footerHeight();
+				sidebarHeight();
 			});
 
 			$( '.popup-trigger' ).click(function(e) {
