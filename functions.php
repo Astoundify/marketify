@@ -465,11 +465,40 @@ function marketify_scripts() {
 	/** Custom JS */
 	wp_enqueue_script( 'marketify', get_template_directory_uri() . '/js/marketify.js', array( 'jquery' ), '20130916' );
 
-	wp_localize_script( 'marketify', 'marketifySettings', apply_filters( 'marketify_jsparams', array(
-		'widgets' => array(
-			'testimonialSpeed' => 3000
-		)
-	) ) );
+	$marketify_js_settings = apply_filters( 'marketify_jsparams', array(
+		'widgets' => array()
+	) );
+
+	/*
+	 * Pass all widget settings to the JS so we can customize things
+	 */
+	global $wp_registered_widgets;
+
+	$widgetized = wp_get_sidebars_widgets();
+	$widgets    = $widgetized[ 'home-1' ];
+
+	foreach ( $widgets as $widget ) {
+		$widget_obj = $wp_registered_widgets[ $widget ];
+		$prefix     = substr( $widget_obj[ 'classname' ], 0, 7 ) == 'widget_' ? '' : 'widget_';
+		$settings   = get_option( $prefix . $widget_obj[ 'classname' ] );
+
+		if ( ! $settings )
+			continue;
+
+		$params = $settings[ $widget_obj[ 'params' ][0][ 'number' ] ];
+
+		$marketify_js_settings[ 'widgets' ][ $widget ] = array(
+			'cb'       => $widget_obj[ 'classname' ],
+			'settings' => $params
+		);
+
+		// Suppliment stuff. Should probably be added to a hook
+		if ( 'widget_woothemes_testimonials' == $widget_obj[ 'classname' ] && isset ( $params[ 'display_author' ] ) ) {
+			$marketify_js_settings[ 'widgets' ][ $widget ][ 'settings' ][ 'speed' ] = apply_filters( $widget_obj[ 'classname' ] . '_scroll', 4000 );
+		}
+	}
+
+	wp_localize_script( 'marketify', 'marketifySettings', $marketify_js_settings );
 
 	/** Misc Support */
 	wp_dequeue_style( 'edd-software-specs' );

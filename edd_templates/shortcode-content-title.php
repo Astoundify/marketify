@@ -1,6 +1,7 @@
 <header class="entry-header">
 	<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 
+	<?php if ( marketify_is_multi_vendor() || did_action( 'marketify_download_entry_meta' ) ) : ?>
 	<div class="entry-meta">
 		<?php if ( marketify_is_multi_vendor() ) : ?>
 			<?php
@@ -18,4 +19,5 @@
 
 		<?php do_action( 'marketify_download_entry_meta' ); ?>
 	</div>
+	<?php endif; ?>
 </header><!-- .entry-header -->

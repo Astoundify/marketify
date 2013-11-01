@@ -23,6 +23,16 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 				'std'   => 6,
 				'label' => __( 'Number to display:', 'marketify' )
 			),
+			'scroll' => array(
+				'type'  => 'checkbox',
+				'std'   => 1,
+				'label' => __( 'Automatically scroll items', 'marketify' )
+			),
+			'speed' => array(
+				'type'  => 'text',
+				'std'   => 7000,
+				'label' => __( 'Slideshow Speed (ms)', 'marketify' )
+			),
 		);
 		parent::__construct();
 	}

@@ -133,68 +133,90 @@ Marketify.App = ( function($) {
 } )(jQuery);
 
 Marketify.Widgets = ( function($) {
-
-	function marketify_widget_featured_popular() {
-		var slider = $( '.flexslider' ).flexslider({
-			animation     : "slide",
-			animationLoop : false,
-			itemWidth     : 360,
-			itemMargin    : 30,
-			minItems      : 1,
-			maxItems      : 3,
-			directionNav  : false,
-			start         : function(slider) {
-				slider.css( 'display', 'none' );
-
-				$( '.marketify_widget_featured_popular .flexslider:first-of-type' ).fadeIn( 'slow' );
-			}
-		});
-
-		$( '.marketify_widget_featured_popular .home-widget-title span' ).click(function() {
-			if ( 0 == $(this).index() ) {
-				$( '.marketify_widget_featured_popular .flexslider' ).hide();
-				$( '.marketify_widget_featured_popular .flexslider:first-of-type' ).fadeIn();
-			} else {
-				$( '.marketify_widget_featured_popular .flexslider' ).hide();
-				$( '.marketify_widget_featured_popular .flexslider:last-of-type' ).fadeIn();
-			}
-
-			slider.resize();
-		});
-	}
-
-	function widget_woothemes_testimonials() {
-		var quotes = $('.individual-testimonial');
-
-		if ( quotes.length == 2 ) {
-			$( '.individual-testimonial' ).fadeIn();
-			
-			return;
-		}
-
-		quotes.find( ':first-child, :nth-child(2n)' ).addClass( 'active' );
-
-		function cycleQuotes () {
-			var current = quotes.filter(".active"), next;
-			
-			if (current.length == 0 || (next = current.next().next()).length == 0 ) {
-				next = quotes.slice(0,2);
-			}
-			
-			current.removeClass( 'active' ).fadeOut(400).promise().done(function(){
-				next.addClass( 'active' ).fadeIn(); 
-			});
-
-			setTimeout(cycleQuotes, marketifySettings.widgets.testimonialSpeed);
-		}
-		
-		cycleQuotes();
-	}
+	var widgetSettings = {};
 
 	return {
 		init : function() {
-			marketify_widget_featured_popular();
-			widget_woothemes_testimonials();
+			$.each( marketifySettings.widgets, function(m, value) {
+				var cb       = value.cb;
+				var settings = value.settings;
+				var fn       = Marketify.Widgets[cb];
+
+				widgetSettings[m] = settings;
+
+				if ( typeof fn === 'function' )
+					fn( m );
+			} );
+
+			$( '.widget_woothemes_features, .widget_woothemes_testimonials' ).find( '.fix' ).remove();
+		},
+
+		marketify_widget_featured_popular : function( widget_id ) {
+			var settings = widgetSettings[ widget_id ];
+
+			var slider = $( '.flexslider' ).flexslider({
+				animation      : "slide",
+				slideshow      : settings.scroll,
+				slideshowSpeed : settings.speed,
+				animationLoop  : false,
+				itemWidth      : 360,
+				itemMargin     : 30,
+				minItems       : 1,
+				maxItems       : 3,
+				directionNav  : false,
+				start          : function(slider) {
+					slider.css( 'display', 'none' );
+
+					$( '.marketify_widget_featured_popular .flexslider:first-of-type' ).fadeIn( 'slow' );
+				}
+			});
+
+			$( '.marketify_widget_featured_popular .home-widget-title span' ).click(function() {
+				if ( 0 == $(this).index() ) {
+					$( '.marketify_widget_featured_popular .flexslider' ).hide();
+					$( '.marketify_widget_featured_popular .flexslider:first-of-type' ).fadeIn();
+				} else {
+					$( '.marketify_widget_featured_popular .flexslider' ).hide();
+					$( '.marketify_widget_featured_popular .flexslider:last-of-type' ).fadeIn();
+				}
+
+				slider.resize();
+			});
+		},
+
+		widget_woothemes_testimonials : function( widget_id ) {
+			if ( this.alreadyCalled )
+				return;
+
+			var quotes = $('.individual-testimonial');
+
+			if ( quotes.length == 2 ) {
+				$( '.individual-testimonial' ).fadeIn();
+				
+				return;
+			}
+
+			var settings = widgetSettings[ widget_id ];
+
+			quotes.find( ':first-child, :nth-child(2n)' ).addClass( 'active' );
+
+			function cycleQuotes () {
+				var current = quotes.filter(".active"), next;
+				
+				if (current.length == 0 || (next = current.next().next()).length == 0 ) {
+					next = quotes.slice(0,2);
+				}
+				
+				current.removeClass( 'active' ).fadeOut(400).promise().done(function(){
+					next.addClass( 'active' ).fadeIn(); 
+				});
+
+				setTimeout(cycleQuotes, settings.speed);
+			}
+			
+			cycleQuotes();
+
+			this.alreadyCalled = true;
 		}
 	}
 

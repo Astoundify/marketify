@@ -1487,7 +1487,6 @@ input[type=submit]:hover {
 	z-index: 10;
 	background: transparent;
 	opacity: 0;
-	overflow: hidden;
 	border: 1px solid transparent;
 
 	-webkit-transition: all 0.3s;
@@ -1567,7 +1566,7 @@ input[type=submit]:hover {
 
 .content-grid-download .entry-title,
 .widget-download-title {
-	font: 400 15px/normal 'Roboto Slab', serif;
+	font: 400 16px/normal 'Source Sans Pro', serif;
 }
 
 .content-grid-download .entry-title a {
@@ -2011,16 +2010,20 @@ object {
 	margin-top: 0;
 }
 
+.marketify_widget_featured_popular {
+	position: relative;
+}
+
+.marketify_widget_featured_popular .home-widget-title span {
+	cursor: pointer;
+}
+
 .marketify_widget_featured_popular .entry-header {
 	display: none;
 }
 
 .marketify_widget_featured_popular .home-widget-title {
 	margin-bottom: 100px;
-}
-
-.marketify_widget_featured_popular {
-	position: relative;
 }
 
 .marketify_widget_featured_popular .flex-control-nav {
@@ -2100,7 +2103,7 @@ object {
 }
 
 /** Testimonials */
-.testimonial-list {
+.testimonials-list {
 	text-align: center;
 }
 
@@ -2127,6 +2130,7 @@ object {
 .individual-testimonial {
 	text-align: left;
 	margin-bottom: 4em;
+	overflow: hidden;
 	clear: both;
 	display: none;
 }
