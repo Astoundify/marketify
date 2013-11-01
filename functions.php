@@ -59,6 +59,16 @@ function marketify_setup() {
 		apply_filters( 'marketify_image_content_single_download_c', true )
 	);
 
+	if (class_exists('MultiPostThumbnails')) {
+		new MultiPostThumbnails(
+			array(
+				'label'     => __( 'Grid Image', 'marketify' ),
+				'id'        => 'grid-image',
+				'post_type' => 'download'
+			)
+		);
+	}
+
 	/**
 	 * This theme uses wp_nav_menu() in one location.
 	 */

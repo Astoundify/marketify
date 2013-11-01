@@ -18,7 +18,11 @@ global $post;
 		<strong class="item-price"><span><?php printf( __( 'Item Price: %s', 'marketify' ), edd_price( get_the_ID(), false ) ); ?></span></strong>
 	</div>
 
-	<?php the_post_thumbnail( 'content-grid-download' ); ?>
+	<?php if ( class_exists( 'MultiPostThumbnails' ) && MultiPostThumbnails::get_the_post_thumbnail( 'download', 'grid-image' ) ) : ?>
+		<?php MultiPostThumbnails::the_post_thumbnail( 'download', 'grid-image', null, 'content-grid-download' ); ?>
+	<?php else : ?>
+		<?php the_post_thumbnail( 'content-grid-download' ); ?>
+	<?php endif; ?>
 </div>
 
 <?php locate_template( array( 'modal-download-purchase.php' ), true, false ); ?>
