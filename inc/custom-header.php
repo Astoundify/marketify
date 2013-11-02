@@ -45,7 +45,9 @@ function marketify_header_style() {
 		if ( 'blank' == $header_text_color ) :
 	?>
 		.site-branding .site-title,
-		.site-branding .site-description {
+		.site-branding .site-description,
+		.site-header-minimal .site-title,
+		.site-header-minimal .site-description {
 			position: absolute;
 			clip: rect(1px, 1px, 1px, 1px);
 		}

@@ -403,6 +403,7 @@ a.edd-submit.button,
 a.edd-submit.button:visited,
 .edd-submit.button.gray,
 #edd-purchase-button,
+input[type="submit"].edd-submit,
 div.fes-form fieldset .fes-fields a.file-selector,
 div.fes-form .fes-submit input[type=submit],
 .entry-content div.fes-form fieldset .fes-fields a.file-selector {
@@ -1213,13 +1214,6 @@ input[type=submit]:hover {
 	text-align: center;
 }
 
-.page-template-page-templatesminimal-php input[type="submit"] {
-	color: #fff;
-	display: block;
-	padding: 14px 20px;
-	width: 100%;
-}
-
 .page-template-page-templatesminimal-php input {
 	border: 0;
 }
@@ -1893,6 +1887,10 @@ object {
 	margin: 55px 0;
 }
 
+.widget-area .widget:first-child .section-title {
+	margin-top: 0;
+}
+
 .widget ul,
 .widget ol {
 	margin: 0;
@@ -2478,7 +2476,7 @@ object {
 .download-single-widget .widget-description {
 	font-size: 13px;
 	display: block;
-	margin: -10px 0 0;
+	margin: -10px 0 20px;
 }
 
 /** Product Details */
@@ -2668,7 +2666,7 @@ object {
 .download-variable .entry-content .edd-add-to-cart.button.edd-submit,
 .download-variable .entry-content .edd_go_to_checkout.button.edd-submit,
 .popup .edd-add-to-cart.button.edd-submit,
-.popup .edd_go_to_checkout.button.edd-submit {
+.edd_go_to_checkout.button.edd-submit {
 	color: #bdc3c7;
 	border-radius: 50%;
 	border: 3px solid #bdc3c7;
@@ -2738,7 +2736,8 @@ object {
 	font-weight: bold;
 }
 
-#edd_checkout_cart a.edd-cart-saving-button {
+#edd_checkout_cart a.edd-cart-saving-button,
+#edd_checkout_cart input[type="submit"].edd-submit {
 	font-weight: 800;
 	margin-left: 5px;
 }
@@ -2799,6 +2798,7 @@ object {
 #edd_checkout_form_wrap fieldset {
 	padding: 0;
 	border: 0;
+	clear: both;
 }
 
 #edd_checkout_form_wrap fieldset#edd_cc_fields {
@@ -2832,7 +2832,8 @@ object {
  	width: 100%;
 }
 
-.edd-cart-saving-button.edd-submit.button {
+.edd-cart-saving-button.edd-submit.button,
+#edd_checkout_cart input[type="submit"].edd-submit {
 	margin-right: -3px;
 	font-size: 12px;
 	padding: 6px 10px;
@@ -3055,6 +3056,17 @@ object {
 	border-color: #49a776;
 }
 
+#edd_msg_edd_cart_save_successful.edd_error,
+#edd_msg_edd_cart_restoration_successful.edd_error {
+	color: #49a776;
+	border-color: #49a776;
+}
+
+#edd_msg_edd_cart_save_successful.edd_error:before,
+#edd_msg_edd_cart_restoration_successful.edd_error:before {
+	content: '\2713';
+}
+
 /*.fes_login_errors .error {
 	color: #e65b45;
 	border-color: #e65b45;
@@ -3148,6 +3160,10 @@ object {
 /** Misc */
 #edd_checkout_form_wrap fieldset fieldset#edd_mailchimp {
 	margin-bottom: 20px;
+}
+
+.edd-item-quantity {
+	margin-right: 4px;
 }
 
 /* =FES

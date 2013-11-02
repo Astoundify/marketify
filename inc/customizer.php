@@ -323,11 +323,11 @@ function marketify_header_css() {
 		a.edd-submit.button:visited,
 		.edd-submit.button.gray,
 		.edd-add-to-cart.button.edd-submit:hover,
-		.edd_go_to_checkout.button.edd-submit:hover,
+		.edd_go_to_checkout.button.edd-submit,
 		.edd-add-to-cart.edd-submit.button:hover, 
 		a.edd-add-to-cart.edd-submit.button:hover,
-		.edd_go_to_checkout.edd-submit.button:hover,
-		a.edd_go_to_checkout.edd-submit.button:hover,
+		.edd_go_to_checkout.edd-submit.button,
+		a.edd_go_to_checkout.edd-submit.button,
 		.entry-image .button:hover,
 		.entry-image .edd-submit.button:hover, 
 		.entry-image a.edd-submit.button:hover, 
@@ -346,7 +346,7 @@ function marketify_header_css() {
 		div.fes-form .fes-submit input[type=submit],
 		#edd-purchase-button,
 		.entry-content div[itemprop=description] .download-variable .edd-add-to-cart.button.edd-submit:hover,
-		.entry-content div[itemprop=description] .download-variable .edd_go_to_checkout.button.edd-submit:hover,
+		.entry-content div[itemprop=description] .download-variable .edd_go_to_checkout.button.edd-submit,
 		.marketify_widget_featured_popular .home-widget-title span:hover,
 		.marketify-edd-rating .review-title-text {
 			color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
@@ -366,36 +366,40 @@ function marketify_header_css() {
 		.widget .cart_item.edd_checkout a,
 		.edd_price_options input:checked,
 		.edd-add-to-cart.button.edd-submit:hover,
-		.edd_go_to_checkout.button.edd-submit:hover,
+		.edd_go_to_checkout.button.edd-submit,
 		.edd-add-to-cart.edd-submit.button:hover, 
 		a.edd-add-to-cart.edd-submit.button:hover,
-		.edd_go_to_checkout.edd-submit.button:hover, 
-		a.edd_go_to_checkout.edd-submit.button:hover,
+		.edd_go_to_checkout.edd-submit.button, 
+		a.edd_go_to_checkout.edd-submit.button,
 		#edd_checkout_form_wrap fieldset#edd_cc_fields > span legend,
 		.entry-content div.fes-form fieldset .fes-fields a.file-selector:hover,
 		div.fes-form .fes-submit input[type=submit],
 		#edd-purchase-button,
 		.entry-content .download-variable .edd-add-to-cart.button.edd-submit:hover,
-		.entry-content .download-variable .edd_go_to_checkout.button.edd-submit:hover,
+		.entry-content .download-variable .edd_go_to_checkout.button.edd-submit,
 		.marketify_widget_featured_popular .home-widget-title span:hover {
 			border-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 		}
 
-		.page-template-page-templatesminimal-php input[type=submit],
 		.main-navigation .search-form.active .search-submit,
-		#edd_checkout_cart a.edd-cart-saving-button:hover {
+		#edd_checkout_cart a.edd-cart-saving-button:hover,
+		#edd_checkout_cart input[type=submit].edd-submit:hover,
+		.minimal #edd-purchase-button {
 			background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 		}
 
-		#edd_checkout_cart a.edd-cart-saving-button {
+		#edd_checkout_cart a.edd-cart-saving-button,
+		#edd_checkout_cart input[type=submit].edd-submit {
 			color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 		}
 
-		#edd_checkout_cart a.edd-cart-saving-button {
+		#edd_checkout_cart a.edd-cart-saving-button,
+		#edd_checkout_cart input[type=submit].edd-submit,
+		.minimal #edd-purchase-button {
 			border-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 		}
 
-		.site-footer.light {
+		.site-footer.light, {
 			background-color: #" . get_theme_mod( 'background_color' ) . ";
 		}
 
@@ -405,16 +409,12 @@ function marketify_header_css() {
 		}
 
 		.edd-add-to-cart.edd-submit.button, 
-		a.edd-add-to-cart.edd-submit.button,
-		.edd_go_to_checkout.edd-submit.button, 
-		a.edd_go_to_checkout.edd-submit.button {
+		a.edd-add-to-cart.edd-submit.button {
 			border-color: #bcc3c8;
 		}
 
 		.edd-add-to-cart.edd-submit.button, 
-		a.edd-add-to-cart.edd-submit.button,
-		.edd_go_to_checkout.edd-submit.button, 
-		a.edd_go_to_checkout.edd-submit.button {
+		a.edd-add-to-cart.edd-submit.button {
 			color: #bcc3c8;
 		}
 
@@ -450,16 +450,14 @@ function marketify_header_css() {
 		.page-template-page-templatesminimal-php label,
 		.page-template-page-templatesminimal-php a,
 		.entry-content div[itemprop=description] .edd-add-to-cart.button.edd-submit:hover,
-		.entry-content div[itemprop=description] .edd_go_to_checkout.button.edd-submit:hover,
 		.entry-content div[itemprop=description] .edd_download_inner .edd-add-to-cart.button.edd-submit:hover,
-		.entry-content div[itemprop=description] .edd_download_inner .edd_go_to_checkout.button.edd-submit:hover,
 		.entry-content div[itemprop=description] .download-variable .edd-add-to-cart.button.edd-submit:hover,
-		.entry-content div[itemprop=description] .download-variable .edd_go_to_checkout.button.edd-submit:hover,
 		.entry-content div[itemprop=description] .download-variable .edd_download_inner .edd-add-to-cart.button.edd-submit:hover,
-		.entry-content div[itemprop=description] .download-variable .edd_download_inner .edd_go_to_checkout.button.edd-submit:hover,
 		#edd_checkout_cart a.edd-cart-saving-button:hover,
+		#edd_checkout_cart input[type=submit].edd-submit:hover,
 		div.fes-form .fes-submit input[type=submit]:hover,
-		#edd-purchase-button:hover {
+		#edd-purchase-button:hover,
+		.minimal #edd-purchase-button {
 			color: #fff;
 		}";
 
