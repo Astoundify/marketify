@@ -4,21 +4,21 @@
  *
  * @since Marketify 1.0
  */
-class Marketify_Widget_Slider_Hero extends Marketify_Widget {
+class Marketify_Widget_Slider_Soliloquy extends Marketify_Widget {
 	
 	/**
 	 * Constructor
 	 */
 	public function __construct() {
 		$this->widget_cssclass    = 'marketify_widget_slider_hero';
-		$this->widget_description = __( 'Display a "Hero" Soliloquy slider.', 'marketify' );
+		$this->widget_description = __( 'Display "Hero" Soliloquy slider.', 'marketify' );
 		$this->widget_id          = 'marketify_widget_slider_hero';
-		$this->widget_name        = __( 'Solioquy Hero Slider', 'marketify' );
+		$this->widget_name        = __( 'Marketify Solioquy Slider', 'marketify' );
 		$this->settings           = array(
 			'slider' => array(
 				'type'    => 'select',
 				'label'   => __( 'Slider:', 'marketify' ),
-				'options' => marketify_slider_options(),
+				'options' => $this->slider_options(),
 				'std'     => 0
 			)
 		);
@@ -38,12 +38,12 @@ class Marketify_Widget_Slider_Hero extends Marketify_Widget {
 		if ( $this->get_cached_widget( $args ) )
 			return;
 
-		ob_start();
-
 		extract( $args );
 		
 		$slider     = absint( $instance[ 'slider' ] );
 		
+		echo '</div>';
+
 		echo $before_widget;
 		
 		if ( function_exists( 'soliloquy_slider' ) ) {
@@ -62,11 +62,7 @@ class Marketify_Widget_Slider_Hero extends Marketify_Widget {
 
 		echo $after_widget;
 
-		$content = ob_get_clean();
-
-		echo $content;
-
-		$this->cache_widget( $args, $content );
+		echo '<div class="container">';
 	}
 
 	function width_height() {
@@ -92,4 +88,39 @@ class Marketify_Widget_Slider_Hero extends Marketify_Widget {
 
 		return $caption;
 	}
+
+	function slider_options() {
+		$sliders  = new WP_Query( array(
+			'post_type'              => array( 'soliloquy' ),
+			'no_found_rows'          => true,
+			'nopaging'               => true,
+			'update_post_meta_cache' => false,
+			'update_post_term_cache' => false
+		) );
+
+		if ( ! $sliders->have_posts() )
+			return array();
+
+		$_sliders = array_combine(
+			wp_list_pluck( $sliders->posts, 'ID' ),
+			wp_list_pluck( $sliders->posts, 'post_title' )
+		);
+
+		return $_sliders;
+	}
 }
+
+function marketify_tgmsp_end_of_settings( $post ) {
+	$retina      = get_post_meta( $post->ID, '_soliloquy_settings', true );
+	$retina      = isset ( $retina[ 'retina' ] ) ? 1 : 0;
+?>
+	<tr id="soliloquy-retina-box" valign="middle">
+		<th scope="row"><label for="soliloquy-retina"><?php _e( 'Retina Images', 'marketify' ); ?></label></th>
+		<td>
+			<input id="soliloquy-retina" type="checkbox" name="_soliloquy_settings[retina]" value="<?php echo $retina; ?>" <?php checked( $retina, 1 ); ?> />
+			<span class="description"><?php _e( 'Load images for retina (upload <code>@2x</code> images)', 'marketify' ); ?></span>
+		</td>
+	</tr>
+<?php
+}
+add_action( 'tgmsp_end_of_settings', 'marketify_tgmsp_end_of_settings' );

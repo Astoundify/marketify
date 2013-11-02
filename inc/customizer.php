@@ -288,7 +288,8 @@ function marketify_header_css() {
 		.page-header a.edd-submit.button:hover, 
 		.page-header a.edd-submit.button:visited:hover,
 		.page-header .edd-submit.button.gray:hover,
-		.page-header .button:hover {
+		.page-header .button:hover,
+		.soliloquy-caption-wrap .button:hover {
 			color: " . marketify_theme_mod( 'colors', 'header' ) . ";
 		}
 
@@ -427,7 +428,8 @@ function marketify_header_css() {
 		.page-header .edd-submit.button, 
 		.page-header a.edd-submit.button, 
 		.page-header a.edd-submit.button:visited,
-		.page-header .edd-submit.button.gray {
+		.page-header .edd-submit.button.gray,
+		.soliloquy-caption-wrap .button {
 			color: #fff;
 			border-color: #fff !important;
 		}
@@ -442,7 +444,8 @@ function marketify_header_css() {
 		.page-header a.edd-submit.button:hover, 
 		.page-header a.edd-submit.button:visited:hover,
 		.page-header .edd-submit.button.gray:hover,
-		.page-header .edd-add-to-cart.button.edd-submit:hover {
+		.page-header .edd-add-to-cart.button.edd-submit:hover,
+		.soliloquy-caption-wrap .button:hover {
 			background-color: #fff;
 		}
 

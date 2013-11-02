@@ -268,6 +268,10 @@ function marketify_widgets_init() {
 		register_widget( 'Marketify_Widget_Download_Share' );
 	}
 
+	if ( function_exists( 'soliloquy_slider' ) ) {
+		register_widget( 'Marketify_Widget_Slider_Soliloquy' );
+	}
+
 	/* Custom Homepage */
 	register_sidebar( array(
 		'name'          => __( 'Homepage', 'marketify' ),
@@ -680,4 +684,8 @@ if ( marketify_is_edd() ) {
 	require get_template_directory() . '/inc/widgets/class-widget-featured-popular.php';
 	require get_template_directory() . '/inc/widgets/class-widget-download-details.php';
 	require get_template_directory() . '/inc/widgets/class-widget-download-share.php';
+}
+
+if ( function_exists( 'soliloquy_slider' ) ) {
+	require get_template_directory() . '/inc/widgets/class-widget-slider-soliloquy.php';
 }

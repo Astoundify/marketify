@@ -679,17 +679,21 @@ input[type=submit]:hover {
 	background: #fff;
 	box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.08);
 	border-radius: 4px;
-	display: none;
 	float: left;
 	position: absolute;
 	top: 2.75em;
 	left: 50%;
 	z-index: 99999;
 	width: 200px;
+	opacity: 0;
 
-	-webkit-transform: translate(-50%, 0);
-	-moz-transform:    translate(-50%, 0);
-	transform:         translate(-50%, 0);
+	-webkit-transform: translate(-50%, -20%) scale(0.75);
+	-moz-transform:    translate(-50%, -20%) scale(0.75);
+	transform:         translate(-50%, -20%) scale(0.75);
+
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition:    all 0.2s ease-in-out;
+	transition:         all 0.2s ease-in-out;
 }
 
 .main-navigation ul ul:after {
@@ -711,9 +715,9 @@ input[type=submit]:hover {
 	z-index: 5;
 	margin-right: 0;
 
-	-webkit-transform: translate(0, 0);
-	-moz-transform:    translate(0, 0);
-	transform:         translate(0, 0);
+	-webkit-transform: translate(0, 0) scale(1);
+	-moz-transform:    translate(0, 0) scale(1);
+	transform:         translate(0, 0) scale(1);
 }
 
 .main-navigation ul ul ul:after {
@@ -760,6 +764,19 @@ input[type=submit]:hover {
 
 .main-navigation ul li:hover > ul {
 	display: block;
+	opacity: 1;
+
+	-webkit-transform: translate(-50%, 0) scale(1);
+	-moz-transform:    translate(-50%, 0) scale(1);
+	transform:         translate(-50%, 0) scale(1);
+}
+
+.main-navigation ul ul li:hover > ul {
+	display: block;
+
+	-webkit-transform: translate(0, 0) scale(1);
+	-moz-transform:    translate(0, 0) scale(1);
+	transform:         translate(0, 0) scale(1);
 }
 
 .main-navigation li.current_page_item a,
@@ -857,7 +874,8 @@ input[type=submit]:hover {
 .page-header .edd-submit.button, 
 .page-header a.edd-submit.button, 
 .page-header a.edd-submit.button:visited,
-.page-header .edd-submit.button.gray {
+.page-header .edd-submit.button.gray,
+.soliloquy-caption-wrap .button {
 	font-size: 18px;
 	border-width: 3px;
 	margin: 0 15px;
@@ -2320,6 +2338,71 @@ object {
 	margin: 4px 0;
 }
 
+/**
+ * Slider
+ */
+.soliloquy-container {
+	margin: 100px 0;
+}
+
+.soliloquy-container .soliloquy .soliloquy-slides img {
+	width: auto;
+	height: auto;
+}
+
+body .soliloquy-container .soliloquy-caption {
+	max-width: 50%;
+	margin: 40px auto 0;
+	position: relative;
+	left: auto;
+	right: auto;
+	bottom: auto;
+	top: auto;
+}
+
+body .soliloquy-container .soliloquy-caption .soliloquy-caption-inside {
+	font-size: 16px;
+	line-height: 26px;
+	text-align: center;
+	text-shadow: none;
+	background: none;
+	padding: 0;
+}
+
+h2.soliloquy-caption-title {
+	font: 800 58px 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	color: #fff;
+}
+
+body .soliloquy-control-nav.soliloquy-control-paging {
+	position: absolute;
+	bottom: 50px;
+	left: 50%;
+}
+
+body .soliloquy-control-nav.soliloquy-control-paging a {
+	-webkit-transition: none;
+	-moz-transition:    none;
+	transition:         none;
+}
+
+.soliloquy-caption-wrap {
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	z-index: 10;
+
+	-webkit-transform: translate(0, -50%);
+	-ms-transform:     translate(0, -50%);
+	transform:         translate(0, -50%);
+}
+
+.soliloquy-caption-wrap .button {
+	display: inline-block !important;
+}
+
 /* Download Archive Widgets
 ----------------------------------------------- */
 
@@ -3637,7 +3720,7 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 	display: block;
 }
 
-/* =ZillaLikes
+/* =Love It
 ----------------------------------------------- */
 
 .zilla-likes-count {
@@ -3801,6 +3884,10 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 }
 
 @media screen and (max-width: 768px) {
+	body .soliloquy-container .soliloquy-caption  {
+		max-width: 80%;
+	}
+
 	.download-widget-area {
 		text-align: left;
 	}
@@ -3843,6 +3930,16 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 	/** Footer */
 	.footer-widget {
 		height: auto !important;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	h2.soliloquy-caption-title {
+		font-size: 40px;
+	}
+
+	body .soliloquy-container .soliloquy-caption  {
+		display: none;
 	}
 }
 
