@@ -538,7 +538,9 @@ input[type=submit]:hover {
 .fes-menu ul:before,
 .fes-menu ul:after,
 .fix:before,
-.fix:after {
+.fix:after,
+.comment:before,
+.comment:after {
 	content: '';
 	display: table;
 }
@@ -562,7 +564,8 @@ input[type=submit]:hover {
 .page-navigation:after,
 .comment-navigation:after,
 .fes-menu ul:after,
-.fix:after {
+.fix:after,
+.comment:after {
 	clear: both;
 }
 
@@ -1706,10 +1709,14 @@ object {
 
 .comment-content {
 	line-height: 25px;
-	padding: 25px;
+	padding: 20px;
 	border: 1px solid #bdc3c7;
 	background: #fff;
 	position: relative;
+}
+
+.comment-content p:last-child {
+	margin-bottom: 0;
 }
 
 .comment.depth-1 .comment-content {
@@ -1760,11 +1767,12 @@ object {
 	font-size: 13px;
 	color: #82878e;
 	border-bottom: 1px solid #bdc3c7;
-	padding-bottom: 20px;
-	margin-bottom: 20px;
+	padding-bottom: 15px;
+	margin-bottom: 15px;
 }
 
-.comment-metadata .edit-link a {
+.comment-metadata .edit-link a,
+.comment-metadata .reply-link a {
 	font-weight: bold;
 }
 
@@ -1802,6 +1810,10 @@ object {
 .bypostauthor {
 }
 
+.comment-respond {
+	margin-top: 100px;
+}
+
 .comment-form input[type="text"] {
 	width: 50%;
 }
@@ -1816,6 +1828,58 @@ object {
 #cancel-comment-reply-link {
 	color: #d04e4e;
 	text-decoration: none;
+}
+
+.marketify-edd-rating {
+	overflow: hidden;
+}
+
+.marketify-edd-rating .star-rating {
+	margin: -1px 12px 0 0;
+	float: left;
+}
+
+.marketify-edd-rating i {
+	font-size: 14px;
+	color: #bdc3c7;
+}
+
+.marketify-edd-rating .review-title-text {
+	font: 800 15px 'Montserrat', sans-serif;
+	text-transform: uppercase;
+}
+
+.comment_form_rating label {
+	float: none;
+}
+
+.edd_reviews_rating_box {
+	background: none;
+	width: auto;
+	height: auto;
+	display: block;
+}
+
+.edd_ratings {
+	font-size: 20px;
+	position: relative;
+}
+
+.edd_reviews_rating_box .edd_rating {
+	width: auto;
+	height: auto;
+}
+
+.comment_form_rating .edd_reviews_rating_box a:hover ~ a, 
+.comment_form_rating .edd_reviews_rating_box a:hover {
+	background: none;
+}
+
+.comment_form_rating .edd_reviews_rating_box a:hover ~ a i:before, 
+.comment_form_rating .edd_reviews_rating_box a:hover i:before,
+.comment_form_rating .edd_reviews_rating_box a.active ~ a i:before,
+.comment_form_rating .edd_reviews_rating_box a.active i:before {
+	content: '\2605';
 }
 
 /* =Global Widgets

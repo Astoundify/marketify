@@ -261,11 +261,26 @@ function marketify_comment( $comment, $args, $depth ) {
 					<?php printf( '<cite class="fn">%s</cite>', get_comment_author_link() ); ?>
 					<?php endif; ?>
 
+					<?php if ( get_comment_meta( $comment->comment_ID, 'edd_rating', true ) ) : ?>
+						<?php do_action( 'marketify_edd_rating', $comment ); ?>
+					<?php endif; ?>
+
 					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
 						<time datetime="<?php comment_time( 'c' ); ?>">
 							<?php printf( _x( '%1$s at %2$s', '1: date, 2: time', '_s' ), get_comment_date(), get_comment_time() ); ?>
 						</time>
 					</a>
+
+					<?php
+						comment_reply_link( array_merge( $args, array(
+							'add_below' => 'div-comment',
+							'depth'     => $depth,
+							'max_depth' => $args['max_depth'],
+							'before'    => '<span class="reply-link"> &mdash; ',
+							'after'     => '</span>',
+						) ) );
+					?>
+
 					<?php edit_comment_link( __( 'Edit', 'marketify' ), ' &mdash; <span class="edit-link">', '</span>' ); ?>
 				</div><!-- .comment-metadata -->
 
@@ -274,16 +289,6 @@ function marketify_comment( $comment, $args, $depth ) {
 				<?php endif; ?>
 
 				<?php comment_text(); ?>
-
-				<?php
-					comment_reply_link( array_merge( $args, array(
-						'add_below' => 'div-comment',
-						'depth'     => $depth,
-						'max_depth' => $args['max_depth'],
-						'before'    => '<div class="reply">',
-						'after'     => '</div>',
-					) ) );
-				?>
 			</div><!-- .comment-content -->
 
 		</article><!-- .comment-body -->

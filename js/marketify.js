@@ -139,6 +139,14 @@ Marketify.App = ( function($) {
 
 				link.html(title).prepend( '<span></span' );
 			});
+
+			$( '.comment_form_rating .edd_reviews_rating_box' ).find('a').on('click', function (e) {
+				e.preventDefault();
+				
+				$( '.comment_form_rating .edd_reviews_rating_box' ).find('a').removeClass( 'active' );
+
+				$( this ).addClass( 'active' );
+			});
 		},
 
 		popup : function( args ) {

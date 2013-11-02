@@ -104,13 +104,16 @@ add_action( 'marketify_download_info', 'marketify_download_price', 5 );
  *
  * @return void
  */
-function marketify_download_entry_meta_rating() {
+function marketify_download_entry_meta_rating( $comment_id = null ) {
 	if ( ! class_exists( 'EDD_Reviews' ) )
 		return;
 
 	global $post;
 	
-	$rating = edd_reviews()->average_rating( false );
+	if ( ! $comment_id )
+		$rating = edd_reviews()->average_rating( false );
+	else
+		$rating = get_comment_meta( $comment_id, 'edd_rating', true );
 
 	if ( 0 == $rating )
 		return;
@@ -134,6 +137,43 @@ function marketify_download_entry_meta_rating() {
 }
 add_action( 'marketify_download_entry_meta', 'marketify_download_entry_meta_rating' );
 add_action( 'marketify_download_info', 'marketify_download_entry_meta_rating' );
+
+function marketify_edd_download_rating( $comment ) {
+?>
+	<div class="marketify-edd-rating">
+		<?php marketify_download_entry_meta_rating( $comment->comment_ID ); ?>
+		<span itemprop="name" class="review-title-text"><?php echo get_comment_meta( $comment->comment_ID, 'edd_review_title', true ); ?></span>
+	</div>
+<?php
+}
+add_action( 'marketify_edd_rating', 'marketify_edd_download_rating' );
+add_filter( 'edd_reviews_ratings_html', '__return_false', 10, 2 );
+
+function marketify_edd_reviews_rating_box() {
+	ob_start();
+?>
+	<span class="edd_reviews_rating_box">
+		<span class="edd_ratings">
+			<a class="edd_rating" href="" data-rating="5"><i class="icon-star-empty"></i></a>
+			<span class="edd_show_if_no_js"><input type="radio" name="edd_rating" id="edd_rating" value="5"/>5&nbsp;</span>
+
+			<a class="edd_rating" href="" data-rating="4"><i class="icon-star-empty"></i></a>
+			<span class="edd_show_if_no_js"><input type="radio" name="edd_rating" id="edd_rating" value="4"/>4&nbsp;</span>
+
+			<a class="edd_rating" href="" data-rating="3"><i class="icon-star-empty"></i></a>
+			<span class="edd_show_if_no_js"><input type="radio" name="edd_rating" id="edd_rating" value="3"/>3&nbsp;</span>
+
+			<a class="edd_rating" href="" data-rating="2"><i class="icon-star-empty"></i></a>
+			<span class="edd_show_if_no_js"><input type="radio" name="edd_rating" id="edd_rating" value="2"/>2&nbsp;</span>
+
+			<a class="edd_rating" href="" data-rating="1"><i class="icon-star-empty"></i></a>
+			<span class="edd_show_if_no_js"><input type="radio" name="edd_rating" id="edd_rating" value="1"/>1&nbsp;</span>
+		</span>
+	</span>
+<?php
+	return ob_get_clean();
+}
+add_filter( 'edd_reviews_rating_box', 'marketify_edd_reviews_rating_box' );
 
 /**
  * Add our own output of recommended products, as the plugin

@@ -347,7 +347,8 @@ function marketify_header_css() {
 		#edd-purchase-button,
 		.entry-content div[itemprop=description] .download-variable .edd-add-to-cart.button.edd-submit:hover,
 		.entry-content div[itemprop=description] .download-variable .edd_go_to_checkout.button.edd-submit:hover,
-		.marketify_widget_featured_popular .home-widget-title span:hover {
+		.marketify_widget_featured_popular .home-widget-title span:hover,
+		.marketify-edd-rating .review-title-text {
 			color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 		}
 
