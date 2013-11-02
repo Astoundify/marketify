@@ -25,7 +25,7 @@ if ( post_password_required() )
 
 	<?php if ( have_comments() ) : ?>
 		<h2 class="comments-title section-title"><span>
-			<?php if ( class_exists( 'EDD_Reviews' ) ) : ?>
+			<?php if ( class_exists( 'EDD_Reviews' ) && is_singular( 'download' ) ) : ?>
 				<?php _e( 'Reviews', 'marketify' ); ?>
 			<?php else : ?>
 				<?php _e( 'Comments', 'marketify' ); ?>

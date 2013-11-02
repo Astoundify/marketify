@@ -22,14 +22,22 @@ get_header(); ?>
 						<?php get_template_part( 'content', 'page' ); ?>
 
 						<div class="row">
-						<?php 
-							$user_ids = get_users( array(
-								'who'     => 'authors',
-								'fields'  => 'IDs',
-								'orderby' => 'post_count'
-							) );
+						<?php
+							$users = array();
+							$roles = apply_filters( 'marketify_the_team_roles', array( 'author', 'shop_worker', 'shop_manager', 'editor', 'administrator' ) );
 
-							foreach ( $user_ids as $user_id ) :
+							foreach ( $roles as $role ) {
+								$user_ids = get_users( array(
+									'role'    => $role,
+									'fields'  => 'IDs'
+								) );
+
+								foreach( $user_ids as $user_id ) {
+									$users[] = $user_id;
+								}
+							}
+
+							foreach ( $users as $user_id ) :
 						?>
 
 						<div class="col-lg-3 col-md-4 col-xs-6 entry-author">
