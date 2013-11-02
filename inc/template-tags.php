@@ -2,6 +2,10 @@
 /**
  * Custom template tags for this theme.
  *
+ * If the function is called directly in the theme or via
+ * another function, it is wrapped to check if a child theme has
+ * redefined it. Otherwise a child theme can unhook what is being attached.
+ *
  * @package Marketify
  */
 
@@ -37,20 +41,43 @@ function marketify_entry_author_social( $user_id = null ) {
 }
 endif;
 
+/**
+ * Depending on the type of download, display some featured stuff.
+ *
+ * @since Marketify 1.0
+ *
+ * @return void
+ */
 function marketify_download_viewer() {
 	global $post;
 
 	$format = get_post_format();
 
-	if ( 'audio' == $format ) {
-		marketify_download_audio_player();
-	} elseif ( 'video' == $format ) {
-		marketify_download_video_player();
-	} else {
-		marketify_download_standard_player();
+	switch( $format ) {
+		case 'audio' :
+			marketify_download_audio_player();
+			break;
+		case 'video' :
+			marketify_download_video_player();
+			break;
+		case false :
+			marketify_download_standard_player();
+			break;
+		default :
+			do_action( 'marketify_download_' . $format . '_player', $post );
+			break;
 	}
 }
+add_action( 'marketify_download_featured_area', 'marketify_download_viewer' );
 
+if ( ! function_exists( 'marketify_download_standard_player' ) ) :
+/**
+ * Featured Area: Standard (Images)
+ *
+ * @since Marketify 1.0
+ *
+ * @return void
+ */
 function marketify_download_standard_player() {
 	global $post;
 
@@ -81,6 +108,7 @@ function marketify_download_standard_player() {
 	<?php
 	echo $after;
 }
+endif;
 
 if ( ! function_exists( 'marketify_download_video_player' ) ) :
 /**
@@ -208,8 +236,11 @@ if ( ! function_exists( 'marketify_purchase_link' ) ) :
  *
  * @return void
  */
-function marketify_purchase_link( $download_id ) {
+function marketify_purchase_link( $download_id = null ) {
 	global $post, $edd_options;
+
+	if ( ! $download_id )
+		$download_id = $post->ID;
 
 	$variable = edd_has_variable_prices( $download_id );
 
@@ -221,6 +252,7 @@ function marketify_purchase_link( $download_id ) {
 		printf( '<a href="#buy-now-%s" class="button buy-now popup-trigger">%s</a>', $post->ID, $button );
 	}
 }
+add_action( 'marketify_download_actions', 'marketify_purchase_link' );
 endif;
 
 if ( ! function_exists( 'marketify_comment' ) ) :

@@ -5,7 +5,7 @@
  * Theme options are lame! Manage any customizations through the Theme
  * Customizer. Expose the customizer in the Appearance panel for easy access.
  *
- * @package Jobify
+ * @package Marketify
  * @since Marketify 1.0
  */
 

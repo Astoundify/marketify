@@ -14,7 +14,7 @@ get_header(); ?>
 		<h1 class="page-title"><?php the_title(); ?></h1>
 			
 		<div class="download-actions">
-			<?php marketify_purchase_link( get_the_ID() ); ?>
+			<?php do_action( 'marketify_download_actions' ); ?>
 		</div>
 
 		<div class="download-info">
@@ -22,7 +22,7 @@ get_header(); ?>
 		</div>
 
 		<div class="featured-image container">
-			<?php marketify_download_viewer(); ?>
+			<?php do_action( 'marketify_download_featured_area' ); ?>
 		</div>
 		<?php rewind_posts(); ?>
 	</header><!-- .page-header -->

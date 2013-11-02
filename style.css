@@ -687,9 +687,9 @@ input[type=submit]:hover {
 	width: 200px;
 	opacity: 0;
 
-	-webkit-transform: translate(-50%, -20%) scale(0.75);
-	-moz-transform:    translate(-50%, -20%) scale(0.75);
-	transform:         translate(-50%, -20%) scale(0.75);
+	-webkit-transform: translate(-50%, -60%) scale(0);
+	-moz-transform:    translate(-50%, -60%) scale(0);
+	transform:         translate(-50%, -60%) scale(0);
 
 	-webkit-transition: all 0.2s ease-in-out;
 	-moz-transition:    all 0.2s ease-in-out;

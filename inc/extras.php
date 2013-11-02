@@ -64,22 +64,6 @@ function marketify_body_classes( $classes ) {
 add_filter( 'body_class', 'marketify_body_classes' );
 
 /**
- * Adds custom classes to the array of post classes.
- */
-function marketify_edd_purchase_download_form( $purchase_form, $args ) {
-	$download_id = $args[ 'download_id' ];
-
-	if ( ! $download_id )
-		return $purchase_form;
-
-	if ( is_singular( 'download' ) && edd_has_variable_prices( $download_id ) )
-		$purchase_form = str_replace( 'class="edd_download_purchase_form"', 'class="edd_download_purchase_form download-variable"', $purchase_form );
-
-	return $purchase_form;
-}
-add_filter( 'edd_purchase_download_form', 'marketify_edd_purchase_download_form', 10, 2 );
-
-/**
  * Filter in a link to a content ID attribute for the next/previous image links on image attachment pages
  */
 function marketify_enhanced_image_navigation( $url, $id ) {
@@ -123,3 +107,20 @@ add_filter( 'wp_title', 'marketify_wp_title', 10, 2 );
  * Remove ellipsis from the excerpt
  */
 add_filter( 'excerpt_more', '__return_false' );
+
+function marketify_get_attached_media_args( $args, $type, $post ) {
+	global $post;
+
+	if ( 'image' != $type )
+		return $args;
+
+	if ( 'download' != $post->post_type )
+		return $args;
+
+	$args[ 'exclude' ] = array( get_post_thumbnail_id( $post->ID ) );
+
+	//wp_die( print_r( $args ) );
+
+	return $args;
+}
+add_filter( 'get_attached_media_args', 'marketify_get_attached_media_args', 10, 3 );

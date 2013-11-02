@@ -1,6 +1,6 @@
 <?php
 /**
- * Related Items
+ * Slider widget that will allow a slider shortcode to be full-width.
  *
  * @since Marketify 1.0
  */

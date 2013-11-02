@@ -5,23 +5,56 @@
  * @package Marketify
  */
 
+/**
+ * Check if EDD is active
+ *
+ * @since Marketify 1.0
+ *
+ * @return boolean
+ */
 function marketify_is_edd() {
 	return class_exists( 'Easy_Digital_Downloads' );
 }
 
+/**
+ * Cross Sell/Up Sell
+ *
+ * @since Marketify 1.0
+ */
 add_filter( 'edd_csau_show_excerpt', '__return_false' );
 add_filter( 'edd_csau_show_price', '__return_false' );
 
+/**
+ * EDD Download Class
+ *
+ * When using the [downloads] shortcode, add our own class to match
+ * our awesome styling.
+ *
+ * @since Marketify 1.0
+ *
+ * @param string $class
+ * @param string $id
+ * @param array $atts
+ * @return string The updated class list
+ */
 function marketify_edd_download_class( $class, $id, $atts ) {
 	return $class . ' content-grid-download';
 }
 add_filter( 'edd_download_class', 'marketify_edd_download_class', 10, 3 );
 
+/**
+ * EDD Download Shortcode Attributes
+ *
+ * @since Marketify 1.0
+ *
+ * @param array $atts
+ * @return array $atts
+ */
 function marketify_shortcode_atts_downloads( $atts ) {
-	$atts[ 'excerpt' ] = 'no';
+	$atts[ 'excerpt' ]      = 'no';
 	$atts[ 'full_content' ] = 'no';
-	$atts[ 'price' ] = 'no';
-	$atts[ 'buy_button' ] = 'no';
+	$atts[ 'price' ]        = 'no';
+	$atts[ 'buy_button' ]   = 'no';
 
 	return $atts;
 }
@@ -41,6 +74,31 @@ function marketify_edd_product_supports( $supports ) {
 	return $supports;	
 }
 add_filter( 'edd_download_supports', 'marketify_edd_product_supports' );
+
+/**
+ * Add an extra class to the purchase form if the download has
+ * variable pricing. There is no filter for the class, so we have to hunt.
+ *
+ * @since Marketify 1.0
+ *
+ * @param string $purchase_form
+ * @param array $args
+ * @return string $purchase_form
+ */
+function marketify_edd_purchase_download_form( $purchase_form, $args ) {
+	$download_id = $args[ 'download_id' ];
+
+	if ( ! $download_id )
+		return $purchase_form;
+
+	if ( ! is_singular( 'download' ) || ! edd_has_variable_prices( $download_id ) )
+		return $purchase_form;
+
+	$purchase_form = str_replace( 'class="edd_download_purchase_form"', 'class="edd_download_purchase_form download-variable"', $purchase_form );
+
+	return $purchase_form;
+}
+add_filter( 'edd_purchase_download_form', 'marketify_edd_purchase_download_form', 10, 2 );
 
 /**
  * Check if we are a standard Easy Digital Download install,
@@ -138,6 +196,17 @@ function marketify_download_entry_meta_rating( $comment_id = null ) {
 add_action( 'marketify_download_entry_meta', 'marketify_download_entry_meta_rating' );
 add_action( 'marketify_download_info', 'marketify_download_entry_meta_rating' );
 
+/**
+ * Download Rating/Rating Title
+ *
+ * Unhook the automatic output of the title and stars (edd_reviews_ratings_html)
+ * from the plugin, and add our own to our own hook (marketify_edd_rating)
+ *
+ * @since Marketify 1.0
+ *
+ * @param object $comment
+ * @return void
+ */
 function marketify_edd_download_rating( $comment ) {
 ?>
 	<div class="marketify-edd-rating">
@@ -149,6 +218,15 @@ function marketify_edd_download_rating( $comment ) {
 add_action( 'marketify_edd_rating', 'marketify_edd_download_rating' );
 add_filter( 'edd_reviews_ratings_html', '__return_false', 10, 2 );
 
+/**
+ * Star Rating Selector
+ *
+ * No images allowed. Use our icon font to select a star.
+ *
+ * @since Marketify 1.0
+ *
+ * @return void
+ */
 function marketify_edd_reviews_rating_box() {
 	ob_start();
 ?>
