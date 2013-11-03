@@ -47,7 +47,8 @@ input[type="radio"] + label::before,
 .fes_login_errors .error:before,
 .main-navigation li ul li a:first-child:nth-last-child(2):before,
 .edd_repeatable_upload_field_container .edd_upload_file a:before,
-div.bbp-breadcrumb p:before {
+div.bbp-breadcrumb p:before,
+#bbpress-forums div.bbp-topic-tags p:before {
   font-family: 'fontello';
   font-style: normal;
   font-weight: normal;

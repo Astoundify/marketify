@@ -147,6 +147,8 @@ Marketify.App = ( function($) {
 
 				$( this ).addClass( 'active' );
 			});
+
+			$( '#bbpress-forums #bbp-user-wrapper h2.entry-title' ).wrapInner( '<span></span>' );
 		},
 
 		popup : function( args ) {

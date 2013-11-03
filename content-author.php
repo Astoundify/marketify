@@ -4,7 +4,7 @@
  * @since Marketify 1.0
  */
 
-if ( is_singular( 'page' ) )
+if ( is_singular( 'page' ) || ( function_exists( 'is_bbpress' ) && is_bbpress() ) )
 	return;
 
 global $post;
