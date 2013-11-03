@@ -635,7 +635,6 @@ td.bbp-topic-counts {
 -------------------------------------------------------------- */
 
 .bbp-pagination-count {
-	float: left;
 	border: 1px solid transparent;
 }
 
@@ -699,7 +698,8 @@ td.bbp-topic-counts {
 	padding: 0;
 }
 
-#bbpress-forums fieldset.bbp-form label {
+#bbpress-forums fieldset.bbp-form label,
+.bbp-login-form label {
 	font: 800 14px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	display: inline-block;
@@ -915,6 +915,7 @@ div.indicator-hint {
 	background: transparent;
 	display: block;
 	margin: 15px 0;
+	clear: both;
 }
 div.bbp-template-notice a {
 	color: #555;
@@ -939,18 +940,19 @@ div.bbp-template-notice.error a,
 div.bbp-template-notice.warning a {
 	color: #c00;
 }
-#bbpress-forums div.bbp-template-notice p {
+
+div.bbp-template-notice p {
 	line-height: normal;
 	margin: 0;
 	padding: 0;
 }
 
-#bbpress-forums div.bbp-template-notice p:before {
+div.bbp-template-notice p:before {
 	content: '\e704';
 }
 
-#bbpress-forums div.bbp-template-notice.error p:before,
-#bbpress-forums div.bbp-template-notice.warnin p:before {
+div.bbp-template-notice.error p:before,
+div.bbp-template-notice.warnin p:before {
 	content: '\26a0';
 }
 
@@ -999,7 +1001,6 @@ div.bbp-template-notice.warning a {
 }
 
 .bbp-login-form label {
-	width: 140px;
 	display: inline-block;
 }
 
