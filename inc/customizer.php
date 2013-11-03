@@ -294,7 +294,7 @@ function marketify_header_css() {
 		}
 
 		button:hover,
-		html input[type=button]:hover,
+		html input[type=button]:not(.ed_button):hover,
 		input[type=reset]:hover,
 		input[type=submit]:hover,
 		.button:hover,
@@ -317,7 +317,7 @@ function marketify_header_css() {
 		.site-footer.light .footer-social a,
 		.site-footer.light .site-title a,
 		button,
-		html input[type=button],
+		html input[type=button]:not(.ed_button),
 		input[type=reset],
 		input[type=submit],
 		.button,
@@ -354,7 +354,7 @@ function marketify_header_css() {
 		}
 
 		button,
-		html input[type=button],
+		html input[type=button]:not(.ed_button),
 		input[type=reset],
 		input[type=submit],
 		.button,

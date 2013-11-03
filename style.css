@@ -261,7 +261,7 @@ input {
 }
 
 button,
-html input[type="button"],
+html input[type="button"]:not(.ed_button),
 input[type="reset"],
 input[type="submit"] {
 	font: 800 13px/normal 'Montserrat', sans-serif;
@@ -271,8 +271,14 @@ input[type="submit"] {
 	padding: 10px 20px;
 	border: 2px solid transparent;
 	background: #fff;
-	cursor: pointer;
 	-webkit-appearance: button; 
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	cursor: pointer;
 }
 
 button:hover,
@@ -387,7 +393,7 @@ a:active {
 
 /* Buttons */
 button,
-html input[type="button"],
+html input[type="button"]:not(.ed_button),
 input[type="reset"],
 input[type="submit"],
 .button,
@@ -424,7 +430,7 @@ div.fes-form .fes-submit input[type=submit],
 }
 
 button:hover,
-html input[type=button]:hover,
+html input[type=button]:not(.ed_button):hover,
 input[type=reset]:hover,
 input[type=submit]:hover,
 .button:hover,
@@ -450,7 +456,7 @@ a.button.purchased:hover {
 }
 
 button:hover,
-html input[type=button]:hover,
+html input[type=button]:not(.ed_button):hover,
 input[type=reset]:hover,
 input[type=submit]:hover {
 	background: transparent;
@@ -2688,8 +2694,8 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 
 /** Cart */
 .widget .edd-cart {
-	/*margin: 0 -25px;*/
-	padding: 0 25px;
+	margin: 0 -25px 0 0;
+	padding: 0 25px 0 0;
 	border-top: 1px solid #bdc3c7;
 }
 
