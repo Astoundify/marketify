@@ -385,7 +385,8 @@ function marketify_header_css() {
 		.main-navigation .search-form.active .search-submit,
 		#edd_checkout_cart a.edd-cart-saving-button:hover,
 		#edd_checkout_cart input[type=submit].edd-submit:hover,
-		.minimal #edd-purchase-button {
+		.minimal #edd-purchase-button,
+		.main-navigation.toggled .search-form .search-submit {
 			background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 		}
 
