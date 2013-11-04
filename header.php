@@ -25,6 +25,14 @@
 	<?php do_action( 'before' ); ?>
 	<header id="masthead" class="site-header" role="banner">
 		<div class="container">
+			<nav id="site-navigation" class="main-navigation" role="navigation">
+				<h1 class="menu-toggle"><i class="icon-menu"></i></h1>
+				
+				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container_class' => 'main-menu' ) ); ?>
+
+				<?php locate_template( array( 'searchform-header.php' ), true ); ?>
+			</nav><!-- #site-navigation -->
+			
 			<div class="site-branding">
 				<?php $header_image = get_header_image(); ?>
 				<?php if ( ! empty( $header_image ) ) : ?>
@@ -34,13 +42,5 @@
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 				<h2 class="site-description screen-reader-text"><?php bloginfo( 'description' ); ?></h2>
 			</div>
-
-			<nav id="site-navigation" class="main-navigation" role="navigation">
-				<h1 class="menu-toggle"><?php _e( 'Menu', 'marketify' ); ?></h1>
-				
-				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container_class' => 'main-menu' ) ); ?>
-
-				<?php locate_template( array( 'searchform-header.php' ), true ); ?>
-			</nav><!-- #site-navigation -->
 		</div>
 	</header><!-- #masthead -->

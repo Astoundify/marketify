@@ -941,7 +941,8 @@ div.bbp-template-notice.warning a {
 	color: #c00;
 }
 
-div.bbp-template-notice p {
+div.bbp-template-notice p,
+#bbpress-forums div.bbp-template-notice p {
 	line-height: normal;
 	margin: 0;
 	padding: 0;
@@ -952,7 +953,7 @@ div.bbp-template-notice p:before {
 }
 
 div.bbp-template-notice.error p:before,
-div.bbp-template-notice.warnin p:before {
+div.bbp-template-notice.warning p:before {
 	content: '\26a0';
 }
 

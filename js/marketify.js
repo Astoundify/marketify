@@ -37,7 +37,8 @@ Marketify.App = ( function($) {
 			menu.addClass( 'nav-menu' );
 
 		button.click(function() {
-			container.toggleClass( 'toggled' );
+			container.toggleClass( 'toggled' ).slideDown( 'slow' );
+			$( '.site-header' ).toggleClass( 'toggled' );
 		});
 	}
 
