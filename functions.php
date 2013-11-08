@@ -103,6 +103,13 @@ function marketify_setup() {
 endif; // marketify_setup
 add_action( 'after_setup_theme', 'marketify_setup' );
 
+function marketify_is_bbpress() {
+	if ( ! function_exists( 'is_bbpress' ) )
+		return false; 
+
+	return is_bbpress();
+}
+
 /**
  * Remove Post Formats from Posts
  *
@@ -189,7 +196,7 @@ function marketify_has_header_background() {
 	$_post = $post;
 
 	$is_correct = apply_filters( 'marketify_has_header_background', ( 
-		( function_exists( 'is_bbpress' ) && is_bbpress() ) || 
+		marketify_is_bbpress() || 
 		( is_singular( 'download' ) && 'video' == get_post_format() ) || 
 		is_singular( array( 'page', 'post' ) ) || 
 		is_page_template( 'page-templates/home.php' ) ||
@@ -203,7 +210,7 @@ function marketify_has_header_background() {
 		$post = get_post( get_option( 'page_for_posts' ) );
 	}
 
-	$background = is_singular( array( 'post', 'page' ) ) || is_bbpress() ? true : false;
+	$background = is_singular( array( 'post', 'page' ) ) || marketify_is_bbpress() ? true : false;
 
 	if ( has_post_thumbnail( $post->ID ) )
 		$background = wp_get_attachment_image_src( get_post_thumbnail_id(), 'fullsize' );
@@ -221,7 +228,7 @@ function marketify_has_header_background() {
  * @return void
  */
 function marketify_entry_page_title() {
-	if ( ! is_singular( array( 'post', 'page' ) ) && ! ( function_exists( 'is_bbpress' ) && is_bbpress() ) )
+	if ( ! is_singular( array( 'post', 'page' ) ) && ! marketify_is_bbpress() )
 		return;
 
 	the_post();

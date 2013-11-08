@@ -46,6 +46,7 @@ get_header(); ?>
 
 		</div><!-- #content -->
 
+		<?php if ( have_comments() || comments_open() ) : ?>
 		<div id="comments" class="row">
 			<section id="primary" class="content-area <?php echo ! is_active_sidebar( 'sidebar-download-single-comments' ) || ! comments_open() ? 'col-xs-12' : 'col-sm-8 col-xs-12'; ?>">
 				<?php comments_template(); ?>
@@ -55,6 +56,7 @@ get_header(); ?>
 			<?php get_sidebar( 'single-download-comments' ); ?>
 			<?php endif; ?>
 		</div>
+		<?php endif; ?>
 
 		<?php do_action( 'marketify_single_download_after' ); ?>
 	</div>
