@@ -309,8 +309,10 @@ function marketify_header_css() {
 		#edd_checkout_form_wrap fieldset#edd_cc_fields > span:after,
 		div.fes-form fieldset .fes-fields a.file-selector:hover,
 		div.fes-form .fes-submit input[type=submit]:hover,
-		#edd-purchase-button:hover {
+		#edd-purchase-button:hover,
+		.fes-button:hover {
 			background-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
+			background-image: none;
 		}
 
 		a:link,
@@ -341,16 +343,16 @@ function marketify_header_css() {
 		.entry-image .edd-submit.button.gray:hover,
 		#edd_checkout_form_wrap fieldset#edd_cc_fields > span legend,
 		.minimal .edd_cart_actions a,
-		.fes-menu .active a,
-		#wraper nav ul li.active a,
-		#wraper nav ul li:hover a,
+		#fes-wraper .fes-menu nav ul li.active a,
+		#fes-wraper .fes-menu nav ul li:hover a,
 		.whistles-tabs .whistles-tabs-nav li[aria-selected='true'] a,
 		div.fes-form .fes-submit input[type=submit],
 		#edd-purchase-button,
 		.entry-content div[itemprop=description] .download-variable .edd-add-to-cart.button.edd-submit:hover,
 		.entry-content div[itemprop=description] .download-variable .edd_go_to_checkout.button.edd-submit,
 		.marketify_widget_featured_popular .home-widget-title span:hover,
-		.marketify-edd-rating .review-title-text {
+		.marketify-edd-rating .review-title-text,
+		#fes-image_upload-pickfiles {
 			color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 		}
 
@@ -379,7 +381,9 @@ function marketify_header_css() {
 		#edd-purchase-button,
 		.entry-content .download-variable .edd-add-to-cart.button.edd-submit:hover,
 		.entry-content .download-variable .edd_go_to_checkout.button.edd-submit,
-		.marketify_widget_featured_popular .home-widget-title span:hover {
+		.marketify_widget_featured_popular .home-widget-title span:hover,
+		.fes-button:hover,
+		#fes-image_upload-pickfiles {
 			border-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 		}
 
@@ -465,7 +469,8 @@ function marketify_header_css() {
 		#edd_checkout_cart input[type=submit].edd-submit:hover,
 		div.fes-form .fes-submit input[type=submit]:hover,
 		#edd-purchase-button:hover,
-		.minimal #edd-purchase-button {
+		.minimal #edd-purchase-button,
+		#fes-image_upload-pickfiles:hover {
 			color: #fff;
 		}";
 

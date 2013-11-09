@@ -325,6 +325,7 @@ add_action( 'init', 'marketify_recommended_products_shim' );
  * @since Marketify 1.0
  */
 class Marketify_Author {
+
 	/*
 	 * Init so we can attach to an action
 	 */
@@ -339,6 +340,25 @@ class Marketify_Author {
 		add_filter( 'query_vars', array( $this, 'query_vars' ) ); 
 		add_filter( 'generate_rewrite_rules', array( $this, 'rewrites' ) );
 		add_action( 'pre_get_posts', array( $this, 'filter_endpoints' ) );
+	}
+
+	/*
+	 * Create a publically accessible link
+	 */
+	public static function url( $user_id = null ) {
+		if ( $user_id )
+			$user = new WP_User( $user_id );
+		else
+			$user = wp_get_current_user();
+
+		return esc_url( get_author_posts_url( $user->ID, $user->nice_name ) . trailingslashit( self::slug() ) ); 
+	}
+
+	/*
+	 * Return our chosen filtered slug.
+	 */
+	public static function slug() {
+		return apply_filters( 'marketify_vendor_slug', 'downloads' );
 	}
 
 	/**
@@ -366,7 +386,7 @@ class Marketify_Author {
 		global $wp_rewrite;
 
 		$new_rules = array(
-			'author/([^/]+)/([^/]+)/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_ptype=' . $wp_rewrite->preg_index(2),
+			'author/([^/]+)/' . self::slug() . '/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_ptype=' . $wp_rewrite->preg_index(2),
 		);
 
 		$wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
@@ -392,11 +412,15 @@ class Marketify_Author {
 		if ( ! $type )
 			return $query;
 
-		if ( ! in_array( $type, array( 'downloads' ) ) )
+		if ( $type != self::slug() ) {
+			$query->is_archive = true;
+			$query->is_author = false;
+
 			return $query;
+		}
 
 		$query->set( 'post_type', 'download' );
-		$query->set( 'is_author', true );
+		$query->is_author = true;
 	}
 }
 add_action( 'init', array( 'Marketify_Author', 'init' ), 100 );

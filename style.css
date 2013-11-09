@@ -116,6 +116,10 @@ textarea,
 	-webkit-font-smoothing: antialiased; 
 }
 
+.page {
+	overflow-x: hidden;
+}
+
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
@@ -423,6 +427,7 @@ div.fes-form .fes-submit input[type=submit],
 	border: 2px solid transparent;
 	background: transparent;
 	border-radius: 0;
+	height: auto;
 
 	-webkit-transition: all 0.2s;
 	-moz-transition:    all 0.2s;
@@ -2934,7 +2939,8 @@ body:not(.minimal) #edd_checkout_cart_form {
 }
 
 .edd-cart-saving-button.edd-submit.button,
-#edd_checkout_cart input[type="submit"].edd-submit {
+#edd_checkout_cart input[type="submit"].edd-submit,
+.fes-button {
 	margin-right: -3px;
 	font-size: 12px;
 	padding: 6px 10px;
@@ -3277,29 +3283,28 @@ body:not(.minimal) #edd_checkout_cart_form {
 /* =FES
 ----------------------------------------------- */
 
-#wraper .fes-menu nav,
+#fes-wraper .fes-menu nav,
 .whistles-tabs .whistles-tabs-nav {
-	margin: -20px 0 55px;
+	margin: 0 0 55px;
 	border-bottom: 3px solid #bdc3c7;
 	background: none;
 }
 
-#wraper nav ul {
+#fes-wraper .fes-menu nav ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-#wraper nav ul li {
+#fes-wraper .fes-menu nav ul li {
 	float: left;
 }
 
-#wraper nav ul li:hover {
+#fes-wraper .fes-menu nav ul li:hover {
 	background: none;
 }
 
-#wrapper .fes-menu nav li a,
-#wraper nav > ul > li > a,
+#fes-wraper .fes-menu nav li a,
 .whistles-tabs .whistles-tabs-nav li a {
 	font: 400 14px 'Montserrat', sans-serif;
 	color: #bdc3c7;
@@ -3312,14 +3317,13 @@ body:not(.minimal) #edd_checkout_cart_form {
 	display: block;
 }
 
-#wrapper .fes-menu nav li.active a,
-#wraper nav ul li.active a,
+#fes-wraper .fes-menu nav ul li.active a,
 .whistles-tabs .whistles-tabs-nav li[aria-selected="true"] a {
 	border-color: #bdc3c7;
 	background: #fff;
 }
 
-#wraper nav ul li.active {
+#fes-wraper .fes-menu nav ul li.active {
 	background: none;
 }
 
@@ -3353,15 +3357,6 @@ div.fes-form fieldset .fes-fields {
 
 div.fes-form fieldset .fes-fields textarea#post_content {
 	height: 250px;
-}
-
-.entry-content div.fes-form fieldset .fes-fields a.file-selector {
-	height: auto;
-	display: inline-block;
-	box-shadow: none;
-	text-shadow: none;
-	border: 2px solid #bdc3c7 !important;
-	color: #bdc3c7;
 }
 
 div.fes-form .fes-submit input[type=submit] {
@@ -3495,6 +3490,39 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 
 .edd-fes-adf-submission-option:nth-child(2) .edd-fes-adf-submission-option-remove {
 	display: none;
+}
+
+#fes-map-lat-location {
+	width: 48%;
+	float: right;
+}
+
+#fes-map-add-location {
+	width: 48%;
+	float: left;
+}
+
+#fes-map-btn-location {
+	margin: 10px 0;
+	clear: both;
+}
+
+.fes-fields .google-map {
+	width: 100% !important;
+}
+
+.fes-category-checklist,
+.fes-tag-checklist {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.fes-form-add .fes-category-checklist label,
+.fes-form-add .fes-tag-checklist label,
+.fes-fields label {
+	font-size: 12px;
+	font-weight: 400;
 }
 
 /* =Footer
