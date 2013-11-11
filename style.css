@@ -2722,6 +2722,40 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 	display: block;
 }
 
+.edd-fpd {
+	margin: -25px -5%;
+	width: auto;
+}
+
+.edd-fpd tr:first-child th,
+.edd-fpd tr:first-child td {
+	padding-top: 25px;
+}
+
+.edd-fpd tr:last-child th,
+.edd-fpd tr:last-child td {
+	padding-bottom: 25px;
+}
+
+.edd-fpd th,
+.edd-fpd td {
+	padding: 5px;
+}
+
+.edd-fpd th {
+	font: 400 15px/normal 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	width: 45%;
+	border-right: 1px solid #ccc;
+	padding-right: 5%;
+}
+
+.edd-fpd td {
+	font-size: 14px;
+	color: #82878e;
+	padding-left: 5%;
+}
+
 /* =EDD
 ----------------------------------------------- */
 

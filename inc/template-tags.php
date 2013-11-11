@@ -88,9 +88,9 @@ function marketify_download_standard_player() {
 	/*
 	 * Just one image and it's featured.
 	 */
-	if ( count( $images ) == 0 && has_post_thumbnail() ) {
+	if ( count( $images ) == 0 && has_post_thumbnail( $post->ID ) ) {
 		echo $before;
-		the_post_thumbnail( 'fullsize' );
+		echo get_the_post_thumbnail( $post->ID, 'fullsize' );
 		echo $after;
 
 		return;
