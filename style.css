@@ -3525,6 +3525,15 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 	font-weight: 400;
 }
 
+#fes-avatar-pickfiles,
+#fes-image_upload-pickfiles {
+	box-shadow: none;
+}
+
+.fes-attachment-list {
+	margin: 10px 0 0;
+}
+
 /* =Footer
 ----------------------------------------------- */
 

@@ -352,7 +352,8 @@ function marketify_header_css() {
 		.entry-content div[itemprop=description] .download-variable .edd_go_to_checkout.button.edd-submit,
 		.marketify_widget_featured_popular .home-widget-title span:hover,
 		.marketify-edd-rating .review-title-text,
-		#fes-image_upload-pickfiles {
+		#fes-image_upload-pickfiles,
+		#fes-avatar-pickfiles {
 			color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 		}
 
@@ -383,7 +384,8 @@ function marketify_header_css() {
 		.entry-content .download-variable .edd_go_to_checkout.button.edd-submit,
 		.marketify_widget_featured_popular .home-widget-title span:hover,
 		.fes-button:hover,
-		#fes-image_upload-pickfiles {
+		#fes-image_upload-pickfiles,
+		#fes-avatar-pickfiles {
 			border-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 		}
 
@@ -470,7 +472,8 @@ function marketify_header_css() {
 		div.fes-form .fes-submit input[type=submit]:hover,
 		#edd-purchase-button:hover,
 		.minimal #edd-purchase-button,
-		#fes-image_upload-pickfiles:hover {
+		#fes-image_upload-pickfiles:hover,
+		#fes-avatar-pickfiles:hover {
 			color: #fff;
 		}";
 

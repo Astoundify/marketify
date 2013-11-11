@@ -13,7 +13,7 @@ class Marketify_Widget_Price_Option extends Marketify_Widget {
 		$this->widget_cssclass    = 'marketify_widget_price_option';
 		$this->widget_description = __( 'Create a price option for the pricing table.', 'marketify' );
 		$this->widget_id          = 'marketify_widget_price_option';
-		$this->widget_name        = __( 'Price Option', 'marketify' );
+		$this->widget_name        = __( 'Marketify Price Option', 'marketify' );
 		$this->settings           = array(
 			'color' => array(
 				'type'  => 'colorpicker',
