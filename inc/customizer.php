@@ -393,7 +393,9 @@ function marketify_header_css() {
 		#edd_checkout_cart a.edd-cart-saving-button:hover,
 		#edd_checkout_cart input[type=submit].edd-submit:hover,
 		.minimal #edd-purchase-button,
-		.main-navigation.toggled .search-form .search-submit {
+		.main-navigation.toggled .search-form .search-submit,
+		.minimal .edd_submit,
+		.minimal input[type=submit].edd_submit:hover {
 			background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 		}
 
@@ -404,7 +406,8 @@ function marketify_header_css() {
 
 		#edd_checkout_cart a.edd-cart-saving-button,
 		#edd_checkout_cart input[type=submit].edd-submit,
-		.minimal #edd-purchase-button {
+		.minimal #edd-purchase-button,
+		.minimal .edd_submit {
 			border-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 		}
 
@@ -473,7 +476,8 @@ function marketify_header_css() {
 		#edd-purchase-button:hover,
 		.minimal #edd-purchase-button,
 		#fes-image_upload-pickfiles:hover,
-		#fes-avatar-pickfiles:hover {
+		#fes-avatar-pickfiles:hover,
+		.mininal .edd_submit {
 			color: #fff;
 		}";
 

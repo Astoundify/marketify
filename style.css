@@ -985,8 +985,16 @@ input[type=submit]:hover {
 }
 
 .post-type-archive-download .site-content,
-.single-download .site-content {
+.single-download .site-content,
+.tax-download_category .site-content,
+.tax-download_tag .site-content {
 	margin-top: 0;
+}
+
+.tax-download_category .content-area,
+.tax-download_tag .content-area,
+.post-type-archive-download.paged .site-content {
+	margin-top: 80px;
 }
 
 .sticky {
@@ -2966,7 +2974,8 @@ body:not(.minimal) #edd_checkout_cart_form {
 	margin-bottom: 2em;
 }
 
-#edd-purchase-button {
+#edd-purchase-button,
+.minimal .edd_submit {
 	padding: 14px 20px;
 	color: #fff;
  	width: 100%;

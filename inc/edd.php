@@ -351,7 +351,7 @@ class Marketify_Author {
 		else
 			$user = wp_get_current_user();
 
-		return esc_url( get_author_posts_url( $user->ID, $user->nice_name ) . trailingslashit( self::slug() ) ); 
+		return esc_url( get_author_posts_url( $user->ID ) . trailingslashit( self::slug() ) ); 
 	}
 
 	/*

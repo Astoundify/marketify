@@ -11,7 +11,13 @@ get_header(); ?>
 
 	<header class="page-header">
 		<h1 class="page-title">
-			<?php echo apply_filters( 'marketify_downloads_archive_title', edd_get_label_plural() ); ?></h1>
+			<?php if ( is_tax() ) : ?>
+				<?php single_term_title(); ?>
+			<?php elseif ( is_search() ) : ?>
+				<?php echo esc_attr( get_search_query() ); ?>
+			<?php else : ?>
+				<?php echo apply_filters( 'marketify_downloads_archive_title', edd_get_label_plural() ); ?></h1>
+			<?php endif; ?>
 	</header><!-- .page-header -->
 
 	<div class="container">
@@ -22,15 +28,11 @@ get_header(); ?>
 			<section id="primary" class="content-area col-sm-<?php echo is_active_sidebar( 'sidebar-download' ) ? '9' : '12'; ?> col-xs-12">
 				<main id="main" class="site-main" role="main">
 
+				<?php if ( is_post_type_archive( 'download' ) && ! is_paged() ) : ?>
 				<div class="section-title"><span>
-					<?php if ( is_tax() ) : ?>
-						<?php single_term_title(); ?>
-					<?php elseif ( is_search() ) : ?>
-						<?php echo esc_attr( get_search_query() ); ?>
-					<?php else : ?>
-						<?php _e( 'Recent', 'marketify' ); ?>
-					<?php endif; ?>
+					<?php _e( 'Recent', 'marketify' ); ?>
 				</span></div>
+				<?php endif; ?>
 
 				<?php if ( have_posts() ) : ?>
 
