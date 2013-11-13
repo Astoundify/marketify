@@ -417,7 +417,8 @@ a.edd-submit.button:visited,
 input[type="submit"].edd-submit,
 div.fes-form fieldset .fes-fields a.file-selector,
 div.fes-form .fes-submit input[type=submit],
-.entry-content div.fes-form fieldset .fes-fields a.file-selector {
+.entry-content div.fes-form fieldset .fes-fields a.file-selector,
+.edd_form fieldset > span legend {
 	font: 800 13px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -901,18 +902,21 @@ input[type=submit]:hover {
 .home-widget-title,
 #edd_checkout_form_wrap fieldset > span,
 #edd_checkout_form_wrap fieldset#edd_cc_fields > span,
-.fes-section-wrap {
+.fes-section-wrap,
+.edd_form fieldset > span {
 	text-align: center;
 	width: 100%;
 	margin: 70px 0;
 	position: relative;
+	display: block;
 }
 
 .section-title:after,
 .home-widget-title:after,
 #edd_checkout_form_wrap fieldset > span:after,
 #edd_checkout_form_wrap fieldset#edd_cc_fields > span:after,
-.fes-section-wrap:after {
+.fes-section-wrap:after,
+.edd_form fieldset > span:after {
 	content: ' ';
 	position: absolute;
 	left: 0;
@@ -926,11 +930,12 @@ input[type=submit]:hover {
 .home-widget-title span,
 #edd_checkout_form_wrap fieldset > span legend,
 #edd_checkout_form_wrap fieldset#edd_cc_fields > span legend,
-.entry-content .fes-section-wrap h2 {
+.entry-content .fes-section-wrap h2,
+.edd_form fieldset > span legend {
 	font-size: 15px;
 	color: #bdc3c7;
 	text-align: center;
-	margin: 0 10px;
+	margin: 0 auto;
 	background: #fff;
 	border-color: #bdc3c7;
 	border-width: 3px;
@@ -1481,6 +1486,10 @@ input[type=submit]:hover {
 
 .download-image {
 	position: relative;
+}
+
+.download-image.flexslider {
+	overflow: hidden;
 }
 
 .download-image .slides {
@@ -3321,6 +3330,15 @@ body:not(.minimal) #edd_checkout_cart_form {
 
 .edd-item-quantity {
 	margin-right: 4px;
+}
+
+#edd_profile_editor_form label {
+	display: block;
+	width: auto;
+}
+
+#edd_profile_editor_form fieldset span:first-of-type {
+	margin-top: 0;
 }
 
 /* =FES

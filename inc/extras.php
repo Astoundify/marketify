@@ -120,7 +120,7 @@ function marketify_get_attached_media_args( $args, $type, $post ) {
 	$args[ 'exclude' ] = array( get_post_thumbnail_id( $post->ID ) );
 
 	if ( class_exists( 'MultiPostThumbnails' ) && MultiPostThumbnails::get_the_post_thumbnail( 'download', 'grid-image' ) ) 
-		$args[ 'exclude' ][] = MultiPostThumbnails::get_post_thumbnail_id( 'download', 'grid-image', $post->ID );
+		$args[ 'exclude' ] = MultiPostThumbnails::get_post_thumbnail_id( 'download', 'grid-image', $post->ID );
 
 	//wp_die( print_r( $args ) );
 

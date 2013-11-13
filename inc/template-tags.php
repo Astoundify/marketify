@@ -96,6 +96,8 @@ function marketify_download_standard_player() {
 		return;
 	}
 
+	$before = '<div class="download-image flexslider">';
+
 	echo $before;
 	?>
 

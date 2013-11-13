@@ -97,7 +97,7 @@ Marketify.App = ( function($) {
 	}
 
 	function downloadStandard() {
-		$( '.download-image' ).flexslider({
+		$( '.download-image.flexslider' ).flexslider({
 			animation     : 'fade',
 			animationLoop : false,
 			itemWidth     : 360,
@@ -105,6 +105,7 @@ Marketify.App = ( function($) {
 			minItems      : 1,
 			maxItems      : 1,
 			controlNav    : false,
+			smoothHeight  : true,
 			prevText      : '<i class="icon-left-open-big"></i>',
 			nextText      : '<i class="icon-right-open-big"></i>'
 		});
