@@ -386,7 +386,7 @@ class Marketify_Author {
 		global $wp_rewrite;
 
 		$new_rules = array(
-			'author/([^/]+)/' . self::slug() . '/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_ptype=' . $wp_rewrite->preg_index(2),
+			'author/([^/]+)/([^/]+)/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_ptype=' . $wp_rewrite->preg_index(2),
 		);
 
 		$wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
