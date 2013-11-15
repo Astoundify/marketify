@@ -2179,6 +2179,7 @@ object {
 
 .marketify_widget_featured_popular .home-widget-title span {
 	cursor: pointer;
+	margin: 0 10px;
 }
 
 .marketify_widget_featured_popular .entry-header {

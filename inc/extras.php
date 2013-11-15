@@ -40,30 +40,6 @@ function marketify_page_menu_args( $args ) {
 add_filter( 'wp_page_menu_args', 'marketify_page_menu_args' );
 
 /**
- * Adds custom classes to the array of body classes.
- */
-function marketify_body_classes( $classes ) {
-	global $wp_query;
-
-	// Adds a class of group-blog to blogs with more than 1 published author
-	if ( is_multi_author() ) {
-		$classes[] = 'group-blog';
-	}
-
-	if ( is_page_template( 'page-templates/home.php' ) )
-		$classes[] = 'home-1';
-
-	if ( is_page_template( 'page-templates/minimal.php' ) )
-		$classes[] = 'minimal';
-
-	if ( get_query_var( 'author_ptype' ) )
-		$classes[] = 'archive-download';
-
-	return $classes;
-}
-add_filter( 'body_class', 'marketify_body_classes' );
-
-/**
  * Filter in a link to a content ID attribute for the next/previous image links on image attachment pages
  */
 function marketify_enhanced_image_navigation( $url, $id ) {
@@ -121,8 +97,6 @@ function marketify_get_attached_media_args( $args, $type, $post ) {
 
 	if ( class_exists( 'MultiPostThumbnails' ) && MultiPostThumbnails::get_the_post_thumbnail( 'download', 'grid-image' ) ) 
 		$args[ 'exclude' ] = MultiPostThumbnails::get_post_thumbnail_id( 'download', 'grid-image', $post->ID );
-
-	//wp_die( print_r( $args ) );
 
 	return $args;
 }

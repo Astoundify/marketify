@@ -257,6 +257,20 @@ function marketify_purchase_link( $download_id = null ) {
 add_action( 'marketify_download_actions', 'marketify_purchase_link' );
 endif;
 
+/**
+ * Add the Price to the download information at the top of the page.
+ *
+ * @since Marketify 1.0
+ *
+ * @return void
+ */
+function marketify_download_price() {
+	global $post;
+
+	edd_price( $post->ID );
+}
+add_action( 'marketify_download_info', 'marketify_download_price', 5 );
+
 if ( ! function_exists( 'marketify_comment' ) ) :
 /**
  * Comments
@@ -429,4 +443,4 @@ function marketify_content_nav( $nav_id ) {
 	</nav><!-- #<?php echo esc_html( $nav_id ); ?> -->
 	<?php
 }
-endif; // marketify_content_nav
+endif;

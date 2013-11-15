@@ -100,15 +100,48 @@ function marketify_setup() {
 		'default-image' => '',
 	) ) );
 }
-endif; // marketify_setup
+endif;
 add_action( 'after_setup_theme', 'marketify_setup' );
 
-function marketify_is_bbpress() {
-	if ( ! function_exists( 'is_bbpress' ) )
-		return false; 
+/**
+ * Check if we are a standard Easy Digital Download install,
+ * or a multi-vendor marketplace.
+ *
+ * @since Marketify 1.0
+ *
+ * @return boolean
+ */
+function marketify_is_multi_vendor() {
+	if ( ! class_exists( 'Easy_Digital_Downloads' ) )
+		return false;
 
-	return is_bbpress();
+	if ( false === ( $is_multi_vendor = get_transient( 'marketify_is_multi_vendor' ) ) ) {
+		$vendors = get_users( array(
+			'role' => 'shop_vendor'
+		) );
+
+		$total = count( $vendors );
+		$is_multi_vendor = $total > 0 ? true : false;
+
+		set_transient( 'marketify_is_multi_vendor', $is_multi_vendor );
+	}
+
+	return $is_multi_vendor;
 }
+
+/**
+ * When a user is updated, or created, clear the multi vendor
+ * cache check.
+ *
+ * @since Marketify 1.0
+ *
+ * @return void
+ */
+function __marketify_clear_multi_vendor_cache() {
+	delete_transient( 'marketify_is_multi_vendor' );
+}
+add_action( 'profile_update', '__marketify_clear_multi_vendor_cache' );
+add_action( 'user_register',  '__marketify_clear_multi_vendor_cache' );
 
 /**
  * Remove Post Formats from Posts
@@ -532,131 +565,153 @@ function marketify_scripts() {
 add_action( 'wp_enqueue_scripts', 'marketify_scripts' );
 
 /**
- * Features by WooThemes
- *
- * Depending on the settings of the features widgets, apply a filter to
- * the output.
- *
- * @since Marketify 1.0
- *
- * @return void
+ * Adds custom classes to the array of body classes.
  */
-function marketify_woothemes_features_item( $widget ) {
-	if ( 'widget_woothemes_features' != $widget[ 'classname' ] )
-		return $widget;
+function marketify_body_classes( $classes ) {
+	global $wp_query;
 
-	$options = get_option( $widget[ 'classname' ] );
-	$options = $options[ $widget[ 'params' ][0][ 'number' ] ];
-
-	if ( 25 == $options[ 'size' ] ) 
-		add_filter( 'woothemes_features_item_template', 'marketify_woothemes_features_item_template_mini', 10, 2 );
-	else
-		add_filter( 'woothemes_features_item_template', 'marketify_woothemes_features_item_template', 10, 2 );
-}
-add_action( 'dynamic_sidebar', 'marketify_woothemes_features_item' );
-
-/**
- * Standard Features
- *
- * @since Marketify 1.0
- *
- * @return string
- */
-function marketify_woothemes_features_item_template( $template, $args ) {
-	return '<div class="%%CLASS%% col-lg-4 col-sm-6 col-xs-12 feature-large">%%IMAGE%%<h3 class="feature-title">%%TITLE%%</h3><div class="feature-content">%%CONTENT%%</div></div>';
-}
-
-/**
- * Mini Features
- *
- * @since Marketify 1.0
- *
- * @return string
- */
-function marketify_woothemes_features_item_template_mini( $template, $args ) {
-	return '<div class="%%CLASS%% col-lg-3 col-md-4 col-sm-6 col-xs-12 feature-mini">%%IMAGE%%<h3 class="feature-title">%%TITLE%%</h3><div class="feature-content">%%CONTENT%%</div></div>';
-}
-
-/**
- * Feature arguments
- *
- * @since Marketify 1.0
- *
- * @return array
- */
-function marketify_woothemes_features_args( $args ) {
-	$args[ 'link_title' ] = false;
-
-	return $args;
-}
-add_filter( 'woothemes_features_args', 'marketify_woothemes_features_args' );
-
-/**
- * Testimonials by WooThemes
- *
- * Depending on the settings of the testimonials widgets, apply a filter to
- * the output.
- *
- * @since Marketify 1.0
- *
- * @return void
- */
-function marketify_woothemes_testimonials_item( $widget ) {
-	if ( 'widget_woothemes_testimonials' != $widget[ 'classname' ] )
-		return $widget;
-
-	$options = get_option( $widget[ 'classname' ] );
-	$options = $options[ $widget[ 'params' ][0][ 'number' ] ];
-
-	if ( 1 == $options[ 'display_avatar' ] && null == $options[ 'display_author' ] ) {
-		add_filter( 'woothemes_testimonials_item_template', 'marketify_woothemes_testimonials_item_template', 10, 2 );
-	} else {
-		add_filter( 'woothemes_testimonials_item_template', 'marketify_woothemes_testimonials_item_template_individual', 10, 2 );
+	// Adds a class of group-blog to blogs with more than 1 published author
+	if ( is_multi_author() ) {
+		$classes[] = 'group-blog';
 	}
 
-	return $widget;
+	if ( is_page_template( 'page-templates/home.php' ) )
+		$classes[] = 'home-1';
+
+	if ( is_page_template( 'page-templates/minimal.php' ) )
+		$classes[] = 'minimal';
+
+	if ( get_query_var( 'author_ptype' ) )
+		$classes[] = 'archive-download';
+
+	return $classes;
 }
-add_action( 'dynamic_sidebar', 'marketify_woothemes_testimonials_item' );
+add_filter( 'body_class', 'marketify_body_classes' );
 
 /**
- * Company Testimonial 
+ * Download Authors
+ *
+ * Since WordPres only supports author archives of a singular (or all) post
+ * types, we need to create a way to just view an author's downloads.
+ *
+ * This sets up a new query variable called `author_ptype` which can be used
+ * to fetch a specific post type when viewing author archives.
  *
  * @since Marketify 1.0
- *
- * @return string
  */
-function marketify_woothemes_testimonials_item_template( $template, $args ) {
-	return '<div class="%%CLASS%% company-testimonial">%%AVATAR%%</div>';
+class Marketify_Author {
+
+	/*
+	 * Init so we can attach to an action
+	 */
+	public static function init() {
+		new self;
+	}
+
+	/*
+	 * Hooks and Filters
+	 */
+	public function __construct() {
+		add_filter( 'query_vars', array( $this, 'query_vars' ) ); 
+		add_filter( 'generate_rewrite_rules', array( $this, 'rewrites' ) );
+		add_action( 'pre_get_posts', array( $this, 'filter_endpoints' ) );
+	}
+
+	/*
+	 * Create a publically accessible link
+	 */
+	public static function url( $user_id = null ) {
+		if ( $user_id )
+			$user = new WP_User( $user_id );
+		else
+			$user = wp_get_current_user();
+
+		return esc_url( get_author_posts_url( $user->ID ) . trailingslashit( self::slug() ) ); 
+	}
+
+	/*
+	 * Return our chosen filtered slug.
+	 */
+	public static function slug() {
+		return apply_filters( 'marketify_vendor_slug', 'downloads' );
+	}
+
+	/**
+	 * Register the `author_ptype` query variable.
+	 *
+	 * @since Marketify 1.0
+	 *
+	 * @param array $query_vars Existing query variables
+	 * @return array $query_vars Modified array of query variables
+	 */
+	public function query_vars( $query_vars ) {
+		$query_vars[] = 'author_ptype';
+
+		return $query_vars;
+	}
+
+	/**
+	 * Create the new permalink endpoints/structures.
+	 *
+	 * @since Marketify 1.0
+	 *
+	 * @return object $wp_rewrite
+	 */
+	public function rewrites() {
+		global $wp_rewrite;
+
+		$new_rules = array(
+			'author/([^/]+)/([^/]+)/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_ptype=' . $wp_rewrite->preg_index(2),
+		);
+
+		$wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
+
+		return $wp_rewrite->rules;
+	}
+
+	/**
+	 * Filter the query when we are viewing an author
+	 * archive. Set the post type to be the type set in the permastruct.
+	 *
+	 * @since Marketify 1.0
+	 *
+	 * @param object $query Current WP_Query
+	 * @return void
+	 */
+	public function filter_endpoints( $query ) {
+		if ( is_admin() || ! $query->is_main_query() || ! $query->is_author() )
+			return;
+
+		$type = get_query_var( 'author_ptype' );
+
+		if ( ! $type )
+			return $query;
+
+		if ( $type != self::slug() ) {
+			$query->is_archive = true;
+			$query->is_author = false;
+
+			return $query;
+		}
+
+		$query->set( 'post_type', 'download' );
+		$query->is_author = true;
+	}
 }
+add_action( 'init', array( 'Marketify_Author', 'init' ), 100 );
 
 /**
- * Individual Testimonial
- *
- * @since Marketify 1.0
- *
- * @return string
+ * Integrations
  */
-function marketify_woothemes_testimonials_item_template_individual( $template, $args ) {
-	return '<div id="quote-%%ID%%" class="%%CLASS%% individual-testimonial col-md-6 col-sm-12"><blockquote class="testimonials-text">%%TEXT%%</blockquote>%%AVATAR%% %%AUTHOR%%<div class="fix"></div></div>';
-}
-
-/**
- * Output ZillaLikes
- *
- * @since Marketify 1.0
- *
- * @return void
- */
-function marketify_download_author_before_zilla() {
-	if ( function_exists( 'zilla_likes' ) && is_singular( 'download' ) ) 
-		zilla_likes();
-}
-add_action( 'marketify_download_author_before', 'marketify_download_author_before_zilla' );
-
-/**
- * EDD
- */
-require get_template_directory() . '/inc/edd.php';
+require get_template_directory() . '/inc/integrations/edd/edd.php';
+require get_template_directory() . '/inc/integrations/edd-csau/csau.php';
+require get_template_directory() . '/inc/integrations/edd-reviews/reviews.php';
+require get_template_directory() . '/inc/integrations/edd-recommended/recommended.php';
+require get_template_directory() . '/inc/integrations/bbpress/bbpress.php';
+require get_template_directory() . '/inc/integrations/jetpack/jetpack.php';
+require get_template_directory() . '/inc/integrations/love-it/love-it.php';
+require get_template_directory() . '/inc/integrations/woo-features/features.php';
+require get_template_directory() . '/inc/integrations/woo-testimonials/testimonials.php';
 
 /**
  * Implement the Custom Header feature.
@@ -677,11 +732,6 @@ require get_template_directory() . '/inc/extras.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/inc/jetpack.php';
 
 /**
  * Load Widgets
