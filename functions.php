@@ -104,6 +104,20 @@ endif;
 add_action( 'after_setup_theme', 'marketify_setup' );
 
 /**
+ * Check if we are using bbPress
+ *
+ * @since Marketify 1.0
+ *
+ * @return boolean
+ */
+function marketify_is_bbpress() {
+	if ( ! function_exists( 'is_bbpress' ) )
+		return false; 
+
+	return is_bbpress();
+}
+
+/**
  * Check if we are a standard Easy Digital Download install,
  * or a multi-vendor marketplace.
  *
