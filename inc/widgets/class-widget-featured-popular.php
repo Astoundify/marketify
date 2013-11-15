@@ -64,7 +64,13 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 			'no_found_rows'          => true,
 			'update_post_term_cache' => false,
 			'update_post_meta_cache' => false,
-			'cache_results'          => false
+			'cache_results'          => false,
+			'meta_query'             => array(
+				array(
+					'key'   => 'edd_feature_download',
+					'value' => true
+				)
+			)
 		) );
 
 		$popular = new WP_Query( array(
