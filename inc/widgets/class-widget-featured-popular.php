@@ -73,14 +73,26 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 			)
 		) );
 
-		$popular = new WP_Query( array(
+		$popular_args = array(
 			'post_type'              => 'download',
 			'posts_per_page'         => $number,
 			'no_found_rows'          => true,
 			'update_post_term_cache' => false,
 			'update_post_meta_cache' => false,
-			'cache_results'          => false
-		) );
+			'cache_results'          => false,
+			'date_query'             => array(
+				array(
+					'week' => date( 'W' )
+				)
+			)
+		);
+
+		if ( defined( 'LI_BASE_DIR' ) ) {
+			$popular_args[ 'meta_key' ] = '_li_love_count';
+			$popular_args[ 'orderby' ]  = 'meta_value';
+		}
+
+		$popular = new WP_Query( $popular_args );
 
 		if ( ! $featured->have_posts() && ! $popular->have_posts() )
 			return;
@@ -90,8 +102,13 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 		?>
 
 		<?php echo $before_title; ?>
+			<?php if ( $featured->have_posts() ) : ?>
 			<?php _e( 'Featured', 'marketify' ); ?> </span> 
+			<?php endif; ?>
+
+			<?php if ( $popular->have_posts() ) : ?>
 			<span><?php _e( 'Popular', 'marketify' ); ?>
+			<?php endif; ?>
 		<?php echo $after_title; ?>
 		
 		<div id="items-featured" class="row flexslider">
