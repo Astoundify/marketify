@@ -701,34 +701,6 @@ class Marketify_Author {
 add_action( 'init', array( 'Marketify_Author', 'init' ), 100 );
 
 /**
- * Integrations
- */
-require get_template_directory() . '/inc/integrations/jetpack/jetpack.php';
-
-if ( class_exists( 'bbPress' ) ) {
-	require get_template_directory() . '/inc/integrations/bbpress/bbpress.php';
-}
-
-if ( class_exists( 'Easy_Digital_Downloads' ) ) {
-	require get_template_directory() . '/inc/integrations/edd/edd.php';
-	require get_template_directory() . '/inc/integrations/edd-csau/csau.php';
-	require get_template_directory() . '/inc/integrations/edd-reviews/reviews.php';
-	require get_template_directory() . '/inc/integrations/edd-recommended/recommended.php';
-}
-
-if ( class_exists( 'Woothemes_Features' ) ) {
-	require get_template_directory() . '/inc/integrations/woo-features/features.php';
-}
-
-if ( class_exists( 'Woothemes_Testimonials' ) ) {
-	require get_template_directory() . '/inc/integrations/woo-testimonials/testimonials.php';
-}
-
-if ( defined( 'LI_BASE_DIR' ) ) {
-	require get_template_directory() . '/inc/integrations/love-it/love-it.php';
-}
-
-/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
@@ -747,6 +719,50 @@ require get_template_directory() . '/inc/extras.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Integrations
+ */
+
+// Jetpack
+require get_template_directory() . '/inc/integrations/jetpack/jetpack.php';
+
+// bbPress
+if ( class_exists( 'bbPress' ) ) {
+	require get_template_directory() . '/inc/integrations/bbpress/bbpress.php';
+}
+
+// Easy Digital Downloads
+if ( class_exists( 'Easy_Digital_Downloads' ) ) {
+	require get_template_directory() . '/inc/integrations/edd/edd.php';
+
+	if ( defined( 'EDD_CSAU_DIR' ) ) {
+		require get_template_directory() . '/inc/integrations/edd-csau/csau.php';
+	}
+
+	if ( class_exists( 'EDD_Reviews' ) ) {
+		require get_template_directory() . '/inc/integrations/edd-reviews/reviews.php';
+	}
+
+	if ( class_exists( 'EDDRecommendedDownloads' ) ) {
+		require get_template_directory() . '/inc/integrations/edd-recommended/recommended.php';
+	}
+}
+
+// WooThemes Features
+if ( class_exists( 'Woothemes_Features' ) ) {
+	require get_template_directory() . '/inc/integrations/woo-features/features.php';
+}
+
+// WooThemes Testimonials
+if ( class_exists( 'Woothemes_Testimonials' ) ) {
+	require get_template_directory() . '/inc/integrations/woo-testimonials/testimonials.php';
+}
+
+// Love It
+if ( defined( 'LI_BASE_DIR' ) ) {
+	require get_template_directory() . '/inc/integrations/love-it/love-it.php';
+}
 
 /**
  * Load Widgets
