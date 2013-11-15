@@ -703,15 +703,30 @@ add_action( 'init', array( 'Marketify_Author', 'init' ), 100 );
 /**
  * Integrations
  */
-require get_template_directory() . '/inc/integrations/edd/edd.php';
-require get_template_directory() . '/inc/integrations/edd-csau/csau.php';
-require get_template_directory() . '/inc/integrations/edd-reviews/reviews.php';
-require get_template_directory() . '/inc/integrations/edd-recommended/recommended.php';
-require get_template_directory() . '/inc/integrations/bbpress/bbpress.php';
 require get_template_directory() . '/inc/integrations/jetpack/jetpack.php';
-require get_template_directory() . '/inc/integrations/love-it/love-it.php';
-require get_template_directory() . '/inc/integrations/woo-features/features.php';
-require get_template_directory() . '/inc/integrations/woo-testimonials/testimonials.php';
+
+if ( class_exists( 'bbPress' ) ) {
+	require get_template_directory() . '/inc/integrations/bbpress/bbpress.php';
+}
+
+if ( class_exists( 'Easy_Digital_Downloads' ) ) {
+	require get_template_directory() . '/inc/integrations/edd/edd.php';
+	require get_template_directory() . '/inc/integrations/edd-csau/csau.php';
+	require get_template_directory() . '/inc/integrations/edd-reviews/reviews.php';
+	require get_template_directory() . '/inc/integrations/edd-recommended/recommended.php';
+}
+
+if ( class_exists( 'Woothemes_Features' ) ) {
+	require get_template_directory() . '/inc/integrations/woo-features/features.php';
+}
+
+if ( class_exists( 'Woothemes_Testimonials' ) ) {
+	require get_template_directory() . '/inc/integrations/woo-testimonials/testimonials.php';
+}
+
+if ( defined( 'LI_BASE_DIR' ) ) {
+	require get_template_directory() . '/inc/integrations/love-it/love-it.php';
+}
 
 /**
  * Implement the Custom Header feature.
