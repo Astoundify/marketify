@@ -274,6 +274,10 @@ function marketify_widgets_init() {
 		register_widget( 'Marketify_Widget_Featured_Popular_Downloads' );
 		register_widget( 'Marketify_Widget_Download_Details' );
 		register_widget( 'Marketify_Widget_Download_Share' );
+
+		if ( class_exists( 'EDD_Reviews' ) ) {
+			register_widget( 'Marketify_Widget_Download_Review_Details' );
+		}
 	}
 
 	if ( function_exists( 'soliloquy_slider' ) ) {
@@ -692,6 +696,10 @@ if ( marketify_is_edd() ) {
 	require get_template_directory() . '/inc/widgets/class-widget-featured-popular.php';
 	require get_template_directory() . '/inc/widgets/class-widget-download-details.php';
 	require get_template_directory() . '/inc/widgets/class-widget-download-share.php';
+
+	if ( class_exists( 'EDD_Reviews' ) ) {
+		require get_template_directory() . '/inc/widgets/class-widget-download-review-details.php';
+	}
 }
 
 if ( function_exists( 'soliloquy_slider' ) ) {

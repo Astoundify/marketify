@@ -418,7 +418,7 @@ input[type="submit"].edd-submit,
 div.fes-form fieldset .fes-fields a.file-selector,
 div.fes-form .fes-submit input[type=submit],
 .entry-content div.fes-form fieldset .fes-fields a.file-selector,
-.edd_form fieldset > span legend {
+body:not(.minimal) .edd_form fieldset > span legend {
 	font: 800 13px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -554,7 +554,9 @@ input[type=submit]:hover {
 .fix:before,
 .fix:after,
 .comment:before,
-.comment:after {
+.comment:after,
+.download-product-review-details:before,
+.download-product-review-details:after {
 	content: '';
 	display: table;
 }
@@ -579,7 +581,8 @@ input[type=submit]:hover {
 .comment-navigation:after,
 .fes-menu ul:after,
 .fix:after,
-.comment:after {
+.comment:after,
+.download-product-review-details:after {
 	clear: both;
 }
 
@@ -916,7 +919,7 @@ input[type=submit]:hover {
 #edd_checkout_form_wrap fieldset > span:after,
 #edd_checkout_form_wrap fieldset#edd_cc_fields > span:after,
 .fes-section-wrap:after,
-.edd_form fieldset > span:after {
+body:not(.minimal) .edd_form fieldset > span:after {
 	content: ' ';
 	position: absolute;
 	left: 0;
@@ -931,7 +934,7 @@ input[type=submit]:hover {
 #edd_checkout_form_wrap fieldset > span legend,
 #edd_checkout_form_wrap fieldset#edd_cc_fields > span legend,
 .entry-content .fes-section-wrap h2,
-.edd_form fieldset > span legend {
+body:not(.minimal) .edd_form fieldset > span legend {
 	font-size: 15px;
 	color: #bdc3c7;
 	text-align: center;
@@ -994,6 +997,10 @@ input[type=submit]:hover {
 .tax-download_category .site-content,
 .tax-download_tag .site-content {
 	margin-top: 0;
+}
+
+.single-download #primary.content-area {
+	padding-bottom: 0;
 }
 
 .tax-download_category .content-area,
@@ -1863,10 +1870,6 @@ object {
 .bypostauthor {
 }
 
-.comment-respond {
-	margin-top: 100px;
-}
-
 .comment-form input[type="text"] {
 	width: 50%;
 }
@@ -1892,7 +1895,8 @@ object {
 	float: left;
 }
 
-.marketify-edd-rating i {
+.marketify-edd-rating i,
+.download-product-review-details i {
 	font-size: 14px;
 	color: #bdc3c7;
 }
@@ -1933,6 +1937,27 @@ object {
 .comment_form_rating .edd_reviews_rating_box a.active ~ a i:before,
 .comment_form_rating .edd_reviews_rating_box a.active i:before {
 	content: '\2605';
+}
+
+
+.download-product-review-details .download-single-widget-title {
+	float: left;
+}
+
+.download-product-review-details .download-ratings {
+	margin: -4px 0 0 5px;
+	float: left;
+}
+
+.download-product-review-details i {
+	font-size: 16px;
+}
+
+.download-product-review-details p {
+	color: #82878e;
+	font-size: 13px;
+	clear: both;
+	margin-bottom: 0;
 }
 
 /* =Global Widgets
@@ -2567,7 +2592,8 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 ----------------------------------------------- */
 
 .download-single-widget,
-.download-product-details {
+.download-product-details,
+.download-product-review-details {
 	border: 1px solid #bdc3c7;
 	margin: 0 0 45px;
 	padding: 25px;
@@ -2579,6 +2605,10 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 
 .download-single-widget.comments:first-child {
 	margin-top: 92px;
+}
+
+#secondary .download-single-widget.comments:first-child {
+	margin-top: 0;
 }
 
 .download-single-widget-title {
@@ -2604,7 +2634,8 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 }
 
 /** Product Details */
-.marketify_widget_download_details {
+.marketify_widget_download_details,
+.marketify_widget_download_review_details {
 	border: 0;
 	padding: 0;
 }
@@ -2903,10 +2934,6 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 	box-shadow: none;
 }
 
-#edd_login_form span legend {
-	display: none;
-}
-
 .edd_form p {
 	margin-bottom: 1.75em;
 }
@@ -2984,7 +3011,7 @@ body:not(.minimal) #edd_checkout_cart_form {
 }
 
 #edd-purchase-button,
-.minimal .edd_submit {
+.minimal input[type="submit"] {
 	padding: 14px 20px;
 	color: #fff;
  	width: 100%;

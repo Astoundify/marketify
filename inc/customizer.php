@@ -394,20 +394,25 @@ function marketify_header_css() {
 		#edd_checkout_cart input[type=submit].edd-submit:hover,
 		.minimal #edd-purchase-button,
 		.main-navigation.toggled .search-form .search-submit,
-		.minimal .edd_submit,
-		.minimal input[type=submit].edd_submit:hover {
+		.minimal input[type=submit],
+		.minimal input[type=submit]:hover,
+		.popup .edd_go_to_checkout.button.edd-submit {
 			background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 		}
 
 		#edd_checkout_cart a.edd-cart-saving-button,
-		#edd_checkout_cart input[type=submit].edd-submit {
+		#edd_checkout_cart input[type=submit].edd-submit,
+		.popup .edd_go_to_checkout.button.edd-submit:hover,
+		.popup .edd-add-to-cart.button.edd-submit:hover {
 			color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 		}
 
 		#edd_checkout_cart a.edd-cart-saving-button,
 		#edd_checkout_cart input[type=submit].edd-submit,
 		.minimal #edd-purchase-button,
-		.minimal .edd_submit {
+		.minimal input[type=submit],
+		.popup .edd_go_to_checkout.button.edd-submit,
+		.popup .edd-add-to-cart.button.edd-submit:hover {
 			border-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 		}
 
@@ -456,15 +461,17 @@ function marketify_header_css() {
 		.page-header a.edd-submit.button:visited:hover,
 		.page-header .edd-submit.button.gray:hover,
 		.page-header .edd-add-to-cart.button.edd-submit:hover,
-		.soliloquy-caption-wrap .button:hover {
+		.soliloquy-caption-wrap .button:hover,
+		.popup .edd_go_to_checkout.button.edd-submit:hover,
+		.popup .edd-submit.button:hover, 
+		.popup a.edd-submit.button:hover, 
+		.popup .edd-submit.button.gray:hover {
 			background-color: #fff;
 		}
 
 		.page-template-page-templatesminimal-php,
 		.page-template-page-templatesminimal-php label,
 		.page-template-page-templatesminimal-php a,
-		.popup .edd-add-to-cart.edd-submit.button:hover,
-		.popup a.edd-add-to-cart.edd-submit.button:hover,
 		.entry-content div[itemprop=description] .edd-add-to-cart.button.edd-submit:hover,
 		.entry-content div[itemprop=description] .edd_download_inner .edd-add-to-cart.button.edd-submit:hover,
 		.entry-content div[itemprop=description] .download-variable .edd-add-to-cart.button.edd-submit:hover,
@@ -477,7 +484,8 @@ function marketify_header_css() {
 		.minimal #edd-purchase-button,
 		#fes-image_upload-pickfiles:hover,
 		#fes-avatar-pickfiles:hover,
-		.mininal .edd_submit {
+		.minimal input[type=submit],
+		.popup .edd_go_to_checkout.button.edd-submit {
 			color: #fff;
 		}";
 
