@@ -21,7 +21,7 @@ if ( post_password_required() )
 
 <div id="comments" class="comments-area row">
 
-	<section class="content-area <?php echo ! is_active_sidebar( 'sidebar-download-single-comments' ) || ! comments_open() ? 'col-xs-12' : 'col-sm-8 col-xs-12'; ?>">
+	<section class="content-area <?php echo ! is_active_sidebar( 'sidebar-download-single-comments' ) ? 'col-xs-12' : 'col-sm-8 col-xs-12'; ?>">
 
 		<h2 class="comments-title section-title"><span>
 			<?php if ( class_exists( 'EDD_Reviews' ) && is_singular( 'download' ) ) : ?>
