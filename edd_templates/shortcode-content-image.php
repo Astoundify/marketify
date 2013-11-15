@@ -8,7 +8,7 @@ global $post;
 
 <div class="entry-image">
 	<div class="overlay">
-		<?php if ( function_exists( 'zilla_likes' ) ) zilla_likes(); ?>
+		<?php do_action( 'marketify_download_content_image_overlay' ); ?>
 
 		<div class="actions">
 			<?php marketify_purchase_link( get_the_ID() ); ?>
