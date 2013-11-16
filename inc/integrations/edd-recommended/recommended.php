@@ -41,7 +41,7 @@ function marketify_recommended_products() {
 	
 	<h1 class="section-title"><span><?php _e( 'Recommended Products', 'marketify' ); ?></span></h1>
 
-	<div class="row">
+	<div class="row edd-recommended-products">
 		<?php while ( $suggested_downloads->have_posts() ) : $suggested_downloads->the_post(); ?>
 		<div class="col-lg-3 col-md-4 col-sm-6">
 			<?php get_template_part( 'content-grid', 'download' ); ?>

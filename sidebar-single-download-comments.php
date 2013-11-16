@@ -5,7 +5,7 @@
  * @package Marketify
  */
 
-if ( ! is_active_sidebar( 'sidebar-download-single-comments' ) )
+if ( ! is_active_sidebar( 'sidebar-download-single-comments' ) || ! is_singular( 'download' ) )
 	return;
 ?>
 	<div id="secondary" class="col-sm-4 col-xs-12" role="complementary">

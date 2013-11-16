@@ -1110,7 +1110,8 @@ body:not(.minimal) .edd_form fieldset > span legend {
 .download-author a,
 .comment-reply-title,
 .entry-content .edd-slg-social-container legend,
-.page-template-page-templatesminimal-php .entry-title,
+.minimal .entry-title,
+.minimal .edd_form legend,
 .page-template-page-templatesteam-php .byline,
 .fes_header {
 	font: 800 16px 'Montserrat', sans-serif;
@@ -1269,16 +1270,16 @@ body:not(.minimal) .edd_form fieldset > span legend {
 }
 
 /** Minimal Page */
-.page-template-page-templatesminimal-php .site-content {
+.minimal .site-content {
 	margin-top: 0;
 }
 
-.page-template-page-templatesminimal-php .entry-title {
+.minimal .entry-title {
 	color: #fff;
 	text-align: center;
 }
 
-.page-template-page-templatesminimal-php input {
+.minimal input {
 	border: 0;
 }
 
@@ -2759,8 +2760,6 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 
 /** Cart */
 .widget .edd-cart {
-	/**margin: 0 -25px 0 0;*/
-	padding: 0 25px 0 0;
 	border-top: 1px solid #bdc3c7;
 }
 
@@ -2769,7 +2768,7 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 }
 
 .widget .edd-cart-item {
-	margin: 0 -25px;
+	margin: 0;
 	padding: 20px 25px;
 	border-bottom: 1px solid #bdc3c7;
 	background: #fbfbfb;
@@ -3053,6 +3052,10 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 	font: 800 13px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
+}
+
+.edd-recommended-products {
+	margin-bottom: 100px;
 }
 
 /* Minimal */
@@ -3999,7 +4002,7 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 ----------------------------------------------- */
 
 @media screen and (min-width: 1200px) {
-	.page-template-page-templatesminimal-php .col-lg-offset-3 {
+	.minimal .col-lg-offset-3 {
 		margin-left: 30%;
 	}
 }
@@ -4282,6 +4285,41 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 
 	body .soliloquy-container .soliloquy-caption  {
 		display: none;
+	}
+
+	/** Home */
+	.page-title, 
+	.entry-page-title h1 {
+		font-size: 28px;
+	}
+
+	.home-1 .page-header p {
+		font-size: 16px;
+	}
+
+	.page-header .button {
+		font-size: 13px;
+		border-width: 2px;
+		padding: 10px 20px;
+		margin: 8px 3px;
+		display: inline-block;
+	}
+
+	/** Page */
+	.entry-page-title {
+		padding-top: 0;
+		padding-bottom: 40px;
+	}
+
+	.site-content {
+		margin-top: 50px;
+	}
+
+	/** FES */
+	.entry-content #fes_half {
+		width: 100%;
+		float: none;
+		display: block;
 	}
 }
 
