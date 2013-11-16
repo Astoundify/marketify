@@ -535,9 +535,9 @@ span.bbp-admin-links {
 	color: #ddd;
 }
 span.bbp-admin-links a {
-	color: #bbb;
+	color: #aaa;
 	font-weight: normal;
-	font-size: 10px;
+	font-size: 12px;
 	text-transform: uppercase;
 	text-decoration: none;
 }
@@ -911,7 +911,7 @@ div.indicator-hint {
 	font-weight: 700;
 	font-size: 14px;
 	padding: 10px;
-	border: 1px solid #bdc3c7;
+	border: 2px solid #bdc3c7;
 	background: transparent;
 	display: block;
 	margin: 15px 0;
