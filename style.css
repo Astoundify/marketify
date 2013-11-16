@@ -417,8 +417,10 @@ a.edd-submit.button:visited,
 input[type="submit"].edd-submit,
 div.fes-form fieldset .fes-fields a.file-selector,
 div.fes-form .fes-submit input[type=submit],
-.entry-content div.fes-form fieldset .fes-fields a.file-selector,
-body:not(.minimal) .edd_form fieldset > span legend {
+div.fes-form fieldset .fes-fields a.file-selector,
+body:not(.minimal) .edd_form fieldset > span legend,
+.edd-fes-adf-submission-add-option-button,
+div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image {
 	font: 800 13px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -2933,7 +2935,8 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 }
 
 #edd_checkout_cart a.edd-cart-saving-button,
-#edd_checkout_cart input[type="submit"].edd-submit {
+#edd_checkout_cart input[type="submit"].edd-submit,
+div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image {
 	font-weight: 800;
 	margin-left: 5px;
 }
@@ -3027,7 +3030,9 @@ body:not(.minimal) #edd_checkout_cart_form {
 
 .edd-cart-saving-button.edd-submit.button,
 #edd_checkout_cart input[type="submit"].edd-submit,
-.fes-button {
+.fes-button,
+div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image,
+.edd-fes-adf-submission-add-option-button {
 	margin-right: -3px;
 	font-size: 12px;
 	padding: 6px 10px;
@@ -3576,10 +3581,6 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 	text-decoration: none;
 }
 
-.edd-fes-adf-submission-add-option-button:hover em {
-	text-decoration: underline;
-}
-
 .edd-fes-adf-submission-add-option-button em {
 	font-style: normal;
 }
@@ -3622,12 +3623,17 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 }
 
 #fes-avatar-pickfiles,
-#fes-image_upload-pickfiles {
+#fes-image_upload-pickfiles,
+div.fes-form fieldset .fes-fields a.file-selector {
 	box-shadow: none;
 }
 
 .fes-attachment-list {
 	margin: 10px 0 0;
+}
+
+div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image {
+	margin-left: 0;
 }
 
 /* =Footer

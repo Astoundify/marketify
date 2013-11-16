@@ -353,6 +353,7 @@ function marketify_header_css() {
 		.marketify_widget_featured_popular .home-widget-title span:hover,
 		.marketify-edd-rating .review-title-text,
 		#fes-image_upload-pickfiles,
+		div.fes-form fieldset .fes-fields a.file-selector,
 		#fes-avatar-pickfiles {
 			color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 		}
@@ -385,12 +386,15 @@ function marketify_header_css() {
 		.marketify_widget_featured_popular .home-widget-title span:hover,
 		.fes-button:hover,
 		#fes-image_upload-pickfiles,
+		div.fes-form fieldset .fes-fields a.file-selector,
 		#fes-avatar-pickfiles {
 			border-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 		}
 
 		.main-navigation .search-form.active .search-submit,
 		#edd_checkout_cart a.edd-cart-saving-button:hover,
+		div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image:hover,
+		.edd-fes-adf-submission-add-option-button:hover,
 		#edd_checkout_cart input[type=submit].edd-submit:hover,
 		.minimal #edd-purchase-button,
 		.main-navigation.toggled .search-form .search-submit,
@@ -402,6 +406,8 @@ function marketify_header_css() {
 
 		#edd_checkout_cart a.edd-cart-saving-button,
 		#edd_checkout_cart input[type=submit].edd-submit,
+		div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image,
+		a.edd-fes-adf-submission-add-option-button,
 		.popup .edd_go_to_checkout.button.edd-submit:hover,
 		.popup .edd-add-to-cart.button.edd-submit:hover {
 			color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
@@ -409,6 +415,8 @@ function marketify_header_css() {
 
 		#edd_checkout_cart a.edd-cart-saving-button,
 		#edd_checkout_cart input[type=submit].edd-submit,
+		div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image,
+		.edd-fes-adf-submission-add-option-button,
 		.minimal #edd-purchase-button,
 		.minimal input[type=submit],
 		.popup .edd_go_to_checkout.button.edd-submit,
@@ -478,11 +486,14 @@ function marketify_header_css() {
 		.entry-content div[itemprop=description] .download-variable .edd_download_inner .edd-add-to-cart.button.edd-submit:hover,
 		.entry-content div[itemprop=description] .download-variable .edd_go_to_checkout.button.edd-submit:hover,
 		#edd_checkout_cart a.edd-cart-saving-button:hover,
+		div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image:hover,
+		a.edd-fes-adf-submission-add-option-button:hover,
 		#edd_checkout_cart input[type=submit].edd-submit:hover,
 		div.fes-form .fes-submit input[type=submit]:hover,
 		#edd-purchase-button:hover,
 		.minimal #edd-purchase-button,
 		#fes-image_upload-pickfiles:hover,
+		div.fes-form fieldset .fes-fields a.file-selector:hover,
 		#fes-avatar-pickfiles:hover,
 		.minimal input[type=submit],
 		.popup .edd_go_to_checkout.button.edd-submit {
