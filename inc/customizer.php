@@ -399,7 +399,8 @@ function marketify_header_css() {
 		.main-navigation.toggled .search-form .search-submit,
 		.minimal input[type=submit],
 		.minimal input[type=submit]:hover,
-		.popup .edd_go_to_checkout.button.edd-submit {
+		.popup .edd_go_to_checkout.button.edd-submit,
+		.edd-reviews-voting-buttons a:hover {
 			background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 		}
 
@@ -408,7 +409,8 @@ function marketify_header_css() {
 		div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image,
 		a.edd-fes-adf-submission-add-option-button,
 		.popup .edd_go_to_checkout.button.edd-submit:hover,
-		.popup .edd-add-to-cart.button.edd-submit:hover {
+		.popup .edd-add-to-cart.button.edd-submit:hover,
+		.edd-reviews-voting-buttons a {
 			color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 		}
 
@@ -419,7 +421,8 @@ function marketify_header_css() {
 		.minimal #edd-purchase-button,
 		.minimal input[type=submit],
 		.popup .edd_go_to_checkout.button.edd-submit,
-		.popup .edd-add-to-cart.button.edd-submit:hover {
+		.popup .edd-add-to-cart.button.edd-submit:hover,
+		.edd-reviews-voting-buttons a {
 			border-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 		}
 
@@ -495,7 +498,8 @@ function marketify_header_css() {
 		div.fes-form fieldset .fes-fields a.file-selector:hover,
 		#fes-avatar-pickfiles:hover,
 		.minimal input[type=submit],
-		.popup .edd_go_to_checkout.button.edd-submit {
+		.popup .edd_go_to_checkout.button.edd-submit,
+		.edd-reviews-voting-buttons a:hover {
 			color: #fff;
 		}";
 

@@ -420,7 +420,8 @@ div.fes-form .fes-submit input[type=submit],
 div.fes-form fieldset .fes-fields a.file-selector,
 body:not(.minimal) .edd_form fieldset > span legend,
 .edd-fes-adf-submission-add-option-button,
-div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image {
+div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image,
+.edd-reviews-voting-buttons a {
 	font: 800 13px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -1967,6 +1968,29 @@ object {
 	background: #82878e;
 }
 
+.edd-review-vote {
+	color: #bdc3c7;
+	font: 400 10px 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	margin-bottom: 0;
+	background: none;
+	border: 2px solid #bdc3c7;
+	clear: none;
+}
+
+.edd-review-vote p:first-child {
+	display: none;
+}
+
+.edd-reviews-voting-buttons {
+	margin: 5px 0 0;
+	display: block;
+}
+
+.edd-reviews-voting-buttons br {
+	display: none;
+}
+
 /* =Global Widgets
 ----------------------------------------------- */
 
@@ -3031,10 +3055,16 @@ body:not(.minimal) #edd_checkout_cart_form {
 #edd_checkout_cart input[type="submit"].edd-submit,
 .fes-button,
 div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image,
-.edd-fes-adf-submission-add-option-button {
+.edd-fes-adf-submission-add-option-button,
+.edd-reviews-voting-buttons a {
 	margin-right: -3px;
 	font-size: 12px;
 	padding: 6px 10px;
+}
+
+.edd-reviews-voting-buttons a {
+	margin: 0 5px 0 0;
+	padding: 2px 5px;
 }
 
 #edd-payment-mode-wrap br {
