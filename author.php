@@ -7,14 +7,18 @@
  * @package Marketify
  */
 
-if ( ! get_query_var( 'author_ptype' ) )
+if ( ! ( get_query_var( 'author_downloads' ) || get_query_var( 'author_wishlist' ) ) )
 	return locate_template( array( 'archive.php' ), true );
 
 get_header(); ?>
 
 	<header class="page-header">
 		<?php the_post(); ?>
-		<h1 class="page-title"><?php the_author(); ?></h1>
+		<?php if ( get_query_var( 'author_downloads' ) ) : ?>
+			<h1 class="page-title"><?php the_author(); ?></h1>
+		<?php else : ?>
+			<h1 class="page-title"><?php printf( __( '%s&#39;s "Loves"', 'marketify' ), get_the_author() ); ?></h1>
+		<?php endif; ?>
 	</header><!-- .page-header -->
 
 	<div class="container">
@@ -25,14 +29,19 @@ get_header(); ?>
 					<div class="download-author">
 						<?php do_action( 'marketify_download_author_before' ); ?>
 						<?php echo get_avatar( get_the_author_meta( 'ID' ), 50 ); ?>
-						<?php printf( '<a class="author-link" href="%s" rel="author">%s</a>', esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ), get_the_author() ); ?>
+						<?php printf( '<a class="author-link" href="%s" rel="author">%s</a>', Marketify_Author::url(), get_the_author() ); ?>
 						<span class="author-joined"><?php printf( __( 'Author since: %s', 'marketify' ), date_i18n( 'Y', strtotime( get_the_author_meta( 'user_registered' ) ) ) ); ?></span>
 						<?php do_action( 'marketify_download_author_after' ); ?>
 					</div>
 					
 					<div class="download-author-sales">
 						<strong><?php global $wp_query; echo $wp_query->found_posts; ?></strong>
-						<?php echo _n( 'Product', 'Products', $wp_query->found_posts, 'marketify' ); ?>
+
+						<?php if ( get_query_var( 'author_downloads' ) ) : ?>
+							<?php echo _n( 'Product', 'Products', $wp_query->found_posts, 'marketify' ); ?>
+						<?php else : ?>
+							<?php echo _n( 'Love', 'Loves', $wp_query->found_posts, 'marketify' ); ?>
+						<?php endif; ?>
 					</div>
 
 					<div class="download-author-bio">

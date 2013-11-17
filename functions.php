@@ -104,6 +104,17 @@ endif;
 add_action( 'after_setup_theme', 'marketify_setup' );
 
 /**
+ * Check if EDD is active
+ *
+ * @since Marketify 1.0
+ *
+ * @return boolean
+ */
+function marketify_is_edd() {
+	return class_exists( 'Easy_Digital_Downloads' );
+}
+
+/**
  * Check if we are using bbPress
  *
  * @since Marketify 1.0
@@ -628,7 +639,8 @@ class Marketify_Author {
 	public function __construct() {
 		add_filter( 'query_vars', array( $this, 'query_vars' ) ); 
 		add_filter( 'generate_rewrite_rules', array( $this, 'rewrites' ) );
-		add_action( 'pre_get_posts', array( $this, 'filter_endpoints' ) );
+
+		add_action( 'pre_get_posts', array( $this, 'show_downloads' ) );
 	}
 
 	/*
@@ -659,7 +671,8 @@ class Marketify_Author {
 	 * @return array $query_vars Modified array of query variables
 	 */
 	public function query_vars( $query_vars ) {
-		$query_vars[] = 'author_ptype';
+		$query_vars[] = 'author_downloads';
+		$query_vars[] = 'author_wishlist';
 
 		return $query_vars;
 	}
@@ -675,7 +688,10 @@ class Marketify_Author {
 		global $wp_rewrite;
 
 		$new_rules = array(
-			'author/([^/]+)/([^/]+)/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_ptype=' . $wp_rewrite->preg_index(2),
+			'author/([^/]+)/downloads/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_downloads=1',
+			'author/([^/]+)/wishlist/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_wishlist=1',
+			'author/([^/]+)/downloads/page/?([0-9]{1,})/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_downloads=1&paged=' . $wp_rewrite->preg_index( 2 ),
+			'author/([^/]+)/wishlist/page/?([0-9]{1,})/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_wishlist=1&paged=' . $wp_rewrite->preg_index( 2 )
 		);
 
 		$wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
@@ -684,32 +700,30 @@ class Marketify_Author {
 	}
 
 	/**
-	 * Filter the query when we are viewing an author
-	 * archive. Set the post type to be the type set in the permastruct.
+	 * Show author products
 	 *
 	 * @since Marketify 1.0
 	 *
 	 * @param object $query Current WP_Query
 	 * @return void
 	 */
-	public function filter_endpoints( $query ) {
+	public function show_downloads( $query ) {
 		if ( is_admin() || ! $query->is_main_query() || ! $query->is_author() )
 			return;
 
-		$type = get_query_var( 'author_ptype' );
+		if ( ! ( get_query_var( 'author_downloads' ) || get_query_var( 'author_wishlist' ) ) )
+			return;
 
-		if ( ! $type )
-			return $query;
-
-		if ( $type != self::slug() ) {
-			$query->is_archive = true;
-			$query->is_author = false;
-
-			return $query;
-		}
-
-		$query->set( 'post_type', 'download' );
 		$query->is_author = true;
+		$query->set( 'post_type', 'download' );
+
+		if ( ! get_query_var( 'author_wishlist' ) )
+			return;
+
+		$author = get_user_by( 'slug', $query->query[ 'author_name' ] );
+		$loves  = get_user_option( 'li_user_loves', $author->ID );
+
+		$query->set( 'post__in', $loves );
 	}
 }
 add_action( 'init', array( 'Marketify_Author', 'init' ), 100 );

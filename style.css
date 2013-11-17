@@ -3946,7 +3946,8 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 	color: #fff;
 }
 
-.love-it-wrapper .love-count {
+.love-it-wrapper .love-count,
+.author.archive .download-author .love-it-wrapper {
 	display: none;
 }
 

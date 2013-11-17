@@ -6,17 +6,6 @@
  */
 
 /**
- * Check if EDD is active
- *
- * @since Marketify 1.0
- *
- * @return boolean
- */
-function marketify_is_edd() {
-	return class_exists( 'Easy_Digital_Downloads' );
-}
-
-/**
  * EDD Download Class
  *
  * When using the [downloads] shortcode, add our own class to match
