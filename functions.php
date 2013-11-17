@@ -142,7 +142,7 @@ function marketify_is_multi_vendor() {
 
 	if ( false === ( $is_multi_vendor = get_transient( 'marketify_is_multi_vendor' ) ) ) {
 		$vendors = get_users( array(
-			'role' => 'shop_vendor'
+			'role' => 'frontend_vendor'
 		) );
 
 		$total = count( $vendors );
