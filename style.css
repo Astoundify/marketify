@@ -1874,7 +1874,12 @@ object {
 .bypostauthor {
 }
 
-.comment-form input[type="text"] {
+.comment-form {
+	margin-bottom: 100px;
+}
+
+.comment-form input[type="text"],
+.comment-form input[type="password"] {
 	width: 50%;
 }
 
