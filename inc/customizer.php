@@ -315,9 +315,6 @@ function marketify_header_css() {
 			background-image: none;
 		}
 
-		a:link,
-		a:active,
-		a:visited,
 		.widget .cart_item.edd_checkout a,
 		.site-footer.light .footer-social a,
 		.site-footer.light .site-title a,
