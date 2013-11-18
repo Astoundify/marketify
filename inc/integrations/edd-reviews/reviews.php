@@ -44,7 +44,6 @@ function marketify_download_entry_meta_rating( $comment_id = null ) {
 	</div>
 <?php
 }
-add_action( 'marketify_download_entry_meta', 'marketify_download_entry_meta_rating' );
 add_action( 'marketify_download_info', 'marketify_download_entry_meta_rating' );
 
 /**
