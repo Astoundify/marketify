@@ -325,6 +325,7 @@ function marketify_header_css() {
 		input[type=submit],
 		.button,
 		.button:visited,
+		a.button,
 		.widget .cart_item.edd_checkout a,
 		.edd-submit.button, 
 		a.edd-submit.button, 

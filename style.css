@@ -1106,7 +1106,9 @@ body:not(.minimal) .edd_form fieldset > span legend {
 	padding: 6px 10px 6px 0;
 }
 
+.entry-content h1,
 .entry-content h2,
+.entry-content h3,
 .download-single-widget-title,
 .download-author a,
 .comment-reply-title,
@@ -1122,7 +1124,27 @@ body:not(.minimal) .edd_form fieldset > span legend {
 	margin: 2em 0;
 }
 
-.entry-content h2:first-child {
+.entry-content h3 {
+	font-weight: 400;
+}
+
+.entry-content h4 {
+	font-size: 15px;
+}
+
+.entry-content h5 {
+	font-size: 14px;
+}
+
+.entry-content h6 {
+	font-size: 13px;
+}
+
+.entry-content h2:first-child,
+.entry-content h3:first-child,
+.entry-content h4:first-child,
+.entry-content h5:first-child,
+.entry-content h6:first-child {
 	margin-top: 0;
 }
 
