@@ -356,7 +356,8 @@ function marketify_header_css() {
 		#fes-image_upload-pickfiles,
 		div.fes-form fieldset .fes-fields a.file-selector,
 		#fes-avatar-pickfiles,
-		div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image {
+		div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image,
+		.edd-cart-added-alert {
 			color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 		}
 

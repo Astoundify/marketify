@@ -1510,11 +1510,14 @@ body:not(.minimal) .edd_form fieldset > span legend {
 }
 
 .edd-cart-added-alert {
-	color: #fff;
 	bottom: -30px;
 	margin-left: -100px;
 	left: 50%;
 	width: 200px;
+}
+
+.entry-content .edd-cart-added-alert {
+	bottom: -60px;
 }
 
 .download-image {
