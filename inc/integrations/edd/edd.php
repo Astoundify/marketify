@@ -80,3 +80,22 @@ function marketify_edd_purchase_download_form( $purchase_form, $args ) {
 	return $purchase_form;
 }
 add_filter( 'edd_purchase_download_form', 'marketify_edd_purchase_download_form', 10, 2 );
+
+/**
+ * Make sure the only available color is the one we want (inherit)
+ *
+ * @since Marketify 1.0
+ *
+ * @param array $colors
+ * @return array $colors
+ */
+function marketify_edd_button_colors( $colors ) {
+	$unset = array( 'white', 'blue', 'gray', 'red', 'green', 'yellow', 'orange', 'dark-gray' );
+
+	foreach ( $unset as $color ) {
+		unset( $colors[ $color ] );
+	}
+
+	return $colors;
+}
+add_filter( 'edd_button_colors', 'marketify_edd_button_colors' );
