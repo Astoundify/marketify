@@ -90,8 +90,6 @@ Marketify.App = ( function($) {
 
 		area.css( 'height', height );
 
-		console.log( $(window).width() );
-
 		if ( $(window).width() < 750 )
 			area.css( 'height', 'auto' );
 		else

@@ -126,6 +126,9 @@ function marketify_download_video_player() {
 	$field = apply_filters( 'marketify_video_field', 'video' );
 	$video = get_post_meta( $post->ID, $field, true );
 
+	if ( ! $video )
+		return;
+
 	$oembed = wp_oembed_get( $video );
 
 	if ( $oembed ) {

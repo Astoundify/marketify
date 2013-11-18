@@ -268,7 +268,7 @@ function marketify_has_header_background() {
 		$post = get_post( get_option( 'page_for_posts' ) );
 	}
 
-	$background = is_singular( array( 'post', 'page' ) ) || marketify_is_bbpress() ? true : false;
+	$background = apply_filters( 'marketify_has_header_background_force', is_singular( array( 'post', 'page' ) ) || marketify_is_bbpress() ) ? true : false;
 
 	if ( has_post_thumbnail( $post->ID ) )
 		$background = wp_get_attachment_image_src( get_post_thumbnail_id(), 'fullsize' );
