@@ -1664,6 +1664,7 @@ body:not(.minimal) .edd_form fieldset > span legend {
 .content-grid-download .entry-title,
 .widget-download-title {
 	font: 400 16px/normal 'Source Sans Pro', serif;
+	margin: 0;
 }
 
 .content-grid-download .entry-title a {

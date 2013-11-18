@@ -17,7 +17,7 @@ get_header(); ?>
 		<?php if ( get_query_var( 'author_downloads' ) ) : ?>
 			<h1 class="page-title"><?php the_author(); ?></h1>
 		<?php else : ?>
-			<h1 class="page-title"><?php printf( __( '%s&#39;s "Loves"', 'marketify' ), get_the_author() ); ?></h1>
+			<h1 class="page-title"><?php printf( __( '%s&#39;s Wishlist', 'marketify' ), get_the_author() ); ?></h1>
 		<?php endif; ?>
 	</header><!-- .page-header -->
 
