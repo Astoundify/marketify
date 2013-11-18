@@ -909,8 +909,7 @@ input[type=submit]:hover {
 .home-widget-title,
 #edd_checkout_form_wrap fieldset > span,
 #edd_checkout_form_wrap fieldset#edd_cc_fields > span,
-.fes-section-wrap,
-.edd_form fieldset > span {
+.fes-section-wrap {
 	text-align: center;
 	width: 100%;
 	margin: 70px 0;
@@ -3540,10 +3539,11 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 
 /** Other */
 
-.minimal .fes_header {
+.minimal .fes_header,
+.minimal .edd_form legend {
 	color: #fff;
 	text-align: center;
-	margin: 1em 0 3em;
+	margin: 1em auto 3em;
 }
 
 .entry-content .fes-form table {
