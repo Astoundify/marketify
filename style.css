@@ -2010,7 +2010,7 @@ object {
 	clear: none;
 }
 
-.edd-review-vote p:first-child {
+.edd-review-vote:not(.edd-yellowfade) p:first-child {
 	display: none;
 }
 
