@@ -83,7 +83,15 @@ class Marketify_Widget_Slider_Soliloquy extends Marketify_Widget {
 	function caption_output( $output, $id, $image ) {
 		$caption = '<div class="soliloquy-caption-wrap">';
 		$caption .= '<h2 class="soliloquy-caption-title">' . $image[ 'title' ] . '</h2>';
-		$caption .= wpautop( $output );
+		$caption .= '<div class="soliloquy-caption"><div class="soliloquy-caption-inside">';
+		$caption .= '<div class="caption-full">';
+		$caption .= wpautop( $image[ 'caption' ] );
+		$caption .= '</div>';
+		$caption .= '<div class="caption-alt">';
+		$caption .= wpautop( isset ( $image[ 'alt' ] ) ? $image[ 'alt' ] : null );
+		$caption .= wpautop( sprintf( '<a href="%s" class="button">%s</a>', $image[ 'link' ], $image[ 'linktitle' ] ) );
+		$caption .= '</div>';
+		$caption .= '</div></div>';
 		$caption .= '</div>';
 
 		return $caption;

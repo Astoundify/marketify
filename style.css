@@ -2468,6 +2468,10 @@ h2.soliloquy-caption-title {
 	color: #fff;
 }
 
+body .soliloquy-container .soliloquy-caption .caption-alt {
+	display: none;
+}
+
 body .soliloquy-control-nav.soliloquy-control-paging {
 	position: absolute;
 	bottom: 50px;
@@ -4230,6 +4234,18 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 	.main-navigation.toggled .search-form .search-submit {
 		width: 10%;
 	}
+
+	h2.soliloquy-caption-title {
+		font-size: 38px;
+	}
+
+	body .soliloquy-container .soliloquy-caption .caption-full {
+		display: none;
+	}
+
+	body .soliloquy-container .soliloquy-caption .caption-alt {
+		display: block;
+	}
 }
 
 @media screen and (min-width: 992px) {
@@ -4273,6 +4289,14 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 @media screen and (max-width: 768px) {
 	body .soliloquy-container .soliloquy-caption  {
 		max-width: 80%;
+		margin-top: 20px;
+	}
+
+	body .soliloquy-container .soliloquy-caption a.button {
+		font-weight: 400;
+		font-size: 14px;
+		border-width: 2px;
+		padding: 5px 10px;
 	}
 
 	.download-widget-area {
@@ -4322,7 +4346,7 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 
 @media screen and (max-width: 500px) {
 	h2.soliloquy-caption-title {
-		font-size: 40px;
+		font-size: 30px;
 	}
 
 	body .soliloquy-container .soliloquy-caption  {
