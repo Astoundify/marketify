@@ -2005,7 +2005,8 @@ object {
 	text-transform: uppercase;
 	margin-bottom: 0;
 	background: none;
-	border: 2px solid #bdc3c7;
+	border: 0;
+	padding: 0;
 	clear: none;
 }
 
