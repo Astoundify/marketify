@@ -3093,6 +3093,11 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 	margin-bottom: 100px;
 }
 
+#edd_checkout_form_wrap #edd-login-account-wrap {
+	margin: 0 0 2em;
+	border-width: 1px;
+}
+
 /* Minimal */
 .minimal #edd_checkout_form_wrap span.edd-description {
 	display: none;
