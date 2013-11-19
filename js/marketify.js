@@ -82,7 +82,7 @@ Marketify.App = ( function($) {
 	}
 
 	function sidebarHeight() {
-		var height = $( '.content-area' ).outerHeight();
+		var height = $( '#content' ).outerHeight();
 		var area   = $( '.download-archive-widget-area' );
 
 		if ( area.outerHeight() > height )
