@@ -1659,6 +1659,7 @@ body:not(.minimal) .edd_form fieldset > span legend {
 	padding: 15px 20px;
 	background: #fff;
 	border: 1px solid #bdc3c7;
+	border-top: 0;
 }
 
 .content-grid-download .entry-title,
