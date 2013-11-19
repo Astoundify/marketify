@@ -6,6 +6,23 @@
  */
 
 /**
+ * Cart menu item
+ *
+ * @since Marketify 1.0
+ */
+function marketify_wp_nav_menu_items( $items, $args ) {
+	if ( 'primary' != $args->theme_location )
+		return;
+
+	ob_start();
+
+	$widget = the_widget( '' );
+
+	sprintf();
+}
+add_filter( 'wp_nav_menu_items', 'marketify_wp_nav_menu_items', 10, 2 );
+
+/**
  * EDD Download Class
  *
  * When using the [downloads] shortcode, add our own class to match

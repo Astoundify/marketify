@@ -257,6 +257,8 @@ textarea {
 	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
 	vertical-align: baseline; /* Improves appearance and consistency in all browsers */
 	*vertical-align: middle; /* Improves appearance and consistency in all browsers */
+	border-radius: 0;
+	box-shadow: none;
 }
 
 button,
@@ -354,6 +356,7 @@ div.fes-form fieldset .fes-fields textarea,
 	display: block;
 	width: 100%;
 	box-shadow: none;
+	border-radius: 0;
 
 	-webkit-box-sizing: border-box;
 	-moz-box-siding:    border-box;
@@ -4427,6 +4430,60 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 	/** FES */
 	.entry-content #fes_half {
 		width: 100%;
+		float: none;
+		display: block;
+	}
+
+	/** Popular/Recent */
+	.marketify_widget_featured_popular .home-widget-title span {
+		display: inline-block;
+		margin-bottom: 10px;
+	}
+
+	.marketify_widget_featured_popular .home-widget-title:after {
+		display: none;
+	}
+
+	.marketify_widget_featured_popular .flex-control-nav {
+		top: 145px;
+	}
+
+	/** Download */
+	.download-product-details .download-purchases {
+		width: 100%;
+		border-right: 0;
+		border-bottom: 1px solid #bdc3c7;
+	}
+
+	.download-product-details .download-ratings,
+	.download-product-details .download-comments {
+		width: 100%;
+	}
+
+	.comment-form input[type="text"], 
+	.comment-form input[type="password"] {
+		width: 100%;
+	}
+
+	.comment-meta {
+		margin-top: 25px;
+		width: 40px;
+	}
+
+	.comment-meta .fn {
+		display: none;
+	}
+
+	.comment.depth-1 .comment-content {
+		margin-left: 60px;
+	}
+
+	.comment .marketify-edd-rating .star-rating {
+	 	margin: 5px 0;
+	 }
+
+	.comment .marketify-edd-rating .review-title-text,
+	.comment .marketify-edd-rating .star-rating {
 		float: none;
 		display: block;
 	}

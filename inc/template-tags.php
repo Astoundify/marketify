@@ -308,10 +308,8 @@ function marketify_comment( $comment, $args, $depth ) {
 
 			<div class="comment-content">
 				<div class="comment-metadata">
-					<?php if ( $depth > 1 ) : ?>
 					<?php printf( '<cite class="fn">%s</cite>', get_comment_author_link() ); ?>
-					<?php endif; ?>
-
+					
 					<?php if ( get_comment_meta( $comment->comment_ID, 'edd_rating', true ) ) : ?>
 						<?php do_action( 'marketify_edd_rating', $comment ); ?>
 					<?php endif; ?>
