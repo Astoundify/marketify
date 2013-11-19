@@ -909,7 +909,8 @@ input[type=submit]:hover {
 .home-widget-title,
 #edd_checkout_form_wrap fieldset > span,
 #edd_checkout_form_wrap fieldset#edd_cc_fields > span,
-.fes-section-wrap {
+.fes-section-wrap,
+body:not(.minimal) .edd_form fieldset > span {
 	text-align: center;
 	width: 100%;
 	margin: 70px 0;
@@ -3005,8 +3006,14 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 	box-shadow: none;
 }
 
-.edd_form p {
+.edd_form p,
+#edd_profile_editor_form.edd_form p {
 	margin-bottom: 1.75em;
+}
+
+#edd_profile_editor_form #edd_address_country {
+	display: block;
+	margin-bottom: 2em;
 }
 
 .edd_form label,
