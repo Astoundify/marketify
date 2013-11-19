@@ -3711,6 +3711,14 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 	margin-left: 0;
 }
 
+.fes-el.password .fes-label:nth-child(2n) {
+	margin-top: 25px;
+}
+
+.fes-el.password .fes-label:nth-child(2n) label {
+	font-weight: 400;
+}
+
 /* =Footer
 ----------------------------------------------- */
 
