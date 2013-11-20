@@ -1663,7 +1663,6 @@ body:not(.minimal) .edd_form fieldset > span legend {
 
 	-webkit-backface-visibility: hidden;
 	-moz-backface-visibility:    hidden;
-	-ms-backface-visibility:     hidden;
 	backface-visibility:         hidden;
 
 	-webkit-transition: all 0.3s;
@@ -1680,6 +1679,10 @@ body:not(.minimal) .edd_form fieldset > span legend {
 	-webkit-transition: all 0.3s;
 	-moz-transition:    all 0.3s;
 	transition:         all 0.3s;
+
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility:    hidden;
+	backface-visibility:         hidden;
 
 	-webkit-transform: translate(-50%, 10%);
 	-moz-transform:    translate(-50%, 10%);
@@ -1713,6 +1716,10 @@ body:not(.minimal) .edd_form fieldset > span legend {
 	top: 100%;
 	left: 0;
 	width: 100%;
+
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility:    hidden;
+	backface-visibility:         hidden;
 
 	-webkit-transition: all 0.3s;
 	-moz-transition:    all 0.3s;
@@ -4286,7 +4293,6 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 
 		-webkit-backface-visibility: hidden;
 		-moz-backface-visibility:    hidden;
-		-ms-backface-visibility:     hidden;
 		backface-visibility:         hidden;
 
 		-webkit-transform: translate(0, 0) scale(1);
