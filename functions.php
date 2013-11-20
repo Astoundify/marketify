@@ -650,25 +650,19 @@ class Marketify_Author {
 		add_filter( 'generate_rewrite_rules', array( $this, 'rewrites' ) );
 
 		add_action( 'pre_get_posts', array( $this, 'show_downloads' ) );
+		add_action( 'template_redirect', array( $this, 'redirect' ) );
 	}
 
 	/*
 	 * Create a publically accessible link
 	 */
-	public static function url( $user_id = null ) {
+	public static function url( $where = 'downloads', $user_id = null ) {
 		if ( $user_id )
 			$user = new WP_User( $user_id );
 		else
 			$user = wp_get_current_user();
 
-		return esc_url( get_author_posts_url( $user->ID ) . trailingslashit( self::slug() ) ); 
-	}
-
-	/*
-	 * Return our chosen filtered slug.
-	 */
-	public static function slug() {
-		return apply_filters( 'marketify_vendor_slug', 'downloads' );
+		return esc_url( get_author_posts_url( $user->ID ) . trailingslashit( $where ) ); 
 	}
 
 	/**
@@ -733,6 +727,14 @@ class Marketify_Author {
 		$loves  = get_user_option( 'li_user_loves', $author->ID );
 
 		$query->set( 'post__in', $loves );
+	}
+
+	public function redirect() {
+		if ( ! is_page_template( 'page-templates/wishlist.php' ) )
+			return;
+
+		wp_safe_redirect( $this->url( 'wishlist' ) );
+		exit();
 	}
 }
 add_action( 'init', array( 'Marketify_Author', 'init' ), 100 );
