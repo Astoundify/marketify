@@ -626,11 +626,20 @@ add_filter( 'body_class', 'marketify_body_classes' );
  */
 class Marketify_Author {
 
+	/**
+     * @var $instance
+     */
+	public static $instance;
+
 	/*
 	 * Init so we can attach to an action
 	 */
 	public static function init() {
-		new self;
+		if ( ! isset ( self::$instance ) ) {
+			self::$instance = new self;
+		}
+
+		return self::$instance;
 	}
 
 	/*
