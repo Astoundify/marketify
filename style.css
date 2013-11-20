@@ -4220,6 +4220,10 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 		transform:         translate(0, 0);
 	}
 
+	.main-navigation.toggled ul {
+		display: block;
+	}
+
 	.main-navigation h1 {
 		margin-right: 15px;
 	}
@@ -4245,7 +4249,12 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 		float: none;
 	}
 
+	.main-navigation .menu > li {
+		max-width: 90%;
+	}
+
 	.main-navigation a {
+		color: #636D77;
 		font-size: 16px;
 		border: 0;
 		display: block;
@@ -4290,6 +4299,7 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 	}
 
 	.main-navigation ul ul a {
+		color: #7D8892;
 		font-size: 14px;
 		padding: 5px 15px;
 		width: auto;
@@ -4345,6 +4355,33 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 
 	.main-navigation.toggled .search-form .search-submit {
 		width: 10%;
+	}
+
+	.main-navigation .edd-cart {
+		margin-left: 0;
+	}
+
+	.main-navigation .edd-cart .cart_item,
+	.main-navigation .edd-cart .cart_item.empty {
+		padding: 5px 15px;
+	}
+
+	.main-navigation .edd-cart .cart_item,
+	.main-navigation .edd-cart .edd-cart-item,
+	.main-navigation .widget .edd-cart .edd-cart-item-price {
+		color: #7D8892;
+		background: none;
+		border-color: #515a63;
+	}
+
+	.main-navigation .edd-cart .cart_item.empty {
+		color: #7D8892;
+		font: 800 13px/normal 'Montserrat', sans-serif;
+		text-transform: uppercase;
+	}
+
+	.main-navigation .edd-cart .cart_item.edd_checkout {
+		border-color: #515a63;
 	}
 
 	h2.soliloquy-caption-title {
