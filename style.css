@@ -1661,6 +1661,11 @@ body:not(.minimal) .edd_form fieldset > span legend {
 	opacity: 0;
 	border: 1px solid transparent;
 
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility:    hidden;
+	-ms-backface-visibility:     hidden;
+	backface-visibility:         hidden;
+
 	-webkit-transition: all 0.3s;
 	-moz-transition:    all 0.3s;
 	transition:         all 0.3s;
@@ -4278,6 +4283,11 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 		z-index: 99999;
 		width: auto;
 		opacity: 1;
+
+		-webkit-backface-visibility: hidden;
+		-moz-backface-visibility:    hidden;
+		-ms-backface-visibility:     hidden;
+		backface-visibility:         hidden;
 
 		-webkit-transform: translate(0, 0) scale(1);
 		-moz-transform:    translate(0, 0) scale(1);
