@@ -16,9 +16,20 @@ function marketify_wp_nav_menu_items( $items, $args ) {
 
 	ob_start();
 
-	$widget = the_widget( '' );
+	$widget_args = array(
+		'before_widget' => '',
+		'after_widget'  => '',
+		'before_title'  => '',
+		'after_title'   => ''
+	);
 
-	sprintf();
+	$widget = the_widget( 'edd_cart_widget', array( 'title' => '' ), $widget_args );
+
+	$widget = ob_get_clean();
+
+	$link = sprintf( '<li class="current-cart"><a href="%s"><i class="icon-basket"></i> <span class="edd-cart-quantity">%d</span></a><ul class="sub-menu nav-menu"><li class="widget">%s</li></ul></li>', edd_get_option( 'checkout_page' ), edd_get_cart_quantity(), $widget );
+
+	return $link . $items;
 }
 add_filter( 'wp_nav_menu_items', 'marketify_wp_nav_menu_items', 10, 2 );
 

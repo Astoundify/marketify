@@ -868,6 +868,72 @@ input[type=submit]:hover {
 	cursor: pointer;
 }
 
+/* Cart */
+.main-navigation ul ul.edd-cart {
+	opacity: 1;
+	right: auto;
+	top: auto;
+	left: auto;
+	display: block;
+	border-top: 0;
+}
+
+.main-navigation .edd-cart-number-of-items {
+	display: none !important;
+}
+
+.main-navigation .edd-cart .cart_item.empty {
+	margin: 0;
+	padding: 10px 20px;
+	display: block;
+}
+
+.main-navigation .edd-cart .edd-cart-item {
+	padding: 20px;
+	width: 100%;
+}
+
+.main-navigation .edd-cart .edd-cart-item-separator {
+	display: none;
+}
+
+.main-navigation .edd-cart .edd-cart-item-title {
+	font: 800 13px/normal 'Montserrat', sans-serif;
+	text-transform: uppercase;
+}
+
+.main-navigation .widget .edd-cart .edd-cart-item-price {
+	font-size: 14px;
+	color: #555;
+}
+
+.main-navigation .edd-cart .edd-remove-from-cart {
+	color: #ccc;
+	display: inline;
+	padding: 0;
+	margin-left: -5px;
+}
+
+.main-navigation .edd-cart .cart_item.edd_subtotal {
+	width: 100%;
+	padding: 0 20px;
+}
+
+.main-navigation .edd-cart .cart_item.edd_checkout {
+	border-top: 1px solid #bdc3c7;
+	max-width: 100%;
+	padding: 20px;
+	display: inline-block;
+	width: 100%;
+	margin: 0;
+}
+
+.main-navigation .edd-cart .cart_item.edd_checkout a {
+	max-width: 100%;
+	display: block;
+	float: none;
+}
+
 /* Small menu */
 .menu-toggle {
 	display: none;
