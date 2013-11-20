@@ -44,13 +44,17 @@ get_header(); ?>
 						<?php endif; ?>
 					</div>
 
+					<?php if ( get_the_author_meta( 'description' ) ) : ?>
 					<div class="download-author-bio">
 						<?php echo get_the_author_meta( 'description' ); ?>
 					</div>
+					<?php endif; ?>
 
+					<?php if ( marketify_entry_author_social( get_the_author_meta( 'ID' ) ) ) : ?>
 					<div class="download-author-social">
 						<?php echo marketify_entry_author_social( get_the_author_meta( 'ID' ) ); ?>
 					</div>
+					<?php endif; ?>
 				</div>
 			</div><!-- #secondary -->
 
