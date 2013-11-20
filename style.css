@@ -710,6 +710,10 @@ input[type=submit]:hover {
 	width: 200px;
 	opacity: 0;
 
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility:    hidden;
+	backface-visibility:         hidden;
+
 	-webkit-transform: translate(-50%, -60%) scale(0);
 	-moz-transform:    translate(-50%, -60%) scale(0);
 	transform:         translate(-50%, -60%) scale(0);
@@ -4295,10 +4299,6 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 		z-index: 99999;
 		width: auto;
 		opacity: 1;
-
-		-webkit-backface-visibility: hidden;
-		-moz-backface-visibility:    hidden;
-		backface-visibility:         hidden;
 
 		-webkit-transform: translate(0, 0) scale(1);
 		-moz-transform:    translate(0, 0) scale(1);
