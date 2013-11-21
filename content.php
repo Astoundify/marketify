@@ -7,7 +7,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'row' ); ?>>
 	<?php if ( has_post_thumbnail() ) : ?>
 	<div class="col-md-3 col-sm-4 col-xs-12 blog-archive-image">
-		<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_post_thumbnail( 'medium' ); ?></a>
+		<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_post_thumbnail( 'thumbnail' ); ?></a>
 	</div>
 	<?php endif; ?>
 
