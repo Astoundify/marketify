@@ -3116,7 +3116,8 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 .edd-label,
 .fes-label,
 .fes-form label,
-.comment-form label {
+.comment-form label,
+#edd_checkout_form_wrap label {
 	font: 800 16px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 0.10em;
