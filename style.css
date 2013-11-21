@@ -566,6 +566,8 @@ input[type=submit]:hover {
 .download-product-review-details:after {
 	content: '';
 	display: table;
+	overflow: hidden;
+	visibility: hidden;
 }
 
 .clear:after,
@@ -1776,10 +1778,6 @@ body:not(.minimal) .edd_form fieldset > span legend {
 	text-decoration: none;
 }
 
-.content-grid-download .entry-meta .byline {
-	float: left;
-}
-
 .byline img {
 	display: inline-block;
 	vertical-align: middle;
@@ -2284,6 +2282,10 @@ object {
 }
 
 /* Search widget */
+.search-form {
+	overflow: hidden;
+}
+
 .search-form .search-field,
 .main-navigation .search-form .search-field {
 	font: 400 16px 'Montserrat', sans-serif;
@@ -2292,7 +2294,6 @@ object {
 	padding: 10px;
 	background: #bdc3c7;
 	width: 87%;
-	float: right;
 }
 
 .main-navigation .search-form .search-field {
@@ -2809,6 +2810,7 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 
 .download-product-details {
 	padding: 0;
+	overflow: hidden;
 }
 
 .download-author,
