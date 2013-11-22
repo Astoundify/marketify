@@ -2938,8 +2938,8 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 }
 
 .edd-fpd {
-	margin: -25px -5%;
-	width: auto;
+	margin: -25px 0;
+	width: 100%;
 }
 
 .edd-fpd tr:first-child th,
@@ -2954,7 +2954,7 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 
 .edd-fpd th,
 .edd-fpd td {
-	padding: 5px;
+	padding: 7px 5px;
 }
 
 .edd-fpd th {
