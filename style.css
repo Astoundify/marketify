@@ -2301,6 +2301,7 @@ object {
 	font-size: 13px;
 	background: rgba(255, 255, 255, .40);
 	border: 1px solid transparent;
+	float: right;
 }
 
 .search-form .search-submit {
