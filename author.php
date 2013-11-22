@@ -29,7 +29,7 @@ get_header(); ?>
 					<div class="download-author">
 						<?php do_action( 'marketify_download_author_before' ); ?>
 						<?php echo get_avatar( get_the_author_meta( 'ID' ), 50 ); ?>
-						<?php printf( '<a class="author-link" href="%s" rel="author">%s</a>', Marketify_Author::url(), get_the_author() ); ?>
+						<?php printf( '<a class="author-link" href="%s" rel="author">%s</a>', Marketify_Author::url( 'downloads', get_the_author_meta( 'ID' ) ), get_the_author() ); ?>
 						<span class="author-joined"><?php printf( __( 'Author since: %s', 'marketify' ), date_i18n( 'Y', strtotime( get_the_author_meta( 'user_registered' ) ) ) ); ?></span>
 						<?php do_action( 'marketify_download_author_after' ); ?>
 					</div>
