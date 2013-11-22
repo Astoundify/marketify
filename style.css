@@ -3186,7 +3186,7 @@ body:not(.minimal) #edd_checkout_cart_form {
 }
 
 #edd-purchase-button,
-.minimal input[type="submit"] {
+.minimal #edd_purchase_submit input[type="submit"] {
 	padding: 14px 20px;
 	color: #fff;
  	width: 100%;

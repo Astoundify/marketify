@@ -401,8 +401,8 @@ function marketify_header_css() {
 		#edd_checkout_cart input[type=submit].edd-submit:hover,
 		.minimal #edd-purchase-button,
 		.main-navigation.toggled .search-form .search-submit,
-		.minimal input[type=submit],
-		.minimal input[type=submit]:hover,
+		.minimal #edd_purchase_submit input[type=submit],
+		.minimal #edd_purchase_submit input[type=submit]:hover,
 		.popup .edd_go_to_checkout.button.edd-submit,
 		.edd-reviews-voting-buttons a:hover {
 			background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
