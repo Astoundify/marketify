@@ -1982,7 +1982,9 @@ object {
 .comment-metadata .fn  {
 	font-size: 12px;
 	text-align: left;
+	display: none;
 }
+
 .comment-author .fn a {
 	text-decoration: none;
 }
@@ -4614,6 +4616,10 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 	.comment .marketify-edd-rating .review-title-text,
 	.comment .marketify-edd-rating .star-rating {
 		float: none;
+		display: block;
+	}
+
+	.comment-metadata .fn {
 		display: block;
 	}
 }
