@@ -19,16 +19,12 @@ get_header(); ?>
 					single_tag_title();
 
 				elseif ( is_author() ) :
-					/* Queue the first post, that way we know
-					 * what author we're dealing with (if that is the case).
-					*/
-					the_post();
-					printf( __( 'Blog Author: %s', 'marketify' ), '<span class="vcard">' . get_the_author() . '</span>' );
-					/* Since we called the_post() above, we need to
-					 * rewind the loop back to the beginning that way
-					 * we can run the loop properly, in full.
-					 */
-					rewind_posts();
+					if ( have_posts() ) : the_post();
+						printf( __( 'Blog Author: %s', 'marketify' ), '<span class="vcard">' . get_the_author() . '</span>' );
+						rewind_posts();
+					else :
+						printf( 'Author Not Found', 'marketify' );
+					endif;
 
 				elseif ( is_day() ) :
 					printf( __( 'Day: %s', 'marketify' ), '<span>' . get_the_date() . '</span>' );

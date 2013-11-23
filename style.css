@@ -2826,6 +2826,10 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 	position: relative;
 }
 
+.download-author-sales.blank {
+	border-bottom: 0;
+}
+
 .download-author {
 	overflow: hidden;
 }

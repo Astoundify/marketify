@@ -34,7 +34,7 @@ get_header(); ?>
 						<?php do_action( 'marketify_download_author_after' ); ?>
 					</div>
 					
-					<div class="download-author-sales">
+					<div class="download-author-sales<?php echo ! get_the_author_meta( 'description' ) && ! marketify_entry_author_social( get_the_author_meta( 'ID' ) ) ? ' blank' : ''; ?>">
 						<strong><?php global $wp_query; echo $wp_query->found_posts; ?></strong>
 
 						<?php if ( get_query_var( 'author_downloads' ) ) : ?>

@@ -714,7 +714,7 @@ class Marketify_Author {
 
 		if ( ! ( get_query_var( 'author_downloads' ) || get_query_var( 'author_wishlist' ) ) )
 			return;
-
+		
 		$query->is_author = true;
 		$query->set( 'post_type', 'download' );
 
