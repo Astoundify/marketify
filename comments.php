@@ -42,7 +42,7 @@ if ( post_password_required() )
 					 * define marketify_comment() and that will be used instead.
 					 * See marketify_comment() in inc/template-tags.php for more.
 					 */
-					wp_list_comments( array( 'callback' => 'marketify_comment', 'avatar_size' => 90 ) );
+					wp_list_comments( array( 'callback' => 'marketify_comment', 'avatar_size' => 180 ) );
 				?>
 			</ol><!-- .comment-list -->
 
