@@ -133,6 +133,16 @@ function marketify_edd_button_colors( $colors ) {
 add_filter( 'edd_button_colors', 'marketify_edd_button_colors' );
 
 /**
+ * Login redirect
+ */
+function marketify_shortcode_atts_edd_login( $atts ) {
+	$atts[ 'redirect' ] = apply_filters( 'marketify_edd_force_login_redirect', site_url() );
+
+	return $atts;
+}
+add_filter( 'shortcode_atts_edd_login', 'marketify_shortcode_atts_edd_login' );
+
+/**
  * Embed an external (or internal video)
  */
 class Marketify_EDD_Video {
