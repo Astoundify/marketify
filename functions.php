@@ -471,19 +471,19 @@ function marketify_fonts_url() {
 		$font_families = array();
 
 		if ( 'off' !== $source_sans_pro )
-			$font_families[] = 'Source Sans Pro:300,400,700,300italic,400italic,700italic';
+			$font_families[] = apply_filters( 'marketify_font_source_sans', 'Source Sans Pro:300,400,700,300italic,400italic,700italic' );
 
 		if ( 'off' !== $roboto )
-			$font_families[] = 'Roboto Slab:300,400';
+			$font_families[] = apply_filters( 'marketify_font_roboto', 'Roboto Slab:300,400' );
 
 		if ( 'off' !== $montserrat )
-			$font_families[] = 'Montserrat:400,800';
+			$font_families[] = apply_filters( 'marketify_font_montserrat', 'Montserrat:400,800' );
 
 		if ( 'off' !== $pacifico )
-			$font_families[] = 'Pacifico';
+			$font_families[] = apply_filters( 'marketify_font_pacifico', 'Pacifico' );
 
 		$query_args = array(
-			'family' => urlencode( implode( '|', $font_families ) ),
+			'family' => urlencode( implode( '|', apply_filters( 'marketify_font_families', $font_families ) ) ),
 			'subset' => urlencode( 'latin,latin-ext' ),
 		);
 
