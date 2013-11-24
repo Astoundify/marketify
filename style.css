@@ -3412,6 +3412,7 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
  * Errors
  */
 .edd_errors,
+.edd_success,
 .entry-content .fes_login_errors {
 	background: transparent;
 	border: 0;
@@ -3424,7 +3425,8 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 
 .edd_error,
 .fes_login_errors .error,
-.fes-success {
+.fes-success,
+.edd_success {
 	font: 800 15px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	color: #ffb400;
@@ -3432,6 +3434,8 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 	border: 3px solid #ffb400;
 	background: transparent;
 	display: block;
+	border-radius: 0;
+	box-shadow: none;
 }
 
 .edd_error:before,
@@ -3446,7 +3450,8 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 	margin-bottom: 10px !important;
 }
 
-.fes-success {
+.fes-success,
+.edd_success {
 	color: #49a776;
 	border-color: #49a776;
 }
