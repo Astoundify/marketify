@@ -567,8 +567,6 @@ input[type=submit]:hover {
 .download-product-review-details:after {
 	content: '';
 	display: table;
-	overflow: hidden;
-	visibility: hidden;
 }
 
 .clear:after,
@@ -2329,6 +2327,7 @@ object {
 
 .home-widget {
 	margin-bottom: 100px;
+	overflow: hidden;
 }
 
 .home-widget-title {
