@@ -773,6 +773,10 @@ if ( class_exists( 'bbPress' ) ) {
 if ( class_exists( 'Easy_Digital_Downloads' ) ) {
 	require get_template_directory() . '/inc/integrations/edd/edd.php';
 
+	if ( class_exists( 'EDD_Front_End_Submissions' ) ) {
+		require get_template_directory() . '/inc/integrations/edd-fes/fes.php';
+	}
+
 	if ( defined( 'EDD_CSAU_DIR' ) ) {
 		require get_template_directory() . '/inc/integrations/edd-csau/csau.php';
 	}
