@@ -343,7 +343,6 @@ function marketify_header_css() {
 		.entry-image a.edd-submit.button:visited:hover,
 		.entry-image .edd-submit.button.gray:hover,
 		#edd_checkout_form_wrap fieldset#edd_cc_fields > span legend,
-		.minimal .edd_cart_actions a,
 		#fes-wraper .fes-menu nav ul li.active a,
 		#fes-wraper .fes-menu nav ul li:hover a,
 		.whistles-tabs .whistles-tabs-nav li[aria-selected='true'] a,

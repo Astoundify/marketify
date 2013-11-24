@@ -262,6 +262,10 @@ textarea {
 	box-shadow: none;
 }
 
+select {
+	border-color: #ccc;
+}
+
 button,
 input {
 	line-height: normal; /* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
@@ -1401,6 +1405,10 @@ body:not(.minimal) .edd_form fieldset > span legend {
 .minimal .entry-content .fes-form input[type=number], 
 .minimal .entry-content .fes-form textarea {
 	border-color: #fff;
+}
+
+.minimal .edd_cart_actions a {
+	color: #fff;
 }
 
 /** Team */
@@ -3575,6 +3583,21 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 	margin-top: 0;
 }
 
+/** Terms */
+#edd_terms_agreement {
+	margin: 20px 0;
+}
+
+label[for="edd_agree_to_terms"] {
+	font-weight: 400;
+	vertical-align: top;
+	font-size: 14px;
+}
+
+#edd_agree_to_terms {
+	margin-top: 2px;
+}
+
 /* =FES
 ----------------------------------------------- */
 
@@ -3696,6 +3719,10 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 	font-weight: 800;
 	text-align: center;
 	margin: 1em auto 3em;
+}
+
+.minimal td {
+	color: #fff;
 }
 
 .entry-content .fes-form table {
