@@ -10,14 +10,16 @@
 if ( ! ( get_query_var( 'author_downloads' ) || get_query_var( 'author_wishlist' ) ) )
 	return locate_template( array( 'archive.php' ), true );
 
+$author = get_query_var( 'author_name' );
+$author = new WP_User( $author );
+
 get_header(); ?>
 
 	<header class="page-header">
-		<?php the_post(); ?>
 		<?php if ( get_query_var( 'author_downloads' ) ) : ?>
-			<h1 class="page-title"><?php the_author(); ?></h1>
+			<h1 class="page-title"><?php echo esc_attr( $author->display_name ); ?></h1>
 		<?php else : ?>
-			<h1 class="page-title"><?php printf( __( '%s&#39;s Wishlist', 'marketify' ), get_the_author() ); ?></h1>
+			<h1 class="page-title"><?php printf( __( '%s&#39;s Wishlist', 'marketify' ), esc_attr( $author->display_name ) ); ?></h1>
 		<?php endif; ?>
 	</header><!-- .page-header -->
 
@@ -28,9 +30,9 @@ get_header(); ?>
 				<div class="download-product-details author-archive">
 					<div class="download-author">
 						<?php do_action( 'marketify_download_author_before' ); ?>
-						<?php echo get_avatar( get_the_author_meta( 'ID' ), 100 ); ?>
-						<?php printf( '<a class="author-link" href="%s" rel="author">%s</a>', Marketify_Author::url( 'downloads', get_the_author_meta( 'ID' ) ), get_the_author() ); ?>
-						<span class="author-joined"><?php printf( __( 'Author since: %s', 'marketify' ), date_i18n( 'Y', strtotime( get_the_author_meta( 'user_registered' ) ) ) ); ?></span>
+						<?php echo get_avatar( $author->ID, 100 ); ?>
+						<?php printf( '<a class="author-link" href="%s" rel="author">%s</a>', Marketify_Author::url( 'downloads', $author->ID ), esc_attr( $author->display_name ) ); ?>
+						<span class="author-joined"><?php printf( __( 'Author since: %s', 'marketify' ), date_i18n( 'Y', strtotime( $author->user_registered ) ) ); ?></span>
 						<?php do_action( 'marketify_download_author_after' ); ?>
 					</div>
 					
@@ -44,15 +46,15 @@ get_header(); ?>
 						<?php endif; ?>
 					</div>
 
-					<?php if ( get_the_author_meta( 'description' ) ) : ?>
+					<?php if ( $author->description ) : ?>
 					<div class="download-author-bio">
-						<?php echo get_the_author_meta( 'description' ); ?>
+						<?php echo esc_attr( $author->description ); ?>
 					</div>
 					<?php endif; ?>
 
-					<?php if ( marketify_entry_author_social( get_the_author_meta( 'ID' ) ) ) : ?>
+					<?php if ( marketify_entry_author_social( $author->ID ) ) : ?>
 					<div class="download-author-social">
-						<?php echo marketify_entry_author_social( get_the_author_meta( 'ID' ) ); ?>
+						<?php echo marketify_entry_author_social( $author->ID ); ?>
 					</div>
 					<?php endif; ?>
 				</div>
@@ -61,7 +63,7 @@ get_header(); ?>
 			<section id="primary" class="content-area col-sm-9 col-xs-12">
 				<main id="main" class="site-main" role="main">
 
-				<?php rewind_posts(); if ( have_posts() ) : ?>
+				<?php if ( have_posts() ) : ?>
 
 					<div class="row">
 						<?php while ( have_posts() ) : the_post(); ?>
@@ -77,7 +79,11 @@ get_header(); ?>
 
 				<?php else : ?>
 
-					<?php get_template_part( 'no-results', 'archive' ); ?>
+					<?php if ( get_query_var( 'author_downloads' ) ) : ?>
+						<?php get_template_part( 'no-results', 'archive' ); ?>
+					<?php else : ?>
+						<p><?php printf( __( 'Hey, it looks like %s has not liked anything yet!', 'marketify' ), $author->display_name ); ?></p>
+					<?php endif; ?>
 
 				<?php endif; ?>
 

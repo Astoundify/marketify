@@ -17,6 +17,11 @@ add_filter( 'li_display_love_links_on', 'marketify_li_display_love_links_on' );
  * Manually output the link where we want it
  */
 function marketify_li_love_link() {
+	global $post;
+
+	if ( ! is_object( $post ) )
+		return;
+	
 	echo li_love_link();
 }
 add_action( 'marketify_download_author_before', 'marketify_li_love_link' );
