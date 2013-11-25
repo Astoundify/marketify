@@ -801,7 +801,7 @@ if ( class_exists( 'Woothemes_Testimonials' ) ) {
 }
 
 // Love It
-if ( defined( 'LI_BASE_DIR' ) ) {
+if ( defined( 'LI_BASE_DIR' ) || class_exists( 'Love_It_Pro' ) ) {
 	require get_template_directory() . '/inc/integrations/love-it/love-it.php';
 }
 
