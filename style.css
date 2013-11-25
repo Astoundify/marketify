@@ -703,6 +703,10 @@ input[type=submit]:hover {
 	border-color: #fff;
 }
 
+.main-navigation li a:first-child:nth-last-child(2):after {
+	content: '\e760';
+}
+
 .main-navigation ul ul {
 	background: #fff;
 	box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.08);
@@ -822,6 +826,12 @@ input[type=submit]:hover {
 .main-navigation li ul li a:first-child:nth-last-child(2):before {
 	content: '\e761';
 	margin-right: 2px;
+}
+
+.main-navigation li ul li a:first-child:nth-last-child(2):after,
+.main-navigation li.current-cart a:first-child:nth-last-child(2):after {
+	content: '';
+	display: none;
 }
 
 /* Search */
