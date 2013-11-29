@@ -23,6 +23,17 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 				'std'   => 6,
 				'label' => __( 'Number to display:', 'marketify' )
 			),
+			'timeframe' => array(
+				'type'  => 'select',
+				'std'   => 'week',
+				'label' => __( 'Based on the current:', 'marketify' ),
+				'options'   => array(
+					'day'   => __( 'Day', 'marketify' ),
+					'week'  => __( 'Week', 'marketify' ),
+					'month' => __( 'Month', 'marketify' ),
+					'year'  => __( 'Year', 'marketify' )
+				)
+			),
 			'scroll' => array(
 				'type'  => 'checkbox',
 				'std'   => 1,
@@ -56,9 +67,10 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 
 		extract( $args );
 
-		$number = isset ( $instance[ 'number' ] ) ? absint( $instance[ 'number' ] ) : 8;
+		$number = isset( $instance[ 'number' ] ) ? absint( $instance[ 'number' ] ) : 8;
+		$time   = isset( $instance[ 'timeframe' ] ) ? $instance[ 'timeframe' ] : 'week';
 
-		$featured = new WP_Query( array(
+		$featured_args = array(
 			'post_type'              => 'download',
 			'posts_per_page'         => $number,
 			'no_found_rows'          => true,
@@ -71,7 +83,7 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 					'value' => true
 				)
 			)
-		) );
+		);
 
 		$popular_args = array(
 			'post_type'              => 'download',
@@ -80,19 +92,25 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 			'update_post_term_cache' => false,
 			'update_post_meta_cache' => false,
 			'cache_results'          => false,
-			'date_query'             => array(
-				array(
-					'week' => date( 'W' )
-				)
-			)
+			'meta_key'               => '_edd_download_sales',
+			'orderby'                => 'meta_value',
 		);
 
-		if ( defined( 'LI_BASE_DIR' ) ) {
-			$popular_args[ 'meta_key' ] = '_li_love_count';
-			$popular_args[ 'orderby' ]  = 'meta_value';
+		if ( 'day' == $timeframe ) {
+			$frame = date( 'd' );
+		} else if ( 'week' == $timeframe ) { 
+			$frame = date( 'W' );
+		} else if ( 'month' == $timeframe ) {
+			$frame = date( 'm' );
+		} else {
+			$frame = date( 'Y' );
 		}
 
-		$popular = new WP_Query( $popular_args );
+		$featured_args[ 'date_query' ] = array( $timeframe = $frame );
+		$popular_args[  'date_query' ] = array( $timeframe = $frame );
+
+		$featured = new WP_Query( $featured_args );
+		$popular  = new WP_Query( $popular_args );
 
 		if ( ! $featured->have_posts() && ! $popular->have_posts() )
 			return;
