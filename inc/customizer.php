@@ -476,7 +476,8 @@ function marketify_header_css() {
 		.popup .edd_go_to_checkout.button.edd-submit:hover,
 		.popup .edd-submit.button:hover, 
 		.popup a.edd-submit.button:hover, 
-		.popup .edd-submit.button.gray:hover {
+		.popup .edd-submit.button.gray:hover,
+		div.fes-form fieldset .fes-fields a.file-selector {
 			background-color: #fff;
 		}
 
