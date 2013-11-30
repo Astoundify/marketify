@@ -49,6 +49,7 @@ html {
 	overflow-y: scroll; /* Keeps page centred in all browsers regardless of content height */
 	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
 	-ms-text-size-adjust: 100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+	-webkit-font-smoothing: antialiased;
 }
 body {
 	background: #fff;
@@ -1743,7 +1744,7 @@ body:not(.minimal) .edd_form fieldset > span legend {
 }
 
 .content-grid-download .entry-image .button {
-	margin: 0 10px;
+	margin: 0 6px;
 	padding: 10px 15px;
 	border-width: 3px;
 	display: inline-block;
