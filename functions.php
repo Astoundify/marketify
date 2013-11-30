@@ -477,7 +477,7 @@ function marketify_fonts_url() {
 			$font_families[] = apply_filters( 'marketify_font_roboto', 'Roboto Slab:300,400' );
 
 		if ( 'off' !== $montserrat )
-			$font_families[] = apply_filters( 'marketify_font_montserrat', 'Montserrat:400,800' );
+			$font_families[] = apply_filters( 'marketify_font_montserrat', 'Montserrat:400,700' );
 
 		if ( 'off' !== $pacifico )
 			$font_families[] = apply_filters( 'marketify_font_pacifico', 'Pacifico' );
