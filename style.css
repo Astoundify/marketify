@@ -4313,6 +4313,16 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 	background: #fff;
 }
 
+/* =WPML
+----------------------------------------------- */
+
+#lang_sel_click {
+	margin: 0 0 40px;
+}
+
+#lang_sel_click li {
+	width: 100%;
+}
 
 /* =Responsive Suppliments
 ----------------------------------------------- */
