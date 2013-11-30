@@ -568,7 +568,11 @@ input[type=submit]:hover {
 .comment:before,
 .comment:after,
 .download-product-review-details:before,
-.download-product-review-details:after {
+.download-product-review-details:after,
+.features:before,
+.features:after,
+.testimonials-list:before,
+.testimonials-list:after {
 	content: '';
 	display: table;
 }
@@ -594,7 +598,9 @@ input[type=submit]:hover {
 .fes-menu ul:after,
 .fix:after,
 .comment:after,
-.download-product-review-details:after {
+.download-product-review-details:after,
+.features:after,
+.testimonials-list:after {
 	clear: both;
 }
 
@@ -2412,6 +2418,10 @@ object {
 }
 
 /** Features */
+.features {
+	overflow: hidden;
+}
+
 .feature {
 	margin-bottom: 3em;
 	text-align: center;
@@ -2462,6 +2472,7 @@ object {
 
 /** Testimonials */
 .testimonials-list {
+	overflow: hidden;
 	text-align: center;
 }
 
