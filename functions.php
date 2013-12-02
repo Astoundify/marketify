@@ -738,6 +738,18 @@ class Marketify_Author {
 add_action( 'init', array( 'Marketify_Author', 'init' ), 100 );
 
 /**
+ * Popular Categories
+ *
+ * @since Marketify 1.0
+ */
+function marketify_query_vars( $vars ) {
+	$vars[] = 'popular_cat';
+
+	return $vars;
+}
+add_filter( 'query_vars', 'marketify_query_vars' );
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';

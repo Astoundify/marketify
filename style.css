@@ -1098,7 +1098,8 @@ body:not(.minimal) .edd_form fieldset > span legend {
 .post-type-archive-download .site-content,
 .single-download .site-content,
 .tax-download_category .site-content,
-.tax-download_tag .site-content {
+.tax-download_tag .site-content,
+.page-template-page-templatespopular-php .site-content {
 	margin-top: 0;
 }
 
@@ -2791,7 +2792,7 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 .download-archive-widget.widget_recent_entries ul a:hover,
 .download-archive-widget.widget_meta ul a:hover,
 .download-archive-widget.widget_pages ul a:hover,
-.download-archive-widget.widget_categories ul a,:hover
+.download-archive-widget.widget_categories ul a:hover
 .download-archive-widget.widget_archive ul a:hover,
 .most-loved a:hover {
 	background-color: #f6f7f8;

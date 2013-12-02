@@ -16,9 +16,12 @@ get_header(); ?>
 			<?php elseif ( is_search() ) : ?>
 				<?php echo esc_attr( get_search_query() ); ?>
 			<?php else : ?>
-				<?php echo apply_filters( 'marketify_downloads_archive_title', edd_get_label_plural() ); ?></h1>
+				<?php echo apply_filters( 'marketify_downloads_archive_title', edd_get_label_plural() ); ?>
 			<?php endif; ?>
+		</h1>
 	</header><!-- .page-header -->
+
+	<?php do_action( 'marketify_entry_before' ); ?>
 
 	<div class="container">
 		<div id="content" class="site-content row">
