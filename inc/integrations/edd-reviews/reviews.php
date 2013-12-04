@@ -45,6 +45,7 @@ function marketify_download_entry_meta_rating( $comment_id = null ) {
 <?php
 }
 add_action( 'marketify_download_info', 'marketify_download_entry_meta_rating' );
+add_action( 'marketify_download_content_image_overlay_after', 'marketify_download_entry_meta_rating' );
 
 /**
  * Download Rating/Rating Title
