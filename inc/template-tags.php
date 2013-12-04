@@ -274,6 +274,33 @@ function marketify_download_price() {
 }
 add_action( 'marketify_download_info', 'marketify_download_price', 5 );
 
+if ( ! function_exists( 'marketify_demo_link' ) ) :
+/**
+ * Download Purchase Link
+ *
+ * @since Marketify 1.0
+ *
+ * @return void
+ */
+function marketify_demo_link( $download_id = null ) {
+	global $post, $edd_options;
+
+	if ( ! $download_id )
+		$download_id = $post->ID;
+
+	$field = apply_filters( 'marketify_demo_field', 'demo' );
+	$demo  = get_post_meta( $download_id, $field, true );
+
+	if ( ! $demo )
+		return;
+
+	$label = apply_filters( 'marketify_demo_button_label', __( 'Demo', 'marketify' ) );
+
+	echo apply_filters( 'marketify_demo_link', sprintf( '<a href="%s" class="button" target="_blank">%s</a>', esc_url( $demo ), $label ) );
+}
+add_action( 'marketify_download_actions', 'marketify_demo_link' );
+endif;
+
 if ( ! function_exists( 'marketify_comment' ) ) :
 /**
  * Comments

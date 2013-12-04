@@ -143,9 +143,9 @@ function marketify_shortcode_atts_edd_login( $atts ) {
 add_filter( 'shortcode_atts_edd_login', 'marketify_shortcode_atts_edd_login' );
 
 /**
- * Embed an external (or internal video)
+ * Extra metaboxes if FES is not active.
  */
-class Marketify_EDD_Video {
+class Marketify_EDD_Metabox {
 
 	/**
      * @var $instance
@@ -173,20 +173,24 @@ class Marketify_EDD_Video {
 	public function __construct() {
 		add_action( 'add_meta_boxes',          array( $this, 'add_meta_boxes' ) );
 		add_action( 'edd_metabox_fields_save', array( $this, 'save_post' ) );
+		
 		add_filter( 'marketify_video_field',   array( $this, 'video_field' ) );
+		add_filter( 'marketify_demo_field',    array( $this, 'demo_field' ) );
 	}
 
 	/**
 	 * Add meta box
 	 */
 	public function add_meta_boxes() {
-		add_meta_box( 'edd-marketify-video', sprintf( __( '%s Video URL', 'marketify' ), edd_get_label_singular() ), array( $this, 'meta_box' ), 'download', 'normal', 'high' );
+		add_meta_box( 'edd-marketify-video', sprintf( __( '%s Video URL', 'marketify' ), edd_get_label_singular() ), array( $this, 'meta_box_video' ), 'download', 'normal', 'high' );
+		
+		add_meta_box( 'edd-marketify-demo', sprintf( __( '%s Demo URL', 'marketify' ), edd_get_label_singular() ), array( $this, 'meta_box_demo' ), 'download', 'normal', 'high' );
 	}
 
 	/**
-	 * Output meta box
+	 * Output video meta box
 	 */
-	public function meta_box() {
+	public function meta_box_video() {
 		global $post;
 	
 		echo EDD()->html->text( array( 
@@ -197,20 +201,41 @@ class Marketify_EDD_Video {
 	}
 
 	/**
+	 * Output demo meta box
+	 */
+	public function meta_box_demo() {
+		global $post;
+	
+		echo EDD()->html->text( array( 
+			'name'  => 'edd_demo',
+			'value' => esc_url( $post->edd_demo ), 
+			'class' => 'large-text'
+		) );
+	}
+
+	/**
 	 * Save meta box
 	 */
 	public function save_post( $fields ) {
 		$fields[] = 'edd_video';
+		$fields[] = 'edd_demo';
 
 		return $fields;
 	}
 
 	/**
-	 * Filter the video field
+	 * Filter the video field that is searched for the URL.
 	 */
 	public function video_field() {
 		return 'edd_video';
 	}
 
+	/**
+	 * Filter the demo field that is searched for the URL.
+	 */
+	public function demo_field() {
+		return 'edd_demo';
+	}
+
 }
-add_action( 'init', array( 'Marketify_EDD_Video', 'init' ) );
+add_action( 'init', array( 'Marketify_EDD_Metabox', 'init' ) );
