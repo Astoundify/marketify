@@ -60,7 +60,7 @@ add_action( 'marketify_single_download_after', 'marketify_recommended_products' 
  * @return void
  */
 function marketify_recommended_products_shim() {
-	remove_filter( 'edd_after_download_content', 'edd_rp_display_single' );
-	remove_filter( 'edd_after_checkout_cart', 'edd_rp_display_checkout' );
+	remove_filter( 'edd_after_download_content', 'edd_rp_display_single', 10, 1 );
+	remove_filter( 'edd_after_checkout_cart', 'edd_rp_display_checkout', 10, 1 );
 }
 add_action( 'init', 'marketify_recommended_products_shim' );
