@@ -96,6 +96,12 @@ function marketify_download_standard_player() {
 		return;
 	}
 
+	if ( count( $images ) == 1 ) {
+		echo $before;
+		echo wp_get_attachment_image( current( $images )->ID, 'fullsize' );
+		echo $after;
+	}
+
 	$before = '<div class="download-image flexslider">';
 
 	echo $before;
