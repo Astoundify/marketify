@@ -27,4 +27,4 @@
 	<?php locate_template( array( 'modal-download-purchase.php' ), true, false ); ?>
 </article><!-- #post-## -->
 
-<?php do_action( 'marketify_single_download_after' ); ?>
+<?php do_action( 'marketify_single_download_content_after' ); ?>
