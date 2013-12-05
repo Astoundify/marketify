@@ -101,3 +101,6 @@ function marketify_get_attached_media_args( $args, $type, $post ) {
 	return $args;
 }
 add_filter( 'get_attached_media_args', 'marketify_get_attached_media_args', 10, 3 );
+
+// Shortcodes in widgets
+add_filter( 'widget_text', 'do_shortcode' );

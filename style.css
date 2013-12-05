@@ -3188,7 +3188,8 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 }
 
 .edd_form p,
-#edd_profile_editor_form.edd_form p {
+#edd_profile_editor_form.edd_form p,
+.mailbag-input {
 	margin-bottom: 1.75em;
 }
 
@@ -3202,7 +3203,8 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 .fes-label,
 .fes-form label,
 .comment-form label,
-#edd_checkout_form_wrap label {
+#edd_checkout_form_wrap label,
+.mailbag-wrap label {
 	font: 700 16px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 0.10em;
@@ -4360,6 +4362,17 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 
 #lang_sel_click li {
 	width: 100%;
+}
+
+/* =Mailbag
+----------------------------------------------- */
+
+.mailbag-input br {
+	display: none;
+}
+
+.site-footer .mailbag-input input[type="text"] {
+	border: 0;
 }
 
 /* =Responsive Suppliments

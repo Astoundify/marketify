@@ -403,7 +403,8 @@ function marketify_header_css() {
 		.minimal input[type=submit]:not([name=edd_update_cart_submit]),
 		.minimal input[type=submit]:not([name=edd_update_cart_submit]):hover,
 		.popup .edd_go_to_checkout.button.edd-submit,
-		.edd-reviews-voting-buttons a:hover {
+		.edd-reviews-voting-buttons a:hover,
+		.site-footer .mailbag-input .button {
 			background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 		}
 
@@ -423,7 +424,8 @@ function marketify_header_css() {
 		.minimal input[type=submit]:not([name=edd_update_cart_submit]),
 		.popup .edd_go_to_checkout.button.edd-submit,
 		.popup .edd-add-to-cart.button.edd-submit:hover,
-		.edd-reviews-voting-buttons a {
+		.edd-reviews-voting-buttons a,
+		.site-footer .mailbag-input .button {
 			border-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 		}
 
@@ -501,7 +503,8 @@ function marketify_header_css() {
 		#fes-avatar-pickfiles:hover,
 		.minimal input[type=submit],
 		.popup .edd_go_to_checkout.button.edd-submit,
-		.edd-reviews-voting-buttons a:hover {
+		.edd-reviews-voting-buttons a:hover,
+		.site-footer .mailbag-input .button {
 			color: #fff;
 		}";
 
