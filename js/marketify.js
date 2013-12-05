@@ -254,7 +254,7 @@ Marketify.Widgets = ( function($) {
 
 } )(jQuery);
 
-jQuery(function($) {
+jQuery(document).ready(function() {
 	Marketify.App.init();
 	Marketify.Widgets.init();
 });

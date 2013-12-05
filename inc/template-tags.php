@@ -100,6 +100,8 @@ function marketify_download_standard_player() {
 		echo $before;
 		echo wp_get_attachment_image( current( $images )->ID, 'fullsize' );
 		echo $after;
+
+		return;
 	}
 
 	$before = '<div class="download-image flexslider">';
