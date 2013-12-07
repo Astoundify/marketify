@@ -629,6 +629,11 @@ class Marketify_Author {
      */
 	public static $instance;
 
+	/**
+	 * @var ran
+	 */
+	public $ran = false;
+
 	/*
 	 * Init so we can attach to an action
 	 */
@@ -647,7 +652,7 @@ class Marketify_Author {
 		add_filter( 'query_vars', array( $this, 'query_vars' ) ); 
 		add_filter( 'generate_rewrite_rules', array( $this, 'rewrites' ) );
 
-		add_action( 'pre_get_posts', array( $this, 'show_downloads' ) );
+		add_action( 'parse_request', array( $this, 'parse_request' ) );
 		add_action( 'template_redirect', array( $this, 'redirect' ) );
 	}
 
@@ -660,7 +665,7 @@ class Marketify_Author {
 		else
 			$user = wp_get_current_user();
 
-		return esc_url( get_author_posts_url( $user->ID ) . trailingslashit( $where ) ); 
+		return esc_url( get_author_posts_url( $user->ID, $user->user_nicename ) . trailingslashit( $where ) );
 	}
 
 	/**
@@ -700,38 +705,57 @@ class Marketify_Author {
 		return $wp_rewrite->rules;
 	}
 
+	public function parse_request() {
+		add_action( 'parse_query', array( $this, 'parse_query' ) );
+	}
+
 	/**
-	 * Show author products
+	 * Show author products or wishlist
 	 *
 	 * @since Marketify 1.0
 	 *
 	 * @param object $query Current WP_Query
 	 * @return void
 	 */
-	public function show_downloads( $query ) {
-		if ( is_admin() || ! $query->is_main_query() || ! $query->is_author() )
+	public function parse_query( $query ) {
+		if ( $this->ran ) {
 			return;
+		}
 
-		if ( ! ( get_query_var( 'author_downloads' ) || get_query_var( 'author_wishlist' ) ) )
+		if ( ! ( get_query_var( 'author_downloads' ) || get_query_var( 'author_wishlist' ) ) ) {
 			return;
-		
+		}
+
 		$query->is_author = true;
 		$query->set( 'post_type', 'download' );
+		$query->set( 'post_status', 'publish' );
 
-		if ( ! get_query_var( 'author_wishlist' ) )
-			return;
+		if ( ! get_query_var( 'author_wishlist' ) ) {
+			$this->ran = true;
+
+			return $query;
+		}
 
 		$author = get_user_by( 'slug', $query->query[ 'author_name' ] );
 		$loves  = get_user_option( 'li_user_loves', $author->ID );
 
+		$query->set( 'author', 0 );
+		$query->set( 'author_name', '' );
 		$query->set( 'post__in', $loves );
+
+		$this->ran = true;
+
+		return $query;
 	}
 
+	/**
+	 * Redirect the wishlist page template to the current user's loves.
+	 */
 	public function redirect() {
 		if ( ! is_page_template( 'page-templates/wishlist.php' ) )
 			return;
 
-		wp_safe_redirect( $this->url( 'wishlist' ) );
+		wp_safe_redirect( $this->url( 'wishlist' ), 307 );
 		exit();
 	}
 }

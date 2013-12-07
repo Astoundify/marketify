@@ -10,7 +10,9 @@
 if ( ! ( get_query_var( 'author_downloads' ) || get_query_var( 'author_wishlist' ) ) )
 	return locate_template( array( 'archive.php' ), true );
 
-$author = get_query_var( 'author_name' );
+global $wp_query;
+
+$author = $wp_query->query[ 'author_name' ];
 $author = new WP_User( $author );
 
 get_header(); ?>
