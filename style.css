@@ -4815,6 +4815,36 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 	}
 
 	/** Audio */
+	.featured-image div.jp-audio {
+		width: 90%;
+
+		-webkit-backface-visibility: hidden;
+	}
+
+	.jp-audio ul.jp-controls,
+	.jp-audio div.jp-progress,
+	.jp-audio div.jp-volume-bar {
+		width: 100%;
+		float: none;
+	}
+
+	.jp-audio div.jp-progress {
+		margin-right: 0;
+	}
+
+	.jp-audio div.jp-interface ul.jp-controls li {
+		float: none;
+		display: inline-block;
+	}
+
+	.jp-audio div.jp-progress, 
+	.jp-audio div.jp-volume-bar,
+	.jp-audio div.jp-seek-bar, 
+	.jp-audio div.jp-play-bar, 
+	.jp-audio div.jp-volume-bar-value {
+		height: 12px;
+		border-radius: 6px;
+	}
 }
 
 /* =Flexslider
