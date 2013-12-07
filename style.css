@@ -1686,6 +1686,10 @@ body:not(.minimal) .edd_form fieldset > span legend {
 
 .content-grid-download {
 	margin-bottom: 30px;
+
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility:    hidden;
+	backface-visibility:         hidden;
 }
 
 .content-grid-download .entry-image {
