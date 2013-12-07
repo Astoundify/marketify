@@ -4261,10 +4261,6 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 	content: '\2665';
 }
 
-.download-author .love-it-wrapper .love-it:before {
-	margin-right: -7px;
-}
-
 .content-grid-download .love-it-wrapper {
 	font-size: 0;
 	visibility: hidden;

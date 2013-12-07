@@ -28,7 +28,7 @@ get_header(); ?>
 	<div class="container">
 		<div id="content" class="site-content row">
 
-			<div id="secondary" class="author-widget-area col-sm-3 col-xs-12" role="complementary">
+			<div id="secondary" class="author-widget-area col-md-3 col-xs-12" role="complementary">
 				<div class="download-product-details author-archive">
 					<div class="download-author">
 						<?php do_action( 'marketify_download_author_before' ); ?>
@@ -80,8 +80,8 @@ get_header(); ?>
 					<?php marketify_content_nav( 'nav-below' ); ?>
 
 				<?php else : ?>
-
-					<?php if ( get_query_var( 'author_downloads' ) ) : ?>
+				
+					<?php if ( ! isset( $wp_query->query[ 'author_wishlist' ] ) ) : ?>
 						<?php get_template_part( 'no-results', 'archive' ); ?>
 					<?php else : ?>
 						<p><?php printf( __( 'Hey, it looks like %s has not liked anything yet!', 'marketify' ), $author->display_name ); ?></p>

@@ -739,10 +739,10 @@ class Marketify_Author {
 		$author = get_user_by( 'slug', $query->query[ 'author_name' ] );
 		$loves  = get_user_option( 'li_user_loves', $author->ID );
 
+		$query->set( 'post__in', $loves );
 		$query->set( 'author', 0 );
 		$query->set( 'author_name', '' );
-		$query->set( 'post__in', $loves );
-
+		
 		$this->ran = true;
 
 		return $query;
