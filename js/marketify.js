@@ -81,21 +81,6 @@ Marketify.App = ( function($) {
 		});
 	}
 
-	function sidebarHeight() {
-		var height = $( '#content' ).outerHeight();
-		var area   = $( '.download-archive-widget-area' );
-
-		if ( area.outerHeight() > height )
-			return;
-
-		area.css( 'height', height );
-
-		if ( $(window).width() < 750 )
-			area.css( 'height', 'auto' );
-		else
-			area.css( 'height', height );
-	}
-
 	function downloadStandard() {
 		$( '.download-image.flexslider' ).flexslider({
 			slideshow     : false,
@@ -118,7 +103,6 @@ Marketify.App = ( function($) {
 			menuMobile();
 			skipLink();
 			footerHeight();
-			sidebarHeight();
 			downloadStandard();
 
 			$(window).resize(function() {
@@ -186,7 +170,7 @@ Marketify.Widgets = ( function($) {
 		marketify_widget_featured_popular : function( widget_id ) {
 			var settings = widgetSettings[ widget_id ];
 
-			var slider = $( '.flexslider' ).flexslider({
+			var slider = $( '.marketify_widget_featured_popular .flexslider' ).flexslider({
 				animation      : "slide",
 				slideshow      : settings.scroll,
 				slideshowSpeed : settings.speed,

@@ -67,8 +67,8 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 
 		extract( $args );
 
-		$number = isset( $instance[ 'number' ] ) ? absint( $instance[ 'number' ] ) : 8;
-		$time   = isset( $instance[ 'timeframe' ] ) ? $instance[ 'timeframe' ] : 'week';
+		$number    = isset( $instance[ 'number' ] ) ? absint( $instance[ 'number' ] ) : 8;
+		$timeframe = isset( $instance[ 'timeframe' ] ) ? $instance[ 'timeframe' ] : 'week';
 
 		$featured_args = array(
 			'post_type'              => 'download',
@@ -106,8 +106,8 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 			$frame = date( 'Y' );
 		}
 
-		$featured_args[ 'date_query' ] = array( $timeframe = $frame );
-		$popular_args[  'date_query' ] = array( $timeframe = $frame );
+		$featured_args[ 'date_query' ] = array( array( $timeframe => $frame ) );
+		$popular_args[  'date_query' ] = array( array( $timeframe => $frame ) );
 
 		$featured = new WP_Query( $featured_args );
 		$popular  = new WP_Query( $popular_args );
@@ -119,16 +119,17 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 
 		?>
 
-		<?php echo $before_title; ?>
+		<h1 class="home-widget-title">
 			<?php if ( $featured->have_posts() ) : ?>
-			<?php _e( 'Featured', 'marketify' ); ?> </span> 
+			<span><?php _e( 'Featured', 'marketify' ); ?> </span> 
 			<?php endif; ?>
 
 			<?php if ( $popular->have_posts() ) : ?>
-			<span><?php _e( 'Popular', 'marketify' ); ?>
+			<span><?php _e( 'Popular', 'marketify' ); ?></span>
 			<?php endif; ?>
-		<?php echo $after_title; ?>
+		</h1>
 		
+		<?php if ( $featured->have_posts() ) : ?>
 		<div id="items-featured" class="row flexslider">
 			<ul class="slides">
 				<?php while ( $featured->have_posts() ) : $featured->the_post(); ?>
@@ -138,7 +139,9 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 				<?php endwhile; ?>
 			</ul>
 		</div>
+		<?php endif; ?>
 
+		<?php if ( $popular->have_posts() ) : ?>
 		<div id="items-popular" class="row flexslider">
 			<ul class="slides">
 				<?php while ( $popular->have_posts() ) : $popular->the_post(); ?>
@@ -148,6 +151,7 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 				<?php endwhile; ?>
 			</ul>
 		</div>
+		<?php endif; ?>
 
 		<?php
 		echo $after_widget;

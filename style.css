@@ -1107,12 +1107,6 @@ body:not(.minimal) .edd_form fieldset > span legend {
 	padding-bottom: 0;
 }
 
-.tax-download_category .content-area,
-.tax-download_tag .content-area,
-.post-type-archive-download.paged .content-area {
-	margin-top: 80px;
-}
-
 .sticky {
 }
 
@@ -2706,24 +2700,12 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 ----------------------------------------------- */
 
 .download-archive-widget-area {
-	text-align: right;
 	position: relative;
-}
-
-.download-archive-widget-area:after {
-	content: ' ';
-	width: 1px;
-	height: 100%;
-	position: absolute;
-	right: 15px;
-	top: 0;
-	background: #bdc3c7;
 }
 
 .download-archive-widget {
 	padding-right: 25px;
 	padding-bottom: 40px;
-	border-right: 1px solid #bdc3c7;
 }
 
 .download-archive-widget:first-child {
@@ -2742,28 +2724,6 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 	margin: 0 0 18px;
 }
 
-.download-archive-widget ul,
-.download-archive-widget ol {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-.download-archive-widget p,
-.download-archive-widget li a {
-	font-size: 15px;
-	color: #515a63;
-	text-decoration: none;
-}
-
-.download-archive-widget form,
-.download-archive-widget select,
-.download-archive-widget #calendar_wrap,
-#recentcomments,
-.download-archive-widget .widget-download-price {
-	direction: ltr;
-}
-
 /** RSS */
 .download-archive-widget .rsswidget {
 	padding: 0;
@@ -2771,59 +2731,6 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 
 .download-archive-widget .widget_rss li {
 	margin-right: 0;
-}
-
-/** Misc */
-.download-archive-widget .edd-taxonomy-widget,
-.download-archive-widget.widget_nav_menu ul,
-.download-archive-widget.widget_recent_entries ul,
-.download-archive-widget.widget_meta ul,
-.download-archive-widget.widget_pages ul,
-.download-archive-widget.widget_categories ul,
-.download-archive-widget.widget_archive ul,
-.download-archive-widget .most-loved {
-	margin-right: -25px;
-}
-
-.download-archive-widget .edd-taxonomy-widget a,
-.download-archive-widget.widget_nav_menu ul a,
-.download-archive-widget.widget_recent_entries ul a,
-.download-archive-widget.widget_meta ul a,
-.download-archive-widget.widget_pages ul a,
-.download-archive-widget.widget_categories ul a,
-.download-archive-widget.widget_archive ul a,
-.most-loved a {
-	padding: 7px 25px;
-	display: block;
-}
-
-.download-archive-widget.widget_nav_menu ul ul,
-.download-archive-widget.widget_recent_entries ul ul,
-.download-archive-widget.widget_meta ul ul,
-.download-archive-widget.widget_pages ul ul,
-.download-archive-widget.widget_categories ul ul,
-.download-archive-widget.widget_archive ul ul {
-	margin-right: 0;
-}
-
-.download-archive-widget.widget_nav_menu ul ul a,
-.download-archive-widget.widget_recent_entries ul ul a,
-.download-archive-widget.widget_meta ul ul a,
-.download-archive-widget.widget_pages ul ul a,
-.download-archive-widget.widget_categories ul ul a,
-.download-archive-widget.widget_archive ul ul a {
-	font-size: 12px;
-}
-
-.download-archive-widget .edd-taxonomy-widget a:hover,
-.download-archive-widget.widget_nav_menu ul a:hover,
-.download-archive-widget.widget_recent_entries ul a:hover,
-.download-archive-widget.widget_meta ul a:hover,
-.download-archive-widget.widget_pages ul a:hover,
-.download-archive-widget.widget_categories ul a:hover
-.download-archive-widget.widget_archive ul a:hover,
-.most-loved a:hover {
-	background-color: #f6f7f8;
 }
 
 .download-archive-widget .search-submit {

@@ -480,3 +480,59 @@ function marketify_content_nav( $nav_id ) {
 	<?php
 }
 endif;
+
+function marketify_download_archive_popular( $args = array() ) {
+	$defaults = array(
+		'posts_per_page'         => 9,
+		'meta_key'               => '_edd_download_sales',
+		'orderby'                => 'meta_value',
+		'timeframe'              => 'week'
+	);
+
+	$args = wp_parse_args( $args, $defaults );
+
+	$query_args = array(
+		'post_type'              => 'download',
+		'no_found_rows'          => true,
+		'update_post_term_cache' => false,
+		'update_post_meta_cache' => false,
+		'cache_results'          => false,
+	);
+
+	$query_args = wp_parse_args( $query_args, $args );
+
+	// Date
+	if ( 'day' == $args[ 'timeframe' ] ) {
+		$frame = date( 'd' );
+	} else if ( 'week' == $args[ 'timeframe' ] ) { 
+		$frame = date( 'W' );
+	} else if ( 'month' == $args[ 'timeframe' ] ) {
+		$frame = date( 'm' );
+	} else {
+		$frame = date( 'Y' );
+	}
+
+	$query_args[  'date_query' ] = array( array( $args[ 'timeframe' ] => $frame ) );
+
+	// Taxonomy
+	if ( is_tax( array( 'download_category', 'download_tag' ) ) ) {
+		$obj = get_queried_object();
+
+		$query_args[ 'tax_query' ] = array(
+			array(
+				'taxonomy' => $obj->taxonomy,
+				'field'    => 'ids',
+				'terms'    => array( $obj->term_id )
+			)
+		);
+	}
+
+	// Search
+	if ( is_search() ) { 
+		$query_args[ 's' ] = esc_attr( get_search_query() );
+	}
+
+	$popular  = new WP_Query( $query_args );
+
+	return $popular;
+}

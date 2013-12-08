@@ -24,18 +24,25 @@ get_header(); ?>
 	<?php do_action( 'marketify_entry_before' ); ?>
 
 	<div class="container">
-		<div id="content" class="site-content row">
 
-			<?php get_sidebar( 'archive-download' ); ?>
+		<?php if ( ! is_paged() ) : ?>
+			<?php get_template_part( 'content-grid-download', 'popular' ); ?>
+		<?php endif; ?>
+
+		<div id="content" class="site-content row">
 
 			<section id="primary" class="content-area col-sm-<?php echo is_active_sidebar( 'sidebar-download' ) ? '9' : '12'; ?> col-xs-12">
 				<main id="main" class="site-main" role="main">
 
-				<?php if ( is_post_type_archive( 'download' ) && ! is_paged() ) : ?>
 				<div class="section-title"><span>
-					<?php _e( 'Recent', 'marketify' ); ?>
+					<?php if ( is_search() ) : ?>
+						<?php printf( __( 'All %s', 'marketify' ), esc_attr( get_search_query() ) ); ?>
+					<?php elseif ( is_tax() ) : ?>
+						<?php printf( __( 'All %s', 'marketify' ), single_term_title( '', false ) ); ?>
+					<?php else : ?>
+						<?php printf( __( 'All %s', 'marketify' ), edd_get_label_plural() ); ?>
+					<?php endif; ?>
 				</span></div>
-				<?php endif; ?>
 
 				<?php if ( have_posts() ) : ?>
 
@@ -59,6 +66,8 @@ get_header(); ?>
 
 				</main><!-- #main -->
 			</section><!-- #primary -->
+
+			<?php get_sidebar( 'archive-download' ); ?>
 
 		</div><!-- #content -->
 	</div>
