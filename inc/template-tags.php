@@ -486,7 +486,7 @@ function marketify_download_archive_popular( $args = array() ) {
 		'posts_per_page'         => 9,
 		'meta_key'               => '_edd_download_sales',
 		'orderby'                => 'meta_value',
-		'timeframe'              => 'week'
+		'timeframe'              => 'month' // 'week'
 	);
 
 	$args = wp_parse_args( $args, $defaults );

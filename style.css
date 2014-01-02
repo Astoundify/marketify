@@ -114,7 +114,7 @@ textarea,
 	-moz-box-sizing:    border-box;
 	box-sizing:         border-box;
 
-	-webkit-font-smoothing: antialiased; 
+	-webkit-font-smoothing: antialiased;
 }
 
 #page {
@@ -282,7 +282,7 @@ input[type="submit"] {
 	padding: 10px 20px;
 	border: 2px solid transparent;
 	background: #fff;
-	-webkit-appearance: button; 
+	-webkit-appearance: button;
 }
 
 button,
@@ -296,7 +296,7 @@ button:hover,
 html input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-	
+
 }
 
 button:focus,
@@ -307,7 +307,7 @@ button:active,
 html input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-	
+
 }
 
 input[type="checkbox"],
@@ -341,17 +341,17 @@ input[type="url"],
 input[type="password"],
 input[type="search"],
 textarea,
-div.fes-form fieldset .fes-fields input[type=text], 
-div.fes-form fieldset .fes-fields input[type=password], 
-div.fes-form fieldset .fes-fields input[type=email], 
-div.fes-form fieldset .fes-fields input[type=url], 
-div.fes-form fieldset .fes-fields input[type=number], 
+div.fes-form fieldset .fes-fields input[type=text],
+div.fes-form fieldset .fes-fields input[type=password],
+div.fes-form fieldset .fes-fields input[type=email],
+div.fes-form fieldset .fes-fields input[type=url],
+div.fes-form fieldset .fes-fields input[type=number],
 div.fes-form fieldset .fes-fields textarea,
-.entry-content .fes-form input[type=text], 
-.entry-content .fes-form input[type=password], 
-.entry-content .fes-form input[type=email], 
-.entry-content .fes-form input[type=url], 
-.entry-content .fes-form input[type=number], 
+.entry-content .fes-form input[type=text],
+.entry-content .fes-form input[type=password],
+.entry-content .fes-form input[type=email],
+.entry-content .fes-form input[type=url],
+.entry-content .fes-form input[type=number],
 .entry-content .fes-form textarea {
 	line-height: 25px;
 	color: #515a63;
@@ -395,7 +395,7 @@ a:visited {
 }
 
 a:visited {
-	
+
 }
 
 a:hover,
@@ -418,8 +418,8 @@ input[type="submit"],
 #edd_checkout_form_wrap fieldset > span legend,
 #edd_checkout_form_wrap fieldset#edd_cc_fields > span legend,
 .widget .cart_item.edd_checkout a,
-.edd-submit.button, 
-a.edd-submit.button, 
+.edd-submit.button,
+a.edd-submit.button,
 a.edd-submit.button:visited,
 .edd-submit.button.gray,
 #edd-purchase-button,
@@ -454,7 +454,7 @@ input[type=submit]:hover,
 .button:hover,
 a.button:hover,
 .widget .cart_item.edd_checkout a:hover,
-.edd-submit.button:hover, 
+.edd-submit.button:hover,
 a.edd-submit.button:hover,
 a.edd-submit.button:visited:hover,
 .edd-submit.button.gray:hover,
@@ -739,10 +739,10 @@ input[type=submit]:hover {
 }
 
 .main-navigation ul ul:after {
-	width: 0; 
-	height: 0; 
-	border: 7px solid transparent; 
-	border-bottom: 7px solid #fff; 
+	width: 0;
+	height: 0;
+	border: 7px solid transparent;
+	border-bottom: 7px solid #fff;
 	content: ' ';
 	position: absolute;
 	top: -14px;
@@ -992,8 +992,8 @@ input[type=submit]:hover {
 }
 
 .page-header .button,
-.page-header .edd-submit.button, 
-.page-header a.edd-submit.button, 
+.page-header .edd-submit.button,
+.page-header a.edd-submit.button,
 .page-header a.edd-submit.button:visited,
 .page-header .edd-submit.button.gray,
 .soliloquy-caption-wrap .button {
@@ -1419,17 +1419,17 @@ body:not(.minimal) .edd_form fieldset > span legend {
 	border: 0;
 }
 
-.minimal div.fes-form fieldset .fes-fields input[type=text], 
-.minimal div.fes-form fieldset .fes-fields input[type=password], 
-.minimal div.fes-form fieldset .fes-fields input[type=email], 
-.minimal div.fes-form fieldset .fes-fields input[type=url], 
-.minimal div.fes-form fieldset .fes-fields input[type=number], 
+.minimal div.fes-form fieldset .fes-fields input[type=text],
+.minimal div.fes-form fieldset .fes-fields input[type=password],
+.minimal div.fes-form fieldset .fes-fields input[type=email],
+.minimal div.fes-form fieldset .fes-fields input[type=url],
+.minimal div.fes-form fieldset .fes-fields input[type=number],
 .minimal div.fes-form fieldset .fes-fields textarea,
-.minimal .entry-content .fes-form input[type=text], 
-.minimal .entry-content .fes-form input[type=password], 
-.minimal .entry-content .fes-form input[type=email], 
-.minimal .entry-content .fes-form input[type=url], 
-.minimal .entry-content .fes-form input[type=number], 
+.minimal .entry-content .fes-form input[type=text],
+.minimal .entry-content .fes-form input[type=password],
+.minimal .entry-content .fes-form input[type=email],
+.minimal .entry-content .fes-form input[type=url],
+.minimal .entry-content .fes-form input[type=number],
 .minimal .entry-content .fes-form textarea {
 	border-color: #fff;
 }
@@ -1972,11 +1972,11 @@ object {
 }
 
 .comment .comment-content:after {
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-top: 14px solid transparent;
-	border-bottom: 14px solid transparent; 
-	border-right: 14px solid #fff; 
+	border-bottom: 14px solid transparent;
+	border-right: 14px solid #fff;
 	content: ' ';
 	position: absolute;
 	top: 32px;
@@ -1984,11 +1984,11 @@ object {
 }
 
 .comment .comment-content:before {
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-top: 14px solid transparent;
-	border-bottom: 14px solid transparent; 
-	border-right: 14px solid #bdc3c7; 
+	border-bottom: 14px solid transparent;
+	border-right: 14px solid #bdc3c7;
 	content: ' ';
 	position: absolute;
 	top: 32px;
@@ -2122,12 +2122,12 @@ object {
 	height: auto;
 }
 
-.comment_form_rating .edd_reviews_rating_box a:hover ~ a, 
+.comment_form_rating .edd_reviews_rating_box a:hover ~ a,
 .comment_form_rating .edd_reviews_rating_box a:hover {
 	background: none;
 }
 
-.comment_form_rating .edd_reviews_rating_box a:hover ~ a i:before, 
+.comment_form_rating .edd_reviews_rating_box a:hover ~ a i:before,
 .comment_form_rating .edd_reviews_rating_box a:hover i:before,
 .comment_form_rating .edd_reviews_rating_box a.active ~ a i:before,
 .comment_form_rating .edd_reviews_rating_box a.active i:before {
@@ -2381,7 +2381,7 @@ object {
 	padding: 8px 0;
 }
 
-.search-form input[type=search]::-webkit-input-placeholder { 
+.search-form input[type=search]::-webkit-input-placeholder {
 	color: #fff;
 }
 
@@ -2704,8 +2704,8 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 }
 
 .download-archive-widget {
-	padding-right: 25px;
 	padding-bottom: 40px;
+	padding-left: 15px;
 }
 
 .download-archive-widget:first-child {
@@ -2739,6 +2739,48 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 
 .download-archive-widget .search-field {
 	width: 80%;
+}
+
+/** Misc */
+.download-archive-widget .edd-taxonomy-widget a,
+.download-archive-widget.widget_nav_menu ul a,
+.download-archive-widget.widget_recent_entries ul a,
+.download-archive-widget.widget_meta ul a,
+.download-archive-widget.widget_pages ul a,
+.download-archive-widget.widget_categories ul a,
+.download-archive-widget.widget_archive ul a,
+.most-loved a {
+	padding: 7px 15px;
+	display: block;
+}
+
+.download-archive-widget.widget_nav_menu ul ul,
+.download-archive-widget.widget_recent_entries ul ul,
+.download-archive-widget.widget_meta ul ul,
+.download-archive-widget.widget_pages ul ul,
+.download-archive-widget.widget_categories ul ul,
+.download-archive-widget.widget_archive ul ul {
+	margin-right: 0;
+}
+
+.download-archive-widget.widget_nav_menu ul ul a,
+.download-archive-widget.widget_recent_entries ul ul a,
+.download-archive-widget.widget_meta ul ul a,
+.download-archive-widget.widget_pages ul ul a,
+.download-archive-widget.widget_categories ul ul a,
+.download-archive-widget.widget_archive ul ul a {
+	font-size: 12px;
+}
+
+.download-archive-widget .edd-taxonomy-widget a:hover,
+.download-archive-widget.widget_nav_menu ul a:hover,
+.download-archive-widget.widget_recent_entries ul a:hover,
+.download-archive-widget.widget_meta ul a:hover,
+.download-archive-widget.widget_pages ul a:hover,
+.download-archive-widget.widget_categories ul a:hover
+.download-archive-widget.widget_archive ul a:hover,
+.most-loved a:hover {
+	background-color: #f6f7f8;
 }
 
 /* Download Single Widgets
@@ -3146,8 +3188,8 @@ body:not(.minimal) #edd_checkout_cart_form {
 	background: #fff;
 }
 
-#edd_checkout_form_wrap input[type="text"], 
-#edd_checkout_form_wrap input[type="email"], 
+#edd_checkout_form_wrap input[type="text"],
+#edd_checkout_form_wrap input[type="email"],
 #edd_checkout_form_wrap input[type="password"] {
 	padding: 10px;
 }
@@ -3264,7 +3306,7 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 	display: none;
 }
 
-.minimal #edd_checkout_cart th, 
+.minimal #edd_checkout_cart th,
 .minimal #edd_checkout_cart td {
 	color: #fff;
 	border: 0;
@@ -3525,7 +3567,7 @@ div.fes-form fieldset.has-error .fes-label {
 	display: none;
 }
 
-.entry-content .edd-csau-products h2, 
+.entry-content .edd-csau-products h2,
 .edd-csau-products h2 {
 	margin: 40px 0 20px 15px;
 }
@@ -3996,7 +4038,7 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 /** RSS */
 .footer-social a[href$=".rss"]::before {
 	content: '\e73a';
-} 
+}
 
 .footer-social a:hover[href$=".rss"]::before {
 	color: #FF6600;
@@ -4099,7 +4141,7 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 	-webkit-transition: all 0.2s ease-in-out;
 	-moz-transition:    all 0.2s ease-in-out;
 	transition:         all 0.2s ease-in-out;
-	
+
 	-webkit-transform-style: preserve-3d;
 	-moz-transform-style:    preserve-3d;
 	transform-style:         preserve-3d;
@@ -4107,7 +4149,7 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 	-webkit-transform: scale(0.25);
 	-moz-transform:    scale(0.25);
 	transform:         scale(0.25);
-	
+
 	-webkit-backface-visibility: hidden;
 	backface-visibility:         hidden;
 }
@@ -4241,7 +4283,7 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 	border-color: #bdc3c7;
 }
 
-.whistles-toggle .whistle-content, 
+.whistles-toggle .whistle-content,
 .whistles-accordion .whistle-content {
 	border-color: #bdc3c7;
 }
@@ -4250,7 +4292,7 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 	padding: 2em;
 }
 
-.whistles-toggle .whistle-title, 
+.whistles-toggle .whistle-title,
 .whistles-accordion .whistle-title {
 	font: 700 13px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
@@ -4629,7 +4671,7 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 	}
 
 	/** Home */
-	.page-title, 
+	.page-title,
 	.entry-page-title h1 {
 		font-size: 28px;
 	}
@@ -4689,7 +4731,7 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 		width: 100%;
 	}
 
-	.comment-form input[type="text"], 
+	.comment-form input[type="text"],
 	.comment-form input[type="password"] {
 		width: 100%;
 	}
@@ -4744,10 +4786,10 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 		display: inline-block;
 	}
 
-	.jp-audio div.jp-progress, 
+	.jp-audio div.jp-progress,
 	.jp-audio div.jp-volume-bar,
-	.jp-audio div.jp-seek-bar, 
-	.jp-audio div.jp-play-bar, 
+	.jp-audio div.jp-seek-bar,
+	.jp-audio div.jp-play-bar,
 	.jp-audio div.jp-volume-bar-value {
 		height: 12px;
 		border-radius: 6px;
@@ -4773,8 +4815,8 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 }
 
 
-.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden; padding: 0; margin-right: 30px;} 
-.flexslider .slides > li:first-child {display: block; -webkit-backface-visibility: visible;} 
+.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden; padding: 0; margin-right: 30px;}
+.flexslider .slides > li:first-child {display: block; -webkit-backface-visibility: visible;}
 .flexslider .slides img {width: 100%; display: block;}
 .flex-pauseplay span {text-transform: capitalize;}
 

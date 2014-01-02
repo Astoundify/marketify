@@ -5,7 +5,7 @@ Marketify.App = ( function($) {
 		$( '.main-navigation .search-form .search-submit' ).click(function(e) {
 			if ( $( '.main-navigation .search-form .search-field' ).val() == '' )
 				e.preventDefault();
-			
+
 			$( '.main-navigation .search-form' )
 				.addClass( 'active' )
 		});
@@ -20,7 +20,7 @@ Marketify.App = ( function($) {
 			return;
 
 		button = container.find( $( 'h1' ) );
-		
+
 		if ( 'undefined' === typeof button )
 			return;
 
@@ -29,7 +29,7 @@ Marketify.App = ( function($) {
 		// Hide menu toggle button if menu is empty and return early.
 		if ( 'undefined' === typeof menu ) {
 			button.css( 'display', 'none' );
-			
+
 			return;
 		}
 
@@ -73,7 +73,7 @@ Marketify.App = ( function($) {
 				if ( $(this).outerHeight() > min )
 					min = $(this).outerHeight();
 			});
-			
+
 			if ( $(window).width() < 978 )
 				children.css( 'height', 'auto' );
 			else
@@ -107,7 +107,6 @@ Marketify.App = ( function($) {
 
 			$(window).resize(function() {
 				footerHeight();
-				sidebarHeight();
 			});
 
 			$( '.popup-trigger' ).click(function(e) {
@@ -129,17 +128,28 @@ Marketify.App = ( function($) {
 
 			$( '.comment_form_rating .edd_reviews_rating_box' ).find('a').on('click', function (e) {
 				e.preventDefault();
-				
+
 				$( '.comment_form_rating .edd_reviews_rating_box' ).find('a').removeClass( 'active' );
 
 				$( this ).addClass( 'active' );
 			});
 
 			$( '#bbpress-forums #bbp-user-wrapper h2.entry-title, #bbpress-forums fieldset.bbp-form legend' ).wrapInner( '<span></span>' );
+
+			$( '.marketify_widget_featured_popular .flexslider' ).flexslider({
+				animation      : "slide",
+				slideshow      : false,
+				animationLoop  : false,
+				itemWidth      : 360,
+				itemMargin     : 30,
+				minItems       : 1,
+				maxItems       : 3,
+				directionNav   : false
+			});
 		},
 
 		popup : function( args ) {
-			return $.magnificPopup.open( $.extend( args, { 
+			return $.magnificPopup.open( $.extend( args, {
 				type         : 'inline',
 				overflowY    : 'hidden',
 				removalDelay : 250
@@ -208,7 +218,7 @@ Marketify.Widgets = ( function($) {
 
 			if ( quotes.length == 2 ) {
 				$( '.individual-testimonial' ).fadeIn();
-				
+
 				return;
 			}
 
@@ -218,18 +228,18 @@ Marketify.Widgets = ( function($) {
 
 			function cycleQuotes () {
 				var current = quotes.filter(".active"), next;
-				
+
 				if (current.length == 0 || (next = current.next().next()).length == 0 ) {
 					next = quotes.slice(0,2);
 				}
-				
+
 				current.removeClass( 'active' ).fadeOut(400).promise().done(function(){
-					next.addClass( 'active' ).fadeIn(); 
+					next.addClass( 'active' ).fadeIn();
 				});
 
 				setTimeout(cycleQuotes, settings.speed);
 			}
-			
+
 			cycleQuotes();
 
 			this.alreadyCalled = true;

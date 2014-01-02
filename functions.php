@@ -45,17 +45,17 @@ function marketify_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	add_image_size( 
-		'content-grid-download', 
+	add_image_size(
+		'content-grid-download',
 		apply_filters( 'marketify_image_content_grid_download_w', 740  ),
-		apply_filters( 'marketify_image_content_grid_download_h', 600  ), 
+		apply_filters( 'marketify_image_content_grid_download_h', 600  ),
 		apply_filters( 'marketify_image_content_grid_download_c', true )
 	);
 
-	add_image_size( 
-		'content-single-download', 
+	add_image_size(
+		'content-single-download',
 		apply_filters( 'marketify_image_content_single_download_w', 9999 ),
-		apply_filters( 'marketify_image_content_single_download_h', 400  ), 
+		apply_filters( 'marketify_image_content_single_download_h', 400  ),
 		apply_filters( 'marketify_image_content_single_download_c', true )
 	);
 
@@ -82,7 +82,7 @@ function marketify_setup() {
 	 */
 	add_theme_support( 'post-formats', array( 'audio', 'video' ) );
 
-	/** 
+	/**
 	 * Enable Post Formats for Downloads
 	 */
 	add_post_type_support( 'download', 'post-formats' );
@@ -123,7 +123,7 @@ function marketify_is_edd() {
  */
 function marketify_is_bbpress() {
 	if ( ! function_exists( 'is_bbpress' ) )
-		return false; 
+		return false;
 
 	return is_bbpress();
 }
@@ -251,10 +251,10 @@ function marketify_has_header_background() {
 
 	$_post = $post;
 
-	$is_correct = apply_filters( 'marketify_has_header_background', ( 
-		marketify_is_bbpress() || 
-		( is_singular( 'download' ) && 'video' == get_post_format() ) || 
-		is_singular( array( 'page', 'post' ) ) || 
+	$is_correct = apply_filters( 'marketify_has_header_background', (
+		marketify_is_bbpress() ||
+		( is_singular( 'download' ) && 'video' == get_post_format() ) ||
+		is_singular( array( 'page', 'post' ) ) ||
 		is_page_template( 'page-templates/home.php' ) ||
 		is_home()
 	) );
@@ -530,7 +530,7 @@ function marketify_scripts() {
 
 	/* Custom CSS */
 	wp_enqueue_style( 'marketify-base', get_stylesheet_uri() );
-	
+
 	/*
 	 * Scripts
 	 */
@@ -559,24 +559,26 @@ function marketify_scripts() {
 	$widgetized = wp_get_sidebars_widgets();
 	$widgets    = $widgetized[ 'home-1' ];
 
-	foreach ( $widgets as $widget ) {
-		$widget_obj = $wp_registered_widgets[ $widget ];
-		$prefix     = substr( $widget_obj[ 'classname' ], 0, 7 ) == 'widget_' ? '' : 'widget_';
-		$settings   = get_option( $prefix . $widget_obj[ 'classname' ] );
+	if ( $widgets ) {
+		foreach ( $widgets as $widget ) {
+			$widget_obj = $wp_registered_widgets[ $widget ];
+			$prefix     = substr( $widget_obj[ 'classname' ], 0, 7 ) == 'widget_' ? '' : 'widget_';
+			$settings   = get_option( $prefix . $widget_obj[ 'classname' ] );
 
-		if ( ! $settings )
-			continue;
+			if ( ! $settings )
+				continue;
 
-		$params = $settings[ $widget_obj[ 'params' ][0][ 'number' ] ];
+			$params = $settings[ $widget_obj[ 'params' ][0][ 'number' ] ];
 
-		$marketify_js_settings[ 'widgets' ][ $widget ] = array(
-			'cb'       => $widget_obj[ 'classname' ],
-			'settings' => $params
-		);
+			$marketify_js_settings[ 'widgets' ][ $widget ] = array(
+				'cb'       => $widget_obj[ 'classname' ],
+				'settings' => $params
+			);
 
-		// Suppliment stuff. Should probably be added to a hook
-		if ( 'widget_woothemes_testimonials' == $widget_obj[ 'classname' ] && isset ( $params[ 'display_author' ] ) ) {
-			$marketify_js_settings[ 'widgets' ][ $widget ][ 'settings' ][ 'speed' ] = apply_filters( $widget_obj[ 'classname' ] . '_scroll', 5000 );
+			// Suppliment stuff. Should probably be added to a hook
+			if ( 'widget_woothemes_testimonials' == $widget_obj[ 'classname' ] && isset ( $params[ 'display_author' ] ) ) {
+				$marketify_js_settings[ 'widgets' ][ $widget ][ 'settings' ][ 'speed' ] = apply_filters( $widget_obj[ 'classname' ] . '_scroll', 5000 );
+			}
 		}
 	}
 
@@ -649,7 +651,7 @@ class Marketify_Author {
 	 * Hooks and Filters
 	 */
 	public function __construct() {
-		add_filter( 'query_vars', array( $this, 'query_vars' ) ); 
+		add_filter( 'query_vars', array( $this, 'query_vars' ) );
 		add_filter( 'generate_rewrite_rules', array( $this, 'rewrites' ) );
 
 		add_action( 'parse_request', array( $this, 'parse_request' ) );
@@ -742,7 +744,7 @@ class Marketify_Author {
 		$query->set( 'post__in', $loves );
 		$query->set( 'author', 0 );
 		$query->set( 'author_name', '' );
-		
+
 		$this->ran = true;
 
 		return $query;
@@ -759,7 +761,7 @@ class Marketify_Author {
 		exit();
 	}
 }
-add_action( 'init', array( 'Marketify_Author', 'init' ), 100 );
+//add_action( 'init', array( 'Marketify_Author', 'init' ), 100 );
 
 /**
  * Popular Categories

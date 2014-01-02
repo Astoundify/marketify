@@ -84,7 +84,7 @@ add_filter( 'shortcode_atts_downloads', 'marketify_shortcode_atts_downloads' );
 function marketify_edd_product_supports( $supports ) {
 	$supports[] = 'comments';
 
-	return $supports;	
+	return $supports;
 }
 add_filter( 'edd_download_supports', 'marketify_edd_product_supports' );
 
@@ -173,7 +173,7 @@ class Marketify_EDD_Metabox {
 	public function __construct() {
 		add_action( 'add_meta_boxes',          array( $this, 'add_meta_boxes' ) );
 		add_action( 'edd_metabox_fields_save', array( $this, 'save_post' ) );
-		
+
 		add_filter( 'marketify_video_field',   array( $this, 'video_field' ) );
 		add_filter( 'marketify_demo_field',    array( $this, 'demo_field' ) );
 	}
@@ -183,7 +183,7 @@ class Marketify_EDD_Metabox {
 	 */
 	public function add_meta_boxes() {
 		add_meta_box( 'edd-marketify-video', sprintf( __( '%s Video URL', 'marketify' ), edd_get_label_singular() ), array( $this, 'meta_box_video' ), 'download', 'normal', 'high' );
-		
+
 		add_meta_box( 'edd-marketify-demo', sprintf( __( '%s Demo URL', 'marketify' ), edd_get_label_singular() ), array( $this, 'meta_box_demo' ), 'download', 'normal', 'high' );
 	}
 
@@ -192,10 +192,10 @@ class Marketify_EDD_Metabox {
 	 */
 	public function meta_box_video() {
 		global $post;
-	
-		echo EDD()->html->text( array( 
+
+		echo EDD()->html->text( array(
 			'name'  => 'edd_video',
-			'value' => esc_url( $post->edd_video ), 
+			'value' => esc_url( $post->edd_video ),
 			'class' => 'large-text'
 		) );
 	}
@@ -205,10 +205,10 @@ class Marketify_EDD_Metabox {
 	 */
 	public function meta_box_demo() {
 		global $post;
-	
-		echo EDD()->html->text( array( 
+
+		echo EDD()->html->text( array(
 			'name'  => 'edd_demo',
-			'value' => esc_url( $post->edd_demo ), 
+			'value' => esc_url( $post->edd_demo ),
 			'class' => 'large-text'
 		) );
 	}

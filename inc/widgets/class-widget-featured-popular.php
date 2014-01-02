@@ -5,7 +5,7 @@
  * @since Marketify 1.0
  */
 class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
-	
+
 	/**
 	 * Constructor
 	 */
@@ -98,7 +98,7 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 
 		if ( 'day' == $timeframe ) {
 			$frame = date( 'd' );
-		} else if ( 'week' == $timeframe ) { 
+		} else if ( 'week' == $timeframe ) {
 			$frame = date( 'W' );
 		} else if ( 'month' == $timeframe ) {
 			$frame = date( 'm' );
@@ -121,14 +121,14 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 
 		<h1 class="home-widget-title">
 			<?php if ( $featured->have_posts() ) : ?>
-			<span><?php _e( 'Featured', 'marketify' ); ?> </span> 
+			<span><?php _e( 'Featured', 'marketify' ); ?> </span>
 			<?php endif; ?>
 
 			<?php if ( $popular->have_posts() ) : ?>
 			<span><?php _e( 'Popular', 'marketify' ); ?></span>
 			<?php endif; ?>
 		</h1>
-		
+
 		<?php if ( $featured->have_posts() ) : ?>
 		<div id="items-featured" class="row flexslider">
 			<ul class="slides">

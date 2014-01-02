@@ -56,13 +56,6 @@ get_header(); ?>
 				endif;
 			?>
 		</h1>
-		<?php
-			// Show an optional term description.
-			$term_description = term_description();
-			if ( ! empty( $term_description ) ) :
-				printf( '<div class="taxonomy-description">%s</div>', $term_description );
-			endif;
-		?>
 	</header><!-- .page-header -->
 
 	<div class="container">
@@ -91,8 +84,8 @@ get_header(); ?>
 			</div><!-- #primary -->
 
 			<?php get_sidebar(); ?>
-			
+
 		</div>
 	</div>
-	
+
 <?php get_footer(); ?>
