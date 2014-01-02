@@ -761,7 +761,7 @@ class Marketify_Author {
 		exit();
 	}
 }
-//add_action( 'init', array( 'Marketify_Author', 'init' ), 100 );
+add_action( 'init', array( 'Marketify_Author', 'init' ), 100 );
 
 /**
  * Popular Categories
@@ -774,6 +774,21 @@ function marketify_query_vars( $vars ) {
 	return $vars;
 }
 add_filter( 'query_vars', 'marketify_query_vars' );
+
+/**
+ * Popular Categories links
+ *
+ * @since Marketify 1.0
+ */
+function marketify_popular_get_term_link( $link, $term, $taxonomy ) {
+	if ( ! is_page_template( 'page-templates/popular.php' ) )
+		return $link;
+
+	global $wp_query;
+
+	return add_query_arg( array( 'popular_cat' => $term->term_id ), get_permalink( get_page_by_path( $wp_query->query[ 'pagename' ] ) ) );
+}
+add_filter( 'term_link', 'marketify_popular_get_term_link', 10, 3 );
 
 /**
  * Implement the Custom Header feature.

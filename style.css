@@ -2777,10 +2777,19 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 .download-archive-widget.widget_recent_entries ul a:hover,
 .download-archive-widget.widget_meta ul a:hover,
 .download-archive-widget.widget_pages ul a:hover,
-.download-archive-widget.widget_categories ul a:hover
+.download-archive-widget.widget_categories ul a:hover,
 .download-archive-widget.widget_archive ul a:hover,
 .most-loved a:hover {
 	background-color: #f6f7f8;
+}
+
+.download-archive-widget.widget_categories ul ul {
+	border-left: 1px solid #eee;
+	margin: 5px 0 5px 15px;
+}
+
+.download-archive-widget.widget_categories ul ul a:hover {
+	background: none;
 }
 
 /* Download Single Widgets

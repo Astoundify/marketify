@@ -12,27 +12,6 @@ get_header(); ?>
 	<div class="container">
 		<div id="content" class="site-content row">
 
-			<div id="secondary" class="download-archive-widget-area col-sm-3 col-xs-12" role="complementary">
-				<aside class="widget download-archive-widget widget_categories">
-					<h1 class="download-archive-widget-title"><?php _e( 'Categories', 'marketify' ); ?></h1>
-					<?php
-						$categories = get_terms( 'download_category', array( 'hide_empty' => 0 ) );
-					?>
-					<ul>
-						<?php if ( ! $categories ) : ?>
-							<li><?php _e( 'No categories', 'marketify' ); ?></li>
-						<?php else : foreach ( $categories as $category ) : ?>
-							<?php
-								//$current = get_query_var( 'popular_cat' ) && get_query_var( 'popular_cat' ) != $category->term_id ? get_query_var( 'popular_cat' ) . ',' . $category->term_id : $category->term_id;
-								$link    = add_query_arg( array( 'popular_cat' => $category->term_id ), get_permalink( $post->ID ) );
-							?>
-
-							<li><a href="<?php echo esc_url( $link ); ?>"><?php echo esc_attr( $category->name ); ?></a></li>
-						<?php endforeach; endif; ?>
-					</ul>
-				</aside>
-			</div><!-- #secondary -->
-
 			<section id="primary" class="content-area col-sm-9 col-xs-12">
 				<main id="main" class="site-main" role="main">
 
@@ -88,7 +67,22 @@ get_header(); ?>
 				</main><!-- #main -->
 			</section><!-- #primary -->
 
+			<div id="secondary" class="download-archive-widget-area col-sm-3 col-xs-12" role="complementary">
+				<aside class="widget download-archive-widget widget_categories">
+					<h1 class="download-archive-widget-title"><?php _e( 'Categories', 'marketify' ); ?></h1>
+					<ul>
+						<?php
+							wp_list_categories( array(
+								'title_li' => '',
+								'taxonomy' => 'download_category',
+								'hide_empty' => false
+							) );
+						?>
+					</ul>
+				</aside>
+			</div><!-- #secondary -->
+
 		</div><!-- #content -->
 	</div>
-	
+
 <?php get_footer(); ?>
