@@ -147,12 +147,12 @@ Marketify.App = ( function($) {
 				directionNav   : false
 			});
 
-			$("a").live("touchstart", function(e) {
-				$(this).trigger("hover");
+			$( 'a' ).live( 'touchstart', function(e) {
+				$(this).trigger( 'hover' );
 			});
 
-			$("a").live("touchend", function(e) {
-				$(this).trigger("blur");
+			$( 'a' ).live( 'touchend', function(e) {
+				$(this).trigger( 'blur' );
 			});
 		},
 
