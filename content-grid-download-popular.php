@@ -11,7 +11,7 @@ if ( ! $popular->have_posts() )
 	return;
 ?>
 
-<div class="marketify_widget_featured_popular">
+<div class="marketify_widget_featured_popular popular">
 
 	<h1 class="section-title"><span><?php _e( 'Popular', 'marketify' ); ?></span></h1>
 

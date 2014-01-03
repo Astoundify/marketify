@@ -136,7 +136,7 @@ Marketify.App = ( function($) {
 
 			$( '#bbpress-forums #bbp-user-wrapper h2.entry-title, #bbpress-forums fieldset.bbp-form legend' ).wrapInner( '<span></span>' );
 
-			$( '.tax-download_category .marketify_widget_featured_popular .flexslider' ).flexslider({
+			$( '.marketify_widget_featured_popular.popular .flexslider' ).flexslider({
 				animation      : "slide",
 				slideshow      : false,
 				animationLoop  : false,
@@ -145,6 +145,14 @@ Marketify.App = ( function($) {
 				minItems       : 1,
 				maxItems       : 3,
 				directionNav   : false
+			});
+
+			$("a").live("touchstart", function(e) {
+				$(this).trigger("hover");
+			});
+
+			$("a").live("touchend", function(e) {
+				$(this).trigger("blur");
 			});
 		},
 
