@@ -1,0 +1,635 @@
+# Copyright (C) 2014 Astoundify
+# This file is distributed under the GNU General Public License.
+msgid ""
+msgstr ""
+"Project-Id-Version: Marketify 1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tags/marketify\n"
+"POT-Creation-Date: 2014-01-03 14:33:33+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: 404.php:11
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:22
+msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+msgstr ""
+
+#: 404.php:35
+msgid "Most Used Categories"
+msgstr ""
+
+#: archive-download.php:39 archive-download.php:41 archive-download.php:43
+#: page-templates/popular.php:23
+msgid "All %s"
+msgstr ""
+
+#: archive.php:23
+msgid "Blog Author: %s"
+msgstr ""
+
+#: archive.php:30
+msgid "Day: %s"
+msgstr ""
+
+#: archive.php:33
+msgid "Month: %s"
+msgstr ""
+
+#: archive.php:36
+msgid "Year: %s"
+msgstr ""
+
+#: archive.php:39
+msgid "Asides"
+msgstr ""
+
+#: archive.php:42
+msgid "Images"
+msgstr ""
+
+#: archive.php:45
+msgid "Videos"
+msgstr ""
+
+#: archive.php:48
+msgid "Quotes"
+msgstr ""
+
+#: archive.php:51
+msgid "Links"
+msgstr ""
+
+#: archive.php:54
+msgid "Archives"
+msgstr ""
+
+#: author.php:24
+msgid "%s&#39;s Wishlist"
+msgstr ""
+
+#: author.php:37 inc/widgets/class-widget-download-details.php:59
+#: inc/widgets/class-widget-download-sharing.php:57
+msgid "Author since: %s"
+msgstr ""
+
+#: author.php:45
+msgid "Product"
+msgid_plural "Products"
+msgstr[0] ""
+msgstr[1] ""
+
+#: author.php:47
+msgid "Love"
+msgid_plural "Loves"
+msgstr[0] ""
+msgstr[1] ""
+
+#: author.php:87
+msgid "Hey, it looks like %s has not liked anything yet!"
+msgstr ""
+
+#: bbpress/form-search.php:14 searchform-header.php:17 searchform.php:16
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: bbpress/form-search.php:15 searchform-header.php:18 searchform.php:17
+msgid "Search"
+msgstr ""
+
+#: bbpress/form-search.php:15 searchform-header.php:18 searchform.php:17
+msgid "Search for:"
+msgstr ""
+
+#: comments.php:29
+msgid "Customer Reviews"
+msgstr ""
+
+#: comments.php:31
+msgid "Comments"
+msgstr ""
+
+#: comments.php:50
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:51
+msgid "Older Comments"
+msgstr ""
+
+#: comments.php:52
+msgid "Newer Comments"
+msgstr ""
+
+#: content-author.php:25 content.php:24 page-templates/team.php:55
+msgid "View all posts by %s"
+msgstr ""
+
+#: content-grid-download-popular.php:16
+#: inc/widgets/class-widget-featured-popular.php:128
+msgid "Popular"
+msgstr ""
+
+#: content-page.php:14 content-single-download.php:21 content-single.php:17
+msgid "Pages:"
+msgstr ""
+
+#: content-single-download.php:9
+msgid "About the Product"
+msgstr ""
+
+#: content-single.php:25 content.php:39
+msgid "<i class=\"icon-pencil\"></i> Edit"
+msgstr ""
+
+#: content.php:21
+msgid "<span class=\"byline\">%1$s</span>"
+msgstr ""
+
+#: content.php:36
+msgid "<i class=\"icon-chat\"></i> 0 Comments"
+msgstr ""
+
+#: content.php:36
+msgid "<i class=\"icon-chat\"></i> 1 Comment"
+msgstr ""
+
+#: content.php:36
+msgid "<i class=\"icon-chat\"></i> % Comments"
+msgstr ""
+
+#: edd_templates/shortcode-content-image.php:18
+msgid "Item Price: %s"
+msgstr ""
+
+#: edd_templates/shortcode-content-title.php:8
+msgid "<span class=\"byline\"> by %1$s</span>"
+msgstr ""
+
+#: edd_templates/shortcode-content-title.php:11
+msgid "View all %s by %s"
+msgstr ""
+
+#: fes_templates/frontend-dashboard.php:3
+msgid "Visit Portfolio"
+msgstr ""
+
+#: footer.php:45
+msgid "Contact Us"
+msgstr ""
+
+#: footer.php:69
+msgid "&copy; %d %s. All rights reserved."
+msgstr ""
+
+#: functions.php:65
+msgid "Grid Image"
+msgstr ""
+
+#: functions.php:76
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:77
+msgid "Footer Social"
+msgstr ""
+
+#: functions.php:345
+msgid "Homepage"
+msgstr ""
+
+#: functions.php:346
+msgid "Widgets that appear on the \"Homepage 1\" Page Template"
+msgstr ""
+
+#: functions.php:356
+msgid "Sidebar"
+msgstr ""
+
+#: functions.php:367
+msgid "%s Archive Sidebar"
+msgstr ""
+
+#: functions.php:377
+msgid "%s Single Sidebar"
+msgstr ""
+
+#: functions.php:387
+msgid "%s Single Comments Sidebar"
+msgstr ""
+
+#: functions.php:406
+msgid "Footer"
+msgstr ""
+
+#: functions.php:407
+msgid "Widgets that appear in the page footer"
+msgstr ""
+
+#: functions.php:424
+msgid "Price Table"
+msgstr ""
+
+#: functions.php:426
+msgid "Drag multiple \"Price Option\" widgets here. Then drag the \"Pricing Table\" widget to the \"Homepage\" Widget Area."
+msgstr ""
+
+#. Translators: If there are characters in your language that are not
+#. 	 * supported by Source Sans Pro, translate this to 'off'. Do not translate
+#. 	 * into your own language.
+
+#: functions.php:450
+msgctxt "Source Sans Pro font: on or off"
+msgid "on"
+msgstr ""
+
+#. Translators: If there are characters in your language that are not
+#. 	 * supported by Roboto Slab, translate this to 'off'. Do not translate into
+#. your
+#. 	 * own language.
+
+#: functions.php:456
+msgctxt "Roboto Slab font: on or off"
+msgid "on"
+msgstr ""
+
+#. Translators: If there are characters in your language that are not
+#. 	 * supported by Montserrat, translate this to 'off'. Do not translate into
+#. your
+#. 	 * own language.
+
+#: functions.php:462
+msgctxt "Montserrat font: on or off"
+msgid "on"
+msgstr ""
+
+#. Translators: If there are characters in your language that are not
+#. 	 * supported by Pacifico, translate this to 'off'. Do not translate into
+#. your
+#. 	 * own language.
+
+#: functions.php:468
+msgctxt "Pacifico font: on or off"
+msgid "on"
+msgstr ""
+
+#: inc/customizer.php:47
+msgctxt "Theme customizer section title"
+msgid "General"
+msgstr ""
+
+#: inc/customizer.php:52
+msgctxt "Theme customizer section title"
+msgid "Footer"
+msgstr ""
+
+#: inc/customizer.php:75
+msgid "Style"
+msgstr ""
+
+#: inc/customizer.php:78
+msgid "Dark"
+msgstr ""
+
+#: inc/customizer.php:79
+msgid "Light"
+msgstr ""
+
+#: inc/customizer.php:84
+msgid "Contact Address"
+msgstr ""
+
+#: inc/customizer.php:89
+msgid "Logo"
+msgstr ""
+
+#: inc/customizer.php:96
+msgid "Page Header Color"
+msgstr ""
+
+#: inc/customizer.php:101
+msgid "Button/Primary Color"
+msgstr ""
+
+#: inc/customizer.php:106
+msgid "Accent Color"
+msgstr ""
+
+#: inc/extras.php:76
+msgid "Page %s"
+msgstr ""
+
+#: inc/integrations/bbpress/bbpress.php:20
+msgid "Home"
+msgstr ""
+
+#: inc/integrations/edd/edd.php:185
+msgid "%s Video URL"
+msgstr ""
+
+#: inc/integrations/edd/edd.php:187
+msgid "%s Demo URL"
+msgstr ""
+
+#: inc/integrations/edd-recommended/recommended.php:42
+msgid "Recommended Products"
+msgstr ""
+
+#: inc/template-tags.php:235
+msgid "Update Required"
+msgstr ""
+
+#: inc/template-tags.php:236
+msgid "To play the media you will need to either update your browser to a recent version or update your <a href=\"http://get.adobe.com/flashplayer/\" target=\"_blank\">Flash plugin</a>."
+msgstr ""
+
+#: inc/template-tags.php:263 inc/widgets/class-widget-download-details.php:65
+msgid "Purchase"
+msgstr ""
+
+#: inc/template-tags.php:305
+msgid "Demo"
+msgstr ""
+
+#: inc/template-tags.php:338
+msgid "Purchased"
+msgstr ""
+
+#: inc/template-tags.php:354
+msgctxt "1: date, 2: time"
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: inc/template-tags.php:368
+msgid "Edit"
+msgstr ""
+
+#: inc/template-tags.php:372
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: inc/template-tags.php:424
+msgctxt "noun"
+msgid "Menu"
+msgstr ""
+
+#: inc/template-tags.php:460
+msgid "Post navigation"
+msgstr ""
+
+#: inc/widgets/class-widget-download-details.php:14
+#: inc/widgets/class-widget-download-sharing.php:14
+msgid "Display information related to the current download"
+msgstr ""
+
+#: inc/widgets/class-widget-download-details.php:16
+#: inc/widgets/class-widget-download-sharing.php:16
+msgid "Marketify Download Product Details"
+msgstr ""
+
+#: inc/widgets/class-widget-download-details.php:21
+#: inc/widgets/class-widget-download-review-details.php:21
+#: inc/widgets/class-widget-download-share.php:21
+#: inc/widgets/class-widget-download-sharing.php:21
+#: inc/widgets/class-widget-downloads-recent.php:21
+#: inc/widgets/class-widget-price-table.php:21
+msgid "Title:"
+msgstr ""
+
+#: inc/widgets/class-widget-download-details.php:80
+msgid "Average Rating"
+msgstr ""
+
+#: inc/widgets/class-widget-download-details.php:85
+msgid "Comment"
+msgid_plural "Comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/widgets/class-widget-download-review-details.php:14
+msgid "Display average review information."
+msgstr ""
+
+#: inc/widgets/class-widget-download-review-details.php:16
+msgid "Marketify Download Product Review Details"
+msgstr ""
+
+#: inc/widgets/class-widget-download-review-details.php:71
+msgid "Buyer Ratings"
+msgstr ""
+
+#: inc/widgets/class-widget-download-review-details.php:86
+msgid "%s average based on %d reviews."
+msgstr ""
+
+#: inc/widgets/class-widget-download-share.php:14
+msgid "Display sharing options for this product."
+msgstr ""
+
+#: inc/widgets/class-widget-download-share.php:16
+msgid "Marketify Download Share"
+msgstr ""
+
+#: inc/widgets/class-widget-download-share.php:26
+#: inc/widgets/class-widget-price-option.php:27
+msgid "Description:"
+msgstr ""
+
+#: inc/widgets/class-widget-downloads-recent.php:14
+msgid "Display recent %s in a grid."
+msgstr ""
+
+#: inc/widgets/class-widget-downloads-recent.php:16
+msgid "Marketify Recent %s"
+msgstr ""
+
+#: inc/widgets/class-widget-downloads-recent.php:29
+#: inc/widgets/class-widget-featured-popular.php:24
+msgid "Number to display:"
+msgstr ""
+
+#: inc/widgets/class-widget-featured-popular.php:14
+msgid "Display featured and popular %s in sliding grid."
+msgstr ""
+
+#: inc/widgets/class-widget-featured-popular.php:16
+msgid "Marketify Featured &amp; Popular %s"
+msgstr ""
+
+#: inc/widgets/class-widget-featured-popular.php:29
+msgid "Based on the current:"
+msgstr ""
+
+#: inc/widgets/class-widget-featured-popular.php:31
+msgid "Day"
+msgstr ""
+
+#: inc/widgets/class-widget-featured-popular.php:32
+msgid "Week"
+msgstr ""
+
+#: inc/widgets/class-widget-featured-popular.php:33
+msgid "Month"
+msgstr ""
+
+#: inc/widgets/class-widget-featured-popular.php:34
+msgid "Year"
+msgstr ""
+
+#: inc/widgets/class-widget-featured-popular.php:40
+msgid "Automatically scroll items"
+msgstr ""
+
+#: inc/widgets/class-widget-featured-popular.php:45
+msgid "Slideshow Speed (ms)"
+msgstr ""
+
+#: inc/widgets/class-widget-featured-popular.php:124
+msgid "Featured"
+msgstr ""
+
+#: inc/widgets/class-widget-price-option.php:14
+msgid "Create a price option for the pricing table."
+msgstr ""
+
+#: inc/widgets/class-widget-price-option.php:16
+msgid "Marketify Price Option"
+msgstr ""
+
+#: inc/widgets/class-widget-price-option.php:21
+msgid "Background Color:"
+msgstr ""
+
+#: inc/widgets/class-widget-price-option.php:31
+msgid "Use <code>h2</code> tags for large titles, and <code>h3</code> tags for subtitles. Unordered lists create a great look."
+msgstr ""
+
+#: inc/widgets/class-widget-price-table.php:14
+msgid "Output the price table (based on the \"Price Table\" widget area)"
+msgstr ""
+
+#: inc/widgets/class-widget-price-table.php:16
+msgid "Marketify Price Table"
+msgstr ""
+
+#: inc/widgets/class-widget-price-table.php:25
+msgid "Drag \"Price Option\" widgets to the \"Price Table\" widget area to populate this widget."
+msgstr ""
+
+#: inc/widgets/class-widget-slider-soliloquy.php:14
+msgid "Display \"Hero\" Soliloquy slider."
+msgstr ""
+
+#: inc/widgets/class-widget-slider-soliloquy.php:16
+msgid "Marketify Solioquy Slider"
+msgstr ""
+
+#: inc/widgets/class-widget-slider-soliloquy.php:20
+msgid "Slider:"
+msgstr ""
+
+#: inc/widgets/class-widget-slider-soliloquy.php:126
+msgid "Retina Images"
+msgstr ""
+
+#: inc/widgets/class-widget-slider-soliloquy.php:129
+msgid "Load images for retina (upload <code>@2x</code> images)"
+msgstr ""
+
+#: inc/widgets/class-widget-slider.php:14
+msgid "Display any slider that supports shortcodes."
+msgstr ""
+
+#: inc/widgets/class-widget-slider.php:16
+msgid "Marketify Slider"
+msgstr ""
+
+#: inc/widgets/class-widget-slider.php:21
+msgid "Slider Shortcode"
+msgstr ""
+
+#: index.php:18
+msgid "Search Results: %s"
+msgstr ""
+
+#: index.php:20
+msgctxt "blog page title"
+msgid "Blog"
+msgstr ""
+
+#: modal-download-purchase.php:10
+msgid "Buying Options"
+msgstr ""
+
+#: no-results.php:15
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: no-results.php:19
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: no-results.php:27
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: page-templates/popular.php:72
+msgid "Categories"
+msgstr ""
+#. Theme Name of the plugin/theme
+msgid "Marketify"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "http://astoundify.com/themes/marketify"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Your beautiful handcrafted digital marketplace."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Astoundify"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://astoundify.com"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Full Width"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Homepage"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Minimal"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Popular Items"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Pricing Table"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Single Column"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "The Team"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Wishlist"
+msgstr ""

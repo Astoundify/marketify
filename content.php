@@ -17,7 +17,7 @@
 
 			<div class="entry-meta">
 				<?php
-					printf( 
+					printf(
 						__( '<span class="byline">%1$s</span>', 'marketify' ),
 						sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s %4$s</a></span>',
 							esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
