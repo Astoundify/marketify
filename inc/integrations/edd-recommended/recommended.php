@@ -25,7 +25,7 @@ function marketify_recommended_products() {
 		$suggestion_data = edd_rp_get_suggestions( $post->ID );
 	} else {
 		$cart_items = edd_get_cart_contents();
-		
+
 		$post_ids        = wp_list_pluck( $cart_items, 'id' );
 		$user_id         = is_user_logged_in() ? get_current_user_id() : false;
 		$suggestion_data = edd_rp_get_multi_suggestions( $post_ids, $user_id );
@@ -36,9 +36,13 @@ function marketify_recommended_products() {
 
 	$suggestions = array_keys( $suggestion_data );
 
-	$suggested_downloads = new WP_Query( array( 'post__in' => $suggestions, 'post_type' => 'download' ) );
+	$suggested_downloads = new WP_Query( array(
+		'post__in'       => $suggestions,
+		'post_type'      => 'download',
+		'posts_per_page' => edd_get_option( 'edd_rp_suggestion_count' )
+	) );
 ?>
-	
+
 	<h1 class="section-title"><span><?php _e( 'Recommended Products', 'marketify' ); ?></span></h1>
 
 	<div class="row edd-recommended-products">
