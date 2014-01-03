@@ -136,7 +136,7 @@ Marketify.App = ( function($) {
 
 			$( '#bbpress-forums #bbp-user-wrapper h2.entry-title, #bbpress-forums fieldset.bbp-form legend' ).wrapInner( '<span></span>' );
 
-			$( '.marketify_widget_featured_popular .flexslider' ).flexslider({
+			$( '.tax-download_category .marketify_widget_featured_popular .flexslider' ).flexslider({
 				animation      : "slide",
 				slideshow      : false,
 				animationLoop  : false,
