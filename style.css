@@ -424,9 +424,6 @@ a.button,
 	-webkit-transition: all 0.2s;
 	-moz-transition:    all 0.2s;
 	transition:         all 0.2s;
-
-	border-color: red;
-	color: red;
 }
 
 button:hover,
@@ -435,19 +432,21 @@ input[type=submit]:hover,
 .button:hover,
 a.button:hover {
 	color: #fff;
-
-	background-color: red;
 }
 
-a.button.purchased,
-a.button.purchased:hover {
-	font-size: 10px;
-	margin: 10px auto;
-	padding: 5px 10px;
-	display: block;
-	border-color: #bdc3c7;
-	color: #bdc3c7;
-	background: transparent;
+.button.small,
+a.button.small,
+a.edd-cart-saving-button,
+input[name="edd_update_cart_submit"] {
+	font-size: 12px;
+	padding: 6px 10px;
+}
+
+.button.fullsize,
+#edd-purchase-button {
+	font-size: 15px;
+	padding: 14px 20px;
+	width: 100%;
 }
 
 /* Alignment */
@@ -673,8 +672,7 @@ a.button.purchased:hover {
 	border-color: transparent;
 }
 
-.main-navigation a:hover,
-.page-header .edd-submit.button {
+.main-navigation a:hover {
 	color: #fff;
 	border-color: #fff;
 }
@@ -1009,14 +1007,21 @@ body:not(.minimal) .edd_form fieldset > span:after {
 .entry-content .fes-section-wrap h2,
 body:not(.minimal) .edd_form fieldset > span legend {
 	font-size: 15px;
-	color: #bdc3c7;
 	text-align: center;
 	margin: 0 auto;
 	background: #fff;
-	border-color: #bdc3c7;
 	border-width: 3px;
 	z-index: 10;
 	position: relative;
+}
+
+.section-title span,
+.home-widget-title span,
+#edd_checkout_form_wrap fieldset > span legend,
+.entry-content .fes-section-wrap h2,
+body:not(.minimal) .edd_form fieldset > span legend {
+	color: #bdc3c7;
+	border-color: #bdc3c7;
 }
 
 /* =Homepage 1

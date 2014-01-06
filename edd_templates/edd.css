@@ -60,6 +60,11 @@
 
 .edd_price_options label {
 	cursor: pointer;
+	font-size: 14px;
+	font-weight: 400;
+	text-transform: none;
+	letter-spacing: 0;
+	margin-bottom: 0;
 }
 
 .edd_price_options input[type="radio"] {
@@ -294,10 +299,7 @@
 }
 
 #edd_checkout_form_wrap #edd-payment-mode-wrap .edd-payment-mode-label {
-	font-weight: bold;
-	display: inline-block;
-	position: relative;
-	margin-bottom: 5px;
+	display: none;
 }
 
 #edd_checkout_form_wrap #edd-login-account-wrap,
@@ -339,11 +341,6 @@
 	border: 0;
 	background: transparent;
 	position: relative;
-}
-
-#edd_checkout_form_wrap fieldset#edd_cc_fields legend {
-	border: none;
-	padding: 0;
 }
 
 #edd_checkout_form_wrap fieldset p:last-child {
@@ -413,6 +410,11 @@
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
+}
+
+#edd_checkout_form_wrap .edd-icon-spin {
+	margin-top: 1em;
+	display: block;
 }
 
 /* =Ajax Add To Cart Button
