@@ -290,6 +290,7 @@
 	display:block;
 	width: 100%;
 	margin-top: 8px;
+	border: 0;
 }
 
 #edd_checkout_form_wrap select.edd-select {

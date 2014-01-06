@@ -3854,10 +3854,6 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 		display: none;
 	}
 
-	.marketify_widget_featured_popular .flex-control-nav {
-		top: 145px;
-	}
-
 	/** Download */
 	.download-product-details .download-purchases {
 		width: 100%;
