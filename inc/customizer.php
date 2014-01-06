@@ -34,7 +34,7 @@ function marketify_theme_mod( $section, $key, $_default = false ) {
 	return apply_filters( 'marketify_theme_mod_' . $key, $mod );
 }
 
-/** 
+/**
  * Register two new sections: General, and Social.
  *
  * @since Marketify 1.0
@@ -134,7 +134,7 @@ function marketify_get_theme_mods( $args = array() ) {
 /**
  * Register settings.
  *
- * Take the final list of theme mods, and register all the settings, 
+ * Take the final list of theme mods, and register all the settings,
  * and add all of the proper controls.
  *
  * If the type is one of the default supported ones, add it normally. Otherwise
@@ -194,9 +194,9 @@ add_action( 'customize_register', 'marketify_customize_register_settings' );
 function marketify_customize_register_transport( $wp_customize ) {
 	$built_in = array( 'blogname' => '', 'blogdescription' => '', 'header_textcolor' => '' );
 	$marketify   = marketify_get_theme_mods( array( 'keys_only' => true ) );
-	
+
 	$transport = array_merge( $built_in, $marketify );
-	
+
 	foreach ( $transport as $key => $default ) {
 		if ( in_array( $key, array( 'footer-style', 'footer-logo', 'footer-contact-address' ) ) )
 			$wp_customize->get_setting( $key )->transport = 'refresh';
@@ -244,7 +244,7 @@ function marketify_customize_textarea_control( $wp_customize ) {
 		</label>
 	<?php
 		}
-	} 
+	}
 }
 add_action( 'customize_register', 'marketify_customize_textarea_control', 1, 1 );
 
@@ -262,252 +262,93 @@ function marketify_hex2rgb($hex) {
 	}
 
 	$rgb = array($r, $g, $b);
-	
+
 	return implode(",", $rgb);
 }
 
 /**
  * Output the basic extra CSS for primary and accent colors.
- * Split away from widget colors for brevity. 
+ * Split away from widget colors for brevity.
  *
  * @since Marketify 1.0
  */
 function marketify_header_css() {
 	$css = "
-		.site-header,
-		.site-footer,
-		.page-header,
-		body.page-template-page-templatesminimal-php,
-		body.custom-background.page-template-page-templatesminimal-php,
-		.header-outer,
-		.minimal .entry-content .edd-slg-social-container span legend {
-			background-color: " . marketify_theme_mod( 'colors', 'header' ) . ";
-		}
+	.site-header,
+	.site-footer,
+	.page-header,
+	body.minimal,
+	body.custom-background.minimal,
+	.header-outer,
+	.minimal .entry-content .edd-slg-social-container span legend {
+		background-color: " . marketify_theme_mod( 'colors', 'header' ) . ";
+	}
 
-		.page-header .edd-submit.button:hover, 
-		.page-header a.edd-submit.button:hover, 
-		.page-header a.edd-submit.button:visited:hover,
-		.page-header .edd-submit.button.gray:hover,
-		.page-header .button:hover,
-		.soliloquy-caption-wrap .button:hover {
-			color: " . marketify_theme_mod( 'colors', 'header' ) . ";
-		}
+	button,
+	input[type=reset],
+	input[type=submit],
+	.button,
+	a.button,
+	.page-header .button:hover,
+	.content-grid-download .button:hover,
+	#edd_checkout_form_wrap fieldset#edd_cc_fields legend {
+		color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
+	}
 
-		button:hover,
-		html input[type=button]:not(.ed_button):hover,
-		input[type=reset]:hover,
-		input[type=submit]:hover,
-		.button:hover,
-		.widget .cart_item.edd_checkout a:hover,
-		.edd-submit.button:hover, 
-		a.edd-submit.button:hover,
-		.edd-submit.button.gray:hover,
-		.content-grid-download .entry-image .overlay,
-		.widget .cart_item.edd_checkout a:hover,
-		.search-form .search-submit,
-		.marketify_widget_featured_popular .flex-control-nav .flex-active,
-		#edd_checkout_form_wrap fieldset#edd_cc_fields > span:after,
-		div.fes-form fieldset .fes-fields a.file-selector:hover,
-		div.fes-form .fes-submit input[type=submit]:hover,
-		#edd-purchase-button:hover,
-		.fes-button:hover,
-		div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image:hover {
-			background-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
-			background-image: none;
-		}
+	button,
+	input[type=reset],
+	input[type=submit],
+	.button,
+	a.button,
+	.edd_price_options input[type=radio]:checked,
+	#edd_checkout_form_wrap fieldset#edd_cc_fields legend {
+		border-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
+	}
 
-		.widget .cart_item.edd_checkout a,
-		.site-footer.light .footer-social a,
-		.site-footer.light .site-title a,
-		button,
-		html input[type=button]:not(.ed_button),
-		input[type=reset],
-		input[type=submit],
-		.button,
-		.button:visited,
-		a.button,
-		.widget .cart_item.edd_checkout a,
-		.edd-submit.button, 
-		a.edd-submit.button, 
-		a.edd-submit.button:visited,
-		.edd-submit.button.gray,
-		.edd-add-to-cart.button.edd-submit:hover,
-		.edd_go_to_checkout.button.edd-submit,
-		.edd-add-to-cart.edd-submit.button:hover, 
-		a.edd-add-to-cart.edd-submit.button:hover,
-		.edd_go_to_checkout.edd-submit.button,
-		a.edd_go_to_checkout.edd-submit.button,
-		.entry-image .button:hover,
-		.entry-image .edd-submit.button:hover, 
-		.entry-image a.edd-submit.button:hover, 
-		.entry-image a.edd-submit.button:visited:hover,
-		.entry-image .edd-submit.button.gray:hover,
-		#edd_checkout_form_wrap fieldset#edd_cc_fields > span legend,
-		#fes-wraper .fes-menu nav ul li.active a,
-		#fes-wraper .fes-menu nav ul li:hover a,
-		.whistles-tabs .whistles-tabs-nav li[aria-selected='true'] a,
-		div.fes-form .fes-submit input[type=submit],
-		#edd-purchase-button,
-		.entry-content div[itemprop=description] .download-variable .edd-add-to-cart.button.edd-submit:hover,
-		.entry-content div[itemprop=description] .download-variable .edd_go_to_checkout.button.edd-submit,
-		.marketify_widget_featured_popular .home-widget-title span:hover,
-		.marketify-edd-rating .review-title-text,
-		#fes-image_upload-pickfiles,
-		div.fes-form fieldset .fes-fields a.file-selector,
-		#fes-avatar-pickfiles,
-		div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image,
-		.edd-cart-added-alert {
-			color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
-		}
+	button:hover,
+	input[type=reset]:hover,
+	input[type=submit]:hover,
+	.button:hover,
+	a.button:hover,
+	#edd_checkout_form_wrap fieldset#edd_cc_fields > span:after {
+		background-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
+	}
 
-		button,
-		html input[type=button]:not(.ed_button),
-		input[type=reset],
-		input[type=submit],
-		.button,
-		.button:visited,
-		.widget .cart_item.edd_checkout a,
-		.edd-submit.button, 
-		a.edd-submit.button, 
-		a.edd-submit.button:visited,
-		.edd-submit.button.gray,
-		.widget .cart_item.edd_checkout a,
-		.edd_price_options input:checked,
-		.edd-add-to-cart.button.edd-submit:hover,
-		.edd_go_to_checkout.button.edd-submit,
-		.edd-add-to-cart.edd-submit.button:hover, 
-		a.edd-add-to-cart.edd-submit.button:hover,
-		.edd_go_to_checkout.edd-submit.button, 
-		a.edd_go_to_checkout.edd-submit.button,
-		#edd_checkout_form_wrap fieldset#edd_cc_fields > span legend,
-		.entry-content div.fes-form fieldset .fes-fields a.file-selector:hover,
-		div.fes-form .fes-submit input[type=submit],
-		#edd-purchase-button,
-		.entry-content .download-variable .edd-add-to-cart.button.edd-submit:hover,
-		.entry-content .download-variable .edd_go_to_checkout.button.edd-submit,
-		.marketify_widget_featured_popular .home-widget-title span:hover,
-		.fes-button:hover,
-		#fes-image_upload-pickfiles,
-		div.fes-form fieldset .fes-fields a.file-selector,
-		#fes-avatar-pickfiles,
-		div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image {
-			border-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
-		}
+	a.edd-cart-saving-button,
+	input[name=edd_update_cart_submit],
+	.download-variable .entry-content .edd-add-to-cart.button.edd-submit:hover,
+	.download-variable .entry-content .edd_go_to_checkout.button.edd-submit:hover,
+	.popup .edd-add-to-cart.button.edd-submit:hover {
+		color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
+	}
 
-		.main-navigation .search-form.active .search-submit,
-		#edd_checkout_cart a.edd-cart-saving-button:hover,
-		.edd-fes-adf-submission-add-option-button:hover,
-		#edd_checkout_cart input[type=submit].edd-submit:hover,
-		.minimal #edd-purchase-button,
-		.main-navigation.toggled .search-form .search-submit,
-		.minimal input[type=submit]:not([name=edd_update_cart_submit]),
-		.minimal input[type=submit]:not([name=edd_update_cart_submit]):hover,
-		.popup .edd_go_to_checkout.button.edd-submit,
-		.edd-reviews-voting-buttons a:hover,
-		.site-footer .mailbag-input .button {
-			background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
-		}
+	a.edd-cart-saving-button,
+	input[name=edd_update_cart_submit],
+	.download-variable .entry-content .edd-add-to-cart.button.edd-submit:hover,
+	.download-variable .entry-content .edd_go_to_checkout.button.edd-submit:hover,
+	.popup .edd-add-to-cart.button.edd-submit:hover,
+	.popup .edd_go_to_checkout.button.edd-submit,
+	.popup .edd_go_to_checkout.button.edd-submit:hover {
+		border-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
+	}
 
-		#edd_checkout_cart a.edd-cart-saving-button,
-		#edd_checkout_cart input[type=submit].edd-submit,
-		a.edd-fes-adf-submission-add-option-button,
-		.popup .edd_go_to_checkout.button.edd-submit:hover,
-		.popup .edd-add-to-cart.button.edd-submit:hover,
-		.edd-reviews-voting-buttons a {
-			color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
-		}
+	a.edd-cart-saving-button:hover,
+	input[name=edd_update_cart_submit]:hover,
+	.minimal input[type=submit],
+	.popup .edd_go_to_checkout.button.edd-submit,
+	.popup .edd_go_to_checkout.button.edd-submit:hover {
+		background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
+	}
 
-		#edd_checkout_cart a.edd-cart-saving-button,
-		#edd_checkout_cart input[type=submit].edd-submit,
-		.edd-fes-adf-submission-add-option-button,
-		.minimal #edd-purchase-button,
-		.minimal input[type=submit]:not([name=edd_update_cart_submit]),
-		.popup .edd_go_to_checkout.button.edd-submit,
-		.popup .edd-add-to-cart.button.edd-submit:hover,
-		.edd-reviews-voting-buttons a,
-		.site-footer .mailbag-input .button {
-			border-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
-		}
+	.site-footer.light, {
+		background-color: #" . get_theme_mod( 'background_color' ) . ";
+	}
 
-		.site-footer.light, {
-			background-color: #" . get_theme_mod( 'background_color' ) . ";
-		}
+	.content-grid-download .entry-image:hover .overlay {
+		background: rgba( " . marketify_hex2rgb( marketify_theme_mod( 'colors', 'primary' ) ) . ", .80 );
+		border: 1px solid rgba( " . marketify_hex2rgb( marketify_theme_mod( 'colors', 'primary' ) ) . ", .80 );
+	}";
 
-		.content-grid-download .entry-image:hover .overlay {
-			background: rgba( " . marketify_hex2rgb( marketify_theme_mod( 'colors', 'primary' ) ) . ", .80 );
-			border: 1px solid rgba( " . marketify_hex2rgb( marketify_theme_mod( 'colors', 'primary' ) ) . ", .80 );
-		}
-
-		.edd-add-to-cart.edd-submit.button, 
-		a.edd-add-to-cart.edd-submit.button {
-			border-color: #bcc3c8;
-		}
-
-		.edd-add-to-cart.edd-submit.button, 
-		a.edd-add-to-cart.edd-submit.button {
-			color: #bcc3c8;
-		}
-
-		.page-header .button,
-		.entry-image .button,
-		.entry-image .edd-submit.button, 
-		.entry-image a.edd-submit.button, 
-		.entry-image a.edd-submit.button:visited,
-		.entry-image .edd-submit.button.gray,
-		.page-header .edd-submit.button, 
-		.page-header a.edd-submit.button, 
-		.page-header a.edd-submit.button:visited,
-		.page-header .edd-submit.button.gray,
-		.soliloquy-caption-wrap .button {
-			color: #fff;
-			border-color: #fff !important;
-		}
-
-		.page-header .button:hover,
-		.entry-image .button:hover,
-		.entry-image .edd-submit.button:hover, 
-		.entry-image a.edd-submit.button:hover, 
-		.entry-image a.edd-submit.button:visited:hover,
-		.entry-image .edd-submit.button.gray:hover,
-		.page-header .edd-submit.button:hover, 
-		.page-header a.edd-submit.button:hover, 
-		.page-header a.edd-submit.button:visited:hover,
-		.page-header .edd-submit.button.gray:hover,
-		.page-header .edd-add-to-cart.button.edd-submit:hover,
-		.soliloquy-caption-wrap .button:hover,
-		.popup .edd_go_to_checkout.button.edd-submit:hover,
-		.popup .edd-submit.button:hover, 
-		.popup a.edd-submit.button:hover, 
-		.popup .edd-submit.button.gray:hover,
-		div.fes-form fieldset .fes-fields a.file-selector {
-			background-color: #fff;
-		}
-
-		.page-template-page-templatesminimal-php,
-		.page-template-page-templatesminimal-php label,
-		.page-template-page-templatesminimal-php a,
-		.entry-content div[itemprop=description] .edd-add-to-cart.button.edd-submit:hover,
-		.entry-content div[itemprop=description] .edd_download_inner .edd-add-to-cart.button.edd-submit:hover,
-		.entry-content div[itemprop=description] .download-variable .edd-add-to-cart.button.edd-submit:hover,
-		.entry-content div[itemprop=description] .download-variable .edd_download_inner .edd-add-to-cart.button.edd-submit:hover,
-		.entry-content div[itemprop=description] .download-variable .edd_go_to_checkout.button.edd-submit:hover,
-		#edd_checkout_cart a.edd-cart-saving-button:hover,
-		div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image:hover,
-		a.edd-fes-adf-submission-add-option-button:hover,
-		#edd_checkout_cart input[type=submit].edd-submit:hover,
-		div.fes-form .fes-submit input[type=submit]:hover,
-		#edd-purchase-button:hover,
-		.minimal #edd-purchase-button,
-		#fes-image_upload-pickfiles:hover,
-		div.fes-form fieldset .fes-fields a.file-selector:hover,
-		#fes-avatar-pickfiles:hover,
-		.minimal input[type=submit],
-		.popup .edd_go_to_checkout.button.edd-submit,
-		.edd-reviews-voting-buttons a:hover,
-		.site-footer .mailbag-input .button {
-			color: #fff;
-		}";
-
-	wp_add_inline_style( 'marketify-base', $css );
+	wp_add_inline_style( 'marketify-base', trim( str_replace( array( "\t", "\r", "\n" ), '', $css ) ) );
 }
 add_action( 'wp_enqueue_scripts', 'marketify_header_css' );

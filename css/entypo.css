@@ -51,7 +51,9 @@ input[type="radio"] + label::before,
 .edd_repeatable_upload_field_container .edd_upload_file a:before,
 div.bbp-breadcrumb p:before,
 div.bbp-topic-tags p:before,
-div.bbp-template-notice p:before {
+div.bbp-template-notice p:before,
+#edd_secure_site_wrapper span.padlock:before,
+.edd-icon-spinner:before {
   font-family: 'fontello';
   font-style: normal;
   font-weight: normal;
