@@ -274,90 +274,81 @@ function marketify_hex2rgb($hex) {
  */
 function marketify_header_css() {
 	$css = "
-		.site-header,
-		.site-footer,
-		.page-header,
-		body.page-template-page-templatesminimal-php,
-		body.custom-background.page-template-page-templatesminimal-php,
-		.header-outer,
-		.minimal .entry-content .edd-slg-social-container span legend {
-			background-color: " . marketify_theme_mod( 'colors', 'header' ) . ";
-		}
+	.site-header,
+	.site-footer,
+	.page-header,
+	body.minimal,
+	body.custom-background.minimal,
+	.header-outer,
+	.minimal .entry-content .edd-slg-social-container span legend {
+		background-color: " . marketify_theme_mod( 'colors', 'header' ) . ";
+	}
 
-		.nothing {
-			color: " . marketify_theme_mod( 'colors', 'header' ) . ";
-		}
+	button,
+	input[type=reset],
+	input[type=submit],
+	.button,
+	a.button,
+	.page-header .button:hover,
+	.content-grid-download .button:hover,
+	#edd_checkout_form_wrap fieldset#edd_cc_fields legend {
+		color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
+	}
 
-		button,
-		input[type=reset],
-		input[type=submit],
-		.button,
-		a.button,
-		.page-header .button:hover,
-		.content-grid-download .button:hover,
+	button,
+	input[type=reset],
+	input[type=submit],
+	.button,
+	a.button,
+	.edd_price_options input[type=radio]:checked,
+	#edd_checkout_form_wrap fieldset#edd_cc_fields legend {
+		border-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
+	}
 
-		#edd_checkout_form_wrap fieldset#edd_cc_fields legend {
-			color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
-		}
+	button:hover,
+	input[type=reset]:hover,
+	input[type=submit]:hover,
+	.button:hover,
+	a.button:hover,
+	#edd_checkout_form_wrap fieldset#edd_cc_fields > span:after {
+		background-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
+	}
 
-		button,
-		input[type=reset],
-		input[type=submit],
-		.button,
-		a.button,
+	a.edd-cart-saving-button,
+	input[name=edd_update_cart_submit],
+	.download-variable .entry-content .edd-add-to-cart.button.edd-submit:hover,
+	.download-variable .entry-content .edd_go_to_checkout.button.edd-submit:hover,
+	.popup .edd-add-to-cart.button.edd-submit:hover {
+		color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
+	}
 
-		.edd_price_options input[type=radio]:checked,
-		#edd_checkout_form_wrap fieldset#edd_cc_fields legend {
-			border-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
-		}
+	a.edd-cart-saving-button,
+	input[name=edd_update_cart_submit],
+	.download-variable .entry-content .edd-add-to-cart.button.edd-submit:hover,
+	.download-variable .entry-content .edd_go_to_checkout.button.edd-submit:hover,
+	.popup .edd-add-to-cart.button.edd-submit:hover,
+	.popup .edd_go_to_checkout.button.edd-submit,
+	.popup .edd_go_to_checkout.button.edd-submit:hover {
+		border-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
+	}
 
-		button:hover,
-		input[type=reset]:hover,
-		input[type=submit]:hover,
-		.button:hover,
-		a.button:hover,
+	a.edd-cart-saving-button:hover,
+	input[name=edd_update_cart_submit]:hover,
+	.minimal input[type=submit],
+	.popup .edd_go_to_checkout.button.edd-submit,
+	.popup .edd_go_to_checkout.button.edd-submit:hover {
+		background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
+	}
 
-		#edd_checkout_form_wrap fieldset#edd_cc_fields > span:after {
-			background-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
-		}
+	.site-footer.light, {
+		background-color: #" . get_theme_mod( 'background_color' ) . ";
+	}
 
-		a.edd-cart-saving-button,
-		input[name=edd_update_cart_submit],
-		.download-variable .entry-content .edd-add-to-cart.button.edd-submit:hover,
-		.download-variable .entry-content .edd_go_to_checkout.button.edd-submit:hover,
-		.popup .edd-add-to-cart.button.edd-submit:hover {
-			color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
-		}
+	.content-grid-download .entry-image:hover .overlay {
+		background: rgba( " . marketify_hex2rgb( marketify_theme_mod( 'colors', 'primary' ) ) . ", .80 );
+		border: 1px solid rgba( " . marketify_hex2rgb( marketify_theme_mod( 'colors', 'primary' ) ) . ", .80 );
+	}";
 
-		a.edd-cart-saving-button,
-		input[name=edd_update_cart_submit],
-		.download-variable .entry-content .edd-add-to-cart.button.edd-submit:hover,
-		.download-variable .entry-content .edd_go_to_checkout.button.edd-submit:hover,
-		.popup .edd-add-to-cart.button.edd-submit:hover,
-		.popup .edd_go_to_checkout.button.edd-submit,
-		.popup .edd_go_to_checkout.button.edd-submit:hover {
-			border-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
-		}
-
-		a.edd-cart-saving-button:hover,
-		input[name=edd_update_cart_submit]:hover,
-		.minimal input[type=submit],
-		.popup .edd_go_to_checkout.button.edd-submit,
-		.popup .edd_go_to_checkout.button.edd-submit:hover {
-			background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
-		}
-
-		.site-footer.light, {
-			background-color: #" . get_theme_mod( 'background_color' ) . ";
-		}
-
-		.content-grid-download .entry-image:hover .overlay {
-			background: rgba( " . marketify_hex2rgb( marketify_theme_mod( 'colors', 'primary' ) ) . ", .80 );
-			border: 1px solid rgba( " . marketify_hex2rgb( marketify_theme_mod( 'colors', 'primary' ) ) . ", .80 );
-		}
-
-		";
-
-	wp_add_inline_style( 'marketify-base', $css );
+	wp_add_inline_style( 'marketify-base', trim( str_replace( array( "\t", "\r", "\n" ), '', $css ) ) );
 }
 add_action( 'wp_enqueue_scripts', 'marketify_header_css' );
