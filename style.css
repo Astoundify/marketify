@@ -410,6 +410,7 @@ input[type="reset"],
 input[type="submit"],
 .button,
 a.button,
+.edd-reviews-voting-buttons a,
 .main-navigation a,
 .home-widget-title span,
 .section-title span,
@@ -450,8 +451,11 @@ input[name="edd_update_cart_submit"] {
 .button.fullsize,
 #edd-purchase-button,
 #edd_profile_editor_submit,
-.minimal #edd_login_submit,
-.fes-submit input[type=submit] {
+#edd_login_submit,
+#fes_login_submit,
+#fes_registration_form input[type="submit"],
+.fes-submit input[type=submit],
+.fes-form input[type="submit"] {
 	font-size: 15px;
 	padding: 14px 20px;
 	width: 100%;
@@ -471,7 +475,11 @@ input[name="edd_update_cart_submit"] {
 .minimal #edd_login_submit,
 .minimal #edd-purchase-button,
 .popup .edd_go_to_checkout.button.edd-submit,
-.popup .edd_go_to_checkout.button.edd-submit:hover {
+.popup .edd_go_to_checkout.button.edd-submit:hover,
+.minimal .fes-form input[type="submit"],
+.page-header .edd-cart-added-alert,
+.main-navigation .edd-cart .cart_item.edd_checkout a:hover,
+.edd-reviews-voting-buttons a:hover {
 	color: #fff;
 }
 
@@ -956,6 +964,8 @@ input[name="edd_update_cart_submit"] {
 	max-width: 100%;
 	display: block;
 	float: none;
+	border: 2px solid;
+	border-radius: 0;
 }
 
 /* Small menu */
@@ -963,7 +973,7 @@ input[name="edd_update_cart_submit"] {
 	display: none;
 	cursor: pointer;
 	font-size: 34px;
-		color: #fff;
+	color: #fff;
 }
 
 /* =Page
@@ -2140,7 +2150,6 @@ object {
 	content: '\2605';
 }
 
-
 .download-product-review-details .download-single-widget-title {
 	float: left;
 }
@@ -2187,6 +2196,16 @@ object {
 
 .edd-reviews-voting-buttons br {
 	display: none;
+}
+
+.edd-reviews-voting-buttons {
+	margin-top: 8px;
+}
+
+.edd-reviews-voting-buttons a {
+	background: #fff !important;
+	border: 2px solid;
+	padding: 2px 4px !important;
 }
 
 /* =Global Widgets

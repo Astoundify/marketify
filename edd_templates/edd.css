@@ -783,8 +783,9 @@ div.fes-form fieldset.has-error .fes-label {
 
 /** Form */
 
-.fes-form {
-
+.entry-content .fes-form td {
+	border: 0;
+	padding: 0;
 }
 
 div.fes-form fieldset {
@@ -972,6 +973,21 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 
 .fes-attachment-list {
 	list-style: none;
+}
+
+/* =Misc
+-------------------------------------------------------------- */
+
+.edd-lost-password {
+	text-align: center;
+}
+
+.edd-lost-password a {
+	text-decoration: none;
+}
+
+.edd-lost-password a:before {
+	content: '\2753';
 }
 
 /* =Ajax Add To Cart Button

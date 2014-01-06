@@ -18,7 +18,7 @@ function marketify_download_entry_meta_rating( $comment_id = null ) {
 		return;
 
 	global $post;
-	
+
 	if ( ! $comment_id )
 		$rating = edd_reviews()->average_rating( false );
 	else
@@ -35,7 +35,7 @@ function marketify_download_entry_meta_rating( $comment_id = null ) {
 		<?php for( $i = 0; $i < ( 5 - $rating ); $i++ ) : ?>
 		<i class="icon-star-empty"></i>
 		<?php endfor; ?>
-		
+
 		<div style="display:none" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
 			<meta itemprop="worstRating" content="1" />
 			<span itemprop="ratingValue"><?php echo $rating; ?></span>

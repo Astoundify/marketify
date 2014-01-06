@@ -289,6 +289,7 @@ function marketify_header_css() {
 	input[type=submit],
 	.button,
 	a.button,
+	.main-navigation .edd-cart .cart_item.edd_checkout a,
 	.page-header .button:hover,
 	.content-grid-download .button:hover,
 	#edd_checkout_form_wrap fieldset#edd_cc_fields legend {
@@ -300,6 +301,7 @@ function marketify_header_css() {
 	input[type=submit],
 	.button,
 	a.button,
+	.main-navigation .edd-cart .cart_item.edd_checkout a,
 	.edd_price_options input[type=radio]:checked,
 	#edd_checkout_form_wrap fieldset#edd_cc_fields legend {
 		border-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
@@ -310,7 +312,9 @@ function marketify_header_css() {
 	input[type=submit]:hover,
 	.button:hover,
 	a.button:hover,
-	#edd_checkout_form_wrap fieldset#edd_cc_fields > span:after {
+	#edd_checkout_form_wrap fieldset#edd_cc_fields > span:after,
+	.main-navigation .edd-cart .cart_item.edd_checkout a:hover,
+	.edd-reviews-voting-buttons a:hover {
 		background-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 	}
 
@@ -318,7 +322,8 @@ function marketify_header_css() {
 	input[name=edd_update_cart_submit],
 	.download-variable .entry-content .edd-add-to-cart.button.edd-submit:hover,
 	.download-variable .entry-content .edd_go_to_checkout.button.edd-submit:hover,
-	.popup .edd-add-to-cart.button.edd-submit:hover {
+	.popup .edd-add-to-cart.button.edd-submit:hover,
+	.edd-reviews-voting-buttons a {
 		color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 
@@ -328,7 +333,8 @@ function marketify_header_css() {
 	.download-variable .entry-content .edd_go_to_checkout.button.edd-submit:hover,
 	.popup .edd-add-to-cart.button.edd-submit:hover,
 	.popup .edd_go_to_checkout.button.edd-submit,
-	.popup .edd_go_to_checkout.button.edd-submit:hover {
+	.popup .edd_go_to_checkout.button.edd-submit:hover,
+	.edd-reviews-voting-buttons a {
 		border-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 
@@ -336,7 +342,8 @@ function marketify_header_css() {
 	input[name=edd_update_cart_submit]:hover,
 	.minimal input[type=submit],
 	.popup .edd_go_to_checkout.button.edd-submit,
-	.popup .edd_go_to_checkout.button.edd-submit:hover {
+	.popup .edd_go_to_checkout.button.edd-submit:hover,
+	.main-navigation .search-form.active .icon-search {
 		background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 
