@@ -383,6 +383,10 @@ label {
 	display: block;
 }
 
+.minimal label {
+	color: #fff;
+}
+
 /* Links */
 a:link,
 a:active,
@@ -409,7 +413,8 @@ a.button,
 .main-navigation a,
 .home-widget-title span,
 .section-title span,
-#edd_checkout_form_wrap legend {
+#edd_checkout_form_wrap legend,
+body:not(.minimal) .edd_form fieldset > span legend {
 	font: 700 13px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -443,10 +448,31 @@ input[name="edd_update_cart_submit"] {
 }
 
 .button.fullsize,
-#edd-purchase-button {
+#edd-purchase-button,
+#edd_profile_editor_submit,
+.minimal #edd_login_submit,
+.fes-submit input[type=submit] {
 	font-size: 15px;
 	padding: 14px 20px;
 	width: 100%;
+}
+
+.page-header .button,
+.content-grid-download .button {
+	color: #fff;
+	border-color: #fff;
+}
+
+.page-header .button:hover,
+.content-grid-download .button:hover {
+	background-color: #fff;
+}
+
+.minimal #edd_login_submit,
+.minimal #edd-purchase-button,
+.popup .edd_go_to_checkout.button.edd-submit,
+.popup .edd_go_to_checkout.button.edd-submit:hover {
+	color: #fff;
 }
 
 /* Alignment */
@@ -1024,6 +1050,10 @@ body:not(.minimal) .edd_form fieldset > span legend {
 	border-color: #bdc3c7;
 }
 
+body:not(.minimal) .edd_form fieldset > span:first-child {
+	margin-top: 0;
+}
+
 /* =Homepage 1
 ----------------------------------------------- */
 
@@ -1390,8 +1420,8 @@ body:not(.minimal) .edd_form fieldset > span legend {
 	text-align: center;
 }
 
-.minimal input {
-	border: 0;
+.minimal #edd_purchase_form_wrap input {
+	border-color: #fff;
 }
 
 .minimal div.fes-form fieldset .fes-fields input[type=text],
@@ -1409,7 +1439,8 @@ body:not(.minimal) .edd_form fieldset > span legend {
 	border-color: #fff;
 }
 
-.minimal .edd_cart_actions a {
+.minimal,
+.minimal a {
 	color: #fff;
 }
 
