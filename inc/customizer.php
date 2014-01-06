@@ -314,7 +314,9 @@ function marketify_header_css() {
 	a.button:hover,
 	#edd_checkout_form_wrap fieldset#edd_cc_fields > span:after,
 	.main-navigation .edd-cart .cart_item.edd_checkout a:hover,
-	.edd-reviews-voting-buttons a:hover {
+	.edd-reviews-voting-buttons a:hover,
+	.flex-control-nav a.flex-active,
+	.search-form .search-submit {
 		background-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 	}
 
