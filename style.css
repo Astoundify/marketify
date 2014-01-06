@@ -462,13 +462,15 @@ input[name="edd_update_cart_submit"] {
 }
 
 .page-header .button,
-.content-grid-download .button {
+.content-grid-download .button,
+.soliloquy-caption a.button {
 	color: #fff;
 	border-color: #fff;
 }
 
 .page-header .button:hover,
-.content-grid-download .button:hover {
+.content-grid-download .button:hover,
+.soliloquy-caption a.button:hover {
 	background-color: #fff;
 }
 
@@ -996,11 +998,8 @@ input[name="edd_update_cart_submit"] {
 }
 
 .page-header .button,
-.page-header .edd-submit.button,
-.page-header a.edd-submit.button,
-.page-header a.edd-submit.button:visited,
-.page-header .edd-submit.button.gray,
-.soliloquy-caption-wrap .button {
+.page-header a.button,
+.soliloquy-caption a.button {
 	font-size: 18px;
 	border-width: 3px;
 	margin: 0 15px;
