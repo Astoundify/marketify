@@ -5,6 +5,14 @@
  * @package Marketify
  */
 
+function marketify_edd_default_downloads_name( $name ) {
+	return array(
+		'singular' => marketify_theme_mod( 'general', 'general-downloads-label-singular' ),
+		'plural'   => marketify_theme_mod( 'general', 'general-downloads-label-plural' )
+	);
+}
+add_filter( 'edd_default_downloads_name', 'marketify_edd_default_downloads_name' );
+
 /**
  * Cart menu item
  *

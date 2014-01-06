@@ -70,6 +70,18 @@ function marketify_get_theme_mods( $args = array() ) {
 	$args = wp_parse_args( $args, $defaults );
 
 	$mods = array(
+		'general' => array(
+			'general-downloads-label-singular' => array(
+				'title'   => __( 'Download Label Singular', 'marketify' ),
+				'type'    => 'text',
+				'default' => 'Download'
+			),
+			'general-downloads-label-plural' => array(
+				'title'   => __( 'Download Label Plural', 'marketify' ),
+				'type'    => 'text',
+				'default' => 'Downloads'
+			),
+		),
 		'footer' => array(
 			'footer-style' => array(
 				'title'   => __( 'Style', 'marketify' ),
@@ -292,6 +304,7 @@ function marketify_header_css() {
 	.main-navigation .edd-cart .cart_item.edd_checkout a,
 	.page-header .button:hover,
 	.content-grid-download .button:hover,
+	.soliloquy-caption a.button:hover,
 	#edd_checkout_form_wrap fieldset#edd_cc_fields legend {
 		color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 	}
@@ -345,7 +358,7 @@ function marketify_header_css() {
 	.minimal input[type=submit],
 	.popup .edd_go_to_checkout.button.edd-submit,
 	.popup .edd_go_to_checkout.button.edd-submit:hover,
-	.main-navigation .search-form.active .icon-search {
+	.main-navigation .search-form.active .search-submit {
 		background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 
