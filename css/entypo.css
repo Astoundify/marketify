@@ -52,7 +52,8 @@ input[type="radio"] + label::before,
 div.bbp-breadcrumb p:before,
 div.bbp-topic-tags p:before,
 div.bbp-template-notice p:before,
-#edd_secure_site_wrapper span.padlock:before {
+#edd_secure_site_wrapper span.padlock:before,
+.edd-icon-spinner:before {
   font-family: 'fontello';
   font-style: normal;
   font-weight: normal;
