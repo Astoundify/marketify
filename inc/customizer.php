@@ -314,7 +314,6 @@ function marketify_header_css() {
 	input[type=submit],
 	.button,
 	a.button,
-	.main-navigation .edd-cart .cart_item.edd_checkout a,
 	.edd_price_options input[type=radio]:checked,
 	#edd_checkout_form_wrap fieldset#edd_cc_fields legend {
 		border-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
@@ -326,7 +325,6 @@ function marketify_header_css() {
 	.button:hover,
 	a.button:hover,
 	#edd_checkout_form_wrap fieldset#edd_cc_fields > span:after,
-	.main-navigation .edd-cart .cart_item.edd_checkout a:hover,
 	.edd-reviews-voting-buttons a:hover,
 	.flex-control-nav a.flex-active,
 	.search-form .search-submit {
@@ -335,6 +333,7 @@ function marketify_header_css() {
 
 	a.edd-cart-saving-button,
 	input[name=edd_update_cart_submit],
+	.main-navigation .edd-cart .cart_item.edd_checkout a,
 	.download-variable .entry-content .edd-add-to-cart.button.edd-submit:hover,
 	.download-variable .entry-content .edd_go_to_checkout.button.edd-submit:hover,
 	.popup .edd-add-to-cart.button.edd-submit:hover,
@@ -344,6 +343,7 @@ function marketify_header_css() {
 
 	a.edd-cart-saving-button,
 	input[name=edd_update_cart_submit],
+	.main-navigation .edd-cart .cart_item.edd_checkout a:hover,
 	.download-variable .entry-content .edd-add-to-cart.button.edd-submit:hover,
 	.download-variable .entry-content .edd_go_to_checkout.button.edd-submit:hover,
 	.popup .edd-add-to-cart.button.edd-submit:hover,
@@ -356,6 +356,7 @@ function marketify_header_css() {
 	a.edd-cart-saving-button:hover,
 	input[name=edd_update_cart_submit]:hover,
 	.minimal #edd_purchase_submit input[type=submit],
+	.main-navigation .edd-cart .cart_item.edd_checkout a:hover,
 	.minimal a.edd-cart-saving-button,
 	.minimal input[name=edd_update_cart_submit],
 	.popup .edd_go_to_checkout.button.edd-submit,
