@@ -204,16 +204,13 @@ add_action( 'customize_register', 'marketify_customize_register_settings' );
  * @return void
  */
 function marketify_customize_register_transport( $wp_customize ) {
-	$built_in = array( 'blogname' => '', 'blogdescription' => '', 'header_textcolor' => '' );
-	$marketify   = marketify_get_theme_mods( array( 'keys_only' => true ) );
+	$built_in  = array( 'blogname' => '', 'blogdescription' => '', 'header_textcolor' => '' );
+	$marketify = marketify_get_theme_mods( array( 'keys_only' => true ) );
 
 	$transport = array_merge( $built_in, $marketify );
 
 	foreach ( $transport as $key => $default ) {
-		if ( in_array( $key, array( 'footer-style', 'footer-logo', 'footer-contact-address' ) ) )
-			$wp_customize->get_setting( $key )->transport = 'refresh';
-		else
-			$wp_customize->get_setting( $key )->transport = 'postMessage';
+		$wp_customize->get_setting( $key )->transport = 'refresh';
 	}
 }
 add_action( 'customize_register', 'marketify_customize_register_transport' );
@@ -337,7 +334,8 @@ function marketify_header_css() {
 	.download-variable .entry-content .edd-add-to-cart.button.edd-submit:hover,
 	.download-variable .entry-content .edd_go_to_checkout.button.edd-submit:hover,
 	.popup .edd-add-to-cart.button.edd-submit:hover,
-	.edd-reviews-voting-buttons a {
+	.edd-reviews-voting-buttons a,
+	a.edd-fes-adf-submission-add-option-button {
 		color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 
@@ -349,7 +347,8 @@ function marketify_header_css() {
 	.popup .edd-add-to-cart.button.edd-submit:hover,
 	.popup .edd_go_to_checkout.button.edd-submit,
 	.popup .edd_go_to_checkout.button.edd-submit:hover,
-	.edd-reviews-voting-buttons a {
+	.edd-reviews-voting-buttons a,
+	.edd-fes-adf-submission-add-option-button {
 		border-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 
@@ -362,7 +361,8 @@ function marketify_header_css() {
 	.popup .edd_go_to_checkout.button.edd-submit,
 	.popup .edd_go_to_checkout.button.edd-submit:hover,
 	.main-navigation .search-form.active .search-submit,
-	.main-navigation.toggled .search-form .search-submit {
+	.main-navigation.toggled .search-form .search-submit,
+	.edd-fes-adf-submission-add-option-button:hover {
 		background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 

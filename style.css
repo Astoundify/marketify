@@ -411,11 +411,13 @@ input[type="submit"],
 .button,
 a.button,
 .edd-reviews-voting-buttons a,
+.edd-fes-adf-submission-add-option-button,
 .main-navigation a,
 .home-widget-title span,
 .section-title span,
 #edd_checkout_form_wrap legend,
-body:not(.minimal) .edd_form fieldset > span legend {
+body:not(.minimal) .edd_form fieldset > span legend,
+.fes-section-title {
 	font: 700 13px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -443,6 +445,7 @@ a.button:hover {
 .button.small,
 a.button.small,
 a.edd-cart-saving-button,
+.edd-fes-adf-submission-add-option-button,
 input[name="edd_update_cart_submit"] {
 	font-size: 12px;
 	padding: 6px 10px;
@@ -483,7 +486,8 @@ input[name="edd_update_cart_submit"] {
 .minimal input[name=edd_update_cart_submit],
 .page-header .edd-cart-added-alert,
 .main-navigation .edd-cart .cart_item.edd_checkout a:hover,
-.edd-reviews-voting-buttons a:hover {
+.edd-reviews-voting-buttons a:hover,
+.edd-fes-adf-submission-add-option-button:hover {
 	color: #fff;
 }
 
