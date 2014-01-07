@@ -355,10 +355,13 @@ function marketify_header_css() {
 
 	a.edd-cart-saving-button:hover,
 	input[name=edd_update_cart_submit]:hover,
-	.minimal input[type=submit],
+	.minimal #edd_purchase_submit input[type=submit],
+	.minimal a.edd-cart-saving-button,
+	.minimal input[name=edd_update_cart_submit],
 	.popup .edd_go_to_checkout.button.edd-submit,
 	.popup .edd_go_to_checkout.button.edd-submit:hover,
-	.main-navigation .search-form.active .search-submit {
+	.main-navigation .search-form.active .search-submit,
+	.main-navigation.toggled .search-form .search-submit {
 		background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 

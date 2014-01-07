@@ -171,11 +171,20 @@
 	border-top: 1px solid #eee;
 }
 
+.minimal #edd_checkout_cart tfoot .edd_cart_footer_row th {
+	border-top: 1px solid rgba(0, 0, 0, .10);
+}
+
 #edd_checkout_cart .edd_cart_footer_row:last-child th {
 	font-size: 16px;
 	color: #404040;
 	padding: 12px 12px 12px 0;
 	background: #fafafa;
+}
+
+.minimal #edd_checkout_cart .edd_cart_footer_row:last-child th {
+	color: #fff;
+	background: transparent;
 }
 
 #edd_checkout_cart th {
@@ -515,7 +524,7 @@
 
 .minimal #edd_checkout_cart td,
 .minimal #edd_checkout_cart tfoot th {
-	border-top: 1px solid #fff;
+	border-top: 1px solid rgba(0, 0, 0, .10);
 }
 
 /* =Social
@@ -656,7 +665,8 @@
 .fes_login_errors .error,
 .fes-error.edd_errors,
 .fes-success,
-.edd_success {
+.edd_success,
+.edd-slg-login-error {
 	font: 700 15px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	color: #ffb400;

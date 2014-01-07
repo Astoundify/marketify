@@ -479,6 +479,8 @@ input[name="edd_update_cart_submit"] {
 .popup .edd_go_to_checkout.button.edd-submit,
 .popup .edd_go_to_checkout.button.edd-submit:hover,
 .minimal .fes-form input[type="submit"],
+.minimal a.edd-cart-saving-button,
+.minimal input[name=edd_update_cart_submit],
 .page-header .edd-cart-added-alert,
 .main-navigation .edd-cart .cart_item.edd_checkout a:hover,
 .edd-reviews-voting-buttons a:hover {
@@ -1429,7 +1431,7 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	text-align: center;
 }
 
-.minimal #edd_purchase_form_wrap input {
+.minimal #edd_purchase_form_wrap *:not(#edd_purchase_submit) input {
 	border-color: #fff;
 }
 
@@ -3514,7 +3516,7 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 	}
 
 	.main-navigation.toggled {
-		max-height: 1000px;
+		max-height: 2000px;
 		top: auto;
 		right: auto;
 		position: static;
@@ -3819,7 +3821,7 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 		font-size: 16px;
 	}
 
-	.page-header .button {
+	.page-header a.button {
 		font-size: 13px;
 		border-width: 2px;
 		padding: 10px 20px;
