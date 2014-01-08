@@ -372,7 +372,8 @@ function marketify_header_css() {
 	.main-navigation .search-form.active .search-submit,
 	.main-navigation.toggled .search-form .search-submit,
 	.edd-fes-adf-submission-add-option-button:hover,
-	#fes-insert-image:hover {
+	#fes-insert-image:hover,
+	.edd-reviews-voting-buttons a:hover {
 		background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 
