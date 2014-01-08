@@ -609,6 +609,10 @@ function marketify_body_classes( $classes ) {
 	if ( get_query_var( 'author_ptype' ) )
 		$classes[] = 'archive-download';
 
+	if ( class_exists( 'EDD_Front_End_Submissions' ) && is_page( EDD_FES()->fes_options->get_option( 'vendor-dashboard-page' ) ) ) {
+		$classes[] = 'fes-page';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'marketify_body_classes' );

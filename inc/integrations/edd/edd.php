@@ -5,6 +5,14 @@
  * @package Marketify
  */
 
+/**
+ * Set the "Download" labels based on the customizer values.
+ *
+ * @since Marketify 1.0
+ *
+ * @param array $name
+ * @return array unknown
+ */
 function marketify_edd_default_downloads_name( $name ) {
 	return array(
 		'singular' => marketify_theme_mod( 'general', 'general-downloads-label-singular' ),
@@ -46,6 +54,21 @@ function marketify_wp_nav_menu_items( $items, $args ) {
 add_filter( 'wp_nav_menu_items', 'marketify_wp_nav_menu_items', 10, 2 );
 
 /**
+ * EDD Download wrapper class.
+ *
+ * When using the [downloads] shortcode, add our own class to the wrapper.
+ *
+ * @since Marketify 1.0
+ *
+ * @param string $class
+ * @return string The updated class list
+ */
+function marketify_edd_downloads_list_wrapper_class( $class ) {
+	return 'row ' . $class;
+}
+add_filter( 'edd_downloads_list_wrapper_class', 'marketify_edd_downloads_list_wrapper_class' );
+
+/**
  * EDD Download Class
  *
  * When using the [downloads] shortcode, add our own class to match
@@ -59,7 +82,16 @@ add_filter( 'wp_nav_menu_items', 'marketify_wp_nav_menu_items', 10, 2 );
  * @return string The updated class list
  */
 function marketify_edd_download_class( $class, $id, $atts ) {
-	return $class . ' content-grid-download';
+	if ( 4 === $atts[ 'columns' ] )
+		$cols = 3;
+	elseif ( 3 === $atts[ 'columns' ] )
+		$cols = 4;
+	elseif ( 2 === $atts[ 'columns' ] )
+		$cols = 6;
+	else
+		$cols = 12;
+
+	return $class . sprintf( ' content-grid-download col-lg-%d col-md-6 col-s-12', $cols );
 }
 add_filter( 'edd_download_class', 'marketify_edd_download_class', 10, 3 );
 

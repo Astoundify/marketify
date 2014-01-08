@@ -59,12 +59,17 @@
 }
 
 .edd_price_options label {
+	font-family: 'Source Sans Pro';
 	cursor: pointer;
 	font-size: 14px;
 	font-weight: 400;
 	text-transform: none;
 	letter-spacing: 0;
 	margin-bottom: 0;
+}
+
+.edd_price_options label .edd_price_option_price {
+	font-weight: 700;
 }
 
 .edd_price_options input[type="radio"] {
@@ -117,6 +122,7 @@
 	position: relative;
 	width: 75px;
 	height: 75px;
+	vertical-align: top;
 }
 
 .download-variable .entry-content .edd-add-to-cart-label,
@@ -299,7 +305,6 @@
 	display:block;
 	width: 100%;
 	margin-top: 8px;
-	border: 0;
 }
 
 #edd_checkout_form_wrap select.edd-select {
@@ -744,47 +749,47 @@ div.fes-form fieldset.has-error .fes-label {
 /* =FES
 ----------------------------------------------- */
 
-#fes-wraper .fes-menu nav,
+.fes-vendor-menu,
 .whistles-tabs .whistles-tabs-nav {
 	margin: 0 0 55px;
 	border-bottom: 3px solid #bdc3c7;
 	background: none;
 }
 
-#fes-wraper .fes-menu nav ul {
+.fes-vendor-menu ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-#fes-wraper .fes-menu nav ul li {
+.fes-vendor-menu ul li {
 	float: left;
 }
 
-#fes-wraper .fes-menu nav ul li:hover {
+.fes-vendor-menu ul li:hover {
 	background: none;
 }
 
-#fes-wraper .fes-menu nav li a,
+.fes-vendor-menu li a,
 .whistles-tabs .whistles-tabs-nav li a {
 	font: 400 14px 'Montserrat', sans-serif;
 	color: #bdc3c7;
 	text-transform: uppercase;
 	text-decoration: none;
 	margin: 0 0 -3px;
-	padding: 14px 20px;
+	padding: 12px 17px;
 	border: 3px solid transparent;
 	border-width: 3px 3px 0;
 	display: block;
 }
 
-#fes-wraper .fes-menu nav ul li.active a,
+.fes-vendor-menu li.active a,
 .whistles-tabs .whistles-tabs-nav li[aria-selected="true"] a {
 	border-color: #bdc3c7;
 	background: #fff;
 }
 
-#fes-wraper .fes-menu nav ul li.active {
+.fes-vendor-menu ul li.active {
 	background: none;
 }
 
@@ -1019,6 +1024,122 @@ div.fes-form fieldset .fes-fields #fes-insert-image-container a#fes-insert-image
 	display: table-cell;
 }
 
+.fes-page .entry-content table {
+	border-bottom: 0;
+}
+
+#fes-insert-image-container {
+	margin-bottom: 8px;
+}
+
+.fes-label label {
+	margin-bottom: 0;
+}
+
+.fes-label br {
+	display: none;
+}
+
+.fes-label .fes-help {
+	display: block;
+	margin: 0 0 10px;
+}
+
+.fes-label .required {
+	color: #c3372c;
+}
+
+.fes-el > .fes-label:not(:first-child) {
+	margin-top: 2em;
+}
+
+/** Comments */
+#fes-comments-table {
+	margin: 2em 0;
+}
+
+#fes-comments-table .col-author {
+	width: 15% !important;
+}
+
+#fes-comments-table .col-content {
+	width: 60% !important;
+}
+
+#fes-comments-table .col-link {
+	width: 25%;
+}
+
+#fes-comments-table th,
+#fes-comments-table td {
+	vertical-align: top;
+}
+
+#fes-comments-table td {
+	padding: 20px 20px 20px 0;
+}
+
+.fes-author-img {
+	margin-bottom: 1em;
+}
+
+.fes-author-img img {
+	width: 75%;
+	border-radius: 50%;
+}
+
+td.col-author {
+	color: #404040;
+	font: 400 10px 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.10em;
+	margin-top: 8px;
+	text-align: center;
+}
+
+.col-author br {
+	display: none;
+}
+
+.fes-cmt-body {
+	margin-bottom: 10px;
+	height: 175px;
+}
+
+.fes-cmt-submit-form,
+.fes-ignore {
+	text-align: center;
+	display: block;
+	margin: 0 0 8px;
+	width: 100%;
+}
+
+.fes-pagination {
+	margin: 2em 0 1em;
+}
+
+#fes-view-comment,
+#fes-comment-date,
+.col-author .fes-light-red,
+.col-author .fes-light-green {
+	margin: 10px 0;
+	display: block;
+}
+
+.entry-content #fes-view-comment a {
+	font-size: 10px;
+	letter-spacing: 0;
+}
+
+.col-author .fes-light-red,
+.col-author .fes-light-green {
+	font-weight: 700;
+}
+
+#fes-product-name b {
+	display: none;
+}
+
 /* =Misc
 -------------------------------------------------------------- */
 
@@ -1052,4 +1173,4 @@ a.edd-add-to-cart .edd-add-to-cart-label, a.edd-add-to-cart .edd-loading {
  }
 .edd-add-to-cart[data-edd-loading] .edd-add-to-cart-label { opacity: 0; filter: alpha(opacity=0); }
 .edd-add-to-cart[data-edd-loading] .edd-loading { opacity: 1; filter: alpha(opacity=100); }
-.edd-cart-added-alert { color: #567622; display: block; position: absolute;  }
+.edd-cart-added-alert { display: block; position: absolute;  }

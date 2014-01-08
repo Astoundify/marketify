@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Marketify 1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/marketify\n"
-"POT-Creation-Date: 2014-01-03 14:33:33+00:00\n"
+"POT-Creation-Date: 2014-01-07 22:54:01+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -290,34 +290,42 @@ msgid "Footer"
 msgstr ""
 
 #: inc/customizer.php:75
+msgid "Download Label Singular"
+msgstr ""
+
+#: inc/customizer.php:80
+msgid "Download Label Plural"
+msgstr ""
+
+#: inc/customizer.php:87
 msgid "Style"
 msgstr ""
 
-#: inc/customizer.php:78
+#: inc/customizer.php:90
 msgid "Dark"
 msgstr ""
 
-#: inc/customizer.php:79
+#: inc/customizer.php:91
 msgid "Light"
 msgstr ""
 
-#: inc/customizer.php:84
+#: inc/customizer.php:96
 msgid "Contact Address"
 msgstr ""
 
-#: inc/customizer.php:89
+#: inc/customizer.php:101
 msgid "Logo"
 msgstr ""
 
-#: inc/customizer.php:96
+#: inc/customizer.php:108
 msgid "Page Header Color"
 msgstr ""
 
-#: inc/customizer.php:101
+#: inc/customizer.php:113
 msgid "Button/Primary Color"
 msgstr ""
 
-#: inc/customizer.php:106
+#: inc/customizer.php:118
 msgid "Accent Color"
 msgstr ""
 
@@ -329,15 +337,15 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: inc/integrations/edd/edd.php:185
+#: inc/integrations/edd/edd.php:193
 msgid "%s Video URL"
 msgstr ""
 
-#: inc/integrations/edd/edd.php:187
+#: inc/integrations/edd/edd.php:195
 msgid "%s Demo URL"
 msgstr ""
 
-#: inc/integrations/edd-recommended/recommended.php:42
+#: inc/integrations/edd-recommended/recommended.php:46
 msgid "Recommended Products"
 msgstr ""
 

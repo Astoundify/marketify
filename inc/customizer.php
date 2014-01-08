@@ -298,6 +298,7 @@ function marketify_header_css() {
 	input[type=submit],
 	.button,
 	a.button,
+	.fes-button,
 	.main-navigation .edd-cart .cart_item.edd_checkout a,
 	.page-header .button:hover,
 	.content-grid-download .button:hover,
@@ -311,6 +312,8 @@ function marketify_header_css() {
 	input[type=submit],
 	.button,
 	a.button,
+	.fes-button,
+	.page-numbers,
 	.edd_price_options input[type=radio]:checked,
 	#edd_checkout_form_wrap fieldset#edd_cc_fields legend {
 		border-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
@@ -324,7 +327,8 @@ function marketify_header_css() {
 	#edd_checkout_form_wrap fieldset#edd_cc_fields > span:after,
 	.edd-reviews-voting-buttons a:hover,
 	.flex-control-nav a.flex-active,
-	.search-form .search-submit {
+	.search-form .search-submit,
+	.fes-pagination a.page-numbers:hover {
 		background-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 	}
 
@@ -335,7 +339,9 @@ function marketify_header_css() {
 	.download-variable .entry-content .edd_go_to_checkout.button.edd-submit:hover,
 	.popup .edd-add-to-cart.button.edd-submit:hover,
 	.edd-reviews-voting-buttons a,
-	a.edd-fes-adf-submission-add-option-button {
+	a.edd-fes-adf-submission-add-option-button,
+	#fes-insert-image,
+	#fes-view-comment a {
 		color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 
@@ -348,7 +354,9 @@ function marketify_header_css() {
 	.popup .edd_go_to_checkout.button.edd-submit,
 	.popup .edd_go_to_checkout.button.edd-submit:hover,
 	.edd-reviews-voting-buttons a,
-	.edd-fes-adf-submission-add-option-button {
+	.edd-fes-adf-submission-add-option-button,
+	#fes-insert-image,
+	#fes-view-comment a {
 		border-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 
@@ -358,11 +366,13 @@ function marketify_header_css() {
 	.main-navigation .edd-cart .cart_item.edd_checkout a:hover,
 	.minimal a.edd-cart-saving-button,
 	.minimal input[name=edd_update_cart_submit],
+	.minimal .fes-form input[type=submit],
 	.popup .edd_go_to_checkout.button.edd-submit,
 	.popup .edd_go_to_checkout.button.edd-submit:hover,
 	.main-navigation .search-form.active .search-submit,
 	.main-navigation.toggled .search-form .search-submit,
-	.edd-fes-adf-submission-add-option-button:hover {
+	.edd-fes-adf-submission-add-option-button:hover,
+	#fes-insert-image:hover {
 		background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 

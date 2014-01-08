@@ -410,6 +410,8 @@ input[type="reset"],
 input[type="submit"],
 .button,
 a.button,
+.fes-button,
+.page-numbers,
 .edd-reviews-voting-buttons a,
 .edd-fes-adf-submission-add-option-button,
 .main-navigation a,
@@ -417,7 +419,8 @@ a.button,
 .section-title span,
 #edd_checkout_form_wrap legend,
 body:not(.minimal) .edd_form fieldset > span legend,
-.fes-section-title {
+.fes-section-title,
+#fes-view-comment a {
 	font: 700 13px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -444,9 +447,14 @@ a.button:hover {
 
 .button.small,
 a.button.small,
+.page-numbers,
 a.edd-cart-saving-button,
 .edd-fes-adf-submission-add-option-button,
-input[name="edd_update_cart_submit"] {
+input[name="edd_update_cart_submit"],
+#fes-insert-image,
+.fes-cmt-submit-form,
+.fes-ignore,
+#fes-view-comment a {
 	font-size: 12px;
 	padding: 6px 10px;
 }
@@ -487,8 +495,15 @@ input[name="edd_update_cart_submit"] {
 .page-header .edd-cart-added-alert,
 .main-navigation .edd-cart .cart_item.edd_checkout a:hover,
 .edd-reviews-voting-buttons a:hover,
-.edd-fes-adf-submission-add-option-button:hover {
+.edd-fes-adf-submission-add-option-button:hover,
+#fes-insert-image:hover,
+.fes-pagination a.page-numbers:hover {
 	color: #fff;
+}
+
+.page-numbers.current {
+	color: #bdc3c7;
+	border-color: #bdc3c7;
 }
 
 /* Alignment */
@@ -572,8 +587,8 @@ input[name="edd_update_cart_submit"] {
 .page-navigation:after,
 .comment-navigation:before,
 .comment-navigation:after,
-.fes-menu ul:before,
-.fes-menu ul:after,
+.fes-vendor-menu ul:before,
+.fes-vendor-menu ul:after,
 .fix:before,
 .fix:after,
 .comment:before,
@@ -606,7 +621,7 @@ input[name="edd_update_cart_submit"] {
 .post-navigation:after,
 .page-navigation:after,
 .comment-navigation:after,
-.fes-menu ul:after,
+.fes-vendor-menu ul:after,
 .fix:after,
 .comment:after,
 .download-product-review-details:after,
@@ -1073,7 +1088,7 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 ----------------------------------------------- */
 
 .home-1 .page-header h1 {
-	max-width: 60%;
+	max-width: 50%;
 	margin: 0 auto;
 }
 
@@ -1435,7 +1450,8 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	text-align: center;
 }
 
-.minimal #edd_purchase_form_wrap *:not(#edd_purchase_submit) input {
+.minimal #edd_purchase_form_wrap *:not(#edd_purchase_submit) input,
+.minimal .edd_form input:not([type=submit]) {
 	border-color: #fff;
 }
 
@@ -1845,6 +1861,8 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 .content-grid-download .entry-title,
 .widget-download-title {
 	font: 400 16px/normal 'Source Sans Pro', serif;
+	text-transform: none;
+	letter-spacing: 0;
 	margin: 0;
 }
 
@@ -3111,6 +3129,10 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 	margin: 0 16px 0 0;
 	font-size: 25px;
 	text-decoration: none;
+}
+
+.site-footer.dark .footer-social a {
+	color: #fff;
 }
 
 .footer-social a.hidden {
