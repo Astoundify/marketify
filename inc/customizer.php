@@ -303,7 +303,8 @@ function marketify_header_css() {
 	.page-header .button:hover,
 	.content-grid-download .button:hover,
 	.soliloquy-caption a.button:hover,
-	#edd_checkout_form_wrap fieldset#edd_cc_fields legend {
+	#edd_checkout_form_wrap fieldset#edd_cc_fields legend,
+	.marketify_widget_featured_popular .home-widget-title span:hover {
 		color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 	}
 
@@ -315,7 +316,8 @@ function marketify_header_css() {
 	.fes-button,
 	.page-numbers,
 	.edd_price_options input[type=radio]:checked,
-	#edd_checkout_form_wrap fieldset#edd_cc_fields legend {
+	#edd_checkout_form_wrap fieldset#edd_cc_fields legend,
+	.marketify_widget_featured_popular .home-widget-title span:hover {
 		border-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 	}
 
@@ -373,7 +375,8 @@ function marketify_header_css() {
 	.main-navigation.toggled .search-form .search-submit,
 	.edd-fes-adf-submission-add-option-button:hover,
 	#fes-insert-image:hover,
-	.edd-reviews-voting-buttons a:hover {
+	.edd-reviews-voting-buttons a:hover,
+	#edd_login_submit {
 		background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 

@@ -2502,11 +2502,15 @@ object {
 }
 
 .feature-title,
-.individual-testimonial .author {
+.individual-testimonial .author span:first-child {
 	font: 700 16px 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 0.10em;
 	margin-top: 1.25em;
+}
+
+.individual-testimonial .author span:last-child {
+	display: block;
 }
 
 .feature-title a {
