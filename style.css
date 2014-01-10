@@ -1088,7 +1088,7 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 ----------------------------------------------- */
 
 .home-1 .page-header h1 {
-	max-width: 50%;
+	max-width: 60%;
 	margin: 0 auto;
 }
 
@@ -2509,7 +2509,7 @@ object {
 	margin-top: 1.25em;
 }
 
-.individual-testimonial .author span:last-child {
+.individual-testimonial .author .title {
 	display: block;
 }
 
