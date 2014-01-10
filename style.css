@@ -953,7 +953,7 @@ a.button:hover,
 }
 
 .main-navigation .widget .edd-cart-item .edd-cart-item-separator:first-of-type {
-	display: block;
+	display: inline;
 }
 
 .main-navigation .edd-cart .edd-cart-item-title {
@@ -2434,6 +2434,15 @@ object {
 
 .search-form input[type=search]::-webkit-input-placeholder {
 	color: #fff;
+}
+
+/** Text */
+.widget_text {
+	margin: 40px 0;
+}
+
+.site-footer .widget_text {
+	margin: 0;
 }
 
 /* Home Widgets
