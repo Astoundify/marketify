@@ -343,7 +343,8 @@ function marketify_header_css() {
 	.edd-reviews-voting-buttons a,
 	a.edd-fes-adf-submission-add-option-button,
 	#fes-insert-image,
-	#fes-view-comment a {
+	#fes-view-comment a,
+	a.edd_terms_links {
 		color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 
@@ -358,7 +359,8 @@ function marketify_header_css() {
 	.edd-reviews-voting-buttons a,
 	.edd-fes-adf-submission-add-option-button,
 	#fes-insert-image,
-	#fes-view-comment a {
+	#fes-view-comment a,
+	.edd_terms_links {
 		border-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 
@@ -376,7 +378,8 @@ function marketify_header_css() {
 	.edd-fes-adf-submission-add-option-button:hover,
 	#fes-insert-image:hover,
 	.edd-reviews-voting-buttons a:hover,
-	#edd_login_submit {
+	#edd_login_submit,
+	.edd_terms_links:hover {
 		background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 

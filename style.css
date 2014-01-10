@@ -420,7 +420,8 @@ a.button,
 #edd_checkout_form_wrap legend,
 body:not(.minimal) .edd_form fieldset > span legend,
 .fes-section-title,
-#fes-view-comment a {
+#fes-view-comment a,
+.edd_terms_links {
 	font: 700 13px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -437,14 +438,6 @@ body:not(.minimal) .edd_form fieldset > span legend,
 	transition:         all 0.2s;
 }
 
-button:hover,
-input[type=reset]:hover,
-input[type=submit]:hover,
-.button:hover,
-a.button:hover {
-	color: #fff;
-}
-
 .button.small,
 a.button.small,
 .page-numbers,
@@ -454,7 +447,8 @@ input[name="edd_update_cart_submit"],
 #fes-insert-image,
 .fes-cmt-submit-form,
 .fes-ignore,
-#fes-view-comment a {
+#fes-view-comment a,
+.edd_terms_links {
 	font-size: 12px;
 	padding: 6px 10px;
 }
@@ -485,6 +479,11 @@ input[name="edd_update_cart_submit"],
 	background-color: #fff;
 }
 
+button:hover,
+input[type=reset]:hover,
+input[type=submit]:hover,
+.button:hover,
+a.button:hover,
 .minimal #edd_login_submit,
 .minimal #edd-purchase-button,
 .popup .edd_go_to_checkout.button.edd-submit,
@@ -497,7 +496,8 @@ input[name="edd_update_cart_submit"],
 .edd-reviews-voting-buttons a:hover,
 .edd-fes-adf-submission-add-option-button:hover,
 #fes-insert-image:hover,
-.fes-pagination a.page-numbers:hover {
+.fes-pagination a.page-numbers:hover,
+.edd_terms_links:hover {
 	color: #fff;
 }
 
@@ -950,6 +950,10 @@ input[name="edd_update_cart_submit"],
 
 .main-navigation .edd-cart .edd-cart-item-separator {
 	display: none;
+}
+
+.main-navigation .widget .edd-cart-item .edd-cart-item-separator:first-of-type {
+	display: block;
 }
 
 .main-navigation .edd-cart .edd-cart-item-title {

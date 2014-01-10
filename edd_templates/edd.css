@@ -328,6 +328,17 @@
 	width: auto;
 }
 
+#edd_checkout_form_wrap #edd_terms {
+	margin-bottom: 10px;
+	padding: 20px;
+	background: #fafafa;
+	border: 1px solid #eee;
+}
+
+#edd_show_terms {
+	margin-bottom: 10px;
+}
+
 #edd_checkout_form_wrap span.edd-required-indicator {
 	color: #b94a48;
 	display: inline;
@@ -340,7 +351,7 @@
 
 #edd_checkout_form_wrap input[type="checkbox"] {
 	float: left;
-	margin: 0 8px 0 0;
+	margin: 5px 8px 0 0;
 }
 
 #edd_checkout_form_wrap .edd-payment-icons {
