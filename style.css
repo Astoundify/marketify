@@ -1480,6 +1480,10 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 }
 
 /** Team */
+.page-template-page-templatesteam-php .entry-author {
+	min-height: 600px;
+}
+
 .page-template-page-templatesteam-php .entry-author .gravatar {
 	margin-bottom: 20px;
 }
@@ -2238,7 +2242,7 @@ object {
 ----------------------------------------------- */
 
 .widget-area {
-	margin-bottom: 100px;
+	margin-bottom: 200px;
 }
 
 .widget-area .section-title {
