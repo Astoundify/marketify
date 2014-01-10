@@ -444,7 +444,8 @@
 	font-weight: bold;
 }
 
-#edd_secure_site_wrapper span.padlock:before {
+#edd_secure_site_wrapper span.padlock:before,
+#edd_checkout_form_wrap fieldset#edd_cc_fields > span legend:before {
 	content: '\1f512';
 }
 
