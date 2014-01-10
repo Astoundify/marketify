@@ -304,7 +304,8 @@ function marketify_header_css() {
 	.content-grid-download .button:hover,
 	.soliloquy-caption a.button:hover,
 	#edd_checkout_form_wrap fieldset#edd_cc_fields legend,
-	.marketify_widget_featured_popular .home-widget-title span:hover {
+	.marketify_widget_featured_popular .home-widget-title span:hover,
+	.marketify-edd-rating .review-title-text {
 		color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 	}
 
