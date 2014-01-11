@@ -1115,15 +1115,15 @@ td.col-author {
 
 .fes-cmt-body {
 	margin-bottom: 10px;
-	height: 175px;
+	height: 125px;
+	width: 100%;
 }
 
 .fes-cmt-submit-form,
 .fes-ignore {
 	text-align: center;
 	display: block;
-	margin: 0 0 8px;
-	width: 100%;
+	margin: 0 10px 8px 0;
 }
 
 .fes-pagination {
