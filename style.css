@@ -174,8 +174,6 @@ dfn, cite, em, i {
 
 blockquote {
 	margin: 0 1.5em;
-	padding-left: 1.5em;
-	border-left: 2px solid;
 }
 
 address {
@@ -1323,6 +1321,11 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	float: none;
 	margin-right: 0;
 	margin-top: 40px;
+}
+
+.entry-content blockquote {
+	padding-left: 1.5em;
+	border-left: 2px solid;
 }
 
 .page-links {

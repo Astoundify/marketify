@@ -321,7 +321,7 @@ function marketify_header_css() {
 	.edd_price_options input[type=radio]:checked,
 	#edd_checkout_form_wrap fieldset#edd_cc_fields legend,
 	.marketify_widget_featured_popular .home-widget-title span:hover,
-	blockquote,
+	.entry-content blockquote,
 	.nav-previous a:hover,
 	.nav-next a:hover {
 		border-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
