@@ -306,8 +306,8 @@ function marketify_header_css() {
 	#edd_checkout_form_wrap fieldset#edd_cc_fields legend,
 	.marketify_widget_featured_popular .home-widget-title span:hover,
 	.marketify-edd-rating .review-title-text,
-	.nav-previous a:hover,
-	.nav-next a:hover {
+	.nav-previous a:hover i,
+	.nav-next a:hover i {
 		color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 	}
 
