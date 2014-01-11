@@ -318,7 +318,8 @@ function marketify_header_css() {
 	.page-numbers,
 	.edd_price_options input[type=radio]:checked,
 	#edd_checkout_form_wrap fieldset#edd_cc_fields legend,
-	.marketify_widget_featured_popular .home-widget-title span:hover {
+	.marketify_widget_featured_popular .home-widget-title span:hover,
+	blockquote {
 		border-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 	}
 
@@ -331,7 +332,9 @@ function marketify_header_css() {
 	.edd-reviews-voting-buttons a:hover,
 	.flex-control-nav a.flex-active,
 	.search-form .search-submit,
-	.fes-pagination a.page-numbers:hover {
+	.fes-pagination a.page-numbers:hover,
+	.nav-previous a:hover,
+	.nav-next a:hover {
 		background-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 	}
 
@@ -379,7 +382,7 @@ function marketify_header_css() {
 	.edd-fes-adf-submission-add-option-button:hover,
 	#fes-insert-image:hover,
 	.edd-reviews-voting-buttons a:hover,
-	#edd_login_submit,
+	.minimal #edd_login_submit,
 	.edd_terms_links:hover {
 		background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
