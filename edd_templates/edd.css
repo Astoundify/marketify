@@ -58,6 +58,10 @@
 	border-bottom: 1px solid #bdc3c7;
 }
 
+.entry-content .edd_price_options li {
+	padding: 15px 20px;
+}
+
 .edd_price_options label {
 	font-family: 'Source Sans Pro';
 	cursor: pointer;
@@ -93,7 +97,7 @@
 	padding: 20px 40px;
 }
 
-.single-download .entry-content div[itemprop=description] .edd_purchase_submit_wrapper,
+.entry-content .edd_purchase_submit_wrapper,
 .popup .edd_purchase_submit_wrapper {
 	text-align: center;
 	margin-top: 20px;
@@ -161,6 +165,25 @@
 .edd_price_options label,
 .popup .edd_price_options label {
 	cursor: pointer;
+}
+
+.entry-content .edd_download_purchase_form {
+	padding-bottom: 20px;
+	border: 1px solid #bdc3c7;
+	border-radius: 3px;
+	float: left;
+	margin: 0 1.5em 1.5em 0;
+}
+
+.download-variable .entry-content .edd_download_purchase_form {
+	padding-bottom: 40px;
+}
+
+.entry-content .edd_download_purchase_form:last-of-type {
+	clear: both;
+	float: none;
+	margin-right: 0;
+	margin-top: 40px;
 }
 
 /* =Checkout Form

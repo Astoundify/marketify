@@ -1304,25 +1304,6 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	margin-top: 0;
 }
 
-.single-download .entry-content div[itemprop=description] .edd_download_purchase_form {
-	padding-bottom: 20px;
-	border: 1px solid #bdc3c7;
-	border-radius: 3px;
-	float: left;
-	margin: 0 1.5em 1.5em 0;
-}
-
-.download-variable .entry-content .edd_download_purchase_form {
-	padding-bottom: 40px;
-}
-
-.entry-content div[itemprop=description] .edd_download_purchase_form:last-of-type {
-	clear: both;
-	float: none;
-	margin-right: 0;
-	margin-top: 40px;
-}
-
 .entry-content blockquote {
 	padding-left: 1.5em;
 	border-left: 2px solid;
@@ -3518,6 +3499,13 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 
 .site-footer .mailbag-input input[type="text"] {
 	border: 0;
+}
+
+/* =Gravity Forms
+----------------------------------------------- */
+
+.gform_wrapper ul li.gfield {
+	margin-bottom: 2em;
 }
 
 /* =Responsive Suppliments

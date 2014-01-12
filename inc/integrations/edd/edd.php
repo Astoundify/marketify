@@ -144,7 +144,7 @@ function marketify_edd_purchase_download_form( $purchase_form, $args ) {
 	if ( ! $download_id )
 		return $purchase_form;
 
-	if ( ! is_singular( 'download' ) || ! edd_has_variable_prices( $download_id ) )
+	if ( ! edd_has_variable_prices( $download_id ) )
 		return $purchase_form;
 
 	$purchase_form = str_replace( 'class="edd_download_purchase_form"', 'class="edd_download_purchase_form download-variable"', $purchase_form );
