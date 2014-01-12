@@ -43,7 +43,7 @@ function marketify_recommended_products() {
 	) );
 ?>
 
-	<h1 class="section-title"><span><?php _e( 'Recommended Products', 'marketify' ); ?></span></h1>
+	<h1 class="section-title recommended-products"><span><?php _e( 'Recommended Products', 'marketify' ); ?></span></h1>
 
 	<div class="row edd-recommended-products">
 		<?php while ( $suggested_downloads->have_posts() ) : $suggested_downloads->the_post(); ?>
