@@ -81,29 +81,12 @@ Marketify.App = ( function($) {
 		});
 	}
 
-	function downloadStandard() {
-		$( '.download-image.flexslider' ).flexslider({
-			slideshow     : false,
-			animation     : 'fade',
-			animationLoop : false,
-			itemWidth     : 360,
-			itemMargin    : 0,
-			minItems      : 1,
-			maxItems      : 1,
-			controlNav    : false,
-			smoothHeight  : true,
-			prevText      : '<i class="icon-left-open-big"></i>',
-			nextText      : '<i class="icon-right-open-big"></i>'
-		});
-	}
-
 	return {
 		init : function() {
 			menuSearch();
 			menuMobile();
 			skipLink();
 			footerHeight();
-			downloadStandard();
 
 			$(window).resize(function() {
 				footerHeight();
@@ -163,6 +146,22 @@ Marketify.App = ( function($) {
 				removalDelay : 250
 			} ) );
 		},
+
+		downloadStandard : function () {
+			$( '.download-image.flexslider' ).flexslider({
+				slideshow     : false,
+				animation     : 'fade',
+				animationLoop : false,
+				itemWidth     : 360,
+				itemMargin    : 0,
+				minItems      : 1,
+				maxItems      : 1,
+				controlNav    : false,
+				smoothHeight  : true,
+				prevText      : '<i class="icon-left-open-big"></i>',
+				nextText      : '<i class="icon-right-open-big"></i>'
+			});
+		}
 	}
 } )(jQuery);
 
@@ -259,4 +258,8 @@ Marketify.Widgets = ( function($) {
 jQuery(document).ready(function() {
 	Marketify.App.init();
 	Marketify.Widgets.init();
+});
+
+jQuery(window).load(function() {
+	Marketify.App.downloadStandard();
 });
