@@ -851,6 +851,7 @@ div.fes-form fieldset {
 }
 
 div.fes-form fieldset .fes-fields {
+	margin-top: 10px;
 	float: none;
 	width: auto;
 }
