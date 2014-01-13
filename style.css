@@ -918,6 +918,10 @@ a.button:hover,
 	cursor: pointer;
 }
 
+.main-navigation .search-form .search-field {
+	min-height: 17px;
+}
+
 /* Cart */
 .main-navigation ul ul.edd-cart {
 	opacity: 1;
