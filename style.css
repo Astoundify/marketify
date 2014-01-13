@@ -3368,12 +3368,16 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 
 .love-it-wrapper .loved,
 .love-it-wrapper .love-it {
+	color: #ea626f;
 	font-size: 0px;
 	text-decoration: none;
 	position: relative;
 	z-index: 5;
 	visibility: hidden;
-	color: #ea626f;
+}
+
+.single-download .love-it-wrapper .love-it {
+	right: -13px;
 }
 
 .love-it-wrapper .love-it:before,
