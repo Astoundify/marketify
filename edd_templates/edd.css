@@ -797,6 +797,12 @@ div.fes-form fieldset.has-error .fes-label {
 	list-style: none;
 }
 
+.fes-vendor-menu ul:after {
+	display: block;
+	content: ' ';
+	clear: both;
+}
+
 .fes-vendor-menu ul li {
 	float: left;
 }
