@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Marketify 1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/marketify\n"
-"POT-Creation-Date: 2014-01-09 20:21:14+00:00\n"
+"POT-Creation-Date: 2014-01-13 20:08:26+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -168,11 +168,11 @@ msgstr ""
 msgid "Item Price: %s"
 msgstr ""
 
-#: edd_templates/shortcode-content-title.php:8
+#: edd_templates/shortcode-content-title.php:10
 msgid "<span class=\"byline\"> by %1$s</span>"
 msgstr ""
 
-#: edd_templates/shortcode-content-title.php:11
+#: edd_templates/shortcode-content-title.php:13
 msgid "View all %s by %s"
 msgstr ""
 
@@ -353,37 +353,37 @@ msgstr ""
 msgid "To play the media you will need to either update your browser to a recent version or update your <a href=\"http://get.adobe.com/flashplayer/\" target=\"_blank\">Flash plugin</a>."
 msgstr ""
 
-#: inc/template-tags.php:263 inc/widgets/class-widget-download-details.php:65
+#: inc/template-tags.php:264 inc/widgets/class-widget-download-details.php:65
 msgid "Purchase"
 msgstr ""
 
-#: inc/template-tags.php:305
+#: inc/template-tags.php:306
 msgid "Demo"
 msgstr ""
 
-#: inc/template-tags.php:338
+#: inc/template-tags.php:339
 msgid "Purchased"
 msgstr ""
 
-#: inc/template-tags.php:354
+#: inc/template-tags.php:355
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: inc/template-tags.php:368
+#: inc/template-tags.php:369
 msgid "Edit"
 msgstr ""
 
-#: inc/template-tags.php:372
+#: inc/template-tags.php:373
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/template-tags.php:424
+#: inc/template-tags.php:425
 msgctxt "noun"
 msgid "Menu"
 msgstr ""
 
-#: inc/template-tags.php:460
+#: inc/template-tags.php:461
 msgid "Post navigation"
 msgstr ""
 

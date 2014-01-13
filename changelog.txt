@@ -1,5 +1,13 @@
 == Changelog ==
 
+= 1.0.1: January 13, 2014 =
+
+* New: Preview audio files directly from the download grid.
+* Fix: Make sure the header search displays correctly in Firefox.
+* Fix: Make sure searching in the header searches for downloads on the homepage.
+* Fix: When using the "Light" footer style make sure the default link color is dark.
+* Fix: Make sure the "Love It" heart is displayed in the correct spot when you have not loved.
+
 = 1.0: January 8, 2014 =
 
 First release!
