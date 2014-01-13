@@ -2850,6 +2850,16 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 	background: none;
 }
 
+/** EDD */
+.download-archive-widget.widget li.widget-download-with-thumbnail {
+	margin-bottom: 1.5em;
+}
+
+.widget-download-price {
+	display: block;
+	font-weight: 700;
+}
+
 /* Download Single Widgets
 ----------------------------------------------- */
 
