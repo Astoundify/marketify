@@ -2,9 +2,11 @@
 	<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 
 	<div class="entry-meta">
+		<?php do_action( 'marketify_download_entry_meta_before_' . get_post_format() ); ?>
+
 		<?php if ( marketify_is_multi_vendor() ) : ?>
 			<?php
-				printf( 
+				printf(
 					__( '<span class="byline"> by %1$s</span>', 'marketify' ),
 					sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s %4$s</a></span>',
 						Marketify_Author::url( 'downloads', get_the_author_meta( 'ID' ) ),
@@ -16,6 +18,6 @@
 			?>
 		<?php endif; ?>
 
-		<?php do_action( 'marketify_download_entry_meta' ); ?>
+		<?php do_action( 'marketify_download_entry_meta_after_' . get_post_format() ); ?>
 	</div>
 </header><!-- .entry-header -->

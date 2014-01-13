@@ -1883,6 +1883,10 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	text-decoration: none;
 }
 
+.content-grid-download .entry-meta .byline {
+	float: left;
+}
+
 .byline img {
 	display: inline-block;
 	vertical-align: middle;
@@ -1890,6 +1894,42 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	margin: -4px 0 0 6px;
 	width: 25px;
 	height: 25px;
+}
+
+.content-grid-download .entry-header .jp-audio {
+	float: left;
+	width: auto;
+	margin: -3px 5px 0 0;
+	border-radius: 50%;
+}
+
+.content-grid-download .entry-header .jp-playlist,
+.content-grid-download .entry-header .jp-progress,
+.content-grid-download .entry-header .jp-volume-bar,
+.content-grid-download .entry-header .jp-controls li:first-child,
+.content-grid-download .entry-header .jp-controls li:last-child {
+	display: none !important;
+}
+
+.content-grid-download .entry-header .jp-controls {
+	margin-top: 2px;
+	width: auto;
+}
+
+.content-grid-download .entry-header div.jp-interface {
+	border-radius: 50%;
+	padding: 0;
+	width: 25px;
+	height: 25px;
+}
+
+.content-grid-download .entry-header div.jp-interface ul.jp-controls a {
+	font-size: 20px;
+}
+
+.content-grid-download .entry-header div.jp-interface ul.jp-controls a.jp-pause {
+	margin: 2px 0 0 1px;
+	font-size: 16px;
 }
 
 .content-grid-download .entry-meta .star-rating {

@@ -239,6 +239,7 @@ function marketify_download_audio_player() {
 	</div>
 	<?php
 }
+add_action( 'marketify_download_entry_meta_before_audio', 'marketify_download_audio_player' );
 endif;
 
 if ( ! function_exists( 'marketify_purchase_link' ) ) :
@@ -344,7 +345,7 @@ function marketify_comment( $comment, $args, $depth ) {
 			<div class="comment-content">
 				<div class="comment-metadata">
 					<?php printf( '<cite class="fn">%s</cite>', get_comment_author_link() ); ?>
-					
+
 					<?php if ( get_comment_meta( $comment->comment_ID, 'edd_rating', true ) ) : ?>
 						<?php do_action( 'marketify_edd_rating', $comment ); ?>
 					<?php endif; ?>
@@ -383,7 +384,7 @@ endif;
 
 if ( ! function_exists( 'marketify_get_theme_menu' ) ) :
 /**
- * Get a nav menu object. 
+ * Get a nav menu object.
  *
  * @uses get_nav_menu_locations To get all available locations
  * @uses get_term To get the specific theme location
@@ -396,14 +397,14 @@ if ( ! function_exists( 'marketify_get_theme_menu' ) ) :
 function marketify_get_theme_menu( $theme_location ) {
 	$theme_locations = get_nav_menu_locations();
 
-	if( ! isset( $theme_locations[$theme_location] ) ) 
+	if( ! isset( $theme_locations[$theme_location] ) )
 		return false;
- 
+
 	$menu_obj = get_term( $theme_locations[$theme_location], 'nav_menu' );
-	
-	if( ! $menu_obj ) 
+
+	if( ! $menu_obj )
 		return false;
- 
+
 	return $menu_obj;
 }
 endif;
@@ -423,12 +424,12 @@ function marketify_get_theme_menu_name( $theme_location ) {
 	$menu_obj = marketify_get_theme_menu( $theme_location );
 	$default  = _x( 'Menu', 'noun', 'marketify' );
 
-	if( ! $menu_obj ) 
+	if( ! $menu_obj )
 		return $default;
- 
-	if( ! isset( $menu_obj->name ) ) 
+
+	if( ! isset( $menu_obj->name ) )
 		return $default;
- 
+
 	return $menu_obj->name;
 }
 endif;
@@ -504,7 +505,7 @@ function marketify_download_archive_popular( $args = array() ) {
 	// Date
 	if ( 'day' == $args[ 'timeframe' ] ) {
 		$frame = date( 'd' );
-	} else if ( 'week' == $args[ 'timeframe' ] ) { 
+	} else if ( 'week' == $args[ 'timeframe' ] ) {
 		$frame = date( 'W' );
 	} else if ( 'month' == $args[ 'timeframe' ] ) {
 		$frame = date( 'm' );
@@ -528,7 +529,7 @@ function marketify_download_archive_popular( $args = array() ) {
 	}
 
 	// Search
-	if ( is_search() ) { 
+	if ( is_search() ) {
 		$query_args[ 's' ] = esc_attr( get_search_query() );
 	}
 
