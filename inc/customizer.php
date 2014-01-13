@@ -307,7 +307,8 @@ function marketify_header_css() {
 	.marketify_widget_featured_popular .home-widget-title span:hover,
 	.marketify-edd-rating .review-title-text,
 	.nav-previous a:hover i,
-	.nav-next a:hover i {
+	.nav-next a:hover i,
+	.site-footer.light .site-info .site-title {
 		color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 	}
 
