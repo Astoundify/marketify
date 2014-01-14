@@ -4,6 +4,8 @@
 
 * New: Preview audio files directly from the download grid.
 * New: Styling support for Mailbag subscription plugin.
+* Fix: [downloads] shortcode title formatting.
+* Fix: Don't use the old script font for the default logo.
 * Fix: Make sure the header search displays correctly in Firefox.
 * Fix: Make sure searching in the header searches for downloads on the homepage.
 * Fix: When using the "Light" footer style make sure the default link color is dark.
