@@ -1206,6 +1206,10 @@ td.col-author {
 	margin-bottom: 100px;
 }
 
+#edd_user_commissions_paid {
+	margin-top: 2em;
+}
+
 /* =Ajax Add To Cart Button
 -------------------------------------------------------------- */
 .edd_purchase_submit_wrapper { position: relative; }
