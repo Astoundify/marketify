@@ -91,7 +91,7 @@ function marketify_edd_download_class( $class, $id, $atts ) {
 	else
 		$cols = 12;
 
-	return $class . sprintf( ' content-grid-download col-lg-%d col-md-6 col-s-12', $cols );
+	return $class . sprintf( ' content-grid-download col-lg-%d col-md-6 col-sm-6 col-xs-12', $cols );
 }
 add_filter( 'edd_download_class', 'marketify_edd_download_class', 10, 3 );
 
