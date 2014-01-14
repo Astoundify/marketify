@@ -1760,7 +1760,7 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	width: 100%;
 	position: absolute;
 	top: 50%;
-	left: 50%;
+	bottom: 10%;
 
 	-webkit-transition: all 0.3s;
 	-moz-transition:    all 0.3s;
@@ -1769,16 +1769,11 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	-webkit-backface-visibility: hidden;
 	-moz-backface-visibility:    hidden;
 	backface-visibility:         hidden;
-
-	-webkit-transform: translate(-50%, 10%);
-	-moz-transform:    translate(-50%, 10%);
-	transform:         translate(-50%, 10%);
 }
 
 .content-grid-download .entry-image:hover .actions {
-	-webkit-transform: translate(-50%, -70%);
-	-moz-transform:    translate(-50%, -70%);
-	transform:         translate(-50%, -70%);
+	top: 35%;
+	bottom: auto;
 }
 
 .content-grid-download .entry-image .button {
