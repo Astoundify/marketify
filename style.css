@@ -657,8 +657,10 @@ a.button:hover,
 }
 
 .site-title {
-	font-family: 'Pacifico', cursive;
-	font-size: 36px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 30px;
 	clear: none;
 }
 

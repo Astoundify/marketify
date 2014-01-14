@@ -461,12 +461,6 @@ function marketify_fonts_url() {
 	 */
 	$montserrat = _x( 'on', 'Montserrat font: on or off', 'marketify' );
 
-	/* Translators: If there are characters in your language that are not
-	 * supported by Pacifico, translate this to 'off'. Do not translate into your
-	 * own language.
-	 */
-	$pacifico = _x( 'on', 'Pacifico font: on or off', 'marketify' );
-
 	if ( 'off' !== $source_sans_pro || 'off' !== $roboto || 'off' !== $montserrat ) {
 		$font_families = array();
 
@@ -478,9 +472,6 @@ function marketify_fonts_url() {
 
 		if ( 'off' !== $montserrat )
 			$font_families[] = apply_filters( 'marketify_font_montserrat', 'Montserrat:400,700' );
-
-		if ( 'off' !== $pacifico )
-			$font_families[] = apply_filters( 'marketify_font_pacifico', 'Pacifico' );
 
 		$query_args = array(
 			'family' => urlencode( implode( '|', apply_filters( 'marketify_font_families', $font_families ) ) ),
