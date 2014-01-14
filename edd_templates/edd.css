@@ -97,13 +97,13 @@
 	padding: 20px 40px;
 }
 
-.entry-content .edd_purchase_submit_wrapper,
+.entry-content > *:not(.edd_downloads_list) .edd_purchase_submit_wrapper,
 .popup .edd_purchase_submit_wrapper {
 	text-align: center;
 	margin-top: 20px;
 }
 
-.download-variable .entry-content .edd_purchase_submit_wrapper,
+.download-variable .entry-content > *:not(.edd_downloads_list) .edd_purchase_submit_wrapper,
 .popup .edd_purchase_submit_wrapper {
 	margin-top: 40px;
 }
@@ -167,7 +167,7 @@
 	cursor: pointer;
 }
 
-.entry-content .edd_download_purchase_form {
+.entry-content > *:not(.edd_downloads_list) .edd_download_purchase_form {
 	padding-bottom: 20px;
 	border: 1px solid #bdc3c7;
 	border-radius: 3px;
@@ -175,11 +175,11 @@
 	margin: 0 1.5em 1.5em 0;
 }
 
-.download-variable .entry-content .edd_download_purchase_form {
+.download-variable .entry-content > *:not(.edd_downloads_list) .edd_download_purchase_form {
 	padding-bottom: 40px;
 }
 
-.entry-content .edd_download_purchase_form:last-of-type {
+.entry-content > *:not(.edd_downloads_list) .edd_download_purchase_form:last-of-type {
 	clear: both;
 	float: none;
 	margin-right: 0;
