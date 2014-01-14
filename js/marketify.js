@@ -102,6 +102,8 @@ Marketify.App = ( function($) {
 				});
 			});
 
+			$( '.edd_download.content-grid-download' ).attr( 'style', '' );
+
 			$( '.edd-slg-login-wrapper' ).each(function() {
 				var link  = $(this).find( 'a' );
 				var title = link.attr( 'title' );

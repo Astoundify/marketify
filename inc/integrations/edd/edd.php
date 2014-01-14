@@ -82,11 +82,11 @@ add_filter( 'edd_downloads_list_wrapper_class', 'marketify_edd_downloads_list_wr
  * @return string The updated class list
  */
 function marketify_edd_download_class( $class, $id, $atts ) {
-	if ( 4 === $atts[ 'columns' ] )
+	if ( 4 == $atts[ 'columns' ] )
 		$cols = 3;
-	elseif ( 3 === $atts[ 'columns' ] )
+	elseif ( 3 == $atts[ 'columns' ] )
 		$cols = 4;
-	elseif ( 2 === $atts[ 'columns' ] )
+	elseif ( 2 == $atts[ 'columns' ] )
 		$cols = 6;
 	else
 		$cols = 12;
