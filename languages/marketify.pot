@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Marketify 1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/marketify\n"
-"POT-Creation-Date: 2014-01-13 20:08:26+00:00\n"
+"POT-Creation-Date: 2014-01-14 17:03:58+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -588,52 +588,4 @@ msgid "Categories"
 msgstr ""
 #. Theme Name of the plugin/theme
 msgid "Marketify"
-msgstr ""
-
-#. Theme URI of the plugin/theme
-msgid "http://astoundify.com/themes/marketify"
-msgstr ""
-
-#. Description of the plugin/theme
-msgid "Your beautiful handcrafted digital marketplace."
-msgstr ""
-
-#. Author of the plugin/theme
-msgid "Astoundify"
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "http://astoundify.com"
-msgstr ""
-
-#. Template Name of the plugin/theme
-msgid "Full Width"
-msgstr ""
-
-#. Template Name of the plugin/theme
-msgid "Homepage"
-msgstr ""
-
-#. Template Name of the plugin/theme
-msgid "Minimal"
-msgstr ""
-
-#. Template Name of the plugin/theme
-msgid "Popular Items"
-msgstr ""
-
-#. Template Name of the plugin/theme
-msgid "Pricing Table"
-msgstr ""
-
-#. Template Name of the plugin/theme
-msgid "Single Column"
-msgstr ""
-
-#. Template Name of the plugin/theme
-msgid "The Team"
-msgstr ""
-
-#. Template Name of the plugin/theme
-msgid "Wishlist"
 msgstr ""
