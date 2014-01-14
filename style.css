@@ -2804,6 +2804,7 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 
 .download-archive-widget-area {
 	position: relative;
+	margin-bottom: 100px;
 }
 
 .download-archive-widget {
