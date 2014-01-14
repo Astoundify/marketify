@@ -119,17 +119,6 @@ Marketify.App = ( function($) {
 
 			$( '#bbpress-forums #bbp-user-wrapper h2.entry-title, #bbpress-forums fieldset.bbp-form legend' ).wrapInner( '<span></span>' );
 
-			$( '.marketify_widget_featured_popular.popular .flexslider' ).flexslider({
-				animation      : "slide",
-				slideshow      : false,
-				animationLoop  : false,
-				itemWidth      : 360,
-				itemMargin     : 30,
-				minItems       : 1,
-				maxItems       : 3,
-				directionNav   : false
-			});
-
 			$( 'a' ).live( 'touchstart', function(e) {
 				$(this).trigger( 'hover' );
 			});
@@ -160,6 +149,19 @@ Marketify.App = ( function($) {
 				smoothHeight  : true,
 				prevText      : '<i class="icon-left-open-big"></i>',
 				nextText      : '<i class="icon-right-open-big"></i>'
+			});
+		},
+
+		featuredPopular : function() {
+			$( '.marketify_widget_featured_popular.popular .flexslider' ).flexslider({
+				animation      : "slide",
+				slideshow      : false,
+				animationLoop  : false,
+				itemWidth      : 360,
+				itemMargin     : 30,
+				minItems       : 1,
+				maxItems       : 3,
+				directionNav   : false
 			});
 		}
 	}
@@ -262,4 +264,5 @@ jQuery(document).ready(function() {
 
 jQuery(window).load(function() {
 	Marketify.App.downloadStandard();
+	Marketify.App.featuredPopular();
 });
