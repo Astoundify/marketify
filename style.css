@@ -497,7 +497,8 @@ a.button:hover,
 .edd-fes-adf-submission-add-option-button:hover,
 #fes-insert-image:hover,
 .fes-pagination a.page-numbers:hover,
-.edd_terms_links:hover {
+.edd_terms_links:hover,
+.site-footer.dark .mailbag-wrap input[type=submit] {
 	color: #fff;
 }
 
@@ -3550,6 +3551,14 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 
 /* =Mailbag
 ----------------------------------------------- */
+
+.entry-content .mailbag-wrap {
+	max-width: 50%;
+}
+
+.mailbag-input {
+	margin-bottom: 2em;
+}
 
 .mailbag-input br {
 	display: none;

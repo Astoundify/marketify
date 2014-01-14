@@ -367,7 +367,8 @@ function marketify_header_css() {
 	.edd-fes-adf-submission-add-option-button,
 	#fes-insert-image,
 	#fes-view-comment a,
-	.edd_terms_links {
+	.edd_terms_links,
+	.site-footer.dark .mailbag-wrap input[type=submit] {
 		border-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 
@@ -386,7 +387,8 @@ function marketify_header_css() {
 	#fes-insert-image:hover,
 	.edd-reviews-voting-buttons a:hover,
 	.minimal #edd_login_submit,
-	.edd_terms_links:hover {
+	.edd_terms_links:hover,
+	.site-footer.dark .mailbag-wrap input[type=submit] {
 		background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 
