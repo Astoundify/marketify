@@ -28,7 +28,7 @@ get_header(); ?>
 	<div class="container">
 		<div id="content" class="site-content row">
 
-			<div id="secondary" class="author-widget-area col-md-3 col-xs-12" role="complementary">
+			<div id="secondary" class="author-widget-area col-md-3 col-sm-12" role="complementary">
 				<div class="download-product-details author-archive">
 					<div class="download-author">
 						<?php do_action( 'marketify_download_author_before' ); ?>
@@ -37,7 +37,7 @@ get_header(); ?>
 						<span class="author-joined"><?php printf( __( 'Author since: %s', 'marketify' ), date_i18n( 'Y', strtotime( $author->user_registered ) ) ); ?></span>
 						<?php do_action( 'marketify_download_author_after' ); ?>
 					</div>
-					
+
 					<div class="download-author-sales<?php echo ! get_the_author_meta( 'description' ) && ! marketify_entry_author_social( get_the_author_meta( 'ID' ) ) ? ' blank' : ''; ?>">
 						<strong><?php global $wp_query; echo $wp_query->found_posts; ?></strong>
 
@@ -62,7 +62,7 @@ get_header(); ?>
 				</div>
 			</div><!-- #secondary -->
 
-			<section id="primary" class="content-area col-sm-9 col-xs-12">
+			<section id="primary" class="content-area col-md-9 col-sm-12">
 				<main id="main" class="site-main" role="main">
 
 				<?php if ( have_posts() ) : ?>
@@ -80,7 +80,7 @@ get_header(); ?>
 					<?php marketify_content_nav( 'nav-below' ); ?>
 
 				<?php else : ?>
-				
+
 					<?php if ( ! isset( $wp_query->query[ 'author_wishlist' ] ) ) : ?>
 						<?php get_template_part( 'no-results', 'archive' ); ?>
 					<?php else : ?>
@@ -94,5 +94,5 @@ get_header(); ?>
 
 		</div><!-- #content -->
 	</div>
-	
+
 <?php get_footer(); ?>
