@@ -38,6 +38,13 @@ get_header(); ?>
 						<?php do_action( 'marketify_download_author_after' ); ?>
 					</div>
 
+					<div class="download-author-bio">
+
+						<?php echo apply_filters( 'the_content', esc_attr( $author->description ) ); ?>
+
+						<a href="?mailto:<?php echo antispambot( esc_attr( $author->user_email ) ); ?>" class="button fullsize small"><?php _e( 'Contact', 'marketify' ); ?></a>
+					</div>
+
 					<div class="download-author-sales<?php echo ! get_the_author_meta( 'description' ) && ! marketify_entry_author_social( get_the_author_meta( 'ID' ) ) ? ' blank' : ''; ?>">
 						<strong><?php global $wp_query; echo $wp_query->found_posts; ?></strong>
 
@@ -47,12 +54,6 @@ get_header(); ?>
 							<?php echo _n( 'Love', 'Loves', $wp_query->found_posts, 'marketify' ); ?>
 						<?php endif; ?>
 					</div>
-
-					<?php if ( $author->description ) : ?>
-					<div class="download-author-bio">
-						<?php echo esc_attr( $author->description ); ?>
-					</div>
-					<?php endif; ?>
 
 					<?php if ( marketify_entry_author_social( $author->ID ) ) : ?>
 					<div class="download-author-social">
