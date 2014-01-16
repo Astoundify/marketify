@@ -62,7 +62,7 @@ get_header(); ?>
 				</div>
 			</div><!-- #secondary -->
 
-			<section id="primary" class="content-area col-md-9 col-sm-12">
+			<section id="primary" class="content-area col-sm-12">
 				<main id="main" class="site-main" role="main">
 
 				<?php if ( have_posts() ) : ?>
@@ -70,7 +70,7 @@ get_header(); ?>
 					<div class="row">
 						<?php while ( have_posts() ) : the_post(); ?>
 
-							<div class="col-lg-4 col-md-6 col-sm-12">
+							<div class="col-lg-4 col-sm-6 col-xs-12">
 								<?php get_template_part( 'content-grid', 'download' ); ?>
 							</div>
 

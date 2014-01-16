@@ -31,7 +31,7 @@ get_header(); ?>
 
 		<div id="content" class="site-content row">
 
-			<section id="primary" class="content-area col-sm-<?php echo is_active_sidebar( 'sidebar-download' ) ? '9' : '12'; ?> col-xs-12">
+			<section id="primary" class="content-area col-sm-12">
 				<main id="main" class="site-main" role="main">
 
 				<div class="section-title"><span>
@@ -49,7 +49,7 @@ get_header(); ?>
 					<div class="row">
 						<?php while ( have_posts() ) : the_post(); ?>
 
-							<div class="col-lg-4 col-md-6 col-sm-12">
+							<div class="col-lg-4 col-sm-6 col-xs-12">
 								<?php get_template_part( 'content-grid', 'download' ); ?>
 							</div>
 

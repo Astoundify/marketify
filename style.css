@@ -730,6 +730,7 @@ a.button:hover,
 .main-navigation a {
 	display: block;
 	border-color: transparent;
+	text-align: left;
 }
 
 .main-navigation a:hover {
