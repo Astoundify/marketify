@@ -1862,6 +1862,7 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	border-top: 0;
 	z-index: 10;
 	position: relative;
+	overflow: hidden;
 }
 
 .content-grid-download .entry-title,
