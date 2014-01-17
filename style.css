@@ -507,6 +507,11 @@ a.button:hover,
 	border-color: #bdc3c7;
 }
 
+.page-numbers.prev,
+.page-numbers.next {
+	border: 0;
+}
+
 /* Alignment */
 .alignleft {
 	display: inline;

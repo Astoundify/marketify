@@ -31,7 +31,7 @@ get_header(); ?>
 
 		<div id="content" class="site-content row">
 
-			<section id="primary" class="content-area col-sm-12">
+			<section id="primary" class="content-area col-md-<?php echo is_active_sidebar( 'sidebar-download' ) ? '9' : '12'; ?> col-xs-12">
 				<main id="main" class="site-main" role="main">
 
 				<div class="section-title"><span>

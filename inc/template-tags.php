@@ -460,22 +460,16 @@ function marketify_content_nav( $nav_id ) {
 	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'marketify' ); ?></h1>
 
-	<?php if ( is_single() && apply_filters( 'marketify_single_content_nav', false ) ) : // navigation links for single posts ?>
+		<?php
+			$big = 999999999;
 
-		<?php previous_post_link( '<div class="nav-previous">%link</div>', '<i class="icon-left-open-mini"></i> <span class="nav-title">%title</span>' ); ?>
-		<?php next_post_link( '<div class="nav-next">%link</div>', '<span class="nav-title">%title</span> <i class="icon-right-open-mini"></i>' ); ?>
-
-	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
-
-		<?php if ( get_next_posts_link() ) : ?>
-		<div class="nav-previous"><?php next_posts_link( '<i class="icon-left-open-mini"></i>' ); ?></div>
-		<?php endif; ?>
-
-		<?php if ( get_previous_posts_link() ) : ?>
-		<div class="nav-next"><?php previous_posts_link( '<i class="icon-right-open-mini"></i>' ); ?></div>
-		<?php endif; ?>
-
-	<?php endif; ?>
+			echo paginate_links( array(
+				'base'    => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+				'format'  => '?paged=%#%',
+				'current' => max( 1, get_query_var('paged') ),
+				'total'   => $wp_query->max_num_pages
+			) );
+		?>
 
 	</nav><!-- #<?php echo esc_html( $nav_id ); ?> -->
 	<?php

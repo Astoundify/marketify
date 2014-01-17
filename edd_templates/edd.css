@@ -1210,6 +1210,11 @@ td.col-author {
 	margin-top: 2em;
 }
 
+#edd_download_pagination {
+	margin-top: 45px;
+	text-align: center;
+}
+
 /* =Ajax Add To Cart Button
 -------------------------------------------------------------- */
 .edd_purchase_submit_wrapper { position: relative; }

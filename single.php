@@ -23,8 +23,6 @@ get_header(); ?>
 
 					<?php endwhile; ?>
 
-					<?php marketify_content_nav( 'nav-below' ); ?>
-
 					<?php
 						// If comments are open or we have at least one comment, load up the comment template
 						if ( comments_open() || '0' != get_comments_number() )
@@ -41,8 +39,8 @@ get_header(); ?>
 			</div><!-- #primary -->
 
 			<?php get_sidebar(); ?>
-			
+
 		</div>
 	</div>
-	
+
 <?php get_footer(); ?>
