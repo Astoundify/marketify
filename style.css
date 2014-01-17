@@ -2343,7 +2343,6 @@ object {
 .edd_repeatable_upload_field_container .edd_upload_file a {
 	font-size: 0;
 	text-decoration: none;
-	visibility: hidden;
 }
 
 .widget .edd-remove-from-cart:before,
@@ -2351,7 +2350,7 @@ object {
 .edd-fes-adf-submission-option-remove a:before,
 .edd_repeatable_upload_field_container .edd_upload_file a:before {
 	font-size: 15px;
-	visibility: visible;
+	visibility: visible !important;
 	content: '\2715';
 }
 
