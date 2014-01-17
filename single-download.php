@@ -12,7 +12,7 @@ get_header(); ?>
 	<header class="page-header">
 		<?php the_post(); ?>
 		<h1 class="page-title"><?php the_title(); ?></h1>
-			
+
 		<div class="download-actions">
 			<?php do_action( 'marketify_download_actions' ); ?>
 		</div>
@@ -32,7 +32,7 @@ get_header(); ?>
 	<div class="container">
 		<div id="content" class="site-content row">
 
-			<section id="primary" class="content-area <?php echo ! is_active_sidebar( 'sidebar-download-single' ) ? 'col-xs-12' : 'col-sm-8 col-xs-12'; ?>">
+			<section id="primary" class="content-area <?php echo ! is_active_sidebar( 'sidebar-download-single' ) ? 'col-xs-12' : 'col-sm-7 col-xs-12'; ?>">
 				<main id="main" class="site-main" role="main">
 
 				<?php while ( have_posts() ) : the_post(); ?>
@@ -47,8 +47,8 @@ get_header(); ?>
 		</div><!-- #content -->
 
 		<?php comments_template(); ?>
-		
+
 		<?php do_action( 'marketify_single_download_after' ); ?>
 	</div>
-	
+
 <?php get_footer(); ?>
