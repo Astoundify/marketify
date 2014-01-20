@@ -12,7 +12,7 @@ get_header(); ?>
 	<div class="container">
 		<div id="content" class="site-content row">
 
-			<section id="primary" class="content-area col-sm-12">
+			<section id="primary" class="content-area col-md-9 col-sm-8 col-xs-12'">
 				<main id="main" class="site-main" role="main">
 
 				<div class="section-title"><span>
