@@ -3,6 +3,7 @@
 = 1.0.2: January 17, 2014 =
 
 * New: "Real" pagination instead of arrows.
+* Fix: Maintain compatability with Features by WooThemes
 * Fix: iPad/tablet responsive breakpoints.
 * Fix: IE11 display bugs.
 * Fix: Make the [downloads] shortcode respond and act like the /downloads/ archive.
