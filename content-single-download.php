@@ -4,7 +4,7 @@
  */
 ?>
 
-<?php do_action( 'marketify_single_download_before' ); ?>
+<?php do_action( 'marketify_single_download_content_before_content' ); ?>
 
 <h2 class="section-title"><span><?php _e( 'About the Product', 'marketify' ); ?></span></h2>
 
@@ -27,4 +27,4 @@
 	<?php locate_template( array( 'modal-download-purchase.php' ), true, false ); ?>
 </article><!-- #post-## -->
 
-<?php do_action( 'marketify_single_download_after' ); ?>
+<?php do_action( 'marketify_single_download_after_content' ); ?>
