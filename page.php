@@ -16,8 +16,8 @@ get_header(); ?>
 
 	<div class="container">
 		<div id="content" class="site-content row">
-			
-			<div id="primary" class="content-area col-md-<?php echo is_active_sidebar( 'sidebar-1' ) ? '8' : '12'; ?>">
+
+			<div id="primary" class="content-area col-md-<?php echo is_active_sidebar( 'sidebar-1' ) ? '8' : '12'; ?> col-xs-12">
 				<main id="main" class="site-main" role="main">
 
 				<?php if ( have_posts() ) : ?>
@@ -49,5 +49,5 @@ get_header(); ?>
 			<?php get_sidebar(); ?>
 		</div>
 	</div>
-	
+
 <?php get_footer(); ?>

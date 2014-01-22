@@ -1928,8 +1928,16 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	height: 25px;
 }
 
+.content-grid-download .entry-header div.jp-interface ul.jp-controls li {
+	float: left;
+}
+
 .content-grid-download .entry-header div.jp-interface ul.jp-controls a {
 	font-size: 20px;
+}
+
+.content-grid-download .entry-header div.jp-interface ul.jp-controls a i {
+	vertical-align: top;
 }
 
 .content-grid-download .entry-header div.jp-interface ul.jp-controls a.jp-pause {
