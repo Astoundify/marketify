@@ -7,7 +7,12 @@
 
 $type = 'post';
 
-if ( is_post_type_archive( 'download' ) || is_tax( array( 'download_tag', 'download_category' ) ) || is_front_page() )
+if (
+	is_post_type_archive( 'download' ) ||
+	is_tax( array( 'download_tag', 'download_category' ) ) ||
+	is_front_page() ||
+	is_page_template( 'page-templates/popular.php' )
+)
 	$type = 'download';
 ?>
 
