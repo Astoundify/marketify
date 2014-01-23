@@ -1,5 +1,16 @@
 == Changelog ==
 
+= 1.0.3: January 23, 2014 =
+
+* New: "Shop" Page Template so the standard archives can be set as the homepage.
+* New: Add styling support for Custom Prices extension.
+* Fix: Make sure searching results in the proper results depending on location.
+* Fix: Hide star ratings when replying to a review (as they are not needed).
+* Fix: Make sure the pause button on the audio preview displays on mobile.
+* Fix: Avoid duplicate hook names to avoid duplicate output of content.
+* Fix: Maintain compatability with Features by WooThemes
+* Fix: Various responsive tweaks.
+
 = 1.0.2: January 17, 2014 =
 
 * New: "Real" pagination instead of arrows.
