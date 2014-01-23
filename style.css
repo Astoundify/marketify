@@ -2116,6 +2116,10 @@ object {
 	margin-left: 65px;
 }
 
+.comment-list .comment_form_rating {
+	display: none;
+}
+
 .comment-metadata {
 	font-size: 13px;
 	color: #82878e;
