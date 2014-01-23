@@ -1215,6 +1215,16 @@ td.col-author {
 	text-align: center;
 }
 
+.edd-cp-container {
+	color: #fff;
+}
+
+input[type="text"].edd_cp_price {
+	width: 100% !important;
+	border: 0;
+	margin: 5px 0 2px;
+}
+
 /* =Ajax Add To Cart Button
 -------------------------------------------------------------- */
 .edd_purchase_submit_wrapper { position: relative; }

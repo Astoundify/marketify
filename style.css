@@ -1798,6 +1798,16 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	vertical-align: top;
 }
 
+.download-actions .edd_download_purchase_form {
+	min-width: 350px;
+	max-width: 350px;
+}
+
+.download-actions .edd_download_purchase_form .edd_errors {
+	width: 100%;
+	max-width: 100%;
+}
+
 .content-grid-download .entry-image .edd-cart-ajax-alert {
 	display: none !important;
 }
