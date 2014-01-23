@@ -284,7 +284,7 @@ function marketify_has_header_background() {
  * @return void
  */
 function marketify_entry_page_title() {
-	if ( ! is_singular( array( 'post', 'page' ) ) && ! marketify_is_bbpress() )
+	if ( ! is_singular( array( 'post', 'page' ) ) && ! marketify_is_bbpress() || is_page_template( 'page-templates/shop.php' ) )
 		return;
 
 	the_post();
