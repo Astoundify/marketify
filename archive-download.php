@@ -36,7 +36,7 @@ get_header(); ?>
 
 				<div class="section-title"><span>
 					<?php if ( is_search() ) : ?>
-						<?php printf( __( 'All %s', 'marketify' ), esc_attr( get_search_query() ) ); ?>
+						<?php printf( '&quot;%s&quot;', esc_attr( get_search_query() ) ); ?>
 					<?php elseif ( is_tax() ) : ?>
 						<?php printf( __( 'All %s', 'marketify' ), single_term_title( '', false ) ); ?>
 					<?php else : ?>

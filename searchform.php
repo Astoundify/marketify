@@ -7,9 +7,13 @@
 
 $type = 'post';
 
-if ( is_post_type_archive( 'download' ) || is_tax( array( 'download_tag', 'download_category' ) ) )
+if (
+	is_post_type_archive( 'download' ) ||
+	is_tax( array( 'download_tag', 'download_category' ) )
+)
 	$type = 'download';
 ?>
+
 <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 	<button type="submit" class="search-submit"><i class="icon-search"></i></button>
 	<label>
