@@ -790,26 +790,6 @@ function marketify_popular_get_term_link( $link, $term, $taxonomy ) {
 add_filter( 'term_link', 'marketify_popular_get_term_link', 10, 3 );
 
 /**
- * Popular query filter
- *
- * @since Marketify 1.0.4
- */
-function marketify_popular_items( $query ) {
-	if ( is_admin() || ! $query->is_main_query() || ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
-		return $query;
-	}
-
-	if ( ! is_page_template( 'page-templates/popular.php' ) ) {
-		return $query;
-	}
-
-
-
-	return $query;
-}
-add_filter( 'pre_get_posts', 'marketify_popular_items' );
-
-/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
