@@ -284,7 +284,11 @@ function marketify_has_header_background() {
  * @return void
  */
 function marketify_entry_page_title() {
-	if ( ! is_singular( array( 'post', 'page' ) ) && ! marketify_is_bbpress() || is_page_template( 'page-templates/shop.php' ) )
+	if (
+		! is_singular( array( 'post', 'page' ) ) &&
+		! marketify_is_bbpress() ||
+		is_page_template( 'page-templates/shop.php' )
+	)
 		return;
 
 	the_post();
@@ -622,8 +626,8 @@ add_filter( 'body_class', 'marketify_body_classes' );
 class Marketify_Author {
 
 	/**
-     * @var $instance
-     */
+	 * @var $instance
+	 */
 	public static $instance;
 
 	/**
@@ -784,6 +788,26 @@ function marketify_popular_get_term_link( $link, $term, $taxonomy ) {
 	return add_query_arg( array( 'popular_cat' => $term->term_id ), get_permalink( get_page_by_path( $wp_query->query[ 'pagename' ] ) ) );
 }
 add_filter( 'term_link', 'marketify_popular_get_term_link', 10, 3 );
+
+/**
+ * Popular query filter
+ *
+ * @since Marketify 1.0.4
+ */
+function marketify_popular_items( $query ) {
+	if ( is_admin() || ! $query->is_main_query() || ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
+		return $query;
+	}
+
+	if ( ! is_page_template( 'page-templates/popular.php' ) ) {
+		return $query;
+	}
+
+
+
+	return $query;
+}
+add_filter( 'pre_get_posts', 'marketify_popular_items' );
 
 /**
  * Implement the Custom Header feature.

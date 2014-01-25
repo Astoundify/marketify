@@ -67,20 +67,7 @@ get_header(); ?>
 				</main><!-- #main -->
 			</section><!-- #primary -->
 
-			<div id="secondary" class="download-archive-widget-area col-sm-3 col-xs-12" role="complementary">
-				<aside class="widget download-archive-widget widget_categories">
-					<h1 class="download-archive-widget-title"><?php _e( 'Categories', 'marketify' ); ?></h1>
-					<ul>
-						<?php
-							wp_list_categories( array(
-								'title_li' => '',
-								'taxonomy' => 'download_category',
-								'hide_empty' => false
-							) );
-						?>
-					</ul>
-				</aside>
-			</div><!-- #secondary -->
+			<?php get_sidebar( 'archive-download' ); ?>
 
 		</div><!-- #content -->
 	</div>
