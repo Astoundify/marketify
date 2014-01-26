@@ -259,7 +259,7 @@ function marketify_has_header_background() {
 		is_home()
 	) );
 
-	if ( ! $is_correct )
+	if ( ! $is_correct || is_post_type_archive( 'download' ) )
 		return false;
 
 	if ( is_home() ) {
@@ -287,7 +287,8 @@ function marketify_entry_page_title() {
 	if (
 		! is_singular( array( 'post', 'page' ) ) &&
 		! marketify_is_bbpress() ||
-		is_page_template( 'page-templates/shop.php' )
+		is_page_template( 'page-templates/shop.php' ) ||
+		is_post_type_archive( 'download' )
 	)
 		return;
 
@@ -790,6 +791,37 @@ function marketify_popular_get_term_link( $link, $term, $taxonomy ) {
 add_filter( 'term_link', 'marketify_popular_get_term_link', 10, 3 );
 
 /**
+ * Shop query filter
+ *
+ * @since Marketify 1.0.4
+ */
+function marketify_popular_items( $query ) {
+	if ( is_admin() || ! $query->is_main_query() || ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
+		return $query;
+	}
+
+	if ( ! is_page_template( 'page-templates/shop.php' ) ) {
+		return $query;
+	}
+
+	unset( $query->query[ 'pagename' ] );
+	unset( $query->query[ 'page' ] );
+
+	$query->query_vars[ 'pagename' ] = null;
+	$query->query[ 'post_type' ] = 'download';
+
+	$query->is_page = false;
+	$query->is_archive = true;
+	$query->is_post_type_archive = true;
+
+	$query->set( 'post_type', 'download' );
+	$query->set( 'post_status', 'publish' );
+
+	return $query;
+}
+add_filter( 'pre_get_posts', 'marketify_popular_items' );
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
@@ -839,6 +871,10 @@ if ( class_exists( 'Easy_Digital_Downloads' ) ) {
 
 	if ( class_exists( 'EDDRecommendedDownloads' ) ) {
 		require get_template_directory() . '/inc/integrations/edd-recommended/recommended.php';
+	}
+
+	if ( class_exists( 'EDD_Wish_Lists' ) ) {
+		require get_template_directory() . '/inc/integrations/edd-wish-lists/edd-wish-lists.php';
 	}
 }
 

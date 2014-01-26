@@ -62,7 +62,8 @@
 	padding: 15px 20px;
 }
 
-.edd_price_options label {
+.edd_price_options label,
+.modal-content label {
 	font-family: 'Source Sans Pro';
 	cursor: pointer;
 	font-size: 14px;
@@ -76,7 +77,12 @@
 	font-weight: 700;
 }
 
-.edd_price_options input[type="radio"] {
+.modal-content label {
+	font-size: 16px;
+}
+
+.edd_price_options input[type="radio"],
+body #edd-wl-modal input[type="radio"] {
 	margin-right: 10px;
 	padding: 3px;
 	border: 6px solid #bcc3c8;
@@ -88,7 +94,8 @@
 	-webkit-appearance: none;
 }
 
-.edd_price_options li input[type="radio"]:focus {
+.edd_price_options li input[type="radio"]:focus,
+body #edd-wl-modal input[type="radio"]:focus {
 	outline: 0;
 }
 
@@ -1223,6 +1230,40 @@ input[type="text"].edd_cp_price {
 	width: 100% !important;
 	border: 0;
 	margin: 5px 0 2px;
+}
+
+/* =Wish Lists
+-------------------------------------------------------------- */
+
+body .modal-content {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	border-radius: 0;
+}
+
+body .modal .modal-dialog {
+	margin-top: 100px;
+	width: 450px;
+}
+
+.modal-content label {
+	display: inline-block;
+}
+
+body .modal-backdrop.in {
+	opacity: 0.70;
+}
+
+body #edd-wl-modal .modal-header {
+	margin: 50px 0;
+	padding: 0;
+	border-bottom: 0;
+	min-height: 0;
+}
+
+body #edd-wl-modal .modal-body {
+	padding: 0 40px 40px;
 }
 
 /* =Ajax Add To Cart Button

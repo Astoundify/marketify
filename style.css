@@ -421,7 +421,8 @@ a.button,
 body:not(.minimal) .edd_form fieldset > span legend,
 .fes-section-title,
 #fes-view-comment a,
-.edd_terms_links {
+.edd_terms_links,
+#edd-wl-modal h2#edd-wl-modal-label {
 	font: 700 13px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -460,7 +461,8 @@ input[name="edd_update_cart_submit"],
 #fes_login_submit,
 #fes_registration_form input[type="submit"],
 .fes-submit input[type=submit],
-.fes-form input[type="submit"] {
+.fes-form input[type="submit"],
+.edd-wish-list-save {
 	font-size: 15px;
 	padding: 14px 20px;
 	width: 100%;
@@ -1050,7 +1052,8 @@ a.button:hover,
 #edd_checkout_form_wrap fieldset > span,
 #edd_checkout_form_wrap fieldset#edd_cc_fields > span,
 .fes-section-wrap,
-body:not(.minimal) .edd_form fieldset > span {
+body:not(.minimal) .edd_form fieldset > span,
+.modal-header {
 	text-align: center;
 	width: 100%;
 	margin: 70px 0;
@@ -1063,7 +1066,8 @@ body:not(.minimal) .edd_form fieldset > span {
 #edd_checkout_form_wrap fieldset > span:after,
 #edd_checkout_form_wrap fieldset#edd_cc_fields > span:after,
 .fes-section-wrap:after,
-body:not(.minimal) .edd_form fieldset > span:after {
+body:not(.minimal) .edd_form fieldset > span:after,
+.modal-header:after {
 	content: ' ';
 	position: absolute;
 	left: 0;
@@ -1078,7 +1082,8 @@ body:not(.minimal) .edd_form fieldset > span:after {
 #edd_checkout_form_wrap fieldset > span legend,
 #edd_checkout_form_wrap fieldset#edd_cc_fields > span legend,
 .entry-content .fes-section-wrap h2,
-body:not(.minimal) .edd_form fieldset > span legend {
+body:not(.minimal) .edd_form fieldset > span legend,
+#edd-wl-modal h2#edd-wl-modal-label {
 	font-size: 15px;
 	text-align: center;
 	margin: 0 auto;
@@ -1092,7 +1097,8 @@ body:not(.minimal) .edd_form fieldset > span legend {
 .home-widget-title span,
 #edd_checkout_form_wrap fieldset > span legend,
 .entry-content .fes-section-wrap h2,
-body:not(.minimal) .edd_form fieldset > span legend {
+body:not(.minimal) .edd_form fieldset > span legend,
+#edd-wl-modal h2#edd-wl-modal-label {
 	color: #bdc3c7;
 	border-color: #bdc3c7;
 }

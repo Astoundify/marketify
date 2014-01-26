@@ -320,6 +320,7 @@ function marketify_header_css() {
 	.fes-button,
 	.page-numbers,
 	.edd_price_options input[type=radio]:checked,
+	body #edd-wl-modal input[type=radio]:checked,
 	#edd_checkout_form_wrap fieldset#edd_cc_fields legend,
 	.marketify_widget_featured_popular .home-widget-title span:hover,
 	.entry-content blockquote,

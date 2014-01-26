@@ -121,6 +121,10 @@ Marketify.App = ( function($) {
 
 			$( '#bbpress-forums #bbp-user-wrapper h2.entry-title, #bbpress-forums fieldset.bbp-form legend' ).wrapInner( '<span></span>' );
 
+			$('body').on('click.eddwlOpenModal', '.edd-add-to-wish-list', function (e) {
+				$( '#edd-wl-modal-label' ).wrapInner( '<span></span>' );
+			});
+
 			$( 'a' ).live( 'touchstart', function(e) {
 				$(this).trigger( 'hover' );
 			});
