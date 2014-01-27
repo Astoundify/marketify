@@ -427,6 +427,7 @@ body:not(.minimal) .edd_form fieldset > span legend,
 	text-transform: uppercase;
 	text-decoration: none;
 	text-shadow: none;
+	text-align: center;
 	display: inline-block;
 	padding: 10px 20px;
 	border: 2px solid transparent;
@@ -3093,6 +3094,8 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 
 .download-product-details.author-archive .download-author {
 	padding: 20px;
+	padding-bottom: 0;
+	border-bottom: 0;
 }
 
 .download-product-details.author-archive .author-link {
