@@ -22,8 +22,10 @@ global $post;
 
 	<?php if ( class_exists( 'MultiPostThumbnails' ) && MultiPostThumbnails::get_the_post_thumbnail( 'download', 'grid-image' ) ) : ?>
 		<?php MultiPostThumbnails::the_post_thumbnail( 'download', 'grid-image', null, 'content-grid-download' ); ?>
-	<?php else : ?>
+	<?php elseif ( has_post_thumbnail() ) : ?>
 		<?php the_post_thumbnail( 'content-grid-download' ); ?>
+	<?php else : ?>
+		<span class="image-placeholder"></span>
 	<?php endif; ?>
 </div>
 

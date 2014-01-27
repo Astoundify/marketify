@@ -1746,8 +1746,28 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 }
 
 .content-grid-download .entry-image a,
-.content-grid-download .entry-image img {
+.content-grid-download .entry-image img,
+.content-grid-download .entry-image .image-placeholder {
 	display: block;
+}
+
+.content-grid-download .entry-image .image-placeholder {
+	min-height: 292px;
+	background: #eee;
+	position: relative;
+}
+
+.content-grid-download .entry-image .image-placeholder:before {
+	color: #bbb;
+	content: '\1f304';
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	top: 50%;
+	left: 50%;
+	margin-top: -10px;
+	margin-left: -10px;
+	position: absolute;
 }
 
 .content-grid-download .entry-image .overlay {
