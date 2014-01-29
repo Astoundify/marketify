@@ -773,10 +773,12 @@ class Marketify_Author {
 	public function rewrites() {
 		global $wp_rewrite;
 
+		$slug = defined( 'EDD_SLUG' ) ? EDD_SLUG : 'downloads';
+
 		$new_rules = array(
-			'author/([^/]+)/downloads/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_downloads=1',
+			'author/([^/]+)/' . $slug . '/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_downloads=1',
 			'author/([^/]+)/wishlist/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_wishlist=1',
-			'author/([^/]+)/downloads/page/?([0-9]{1,})/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_downloads=1&paged=' . $wp_rewrite->preg_index( 2 ),
+			'author/([^/]+)/' . $slug . '/page/?([0-9]{1,})/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_downloads=1&paged=' . $wp_rewrite->preg_index( 2 ),
 			'author/([^/]+)/wishlist/page/?([0-9]{1,})/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_wishlist=1&paged=' . $wp_rewrite->preg_index( 2 )
 		);
 
