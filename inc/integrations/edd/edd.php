@@ -185,6 +185,43 @@ function marketify_shortcode_atts_edd_login( $atts ) {
 }
 add_filter( 'shortcode_atts_edd_login', 'marketify_shortcode_atts_edd_login' );
 
+function marketify_edd_sorting_options( $single_key = false  ) {
+	$options = array(
+		'title' => __( 'Title', 'marketify' ),
+		'date'  => __( 'Date', 'marketify' ),
+		'sales' => __( 'Sales', 'marketify' ),
+		'price' => __( 'Price', 'marketify' )
+	);
+
+	if ( 'edd_price' == get_query_var( 'meta_key' ) ) {
+		$key = 'price';
+	} elseif ( '_edd_download_sales' == get_query_var( 'meta_key' ) ) {
+		$key = 'sales';
+	} else {
+		$key = $single_key;
+	}
+
+	if ( $single_key && $key ) {
+		return $options[ $key ];
+	}
+
+	return $options;
+}
+
+/**
+ * Sorting
+ */
+function marketify_edd_orderby( $query ) {
+	if ( get_query_var( 'orderby' ) && 'price' == get_query_var( 'orderby' ) ) {
+		$query->set( 'orderby', 'meta_value_num' );
+		$query->set( 'meta_key', 'edd_price' );
+	} elseif ( get_query_var( 'orderby' ) && 'sales' == get_query_var( 'orderby' ) ) {
+		$query->set( 'orderby', 'meta_value_num' );
+		$query->set( 'meta_key', '_edd_download_sales' );
+	}
+}
+add_filter( 'pre_get_posts', 'marketify_edd_orderby' );
+
 /**
  * Extra metaboxes if FES is not active.
  */

@@ -422,7 +422,8 @@ body:not(.minimal) .edd_form fieldset > span legend,
 .fes-section-title,
 #fes-view-comment a,
 .edd_terms_links,
-#edd-wl-modal h2#edd-wl-modal-label {
+#edd-wl-modal h2#edd-wl-modal-label,
+.download-sorting select  {
 	font: 700 13px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -1099,7 +1100,9 @@ body:not(.minimal) .edd_form fieldset > span legend,
 #edd_checkout_form_wrap fieldset > span legend,
 .entry-content .fes-section-wrap h2,
 body:not(.minimal) .edd_form fieldset > span legend,
-#edd-wl-modal h2#edd-wl-modal-label {
+#edd-wl-modal h2#edd-wl-modal-label,
+.download-sorting select,
+.download-sorting span {
 	color: #bdc3c7;
 	border-color: #bdc3c7;
 }
@@ -2892,7 +2895,7 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 }
 
 .download-archive-widget:first-child {
-	padding-top: 82px;
+	padding-top: 75px;
 }
 
 .download-archive-widget.widget li {
@@ -2983,6 +2986,59 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 .widget-download-price {
 	display: block;
 	font-weight: 700;
+}
+
+.download-sorting {
+	overflow: hidden;
+}
+
+.download-sorting select {
+	margin-left: 5px;
+	padding: 8px 30px 8px 12px;
+	width: auto;
+	min-width: 0;
+	border: 3px solid;
+	-webkit-appearance: none;
+}
+
+.download-sorting label[for="orderby"] {
+	position: relative;
+}
+
+.download-sorting label[for="orderby"]:after {
+	font-size: 14px;
+	color: #bdc3c7;
+	content: '\e74f';
+	display: block;
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	right: 4px;
+	top: 12px;
+}
+
+.download-sorting select:focus {
+	outline: 0;
+}
+
+.download-sorting label {
+	font-size: 15px;
+	font-family: 'Source Sans Pro';
+	font-weight: normal;
+	text-transform: none;
+	letter-spacing: 0;
+	float: left;
+}
+
+.download-sorting label input[type="radio"] {
+	display: none;
+}
+
+.download-sorting span {
+	font-size: 20px;
+	display: inline-block;
+	margin-top: 6px;
+	margin-left: 3px;
 }
 
 /* Download Single Widgets

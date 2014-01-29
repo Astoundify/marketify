@@ -335,6 +335,7 @@ function marketify_widgets_init() {
 		register_widget( 'Marketify_Widget_Featured_Popular_Downloads' );
 		register_widget( 'Marketify_Widget_Download_Details' );
 		register_widget( 'Marketify_Widget_Download_Share' );
+		register_widget( 'Marketify_Widget_Download_Archive_Sorting' );
 
 		if ( class_exists( 'EDD_Reviews' ) ) {
 			register_widget( 'Marketify_Widget_Download_Review_Details' );
@@ -940,6 +941,7 @@ if ( marketify_is_edd() ) {
 	require get_template_directory() . '/inc/widgets/class-widget-featured-popular.php';
 	require get_template_directory() . '/inc/widgets/class-widget-download-details.php';
 	require get_template_directory() . '/inc/widgets/class-widget-download-share.php';
+	require get_template_directory() . '/inc/widgets/class-widget-download-archive-sorting.php';
 
 	if ( class_exists( 'EDD_Reviews' ) ) {
 		require get_template_directory() . '/inc/widgets/class-widget-download-review-details.php';

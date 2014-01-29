@@ -25,7 +25,7 @@ get_header(); ?>
 
 	<div class="container">
 
-		<?php if ( ! is_paged() ) : ?>
+		<?php if ( ! is_paged() && ! get_query_var( 'orderby' ) ) : ?>
 			<?php get_template_part( 'content-grid-download', 'popular' ); ?>
 		<?php endif; ?>
 
@@ -39,6 +39,8 @@ get_header(); ?>
 						<?php printf( '&quot;%s&quot;', esc_attr( get_search_query() ) ); ?>
 					<?php elseif ( is_tax() ) : ?>
 						<?php printf( __( 'All %s', 'marketify' ), single_term_title( '', false ) ); ?>
+					<?php elseif ( get_query_var( 'orderby' ) ) : ?>
+						<?php printf( __( 'All %s by %s', 'marketify' ), edd_get_label_plural(), marketify_edd_sorting_options( get_query_var( 'orderby' ) ) ); ?>
 					<?php else : ?>
 						<?php printf( __( 'All %s', 'marketify' ), edd_get_label_plural() ); ?>
 					<?php endif; ?>

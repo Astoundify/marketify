@@ -5,7 +5,7 @@
  * @since Marketify 1.0
  */
 class Marketify_Widget_Download_Details extends Marketify_Widget {
-	
+
 	/**
 	 * Constructor
 	 */
@@ -42,7 +42,7 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 		extract( $args );
 
 		$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
-		
+
 		echo $before_widget;
 
 		if ( $title ) echo '<h1 class="section-title"><span>' . $title . '</span></h1>';
@@ -57,12 +57,12 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 					<span class="author-joined"><?php printf( __( 'Author since: %s', 'marketify' ), date_i18n( get_option( 'date_format' ), strtotime( get_the_author_meta( 'user_registered' ) ) ) ); ?></span>
 					<?php do_action( 'marketify_download_author_after' ); ?>
 				</div>
-				
+
 				<div class="download-purchases">
 					<strong>3000</strong>
 					Purchases
 				</div>
-				
+
 				<div class="download-comments">
 					<a href="#"><strong>450</strong>
 					Comments</a>
