@@ -3101,15 +3101,26 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 .download-author,
 .download-author-bio,
 .download-author-social,
-.download-author-sales {
+.download-author-sales,
+.download-author-message {
 	margin: 0;
 	padding: 25px;
 	border-bottom: 1px solid #bdc3c7;
 	position: relative;
 }
 
-.download-author-sales.blank {
+.download-author-bio p:last-child,
+.download-author-bio p:only-child {
+	margin-bottom: 0;
+}
+
+.download-author-sales.blank,
+.download-author-message {
 	border-bottom: 0;
+}
+
+.download-author-message .button {
+	margin-bottom: 0;
 }
 
 .download-author {
@@ -3195,7 +3206,6 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 
 .download-author-social {
 	text-align: center;
-	border-bottom: 0;
 }
 
 .download-author-bio {

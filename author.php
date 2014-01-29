@@ -42,7 +42,6 @@ get_header(); ?>
 
 						<?php echo apply_filters( 'the_content', esc_attr( $author->description ) ); ?>
 
-						<a href="?mailto:<?php echo antispambot( esc_attr( $author->user_email ) ); ?>" class="button fullsize small"><?php _e( 'Contact', 'marketify' ); ?></a>
 					</div>
 
 					<div class="download-author-sales<?php echo ! get_the_author_meta( 'description' ) && ! marketify_entry_author_social( get_the_author_meta( 'ID' ) ) ? ' blank' : ''; ?>">
@@ -60,6 +59,10 @@ get_header(); ?>
 						<?php echo marketify_entry_author_social( $author->ID ); ?>
 					</div>
 					<?php endif; ?>
+
+					<div class="download-author-message">
+						<a href="?mailto:<?php echo antispambot( esc_attr( $author->user_email ) ); ?>" class="button fullsize small"><?php _e( 'Send Message', 'marketify' ); ?></a>
+					</div>
 				</div>
 			</div><!-- #secondary -->
 
