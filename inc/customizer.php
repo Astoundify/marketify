@@ -389,7 +389,8 @@ function marketify_header_css() {
 	.edd-reviews-voting-buttons a:hover,
 	.minimal #edd_login_submit,
 	.edd_terms_links:hover,
-	.site-footer.dark .mailbag-wrap input[type=submit] {
+	.site-footer.dark .mailbag-wrap input[type=submit],
+	.home-search .page-header .search-submit {
 		background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 

@@ -591,19 +591,25 @@ add_action( 'wp_enqueue_scripts', 'marketify_scripts' );
 function marketify_body_classes( $classes ) {
 	global $wp_query;
 
-	// Adds a class of group-blog to blogs with more than 1 published author
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
 	}
 
-	if ( is_page_template( 'page-templates/home.php' ) )
+	if ( is_page_template( 'page-templates/home.php' ) ) {
 		$classes[] = 'home-1';
+	}
 
-	if ( is_page_template( 'page-templates/minimal.php' ) )
+	if ( is_page_template( 'page-templates/home-search.php' ) ) {
+		$classes[] = 'home-search';
+	}
+
+	if ( is_page_template( 'page-templates/minimal.php' ) ) {
 		$classes[] = 'minimal';
+	}
 
-	if ( get_query_var( 'author_ptype' ) )
+	if ( get_query_var( 'author_ptype' ) ) {
 		$classes[] = 'archive-download';
+	}
 
 	if ( class_exists( 'EDD_Front_End_Submissions' ) && is_page( EDD_FES()->fes_options->get_option( 'vendor-dashboard-page' ) ) ) {
 		$classes[] = 'fes-page';
@@ -612,6 +618,78 @@ function marketify_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'marketify_body_classes' );
+
+/**
+ * Append a searchform to the page content on the "Homepage (with Search)
+ * page template.
+ *
+ * @since Marketify 1.1
+ */
+function marketify_homepage_search( $content ) {
+	if ( ! is_page_template( 'page-templates/home-search.php' ) )
+		return $content;
+
+	return $content . get_search_form(false);
+}
+add_filter( 'the_content', 'marketify_homepage_search' );
+
+/**
+ * Popular Categories
+ *
+ * @since Marketify 1.0
+ */
+function marketify_query_vars( $vars ) {
+	$vars[] = 'popular_cat';
+
+	return $vars;
+}
+add_filter( 'query_vars', 'marketify_query_vars' );
+
+/**
+ * Popular Categories links
+ *
+ * @since Marketify 1.0
+ */
+function marketify_popular_get_term_link( $link, $term, $taxonomy ) {
+	if ( ! is_page_template( 'page-templates/popular.php' ) )
+		return $link;
+
+	global $wp_query;
+
+	return add_query_arg( array( 'popular_cat' => $term->term_id ), get_permalink( get_page_by_path( $wp_query->query[ 'pagename' ] ) ) );
+}
+add_filter( 'term_link', 'marketify_popular_get_term_link', 10, 3 );
+
+/**
+ * Shop query filter
+ *
+ * @since Marketify 1.0.4
+ */
+function marketify_popular_items( $query ) {
+	if ( is_admin() || ! $query->is_main_query() || ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
+		return $query;
+	}
+
+	if ( ! is_page_template( 'page-templates/shop.php' ) ) {
+		return $query;
+	}
+
+	unset( $query->query[ 'pagename' ] );
+	unset( $query->query[ 'page' ] );
+
+	$query->query_vars[ 'pagename' ] = null;
+	$query->query[ 'post_type' ] = 'download';
+
+	$query->is_page = false;
+	$query->is_archive = true;
+	$query->is_post_type_archive = true;
+
+	$query->set( 'post_type', 'download' );
+	$query->set( 'post_status', 'publish' );
+
+	return $query;
+}
+add_filter( 'pre_get_posts', 'marketify_popular_items' );
 
 /**
  * Download Authors
@@ -762,64 +840,6 @@ class Marketify_Author {
 	}
 }
 add_action( 'init', array( 'Marketify_Author', 'init' ), 100 );
-
-/**
- * Popular Categories
- *
- * @since Marketify 1.0
- */
-function marketify_query_vars( $vars ) {
-	$vars[] = 'popular_cat';
-
-	return $vars;
-}
-add_filter( 'query_vars', 'marketify_query_vars' );
-
-/**
- * Popular Categories links
- *
- * @since Marketify 1.0
- */
-function marketify_popular_get_term_link( $link, $term, $taxonomy ) {
-	if ( ! is_page_template( 'page-templates/popular.php' ) )
-		return $link;
-
-	global $wp_query;
-
-	return add_query_arg( array( 'popular_cat' => $term->term_id ), get_permalink( get_page_by_path( $wp_query->query[ 'pagename' ] ) ) );
-}
-add_filter( 'term_link', 'marketify_popular_get_term_link', 10, 3 );
-
-/**
- * Shop query filter
- *
- * @since Marketify 1.0.4
- */
-function marketify_popular_items( $query ) {
-	if ( is_admin() || ! $query->is_main_query() || ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
-		return $query;
-	}
-
-	if ( ! is_page_template( 'page-templates/shop.php' ) ) {
-		return $query;
-	}
-
-	unset( $query->query[ 'pagename' ] );
-	unset( $query->query[ 'page' ] );
-
-	$query->query_vars[ 'pagename' ] = null;
-	$query->query[ 'post_type' ] = 'download';
-
-	$query->is_page = false;
-	$query->is_archive = true;
-	$query->is_post_type_archive = true;
-
-	$query->set( 'post_type', 'download' );
-	$query->set( 'post_status', 'publish' );
-
-	return $query;
-}
-add_filter( 'pre_get_posts', 'marketify_popular_items' );
 
 /**
  * Implement the Custom Header feature.

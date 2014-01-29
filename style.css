@@ -1139,6 +1139,21 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	display: block;
 }
 
+/* =Homepage Search
+----------------------------------------------- */
+
+.home-search .main-navigation .search-form {
+	display: none;
+}
+
+.home-search .page-header {
+	padding: 100px 0 190px;
+}
+
+.home-search .page-header .search-form {
+	margin-top: 3em;
+}
+
 /* =Content
 ----------------------------------------------- */
 
@@ -3631,6 +3646,20 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 	margin-bottom: 2em;
 }
 
+
+/* =Jetpack
+----------------------------------------------- */
+
+.contact-form div {
+	margin-bottom: 2em;
+}
+
+.contact-form label span {
+	text-transform: none;
+	letter-spacing: 0;
+	font-weight: 400;
+}
+
 /* =Responsive Suppliments
 ----------------------------------------------- */
 
@@ -3873,9 +3902,15 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 }
 
 @media screen and (min-width: 992px) {
-	.page-title {
+	.page-title,
+	.home-search .page-header .search-form {
 		max-width: 60%;
-		margin: 0 auto;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.home-search .page-header .search-form {
+		max-width: 50%;
 	}
 
 	/* Footer */
