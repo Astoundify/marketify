@@ -81,6 +81,11 @@ function marketify_get_theme_mods( $args = array() ) {
 				'type'    => 'text',
 				'default' => 'Downloads'
 			),
+			'general-downloads-grid-info' => array(
+				'title'   => __( 'Always Show Product Info in Grid', 'marketify' ),
+				'type'    => 'checkbox',
+				'default' => 0
+			)
 		),
 		'footer' => array(
 			'footer-style' => array(

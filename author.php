@@ -28,7 +28,7 @@ get_header(); ?>
 	<div class="container">
 		<div id="content" class="site-content row">
 
-			<div id="secondary" class="author-widget-area col-md-3 col-sm-12" role="complementary">
+			<div id="secondary" class="author-widget-area col-md-3 col-sm-5 col-xs-12" role="complementary">
 				<div class="download-product-details author-archive">
 					<div class="download-author">
 						<?php do_action( 'marketify_download_author_before' ); ?>
@@ -63,7 +63,7 @@ get_header(); ?>
 				</div>
 			</div><!-- #secondary -->
 
-			<section id="primary" class="content-area col-md-9 col-sm-12">
+			<section id="primary" class="content-area col-md-9 col-sm-7 col-xs-12">
 				<main id="main" class="site-main" role="main">
 
 				<?php if ( have_posts() ) : ?>
@@ -71,7 +71,7 @@ get_header(); ?>
 					<div class="row">
 						<?php while ( have_posts() ) : the_post(); ?>
 
-							<div class="col-lg-4 col-sm-6 col-xs-12">
+							<div class="col-lg-4 col-md-6 col-sm-12">
 								<?php get_template_part( 'content-grid', 'download' ); ?>
 							</div>
 

@@ -1234,11 +1234,13 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	margin-right: 10px;
 }
 
-.hentry.post .entry-meta .byline img {
+.hentry.post .entry-meta .byline img,
+.flexslider .slides .byline img {
 	margin-left: 0;
 	margin-right: 6px;
 	width: 25px;
 	height: 25px;
+	display: inline-block;
 }
 
 .updated,
@@ -1922,7 +1924,6 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	padding: 15px 20px;
 	background: #fff;
 	border: 1px solid #bdc3c7;
-	border-top: 0;
 	z-index: 10;
 	position: relative;
 	overflow: hidden;
@@ -2582,7 +2583,7 @@ object {
 	margin: 0 10px;
 }
 
-.marketify_widget_featured_popular .entry-header {
+.marketify_widget_featured_popular .hentry:not(.force-info) .entry-header {
 	display: none;
 }
 

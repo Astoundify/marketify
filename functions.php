@@ -620,6 +620,18 @@ function marketify_body_classes( $classes ) {
 add_filter( 'body_class', 'marketify_body_classes' );
 
 /**
+ * Adds custom classes to the array of post classes.
+ */
+function marketify_post_classes( $classes ) {
+	if ( marketify_theme_mod( 'general', 'general-downloads-grid-info' ) ) {
+		$classes[] = 'force-info';
+	}
+
+	return $classes;
+}
+add_filter( 'post_class', 'marketify_post_classes' );
+
+/**
  * Append a searchform to the page content on the "Homepage (with Search)
  * page template.
  *
