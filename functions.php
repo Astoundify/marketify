@@ -329,6 +329,7 @@ function marketify_widgets_init() {
 	register_widget( 'Marketify_Widget_Slider' );
 	register_widget( 'Marketify_Widget_Price_Table' );
 	register_widget( 'Marketify_Widget_Price_Option' );
+	register_widget( 'Marketify_Widget_Recent_Posts' );
 
 	if ( marketify_is_edd() ) {
 		register_widget( 'Marketify_Widget_Recent_Downloads' );
@@ -936,6 +937,7 @@ require get_template_directory() . '/inc/class-widget.php';
 require get_template_directory() . '/inc/widgets/class-widget-slider.php';
 require get_template_directory() . '/inc/widgets/class-widget-price-option.php';
 require get_template_directory() . '/inc/widgets/class-widget-price-table.php';
+require get_template_directory() . '/inc/widgets/class-widget-blog-posts.php';
 
 if ( marketify_is_edd() ) {
 	require get_template_directory() . '/inc/widgets/class-widget-downloads-recent.php';

@@ -2,16 +2,19 @@
 /**
  * @package Marketify
  */
+
+// Are we on a homepage widget?
+$is_home = is_page_template( 'page-templates/home.php' ) || is_page_template( 'page-templates/home-search.php' );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'row' ); ?>>
-	<?php if ( has_post_thumbnail() ) : ?>
+	<?php if ( has_post_thumbnail() && ! $is_home ) : ?>
 	<div class="col-md-3 col-sm-4 col-xs-12 blog-archive-image">
 		<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_post_thumbnail( 'thumbnail' ); ?></a>
 	</div>
 	<?php endif; ?>
 
-	<div class="<?php echo has_post_thumbnail() ? 'col-md-9 col-sm-8 ' : ''; ?>col-xs-12">
+	<div class="<?php echo has_post_thumbnail() && ! $is_home ? 'col-md-9 col-sm-8 ' : ''; ?>col-xs-12">
 		<header class="entry-header">
 			<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 
