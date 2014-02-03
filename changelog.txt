@@ -1,5 +1,19 @@
 == Changelog ==
 
+= 1.1.0: February 4, 2014 =
+
+* New: Sorting widget for Download Archive widget area
+* New: Second Homepage design that includes a large search bar.
+* New: Download info can be forced to show on all grid items.
+* New: "Curated Downloads" widget to show specific downloads.
+* New: "Recent Posts" widget to show posts from the blog on the homepage.
+* New: Send an email directly to a vendor from their profile page.
+* New: Allow audio downloads to have a featured background header image.
+* New: Default image placeholder when no grid image is set.
+* Fix: Use Download Archive widget area on Popular Items page template.
+* Fix: Make sure the author archives use the proper EDD_SLUG.
+* Fix: "Shop" page template so downloads appear properly.
+
 = 1.0.3: January 23, 2014 =
 
 * New: "Shop" Page Template so the standard archives can be set as the homepage.
