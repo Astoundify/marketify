@@ -201,8 +201,8 @@ Marketify.Widgets = ( function($) {
 
 			var slider = $( '.marketify_widget_featured_popular .flexslider' ).flexslider({
 				animation      : "slide",
-				slideshow      : settings.scroll,
-				slideshowSpeed : settings.speed,
+				slideshow      : settings.scroll ? settings.scroll : false,
+				slideshowSpeed : settings.speed ? settings.speed : false,
 				animationLoop  : false,
 				itemWidth      : 360,
 				itemMargin     : 30,
