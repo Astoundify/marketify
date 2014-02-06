@@ -225,6 +225,9 @@ Marketify.Widgets = ( function($) {
 					$( '.marketify_widget_featured_popular .flexslider:last-of-type' ).fadeIn();
 				}
 
+				$( '.marketify_widget_featured_popular .home-widget-title span' ).removeClass( 'active' );
+				$(this).addClass( 'active' );
+
 				slider.resize();
 			});
 		},

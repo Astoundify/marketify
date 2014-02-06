@@ -310,6 +310,7 @@ function marketify_header_css() {
 	.soliloquy-caption a.button:hover,
 	#edd_checkout_form_wrap fieldset#edd_cc_fields legend,
 	.marketify_widget_featured_popular .home-widget-title span:hover,
+	.marketify_widget_featured_popular .home-widget-title span.active,
 	.marketify-edd-rating .review-title-text,
 	.nav-previous a:hover i,
 	.nav-next a:hover i,
@@ -328,6 +329,7 @@ function marketify_header_css() {
 	body #edd-wl-modal input[type=radio]:checked,
 	#edd_checkout_form_wrap fieldset#edd_cc_fields legend,
 	.marketify_widget_featured_popular .home-widget-title span:hover,
+	.marketify_widget_featured_popular .home-widget-title span.active,
 	.entry-content blockquote,
 	.nav-previous a:hover,
 	.nav-next a:hover {

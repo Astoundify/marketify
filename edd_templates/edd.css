@@ -916,6 +916,15 @@ body.minimal .edd_form legend {
 	background-color: transparent !important;
 }
 
+.fes-form #wp-post_content-wrap td {
+	display: table-cell;
+}
+
+.fes-form #wp-post_content-wra .wp_themeSkin .mceButton {
+	width: 25px;
+	height: 25px;
+}
+
 .fes-form td:last-child {
 	margin-bottom: 1.75em;
 }
