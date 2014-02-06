@@ -904,6 +904,18 @@ body.minimal .edd_form legend {
 	display: block;
 }
 
+.wp-editor-container {
+	border: 1px solid #bdc3c7;
+}
+
+.wp-editor-container .fes-form td {
+	display: inline-block !important;
+}
+
+.wp-editor-container .mce-btn button:hover {
+	background-color: transparent !important;
+}
+
 .fes-form td:last-child {
 	margin-bottom: 1.75em;
 }
