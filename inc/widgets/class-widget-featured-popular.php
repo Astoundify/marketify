@@ -15,6 +15,16 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 		$this->widget_id          = 'marketify_widget_featured_popular';
 		$this->widget_name        = sprintf( __( 'Marketify Featured &amp; Popular %s', 'marketify' ), edd_get_label_plural() );
 		$this->settings           = array(
+			'featured-title' => array(
+				'type'  => 'text',
+				'std'   => 'Featured',
+				'label' => __( 'Featured Title:', 'marketify' )
+			),
+			'popular-title' => array(
+				'type'  => 'text',
+				'std'   => 'Popular',
+				'label' => __( 'Popular Title:', 'marketify' )
+			),
 			'number' => array(
 				'type'  => 'number',
 				'step'  => 1,
@@ -69,6 +79,8 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 
 		$number    = isset( $instance[ 'number' ] ) ? absint( $instance[ 'number' ] ) : 8;
 		$timeframe = isset( $instance[ 'timeframe' ] ) ? $instance[ 'timeframe' ] : 'week';
+		$f_title   = isset( $instance[ 'featured-title' ] ) ? $instance[ 'featured-title' ] : __( 'Featured', 'marketify' );
+		$p_title   = isset( $instance[ 'popular-title' ] ) ? $instance[ 'popular-title' ] : __( 'Popular', 'marketify' );
 
 		$featured_args = array(
 			'post_type'              => 'download',
@@ -121,11 +133,11 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 
 		<h1 class="home-widget-title">
 			<?php if ( $featured->have_posts() ) : ?>
-			<span><?php _e( 'Featured', 'marketify' ); ?> </span>
+			<span><?php echo esc_attr( $f_title ); ?> </span>
 			<?php endif; ?>
 
 			<?php if ( $popular->have_posts() ) : ?>
-			<span><?php _e( 'Popular', 'marketify' ); ?></span>
+			<span><?php echo esc_attr( $p_title ); ?></span>
 			<?php endif; ?>
 		</h1>
 

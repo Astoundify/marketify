@@ -352,7 +352,7 @@ function marketify_widgets_init() {
 	/* Custom Homepage */
 	register_sidebar( array(
 		'name'          => __( 'Homepage', 'marketify' ),
-		'description'   => __( 'Widgets that appear on the "Homepage 1" Page Template', 'marketify' ),
+		'description'   => __( 'Widgets that appear on the "Homepage" Page Template', 'marketify' ),
 		'id'            => 'home-1',
 		'before_widget' => '<aside id="%1$s" class="home-widget %2$s">',
 		'after_widget'  => '</aside>',
