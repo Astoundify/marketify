@@ -61,7 +61,7 @@ get_header(); ?>
 					<?php endif; ?>
 
 					<div class="download-author-message">
-						<a href="?mailto:<?php echo antispambot( esc_attr( $author->user_email ) ); ?>" class="button fullsize small"><?php _e( 'Send Message', 'marketify' ); ?></a>
+						<a href="mailto:<?php echo antispambot( esc_attr( $author->user_email ) ); ?>" class="button fullsize small"><?php _e( 'Send Message', 'marketify' ); ?></a>
 					</div>
 				</div>
 			</div><!-- #secondary -->
