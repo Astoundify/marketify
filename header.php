@@ -11,28 +11,30 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
+
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
-	
+
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	
+
 <div id="page" class="hfeed site">
 	<?php do_action( 'before' ); ?>
 	<header id="masthead" class="site-header" role="banner">
 		<div class="container">
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<h1 class="menu-toggle"><i class="icon-menu"></i></h1>
-				
-				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container_class' => 'main-menu' ) ); ?>
 
-				<?php locate_template( array( 'searchform-header.php' ), true ); ?>
+				<div class="header-search-icon"><i class="icon-search"></i></div>
+
+				<?php locate_template( array( 'searchform.php' ), true ); ?>
+
+				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container_class' => 'main-menu' ) ); ?>
 			</nav><!-- #site-navigation -->
-			
+
 			<div class="site-branding">
 				<?php $header_image = get_header_image(); ?>
 				<?php if ( ! empty( $header_image ) ) : ?>
@@ -44,3 +46,5 @@
 			</div>
 		</div>
 	</header><!-- #masthead -->
+
+	<?php locate_template( array( 'searchform-header.php' ), true ); ?>

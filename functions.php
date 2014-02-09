@@ -195,8 +195,11 @@ add_action( 'init', 'marketify_remove_post_formats' );
 function marketify_before_shim() {
 	global $post;
 
-	if ( ! $background = marketify_has_header_background() )
+	if ( ! $background = marketify_has_header_background() ) {
+		echo '<div class="header-outer">';
+
 		return;
+	}
 
 	printf( '<div class="header-outer%2$s" style="background-image: url(%1$s);">', $background[0], is_array( $background ) ? ' custom-featured-image' : '' );
 }
@@ -212,9 +215,6 @@ add_action( 'before', 'marketify_before_shim' );
  * @return mixed
  */
 function marketify_entry_header_background_end() {
-	if ( ! marketify_has_header_background() )
-		return;
-
 	echo '</div><!-- .header-outer -->';
 }
 add_action( 'marketify_entry_before', 'marketify_entry_header_background_end', 100 );

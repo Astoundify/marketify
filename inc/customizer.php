@@ -397,7 +397,8 @@ function marketify_header_css() {
 	.minimal #edd_login_submit,
 	.edd_terms_links:hover,
 	.site-footer.dark .mailbag-wrap input[type=submit],
-	.home-search .page-header .search-submit {
+	.home-search .page-header .search-submit,
+	.search-form-overlay .search-submit {
 		background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 
@@ -408,7 +409,12 @@ function marketify_header_css() {
 	.content-grid-download .entry-image:hover .overlay {
 		background: rgba( " . marketify_hex2rgb( marketify_theme_mod( 'colors', 'primary' ) ) . ", .80 );
 		border: 1px solid rgba( " . marketify_hex2rgb( marketify_theme_mod( 'colors', 'primary' ) ) . ", .80 );
-	}";
+	}
+
+	.search-form-overlay {
+		background: rgba( " . marketify_hex2rgb( marketify_theme_mod( 'colors', 'primary' ) ) . ", .90 );
+	}
+	";
 
 	wp_add_inline_style( 'marketify-base', trim( str_replace( array( "\t", "\r", "\n" ), '', $css ) ) );
 }

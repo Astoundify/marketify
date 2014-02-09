@@ -2,12 +2,8 @@ var Marketify = {};
 
 Marketify.App = ( function($) {
 	function menuSearch() {
-		$( '.main-navigation .search-form .search-submit' ).click(function(e) {
-			if ( $( '.main-navigation .search-form .search-field' ).val() == '' )
-				e.preventDefault();
-
-			$( '.main-navigation .search-form' )
-				.addClass( 'active' )
+		$( '.header-search-icon' ).click(function(e) {
+			$( '.search-form-overlay' ).toggleClass( 'active' );
 		});
 	}
 
