@@ -2885,6 +2885,12 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 	display: inline-block !important;
 }
 
+/** Misc */
+
+.marketify_widget_recent_posts {
+	margin-bottom: 40px;
+}
+
 /* Download Archive Widgets
 ----------------------------------------------- */
 
