@@ -5,6 +5,13 @@
  * @package Marketify
  */
 
+function marketify_bbp_default_styles( $styles ) {
+	$styles[ 'bbp-default' ][ 'file' ] = 'css/bbpress.min.css';
+
+	return $styles;
+}
+add_filter( 'bbp_default_styles', 'marketify_bbp_default_styles' );
+
 /**
  * Override bbPress breadcrumb home text.
  *

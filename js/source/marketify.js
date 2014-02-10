@@ -1,5 +1,6 @@
 var Marketify = {};
 
+
 Marketify.App = ( function($) {
 	function menuSearch() {
 		$( '.header-search-icon' ).click(function(e) {

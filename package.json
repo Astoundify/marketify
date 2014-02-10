@@ -5,15 +5,18 @@
   "description": "Your beautiful handcrafted digital marketplace.",
   "homepage": "https://github.com/Astoundify/marketify",
   "main": "Gruntfile.js",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "grunt": "~0.4.2",
+    "grunt-contrib-watch": "~0.5.3",
     "grunt-cli": "~0.1.13",
     "grunt-contrib-uglify": "~0.3.2",
     "grunt-contrib-cssmin": "~0.7.0",
     "grunt-shell": "~0.6.4",
-    "grunt-contrib-concat": "~0.3.0"
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-clean": "~0.5.0"
   },
-  "devDependencies": { },
   "repository": {
     "type": "git",
     "url": "git://github.com/Astoundify/marketify.git"

@@ -1,57 +1,81 @@
-/* jshint node:true */
-module.exports = function( grunt ){
-	'use strict';
+'use strict';
+module.exports = function(grunt) {
 
 	grunt.initConfig({
-		// setting folder templates
-		dirs: {
-			css: 'css',
-			fonts: 'fonts',
-			js: 'js'
-		},
 
-		concat: {
-            css: {
-                src: [
-                    'css/bootstrap.css', 'css/jplayer.css', 'magnific-popup.css'
-                ],
-                dest: 'vendor.min.css'
-            },
-            js: {
-                src: [
-                    'jplayer.playlist.min.js', 'jquery.flexslider-min.js', 'jquery.jplayer.min.js', 'jquery.magnific-popup.min.js'
-                ],
-                dest: 'vendor.min.js'
-            }
-        },
-
-		cssmin: {
-			minify: {
-				expand: true,
-				cwd: '<%= dirs.css %>/',
-				src: ['vendor.css', 'vendor.min.css'],
-				dest: '<%= dirs.css %>/',
-				ext: '.css'
+		// watch for changes and trigger compass, jshint, uglify and livereload
+		watch: {
+			options: {
+				livereload: true,
+			},
+			js: {
+				files: '<%= jshint.all %>',
+				tasks: ['jshint', 'uglify']
+			},
+			css: {
+				files: [
+					'style.css',
+					'css/source/*.css',
+					'css/source/vendor/*.css'
+				],
+				tasks: ['concat', 'cssmin']
 			}
 		},
 
-		// Minify .js files.
-		uglify: {
+		// javascript linting with jshint
+		jshint: {
 			options: {
-				preserveComments: 'some'
+				"force": true
 			},
-			js: {
-				files: [{
-					expand: true,
-					cwd: '<%= dirs.js %>',
-					src: [
-						'*.js',
-						'!*.min.js'
+			all: [
+				'Gruntfile.js',
+				'js/source/**/*.js'
+			]
+		},
+
+		// uglify to concat, minify, and make source maps
+		uglify: {
+			dist: {
+				options: {
+					sourceMap: false
+				},
+				files: {
+					'js/plugins.min.js': [
+						'js/source/vendor/**.js'
 					],
-					dest: '<%= dirs.js %>',
-					ext: '.min.js'
-				}]
-			},
+					'js/main.min.js': [
+						'js/source/marketify.js'
+					],
+					'js/customizer.min.js': [
+						'js/source/customizer.js'
+					]
+				}
+			}
+		},
+
+		concat: {
+			dist: {
+				files: {
+					'css/plugins.css': ['css/source/vendor/*.css']
+				}
+			}
+		},
+
+		cssmin: {
+			dist: {
+				files: {
+					'css/plugins.min.css': [ 'css/plugins.css' ],
+					'css/bbpress.min.css': ['css/source/bbpress.css'],
+					'css/entypo.min.css': ['css/source/entypo.css'],
+					'css/editor-style.min.css': ['css/source/editor-style.css']
+				}
+			}
+		},
+
+		clean: {
+			dist: {
+				src: ['css/plugins.css']
+			}
 		},
 
 		shell: {
@@ -68,18 +92,16 @@ module.exports = function( grunt ){
 
 	});
 
-	// Load NPM tasks to be used here
 	grunt.loadNpmTasks( 'grunt-shell' );
+	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-contrib-concat' );
 	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
+	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
+	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 
-	// Register tasks
-	grunt.registerTask( 'default', [
-		'concat',
-		'cssmin',
-		'uglify',
-		'shell:generatepot'
-	]);
+	// register task
+	grunt.registerTask('default', ['watch']);
+	grunt.registerTask('build', ['jshint', 'uglify', 'concat', 'cssmin', 'clean', 'shell']);
 
 };

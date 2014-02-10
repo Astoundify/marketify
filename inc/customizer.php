@@ -226,7 +226,7 @@ add_action( 'customize_register', 'marketify_customize_register_transport' );
  * @since Marketify 1.0
  */
 function marketify_customize_preview_js() {
-	wp_enqueue_script( 'marketify-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), 20131001, true );
+	wp_enqueue_script( 'marketify-customizer', get_template_directory_uri() . '/js/customizer.min.js', array( 'customize-preview' ), 20140210, true );
 }
 add_action( 'customize_preview_init', 'marketify_customize_preview_js' );
 

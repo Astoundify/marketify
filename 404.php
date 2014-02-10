@@ -11,9 +11,11 @@ get_header(); ?>
 		<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'marketify' ); ?></h1>
 	</header><!-- .page-header -->
 
+	<?php do_action( 'marketify_entry_before' ); ?>
+
 	<div class="container">
 		<div id="content" class="site-content row">
-			
+
 			<div id="primary" class="content-area col-sm-<?php echo is_active_sidebar( 'sidebar-1' ) ? '8' : '12'; ?>">
 				<main id="main" class="site-main" role="main">
 
@@ -57,5 +59,5 @@ get_header(); ?>
 			<?php get_sidebar(); ?>
 		</div>
 	</div>
-	
+
 <?php get_footer(); ?>
