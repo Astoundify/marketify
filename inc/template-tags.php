@@ -484,7 +484,7 @@ function marketify_download_archive_popular( $args = array() ) {
 		'timeframe'              => 'month' // 'week'
 	);
 
-	$args = wp_parse_args( $args, $defaults );
+	$args = apply_filters( 'marketify_download_archive_popular', wp_parse_args( $args, $defaults ) );
 
 	$query_args = array(
 		'post_type'              => 'download',
