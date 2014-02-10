@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
-"Project-Id-Version: Marketify 1.0.3\n"
+"Project-Id-Version: Marketify 1.1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/marketify\n"
-"POT-Creation-Date: 2014-01-23 18:56:36+00:00\n"
+"POT-Creation-Date: 2014-02-10 01:10:25+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,9 +24,13 @@ msgstr ""
 msgid "Most Used Categories"
 msgstr ""
 
-#: archive-download.php:41 archive-download.php:43
+#: archive-download.php:41 archive-download.php:45
 #: page-templates/popular.php:23
 msgid "All %s"
+msgstr ""
+
+#: archive-download.php:43
+msgid "All %s by %s"
 msgstr ""
 
 #: archive.php:23
@@ -78,32 +82,36 @@ msgstr ""
 msgid "Author since: %s"
 msgstr ""
 
-#: author.php:45
+#: author.php:51
 msgid "Product"
 msgid_plural "Products"
 msgstr[0] ""
 msgstr[1] ""
 
-#: author.php:47
+#: author.php:53
 msgid "Love"
 msgid_plural "Loves"
 msgstr[0] ""
 msgstr[1] ""
 
-#: author.php:87
+#: author.php:64
+msgid "Send Message"
+msgstr ""
+
+#: author.php:91
 msgid "Hey, it looks like %s has not liked anything yet!"
 msgstr ""
 
-#: bbpress/form-search.php:14 searchform-header.php:12 searchform.php:20
+#: bbpress/form-search.php:14 searchform-header.php:14 searchform.php:21
 msgctxt "label"
 msgid "Search for:"
 msgstr ""
 
-#: bbpress/form-search.php:15 searchform-header.php:13 searchform.php:21
+#: bbpress/form-search.php:15 searchform-header.php:15 searchform.php:22
 msgid "Search"
 msgstr ""
 
-#: bbpress/form-search.php:15 searchform-header.php:13 searchform.php:21
+#: bbpress/form-search.php:15 searchform-header.php:15 searchform.php:22
 msgid "Search for:"
 msgstr ""
 
@@ -127,12 +135,12 @@ msgstr ""
 msgid "Newer Comments"
 msgstr ""
 
-#: content-author.php:25 content.php:24 page-templates/team.php:55
+#: content-author.php:25 content.php:27 page-templates/team.php:55
 msgid "View all posts by %s"
 msgstr ""
 
 #: content-grid-download-popular.php:16
-#: inc/widgets/class-widget-featured-popular.php:128
+#: inc/widgets/class-widget-featured-popular.php:83
 msgid "Popular"
 msgstr ""
 
@@ -144,23 +152,23 @@ msgstr ""
 msgid "About the Product"
 msgstr ""
 
-#: content-single.php:25 content.php:39
+#: content-single.php:25 content.php:42
 msgid "<i class=\"icon-pencil\"></i> Edit"
 msgstr ""
 
-#: content.php:21
+#: content.php:24
 msgid "<span class=\"byline\">%1$s</span>"
 msgstr ""
 
-#: content.php:36
+#: content.php:39
 msgid "<i class=\"icon-chat\"></i> 0 Comments"
 msgstr ""
 
-#: content.php:36
+#: content.php:39
 msgid "<i class=\"icon-chat\"></i> 1 Comment"
 msgstr ""
 
-#: content.php:36
+#: content.php:39
 msgid "<i class=\"icon-chat\"></i> % Comments"
 msgstr ""
 
@@ -196,43 +204,43 @@ msgstr ""
 msgid "Footer Social"
 msgstr ""
 
-#: functions.php:345
+#: functions.php:354
 msgid "Homepage"
 msgstr ""
 
-#: functions.php:346
-msgid "Widgets that appear on the \"Homepage 1\" Page Template"
+#: functions.php:355
+msgid "Widgets that appear on the \"Homepage\" Page Template"
 msgstr ""
 
-#: functions.php:356
+#: functions.php:365
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:367
+#: functions.php:376
 msgid "%s Archive Sidebar"
 msgstr ""
 
-#: functions.php:377
+#: functions.php:386
 msgid "%s Single Sidebar"
 msgstr ""
 
-#: functions.php:387
+#: functions.php:396
 msgid "%s Single Comments Sidebar"
 msgstr ""
 
-#: functions.php:406
+#: functions.php:415
 msgid "Footer"
 msgstr ""
 
-#: functions.php:407
+#: functions.php:416
 msgid "Widgets that appear in the page footer"
 msgstr ""
 
-#: functions.php:424
+#: functions.php:433
 msgid "Price Table"
 msgstr ""
 
-#: functions.php:426
+#: functions.php:435
 msgid "Drag multiple \"Price Option\" widgets here. Then drag the \"Pricing Table\" widget to the \"Homepage\" Widget Area."
 msgstr ""
 
@@ -240,7 +248,7 @@ msgstr ""
 #. 	 * supported by Source Sans Pro, translate this to 'off'. Do not translate
 #. 	 * into your own language.
 
-#: functions.php:450
+#: functions.php:459
 msgctxt "Source Sans Pro font: on or off"
 msgid "on"
 msgstr ""
@@ -250,7 +258,7 @@ msgstr ""
 #. your
 #. 	 * own language.
 
-#: functions.php:456
+#: functions.php:465
 msgctxt "Roboto Slab font: on or off"
 msgid "on"
 msgstr ""
@@ -260,7 +268,7 @@ msgstr ""
 #. your
 #. 	 * own language.
 
-#: functions.php:462
+#: functions.php:471
 msgctxt "Montserrat font: on or off"
 msgid "on"
 msgstr ""
@@ -283,35 +291,39 @@ msgstr ""
 msgid "Download Label Plural"
 msgstr ""
 
-#: inc/customizer.php:87
+#: inc/customizer.php:85
+msgid "Always Show Product Info in Grid"
+msgstr ""
+
+#: inc/customizer.php:92
 msgid "Style"
 msgstr ""
 
-#: inc/customizer.php:90
+#: inc/customizer.php:95
 msgid "Dark"
 msgstr ""
 
-#: inc/customizer.php:91
+#: inc/customizer.php:96
 msgid "Light"
 msgstr ""
 
-#: inc/customizer.php:96
+#: inc/customizer.php:101
 msgid "Contact Address"
 msgstr ""
 
-#: inc/customizer.php:101
+#: inc/customizer.php:106
 msgid "Logo"
 msgstr ""
 
-#: inc/customizer.php:108
+#: inc/customizer.php:113
 msgid "Page Header Color"
 msgstr ""
 
-#: inc/customizer.php:113
+#: inc/customizer.php:118
 msgid "Button/Primary Color"
 msgstr ""
 
-#: inc/customizer.php:118
+#: inc/customizer.php:123
 msgid "Accent Color"
 msgstr ""
 
@@ -323,11 +335,27 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: inc/integrations/edd/edd.php:228
+#: inc/integrations/edd/edd.php:190
+msgid "Title"
+msgstr ""
+
+#: inc/integrations/edd/edd.php:191
+msgid "Date"
+msgstr ""
+
+#: inc/integrations/edd/edd.php:192
+msgid "Sales"
+msgstr ""
+
+#: inc/integrations/edd/edd.php:193
+msgid "Price"
+msgstr ""
+
+#: inc/integrations/edd/edd.php:265
 msgid "%s Video URL"
 msgstr ""
 
-#: inc/integrations/edd/edd.php:230
+#: inc/integrations/edd/edd.php:267
 msgid "%s Demo URL"
 msgstr ""
 
@@ -377,6 +405,44 @@ msgstr ""
 msgid "Post navigation"
 msgstr ""
 
+#: inc/widgets/class-widget-blog-posts.php:14
+msgid "Display recent blog posts."
+msgstr ""
+
+#: inc/widgets/class-widget-blog-posts.php:16
+msgid "Marketify Recent Posts"
+msgstr ""
+
+#: inc/widgets/class-widget-blog-posts.php:21
+#: inc/widgets/class-widget-download-archive-sorting.php:21
+#: inc/widgets/class-widget-download-details.php:21
+#: inc/widgets/class-widget-download-review-details.php:21
+#: inc/widgets/class-widget-download-share.php:21
+#: inc/widgets/class-widget-download-sharing.php:21
+#: inc/widgets/class-widget-downloads-curated.php:21
+#: inc/widgets/class-widget-downloads-recent.php:21
+#: inc/widgets/class-widget-price-table.php:21
+msgid "Title:"
+msgstr ""
+
+#: inc/widgets/class-widget-blog-posts.php:29
+#: inc/widgets/class-widget-downloads-recent.php:29
+#: inc/widgets/class-widget-featured-popular.php:34
+msgid "Number to display:"
+msgstr ""
+
+#: inc/widgets/class-widget-download-archive-sorting.php:14
+msgid "Display a way to sort the current product archives."
+msgstr ""
+
+#: inc/widgets/class-widget-download-archive-sorting.php:16
+msgid "Marketify Download Sorting"
+msgstr ""
+
+#: inc/widgets/class-widget-download-archive-sorting.php:55
+msgid "Sort by:"
+msgstr ""
+
 #: inc/widgets/class-widget-download-details.php:14
 #: inc/widgets/class-widget-download-sharing.php:14
 msgid "Display information related to the current download"
@@ -385,15 +451,6 @@ msgstr ""
 #: inc/widgets/class-widget-download-details.php:16
 #: inc/widgets/class-widget-download-sharing.php:16
 msgid "Marketify Download Product Details"
-msgstr ""
-
-#: inc/widgets/class-widget-download-details.php:21
-#: inc/widgets/class-widget-download-review-details.php:21
-#: inc/widgets/class-widget-download-share.php:21
-#: inc/widgets/class-widget-download-sharing.php:21
-#: inc/widgets/class-widget-downloads-recent.php:21
-#: inc/widgets/class-widget-price-table.php:21
-msgid "Title:"
 msgstr ""
 
 #: inc/widgets/class-widget-download-details.php:80
@@ -435,17 +492,24 @@ msgstr ""
 msgid "Description:"
 msgstr ""
 
+#: inc/widgets/class-widget-downloads-curated.php:14
+msgid "Display curated %s in a grid."
+msgstr ""
+
+#: inc/widgets/class-widget-downloads-curated.php:16
+msgid "Marketify Curated %s"
+msgstr ""
+
+#: inc/widgets/class-widget-downloads-curated.php:26
+msgid "%s IDs:"
+msgstr ""
+
 #: inc/widgets/class-widget-downloads-recent.php:14
 msgid "Display recent %s in a grid."
 msgstr ""
 
 #: inc/widgets/class-widget-downloads-recent.php:16
 msgid "Marketify Recent %s"
-msgstr ""
-
-#: inc/widgets/class-widget-downloads-recent.php:29
-#: inc/widgets/class-widget-featured-popular.php:24
-msgid "Number to display:"
 msgstr ""
 
 #: inc/widgets/class-widget-featured-popular.php:14
@@ -456,35 +520,43 @@ msgstr ""
 msgid "Marketify Featured &amp; Popular %s"
 msgstr ""
 
-#: inc/widgets/class-widget-featured-popular.php:29
+#: inc/widgets/class-widget-featured-popular.php:21
+msgid "Featured Title:"
+msgstr ""
+
+#: inc/widgets/class-widget-featured-popular.php:26
+msgid "Popular Title:"
+msgstr ""
+
+#: inc/widgets/class-widget-featured-popular.php:39
 msgid "Based on the current:"
 msgstr ""
 
-#: inc/widgets/class-widget-featured-popular.php:31
+#: inc/widgets/class-widget-featured-popular.php:41
 msgid "Day"
 msgstr ""
 
-#: inc/widgets/class-widget-featured-popular.php:32
+#: inc/widgets/class-widget-featured-popular.php:42
 msgid "Week"
 msgstr ""
 
-#: inc/widgets/class-widget-featured-popular.php:33
+#: inc/widgets/class-widget-featured-popular.php:43
 msgid "Month"
 msgstr ""
 
-#: inc/widgets/class-widget-featured-popular.php:34
+#: inc/widgets/class-widget-featured-popular.php:44
 msgid "Year"
 msgstr ""
 
-#: inc/widgets/class-widget-featured-popular.php:40
+#: inc/widgets/class-widget-featured-popular.php:50
 msgid "Automatically scroll items"
 msgstr ""
 
-#: inc/widgets/class-widget-featured-popular.php:45
+#: inc/widgets/class-widget-featured-popular.php:55
 msgid "Slideshow Speed (ms)"
 msgstr ""
 
-#: inc/widgets/class-widget-featured-popular.php:124
+#: inc/widgets/class-widget-featured-popular.php:82
 msgid "Featured"
 msgstr ""
 
@@ -572,7 +644,62 @@ msgstr ""
 #: no-results.php:27
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
+#. Theme Name of the plugin/theme
+msgid "Marketify"
+msgstr ""
 
-#: page-templates/popular.php:72
-msgid "Categories"
+#. Theme URI of the plugin/theme
+msgid "http://astoundify.com/themes/marketify"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Your beautiful handcrafted digital marketplace."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Astoundify"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://astoundify.com"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Full Width"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Homepage (with Search)"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Homepage"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Minimal"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Popular Items"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Pricing Table"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Shop"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Single Column"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "The Team"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Wishlist"
 msgstr ""
