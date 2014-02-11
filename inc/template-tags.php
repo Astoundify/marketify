@@ -267,7 +267,7 @@ function marketify_download_grid_previewer() {
 	 */
 	if ( count( $images ) == 0 && has_post_thumbnail( $post->ID ) ) {
 		echo $before;
-		echo get_the_post_thumbnail( $post->ID, 'fullsize' );
+		echo '<a href="' . wp_get_attachment_url( get_post_thumbnail_id() ) . '">' . get_the_post_thumbnail( $post->ID, 'fullsize' ) . '</a>';
 		echo $after;
 
 		return;
@@ -275,7 +275,7 @@ function marketify_download_grid_previewer() {
 
 	if ( count( $images ) == 1 ) {
 		echo $before;
-		echo wp_get_attachment_image( current( $images )->ID, 'fullsize' );
+		echo '<a href="' . wp_get_attachment_url( $image->ID ) . '">' . wp_get_attachment_image( current( $images )->ID, 'fullsize' ) . '</a>';
 		echo $after;
 
 		return;
@@ -290,9 +290,9 @@ function marketify_download_grid_previewer() {
 		</div>
 
 		<div class="col-md-2 col-sm-12">
-			<ul class="slides">
+			<ul class="slides row">
 				<?php $i = 1; foreach ( $images as $image ) : ?>
-				<li><a id="<?php echo $i; ?>" href="<?php echo wp_get_attachment_url( $image->ID ); ?>" class="image-preview-gallery"><?php echo wp_get_attachment_image( $image->ID, 'fullsize' ); ?></a></li>
+				<li class="col-md-12 col-xs-4"><a id="<?php echo $i; ?>" href="<?php echo wp_get_attachment_url( $image->ID ); ?>" class="image-preview-gallery"><?php echo wp_get_attachment_image( $image->ID, 'fullsize' ); ?></a></li>
 				<?php $i++; endforeach; ?>
 			</ul>
 		</div>

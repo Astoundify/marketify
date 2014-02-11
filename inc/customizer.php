@@ -416,7 +416,7 @@ function marketify_header_css() {
 	}
 
 	.content-grid-download .entry-image:hover .overlay,
-	.download-image-grid-preview .slides li.active:before {
+	.download-image-grid-preview .slides li.active a:before {
 		background: rgba( " . marketify_hex2rgb( marketify_theme_mod( 'colors', 'primary' ) ) . ", .80 );
 		border: 1px solid rgba( " . marketify_hex2rgb( marketify_theme_mod( 'colors', 'primary' ) ) . ", .80 );
 	}
