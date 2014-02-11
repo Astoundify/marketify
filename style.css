@@ -2466,6 +2466,12 @@ object {
 	content: '\e762';
 }
 
+.edd-taxonomy-widget .children {
+	list-style: disc;
+	list-style-position: inside;
+	margin-left: 10px;
+}
+
 .widget a {
 	text-decoration: none;
 }
