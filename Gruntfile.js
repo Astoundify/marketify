@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 			},
 			js: {
 				files: '<%= jshint.all %>',
-				tasks: ['jshint', 'uglify']
+				tasks: ['uglify']
 			},
 			css: {
 				files: [

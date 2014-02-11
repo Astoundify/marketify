@@ -285,15 +285,15 @@ function marketify_download_grid_previewer() {
 	?>
 
 	<div class="row">
-		<div class="col-sm-10 image-preview">
-			<a href="<?php echo wp_get_attachment_url( $image->ID ); ?>" class="image-preview-gallery"><?php echo wp_get_attachment_image( current( $images )->ID, 'fullsize' ); ?></a>
+		<div class="col-md-10 col-sm-12 image-preview">
+			<a id="1" href="<?php echo wp_get_attachment_url( $image->ID ); ?>" class="image-preview-gallery"><?php echo wp_get_attachment_image( current( $images )->ID, 'fullsize' ); ?></a>
 		</div>
 
-		<div class="col-sm-2">
+		<div class="col-md-2 col-sm-12">
 			<ul class="slides">
-				<?php foreach ( $images as $image ) : ?>
-				<li id="image-<?php echo $image->ID; ?>"><a href="<?php echo wp_get_attachment_url( $image->ID ); ?>" class="image-preview-gallery"><?php echo wp_get_attachment_image( $image->ID, 'fullsize' ); ?></a></li>
-				<?php endforeach; ?>
+				<?php $i = 1; foreach ( $images as $image ) : ?>
+				<li><a id="<?php echo $i; ?>" href="<?php echo wp_get_attachment_url( $image->ID ); ?>" class="image-preview-gallery"><?php echo wp_get_attachment_image( $image->ID, 'fullsize' ); ?></a></li>
+				<?php $i++; endforeach; ?>
 			</ul>
 		</div>
 	</div>

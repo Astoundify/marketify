@@ -415,7 +415,8 @@ function marketify_header_css() {
 		background-color: #" . get_theme_mod( 'background_color' ) . ";
 	}
 
-	.content-grid-download .entry-image:hover .overlay {
+	.content-grid-download .entry-image:hover .overlay,
+	.download-image-grid-preview .slides li.active:before {
 		background: rgba( " . marketify_hex2rgb( marketify_theme_mod( 'colors', 'primary' ) ) . ", .80 );
 		border: 1px solid rgba( " . marketify_hex2rgb( marketify_theme_mod( 'colors', 'primary' ) ) . ", .80 );
 	}

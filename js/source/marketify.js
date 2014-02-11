@@ -185,6 +185,23 @@ Marketify.App = ( function($) {
 
 				landing.html( $(this).clone() );
 			});
+
+			var items = [];
+			$( '.download-image-grid-preview .slides li' ).each(function() {
+				items.push( { src: $( this ).find( 'img' ).attr( 'src' ) } );
+			});
+
+			$( '.download-image-grid-preview' ).on( 'click', '.image-preview a', function(e) {
+				e.preventDefault();
+
+				$.magnificPopup.open({
+					type: 'image',
+					items : items,
+					gallery:{
+						enabled:true
+					}
+				});
+			});
 		}
 	}
 } )(jQuery);
