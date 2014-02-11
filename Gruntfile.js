@@ -18,7 +18,7 @@ module.exports = function(grunt) {
 					'css/source/*.css',
 					'css/source/vendor/*.css'
 				],
-				tasks: ['concat', 'cssmin']
+				tasks: ['concat', 'cssmin', 'clean']
 			}
 		},
 

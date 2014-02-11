@@ -51,6 +51,9 @@ endif;
 function marketify_download_viewer() {
 	global $post;
 
+	if ( 'grid' == marketify_theme_mod( 'general', 'general-product-single-style' ) )
+		return;
+
 	$format = get_post_format();
 
 	switch( $format ) {
@@ -241,6 +244,66 @@ function marketify_download_audio_player() {
 }
 add_action( 'marketify_download_entry_meta_before_audio', 'marketify_download_audio_player' );
 endif;
+
+if ( ! function_exists( 'marketify_download_grid_previewer' ) ) :
+/**
+ *
+ * @since Marketify 1.1.0
+ *
+ * @return void
+ */
+function marketify_download_grid_previewer() {
+	if ( 'classic' == marketify_theme_mod( 'general', 'general-product-single-style' ) )
+		return;
+
+	global $post;
+
+	$images = get_attached_media( 'image', $post->ID );
+	$before = '<div class="download-image-grid-preview">';
+	$after  = '</div>';
+
+	/*
+	 * Just one image and it's featured.
+	 */
+	if ( count( $images ) == 0 && has_post_thumbnail( $post->ID ) ) {
+		echo $before;
+		echo get_the_post_thumbnail( $post->ID, 'fullsize' );
+		echo $after;
+
+		return;
+	}
+
+	if ( count( $images ) == 1 ) {
+		echo $before;
+		echo wp_get_attachment_image( current( $images )->ID, 'fullsize' );
+		echo $after;
+
+		return;
+	}
+
+	echo $before;
+	?>
+
+	<div class="row">
+		<div class="col-sm-10 image-preview">
+			<a href="<?php echo wp_get_attachment_url( $image->ID ); ?>" class="image-preview-gallery"><?php echo wp_get_attachment_image( current( $images )->ID, 'fullsize' ); ?></a>
+		</div>
+
+		<div class="col-sm-2">
+			<ul class="slides">
+				<?php foreach ( $images as $image ) : ?>
+				<li id="image-<?php echo $image->ID; ?>"><a href="<?php echo wp_get_attachment_url( $image->ID ); ?>" class="image-preview-gallery"><?php echo wp_get_attachment_image( $image->ID, 'fullsize' ); ?></a></li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+	</div>
+
+	<?php
+	echo $after;
+}
+add_action( 'marketify_single_download_content_before_content', 'marketify_download_grid_previewer' );
+endif;
+
 
 if ( ! function_exists( 'marketify_purchase_link' ) ) :
 /**

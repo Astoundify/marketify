@@ -170,6 +170,21 @@ Marketify.App = ( function($) {
 				maxItems       : 3,
 				directionNav   : false
 			});
+		},
+
+		downloadGridViewer : function() {
+			$( '.download-image-grid-preview .slides li:first-child' ).addClass( 'active' );
+
+			$( '.download-image-grid-preview .slides li a' ).click(function(e) {
+				e.preventDefault();
+
+				var landing = $( '.image-preview' );
+
+				$( '.download-image-grid-preview .slides li' ).removeClass( 'active' );
+				$(this).parent().addClass( 'active' );
+
+				landing.html( $(this).clone() );
+			});
 		}
 	}
 } )(jQuery);
@@ -275,4 +290,5 @@ jQuery(document).ready(function() {
 jQuery(window).load(function() {
 	Marketify.App.downloadStandard();
 	Marketify.App.featuredPopular();
+	Marketify.App.downloadGridViewer();
 });

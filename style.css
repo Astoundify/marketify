@@ -2066,6 +2066,27 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	display: none;
 }
 
+.download-image-grid-preview {
+	margin: 70px 0;
+}
+
+.download-image-grid-preview .slides {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.download-image-grid-preview .slides li {
+	margin-bottom: 30px;
+}
+
+.download-image-grid-preview .slides li.active {
+	opacity: 0.50;
+}
+
+.download-image-grid-preview .slides img {
+	display: block;
+}
 
 /* =Media
 ----------------------------------------------- */
