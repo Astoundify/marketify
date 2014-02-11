@@ -183,7 +183,7 @@ Marketify.App = ( function($) {
 				$( '.download-image-grid-preview .slides li' ).removeClass( 'active' );
 				$(this).parent().addClass( 'active' );
 
-				landing.html( $(this).clone() );
+				landing.hide().html( $(this).clone() ).fadeIn();
 			});
 
 			var items = [];

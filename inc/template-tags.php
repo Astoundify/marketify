@@ -51,9 +51,6 @@ endif;
 function marketify_download_viewer() {
 	global $post;
 
-	if ( 'grid' == marketify_theme_mod( 'general', 'general-product-single-style' ) )
-		return;
-
 	$format = get_post_format();
 
 	switch( $format ) {
@@ -83,6 +80,9 @@ if ( ! function_exists( 'marketify_download_standard_player' ) ) :
  */
 function marketify_download_standard_player() {
 	global $post;
+
+	if ( 'grid' == marketify_theme_mod( 'general', 'general-product-single-style' ) )
+		return;
 
 	$images = get_attached_media( 'image', $post->ID );
 	$before = '<div class="download-image">';
@@ -171,10 +171,6 @@ function marketify_download_audio_player() {
 
 	$download_id = $post->ID;
 
-	wp_enqueue_style( 'jplayer', get_template_directory_uri() . '/css/jplayer.css' );
-	wp_enqueue_script( 'jplayer', get_template_directory_uri() . '/js/jquery.jplayer.min.js', array( 'jquery' ) );
-	wp_enqueue_script( 'jplaylist', get_template_directory_uri() . '/js/jplayer.playlist.min.js' );
-
 	$attachments = get_attached_media( 'audio', $download_id );
 	$audio       = array();
 	$exts        = array();
@@ -253,10 +249,13 @@ if ( ! function_exists( 'marketify_download_grid_previewer' ) ) :
  * @return void
  */
 function marketify_download_grid_previewer() {
-	if ( 'classic' == marketify_theme_mod( 'general', 'general-product-single-style' ) )
+	if ( 'grid' != marketify_theme_mod( 'general', 'general-product-single-style' ) )
 		return;
 
 	global $post;
+
+	if ( in_array( get_post_format(), array( 'audio', 'video' ) ) )
+		return;
 
 	$images = get_attached_media( 'image', $post->ID );
 	$before = '<div class="download-image-grid-preview">';
