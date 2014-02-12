@@ -3,7 +3,9 @@ var Marketify = {};
 
 Marketify.App = ( function($) {
 	function menuSearch() {
-		$( '.header-search-icon' ).click(function(e) {
+		$( '.header-search-icon, .header-search-toggle' ).click(function(e) {
+			e.preventDefault();
+
 			$( '.search-form-overlay' ).toggleClass( 'active' );
 		});
 	}

@@ -28,7 +28,9 @@
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<h1 class="menu-toggle"><i class="icon-menu"></i></h1>
 
+				<?php if ( ! ( is_front_page() && is_page_template( 'page-templates/home-search.php' ) ) ) : ?>
 				<div class="header-search-icon"><i class="icon-search"></i></div>
+				<?php endif; ?>
 
 				<?php locate_template( array( 'searchform.php' ), true ); ?>
 
