@@ -37,12 +37,13 @@ get_header(); ?>
 				<div class="section-title"><span>
 					<?php if ( is_search() ) : ?>
 						<?php printf( '&quot;%s&quot;', esc_attr( get_search_query() ) ); ?>
-					<?php elseif ( is_tax() ) : ?>
-						<?php printf( __( 'All %s', 'marketify' ), single_term_title( '', false ) ); ?>
-					<?php elseif ( get_query_var( 'orderby' ) ) : ?>
-						<?php printf( __( 'All %s by %s', 'marketify' ), edd_get_label_plural(), marketify_edd_sorting_options( get_query_var( 'orderby' ) ) ); ?>
 					<?php else : ?>
-						<?php printf( __( 'All %s', 'marketify' ), edd_get_label_plural() ); ?>
+						<?php
+							$base  = is_tax() ? single_term_title( '', false ) : edd_get_label_plural();
+							$order = get_query_var( 'orderby' ) ? sprintf( '&nbsp;' . __( 'by %s', 'marketify' ), marketify_edd_sorting_options( get_query_var( 'orderby' ) ) ) : '';
+
+							printf( __( 'All %s%s', 'marketify' ), $base, $order );
+						?>
 					<?php endif; ?>
 				</span></div>
 

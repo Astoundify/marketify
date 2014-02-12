@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Marketify 1.1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/marketify\n"
-"POT-Creation-Date: 2014-02-10 17:20:06+00:00\n"
+"POT-Creation-Date: 2014-02-12 14:19:06+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,21 +16,20 @@ msgstr ""
 msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
-#: 404.php:22
+#: 404.php:24
 msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
 msgstr ""
 
-#: 404.php:35
+#: 404.php:37
 msgid "Most Used Categories"
 msgstr ""
 
-#: archive-download.php:41 archive-download.php:45
-#: page-templates/popular.php:23
-msgid "All %s"
+#: archive-download.php:43
+msgid "by %s"
 msgstr ""
 
-#: archive-download.php:43
-msgid "All %s by %s"
+#: archive-download.php:45
+msgid "All %s%s"
 msgstr ""
 
 #: archive.php:23
@@ -77,28 +76,28 @@ msgstr ""
 msgid "%s&#39;s Wishlist"
 msgstr ""
 
-#: author.php:37 inc/widgets/class-widget-download-details.php:59
+#: author.php:39 inc/widgets/class-widget-download-details.php:59
 #: inc/widgets/class-widget-download-sharing.php:57
 msgid "Author since: %s"
 msgstr ""
 
-#: author.php:51
+#: author.php:53
 msgid "Product"
 msgid_plural "Products"
 msgstr[0] ""
 msgstr[1] ""
 
-#: author.php:53
+#: author.php:55
 msgid "Love"
 msgid_plural "Loves"
 msgstr[0] ""
 msgstr[1] ""
 
-#: author.php:64
+#: author.php:66
 msgid "Send Message"
 msgstr ""
 
-#: author.php:91
+#: author.php:93
 msgid "Hey, it looks like %s has not liked anything yet!"
 msgstr ""
 
@@ -204,43 +203,43 @@ msgstr ""
 msgid "Footer Social"
 msgstr ""
 
-#: functions.php:354
+#: functions.php:355
 msgid "Homepage"
 msgstr ""
 
-#: functions.php:355
+#: functions.php:356
 msgid "Widgets that appear on the \"Homepage\" Page Template"
 msgstr ""
 
-#: functions.php:365
+#: functions.php:366
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:376
+#: functions.php:377
 msgid "%s Archive Sidebar"
 msgstr ""
 
-#: functions.php:386
+#: functions.php:387
 msgid "%s Single Sidebar"
 msgstr ""
 
-#: functions.php:396
+#: functions.php:397
 msgid "%s Single Comments Sidebar"
 msgstr ""
 
-#: functions.php:415
+#: functions.php:416
 msgid "Footer"
 msgstr ""
 
-#: functions.php:416
+#: functions.php:417
 msgid "Widgets that appear in the page footer"
 msgstr ""
 
-#: functions.php:433
+#: functions.php:434
 msgid "Price Table"
 msgstr ""
 
-#: functions.php:435
+#: functions.php:436
 msgid "Drag multiple \"Price Option\" widgets here. Then drag the \"Pricing Table\" widget to the \"Homepage\" Widget Area."
 msgstr ""
 
@@ -248,7 +247,7 @@ msgstr ""
 #. 	 * supported by Source Sans Pro, translate this to 'off'. Do not translate
 #. 	 * into your own language.
 
-#: functions.php:459
+#: functions.php:460
 msgctxt "Source Sans Pro font: on or off"
 msgid "on"
 msgstr ""
@@ -258,7 +257,7 @@ msgstr ""
 #. your
 #. 	 * own language.
 
-#: functions.php:465
+#: functions.php:466
 msgctxt "Roboto Slab font: on or off"
 msgid "on"
 msgstr ""
@@ -268,7 +267,7 @@ msgstr ""
 #. your
 #. 	 * own language.
 
-#: functions.php:471
+#: functions.php:472
 msgctxt "Montserrat font: on or off"
 msgid "on"
 msgstr ""
@@ -292,38 +291,50 @@ msgid "Download Label Plural"
 msgstr ""
 
 #: inc/customizer.php:85
+msgid "Single Product Display Style"
+msgstr ""
+
+#: inc/customizer.php:89
+msgid "Featured Slider"
+msgstr ""
+
+#: inc/customizer.php:90
+msgid "Image Previewer"
+msgstr ""
+
+#: inc/customizer.php:94
 msgid "Always Show Product Info in Grid"
 msgstr ""
 
-#: inc/customizer.php:92
+#: inc/customizer.php:101
 msgid "Style"
 msgstr ""
 
-#: inc/customizer.php:95
+#: inc/customizer.php:104
 msgid "Dark"
 msgstr ""
 
-#: inc/customizer.php:96
+#: inc/customizer.php:105
 msgid "Light"
 msgstr ""
 
-#: inc/customizer.php:101
+#: inc/customizer.php:110
 msgid "Contact Address"
 msgstr ""
 
-#: inc/customizer.php:106
+#: inc/customizer.php:115
 msgid "Logo"
 msgstr ""
 
-#: inc/customizer.php:113
+#: inc/customizer.php:122
 msgid "Page Header Color"
 msgstr ""
 
-#: inc/customizer.php:118
+#: inc/customizer.php:127
 msgid "Button/Primary Color"
 msgstr ""
 
-#: inc/customizer.php:123
+#: inc/customizer.php:132
 msgid "Accent Color"
 msgstr ""
 
@@ -363,45 +374,45 @@ msgstr ""
 msgid "Recommended Products"
 msgstr ""
 
-#: inc/template-tags.php:235
+#: inc/template-tags.php:234
 msgid "Update Required"
 msgstr ""
 
-#: inc/template-tags.php:236
+#: inc/template-tags.php:235
 msgid "To play the media you will need to either update your browser to a recent version or update your <a href=\"http://get.adobe.com/flashplayer/\" target=\"_blank\">Flash plugin</a>."
 msgstr ""
 
-#: inc/template-tags.php:264 inc/widgets/class-widget-download-details.php:65
+#: inc/template-tags.php:326 inc/widgets/class-widget-download-details.php:65
 msgid "Purchase"
 msgstr ""
 
-#: inc/template-tags.php:306
+#: inc/template-tags.php:368
 msgid "Demo"
 msgstr ""
 
-#: inc/template-tags.php:339
+#: inc/template-tags.php:401
 msgid "Purchased"
 msgstr ""
 
-#: inc/template-tags.php:355
+#: inc/template-tags.php:417
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: inc/template-tags.php:369
+#: inc/template-tags.php:431
 msgid "Edit"
 msgstr ""
 
-#: inc/template-tags.php:373
+#: inc/template-tags.php:435
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/template-tags.php:425
+#: inc/template-tags.php:487
 msgctxt "noun"
 msgid "Menu"
 msgstr ""
 
-#: inc/template-tags.php:461
+#: inc/template-tags.php:523
 msgid "Post navigation"
 msgstr ""
 
@@ -421,6 +432,7 @@ msgstr ""
 #: inc/widgets/class-widget-download-sharing.php:21
 #: inc/widgets/class-widget-downloads-curated.php:21
 #: inc/widgets/class-widget-downloads-recent.php:21
+#: inc/widgets/class-widget-downloads-taxonomy.php:21
 #: inc/widgets/class-widget-price-table.php:21
 msgid "Title:"
 msgstr ""
@@ -510,6 +522,26 @@ msgstr ""
 
 #: inc/widgets/class-widget-downloads-recent.php:16
 msgid "Marketify Recent %s"
+msgstr ""
+
+#: inc/widgets/class-widget-downloads-taxonomy.php:14
+msgid "Display a list of download taxonomies."
+msgstr ""
+
+#: inc/widgets/class-widget-downloads-taxonomy.php:16
+msgid "Marketify Taxonomies"
+msgstr ""
+
+#: inc/widgets/class-widget-downloads-taxonomy.php:26
+msgid "Taxonomy:"
+msgstr ""
+
+#: inc/widgets/class-widget-downloads-taxonomy.php:28
+msgid "Category"
+msgstr ""
+
+#: inc/widgets/class-widget-downloads-taxonomy.php:29
+msgid "Tag"
 msgstr ""
 
 #: inc/widgets/class-widget-featured-popular.php:14
@@ -643,4 +675,8 @@ msgstr ""
 
 #: no-results.php:27
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: page-templates/popular.php:23
+msgid "All %s"
 msgstr ""
