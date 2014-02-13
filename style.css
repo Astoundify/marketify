@@ -1739,7 +1739,7 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	width: 100%;
 }
 
-.site-content .jp-type-playlist {
+.single-download .site-content .jp-type-playlist {
 	border-radius: 5px;
 	border: 1px solid #bdc3c7;
 }
