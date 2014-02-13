@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Marketify 1.1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/marketify\n"
-"POT-Creation-Date: 2014-02-12 14:19:06+00:00\n"
+"POT-Creation-Date: 2014-02-13 13:19:48+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -143,11 +143,11 @@ msgstr ""
 msgid "Popular"
 msgstr ""
 
-#: content-page.php:14 content-single-download.php:21 content-single.php:17
+#: content-page.php:14 content-single-download.php:23 content-single.php:17
 msgid "Pages:"
 msgstr ""
 
-#: content-single-download.php:9
+#: content-single-download.php:10
 msgid "About the Product"
 msgstr ""
 
@@ -295,11 +295,11 @@ msgid "Single Product Display Style"
 msgstr ""
 
 #: inc/customizer.php:89
-msgid "Featured Slider"
+msgid "Featured Header"
 msgstr ""
 
 #: inc/customizer.php:90
-msgid "Image Previewer"
+msgid "Inline"
 msgstr ""
 
 #: inc/customizer.php:94
@@ -374,45 +374,45 @@ msgstr ""
 msgid "Recommended Products"
 msgstr ""
 
-#: inc/template-tags.php:234
+#: inc/template-tags.php:237
 msgid "Update Required"
 msgstr ""
 
-#: inc/template-tags.php:235
+#: inc/template-tags.php:238
 msgid "To play the media you will need to either update your browser to a recent version or update your <a href=\"http://get.adobe.com/flashplayer/\" target=\"_blank\">Flash plugin</a>."
 msgstr ""
 
-#: inc/template-tags.php:326 inc/widgets/class-widget-download-details.php:65
+#: inc/template-tags.php:357 inc/widgets/class-widget-download-details.php:65
 msgid "Purchase"
 msgstr ""
 
-#: inc/template-tags.php:368
+#: inc/template-tags.php:399
 msgid "Demo"
 msgstr ""
 
-#: inc/template-tags.php:401
+#: inc/template-tags.php:432
 msgid "Purchased"
 msgstr ""
 
-#: inc/template-tags.php:417
+#: inc/template-tags.php:448
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: inc/template-tags.php:431
+#: inc/template-tags.php:462
 msgid "Edit"
 msgstr ""
 
-#: inc/template-tags.php:435
+#: inc/template-tags.php:466
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/template-tags.php:487
+#: inc/template-tags.php:518
 msgctxt "noun"
 msgid "Menu"
 msgstr ""
 
-#: inc/template-tags.php:523
+#: inc/template-tags.php:554
 msgid "Post navigation"
 msgstr ""
 

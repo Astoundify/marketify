@@ -2,6 +2,7 @@
 
 = 1.1.0: February 4, 2014 =
 
+* New: Alternate single product view.
 * New: Sorting widget for Download Archive widget area
 * New: Second Homepage design that includes a large search bar.
 * New: Download info can be forced to show on all grid items.
