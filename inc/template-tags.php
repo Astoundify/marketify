@@ -49,6 +49,9 @@ endif;
  * @return void
  */
 function marketify_download_viewer() {
+	if ( 'classic' != marketify_theme_mod( 'general', 'general-product-single-style' ) )
+		return;
+
 	global $post;
 
 	$format = get_post_format();
@@ -241,6 +244,39 @@ function marketify_download_audio_player() {
 add_action( 'marketify_download_entry_meta_before_audio', 'marketify_download_audio_player' );
 endif;
 
+if ( ! function_exists( 'marketify_single_download_content_before_content' ) ) :
+/**
+ *
+ * @since Marketify 1.1.0
+ *
+ * @return void
+ */
+function marketify_single_download_content_before_content() {
+	if ( 'grid' != marketify_theme_mod( 'general', 'general-product-single-style' ) )
+		return;
+
+	global $post;
+
+	$format = get_post_format();
+
+	switch( $format ) {
+		case 'audio' :
+			marketify_download_audio_player();
+			break;
+		case 'video' :
+			marketify_download_video_player();
+			break;
+		case false :
+			marketify_download_grid_previewer();
+			break;
+		default :
+			do_action( 'marketify_download_' . $format . '_player', $post );
+			break;
+	}
+}
+add_action( 'marketify_single_download_content_before_content', 'marketify_single_download_content_before_content' );
+endif;
+
 if ( ! function_exists( 'marketify_download_grid_previewer' ) ) :
 /**
  *
@@ -249,9 +285,6 @@ if ( ! function_exists( 'marketify_download_grid_previewer' ) ) :
  * @return void
  */
 function marketify_download_grid_previewer() {
-	if ( 'grid' != marketify_theme_mod( 'general', 'general-product-single-style' ) )
-		return;
-
 	global $post;
 
 	if ( in_array( get_post_format(), array( 'audio', 'video' ) ) )
@@ -300,9 +333,7 @@ function marketify_download_grid_previewer() {
 	<?php
 	echo $after;
 }
-add_action( 'marketify_single_download_content_before_content', 'marketify_download_grid_previewer' );
 endif;
-
 
 if ( ! function_exists( 'marketify_purchase_link' ) ) :
 /**

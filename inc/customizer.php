@@ -86,8 +86,8 @@ function marketify_get_theme_mods( $args = array() ) {
 				'type'    => 'radio',
 				'default' => 'classic',
 				'choices' => array(
-					'classic' => __( 'Featured Slider', 'marketify' ),
-					'grid'    => __( 'Image Previewer', 'marketify' )
+					'classic' => __( 'Featured Header', 'marketify' ),
+					'grid'    => __( 'Inline', 'marketify' )
 				)
 			),
 			'general-downloads-grid-info' => array(
@@ -416,7 +416,8 @@ function marketify_header_css() {
 	}
 
 	.content-grid-download .entry-image:hover .overlay,
-	.download-image-grid-preview .slides li.active a:before {
+	.download-image-grid-preview .slides li.active a:before,
+	.download-image-grid-preview .slides li:hover a:before {
 		background: rgba( " . marketify_hex2rgb( marketify_theme_mod( 'colors', 'primary' ) ) . ", .80 );
 		border: 1px solid rgba( " . marketify_hex2rgb( marketify_theme_mod( 'colors', 'primary' ) ) . ", .80 );
 	}

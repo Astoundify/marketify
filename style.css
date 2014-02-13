@@ -1730,6 +1730,20 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	margin-bottom: 60px;
 }
 
+.site-content .download-video,
+.site-content div.jp-audio {
+	margin: 70px 0 60px;
+}
+
+.site-content div.jp-audio {
+	width: 100%;
+}
+
+.site-content .jp-type-playlist {
+	border-radius: 5px;
+	border: 1px solid #bdc3c7;
+}
+
 .single-download .featured-image .download-video video,
 .single-download .featured-image .download-video > div {
 	margin: 0 auto;
@@ -2095,15 +2109,26 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	position: relative;
 }
 
-.download-image-grid-preview .slides li.active a:before {
+.download-image-grid-preview .slides li a:before {
 	width: 100%;
 	height: 100%;
 	content: ' ';
-	display: block;
 	top: 0;
 	left: 0;
 	z-index: 10;
 	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition:    all 0.2s ease-in-out;
+	transition:         all 0.2s ease-in-out;
+}
+
+.download-image-grid-preview .slides li.active a:before,
+.download-image-grid-preview .slides li:hover a:before {
+	opacity: 1;
+	visibility: visible;
 }
 
 /* =Media
