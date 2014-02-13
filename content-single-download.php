@@ -6,7 +6,9 @@
 
 <?php do_action( 'marketify_single_download_content_before_content' ); ?>
 
+<?php if ( get_post()->post_content ) : ?>
 <h2 class="section-title"><span><?php _e( 'About the Product', 'marketify' ); ?></span></h2>
+<?php endif; ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="entry-content">
