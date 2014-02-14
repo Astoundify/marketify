@@ -91,9 +91,14 @@ function marketify_get_theme_mods( $args = array() ) {
 				)
 			),
 			'general-downloads-grid-info' => array(
-				'title'   => __( 'Always Show Product Info in Grid', 'marketify' ),
-				'type'    => 'checkbox',
-				'default' => 0
+				'title'   => __( 'Show Product Info in Grid', 'marketify' ),
+				'type'    => 'radio',
+				'default' => 0,
+				'choices' => array(
+					0 => __( 'Auto', 'marketify' ),
+					1 => __( 'Always', 'marketify' ),
+					2 => __( 'Never', 'marketify' )
+				)
 			)
 		),
 		'footer' => array(

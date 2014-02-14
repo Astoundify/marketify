@@ -2079,6 +2079,14 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	font-size: 16px;
 }
 
+.content-grid-download.force-info .entry-header {
+	display: block;
+}
+
+.content-grid-download.hide-info .entry-header {
+	display: none;
+}
+
 .content-grid-download .entry-meta .star-rating {
 	float: right;
 }
@@ -2700,10 +2708,6 @@ object {
 	margin: 0 10px;
 }
 
-.marketify_widget_featured_popular .hentry:not(.force-info) .entry-header {
-	display: none;
-}
-
 .marketify_widget_featured_popular .home-widget-title {
 	margin-bottom: 100px;
 }
@@ -2733,6 +2737,10 @@ object {
 	border-radius: 50%;
 	background: #bdc3c7;
 	display: block;
+}
+
+.marketify_widget_featured_popular .content-download-grid .entry-header {
+	display: none;
 }
 
 /** Features */
