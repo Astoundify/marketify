@@ -11,6 +11,7 @@
 * New: Send an email directly to a vendor from their profile page.
 * New: Allow audio downloads to have a featured background header image.
 * New: Default image placeholder when no grid image is set.
+* New: Allow product info on grid items to be be toggled on/off/auto.
 * Fix: Use Download Archive widget area on Popular Items page template.
 * Fix: Make sure the author archives use the proper EDD_SLUG.
 * Fix: "Shop" page template so downloads appear properly.

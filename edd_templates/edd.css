@@ -365,6 +365,12 @@ body #edd-wl-modal input[type="radio"]:focus {
 	border: 1px solid #eee;
 }
 
+.minimal #edd_checkout_form_wrap #edd_terms {
+	background: none;
+	border: 0;
+	padding: 0;
+}
+
 #edd_show_terms {
 	margin-bottom: 10px;
 }
@@ -430,7 +436,15 @@ body #edd-wl-modal input[type="radio"]:focus {
 	padding: 1.387em;
 }
 
-#edd_checkout_form_wrap #edd_payment_mode_select {
+.minimal #edd_checkout_form_wrap #edd_show_discount,
+.minimal #edd_checkout_form_wrap #edd-discount-code-wrap {
+	background: none;
+	border: 0;
+	padding: 0;
+}
+
+#edd_checkout_form_wrap #edd_payment_mode_select,
+.minimal #edd_checkout_form_wrap #edd-discount-code-wrap {
 	margin-bottom: 21px;
 }
 
