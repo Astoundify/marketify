@@ -1267,6 +1267,10 @@ input[type="text"].edd_cp_price {
 	margin: 5px 0 2px;
 }
 
+#edd_address_country {
+	margin-bottom: 2em;
+}
+
 /* =Wish Lists
 -------------------------------------------------------------- */
 
