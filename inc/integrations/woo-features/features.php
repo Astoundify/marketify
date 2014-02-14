@@ -6,19 +6,6 @@
  */
 
 /**
- * The plugin does not seem to respect the widget options, so we need
- * manually set the dimensions.
- *
- * @since Marketify 1.0.2
- *
- * @return void
- */
-function marketify_woothemes_features_image_size( $size ) {
-	return array( 44, 44 );
-}
-add_filter( 'woothemes_features_image_size', 'marketify_woothemes_features_image_size' );
-
-/**
  * Depending on the settings of the features widgets, apply a filter to
  * the output.
  *
