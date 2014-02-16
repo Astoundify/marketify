@@ -48,6 +48,11 @@ function marketify_customize_register_sections( $wp_customize ) {
 		'priority'   => 10,
 	) );
 
+	$wp_customize->add_section( 'product-display', array(
+		'title'      => _x( 'Product Display', 'Theme customizer section title', 'marketify' ),
+		'priority'   => 15,
+	) );
+
 	$wp_customize->add_section( 'footer', array(
 		'title'      => _x( 'Footer', 'Theme customizer section title', 'marketify' ),
 		'priority'   => 100,
@@ -80,25 +85,32 @@ function marketify_get_theme_mods( $args = array() ) {
 				'title'   => __( 'Download Label Plural', 'marketify' ),
 				'type'    => 'text',
 				'default' => 'Downloads'
-			),
-			'general-product-single-style' => array(
-				'title'   => __( 'Single Product Display Style', 'marketify' ),
+			)
+		),
+		'product-display' => array(
+			'product-display-single-style' => array(
+				'title'   => __( 'Single Display Style', 'marketify' ),
 				'type'    => 'radio',
 				'default' => 'classic',
 				'choices' => array(
-					'classic' => __( 'Featured Header', 'marketify' ),
-					'grid'    => __( 'Inline', 'marketify' )
+					'classic' => __( 'Featured Header Slider', 'marketify' ),
+					'grid'    => __( 'Inline Switcher', 'marketify' )
 				)
 			),
-			'general-downloads-grid-info' => array(
-				'title'   => __( 'Show Product Info in Grid', 'marketify' ),
+			'product-display-grid-info' => array(
+				'title'   => __( 'Grid Product Information', 'marketify' ),
 				'type'    => 'radio',
 				'default' => 0,
 				'choices' => array(
 					0 => __( 'Auto', 'marketify' ),
-					1 => __( 'Always', 'marketify' ),
-					2 => __( 'Never', 'marketify' )
+					1 => __( 'Always show', 'marketify' ),
+					2 => __( 'Never show', 'marketify' )
 				)
+			),
+			'product-display-excerpt' => array(
+				'title'   => __( 'Display excerpt on grid items' ),
+				'type'    => 'checkbox',
+				'std'     => 0
 			)
 		),
 		'footer' => array(

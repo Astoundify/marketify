@@ -223,6 +223,18 @@ function marketify_edd_orderby( $query ) {
 add_filter( 'pre_get_posts', 'marketify_edd_orderby' );
 
 /**
+ * Excerpt length on downloads
+ */
+function marketify_download_excerpt_grid( $length ) {
+	if ( 'download' == get_post_type() ) {
+		return 15;
+	}
+
+	return $length;
+}
+add_filter( 'excerpt_length', 'marketify_download_excerpt_grid' );
+
+/**
  * Extra metaboxes if FES is not active.
  */
 class Marketify_EDD_Metabox {

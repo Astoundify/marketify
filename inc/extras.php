@@ -82,8 +82,14 @@ add_filter( 'wp_title', 'marketify_wp_title', 10, 2 );
 /**
  * Remove ellipsis from the excerpt
  */
-add_filter( 'excerpt_more', '__return_false' );
+function marketify_excerpt_more() {
+	return '&hellip;';
+}
+add_filter( 'excerpt_more', 'marketify_excerpt_more' );
 
+/**
+ *
+ */
 function marketify_get_attached_media_args( $args, $type, $post ) {
 	global $post;
 
@@ -95,7 +101,7 @@ function marketify_get_attached_media_args( $args, $type, $post ) {
 
 	$args[ 'exclude' ] = array( get_post_thumbnail_id( $post->ID ) );
 
-	if ( class_exists( 'MultiPostThumbnails' ) && MultiPostThumbnails::get_the_post_thumbnail( 'download', 'grid-image' ) ) 
+	if ( class_exists( 'MultiPostThumbnails' ) && MultiPostThumbnails::get_the_post_thumbnail( 'download', 'grid-image' ) )
 		$args[ 'exclude' ] = MultiPostThumbnails::get_post_thumbnail_id( 'download', 'grid-image', $post->ID );
 
 	return $args;

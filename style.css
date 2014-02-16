@@ -2011,6 +2011,11 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	text-decoration: none;
 }
 
+.content-grid-download .entry-excerpt {
+	margin-top: 1.5em;
+	font-size: 90%;
+}
+
 .content-grid-download .entry-meta {
 	color: #bdc3c7;
 	font-size: 13px;
@@ -2741,6 +2746,10 @@ object {
 
 .marketify_widget_featured_popular .content-grid-download .entry-header {
 	display: none;
+}
+
+.marketify_widget_featured_popular .content-grid-download.force-info .entry-header {
+	display: block;
 }
 
 /** Features */
