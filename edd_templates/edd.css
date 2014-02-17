@@ -437,7 +437,8 @@ body #edd-wl-modal input[type="radio"]:focus {
 }
 
 .minimal #edd_checkout_form_wrap #edd_show_discount,
-.minimal #edd_checkout_form_wrap #edd-discount-code-wrap {
+.minimal #edd_checkout_form_wrap #edd-discount-code-wrap,
+.minimal #edd-login-account-wrap {
 	background: none;
 	border: 0;
 	padding: 0;
