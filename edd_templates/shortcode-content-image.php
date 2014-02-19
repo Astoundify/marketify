@@ -12,7 +12,7 @@ global $post;
 
 		<div class="actions">
 			<?php marketify_purchase_link( get_the_ID() ); ?>
-			<a href="<?php the_permalink(); ?>" rel="bookmark" class="button">Details</a>
+			<a href="<?php the_permalink(); ?>" rel="bookmark" class="button"><?php _e( 'Details', 'marketify' ); ?></a>
 		</div>
 
 		<strong class="item-price"><span><?php printf( __( 'Item Price: %s', 'marketify' ), edd_price( get_the_ID(), false ) ); ?></span></strong>

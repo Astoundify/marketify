@@ -1313,6 +1313,16 @@ body #edd-wl-modal .modal-body {
 	padding: 0 40px 40px;
 }
 
+#edd-wl-modal .modal-header p {
+	display: none;
+}
+
+#edd-wl-modal a.edd-wl-close {
+	right: -29px;
+	top: -76px;
+	color: #fff;
+}
+
 /* =Ajax Add To Cart Button
 -------------------------------------------------------------- */
 .edd_purchase_submit_wrapper { position: relative; }
