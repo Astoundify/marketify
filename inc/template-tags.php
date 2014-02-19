@@ -398,6 +398,10 @@ function marketify_demo_link( $download_id = null ) {
 
 	$label = apply_filters( 'marketify_demo_button_label', __( 'Demo', 'marketify' ) );
 
+	if ( $post->_edd_cp_custom_pricing ) {
+		echo '<br /><br />';
+	}
+
 	echo apply_filters( 'marketify_demo_link', sprintf( '<a href="%s" class="button" target="_blank">%s</a>', esc_url( $demo ), $label ) );
 }
 add_action( 'marketify_download_actions', 'marketify_demo_link' );

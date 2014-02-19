@@ -1926,8 +1926,7 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 }
 
 .download-actions .edd_download_purchase_form {
-	min-width: 350px;
-	max-width: 350px;
+
 }
 
 .download-actions .edd_download_purchase_form .edd_errors {
