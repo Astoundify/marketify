@@ -1907,7 +1907,8 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	backface-visibility:         hidden;
 }
 
-.content-grid-download .entry-image:hover .actions {
+.content-grid-download .entry-image:hover .actions,
+.content-grid-download .entry-image.hover .actions {
 	top: 35%;
 	bottom: auto;
 }
@@ -1953,7 +1954,8 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	transition:         all 0.25s;
 }
 
-.content-grid-download .entry-image:hover .item-price {
+.content-grid-download .entry-image:hover .item-price,
+.content-grid-download .entry-image.hover .item-price {
 	top: 60%;
 }
 
@@ -1984,11 +1986,13 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	color: #fff;
 }
 
-.content-grid-download .entry-image:hover .star-rating {
+.content-grid-download .entry-image:hover .star-rating,
+.content-grid-download .entry-image.hover .star-rating {
 	top: 80%;
 }
 
-.content-grid-download .entry-image:hover .overlay {
+.content-grid-download .entry-image:hover .overlay,
+.content-grid-download .entry-image.hover .overlay {
 	opacity: 1;
 }
 
