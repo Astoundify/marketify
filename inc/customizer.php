@@ -340,7 +340,9 @@ function marketify_header_css() {
 	.marketify-edd-rating .review-title-text,
 	.nav-previous a:hover i,
 	.nav-next a:hover i,
-	.site-footer.light .site-info .site-title {
+	body-footer.light .site-info .site-title,
+	body a.edd-wl-action,
+	body a.edd-wl-action.edd-wl-button {
 		color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 	}
 
@@ -358,7 +360,10 @@ function marketify_header_css() {
 	.marketify_widget_featured_popular .home-widget-title span.active,
 	.entry-content blockquote,
 	.nav-previous a:hover,
-	.nav-next a:hover {
+	.nav-next a:hover,
+	body a.edd-wl-action,
+	body a.edd-wl-action.edd-wl-button,
+	body a.edd-wl-action.edd-wl-button:hover {
 		border-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 	}
 
@@ -371,7 +376,8 @@ function marketify_header_css() {
 	.edd-reviews-voting-buttons a:hover,
 	.flex-control-nav a.flex-active,
 	.search-form .search-submit,
-	.fes-pagination a.page-numbers:hover {
+	.fes-pagination a.page-numbers:hover,
+	body a.edd-wl-action.edd-wl-button:hover {
 		background-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 	}
 

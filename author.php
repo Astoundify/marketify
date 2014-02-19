@@ -7,7 +7,7 @@
  * @package Marketify
  */
 
-if ( ! ( get_query_var( 'author_downloads' ) || get_query_var( 'author_wishlist' ) ) )
+if ( ! ( get_query_var( 'author_downloads' ) ) )
 	return locate_template( array( 'archive.php' ), true );
 
 global $wp_query;
@@ -18,11 +18,7 @@ $author = new WP_User( $author );
 get_header(); ?>
 
 	<header class="page-header">
-		<?php if ( get_query_var( 'author_downloads' ) ) : ?>
-			<h1 class="page-title"><?php echo esc_attr( $author->display_name ); ?></h1>
-		<?php else : ?>
-			<h1 class="page-title"><?php printf( __( '%s&#39;s Wishlist', 'marketify' ), esc_attr( $author->display_name ) ); ?></h1>
-		<?php endif; ?>
+		<h1 class="page-title"><?php echo esc_attr( $author->display_name ); ?></h1>
 	</header><!-- .page-header -->
 
 	<?php do_action( 'marketify_entry_before' ); ?>
@@ -49,11 +45,7 @@ get_header(); ?>
 					<div class="download-author-sales<?php echo ! get_the_author_meta( 'description' ) && ! marketify_entry_author_social( get_the_author_meta( 'ID' ) ) ? ' blank' : ''; ?>">
 						<strong><?php global $wp_query; echo $wp_query->found_posts; ?></strong>
 
-						<?php if ( get_query_var( 'author_downloads' ) ) : ?>
-							<?php echo _n( 'Product', 'Products', $wp_query->found_posts, 'marketify' ); ?>
-						<?php else : ?>
-							<?php echo _n( 'Love', 'Loves', $wp_query->found_posts, 'marketify' ); ?>
-						<?php endif; ?>
+						<?php echo _n( 'Product', 'Products', $wp_query->found_posts, 'marketify' ); ?>
 					</div>
 
 					<?php if ( marketify_entry_author_social( $author->ID ) ) : ?>
@@ -87,11 +79,7 @@ get_header(); ?>
 
 				<?php else : ?>
 
-					<?php if ( ! isset( $wp_query->query[ 'author_wishlist' ] ) ) : ?>
-						<?php get_template_part( 'no-results', 'archive' ); ?>
-					<?php else : ?>
-						<p><?php printf( __( 'Hey, it looks like %s has not liked anything yet!', 'marketify' ), $author->display_name ); ?></p>
-					<?php endif; ?>
+					<?php get_template_part( 'no-results', 'archive' ); ?>
 
 				<?php endif; ?>
 

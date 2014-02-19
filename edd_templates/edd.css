@@ -712,7 +712,8 @@ body #edd-wl-modal input[type="radio"]:focus {
 
 .edd_errors,
 .edd_success,
-.entry-content .fes_login_errors {
+.entry-content .fes_login_errors,
+.edd_errors.edd-wl-msgs {
 	background: transparent;
 	border: 0;
 	margin-bottom: 2em;
@@ -728,7 +729,8 @@ body #edd-wl-modal input[type="radio"]:focus {
 .fes-error.edd_errors,
 .fes-success,
 .edd_success,
-.edd-slg-login-error {
+.edd-slg-login-error,
+.edd-wl-msg {
 	font: 700 15px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	color: #ffb400;
@@ -738,6 +740,10 @@ body #edd-wl-modal input[type="radio"]:focus {
 	display: block;
 	border-radius: 0;
 	box-shadow: none;
+}
+
+.edd-wl-msgs.edd_errors {
+	padding: 0;
 }
 
 .edd_error:before,
@@ -759,7 +765,8 @@ body #edd-wl-modal input[type="radio"]:focus {
 }
 
 #edd_msg_edd_cart_save_successful.edd_error,
-#edd_msg_edd_cart_restoration_successful.edd_error {
+#edd_msg_edd_cart_restoration_successful.edd_error,
+.edd-wl-msg {
 	color: #49a776;
 	border-color: #49a776;
 }

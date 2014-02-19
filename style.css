@@ -427,7 +427,8 @@ body:not(.minimal) .edd_form fieldset > span legend,
 #fes-view-comment a,
 .edd_terms_links,
 #edd-wl-modal h2#edd-wl-modal-label,
-.download-sorting select  {
+a.edd-wl-action,
+.download-sorting select {
 	font: 700 13px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -506,7 +507,9 @@ a.button:hover,
 #fes-insert-image:hover,
 .fes-pagination a.page-numbers:hover,
 .edd_terms_links:hover,
-.site-footer.dark .mailbag-wrap input[type=submit] {
+.site-footer.dark .mailbag-wrap input[type=submit],
+body a.edd-wl-action:hover,
+body a.edd-wl-action.edd-wl-button:hover {
 	color: #fff;
 }
 

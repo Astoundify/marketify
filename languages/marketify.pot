@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Marketify 1.1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/marketify\n"
-"POT-Creation-Date: 2014-02-14 22:41:03+00:00\n"
+"POT-Creation-Date: 2014-02-19 21:07:32+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -72,33 +72,19 @@ msgstr ""
 msgid "Archives"
 msgstr ""
 
-#: author.php:24
-msgid "%s&#39;s Wishlist"
-msgstr ""
-
-#: author.php:39 inc/widgets/class-widget-download-details.php:59
+#: author.php:35 inc/widgets/class-widget-download-details.php:59
 #: inc/widgets/class-widget-download-sharing.php:57
 msgid "Author since: %s"
 msgstr ""
 
-#: author.php:53
+#: author.php:48
 msgid "Product"
 msgid_plural "Products"
 msgstr[0] ""
 msgstr[1] ""
 
-#: author.php:55
-msgid "Love"
-msgid_plural "Loves"
-msgstr[0] ""
-msgstr[1] ""
-
-#: author.php:66
+#: author.php:58
 msgid "Send Message"
-msgstr ""
-
-#: author.php:93
-msgid "Hey, it looks like %s has not liked anything yet!"
 msgstr ""
 
 #: bbpress/form-search.php:14 searchform-header.php:14 searchform.php:21
@@ -175,11 +161,11 @@ msgstr ""
 msgid "Item Price: %s"
 msgstr ""
 
-#: edd_templates/shortcode-content-title.php:10
+#: edd_templates/shortcode-content-title.php:14
 msgid "<span class=\"byline\"> by %1$s</span>"
 msgstr ""
 
-#: edd_templates/shortcode-content-title.php:13
+#: edd_templates/shortcode-content-title.php:17
 msgid "View all %s by %s"
 msgstr ""
 
@@ -279,74 +265,83 @@ msgstr ""
 
 #: inc/customizer.php:52
 msgctxt "Theme customizer section title"
+msgid "Product Display"
+msgstr ""
+
+#: inc/customizer.php:57
+msgctxt "Theme customizer section title"
 msgid "Footer"
 msgstr ""
 
-#: inc/customizer.php:75
+#: inc/customizer.php:80
 msgid "Download Label Singular"
 msgstr ""
 
-#: inc/customizer.php:80
+#: inc/customizer.php:85
 msgid "Download Label Plural"
 msgstr ""
 
-#: inc/customizer.php:85
-msgid "Single Product Display Style"
+#: inc/customizer.php:92
+msgid "Single Display Style"
 msgstr ""
 
-#: inc/customizer.php:89
-msgid "Featured Header"
+#: inc/customizer.php:96
+msgid "Featured Header Slider"
 msgstr ""
 
-#: inc/customizer.php:90
-msgid "Inline"
+#: inc/customizer.php:97
+msgid "Inline Switcher"
 msgstr ""
 
-#: inc/customizer.php:94
-msgid "Show Product Info in Grid"
+#: inc/customizer.php:101
+msgid "Grid Product Information"
 msgstr ""
 
-#: inc/customizer.php:98
+#: inc/customizer.php:105
 msgid "Auto"
 msgstr ""
 
-#: inc/customizer.php:99
-msgid "Always"
-msgstr ""
-
-#: inc/customizer.php:100
-msgid "Never"
-msgstr ""
-
 #: inc/customizer.php:106
+msgid "Always show"
+msgstr ""
+
+#: inc/customizer.php:107
+msgid "Never show"
+msgstr ""
+
+#: inc/customizer.php:111
+msgid "Display excerpt on grid items"
+msgstr ""
+
+#: inc/customizer.php:118
 msgid "Style"
 msgstr ""
 
-#: inc/customizer.php:109
+#: inc/customizer.php:121
 msgid "Dark"
 msgstr ""
 
-#: inc/customizer.php:110
+#: inc/customizer.php:122
 msgid "Light"
 msgstr ""
 
-#: inc/customizer.php:115
+#: inc/customizer.php:127
 msgid "Contact Address"
 msgstr ""
 
-#: inc/customizer.php:120
+#: inc/customizer.php:132
 msgid "Logo"
 msgstr ""
 
-#: inc/customizer.php:127
+#: inc/customizer.php:139
 msgid "Page Header Color"
 msgstr ""
 
-#: inc/customizer.php:132
+#: inc/customizer.php:144
 msgid "Button/Primary Color"
 msgstr ""
 
-#: inc/customizer.php:137
+#: inc/customizer.php:149
 msgid "Accent Color"
 msgstr ""
 
@@ -374,11 +369,11 @@ msgstr ""
 msgid "Price"
 msgstr ""
 
-#: inc/integrations/edd/edd.php:265
+#: inc/integrations/edd/edd.php:277
 msgid "%s Video URL"
 msgstr ""
 
-#: inc/integrations/edd/edd.php:267
+#: inc/integrations/edd/edd.php:279
 msgid "%s Demo URL"
 msgstr ""
 
@@ -386,45 +381,45 @@ msgstr ""
 msgid "Recommended Products"
 msgstr ""
 
-#: inc/template-tags.php:237
+#: inc/template-tags.php:238
 msgid "Update Required"
 msgstr ""
 
-#: inc/template-tags.php:238
+#: inc/template-tags.php:239
 msgid "To play the media you will need to either update your browser to a recent version or update your <a href=\"http://get.adobe.com/flashplayer/\" target=\"_blank\">Flash plugin</a>."
 msgstr ""
 
-#: inc/template-tags.php:357 inc/widgets/class-widget-download-details.php:65
+#: inc/template-tags.php:358 inc/widgets/class-widget-download-details.php:65
 msgid "Purchase"
 msgstr ""
 
-#: inc/template-tags.php:399
+#: inc/template-tags.php:400
 msgid "Demo"
 msgstr ""
 
-#: inc/template-tags.php:432
+#: inc/template-tags.php:433
 msgid "Purchased"
 msgstr ""
 
-#: inc/template-tags.php:448
+#: inc/template-tags.php:449
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: inc/template-tags.php:462
+#: inc/template-tags.php:463
 msgid "Edit"
 msgstr ""
 
-#: inc/template-tags.php:466
+#: inc/template-tags.php:467
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/template-tags.php:518
+#: inc/template-tags.php:519
 msgctxt "noun"
 msgid "Menu"
 msgstr ""
 
-#: inc/template-tags.php:554
+#: inc/template-tags.php:555
 msgid "Post navigation"
 msgstr ""
 

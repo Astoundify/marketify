@@ -175,6 +175,7 @@ function marketify_download_audio_player() {
 	$download_id = $post->ID;
 
 	$attachments = get_attached_media( 'audio', $download_id );
+	print_r( $attachments );
 	$audio       = array();
 	$exts        = array();
 
