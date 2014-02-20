@@ -21,7 +21,7 @@ get_header(); ?>
 		<?php if ( get_query_var( 'author_downloads' ) ) : ?>
 			<h1 class="page-title"><?php echo esc_attr( $author->display_name ); ?></h1>
 		<?php else : ?>
-			<h1 class="page-title"><?php printf( __( '%s&#39;s Wishlist', 'marketify' ), esc_attr( $author->display_name ) ); ?></h1>
+			<h1 class="page-title"><?php printf( __( '%s&#39;s Likes', 'marketify' ), esc_attr( $author->display_name ) ); ?></h1>
 		<?php endif; ?>
 	</header><!-- .page-header -->
 
@@ -52,7 +52,7 @@ get_header(); ?>
 						<?php if ( get_query_var( 'author_downloads' ) ) : ?>
 							<?php echo _n( 'Product', 'Products', $wp_query->found_posts, 'marketify' ); ?>
 						<?php else : ?>
-							<?php echo _n( 'Love', 'Loves', $wp_query->found_posts, 'marketify' ); ?>
+							<?php echo _n( 'Like', 'Likes', $wp_query->found_posts, 'marketify' ); ?>
 						<?php endif; ?>
 					</div>
 
