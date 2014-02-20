@@ -289,6 +289,7 @@ function marketify_entry_page_title() {
 		! is_singular( array( 'post', 'page' ) ) &&
 		! marketify_is_bbpress() ||
 		is_page_template( 'page-templates/shop.php' ) ||
+		is_page_template( 'page-templates/popular.php' ) ||
 		is_post_type_archive( 'download' )
 	)
 		return;
@@ -677,36 +678,6 @@ function marketify_popular_get_term_link( $link, $term, $taxonomy ) {
 	return add_query_arg( array( 'popular_cat' => $term->term_id ), get_permalink( get_page_by_path( $wp_query->query[ 'pagename' ] ) ) );
 }
 add_filter( 'term_link', 'marketify_popular_get_term_link', 10, 3 );
-
-/**
- * Shop query filter
- *
- * @since Marketify 1.0.4
- */
-function marketify_shop_items( $query ) {
-	if ( is_admin() || ! $query->is_main_query() || ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
-		return $query;
-	}
-
-	if ( $query->get( 'page_id' ) == get_option( 'page_on_front' ) || is_front_page() ) {
-		unset( $query->query[ 'pagename' ] );
-		unset( $query->query[ 'page' ] );
-
-		$query->query_vars[ 'pagename' ] = null;
-		$query->query_vars[ 'page_id' ] = null;
-		$query->query[ 'post_type' ] = 'download';
-
-		$query->is_page = false;
-		$query->is_archive = true;
-		$query->is_post_type_archive = true;
-
-		$query->set( 'post_type', 'download' );
-		$query->set( 'post_status', 'publish' );
-	}
-
-	return $query;
-}
-add_filter( 'pre_get_posts', 'marketify_shop_items' );
 
 /**
  * Download Authors

@@ -38,12 +38,7 @@ get_header(); ?>
 					<?php if ( is_search() ) : ?>
 						<?php printf( '&quot;%s&quot;', esc_attr( get_search_query() ) ); ?>
 					<?php else : ?>
-						<?php
-							$base  = is_tax() ? single_term_title( '', false ) : edd_get_label_plural();
-							$order = get_query_var( 'orderby' ) ? sprintf( '&nbsp;' . __( 'by %s', 'marketify' ), marketify_edd_sorting_options( get_query_var( 'orderby' ) ) ) : '';
-
-							printf( __( 'All %s%s', 'marketify' ), $base, $order );
-						?>
+						<?php marketify_downloads_section_title(); ?>
 					<?php endif; ?>
 				</span></div>
 

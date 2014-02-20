@@ -187,8 +187,8 @@ add_filter( 'shortcode_atts_edd_login', 'marketify_shortcode_atts_edd_login' );
 
 function marketify_edd_sorting_options( $single_key = false  ) {
 	$options = array(
-		'title' => __( 'Title', 'marketify' ),
 		'date'  => __( 'Date', 'marketify' ),
+		'title' => __( 'Title', 'marketify' ),
 		'sales' => __( 'Sales', 'marketify' ),
 		'price' => __( 'Price', 'marketify' )
 	);
@@ -209,9 +209,13 @@ function marketify_edd_sorting_options( $single_key = false  ) {
 }
 
 /**
- * Sorting
+ * Sorting for standard query
  */
 function marketify_edd_orderby( $query ) {
+	if ( ! $query->is_main_query() || is_admin() || DOING_AJAX ) {
+		return;
+	}
+
 	if ( get_query_var( 'orderby' ) && 'price' == get_query_var( 'orderby' ) ) {
 		$query->set( 'orderby', 'meta_value_num' );
 		$query->set( 'meta_key', 'edd_price' );
@@ -221,6 +225,40 @@ function marketify_edd_orderby( $query ) {
 	}
 }
 add_filter( 'pre_get_posts', 'marketify_edd_orderby' );
+
+/**
+ * Sorting for standard shortcode
+ */
+function marketify_edd_downloads_query( $query, $atts ) {
+	if ( is_page_template( 'page-templates/popular.php' ) ) {
+		$query[ 'meta_key' ] = '_edd_download_sales';
+		$query[ 'orderby' ]  = 'meta_value';
+
+		if ( get_query_var( 'popular_cat' ) ) {
+			$query[ 'tax_query' ] = array(
+				array(
+					'taxonomy' => 'download_category',
+					'field'    => 'id',
+					'terms'    => explode( ',', get_query_var( 'popular_cat' ) )
+				)
+			);
+		}
+	} else {
+		$orderby = get_query_var( 'orderby' ) ? get_query_var( 'orderby' ) : 'post_date';
+		$order   = get_query_var( 'order' ) ? get_query_var( 'order' ) : 'DESC';
+
+		$query[ 'orderby' ] = $orderby;
+		$query[ 'order' ]   = $order;
+
+		if ( 'sales' == get_query_var( 'orderby' ) ) {
+			$query[ 'orderby' ]  = 'meta_value_num';
+			$query[ 'meta_key' ] = '_edd_download_sales';
+		}
+	}
+
+	return $query;
+}
+add_filter( 'edd_downloads_query', 'marketify_edd_downloads_query', 10, 2 );
 
 /**
  * Excerpt length on downloads

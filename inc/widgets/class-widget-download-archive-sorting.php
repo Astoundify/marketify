@@ -34,8 +34,13 @@ class Marketify_Widget_Download_Archive_Sorting extends Marketify_Widget {
 	 * @return void
 	 */
 	function widget( $args, $instance ) {
-		if ( $this->get_cached_widget( $args ) )
+		if ( $this->get_cached_widget( $args ) ) {
 			return;
+		}
+
+		if ( is_page_template( 'page-templates/popular.php' ) ) {
+			return;
+		}
 
 		ob_start();
 
@@ -43,7 +48,7 @@ class Marketify_Widget_Download_Archive_Sorting extends Marketify_Widget {
 
 		$title   = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
 		$order   = get_query_var( 'order' ) ? strtolower( get_query_var( 'order' ) ) : 'desc';
-		$orderby = get_query_var( 'orderby' ) ? strtolower( marketify_edd_sorting_options( get_query_var( 'orderby' ) ) ) : 'title';
+		$orderby = get_query_var( 'orderby' ) ? strtolower( marketify_edd_sorting_options( get_query_var( 'orderby' ) ) ) : 'post_date';
 
 		echo $before_widget;
 

@@ -9,6 +9,20 @@
  * @package Marketify
  */
 
+function marketify_downloads_section_title() {
+	if ( is_page_template( 'page-templates/popular.php' ) ) {
+		$cat   = get_term( get_query_var( 'popular_cat' ), 'download_category' );
+		$base  = $cat->name;
+
+		printf( __( 'Popular %s', 'marketify' ), $base );
+	} else {
+		$base  = is_tax() ? single_term_title( '', false ) : edd_get_label_plural();
+		$order = get_query_var( 'orderby' ) ? sprintf( '&nbsp;' . __( 'by %s', 'marketify' ), marketify_edd_sorting_options( get_query_var( 'orderby' ) ) ) : '';
+
+		printf( __( 'All %s%s', 'marketify' ), $base, $order );
+	}
+}
+
 if ( ! function_exists( 'marketify_entry_author_social' ) ) :
 /**
  * Social Links
