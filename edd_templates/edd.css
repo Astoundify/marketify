@@ -1317,10 +1317,28 @@ body #edd-wl-modal .modal-body {
 	display: none;
 }
 
-#edd-wl-modal a.edd-wl-close {
+body #edd-wl-modal a.edd-wl-close {
 	right: -29px;
 	top: -76px;
 	color: #fff;
+}
+
+body .edd-wish-list li,
+body .edd-wish-list li span {
+	font-size: 100%;\
+	line-height: 1;
+}
+
+body .edd-wish-list li:after {
+	width: auto;
+	display: block;
+	content: ' ';
+}
+
+body .edd-wish-list li span.edd-wl-edit {
+	display: block;
+	line-height: 1;
+	margin-top: 7px;
 }
 
 /* =Ajax Add To Cart Button
