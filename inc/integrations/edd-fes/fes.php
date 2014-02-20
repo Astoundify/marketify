@@ -46,7 +46,7 @@ add_action( 'wp_enqueue_scripts', 'marketify_edd_fes_enqueue_scripts' );
  */
 function marketify_edd_fes_vendor_dashboard_menu( $menu ) {
 	if ( EDD_FES()->vendors->is_commissions_active() ) {
-		$menu[ 'earnings' ][ 'icon' ] = 'credit-card';
+		$menu[ 'earnings' ][ 'icon' ] = 'chart-line';
 	}
 
 	$menu[ 'logout' ][ 'icon' ] = 'logout';
