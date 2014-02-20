@@ -702,7 +702,7 @@ function marketify_shop_items( $query ) {
 
 	return $query;
 }
-//add_filter( 'pre_get_posts', 'marketify_shop_items' );
+add_filter( 'pre_get_posts', 'marketify_shop_items' );
 
 /**
  * Download Authors
@@ -745,7 +745,8 @@ class Marketify_Author {
 		add_filter( 'query_vars', array( $this, 'query_vars' ) );
 		add_filter( 'generate_rewrite_rules', array( $this, 'rewrites' ) );
 
-		add_action( 'parse_query', array( $this, 'parse_query' ) );
+		add_action( 'parse_request', array( $this, 'parse_request' ) );
+		add_action( 'template_redirect', array( $this, 'redirect' ) );
 	}
 
 	/*
@@ -770,6 +771,7 @@ class Marketify_Author {
 	 */
 	public function query_vars( $query_vars ) {
 		$query_vars[] = 'author_downloads';
+		$query_vars[] = 'author_wishlist';
 
 		return $query_vars;
 	}
@@ -788,7 +790,9 @@ class Marketify_Author {
 
 		$new_rules = array(
 			'author/([^/]+)/' . $slug . '/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_downloads=1',
+			'author/([^/]+)/wishlist/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_wishlist=1',
 			'author/([^/]+)/' . $slug . '/page/?([0-9]{1,})/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_downloads=1&paged=' . $wp_rewrite->preg_index( 2 ),
+			'author/([^/]+)/wishlist/page/?([0-9]{1,})/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_wishlist=1&paged=' . $wp_rewrite->preg_index( 2 )
 		);
 
 		$wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
@@ -796,8 +800,12 @@ class Marketify_Author {
 		return $wp_rewrite->rules;
 	}
 
+	public function parse_request() {
+		add_action( 'parse_query', array( $this, 'parse_query' ) );
+	}
+
 	/**
-	 * Show author products
+	 * Show author products or wishlist
 	 *
 	 * @since Marketify 1.0
 	 *
@@ -809,16 +817,41 @@ class Marketify_Author {
 			return;
 		}
 
-		if ( ! get_query_var( 'author_downloads' ) ) {
+		if ( ! ( get_query_var( 'author_downloads' ) || get_query_var( 'author_wishlist' ) ) ) {
 			return;
 		}
 
+		$query->is_author = true;
 		$query->set( 'post_type', 'download' );
 		$query->set( 'post_status', 'publish' );
+
+		if ( ! get_query_var( 'author_wishlist' ) ) {
+			$this->ran = true;
+
+			return $query;
+		}
+
+		$author = get_user_by( 'slug', $query->query[ 'author_name' ] );
+		$loves  = get_user_option( 'li_user_loves', $author->ID );
+
+		$query->set( 'post__in', $loves );
+		$query->set( 'author', 0 );
+		$query->set( 'author_name', '' );
 
 		$this->ran = true;
 
 		return $query;
+	}
+
+	/**
+	 * Redirect the wishlist page template to the current user's loves.
+	 */
+	public function redirect() {
+		if ( ! is_page_template( 'page-templates/wishlist.php' ) )
+			return;
+
+		wp_safe_redirect( $this->url( 'wishlist' ), 307 );
+		exit();
 	}
 }
 add_action( 'init', array( 'Marketify_Author', 'init' ), 100 );
