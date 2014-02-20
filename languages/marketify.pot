@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Marketify 1.1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/marketify\n"
-"POT-Creation-Date: 2014-02-20 01:54:12+00:00\n"
+"POT-Creation-Date: 2014-02-20 19:55:14+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -73,12 +73,6 @@ msgstr ""
 msgid "Author since: %s"
 msgstr ""
 
-#: author.php:53
-msgid "Product"
-msgid_plural "Products"
-msgstr[0] ""
-msgstr[1] ""
-
 #: author.php:55
 msgid "Like"
 msgid_plural "Likes"
@@ -93,16 +87,16 @@ msgstr ""
 msgid "Hey, it looks like %s has not liked anything yet!"
 msgstr ""
 
-#: bbpress/form-search.php:14 searchform-header.php:14 searchform.php:21
+#: bbpress/form-search.php:14 searchform-header.php:14 searchform.php:22
 msgctxt "label"
 msgid "Search for:"
 msgstr ""
 
-#: bbpress/form-search.php:15 searchform-header.php:15 searchform.php:22
+#: bbpress/form-search.php:15 searchform-header.php:15 searchform.php:23
 msgid "Search"
 msgstr ""
 
-#: bbpress/form-search.php:15 searchform-header.php:15 searchform.php:22
+#: bbpress/form-search.php:15 searchform-header.php:15 searchform.php:23
 msgid "Search for:"
 msgstr ""
 
@@ -140,7 +134,7 @@ msgid "Pages:"
 msgstr ""
 
 #: content-single-download.php:10
-msgid "About the Product"
+msgid "About the %s"
 msgstr ""
 
 #: content-single.php:25 content.php:42

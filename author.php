@@ -50,7 +50,7 @@ get_header(); ?>
 						<strong><?php global $wp_query; echo $wp_query->found_posts; ?></strong>
 
 						<?php if ( get_query_var( 'author_downloads' ) ) : ?>
-							<?php echo _n( 'Product', 'Products', $wp_query->found_posts, 'marketify' ); ?>
+							<?php echo _n( edd_get_label_singular(), edd_get_label_plural(), $wp_query->found_posts, 'marketify' ); ?>
 						<?php else : ?>
 							<?php echo _n( 'Like', 'Likes', $wp_query->found_posts, 'marketify' ); ?>
 						<?php endif; ?>
