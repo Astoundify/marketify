@@ -938,8 +938,18 @@ body.minimal .edd_form legend {
 	background-color: transparent !important;
 }
 
-.fes-form #wp-post_content-wrap td {
+.fes-form #wp-post_content-wrap td,
+.fes-form #recaptcha_area td {
 	display: table-cell;
+}
+
+.fes-form .recaptchatable, #recaptcha_area tr {
+	display: table-row;
+}
+
+.fes-form .recaptcha_theme_red #recaptcha_response_field {
+	display: inline;
+	line-height: 1;
 }
 
 .fes-form #wp-post_content-wra .wp_themeSkin .mceButton {
