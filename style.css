@@ -3729,6 +3729,10 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 	right: -13px;
 }
 
+.love-it-pro.single-download .love-it-wrapper .love-it {
+	right: 0;
+}
+
 .love-it-wrapper .love-it:before,
 .love-it-wrapper .loved:before {
 	font-size: 16px;

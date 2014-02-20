@@ -615,6 +615,10 @@ function marketify_body_classes( $classes ) {
 		$classes[] = 'fes-page';
 	}
 
+	if ( class_exists( 'Love_It_Pro' ) ) {
+		$classes[] = 'love-it-pro';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'marketify_body_classes' );
