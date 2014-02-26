@@ -187,10 +187,19 @@ function marketify_download_audio_player() {
 	global $post;
 
 	$download_id = $post->ID;
+	$_attachments = get_post_meta( $download_id, 'preview_files', true );
 
-	$attachments = get_attached_media( 'audio', $download_id );
 	$audio       = array();
 	$exts        = array();
+	$attachments = array();
+
+	if ( $_attachments ) {
+		foreach ( $_attachments as $attachment ) {
+			$attachments[$attachment] = get_post( $attachment );
+		}
+	} else {
+		$attachments = get_attached_media( 'audio', $download_id );
+	}
 
 	foreach ( $attachments as $attachment ) {
 		$file = wp_get_attachment_url( $attachment->ID );
