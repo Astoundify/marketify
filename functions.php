@@ -765,9 +765,9 @@ class Marketify_Author {
 
 		$new_rules = array(
 			'author/([^/]+)/' . $slug . '/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_downloads=1',
-			'author/([^/]+)/wishlist/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_wishlist=1',
+			'author/([^/]+)/likes/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_wishlist=1',
 			'author/([^/]+)/' . $slug . '/page/?([0-9]{1,})/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_downloads=1&paged=' . $wp_rewrite->preg_index( 2 ),
-			'author/([^/]+)/wishlist/page/?([0-9]{1,})/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_wishlist=1&paged=' . $wp_rewrite->preg_index( 2 )
+			'author/([^/]+)/likes/page/?([0-9]{1,})/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_wishlist=1&paged=' . $wp_rewrite->preg_index( 2 )
 		);
 
 		$wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
@@ -896,6 +896,11 @@ if ( class_exists( 'Woothemes_Features' ) ) {
 // WooThemes Testimonials
 if ( class_exists( 'Woothemes_Testimonials' ) ) {
 	require get_template_directory() . '/inc/integrations/woo-testimonials/testimonials.php';
+}
+
+// WooTheme Projects
+if ( class_exists( 'Projects' ) ) {
+	require get_template_directory() . '/inc/integrations/woo-projects/projects.php';
 }
 
 // Love It

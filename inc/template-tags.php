@@ -401,6 +401,9 @@ if ( ! function_exists( 'marketify_demo_link' ) ) :
 function marketify_demo_link( $download_id = null ) {
 	global $post, $edd_options;
 
+	if ( 'download' != get_post_type() )
+		return;
+
 	if ( ! $download_id )
 		$download_id = $post->ID;
 

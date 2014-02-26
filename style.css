@@ -1240,6 +1240,7 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 
 .post-type-archive-download .site-content,
 .single-download .site-content,
+.single-project .site-content,
 .tax-download_category .site-content,
 .tax-download_tag .site-content,
 .page-template-page-templatespopular-php .site-content,
@@ -1720,7 +1721,8 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 /* =Download
 ----------------------------------------------- */
 
-.single-download .page-header {
+.single-download .page-header,
+.single-project .page-header {
 	padding-bottom: 0;
 }
 
