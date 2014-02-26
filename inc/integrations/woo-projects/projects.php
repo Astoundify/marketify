@@ -19,6 +19,15 @@ function marketify_projects_widgets_init() {
 		'before_title'  => '<h1 class="download-single-widget-title">',
 		'after_title'   => '</h1>',
 	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Projects Archive Sidebar', 'marketify' ),
+		'id'            => 'sidebar-archive-project',
+		'before_widget' => '<aside id="%1$s" class="widget download-archive-widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h1 class="download-archive-widget-title">',
+		'after_title'   => '</h1>',
+	) );
 }
 add_action( 'widgets_init', 'marketify_projects_widgets_init' );
 

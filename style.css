@@ -1239,6 +1239,7 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 }
 
 .post-type-archive-download .site-content,
+.post-type-archive-project .site-content,
 .single-download .site-content,
 .single-project .site-content,
 .tax-download_category .site-content,
@@ -3080,7 +3081,8 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 .download-archive-widget.widget_pages ul a,
 .download-archive-widget.widget_categories ul a,
 .download-archive-widget.widget_archive ul a,
-.most-loved a {
+.most-loved a,
+.download-archive-widget.widget_projects_categories ul a {
 	padding: 7px 15px;
 	display: block;
 }
@@ -3090,7 +3092,8 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 .download-archive-widget.widget_meta ul ul,
 .download-archive-widget.widget_pages ul ul,
 .download-archive-widget.widget_categories ul ul,
-.download-archive-widget.widget_archive ul ul {
+.download-archive-widget.widget_archive ul ul,
+.download-archive-widget.widget_projects_categories ul ul {
 	margin-right: 0;
 }
 
@@ -3099,7 +3102,8 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 .download-archive-widget.widget_meta ul ul a,
 .download-archive-widget.widget_pages ul ul a,
 .download-archive-widget.widget_categories ul ul a,
-.download-archive-widget.widget_archive ul ul a {
+.download-archive-widget.widget_archive ul ul a,
+.download-archive-widget.widget_projects_categories ul ul a {
 	font-size: 12px;
 }
 
@@ -3110,16 +3114,19 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 .download-archive-widget.widget_pages ul a:hover,
 .download-archive-widget.widget_categories ul a:hover,
 .download-archive-widget.widget_archive ul a:hover,
-.most-loved a:hover {
+.most-loved a:hover,
+.download-archive-widget.widget_projects_categories ul a:hover {
 	background-color: #f6f7f8;
 }
 
-.download-archive-widget.widget_categories ul ul {
+.download-archive-widget.widget_categories ul ul,
+.download-archive-widget.widget_projects_categories ul ul {
 	border-left: 1px solid #eee;
 	margin: 5px 0 5px 15px;
 }
 
-.download-archive-widget.widget_categories ul ul a:hover {
+.download-archive-widget.widget_categories ul ul a:hover,
+.download-archive-widget.widget_projects_categories ul ul a:hover {
 	background: none;
 }
 
