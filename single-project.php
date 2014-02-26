@@ -46,8 +46,6 @@ get_header(); ?>
 
 		</div><!-- #content -->
 
-		<?php comments_template(); ?>
-
 		<?php do_action( 'marketify_single_download_after' ); ?>
 	</div>
 

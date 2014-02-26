@@ -23,7 +23,11 @@ get_header(); ?>
 				<main id="main" class="site-main" role="main">
 
 				<div class="section-title"><span>
-					Test
+					<?php if ( is_tax( 'project-category' ) ) : ?>
+						<?php single_term_title( '' ); ?>
+					<?php else : ?>
+						<?php _e( 'All Projects', 'marketify' ); ?>
+					<?php endif; ?>
 				</span></div>
 
 				<?php if ( have_posts() ) : ?>
