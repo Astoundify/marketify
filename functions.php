@@ -332,20 +332,6 @@ function marketify_widgets_init() {
 	register_widget( 'Marketify_Widget_Price_Table' );
 	register_widget( 'Marketify_Widget_Price_Option' );
 	register_widget( 'Marketify_Widget_Recent_Posts' );
-	register_widget( 'Marketify_Widget_Downloads_Taxonomy' );
-
-	if ( marketify_is_edd() ) {
-		register_widget( 'Marketify_Widget_Recent_Downloads' );
-		register_widget( 'Marketify_Widget_Curated_Downloads' );
-		register_widget( 'Marketify_Widget_Featured_Popular_Downloads' );
-		register_widget( 'Marketify_Widget_Download_Details' );
-		register_widget( 'Marketify_Widget_Download_Share' );
-		register_widget( 'Marketify_Widget_Download_Archive_Sorting' );
-
-		if ( class_exists( 'EDD_Reviews' ) ) {
-			register_widget( 'Marketify_Widget_Download_Review_Details' );
-		}
-	}
 
 	if ( function_exists( 'soliloquy_slider' ) ) {
 		register_widget( 'Marketify_Widget_Slider_Soliloquy' );
@@ -371,38 +357,6 @@ function marketify_widgets_init() {
 		'before_title'  => '<h1 class="widget-title section-title"><span>',
 		'after_title'   => '</span></h1>',
 	) );
-
-	if ( marketify_is_edd() ) {
-		/* Download Achive (archive-download.php) */
-		register_sidebar( array(
-			'name'          => sprintf( __( '%s Archive Sidebar', 'marketify' ), edd_get_label_singular() ),
-			'id'            => 'sidebar-download',
-			'before_widget' => '<aside id="%1$s" class="widget download-archive-widget %2$s">',
-			'after_widget'  => '</aside>',
-			'before_title'  => '<h1 class="download-archive-widget-title">',
-			'after_title'   => '</h1>',
-		) );
-
-		/* Download Single (single-download.php) */
-		register_sidebar( array(
-			'name'          => sprintf( __( '%s Single Sidebar', 'marketify' ), edd_get_label_singular() ),
-			'id'            => 'sidebar-download-single',
-			'before_widget' => '<aside id="%1$s" class="widget download-single-widget %2$s">',
-			'after_widget'  => '</aside>',
-			'before_title'  => '<h1 class="download-single-widget-title">',
-			'after_title'   => '</h1>',
-		) );
-
-		/* Download Single Comments/Reviews (single-download.php) */
-		register_sidebar( array(
-			'name'          => sprintf( __( '%s Single Comments Sidebar', 'marketify' ), edd_get_label_singular() ),
-			'id'            => 'sidebar-download-single-comments',
-			'before_widget' => '<aside id="%1$s" class="widget download-single-widget comments %2$s">',
-			'after_widget'  => '</aside>',
-			'before_title'  => '<h1 class="download-single-widget-title">',
-			'after_title'   => '</h1>',
-		) );
-	}
 
 	/*
 	 * Figure out how many columns the footer has
@@ -852,6 +806,19 @@ require get_template_directory() . '/inc/extras.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+ * Load Widgets
+ */
+require get_template_directory() . '/inc/class-widget.php';
+require get_template_directory() . '/inc/widgets/class-widget-slider.php';
+require get_template_directory() . '/inc/widgets/class-widget-price-option.php';
+require get_template_directory() . '/inc/widgets/class-widget-price-table.php';
+require get_template_directory() . '/inc/widgets/class-widget-blog-posts.php';
+
+if ( function_exists( 'soliloquy_slider' ) ) {
+	require get_template_directory() . '/inc/widgets/class-widget-slider-soliloquy.php';
+}
+
+/**
  * Integrations
  */
 
@@ -906,31 +873,4 @@ if ( class_exists( 'Projects' ) ) {
 // Love It
 if ( defined( 'LI_BASE_DIR' ) || class_exists( 'Love_It_Pro' ) ) {
 	require get_template_directory() . '/inc/integrations/love-it/love-it.php';
-}
-
-/**
- * Load Widgets
- */
-require get_template_directory() . '/inc/class-widget.php';
-require get_template_directory() . '/inc/widgets/class-widget-slider.php';
-require get_template_directory() . '/inc/widgets/class-widget-price-option.php';
-require get_template_directory() . '/inc/widgets/class-widget-price-table.php';
-require get_template_directory() . '/inc/widgets/class-widget-blog-posts.php';
-require get_template_directory() . '/inc/widgets/class-widget-downloads-taxonomy.php';
-
-if ( marketify_is_edd() ) {
-	require get_template_directory() . '/inc/widgets/class-widget-downloads-recent.php';
-	require get_template_directory() . '/inc/widgets/class-widget-downloads-curated.php';
-	require get_template_directory() . '/inc/widgets/class-widget-featured-popular.php';
-	require get_template_directory() . '/inc/widgets/class-widget-download-details.php';
-	require get_template_directory() . '/inc/widgets/class-widget-download-share.php';
-	require get_template_directory() . '/inc/widgets/class-widget-download-archive-sorting.php';
-
-	if ( class_exists( 'EDD_Reviews' ) ) {
-		require get_template_directory() . '/inc/widgets/class-widget-download-review-details.php';
-	}
-}
-
-if ( function_exists( 'soliloquy_slider' ) ) {
-	require get_template_directory() . '/inc/widgets/class-widget-slider-soliloquy.php';
 }

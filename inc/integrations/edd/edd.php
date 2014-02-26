@@ -5,6 +5,71 @@
  * @package Marketify
  */
 
+require get_template_directory() . '/inc/widgets/class-widget-downloads-recent.php';
+require get_template_directory() . '/inc/widgets/class-widget-downloads-curated.php';
+require get_template_directory() . '/inc/widgets/class-widget-featured-popular.php';
+require get_template_directory() . '/inc/widgets/class-widget-download-details.php';
+require get_template_directory() . '/inc/widgets/class-widget-download-share.php';
+require get_template_directory() . '/inc/widgets/class-widget-download-archive-sorting.php';
+
+require get_template_directory() . '/inc/widgets/class-widget-downloads-taxonomy.php';
+
+if ( class_exists( 'EDD_Reviews' ) ) {
+	require get_template_directory() . '/inc/widgets/class-widget-download-review-details.php';
+}
+
+/**
+ * EDD Sidebars and Widgets
+ *
+ * @since Marketify 1.2
+ *
+ * @return void
+ */
+function marketify_edd_widgets_init() {
+	register_widget( 'Marketify_Widget_Recent_Downloads' );
+	register_widget( 'Marketify_Widget_Curated_Downloads' );
+	register_widget( 'Marketify_Widget_Featured_Popular_Downloads' );
+	register_widget( 'Marketify_Widget_Download_Details' );
+	register_widget( 'Marketify_Widget_Download_Share' );
+	register_widget( 'Marketify_Widget_Download_Archive_Sorting' );
+	register_widget( 'Marketify_Widget_Downloads_Taxonomy' );
+
+	if ( class_exists( 'EDD_Reviews' ) ) {
+		register_widget( 'Marketify_Widget_Download_Review_Details' );
+	}
+
+	/* Download Achive (archive-download.php) */
+	register_sidebar( array(
+		'name'          => sprintf( __( '%s Archive Sidebar', 'marketify' ), edd_get_label_singular() ),
+		'id'            => 'sidebar-download',
+		'before_widget' => '<aside id="%1$s" class="widget download-archive-widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h1 class="download-archive-widget-title">',
+		'after_title'   => '</h1>',
+	) );
+
+	/* Download Single (single-download.php) */
+	register_sidebar( array(
+		'name'          => sprintf( __( '%s Single Sidebar', 'marketify' ), edd_get_label_singular() ),
+		'id'            => 'sidebar-download-single',
+		'before_widget' => '<aside id="%1$s" class="widget download-single-widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h1 class="download-single-widget-title">',
+		'after_title'   => '</h1>',
+	) );
+
+	/* Download Single Comments/Reviews (single-download.php) */
+	register_sidebar( array(
+		'name'          => sprintf( __( '%s Single Comments Sidebar', 'marketify' ), edd_get_label_singular() ),
+		'id'            => 'sidebar-download-single-comments',
+		'before_widget' => '<aside id="%1$s" class="widget download-single-widget comments %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h1 class="download-single-widget-title">',
+		'after_title'   => '</h1>',
+	) );
+}
+add_action( 'widgets_init', 'marketify_edd_widgets_init' );
+
 /**
  * Set the "Download" labels based on the customizer values.
  *
