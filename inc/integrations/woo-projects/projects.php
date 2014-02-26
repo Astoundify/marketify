@@ -45,13 +45,16 @@ function marketify_project_client_link() {
 	$client = esc_attr( get_post_meta( $post->ID, '_client', true ) );
 	$url    = esc_url( get_post_meta( $post->ID, '_url', true ) );
 
+	if ( ! $url )
+		return;
+
 	printf( '<a href="%s" class="button">%s</a>', $url, __( 'Visit Project' ) );
 }
 add_action( 'marketify_project_actions', 'marketify_project_client_link' );
 endif;
 
 function marketify_single_project_content_before_content() {
-	if ( 'grid' != marketify_theme_mod( 'general', 'general-product-single-style' ) )
+	if ( 'grid' != marketify_theme_mod( 'product-display', 'product-display-single-style' ) )
 		return;
 
 	global $post;
@@ -81,3 +84,38 @@ function marketify_single_project_content_before_content() {
 	echo $after;
 }
 add_action( 'marketify_single_project_content_before_content', 'marketify_single_project_content_before_content' );
+
+if ( ! function_exists( 'marketify_project_standard_player' ) ) :
+/**
+ * Featured Area: Standard (Images)
+ *
+ * @since Marketify 1.2
+ *
+ * @return void
+ */
+function marketify_project_standard_player() {
+	global $post;
+
+	if ( 'grid' == marketify_theme_mod( 'product-display', 'product-display-single-style' ) )
+		return;
+
+	$images = projects_get_gallery_attachment_ids();
+	$before = '<div class="download-image">';
+	$after  = '</div>';
+
+	$before = '<div class="download-image flexslider">';
+
+	echo $before;
+	?>
+
+	<ul class="slides">
+		<?php foreach ( $images as $image ) : ?>
+		<li><?php echo wp_get_attachment_image( $image, 'fullsize' ); ?></li>
+		<?php endforeach; ?>
+	</ul>
+
+	<?php
+	echo $after;
+}
+add_action( 'marketify_project_featured_area', 'marketify_project_standard_player' );
+endif;

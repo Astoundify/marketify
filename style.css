@@ -1249,7 +1249,8 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	margin-top: 0;
 }
 
-.single-download #primary.content-area {
+.single-download #primary.content-area,
+.single-project #primary.content-area {
 	padding-bottom: 0;
 }
 

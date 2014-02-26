@@ -98,7 +98,7 @@ if ( ! function_exists( 'marketify_download_standard_player' ) ) :
 function marketify_download_standard_player() {
 	global $post;
 
-	if ( 'grid' == marketify_theme_mod( 'product-display', 'single-style-single-style' ) )
+	if ( 'grid' == marketify_theme_mod( 'product-display', 'product-display-single-style' ) )
 		return;
 
 	$images = get_attached_media( 'image', $post->ID );
@@ -275,7 +275,7 @@ if ( ! function_exists( 'marketify_single_download_content_before_content' ) ) :
  * @return void
  */
 function marketify_single_download_content_before_content() {
-	if ( 'grid' != marketify_theme_mod( 'general', 'general-product-single-style' ) )
+	if ( 'grid' != marketify_theme_mod( 'product-display', 'product-display-single-style' ) )
 		return;
 
 	global $post;
