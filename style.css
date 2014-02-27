@@ -513,6 +513,10 @@ body a.edd-wl-action.edd-wl-button:hover {
 	color: #fff;
 }
 
+.page-numbers {
+	border-color: #515a63;
+}
+
 .page-numbers.current {
 	color: #bdc3c7;
 	border-color: #bdc3c7;
@@ -2486,6 +2490,7 @@ object {
 .edd-reviews-voting-buttons a {
 	border: 2px solid;
 	padding: 2px 4px !important;
+	margin-right: 4px !important;
 }
 
 /* =Global Widgets

@@ -13,7 +13,7 @@ class Marketify_Widget_Recent_Posts extends Marketify_Widget {
 		$this->widget_cssclass    = 'marketify_widget_recent_posts';
 		$this->widget_description = __( 'Display recent blog posts.', 'marketify' );
 		$this->widget_id          = 'marketify_widget_recent_posts';
-		$this->widget_name        = __( 'Marketify Recent Posts', 'marketify' );
+		$this->widget_name        = __( 'Marketify - Home: Recent Posts', 'marketify' );
 		$this->settings           = array(
 			'title' => array(
 				'type'  => 'text',
