@@ -3903,6 +3903,13 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 	font-weight: 400;
 }
 
+/* =Projects
+----------------------------------------------- */
+
+.projects_list_widget img {
+	display: none;
+}
+
 /* =Responsive Suppliments
 ----------------------------------------------- */
 
