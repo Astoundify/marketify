@@ -943,13 +943,22 @@ body.minimal .edd_form legend {
 	display: table-cell;
 }
 
-.fes-form .recaptchatable, #recaptcha_area tr {
+.fes-form .recaptchatable,
+#recaptcha_area tr {
 	display: table-row;
 }
 
-.fes-form .recaptcha_theme_red #recaptcha_response_field {
+.fes-form .recaptcha_theme_clean #recaptcha_response_field {
 	display: inline;
 	line-height: 1;
+}
+
+#recaptcha_response_field {
+	border-color: #bdc3c7 !important;
+}
+
+#recaptcha_area .recaptchatable #recaptcha_image {
+	border: 0 !important;
 }
 
 .fes-form #wp-post_content-wra .wp_themeSkin .mceButton {

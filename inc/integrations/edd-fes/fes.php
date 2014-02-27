@@ -6,6 +6,22 @@
  */
 
 /**
+ * Change the reCAPTCHA color scheme.
+ *
+ * @since Marketify 1.2.0
+ */
+function marketify_edd_fes_recaptcha() {
+?>
+	<script type="text/javascript">
+		var RecaptchaOptions = {
+			theme : 'clean',
+		};
+	</script>
+<?php
+}
+add_action( 'wp_head', 'marketify_edd_fes_recaptcha' );
+
+/**
  * Remove the FES vendor/author archive URL redirection.
  */
 add_filter( 'edd_fes_vendor_archive_switch', '__return_false' );

@@ -352,7 +352,9 @@ function marketify_header_css() {
 	.nav-next a:hover i,
 	body-footer.light .site-info .site-title,
 	body a.edd-wl-action,
-	body a.edd-wl-action.edd-wl-button {
+	body a.edd-wl-action.edd-wl-button,
+	#recaptcha_area .recaptchatable a,
+	#recaptcha_area .recaptchatable a:hover {
 		color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 	}
 
