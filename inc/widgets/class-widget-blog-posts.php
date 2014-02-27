@@ -28,6 +28,15 @@ class Marketify_Widget_Recent_Posts extends Marketify_Widget {
 				'std'   => 4,
 				'label' => __( 'Number to display:', 'marketify' )
 			),
+			'style' => array(
+				'type'  => 'select',
+				'std'   => 'classic',
+				'options' => array(
+					'classic' => __( 'Classic', 'marketify' ),
+					'grid'    => __( 'Grid', 'marketify' )
+				),
+				'label' => __( 'Display Style:', 'marketify' )
+			),
 		);
 		parent::__construct();
 	}
@@ -53,6 +62,7 @@ class Marketify_Widget_Recent_Posts extends Marketify_Widget {
 
 		$title  = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
 		$number = isset ( $instance[ 'number' ] ) ? absint( $instance[ 'number' ] ) : 8;
+		$style  = isset ( $instance[ 'style' ] ) ? $instance[ 'style' ] : 'classic';
 
 		$posts = new WP_Query( array(
 			'post_type'              => 'post',
@@ -73,8 +83,8 @@ class Marketify_Widget_Recent_Posts extends Marketify_Widget {
 
 		<div class="row">
 			<?php while ( $posts->have_posts() ) : $posts->the_post(); ?>
-			<div class="col-sm-6 col-xs-12">
-				<?php get_template_part( 'content', get_post_format() ); ?>
+			<div class="col-lg-<?php echo 'grid' == $style ? marketify_get_download_columnns() : '6'; ?> col-sm-6 col-xs-12">
+				<?php get_template_part( 'content', 'grid' == $style ? 'grid' : get_post_format() ); ?>
 			</div>
 			<?php endwhile; ?>
 		</div>

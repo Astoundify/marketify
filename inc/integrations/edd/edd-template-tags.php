@@ -1,7 +1,11 @@
 <?php
 
 function marketify_download_columns() {
-	echo absint( 12 / marketify_theme_mod( 'product-display', 'product-display-columns' ) );
+	echo marketify_get_download_columnns();
+}
+
+function marketify_get_download_columnns() {
+	return absint( 12 / marketify_theme_mod( 'product-display', 'product-display-columns' ) );
 }
 
 /**

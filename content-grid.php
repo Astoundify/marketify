@@ -12,14 +12,12 @@ global $post;
 			<?php do_action( 'marketify_project_content_image_overlay_before' ); ?>
 
 			<div class="actions">
-				<a href="<?php the_permalink(); ?>" rel="bookmark" class="button"><?php _e( 'Project Details', 'marketify' ); ?></a>
+				<a href="<?php the_permalink(); ?>" rel="bookmark" class="button"><?php _e( 'Read More', 'marketify' ); ?></a>
 			</div>
 
-			<?php $client = get_post_meta( $post->ID, '_client', true ); if ( $client ) : ?>
 			<strong class="item-price">
-				<span><?php printf( 'Client: %s', esc_attr( $client ) ); ?></span>
+				<span><?php comments_number( __( '0 Comments', 'marketify' ), __( '1 Comment', 'marketify' ), __( '%s Comments', 'marketify' ) ); ?></span>
 			</strong>
-			<?php endif; ?>
 
 			<?php do_action( 'marketify_project_content_image_overlay_after' ); ?>
 		</div>

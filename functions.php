@@ -582,6 +582,11 @@ add_filter( 'body_class', 'marketify_body_classes' );
  * Adds custom classes to the array of post classes.
  */
 function marketify_post_classes( $classes ) {
+	global $post;
+
+	if ( 'download' != get_post_type() )
+		return $classes;
+
 	if ( '1' == marketify_theme_mod( 'product-display', 'product-display-grid-info' ) ) {
 		$classes[] = 'force-info';
 	} elseif ( '2' == marketify_theme_mod( 'product-display', 'product-display-grid-info' ) ) {
