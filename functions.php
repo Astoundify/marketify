@@ -495,7 +495,7 @@ function marketify_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_script( 'marketify-plugins', get_template_directory_uri() . '/js/plugins.min.js', '20140210' );
+	wp_enqueue_script( 'marketify-plugins', get_template_directory_uri() . '/js/plugins.min.js', '20140210', array( 'jquery' ) );
 	wp_enqueue_script( 'marketify', get_template_directory_uri() . '/js/main.min.js', array( 'jquery', 'marketify-plugins' ), '20140210' );
 
 	$marketify_js_settings = apply_filters( 'marketify_jsparams', array(
