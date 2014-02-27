@@ -5,7 +5,7 @@
  * @since Marketify 1.0
  */
 class Marketify_Widget_Download_Details extends Marketify_Widget {
-	
+
 	/**
 	 * Constructor
 	 */
@@ -13,7 +13,7 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 		$this->widget_cssclass    = 'marketify_widget_download_details';
 		$this->widget_description = __( 'Display information related to the current download', 'marketify' );
 		$this->widget_id          = 'marketify_widget_download_details';
-		$this->widget_name        = __( 'Marketify Download Product Details', 'marketify' );
+		$this->widget_name        = __( 'Marketify - Download Single: Product Details', 'marketify' );
 		$this->settings           = array(
 			'title' => array(
 				'type'  => 'text',
@@ -44,7 +44,7 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 		extract( $args );
 
 		$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
-		
+
 		echo $before_widget;
 
 		if ( $title ) echo '<h1 class="section-title"><span>' . $title . '</span></h1>';
@@ -59,12 +59,12 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 					<span class="author-joined"><?php printf( __( 'Author since: %s', 'marketify' ), date_i18n( get_option( 'date_format' ), strtotime( get_the_author_meta( 'user_registered' ) ) ) ); ?></span>
 					<?php do_action( 'marketify_download_author_after' ); ?>
 				</div>
-				
+
 				<div class="download-purchases">
 					<strong><?php echo edd_get_download_sales_stats( get_the_ID() ); ?></strong>
 					<?php echo _n( 'Purchase', 'Purchases', edd_get_download_sales_stats( get_the_ID() ), 'marketify' ); ?>
 				</div>
-				
+
 				<?php if ( class_exists( 'EDD_Reviews' ) ) : ?>
 				<?php $rating = edd_reviews()->average_rating( false ); ?>
 				<div class="download-ratings">

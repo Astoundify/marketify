@@ -5,7 +5,7 @@
  * @since Marketify 1.0
  */
 class Marketify_Widget_Download_Review_Details extends Marketify_Widget {
-	
+
 	/**
 	 * Constructor
 	 */
@@ -13,7 +13,7 @@ class Marketify_Widget_Download_Review_Details extends Marketify_Widget {
 		$this->widget_cssclass    = 'marketify_widget_download_review_details';
 		$this->widget_description = __( 'Display average review information.', 'marketify' );
 		$this->widget_id          = 'marketify_widget_download_review_details';
-		$this->widget_name        = __( 'Marketify Download Product Review Details', 'marketify' );
+		$this->widget_name        = __( 'Marketify - Download Single: Review Details ', 'marketify' );
 		$this->settings           = array(
 			'title' => array(
 				'type'  => 'text',
@@ -62,7 +62,7 @@ class Marketify_Widget_Download_Review_Details extends Marketify_Widget {
 		$average = $total_ratings / $total;
 
 		$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
-		
+
 		echo $before_widget;
 
 		if ( $title ) echo '<h1 class="section-title"><span>' . $title . '</span></h1>';

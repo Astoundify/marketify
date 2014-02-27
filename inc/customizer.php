@@ -88,6 +88,17 @@ function marketify_get_theme_mods( $args = array() ) {
 			)
 		),
 		'product-display' => array(
+			'product-display-columns' => array(
+				'title'   => __( 'Grid Columns', 'marketify' ),
+				'type'    => 'select',
+				'default' => 3,
+				'choices' => array(
+					1 => 1,
+					2 => 2,
+					3 => 3,
+					4 => 4
+				)
+			),
 			'product-display-single-style' => array(
 				'title'   => __( 'Single Display Style', 'marketify' ),
 				'type'    => 'radio',

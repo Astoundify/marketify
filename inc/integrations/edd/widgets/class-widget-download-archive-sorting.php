@@ -13,7 +13,7 @@ class Marketify_Widget_Download_Archive_Sorting extends Marketify_Widget {
 		$this->widget_cssclass    = 'marketify_widget_download_archive_sorting';
 		$this->widget_description = __( 'Display a way to sort the current product archives.', 'marketify' );
 		$this->widget_id          = 'marketify_widget_download_archive_sorting';
-		$this->widget_name        = __( 'Marketify Download Sorting', 'marketify' );
+		$this->widget_name        = __( 'Marketify - Download Archive: Download Sorting', 'marketify' );
 		$this->settings           = array(
 			'title' => array(
 				'type'  => 'text',

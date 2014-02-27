@@ -1,5 +1,9 @@
 <?php
 
+function marketify_download_columns() {
+	echo absint( 12 / marketify_theme_mod( 'product-display', 'product-display-columns' ) );
+}
+
 /**
  * Depending on the type of download, display some featured stuff.
  *
