@@ -129,6 +129,14 @@ Marketify.App = ( function($) {
 			$( '.download-sorting input, .download-sorting select' ).change(function(){
 				$(this).closest( 'form' ).submit();
 			});
+
+			$( 'a' ).live( 'touchstart', function(e) {
+				$(this).trigger( 'hover' );
+			});
+
+			$( 'a' ).live( 'touchend', function(e) {
+				$(this).trigger( 'blur' );
+			});
 		},
 
 		popup : function( args ) {
