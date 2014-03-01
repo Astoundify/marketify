@@ -126,12 +126,6 @@ Marketify.App = ( function($) {
 				$( '#edd-wl-modal-label' ).wrapInner( '<span></span>' );
 			});
 
-			$( '.entry-image' ).bind( 'touchstart touchend', function(e) {
-				e.preventDefault();
-
-				$(this).toggleClass( 'hover' );
-			});
-
 			$( '.download-sorting input, .download-sorting select' ).change(function(){
 				$(this).closest( 'form' ).submit();
 			});
