@@ -3383,6 +3383,33 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 	width: 100%;
 }
 
+.product-details-pull {
+	margin-top: -30px;
+	margin-bottom: 40px;
+	text-align: center;
+}
+
+.product-details-pull .page-title {
+	font-size: 32px;
+	margin: 0;
+	color: #505965;
+	max-width: 100%;
+}
+
+.product-details-pull .download-info,
+.product-details-pull .download-info .edd_price {
+	color: #505965;
+}
+
+.product-details-pull .download-actions,
+.product-details-pull .download-info {
+	margin: 20px 0;
+}
+
+.product-details-pull .download-actions .button {
+	margin: 0 4px;
+}
+
 /** Cart */
 .widget .edd-cart {
 	border-top: 1px solid #bdc3c7;

@@ -108,6 +108,15 @@ function marketify_get_theme_mods( $args = array() ) {
 					'grid'    => __( 'Inline Switcher', 'marketify' )
 				)
 			),
+			'product-display-single-style-title' => array(
+				'title'   => __( 'Single Title Display Style', 'marketify' ),
+				'type'    => 'radio',
+				'default' => 'classic',
+				'choices' => array(
+					'classic' => __( 'Featured in Header', 'marketify' ),
+					'widget'  => __( 'Product Details Widget', 'marketify' )
+				)
+			),
 			'product-display-grid-info' => array(
 				'title'   => __( 'Grid Product Information', 'marketify' ),
 				'type'    => 'radio',

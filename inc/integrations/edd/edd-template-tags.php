@@ -16,7 +16,7 @@ function marketify_get_download_columnns() {
  * @return void
  */
 function marketify_download_viewer() {
-	if ( 'classic' != marketify_theme_mod( 'product-display', 'single-style-single-style' ) )
+	if ( 'classic' != marketify_theme_mod( 'product-display', 'product-display-single-style' ) )
 		return;
 
 	global $post;
@@ -385,6 +385,25 @@ function marketify_demo_link( $download_id = null ) {
 }
 add_action( 'marketify_download_actions', 'marketify_demo_link' );
 endif;
+
+function marketify_product_details_widget_before() {
+	if ( 'classic' == marketify_theme_mod( 'product-display', 'product-display-single-style-title' ) )
+		return;
+?>
+	<div class="product-details-pull">
+		<h1 class="page-title"><?php the_title(); ?></h1>
+
+		<div class="download-actions">
+			<?php do_action( 'marketify_download_actions' ); ?>
+		</div>
+
+		<div class="download-info">
+			<?php do_action( 'marketify_download_info' ); ?>
+		</div>
+	</div>
+<?php
+}
+add_action( 'marketify_product_details_widget_before', 'marketify_product_details_widget_before' );
 
 function marketify_download_archive_popular( $args = array() ) {
 	$defaults = array(

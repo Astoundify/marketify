@@ -48,6 +48,9 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 		echo $before_widget;
 
 		if ( $title ) echo '<h1 class="section-title"><span>' . $title . '</span></h1>';
+
+		do_action( 'marketify_product_details_widget_before', $instance );
+
 		?>
 			<div class="download-product-details">
 				<?php do_action( 'marketify_product_details_before', $instance ); ?>
@@ -89,6 +92,9 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 				<?php do_action( 'marketify_product_details_after', $instance ); ?>
 			</div>
 		<?php
+
+		do_action( 'marketify_product_details_widget_after', $instance );
+
 		echo $after_widget;
 
 		$content = ob_get_clean();
