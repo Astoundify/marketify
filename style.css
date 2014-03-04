@@ -4142,14 +4142,6 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 	h2.soliloquy-caption-title {
 		font-size: 38px;
 	}
-
-	body .soliloquy-container .soliloquy-caption .caption-full {
-		display: none;
-	}
-
-	body .soliloquy-container .soliloquy-caption .caption-alt {
-		display: block;
-	}
 }
 
 @media screen and (min-width: 992px) {
@@ -4277,11 +4269,11 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 		font-size: 30px;
 	}
 
-	body .soliloquy-container .soliloquy-caption  {
-		display: none;
+	/** Home */
+	.home-search .page-header {
+		padding: 20px 0 50px;
 	}
 
-	/** Home */
 	.page-title,
 	.entry-page-title h1 {
 		font-size: 28px;

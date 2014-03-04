@@ -450,6 +450,7 @@ function marketify_header_css() {
 	}
 
 	.content-grid-download .entry-image:hover .overlay,
+	.content-grid-download .entry-image.hover .overlay,
 	.download-image-grid-preview .slides li.active a:before,
 	.download-image-grid-preview .slides li:hover a:before {
 		background: rgba( " . marketify_hex2rgb( marketify_theme_mod( 'colors', 'primary' ) ) . ", .80 );
