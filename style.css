@@ -1922,6 +1922,11 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	bottom: auto;
 }
 
+.content-grid-download.type-project.no-client .entry-image:hover .actions,
+.content-grid-download.type-project.no-client .entry-image.hover .actions {
+	top: 45%;
+}
+
 .content-grid-download .entry-image .button {
 	margin: 0 6px;
 	padding: 10px 15px;
