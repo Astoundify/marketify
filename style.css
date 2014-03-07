@@ -3794,7 +3794,8 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 	right: -13px;
 }
 
-.love-it-pro.single-download .love-it-wrapper .love-it {
+.love-it-pro.single-download .love-it-wrapper .love-it,
+.single-download .edd-recommended-products .love-it-wrapper .love-it {
 	right: 0;
 }
 
