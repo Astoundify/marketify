@@ -5,6 +5,11 @@
  * @package Marketify
  */
 
+function marketify_edd_reviews_reviews_title( $title ) {
+	return __( 'Customer Reviews', 'marketify' );
+}
+add_filter( 'edd_reviews_reviews_title', 'marketify_edd_reviews_reviews_title' );
+
 /**
  * Add the Star Rating to the download information at the top of the page,
  * as well in the download grid.
