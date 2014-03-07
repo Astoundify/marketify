@@ -363,17 +363,20 @@ if ( ! function_exists( 'marketify_demo_link' ) ) :
 function marketify_demo_link( $download_id = null ) {
 	global $post, $edd_options;
 
-	if ( 'download' != get_post_type() )
+	if ( 'download' != get_post_type() ) {
 		return;
+	}
 
-	if ( ! $download_id )
+	if ( ! $download_id ) {
 		$download_id = $post->ID;
+	}
 
 	$field = apply_filters( 'marketify_demo_field', 'demo' );
 	$demo  = get_post_meta( $download_id, $field, true );
 
-	if ( ! $demo )
+	if ( ! $demo ) {
 		return;
+	}
 
 	$label = apply_filters( 'marketify_demo_button_label', __( 'Demo', 'marketify' ) );
 
@@ -387,23 +390,21 @@ add_action( 'marketify_download_actions', 'marketify_demo_link' );
 endif;
 
 function marketify_product_details_widget_before() {
-	if ( 'classic' == marketify_theme_mod( 'product-display', 'product-display-single-style-title' ) )
+	if ( 'classic' == marketify_theme_mod( 'product-display', 'product-display-single-style' ) )
 		return;
 ?>
 	<div class="product-details-pull">
-		<h1 class="page-title"><?php the_title(); ?></h1>
+		<div class="download-info">
+			<?php do_action( 'marketify_download_info' ); ?>
+		</div>
 
 		<div class="download-actions">
 			<?php do_action( 'marketify_download_actions' ); ?>
 		</div>
-
-		<div class="download-info">
-			<?php do_action( 'marketify_download_info' ); ?>
-		</div>
 	</div>
 <?php
 }
-add_action( 'marketify_product_details_widget_before', 'marketify_product_details_widget_before' );
+add_action( 'marketify_product_details_after', 'marketify_product_details_widget_before' );
 
 function marketify_download_archive_popular( $args = array() ) {
 	$defaults = array(

@@ -1732,6 +1732,10 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	padding-bottom: 0;
 }
 
+.product-display-inline.single-download .page-header {
+	padding-bottom: 100px;
+}
+
 .single-download .featured-image img {
 	margin: 0 auto;
 	display: block;
@@ -3269,11 +3273,17 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 .download-author-bio,
 .download-author-social,
 .download-author-sales,
-.download-author-message {
+.download-author-message,
+.download-product-details .download-info {
 	margin: 0;
 	padding: 25px;
 	border-bottom: 1px solid #bdc3c7;
 	position: relative;
+	clear: both;
+}
+
+.download-product-details .download-info {
+	border-top: 1px solid #bdc3c7;
 }
 
 .download-author-bio p:last-child,
@@ -3311,7 +3321,8 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 .download-product-details .download-comments,
 .download-product-details .download-comments a,
 .download-product-details .download-ratings,
-.download-product-details .download-author-sales {
+.download-product-details .download-author-sales,
+.download-product-details .download-info {
 	font-size: 13px;
 	color: #82878e;
 	display: block;
@@ -3339,7 +3350,8 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 .download-product-details .download-purchases strong,
 .download-product-details .download-comments strong,
 .download-product-details .download-ratings strong,
-.download-product-details .download-author-sales strong {
+.download-product-details .download-author-sales strong,
+.download-product-details .edd_price {
 	font: 700 21px/normal 'Montserrat', sans-serif;
 	color: #505965;
 	text-transform: uppercase;
@@ -3406,13 +3418,20 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 	color: #505965;
 }
 
-.product-details-pull .download-actions,
-.product-details-pull .download-info {
-	margin: 20px 0;
+.product-details-pull .download-actions {
+	margin: 30px 0 -10px;
 }
 
 .product-details-pull .download-actions .button {
 	margin: 0 4px;
+}
+
+.download-product-details .download-info {
+	padding: 30px 0;
+}
+
+.download-product-details .edd_price {
+	margin-bottom: 0;
 }
 
 /** Cart */

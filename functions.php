@@ -574,6 +574,10 @@ function marketify_body_classes( $classes ) {
 		$classes[] = 'love-it-pro';
 	}
 
+	if ( is_singular( 'download' ) && 'classic' != marketify_theme_mod( 'product-display', 'product-display-single-style' ) ) {
+		$classes[] = 'product-display-inline';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'marketify_body_classes' );
