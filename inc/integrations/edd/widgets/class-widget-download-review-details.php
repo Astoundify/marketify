@@ -61,7 +61,8 @@ class Marketify_Widget_Download_Review_Details extends Marketify_Widget {
 
 		$average = $total_ratings / $total;
 
-		$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+		$title   = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+		$reviews = edd_reviews();
 
 		echo $before_widget;
 
@@ -70,7 +71,7 @@ class Marketify_Widget_Download_Review_Details extends Marketify_Widget {
 			<div class="download-product-review-details">
 				<h1 class="download-single-widget-title"><?php _e( 'Buyer Ratings', 'marketify' ); ?></h1>
 
-				<?php $rating = edd_reviews()->average_rating( false ); ?>
+				<?php $rating = $reviews->average_rating( false ); ?>
 				<div class="download-ratings">
 					<strong>
 						<?php for ( $i = 1; $i <= $rating; $i++ ) : ?>
@@ -84,6 +85,8 @@ class Marketify_Widget_Download_Review_Details extends Marketify_Widget {
 				</div>
 
 				<p><?php printf( __( '%s average based on %d reviews.', 'marketify' ), sprintf( "%0.2f", $average ), wp_count_comments( $post->ID )->total_comments ); ?></p>
+
+				<?php echo $reviews->maybe_show_review_breakdown(); ?>
 			</div>
 		<?php
 		echo $after_widget;

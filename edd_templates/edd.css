@@ -1298,6 +1298,23 @@ input[type="text"].edd_cp_price {
 	margin-bottom: 2em;
 }
 
+#comments .col-sm-8 .edd_reviews_breakdown,
+.edd_reviews_breakdown .edd-reviews-total-count {
+	display: none;
+}
+
+body.single-download .comments-area .edd_reviews_breakdown {
+	margin-bottom: 0;
+}
+
+body .edd_reviews_breakdown .edd-counter-label {
+	margin-right: 6px;
+}
+
+body .edd_reviews_breakdown .edd-counter-back {
+	width: 100px;
+}
+
 /* =Wish Lists
 -------------------------------------------------------------- */
 
