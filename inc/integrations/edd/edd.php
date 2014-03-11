@@ -264,7 +264,7 @@ function marketify_edd_sorting_options( $single_key = false  ) {
  * Sorting for standard query
  */
 function marketify_edd_orderby( $query ) {
-	if ( ! $query->is_main_query() || is_admin() || DOING_AJAX ) {
+	if ( ! $query->is_main_query() || is_admin() || ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
 		return;
 	}
 

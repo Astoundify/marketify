@@ -2031,6 +2031,11 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	margin: 0;
 }
 
+.content-grid-download.truncate-title .entry-title {
+	height: 20px;
+	overflow: hidden;
+}
+
 .content-grid-download .entry-title a {
 	text-decoration: none;
 }

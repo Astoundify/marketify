@@ -24,7 +24,7 @@
 function marketify_theme_mod( $section, $key, $_default = false ) {
 	$mods = marketify_get_theme_mods();
 
-	$default = $mods[ $section ][ $key ][ 'default' ];
+	$default = isset( $mods[ $section ][ $key ][ 'default' ] ) ? $mods[ $section ][ $key ][ 'default' ] : null;
 
 	if ( $_default )
 		$mod = $default;
@@ -120,6 +120,11 @@ function marketify_get_theme_mods( $args = array() ) {
 			),
 			'product-display-excerpt' => array(
 				'title'   => __( 'Display excerpt on grid items' ),
+				'type'    => 'checkbox',
+				'std'     => 0
+			),
+			'product-display-truncate-title' => array(
+				'title'   => __( 'Truncate grid item titles' ),
 				'type'    => 'checkbox',
 				'std'     => 0
 			)

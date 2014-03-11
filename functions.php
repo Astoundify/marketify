@@ -597,6 +597,10 @@ function marketify_post_classes( $classes ) {
 		$classes[] = 'hide-info';
 	}
 
+	if ( marketify_theme_mod( 'product-display', 'product-display-truncate-title' ) ) {
+		$classes[] = 'truncate-title';
+	}
+
 	return $classes;
 }
 add_filter( 'post_class', 'marketify_post_classes' );
