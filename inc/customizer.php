@@ -446,7 +446,8 @@ function marketify_header_css() {
 	.edd_terms_links:hover,
 	.site-footer.dark .mailbag-wrap input[type=submit],
 	.home-search .page-header .search-submit,
-	.search-form-overlay .search-submit {
+	.search-form-overlay .search-submit,
+	.marketify_widget_taxonomy_stylized {
 		background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 

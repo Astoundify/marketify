@@ -20,6 +20,7 @@ function marketify_edd_widgets_init() {
 	register_widget( 'Marketify_Widget_Download_Share' );
 	register_widget( 'Marketify_Widget_Download_Archive_Sorting' );
 	register_widget( 'Marketify_Widget_Downloads_Taxonomy' );
+	register_widget( 'Marketify_Widget_Taxonomy_Stylized' );
 
 	if ( class_exists( 'EDD_Reviews' ) ) {
 		register_widget( 'Marketify_Widget_Download_Review_Details' );
@@ -338,7 +339,8 @@ $widgets = array(
 	'class-widget-download-details.php',
 	'class-widget-download-share.php',
 	'class-widget-download-archive-sorting.php',
-	'class-widget-downloads-taxonomy.php'
+	'class-widget-downloads-taxonomy.php',
+	'class-widget-downloads-taxonomy-stylized.php'
 );
 
 foreach ( $widgets as $widget ) {

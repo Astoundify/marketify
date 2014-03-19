@@ -2734,6 +2734,31 @@ object {
 	margin-top: 0;
 }
 
+.marketify_widget_taxonomy_stylized {
+	margin-top: -100px;
+	padding: 30px 0;
+}
+
+.marketify_widget_taxonomy_stylized ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.marketify_widget_taxonomy_stylized li {
+	margin: 5px 0;
+	width: 25%;
+	float: left;
+	text-align: center;
+}
+
+.marketify_widget_taxonomy_stylized a {
+	font: 700 14px 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #fff;
+}
+
 .marketify_widget_featured_popular {
 	position: relative;
 }
