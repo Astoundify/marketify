@@ -47,8 +47,8 @@ function marketify_setup() {
 
 	add_image_size(
 		'content-grid-download',
-		apply_filters( 'marketify_image_content_grid_download_w', 740  ),
-		apply_filters( 'marketify_image_content_grid_download_h', 600  ),
+		apply_filters( 'marketify_image_content_grid_download_w', 640  ),
+		apply_filters( 'marketify_image_content_grid_download_h', 440  ),
 		apply_filters( 'marketify_image_content_grid_download_c', true )
 	);
 
