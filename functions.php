@@ -253,7 +253,7 @@ function marketify_has_header_background() {
 
 	$is_correct = apply_filters( 'marketify_has_header_background', (
 		marketify_is_bbpress() ||
-		( is_singular( 'download' ) && in_array( get_post_format(), array( 'audio', 'video' ) ) ) ||
+		( is_singular( 'download' ) && in_array( get_post_format(), array( 'video' ) ) ) ||
 		is_singular( array( 'page', 'post' ) ) ||
 		is_page_template( 'page-templates/home.php' ) ||
 		is_page_template( 'page-templates/home-search.php' ) ||

@@ -4339,7 +4339,8 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 		margin-bottom: 0;
 	}
 
-	.download-image.flexslider .slides {
+	.download-image.flexslider .slides,
+	div.jp-audio {
 		width: 100%;
 	}
 }
@@ -4444,7 +4445,7 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 
 	/** Audio */
 	.featured-image div.jp-audio {
-		width: 90%;
+		width: 100%;
 
 		-webkit-backface-visibility: hidden;
 	}

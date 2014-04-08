@@ -219,6 +219,15 @@ function marketify_download_audio_player() {
 			</div>
 		</div>
 	</div>
+
+	<?php
+		if ( 'grid' == marketify_theme_mod( 'product-display', 'product-display-single-style' ) ) {
+			marketify_download_grid_previewer();
+		} else {
+			marketify_download_standard_player();
+		}
+	?>
+
 	<?php
 }
 add_action( 'marketify_download_entry_meta_before_audio', 'marketify_download_audio_player' );
@@ -267,7 +276,7 @@ if ( ! function_exists( 'marketify_download_grid_previewer' ) ) :
 function marketify_download_grid_previewer() {
 	global $post;
 
-	if ( in_array( get_post_format(), array( 'audio', 'video' ) ) )
+	if ( in_array( get_post_format(), array( 'video' ) ) )
 		return;
 
 	$images = get_attached_media( 'image', $post->ID );
@@ -291,7 +300,7 @@ function marketify_download_grid_previewer() {
 
 	if ( count( $images ) == 1 ) {
 		echo $before;
-		echo '<a href="' . wp_get_attachment_url( $image->ID ) . '">' . wp_get_attachment_image( current( $images )->ID, 'large' ) . '</a>';
+		echo '<a href="' . wp_get_attachment_url( current( $images )->ID ) . '">' . wp_get_attachment_image( current( $images )->ID, 'large' ) . '</a>';
 		echo $after;
 
 		return;
