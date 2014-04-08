@@ -221,10 +221,12 @@ function marketify_download_audio_player() {
 	</div>
 
 	<?php
-		if ( 'grid' == marketify_theme_mod( 'product-display', 'product-display-single-style' ) ) {
-			marketify_download_grid_previewer();
-		} else {
-			marketify_download_standard_player();
+		if ( is_singular( 'download' ) ) {
+			if ( 'grid' == marketify_theme_mod( 'product-display', 'product-display-single-style' ) ) {
+				marketify_download_grid_previewer();
+			} else {
+				marketify_download_standard_player();
+			}
 		}
 	?>
 

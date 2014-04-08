@@ -79,6 +79,12 @@ class Marketify_Widget_Download_Archive_Sorting extends Marketify_Widget {
 					<input type="radio" name="order" id="order-desc" value="desc" <?php checked( 'desc', $order ); ?>><span class="icon-down"></span>
 				</label>
 			<?php endif; ?>
+
+			<?php global $wp_query; if ( is_array( $wp_query->query ) ) : foreach ( $wp_query->query as $key => $value ) : ?>
+				<?php if ( in_array( $key, array( 'order', 'orderby' ) ) ) continue; ?>
+
+				<input type="hidden" name="<?php echo esc_attr( $key ); ?>" value="<?php echo esc_attr( $value ); ?>" />
+			<?php endforeach; endif; ?>
 		</form>
 
 		<?php
