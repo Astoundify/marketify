@@ -4343,6 +4343,27 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 	div.jp-audio {
 		width: 100%;
 	}
+
+	.fes-vendor-menu ul li {
+		width: 50%;
+		text-align: center;
+	}
+
+	.fes-vendor-menu {
+		border: 3px solid #BDC3C7;
+	}
+
+	.fes-vendor-menu li a {
+		border-width: 0;
+	}
+
+	.fes-vendor-menu li.active a {
+		border: 0;
+	}
+
+	.fes-vendor-menu li:nth-child(odd) {
+		border-right: 1px solid #BDC3C7;
+	}
 }
 
 @media screen and (max-width: 500px) {
@@ -4474,6 +4495,26 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 		height: 12px;
 		border-radius: 6px;
 	}
+
+	.fes-vendor-menu ul li {
+		width: 100%;
+		text-align: center;
+	}
+
+	.fes-vendor-menu {
+		border: 3px solid #BDC3C7;
+	}
+
+	.fes-vendor-menu li.active a,
+	.fes-vendor-menu li a {
+		border: 0;
+		border-bottom: 1px solid #BDC3C7;
+	}
+
+	.fes-vendor-menu li:nth-child(odd) {
+		border-right: 0;
+	}
+
 }
 
 /* =Flexslider
