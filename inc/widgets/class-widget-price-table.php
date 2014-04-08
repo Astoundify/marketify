@@ -20,6 +20,11 @@ class Marketify_Widget_Price_Table extends Marketify_Widget {
 				'std'   => 'Pricing Options',
 				'label' => __( 'Title:', 'marketify' )
 			),
+			'description' => array(
+				'type'  => 'textarea',
+				'std'   => '',
+				'label' => __( 'Description:', 'marketify' )
+			),
 			'nothing' => array(
 				'type' => 'description',
 				'std'  => __( 'Drag "Price Option" widgets to the "Price Table" widget area to populate this widget.', 'marketify' )
@@ -47,6 +52,7 @@ class Marketify_Widget_Price_Table extends Marketify_Widget {
 		extract( $args );
 
 		$title        = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+		$description  = isset( $instance[ 'description' ] ) ? $instance[ 'description' ] : null;
 		$the_sidebars = wp_get_sidebars_widgets();
 		$widget_count = count( $the_sidebars[ 'widget-area-price-options' ] );
 
@@ -56,6 +62,10 @@ class Marketify_Widget_Price_Table extends Marketify_Widget {
 
 		if ( $title ) echo $before_title . $title . $after_title;
 		?>
+
+		<?php if ( $description ) : ?>
+			<h2 class="home-widget-description"><?php echo $description; ?></h2>
+		<?php endif; ?>
 
 		<div class="pricing-table-widget-<?php echo $widget_count; ?> row">
 			<?php dynamic_sidebar( 'widget-area-price-options' ); ?>

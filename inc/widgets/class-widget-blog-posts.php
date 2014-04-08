@@ -37,6 +37,11 @@ class Marketify_Widget_Recent_Posts extends Marketify_Widget {
 				),
 				'label' => __( 'Display Style:', 'marketify' )
 			),
+			'description' => array(
+				'type'  => 'textarea',
+				'std'   => '',
+				'label' => __( 'Description:', 'marketify' )
+			),
 		);
 		parent::__construct();
 	}
@@ -60,9 +65,10 @@ class Marketify_Widget_Recent_Posts extends Marketify_Widget {
 
 		extract( $args );
 
-		$title  = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
-		$number = isset ( $instance[ 'number' ] ) ? absint( $instance[ 'number' ] ) : 8;
-		$style  = isset ( $instance[ 'style' ] ) ? $instance[ 'style' ] : 'classic';
+		$title        = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+		$description  = isset( $instance[ 'description' ] ) ? $instance[ 'description' ] : null;
+		$number       = isset ( $instance[ 'number' ] ) ? absint( $instance[ 'number' ] ) : 8;
+		$style        = isset ( $instance[ 'style' ] ) ? $instance[ 'style' ] : 'classic';
 
 		$posts = new WP_Query( array(
 			'post_type'              => 'post',
@@ -80,6 +86,10 @@ class Marketify_Widget_Recent_Posts extends Marketify_Widget {
 
 		if ( $title ) echo $before_title . $title . $after_title;
 		?>
+
+		<?php if ( $description ) : ?>
+			<h2 class="home-widget-description"><?php echo $description; ?></h2>
+		<?php endif; ?>
 
 		<div class="row">
 			<?php while ( $posts->have_posts() ) : $posts->the_post(); ?>

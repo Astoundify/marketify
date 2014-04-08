@@ -32,6 +32,11 @@ class Marketify_Widget_Curated_Downloads extends Marketify_Widget {
 				'max'   => 4,
 				'std'   => 4,
 				'label' => __( 'Number of columns:', 'marketify' )
+			),
+			'description' => array(
+				'type'  => 'textarea',
+				'std'   => '',
+				'label' => __( 'Description:', 'marketify' )
 			)
 		);
 		parent::__construct();
@@ -56,11 +61,12 @@ class Marketify_Widget_Curated_Downloads extends Marketify_Widget {
 
 		extract( $args );
 
-		$title   = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
-		$ids     = isset ( $instance[ 'ids' ] ) ? explode( ', ', $instance[ 'ids' ] ) : array();
-		$ids     = array_map( 'trim', $ids );
-		$columns = isset ( $instance[ 'columns' ] ) ? absint( $instance[ 'columns' ] ) : 4;
-		$columns = absint( 12 / $columns );
+		$title        = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+		$description  = isset( $instance[ 'description' ] ) ? $instance[ 'description' ] : null;
+		$ids          = isset ( $instance[ 'ids' ] ) ? explode( ', ', $instance[ 'ids' ] ) : array();
+		$ids          = array_map( 'trim', $ids );
+		$columns      = isset ( $instance[ 'columns' ] ) ? absint( $instance[ 'columns' ] ) : 4;
+		$columns      = absint( 12 / $columns );
 
 		$downloads = new WP_Query( array(
 			'post_type'              => 'download',
@@ -78,6 +84,10 @@ class Marketify_Widget_Curated_Downloads extends Marketify_Widget {
 
 		if ( $title ) echo $before_title . $title . $after_title;
 		?>
+
+		<?php if ( $description ) : ?>
+			<h2 class="home-widget-description"><?php echo $description; ?></h2>
+		<?php endif; ?>
 
 		<div class="row">
 			<?php while ( $downloads->have_posts() ) : $downloads->the_post(); ?>
