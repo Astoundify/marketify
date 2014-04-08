@@ -5,7 +5,7 @@
  * @since Marketify 1.0
  */
 class Marketify_Widget_Download_Review_Details extends Marketify_Widget {
-	
+
 	/**
 	 * Constructor
 	 */
@@ -13,7 +13,7 @@ class Marketify_Widget_Download_Review_Details extends Marketify_Widget {
 		$this->widget_cssclass    = 'marketify_widget_download_review_details';
 		$this->widget_description = __( 'Display average review information.', 'marketify' );
 		$this->widget_id          = 'marketify_widget_download_review_details';
-		$this->widget_name        = __( 'Marketify Download Product Review Details', 'marketify' );
+		$this->widget_name        = __( 'Marketify - Download Single: Review Details ', 'marketify' );
 		$this->settings           = array(
 			'title' => array(
 				'type'  => 'text',
@@ -61,8 +61,9 @@ class Marketify_Widget_Download_Review_Details extends Marketify_Widget {
 
 		$average = $total_ratings / $total;
 
-		$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
-		
+		$title   = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+		$reviews = edd_reviews();
+
 		echo $before_widget;
 
 		if ( $title ) echo '<h1 class="section-title"><span>' . $title . '</span></h1>';
@@ -70,7 +71,7 @@ class Marketify_Widget_Download_Review_Details extends Marketify_Widget {
 			<div class="download-product-review-details">
 				<h1 class="download-single-widget-title"><?php _e( 'Buyer Ratings', 'marketify' ); ?></h1>
 
-				<?php $rating = edd_reviews()->average_rating( false ); ?>
+				<?php $rating = $reviews->average_rating( false ); ?>
 				<div class="download-ratings">
 					<strong>
 						<?php for ( $i = 1; $i <= $rating; $i++ ) : ?>
@@ -84,6 +85,8 @@ class Marketify_Widget_Download_Review_Details extends Marketify_Widget {
 				</div>
 
 				<p><?php printf( __( '%s average based on %d reviews.', 'marketify' ), sprintf( "%0.2f", $average ), wp_count_comments( $post->ID )->total_comments ); ?></p>
+
+				<?php echo $reviews->maybe_show_review_breakdown(); ?>
 			</div>
 		<?php
 		echo $after_widget;

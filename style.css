@@ -4,7 +4,11 @@ Theme URI: http://astoundify.com/themes/marketify
 Author: Astoundify
 Author URI: http://astoundify.com
 Description: Your beautiful handcrafted digital marketplace.
+<<<<<<< HEAD
 Version: 1.1.1
+=======
+Version: 1.2.0
+>>>>>>> release/1.2.0
 License: GNU General Public License
 License URI: license.txt
 Text Domain: marketify
@@ -511,6 +515,10 @@ a.button:hover,
 body a.edd-wl-action:hover,
 body a.edd-wl-action.edd-wl-button:hover {
 	color: #fff;
+}
+
+.page-numbers {
+	border-color: #515a63;
 }
 
 .page-numbers.current {
@@ -1239,9 +1247,12 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 }
 
 .post-type-archive-download .site-content,
+.post-type-archive-project .site-content,
 .single-download .site-content,
+.single-project .site-content,
 .tax-download_category .site-content,
 .tax-download_tag .site-content,
+.tax-project-category .site-content,
 .page-template-page-templatespopular-php .site-content,
 .page-template-page-templatesshop-php .site-content {
 	margin-top: 0;
@@ -1720,8 +1731,13 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 /* =Download
 ----------------------------------------------- */
 
-.single-download .page-header {
+.single-download .page-header,
+.single-project .page-header {
 	padding-bottom: 0;
+}
+
+.product-display-inline.single-download .page-header {
+	padding-bottom: 100px;
 }
 
 .single-download .featured-image img {
@@ -1801,8 +1817,9 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	overflow: hidden;
 }
 
-.download-image .slides {
-	margin: 0;
+.download-image.flexslider .slides {
+	width: 90%;
+	margin: 0 auto;
 	padding: 0;
 	list-style: none;
 }
@@ -1913,6 +1930,11 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	bottom: auto;
 }
 
+.content-grid-download.type-project.no-client .entry-image:hover .actions,
+.content-grid-download.type-project.no-client .entry-image.hover .actions {
+	top: 45%;
+}
+
 .content-grid-download .entry-image .button {
 	margin: 0 6px;
 	padding: 10px 15px;
@@ -2011,6 +2033,11 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	text-transform: none;
 	letter-spacing: 0;
 	margin: 0;
+}
+
+.content-grid-download.truncate-title .entry-title {
+	height: 20px;
+	overflow: hidden;
 }
 
 .content-grid-download .entry-title a {
@@ -2481,6 +2508,7 @@ object {
 .edd-reviews-voting-buttons a {
 	border: 2px solid;
 	padding: 2px 4px !important;
+	margin-right: 4px !important;
 }
 
 /* =Global Widgets
@@ -2708,6 +2736,37 @@ object {
 
 .home-widget-title {
 	margin-top: 0;
+}
+
+.home-widget-description {
+	font-size: 18px;
+	text-align: center;
+	margin: 0 0 70px;
+}
+
+.marketify_widget_taxonomy_stylized {
+	margin-top: -100px;
+	padding: 30px 0;
+}
+
+.marketify_widget_taxonomy_stylized ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.marketify_widget_taxonomy_stylized li {
+	margin: 5px 0;
+	width: 25%;
+	float: left;
+	text-align: center;
+}
+
+.marketify_widget_taxonomy_stylized a {
+	font: 700 14px 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #fff;
 }
 
 .marketify_widget_featured_popular {
@@ -3078,7 +3137,8 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 .download-archive-widget.widget_pages ul a,
 .download-archive-widget.widget_categories ul a,
 .download-archive-widget.widget_archive ul a,
-.most-loved a {
+.most-loved a,
+.download-archive-widget.widget_projects_categories ul a {
 	padding: 7px 15px;
 	display: block;
 }
@@ -3088,7 +3148,8 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 .download-archive-widget.widget_meta ul ul,
 .download-archive-widget.widget_pages ul ul,
 .download-archive-widget.widget_categories ul ul,
-.download-archive-widget.widget_archive ul ul {
+.download-archive-widget.widget_archive ul ul,
+.download-archive-widget.widget_projects_categories ul ul {
 	margin-right: 0;
 }
 
@@ -3097,7 +3158,8 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 .download-archive-widget.widget_meta ul ul a,
 .download-archive-widget.widget_pages ul ul a,
 .download-archive-widget.widget_categories ul ul a,
-.download-archive-widget.widget_archive ul ul a {
+.download-archive-widget.widget_archive ul ul a,
+.download-archive-widget.widget_projects_categories ul ul a {
 	font-size: 12px;
 }
 
@@ -3108,16 +3170,19 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 .download-archive-widget.widget_pages ul a:hover,
 .download-archive-widget.widget_categories ul a:hover,
 .download-archive-widget.widget_archive ul a:hover,
-.most-loved a:hover {
+.most-loved a:hover,
+.download-archive-widget.widget_projects_categories ul a:hover {
 	background-color: #f6f7f8;
 }
 
-.download-archive-widget.widget_categories ul ul {
+.download-archive-widget.widget_categories ul ul,
+.download-archive-widget.widget_projects_categories ul ul {
 	border-left: 1px solid #eee;
 	margin: 5px 0 5px 15px;
 }
 
-.download-archive-widget.widget_categories ul ul a:hover {
+.download-archive-widget.widget_categories ul ul a:hover,
+.download-archive-widget.widget_projects_categories ul ul a:hover {
 	background: none;
 }
 
@@ -3248,11 +3313,17 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 .download-author-bio,
 .download-author-social,
 .download-author-sales,
-.download-author-message {
+.download-author-message,
+.download-product-details .download-info {
 	margin: 0;
 	padding: 25px;
 	border-bottom: 1px solid #bdc3c7;
 	position: relative;
+	clear: both;
+}
+
+.download-product-details .download-info {
+	border-top: 1px solid #bdc3c7;
 }
 
 .download-author-bio p:last-child,
@@ -3290,7 +3361,8 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 .download-product-details .download-comments,
 .download-product-details .download-comments a,
 .download-product-details .download-ratings,
-.download-product-details .download-author-sales {
+.download-product-details .download-author-sales,
+.download-product-details .download-info {
 	font-size: 13px;
 	color: #82878e;
 	display: block;
@@ -3318,7 +3390,8 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 .download-product-details .download-purchases strong,
 .download-product-details .download-comments strong,
 .download-product-details .download-ratings strong,
-.download-product-details .download-author-sales strong {
+.download-product-details .download-author-sales strong,
+.download-product-details .edd_price {
 	font: 700 21px/normal 'Montserrat', sans-serif;
 	color: #505965;
 	text-transform: uppercase;
@@ -3333,8 +3406,6 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 
 .download-product-details.author-archive .download-author {
 	padding: 20px;
-	padding-bottom: 0;
-	border-bottom: 0;
 }
 
 .download-product-details.author-archive .author-link {
@@ -3365,6 +3436,40 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 .download-product-details .download-author-sales {
 	float: none;
 	width: 100%;
+}
+
+.product-details-pull {
+	margin-top: -30px;
+	margin-bottom: 40px;
+	text-align: center;
+}
+
+.product-details-pull .page-title {
+	font-size: 32px;
+	margin: 0;
+	color: #505965;
+	max-width: 100%;
+}
+
+.product-details-pull .download-info,
+.product-details-pull .download-info .edd_price {
+	color: #505965;
+}
+
+.product-details-pull .download-actions {
+	margin: 30px 0 -10px;
+}
+
+.product-details-pull .download-actions .button {
+	margin: 0 4px;
+}
+
+.download-product-details .download-info {
+	padding: 30px 0;
+}
+
+.download-product-details .edd_price {
+	margin-bottom: 0;
 }
 
 /** Cart */
@@ -3729,7 +3834,8 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 	right: -13px;
 }
 
-.love-it-pro.single-download .love-it-wrapper .love-it {
+.love-it-pro.single-download .love-it-wrapper .love-it,
+.single-download .edd-recommended-products .love-it-wrapper .love-it {
 	right: 0;
 }
 
@@ -3885,6 +3991,13 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 	text-transform: none;
 	letter-spacing: 0;
 	font-weight: 400;
+}
+
+/* =Projects
+----------------------------------------------- */
+
+.projects_list_widget img {
+	display: none;
 }
 
 /* =Responsive Suppliments
@@ -4119,14 +4232,6 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 	h2.soliloquy-caption-title {
 		font-size: 38px;
 	}
-
-	body .soliloquy-container .soliloquy-caption .caption-full {
-		display: none;
-	}
-
-	body .soliloquy-container .soliloquy-caption .caption-alt {
-		display: block;
-	}
 }
 
 @media screen and (min-width: 992px) {
@@ -4243,6 +4348,32 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 	.download-image-grid-preview .slides li {
 		margin-bottom: 0;
 	}
+
+	.download-image.flexslider .slides,
+	div.jp-audio {
+		width: 100%;
+	}
+
+	.fes-vendor-menu ul li {
+		width: 50%;
+		text-align: center;
+	}
+
+	.fes-vendor-menu {
+		border: 3px solid #BDC3C7;
+	}
+
+	.fes-vendor-menu li a {
+		border-width: 0;
+	}
+
+	.fes-vendor-menu li.active a {
+		border: 0;
+	}
+
+	.fes-vendor-menu li:nth-child(odd) {
+		border-right: 1px solid #BDC3C7;
+	}
 }
 
 @media screen and (max-width: 500px) {
@@ -4250,11 +4381,11 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 		font-size: 30px;
 	}
 
-	body .soliloquy-container .soliloquy-caption  {
-		display: none;
+	/** Home */
+	.home-search .page-header {
+		padding: 20px 0 50px;
 	}
 
-	/** Home */
 	.page-title,
 	.entry-page-title h1 {
 		font-size: 28px;
@@ -4345,7 +4476,7 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 
 	/** Audio */
 	.featured-image div.jp-audio {
-		width: 90%;
+		width: 100%;
 
 		-webkit-backface-visibility: hidden;
 	}
@@ -4374,6 +4505,26 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 		height: 12px;
 		border-radius: 6px;
 	}
+
+	.fes-vendor-menu ul li {
+		width: 100%;
+		text-align: center;
+	}
+
+	.fes-vendor-menu {
+		border: 3px solid #BDC3C7;
+	}
+
+	.fes-vendor-menu li.active a,
+	.fes-vendor-menu li a {
+		border: 0;
+		border-bottom: 1px solid #BDC3C7;
+	}
+
+	.fes-vendor-menu li:nth-child(odd) {
+		border-right: 0;
+	}
+
 }
 
 /* =Flexslider

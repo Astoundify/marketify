@@ -943,13 +943,22 @@ body.minimal .edd_form legend {
 	display: table-cell;
 }
 
-.fes-form .recaptchatable, #recaptcha_area tr {
+.fes-form .recaptchatable,
+#recaptcha_area tr {
 	display: table-row;
 }
 
-.fes-form .recaptcha_theme_red #recaptcha_response_field {
+.fes-form .recaptcha_theme_clean #recaptcha_response_field {
 	display: inline;
 	line-height: 1;
+}
+
+#recaptcha_response_field {
+	border-color: #bdc3c7 !important;
+}
+
+#recaptcha_area .recaptchatable #recaptcha_image {
+	border: 0 !important;
 }
 
 .fes-form #wp-post_content-wra .wp_themeSkin .mceButton {
@@ -1287,6 +1296,23 @@ input[type="text"].edd_cp_price {
 
 #edd_address_country {
 	margin-bottom: 2em;
+}
+
+#comments .col-sm-8 .edd_reviews_breakdown,
+.edd_reviews_breakdown .edd-reviews-total-count {
+	display: none;
+}
+
+body.single-download .comments-area .edd_reviews_breakdown {
+	margin-bottom: 0;
+}
+
+body .edd_reviews_breakdown .edd-counter-label {
+	margin-right: 6px;
+}
+
+body .edd_reviews_breakdown .edd-counter-back {
+	width: 100px;
 }
 
 /* =Wish Lists

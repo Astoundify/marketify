@@ -13,7 +13,7 @@ class Marketify_Widget_Curated_Downloads extends Marketify_Widget {
 		$this->widget_cssclass    = 'marketify_widget_curated_downloads';
 		$this->widget_description = sprintf( __( 'Display curated %s in a grid.', 'marketify' ), edd_get_label_plural() );
 		$this->widget_id          = 'marketify_widget_curated_downloads';
-		$this->widget_name        = sprintf( __( 'Marketify Curated %s', 'marketify' ), edd_get_label_plural() );
+		$this->widget_name        = sprintf( __( 'Marketify - Home: Curated %s', 'marketify' ), edd_get_label_plural() );
 		$this->settings           = array(
 			'title' => array(
 				'type'  => 'text',
@@ -25,6 +25,19 @@ class Marketify_Widget_Curated_Downloads extends Marketify_Widget {
 				'std'  => '',
 				'label' => sprintf( __( '%s IDs:', 'marketify' ), edd_get_label_singular() )
 			),
+			'columns' => array(
+				'type'  => 'number',
+				'step'  => 1,
+				'min'   => 1,
+				'max'   => 4,
+				'std'   => 4,
+				'label' => __( 'Number of columns:', 'marketify' )
+			),
+			'description' => array(
+				'type'  => 'textarea',
+				'std'   => '',
+				'label' => __( 'Description:', 'marketify' )
+			)
 		);
 		parent::__construct();
 	}
@@ -48,9 +61,12 @@ class Marketify_Widget_Curated_Downloads extends Marketify_Widget {
 
 		extract( $args );
 
-		$title  = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
-		$ids    = isset ( $instance[ 'ids' ] ) ? explode( ', ', $instance[ 'ids' ] ) : array();
-		$ids    = array_map( 'trim', $ids );
+		$title        = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+		$description  = isset( $instance[ 'description' ] ) ? $instance[ 'description' ] : null;
+		$ids          = isset ( $instance[ 'ids' ] ) ? explode( ', ', $instance[ 'ids' ] ) : array();
+		$ids          = array_map( 'trim', $ids );
+		$columns      = isset ( $instance[ 'columns' ] ) ? absint( $instance[ 'columns' ] ) : 4;
+		$columns      = absint( 12 / $columns );
 
 		$downloads = new WP_Query( array(
 			'post_type'              => 'download',
@@ -69,9 +85,13 @@ class Marketify_Widget_Curated_Downloads extends Marketify_Widget {
 		if ( $title ) echo $before_title . $title . $after_title;
 		?>
 
+		<?php if ( $description ) : ?>
+			<h2 class="home-widget-description"><?php echo $description; ?></h2>
+		<?php endif; ?>
+
 		<div class="row">
 			<?php while ( $downloads->have_posts() ) : $downloads->the_post(); ?>
-			<div class="col-lg-3 col-md-4 col-sm-6">
+			<div class="col-lg-<?php echo $columns; ?> col-md-4 col-sm-6">
 				<?php get_template_part( 'content-grid', 'download' ); ?>
 			</div>
 			<?php endwhile; ?>

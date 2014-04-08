@@ -15,7 +15,7 @@
  * the visitor has not yet entered the password we will
  * return early without loading the comments.
  */
-if ( post_password_required() )
+if ( post_password_required() || ! comments_open() )
 	return;
 ?>
 
@@ -26,7 +26,7 @@ if ( post_password_required() )
 
 		<h2 class="comments-title section-title"><span>
 			<?php if ( class_exists( 'EDD_Reviews' ) && is_singular( 'download' ) ) : ?>
-				<?php _e( 'Customer Reviews', 'marketify' ); ?>
+				<?php $reviews = edd_reviews(); $reviews->reviews_title( $reviews->average_rating( false )); ?>
 			<?php else : ?>
 				<?php _e( 'Comments', 'marketify' ); ?>
 			<?php endif; ?>

@@ -48,17 +48,3 @@ function marketify_woothemes_features_item_template( $template, $args ) {
 function marketify_woothemes_features_item_template_mini( $template, $args ) {
 	return '<div class="%%CLASS%% col-lg-3 col-md-4 col-sm-6 col-xs-12 feature-mini">%%IMAGE%%<h3 class="feature-title">%%TITLE%%</h3><div class="feature-content">%%CONTENT%%</div></div>';
 }
-
-/**
- * Feature arguments
- *
- * @since Marketify 1.0
- *
- * @return array
- */
-function marketify_woothemes_features_args( $args ) {
-	$args[ 'link_title' ] = false;
-
-	return $args;
-}
-add_filter( 'woothemes_features_args', 'marketify_woothemes_features_args' );

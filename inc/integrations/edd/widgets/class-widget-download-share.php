@@ -5,7 +5,7 @@
  * @since Marketify 1.0
  */
 class Marketify_Widget_Download_Share extends Marketify_Widget {
-	
+
 	/**
 	 * Constructor
 	 */
@@ -13,7 +13,7 @@ class Marketify_Widget_Download_Share extends Marketify_Widget {
 		$this->widget_cssclass    = 'marketify_widget_download_share';
 		$this->widget_description = __( 'Display sharing options for this product.', 'marketify' );
 		$this->widget_id          = 'marketify_widget_download_share';
-		$this->widget_name        = __( 'Marketify Download Share', 'marketify' );
+		$this->widget_name        = __( 'Marketify - Download Single: Social Sharing', 'marketify' );
 		$this->settings           = array(
 			'title' => array(
 				'type'  => 'text',
@@ -50,7 +50,7 @@ class Marketify_Widget_Download_Share extends Marketify_Widget {
 
 		$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
 		$description = isset ( $instance[ 'description' ] ) ? esc_attr( $instance[ 'description' ] ) : null;
-		
+
 		echo $before_widget;
 
 		if ( $title ) echo $before_title . $title . $after_title;
@@ -61,7 +61,7 @@ class Marketify_Widget_Download_Share extends Marketify_Widget {
 
 		do_action( 'marketify_widget_download_share_before' );
 		?>
-		
+
 		<iframe src="//www.facebook.com/plugins/like.php?href=<?php echo urlencode( get_permalink( $post->ID ) ); ?>&amp;width=300&amp;height=35&amp;colorscheme=light&amp;layout=standard&amp;action=like&amp;show_faces=false&amp;send=false&amp;appId=327226857358730" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:35px;" allowTransparency="true"></iframe>
 
 		<!-- Place this tag where you want the +1 button to render. -->

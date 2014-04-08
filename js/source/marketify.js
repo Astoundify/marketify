@@ -80,15 +80,40 @@ Marketify.App = ( function($) {
 		});
 	}
 
+	function soliloquySliders() {
+		if ( $(window).width() < 500 ) {
+			var sliders = $( '.soliloquy' );
+
+			$.each(sliders, function() {
+				var image = $(this).find( 'img' ),
+				    src   = image.prop( 'src' );
+
+				console.log( src );
+
+				$(this)
+					.find( 'li' )
+					.css({
+						'height'           : $(window).outerHeight(),
+						'background-image' : 'url(' + src + ')',
+						'background-size'  : 'cover'
+					});
+
+				image.hide();
+			});
+		}
+	}
+
 	return {
 		init : function() {
 			menuSearch();
 			menuMobile();
 			skipLink();
 			footerHeight();
+			soliloquySliders();
 
 			$(window).resize(function() {
 				footerHeight();
+				soliloquySliders();
 			});
 
 			$( '.popup-trigger' ).click(function(e) {
@@ -130,12 +155,8 @@ Marketify.App = ( function($) {
 				$(this).closest( 'form' ).submit();
 			});
 
-			$( 'a' ).live( 'touchstart', function(e) {
-				$(this).trigger( 'hover' );
-			});
-
-			$( 'a' ).live( 'touchend', function(e) {
-				$(this).trigger( 'blur' );
+			$( '.entry-image' ).bind( 'touchstart', function(e) {
+				$(this).toggleClass( 'hover' );
 			});
 		},
 

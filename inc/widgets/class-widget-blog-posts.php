@@ -13,7 +13,7 @@ class Marketify_Widget_Recent_Posts extends Marketify_Widget {
 		$this->widget_cssclass    = 'marketify_widget_recent_posts';
 		$this->widget_description = __( 'Display recent blog posts.', 'marketify' );
 		$this->widget_id          = 'marketify_widget_recent_posts';
-		$this->widget_name        = __( 'Marketify Recent Posts', 'marketify' );
+		$this->widget_name        = __( 'Marketify - Home: Recent Posts', 'marketify' );
 		$this->settings           = array(
 			'title' => array(
 				'type'  => 'text',
@@ -27,6 +27,20 @@ class Marketify_Widget_Recent_Posts extends Marketify_Widget {
 				'max'   => '',
 				'std'   => 4,
 				'label' => __( 'Number to display:', 'marketify' )
+			),
+			'style' => array(
+				'type'  => 'select',
+				'std'   => 'classic',
+				'options' => array(
+					'classic' => __( 'Classic', 'marketify' ),
+					'grid'    => __( 'Grid', 'marketify' )
+				),
+				'label' => __( 'Display Style:', 'marketify' )
+			),
+			'description' => array(
+				'type'  => 'textarea',
+				'std'   => '',
+				'label' => __( 'Description:', 'marketify' )
 			),
 		);
 		parent::__construct();
@@ -51,8 +65,10 @@ class Marketify_Widget_Recent_Posts extends Marketify_Widget {
 
 		extract( $args );
 
-		$title  = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
-		$number = isset ( $instance[ 'number' ] ) ? absint( $instance[ 'number' ] ) : 8;
+		$title        = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+		$description  = isset( $instance[ 'description' ] ) ? $instance[ 'description' ] : null;
+		$number       = isset ( $instance[ 'number' ] ) ? absint( $instance[ 'number' ] ) : 8;
+		$style        = isset ( $instance[ 'style' ] ) ? $instance[ 'style' ] : 'classic';
 
 		$posts = new WP_Query( array(
 			'post_type'              => 'post',
@@ -71,10 +87,14 @@ class Marketify_Widget_Recent_Posts extends Marketify_Widget {
 		if ( $title ) echo $before_title . $title . $after_title;
 		?>
 
+		<?php if ( $description ) : ?>
+			<h2 class="home-widget-description"><?php echo $description; ?></h2>
+		<?php endif; ?>
+
 		<div class="row">
 			<?php while ( $posts->have_posts() ) : $posts->the_post(); ?>
-			<div class="col-sm-6 col-xs-12">
-				<?php get_template_part( 'content', get_post_format() ); ?>
+			<div class="col-lg-<?php echo 'grid' == $style ? marketify_get_download_columnns() : '6'; ?> col-sm-6 col-xs-12">
+				<?php get_template_part( 'content', 'grid' == $style ? 'grid' : get_post_format() ); ?>
 			</div>
 			<?php endwhile; ?>
 		</div>

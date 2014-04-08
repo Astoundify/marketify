@@ -31,6 +31,6 @@ get_header(); ?>
 			</main><!-- #main -->
 		</section><!-- #primary -->
 
-	</div><!-- #content -->	
-	
+	</div><!-- #content -->
+
 <?php get_footer(); ?>

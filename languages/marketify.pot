@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Marketify 1.1.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/marketify\n"
-"POT-Creation-Date: 2014-03-01 22:11:39+00:00\n"
+"POT-Creation-Date: 2014-04-08 20:18:44+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,6 +22,14 @@ msgstr ""
 
 #: 404.php:37
 msgid "Most Used Categories"
+msgstr ""
+
+#: archive-project.php:13
+msgid "Projects"
+msgstr ""
+
+#: archive-project.php:29
+msgid "All Projects"
 msgstr ""
 
 #: archive.php:23
@@ -68,8 +76,8 @@ msgstr ""
 msgid "%s&#39;s Likes"
 msgstr ""
 
-#: author.php:39 inc/widgets/class-widget-download-details.php:59
-#: inc/widgets/class-widget-download-sharing.php:57
+#: author.php:39
+#: inc/integrations/edd/widgets/class-widget-download-details.php:62
 msgid "Author since: %s"
 msgstr ""
 
@@ -100,10 +108,6 @@ msgstr ""
 msgid "Search for:"
 msgstr ""
 
-#: comments.php:29
-msgid "Customer Reviews"
-msgstr ""
-
 #: comments.php:31
 msgid "Comments"
 msgstr ""
@@ -120,21 +124,51 @@ msgstr ""
 msgid "Newer Comments"
 msgstr ""
 
-#: content-author.php:25 content.php:27 page-templates/team.php:55
+#: content-author.php:25 content-grid.php:39 content.php:27
+#: page-templates/team.php:55
 msgid "View all posts by %s"
 msgstr ""
 
 #: content-grid-download-popular.php:16
-#: inc/widgets/class-widget-featured-popular.php:83
+#: inc/integrations/edd/widgets/class-widget-featured-popular.php:83
 msgid "Popular"
 msgstr ""
 
-#: content-page.php:14 content-single-download.php:23 content-single.php:17
+#: content-grid-project.php:17
+msgid "Project Details"
+msgstr ""
+
+#: content-grid.php:15
+msgid "Read More"
+msgstr ""
+
+#: content-grid.php:19
+msgid "0 Comments"
+msgstr ""
+
+#: content-grid.php:19
+msgid "1 Comment"
+msgstr ""
+
+#: content-grid.php:19
+msgid "%s Comments"
+msgstr ""
+
+#: content-grid.php:36 edd_templates/shortcode-content-title.php:14
+msgid "<span class=\"byline\"> by %1$s</span>"
+msgstr ""
+
+#: content-page.php:14 content-single-download.php:23
+#: content-single-project.php:23 content-single.php:17
 msgid "Pages:"
 msgstr ""
 
 #: content-single-download.php:10
 msgid "About the %s"
+msgstr ""
+
+#: content-single-project.php:10
+msgid "About the Project"
 msgstr ""
 
 #: content-single.php:25 content.php:42
@@ -163,10 +197,6 @@ msgstr ""
 
 #: edd_templates/shortcode-content-image.php:18
 msgid "Item Price: %s"
-msgstr ""
-
-#: edd_templates/shortcode-content-title.php:14
-msgid "<span class=\"byline\"> by %1$s</span>"
 msgstr ""
 
 #: edd_templates/shortcode-content-title.php:17
@@ -201,43 +231,31 @@ msgstr ""
 msgid "Footer Social"
 msgstr ""
 
-#: functions.php:356
+#: functions.php:342
 msgid "Homepage"
 msgstr ""
 
-#: functions.php:357
+#: functions.php:343
 msgid "Widgets that appear on the \"Homepage\" Page Template"
 msgstr ""
 
-#: functions.php:367
+#: functions.php:353
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:378
-msgid "%s Archive Sidebar"
-msgstr ""
-
-#: functions.php:388
-msgid "%s Single Sidebar"
-msgstr ""
-
-#: functions.php:398
-msgid "%s Single Comments Sidebar"
-msgstr ""
-
-#: functions.php:417
+#: functions.php:371
 msgid "Footer"
 msgstr ""
 
-#: functions.php:418
+#: functions.php:372
 msgid "Widgets that appear in the page footer"
 msgstr ""
 
-#: functions.php:435
+#: functions.php:389
 msgid "Price Table"
 msgstr ""
 
-#: functions.php:437
+#: functions.php:391
 msgid "Drag multiple \"Price Option\" widgets here. Then drag the \"Pricing Table\" widget to the \"Homepage\" Widget Area."
 msgstr ""
 
@@ -245,7 +263,7 @@ msgstr ""
 #. 	 * supported by Source Sans Pro, translate this to 'off'. Do not translate
 #. 	 * into your own language.
 
-#: functions.php:461
+#: functions.php:415
 msgctxt "Source Sans Pro font: on or off"
 msgid "on"
 msgstr ""
@@ -255,7 +273,7 @@ msgstr ""
 #. your
 #. 	 * own language.
 
-#: functions.php:467
+#: functions.php:421
 msgctxt "Roboto Slab font: on or off"
 msgid "on"
 msgstr ""
@@ -265,7 +283,7 @@ msgstr ""
 #. your
 #. 	 * own language.
 
-#: functions.php:473
+#: functions.php:427
 msgctxt "Montserrat font: on or off"
 msgid "on"
 msgstr ""
@@ -294,66 +312,74 @@ msgid "Download Label Plural"
 msgstr ""
 
 #: inc/customizer.php:92
+msgid "Grid Columns"
+msgstr ""
+
+#: inc/customizer.php:103
 msgid "Single Display Style"
 msgstr ""
 
-#: inc/customizer.php:96
+#: inc/customizer.php:107
 msgid "Featured Header Slider"
 msgstr ""
 
-#: inc/customizer.php:97
+#: inc/customizer.php:108
 msgid "Inline Switcher"
 msgstr ""
 
-#: inc/customizer.php:101
+#: inc/customizer.php:112
 msgid "Grid Product Information"
 msgstr ""
 
-#: inc/customizer.php:105
+#: inc/customizer.php:116
 msgid "Auto"
 msgstr ""
 
-#: inc/customizer.php:106
+#: inc/customizer.php:117
 msgid "Always show"
 msgstr ""
 
-#: inc/customizer.php:107
+#: inc/customizer.php:118
 msgid "Never show"
 msgstr ""
 
-#: inc/customizer.php:111
+#: inc/customizer.php:122
 msgid "Display excerpt on grid items"
 msgstr ""
 
-#: inc/customizer.php:118
+#: inc/customizer.php:127
+msgid "Truncate grid item titles"
+msgstr ""
+
+#: inc/customizer.php:134
 msgid "Style"
 msgstr ""
 
-#: inc/customizer.php:121
+#: inc/customizer.php:137
 msgid "Dark"
 msgstr ""
 
-#: inc/customizer.php:122
+#: inc/customizer.php:138
 msgid "Light"
 msgstr ""
 
-#: inc/customizer.php:127
+#: inc/customizer.php:143
 msgid "Contact Address"
 msgstr ""
 
-#: inc/customizer.php:132
+#: inc/customizer.php:148
 msgid "Logo"
 msgstr ""
 
-#: inc/customizer.php:139
+#: inc/customizer.php:155
 msgid "Page Header Color"
 msgstr ""
 
-#: inc/customizer.php:144
+#: inc/customizer.php:160
 msgid "Button/Primary Color"
 msgstr ""
 
-#: inc/customizer.php:149
+#: inc/customizer.php:165
 msgid "Accent Color"
 msgstr ""
 
@@ -365,32 +391,262 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: inc/integrations/edd/edd.php:190
-msgid "Date"
-msgstr ""
-
-#: inc/integrations/edd/edd.php:191
-msgid "Title"
-msgstr ""
-
-#: inc/integrations/edd/edd.php:192
-msgid "Sales"
-msgstr ""
-
-#: inc/integrations/edd/edd.php:193
-msgid "Price"
-msgstr ""
-
-#: inc/integrations/edd/edd.php:315
+#: inc/integrations/edd/edd-metaboxes.php:42
 msgid "%s Video URL"
 msgstr ""
 
-#: inc/integrations/edd/edd.php:317
+#: inc/integrations/edd/edd-metaboxes.php:44
 msgid "%s Demo URL"
 msgstr ""
 
-#: inc/integrations/edd-recommended/recommended.php:46
+#: inc/integrations/edd/edd-template-tags.php:217
+msgid "Update Required"
+msgstr ""
+
+#: inc/integrations/edd/edd-template-tags.php:218
+msgid "To play the media you will need to either update your browser to a recent version or update your <a href=\"http://get.adobe.com/flashplayer/\" target=\"_blank\">Flash plugin</a>."
+msgstr ""
+
+#: inc/integrations/edd/edd-template-tags.php:352
+#: inc/integrations/edd/widgets/class-widget-download-details.php:68
+msgid "Purchase"
+msgstr ""
+
+#: inc/integrations/edd/edd-template-tags.php:400
+msgid "Demo"
+msgstr ""
+
+#: inc/integrations/edd/edd.php:31
+msgid "%s Archive Sidebar"
+msgstr ""
+
+#: inc/integrations/edd/edd.php:41
+msgid "%s Single Sidebar"
+msgstr ""
+
+#: inc/integrations/edd/edd.php:51
+msgid "%s Single Comments Sidebar"
+msgstr ""
+
+#: inc/integrations/edd/edd.php:243
+msgid "Date"
+msgstr ""
+
+#: inc/integrations/edd/edd.php:244
+msgid "Title"
+msgstr ""
+
+#: inc/integrations/edd/edd.php:245
+msgid "Sales"
+msgstr ""
+
+#: inc/integrations/edd/edd.php:246
+msgid "Price"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-download-archive-sorting.php:14
+msgid "Display a way to sort the current product archives."
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-download-archive-sorting.php:16
+msgid "Marketify - Download Archive: Download Sorting"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-download-archive-sorting.php:21
+#: inc/integrations/edd/widgets/class-widget-download-details.php:21
+#: inc/integrations/edd/widgets/class-widget-download-review-details.php:21
+#: inc/integrations/edd/widgets/class-widget-download-share.php:21
+#: inc/integrations/edd/widgets/class-widget-downloads-curated.php:21
+#: inc/integrations/edd/widgets/class-widget-downloads-recent.php:21
+#: inc/integrations/edd/widgets/class-widget-downloads-taxonomy.php:21
+#: inc/widgets/class-widget-blog-posts.php:21
+#: inc/widgets/class-widget-price-table.php:21
+msgid "Title:"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-download-archive-sorting.php:60
+msgid "Sort by:"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-download-details.php:14
+msgid "Display information related to the current download"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-download-details.php:16
+msgid "Marketify - Download Single: Product Details"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-download-details.php:83
+msgid "Average Rating"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-download-details.php:88
+msgid "Comment"
+msgid_plural "Comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/integrations/edd/widgets/class-widget-download-review-details.php:14
+msgid "Display average review information."
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-download-review-details.php:16
+msgid "Marketify - Download Single: Review Details "
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-download-review-details.php:72
+msgid "Buyer Ratings"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-download-review-details.php:87
+msgid "%s average based on %d reviews."
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-download-share.php:14
+msgid "Display sharing options for this product."
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-download-share.php:16
+msgid "Marketify - Download Single: Social Sharing"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-download-share.php:26
+#: inc/integrations/edd/widgets/class-widget-downloads-curated.php:39
+#: inc/integrations/edd/widgets/class-widget-downloads-recent.php:42
+#: inc/widgets/class-widget-blog-posts.php:43
+#: inc/widgets/class-widget-price-option.php:27
+#: inc/widgets/class-widget-price-table.php:26
+msgid "Description:"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-downloads-curated.php:14
+msgid "Display curated %s in a grid."
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-downloads-curated.php:16
+msgid "Marketify - Home: Curated %s"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-downloads-curated.php:26
+msgid "%s IDs:"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-downloads-curated.php:34
+#: inc/integrations/edd/widgets/class-widget-downloads-recent.php:37
+msgid "Number of columns:"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-downloads-recent.php:14
+msgid "Display recent %s in a grid."
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-downloads-recent.php:16
+msgid "Marketify - Home: Recent %s"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-downloads-recent.php:29
+#: inc/integrations/edd/widgets/class-widget-featured-popular.php:34
+#: inc/widgets/class-widget-blog-posts.php:29
+msgid "Number to display:"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-downloads-taxonomy-stylized.php:14
+msgid "Display a taxonomy in a styled way."
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-downloads-taxonomy-stylized.php:16
+msgid "Marketify - Home: Taxonomy"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-downloads-taxonomy-stylized.php:21
+#: inc/integrations/edd/widgets/class-widget-downloads-taxonomy.php:26
+msgid "Taxonomy:"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-downloads-taxonomy-stylized.php:23
+#: inc/integrations/edd/widgets/class-widget-downloads-taxonomy.php:28
+msgid "Category"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-downloads-taxonomy-stylized.php:24
+#: inc/integrations/edd/widgets/class-widget-downloads-taxonomy.php:29
+msgid "Tag"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-downloads-taxonomy.php:14
+msgid "Display a list of download taxonomies."
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-downloads-taxonomy.php:16
+msgid "Marketify - Download Single: Taxonomies"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-featured-popular.php:14
+msgid "Display featured and popular %s in sliding grid."
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-featured-popular.php:16
+msgid "Marketify - Home:  Featured &amp; Popular %s"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-featured-popular.php:21
+msgid "Featured Title:"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-featured-popular.php:26
+msgid "Popular Title:"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-featured-popular.php:39
+msgid "Based on the current:"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-featured-popular.php:41
+msgid "Day"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-featured-popular.php:42
+msgid "Week"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-featured-popular.php:43
+msgid "Month"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-featured-popular.php:44
+msgid "Year"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-featured-popular.php:50
+msgid "Automatically scroll items"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-featured-popular.php:55
+msgid "Slideshow Speed (ms)"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-featured-popular.php:82
+msgid "Featured"
+msgstr ""
+
+#: inc/integrations/edd-recommended/recommended.php:49
 msgid "Recommended Products"
+msgstr ""
+
+#: inc/integrations/edd-reviews/reviews.php:9
+msgid "Customer Reviews"
+msgstr ""
+
+#: inc/integrations/woo-projects/projects.php:15
+msgid "Projects Single Sidebar"
+msgstr ""
+
+#: inc/integrations/woo-projects/projects.php:24
+msgid "Projects Archive Sidebar"
+msgstr ""
+
+#: inc/integrations/woo-projects/projects.php:51
+msgid "Visit Project"
 msgstr ""
 
 #: inc/template-tags.php:17
@@ -405,45 +661,29 @@ msgstr ""
 msgid "All %s%s"
 msgstr ""
 
-#: inc/template-tags.php:251
-msgid "Update Required"
-msgstr ""
-
-#: inc/template-tags.php:252
-msgid "To play the media you will need to either update your browser to a recent version or update your <a href=\"http://get.adobe.com/flashplayer/\" target=\"_blank\">Flash plugin</a>."
-msgstr ""
-
-#: inc/template-tags.php:371 inc/widgets/class-widget-download-details.php:65
-msgid "Purchase"
-msgstr ""
-
-#: inc/template-tags.php:413
-msgid "Demo"
-msgstr ""
-
-#: inc/template-tags.php:450
+#: inc/template-tags.php:84
 msgid "Purchased"
 msgstr ""
 
-#: inc/template-tags.php:466
+#: inc/template-tags.php:100
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: inc/template-tags.php:480
+#: inc/template-tags.php:114
 msgid "Edit"
 msgstr ""
 
-#: inc/template-tags.php:484
+#: inc/template-tags.php:118
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/template-tags.php:536
+#: inc/template-tags.php:170
 msgctxt "noun"
 msgid "Menu"
 msgstr ""
 
-#: inc/template-tags.php:572
+#: inc/template-tags.php:206
 msgid "Post navigation"
 msgstr ""
 
@@ -452,175 +692,19 @@ msgid "Display recent blog posts."
 msgstr ""
 
 #: inc/widgets/class-widget-blog-posts.php:16
-msgid "Marketify Recent Posts"
+msgid "Marketify - Home: Recent Posts"
 msgstr ""
 
-#: inc/widgets/class-widget-blog-posts.php:21
-#: inc/widgets/class-widget-download-archive-sorting.php:21
-#: inc/widgets/class-widget-download-details.php:21
-#: inc/widgets/class-widget-download-review-details.php:21
-#: inc/widgets/class-widget-download-share.php:21
-#: inc/widgets/class-widget-download-sharing.php:21
-#: inc/widgets/class-widget-downloads-curated.php:21
-#: inc/widgets/class-widget-downloads-recent.php:21
-#: inc/widgets/class-widget-downloads-taxonomy.php:21
-#: inc/widgets/class-widget-price-table.php:21
-msgid "Title:"
+#: inc/widgets/class-widget-blog-posts.php:35
+msgid "Classic"
 msgstr ""
 
-#: inc/widgets/class-widget-blog-posts.php:29
-#: inc/widgets/class-widget-downloads-recent.php:29
-#: inc/widgets/class-widget-featured-popular.php:34
-msgid "Number to display:"
+#: inc/widgets/class-widget-blog-posts.php:36
+msgid "Grid"
 msgstr ""
 
-#: inc/widgets/class-widget-download-archive-sorting.php:14
-msgid "Display a way to sort the current product archives."
-msgstr ""
-
-#: inc/widgets/class-widget-download-archive-sorting.php:16
-msgid "Marketify Download Sorting"
-msgstr ""
-
-#: inc/widgets/class-widget-download-archive-sorting.php:60
-msgid "Sort by:"
-msgstr ""
-
-#: inc/widgets/class-widget-download-details.php:14
-#: inc/widgets/class-widget-download-sharing.php:14
-msgid "Display information related to the current download"
-msgstr ""
-
-#: inc/widgets/class-widget-download-details.php:16
-#: inc/widgets/class-widget-download-sharing.php:16
-msgid "Marketify Download Product Details"
-msgstr ""
-
-#: inc/widgets/class-widget-download-details.php:80
-msgid "Average Rating"
-msgstr ""
-
-#: inc/widgets/class-widget-download-details.php:85
-msgid "Comment"
-msgid_plural "Comments"
-msgstr[0] ""
-msgstr[1] ""
-
-#: inc/widgets/class-widget-download-review-details.php:14
-msgid "Display average review information."
-msgstr ""
-
-#: inc/widgets/class-widget-download-review-details.php:16
-msgid "Marketify Download Product Review Details"
-msgstr ""
-
-#: inc/widgets/class-widget-download-review-details.php:71
-msgid "Buyer Ratings"
-msgstr ""
-
-#: inc/widgets/class-widget-download-review-details.php:86
-msgid "%s average based on %d reviews."
-msgstr ""
-
-#: inc/widgets/class-widget-download-share.php:14
-msgid "Display sharing options for this product."
-msgstr ""
-
-#: inc/widgets/class-widget-download-share.php:16
-msgid "Marketify Download Share"
-msgstr ""
-
-#: inc/widgets/class-widget-download-share.php:26
-#: inc/widgets/class-widget-price-option.php:27
-msgid "Description:"
-msgstr ""
-
-#: inc/widgets/class-widget-downloads-curated.php:14
-msgid "Display curated %s in a grid."
-msgstr ""
-
-#: inc/widgets/class-widget-downloads-curated.php:16
-msgid "Marketify Curated %s"
-msgstr ""
-
-#: inc/widgets/class-widget-downloads-curated.php:26
-msgid "%s IDs:"
-msgstr ""
-
-#: inc/widgets/class-widget-downloads-recent.php:14
-msgid "Display recent %s in a grid."
-msgstr ""
-
-#: inc/widgets/class-widget-downloads-recent.php:16
-msgid "Marketify Recent %s"
-msgstr ""
-
-#: inc/widgets/class-widget-downloads-taxonomy.php:14
-msgid "Display a list of download taxonomies."
-msgstr ""
-
-#: inc/widgets/class-widget-downloads-taxonomy.php:16
-msgid "Marketify Taxonomies"
-msgstr ""
-
-#: inc/widgets/class-widget-downloads-taxonomy.php:26
-msgid "Taxonomy:"
-msgstr ""
-
-#: inc/widgets/class-widget-downloads-taxonomy.php:28
-msgid "Category"
-msgstr ""
-
-#: inc/widgets/class-widget-downloads-taxonomy.php:29
-msgid "Tag"
-msgstr ""
-
-#: inc/widgets/class-widget-featured-popular.php:14
-msgid "Display featured and popular %s in sliding grid."
-msgstr ""
-
-#: inc/widgets/class-widget-featured-popular.php:16
-msgid "Marketify Featured &amp; Popular %s"
-msgstr ""
-
-#: inc/widgets/class-widget-featured-popular.php:21
-msgid "Featured Title:"
-msgstr ""
-
-#: inc/widgets/class-widget-featured-popular.php:26
-msgid "Popular Title:"
-msgstr ""
-
-#: inc/widgets/class-widget-featured-popular.php:39
-msgid "Based on the current:"
-msgstr ""
-
-#: inc/widgets/class-widget-featured-popular.php:41
-msgid "Day"
-msgstr ""
-
-#: inc/widgets/class-widget-featured-popular.php:42
-msgid "Week"
-msgstr ""
-
-#: inc/widgets/class-widget-featured-popular.php:43
-msgid "Month"
-msgstr ""
-
-#: inc/widgets/class-widget-featured-popular.php:44
-msgid "Year"
-msgstr ""
-
-#: inc/widgets/class-widget-featured-popular.php:50
-msgid "Automatically scroll items"
-msgstr ""
-
-#: inc/widgets/class-widget-featured-popular.php:55
-msgid "Slideshow Speed (ms)"
-msgstr ""
-
-#: inc/widgets/class-widget-featured-popular.php:82
-msgid "Featured"
+#: inc/widgets/class-widget-blog-posts.php:38
+msgid "Display Style:"
 msgstr ""
 
 #: inc/widgets/class-widget-price-option.php:14
@@ -628,7 +712,7 @@ msgid "Create a price option for the pricing table."
 msgstr ""
 
 #: inc/widgets/class-widget-price-option.php:16
-msgid "Marketify Price Option"
+msgid "Marketify - Home: Price Option"
 msgstr ""
 
 #: inc/widgets/class-widget-price-option.php:21
@@ -644,10 +728,10 @@ msgid "Output the price table (based on the \"Price Table\" widget area)"
 msgstr ""
 
 #: inc/widgets/class-widget-price-table.php:16
-msgid "Marketify Price Table"
+msgid "Marketify - Home: Price Table"
 msgstr ""
 
-#: inc/widgets/class-widget-price-table.php:25
+#: inc/widgets/class-widget-price-table.php:30
 msgid "Drag \"Price Option\" widgets to the \"Price Table\" widget area to populate this widget."
 msgstr ""
 
@@ -656,7 +740,7 @@ msgid "Display \"Hero\" Soliloquy slider."
 msgstr ""
 
 #: inc/widgets/class-widget-slider-soliloquy.php:16
-msgid "Marketify Solioquy Slider"
+msgid "Marketify - Home: Solioquy Slider"
 msgstr ""
 
 #: inc/widgets/class-widget-slider-soliloquy.php:20
@@ -676,7 +760,7 @@ msgid "Display any slider that supports shortcodes."
 msgstr ""
 
 #: inc/widgets/class-widget-slider.php:16
-msgid "Marketify Slider"
+msgid "Marketify - Home: Slider"
 msgstr ""
 
 #: inc/widgets/class-widget-slider.php:21

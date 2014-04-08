@@ -5,6 +5,11 @@
  * @package Marketify
  */
 
+function marketify_edd_reviews_reviews_title( $title ) {
+	return __( 'Customer Reviews', 'marketify' );
+}
+add_filter( 'edd_reviews_reviews_title', 'marketify_edd_reviews_reviews_title' );
+
 /**
  * Add the Star Rating to the download information at the top of the page,
  * as well in the download grid.
@@ -59,9 +64,11 @@ add_action( 'marketify_download_content_image_overlay_after', 'marketify_downloa
  * @return void
  */
 function marketify_edd_download_rating( $comment ) {
+	global $post;
 ?>
 	<div class="marketify-edd-rating">
 		<?php marketify_download_entry_meta_rating( $comment->comment_ID ); ?>
+
 		<span itemprop="name" class="review-title-text"><?php echo get_comment_meta( $comment->comment_ID, 'edd_review_title', true ); ?></span>
 	</div>
 <?php

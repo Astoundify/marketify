@@ -13,7 +13,7 @@ class Marketify_Widget_Downloads_Taxonomy extends Marketify_Widget {
 		$this->widget_cssclass    = 'marketify_widget_downloads_taxonomy';
 		$this->widget_description = __( 'Display a list of download taxonomies.', 'marketify' );
 		$this->widget_id          = 'marketify_widget_downloads_taxonomy';
-		$this->widget_name        = __( 'Marketify Taxonomies', 'marketify' );
+		$this->widget_name        = __( 'Marketify - Download Single: Taxonomies', 'marketify' );
 		$this->settings           = array(
 			'title' => array(
 				'type'  => 'text',

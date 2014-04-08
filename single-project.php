@@ -13,20 +13,17 @@ get_header(); ?>
 		<?php the_post(); ?>
 		<h1 class="page-title"><?php the_title(); ?></h1>
 
-		<?php if ( 'classic' == marketify_theme_mod( 'product-display', 'product-display-single-style' ) ) : ?>
-			<div class="download-actions">
-				<?php do_action( 'marketify_download_actions' ); ?>
-			</div>
+		<div class="download-actions">
+			<?php do_action( 'marketify_project_actions' ); ?>
+		</div>
 
-			<div class="download-info">
-				<?php do_action( 'marketify_download_info' ); ?>
-			</div>
+		<div class="download-info">
+			<?php do_action( 'marketify_project_info' ); ?>
+		</div>
 
-			<div class="featured-image container">
-				<?php do_action( 'marketify_download_featured_area' ); ?>
-			</div>
-		<?php endif; ?>
-
+		<div class="featured-image container">
+			<?php do_action( 'marketify_project_featured_area' ); ?>
+		</div>
 		<?php rewind_posts(); ?>
 	</header><!-- .page-header -->
 
@@ -35,21 +32,19 @@ get_header(); ?>
 	<div class="container">
 		<div id="content" class="site-content row">
 
-			<section id="primary" class="content-area <?php echo ! is_active_sidebar( 'sidebar-download-single' ) ? 'col-xs-12' : 'col-md-8 col-sm-7 col-xs-12'; ?>">
+			<section id="primary" class="content-area <?php echo ! is_active_sidebar( 'sidebar-single-project' ) ? 'col-xs-12' : 'col-md-8 col-sm-7 col-xs-12'; ?>">
 				<main id="main" class="site-main" role="main">
 
 				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'content-single', 'download' ); ?>
+					<?php get_template_part( 'content-single', 'project' ); ?>
 				<?php endwhile; rewind_posts(); ?>
 
 				</main><!-- #main -->
 			</section><!-- #primary -->
 
-			<?php get_sidebar( 'single-download' ); ?>
+			<?php get_sidebar( 'single-project' ); ?>
 
 		</div><!-- #content -->
-
-		<?php comments_template(); ?>
 
 		<?php do_action( 'marketify_single_download_after' ); ?>
 	</div>

@@ -24,7 +24,7 @@
 function marketify_theme_mod( $section, $key, $_default = false ) {
 	$mods = marketify_get_theme_mods();
 
-	$default = $mods[ $section ][ $key ][ 'default' ];
+	$default = isset( $mods[ $section ][ $key ][ 'default' ] ) ? $mods[ $section ][ $key ][ 'default' ] : null;
 
 	if ( $_default )
 		$mod = $default;
@@ -88,6 +88,17 @@ function marketify_get_theme_mods( $args = array() ) {
 			)
 		),
 		'product-display' => array(
+			'product-display-columns' => array(
+				'title'   => __( 'Grid Columns', 'marketify' ),
+				'type'    => 'select',
+				'default' => 3,
+				'choices' => array(
+					1 => 1,
+					2 => 2,
+					3 => 3,
+					4 => 4
+				)
+			),
 			'product-display-single-style' => array(
 				'title'   => __( 'Single Display Style', 'marketify' ),
 				'type'    => 'radio',
@@ -109,6 +120,11 @@ function marketify_get_theme_mods( $args = array() ) {
 			),
 			'product-display-excerpt' => array(
 				'title'   => __( 'Display excerpt on grid items' ),
+				'type'    => 'checkbox',
+				'std'     => 0
+			),
+			'product-display-truncate-title' => array(
+				'title'   => __( 'Truncate grid item titles' ),
 				'type'    => 'checkbox',
 				'std'     => 0
 			)
@@ -337,12 +353,13 @@ function marketify_header_css() {
 	#edd_checkout_form_wrap fieldset#edd_cc_fields legend,
 	.marketify_widget_featured_popular .home-widget-title span:hover,
 	.marketify_widget_featured_popular .home-widget-title span.active,
-	.marketify-edd-rating .review-title-text,
 	.nav-previous a:hover i,
 	.nav-next a:hover i,
 	body-footer.light .site-info .site-title,
 	body a.edd-wl-action,
-	body a.edd-wl-action.edd-wl-button {
+	body a.edd-wl-action.edd-wl-button,
+	#recaptcha_area .recaptchatable a,
+	#recaptcha_area .recaptchatable a:hover {
 		color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 	}
 
@@ -352,7 +369,6 @@ function marketify_header_css() {
 	.button,
 	a.button,
 	.fes-button,
-	.page-numbers,
 	.edd_price_options input[type=radio]:checked,
 	body #edd-wl-modal input[type=radio]:checked,
 	#edd_checkout_form_wrap fieldset#edd_cc_fields legend,
@@ -430,7 +446,8 @@ function marketify_header_css() {
 	.edd_terms_links:hover,
 	.site-footer.dark .mailbag-wrap input[type=submit],
 	.home-search .page-header .search-submit,
-	.search-form-overlay .search-submit {
+	.search-form-overlay .search-submit,
+	.marketify_widget_taxonomy_stylized {
 		background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 
@@ -439,6 +456,7 @@ function marketify_header_css() {
 	}
 
 	.content-grid-download .entry-image:hover .overlay,
+	.content-grid-download .entry-image.hover .overlay,
 	.download-image-grid-preview .slides li.active a:before,
 	.download-image-grid-preview .slides li:hover a:before {
 		background: rgba( " . marketify_hex2rgb( marketify_theme_mod( 'colors', 'primary' ) ) . ", .80 );

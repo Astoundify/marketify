@@ -1,5 +1,22 @@
 == Changelog ==
 
+= 1.2.0: April 12, 2014 =
+
+* New: Projects by WooThemes support.
+* New: Product page layout using inline previews moves buy now/action buttons to "Product Details" widget.
+* New: Recent Blog Posts widget can be styled like other grid items.
+* New: Manually set Audio Previews using FES and a meta key of `preview_files`
+* New: Output ratings breakdown in widget if available.
+* New: Homepage taxonomy widget to display tags or categories in a "styled" way.
+* New: Add a "Description" field to some homepage widgets.
+* New: Images for the "Audio" post format are output under the audio player.
+* Fix: Make sure ratings schema is properly output
+* Fix: Only output the first audio file for audio previews in the grid to improve load times.
+* Fix: Truncate titles longer than one line (optional in "Appearance > Customize")
+* Fix: Hide comments title when comments are disabled.
+* Fix: Make the Frontend Submissions menu responsive.
+* Fix: Sorting on search results is now accurate.
+
 = 1.1.1: February 20, 2014 =
 
 * New: EDD Wish List support.

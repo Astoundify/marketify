@@ -47,8 +47,8 @@ function marketify_setup() {
 
 	add_image_size(
 		'content-grid-download',
-		apply_filters( 'marketify_image_content_grid_download_w', 740  ),
-		apply_filters( 'marketify_image_content_grid_download_h', 600  ),
+		apply_filters( 'marketify_image_content_grid_download_w', 640  ),
+		apply_filters( 'marketify_image_content_grid_download_h', 440  ),
 		apply_filters( 'marketify_image_content_grid_download_c', true )
 	);
 
@@ -253,7 +253,7 @@ function marketify_has_header_background() {
 
 	$is_correct = apply_filters( 'marketify_has_header_background', (
 		marketify_is_bbpress() ||
-		( is_singular( 'download' ) && in_array( get_post_format(), array( 'audio', 'video' ) ) ) ||
+		( is_singular( 'download' ) && in_array( get_post_format(), array( 'video' ) ) ) ||
 		is_singular( array( 'page', 'post' ) ) ||
 		is_page_template( 'page-templates/home.php' ) ||
 		is_page_template( 'page-templates/home-search.php' ) ||
@@ -332,20 +332,6 @@ function marketify_widgets_init() {
 	register_widget( 'Marketify_Widget_Price_Table' );
 	register_widget( 'Marketify_Widget_Price_Option' );
 	register_widget( 'Marketify_Widget_Recent_Posts' );
-	register_widget( 'Marketify_Widget_Downloads_Taxonomy' );
-
-	if ( marketify_is_edd() ) {
-		register_widget( 'Marketify_Widget_Recent_Downloads' );
-		register_widget( 'Marketify_Widget_Curated_Downloads' );
-		register_widget( 'Marketify_Widget_Featured_Popular_Downloads' );
-		register_widget( 'Marketify_Widget_Download_Details' );
-		register_widget( 'Marketify_Widget_Download_Share' );
-		register_widget( 'Marketify_Widget_Download_Archive_Sorting' );
-
-		if ( class_exists( 'EDD_Reviews' ) ) {
-			register_widget( 'Marketify_Widget_Download_Review_Details' );
-		}
-	}
 
 	if ( function_exists( 'soliloquy_slider' ) ) {
 		register_widget( 'Marketify_Widget_Slider_Soliloquy' );
@@ -371,38 +357,6 @@ function marketify_widgets_init() {
 		'before_title'  => '<h1 class="widget-title section-title"><span>',
 		'after_title'   => '</span></h1>',
 	) );
-
-	if ( marketify_is_edd() ) {
-		/* Download Achive (archive-download.php) */
-		register_sidebar( array(
-			'name'          => sprintf( __( '%s Archive Sidebar', 'marketify' ), edd_get_label_singular() ),
-			'id'            => 'sidebar-download',
-			'before_widget' => '<aside id="%1$s" class="widget download-archive-widget %2$s">',
-			'after_widget'  => '</aside>',
-			'before_title'  => '<h1 class="download-archive-widget-title">',
-			'after_title'   => '</h1>',
-		) );
-
-		/* Download Single (single-download.php) */
-		register_sidebar( array(
-			'name'          => sprintf( __( '%s Single Sidebar', 'marketify' ), edd_get_label_singular() ),
-			'id'            => 'sidebar-download-single',
-			'before_widget' => '<aside id="%1$s" class="widget download-single-widget %2$s">',
-			'after_widget'  => '</aside>',
-			'before_title'  => '<h1 class="download-single-widget-title">',
-			'after_title'   => '</h1>',
-		) );
-
-		/* Download Single Comments/Reviews (single-download.php) */
-		register_sidebar( array(
-			'name'          => sprintf( __( '%s Single Comments Sidebar', 'marketify' ), edd_get_label_singular() ),
-			'id'            => 'sidebar-download-single-comments',
-			'before_widget' => '<aside id="%1$s" class="widget download-single-widget comments %2$s">',
-			'after_widget'  => '</aside>',
-			'before_title'  => '<h1 class="download-single-widget-title">',
-			'after_title'   => '</h1>',
-		) );
-	}
 
 	/*
 	 * Figure out how many columns the footer has
@@ -620,6 +574,10 @@ function marketify_body_classes( $classes ) {
 		$classes[] = 'love-it-pro';
 	}
 
+	if ( is_singular( 'download' ) && 'classic' != marketify_theme_mod( 'product-display', 'product-display-single-style' ) ) {
+		$classes[] = 'product-display-inline';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'marketify_body_classes' );
@@ -628,10 +586,19 @@ add_filter( 'body_class', 'marketify_body_classes' );
  * Adds custom classes to the array of post classes.
  */
 function marketify_post_classes( $classes ) {
+	global $post;
+
+	if ( 'download' != get_post_type() )
+		return $classes;
+
 	if ( '1' == marketify_theme_mod( 'product-display', 'product-display-grid-info' ) ) {
 		$classes[] = 'force-info';
 	} elseif ( '2' == marketify_theme_mod( 'product-display', 'product-display-grid-info' ) ) {
 		$classes[] = 'hide-info';
+	}
+
+	if ( marketify_theme_mod( 'product-display', 'product-display-truncate-title' ) ) {
+		$classes[] = 'truncate-title';
 	}
 
 	return $classes;
@@ -765,9 +732,9 @@ class Marketify_Author {
 
 		$new_rules = array(
 			'author/([^/]+)/' . $slug . '/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_downloads=1',
-			'author/([^/]+)/wishlist/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_wishlist=1',
+			'author/([^/]+)/likes/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_wishlist=1',
 			'author/([^/]+)/' . $slug . '/page/?([0-9]{1,})/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_downloads=1&paged=' . $wp_rewrite->preg_index( 2 ),
-			'author/([^/]+)/wishlist/page/?([0-9]{1,})/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_wishlist=1&paged=' . $wp_rewrite->preg_index( 2 )
+			'author/([^/]+)/likes/page/?([0-9]{1,})/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_wishlist=1&paged=' . $wp_rewrite->preg_index( 2 )
 		);
 
 		$wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
@@ -852,6 +819,19 @@ require get_template_directory() . '/inc/extras.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+ * Load Widgets
+ */
+require get_template_directory() . '/inc/class-widget.php';
+require get_template_directory() . '/inc/widgets/class-widget-slider.php';
+require get_template_directory() . '/inc/widgets/class-widget-price-option.php';
+require get_template_directory() . '/inc/widgets/class-widget-price-table.php';
+require get_template_directory() . '/inc/widgets/class-widget-blog-posts.php';
+
+if ( function_exists( 'soliloquy_slider' ) ) {
+	require get_template_directory() . '/inc/widgets/class-widget-slider-soliloquy.php';
+}
+
+/**
  * Integrations
  */
 
@@ -898,34 +878,12 @@ if ( class_exists( 'Woothemes_Testimonials' ) ) {
 	require get_template_directory() . '/inc/integrations/woo-testimonials/testimonials.php';
 }
 
+// WooTheme Projects
+if ( class_exists( 'Projects' ) ) {
+	require get_template_directory() . '/inc/integrations/woo-projects/projects.php';
+}
+
 // Love It
 if ( defined( 'LI_BASE_DIR' ) || class_exists( 'Love_It_Pro' ) ) {
 	require get_template_directory() . '/inc/integrations/love-it/love-it.php';
-}
-
-/**
- * Load Widgets
- */
-require get_template_directory() . '/inc/class-widget.php';
-require get_template_directory() . '/inc/widgets/class-widget-slider.php';
-require get_template_directory() . '/inc/widgets/class-widget-price-option.php';
-require get_template_directory() . '/inc/widgets/class-widget-price-table.php';
-require get_template_directory() . '/inc/widgets/class-widget-blog-posts.php';
-require get_template_directory() . '/inc/widgets/class-widget-downloads-taxonomy.php';
-
-if ( marketify_is_edd() ) {
-	require get_template_directory() . '/inc/widgets/class-widget-downloads-recent.php';
-	require get_template_directory() . '/inc/widgets/class-widget-downloads-curated.php';
-	require get_template_directory() . '/inc/widgets/class-widget-featured-popular.php';
-	require get_template_directory() . '/inc/widgets/class-widget-download-details.php';
-	require get_template_directory() . '/inc/widgets/class-widget-download-share.php';
-	require get_template_directory() . '/inc/widgets/class-widget-download-archive-sorting.php';
-
-	if ( class_exists( 'EDD_Reviews' ) ) {
-		require get_template_directory() . '/inc/widgets/class-widget-download-review-details.php';
-	}
-}
-
-if ( function_exists( 'soliloquy_slider' ) ) {
-	require get_template_directory() . '/inc/widgets/class-widget-slider-soliloquy.php';
 }

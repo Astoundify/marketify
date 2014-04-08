@@ -13,7 +13,7 @@ class Marketify_Widget_Download_Archive_Sorting extends Marketify_Widget {
 		$this->widget_cssclass    = 'marketify_widget_download_archive_sorting';
 		$this->widget_description = __( 'Display a way to sort the current product archives.', 'marketify' );
 		$this->widget_id          = 'marketify_widget_download_archive_sorting';
-		$this->widget_name        = __( 'Marketify Download Sorting', 'marketify' );
+		$this->widget_name        = __( 'Marketify - Download Archive: Download Sorting', 'marketify' );
 		$this->settings           = array(
 			'title' => array(
 				'type'  => 'text',
@@ -79,6 +79,12 @@ class Marketify_Widget_Download_Archive_Sorting extends Marketify_Widget {
 					<input type="radio" name="order" id="order-desc" value="desc" <?php checked( 'desc', $order ); ?>><span class="icon-down"></span>
 				</label>
 			<?php endif; ?>
+
+			<?php global $wp_query; if ( is_array( $wp_query->query ) ) : foreach ( $wp_query->query as $key => $value ) : ?>
+				<?php if ( in_array( $key, array( 'order', 'orderby' ) ) ) continue; ?>
+
+				<input type="hidden" name="<?php echo esc_attr( $key ); ?>" value="<?php echo esc_attr( $value ); ?>" />
+			<?php endforeach; endif; ?>
 		</form>
 
 		<?php

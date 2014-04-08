@@ -26,6 +26,9 @@ function marketify_recommended_products() {
 	} else {
 		$cart_items = edd_get_cart_contents();
 
+		if ( empty( $cart_items ) )
+			return;
+
 		$post_ids        = wp_list_pluck( $cart_items, 'id' );
 		$user_id         = is_user_logged_in() ? get_current_user_id() : false;
 		$suggestion_data = edd_rp_get_multi_suggestions( $post_ids, $user_id );
