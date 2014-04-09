@@ -2912,6 +2912,10 @@ object {
 	margin-left: 27px;
 }
 
+.individual-testimonial .testimonials-text p {
+	margin-bottom: 0;
+}
+
 .individual-testimonial .testimonials-text:before,
 .individual-testimonial .testimonials-text:after {
 	color: #bdc3c7;
@@ -2929,11 +2933,13 @@ object {
 	transform:         rotate(-180deg);
 }
 
+.individual-testimonial .avatar,
 .individual-testimonial .avatar-link,
 .individual-testimonial .author {
 	float: left;
 }
 
+.individual-testimonial .avatar,
 .individual-testimonial .avatar-link {
 	margin-left: 27px;
 	margin-right: 20px;
@@ -2941,10 +2947,6 @@ object {
 
 .individual-testimonial .avatar-link img {
 	border-radius: 50%;
-}
-
-.individual-testimonial .author {
-	margin-top: 1em;
 }
 
 .individual-testimonial .author .excerpt {
