@@ -47,17 +47,15 @@ class Marketify_Widget_Slider_Soliloquy extends Marketify_Widget {
 		echo $before_widget;
 
 		if ( function_exists( 'soliloquy_slider' ) ) {
-			add_filter( 'tgmsp_caption_output', array( $this, 'caption_output' ), 10, 3 );
-			add_filter( 'tgmsp_slider_width_output', array( $this, 'width_height' ) );
-			add_filter( 'tgmsp_slider_height_output', array( $this, 'width_height' ) );
-			add_filter( 'tgmsp_image_output', array( $this, 'image_output' ), 10, 5 );
+			add_filter( 'soliloquy_output_before_caption', array( $this, 'soliloquy_output_before_caption' ), 10, 5 );
+			add_filter( 'soliloquy_output_after_caption', array( $this, 'soliloquy_output_after_caption' ), 10, 5 );
+			add_filter( 'soliloquy_output_caption', array( $this, 'soliloquy_output_caption' ), 10, 5 );
 
-			soliloquy_slider( $slider );
+			soliloquy( $slider );
 
-			remove_filter( 'tgmsp_caption_output', array( $this, 'caption_output' ), 10, 3 );
-			remove_filter( 'tgmsp_slider_width_output', array( $this, 'width_height' ) );
-			remove_filter( 'tgmsp_slider_height_output', array( $this, 'width_height' ) );
-			remove_filter( 'tgmsp_image_output', array( $this, 'image_output' ), 10, 5 );
+			remove_filter( 'soliloquy_output_before_caption', array( $this, 'soliloquy_output_before_caption' ), 10, 5 );
+			remove_filter( 'soliloquy_output_after_caption', array( $this, 'soliloquy_output_after_caption' ), 10, 5 );
+			remove_filter( 'soliloquy_output_caption', array( $this, 'soliloquy_output_caption' ), 10, 5 );
 		}
 
 		echo $after_widget;
@@ -65,36 +63,38 @@ class Marketify_Widget_Slider_Soliloquy extends Marketify_Widget {
 		echo '<div class="container">';
 	}
 
-	function width_height() {
-		return;
-	}
+	function soliloquy_output_before_caption( $output, $id, $item, $data, $i ) {
+		$existing = $output;
 
-	function image_output( $output, $id, $image, $alt, $title ) {
-		$retina      = get_post_meta( $id, '_soliloquy_settings', true );
-		$retina      = isset ( $retina[ 'retina' ] ) ? 1 : 0;
+		$output = '<div class="soliloquy-caption-outer">';
+		$output .= '<h2 class="soliloquy-caption-title">' . $item[ 'title' ] . '</h2>';
 
-		if ( $retina ) {
-			$output = '<img class="soliloquy-item-image" src="' . esc_url( $image['src'] ) . '" alt="' . esc_attr( $alt ) . '" title="' . esc_attr( $title ) . '" width="' . $image[ 'width' ] / 2 . '" height="' . $image[ 'height' ] / 2 . '" />';
-		}
+		$output = $existing . $output;
 
 		return $output;
 	}
 
-	function caption_output( $output, $id, $image ) {
-		$caption = '<div class="soliloquy-caption-wrap">';
-		$caption .= '<h2 class="soliloquy-caption-title">' . $image[ 'title' ] . '</h2>';
-		$caption .= '<div class="soliloquy-caption"><div class="soliloquy-caption-inside">';
-		$caption .= '<div class="caption-full">';
-		$caption .= wpautop( $image[ 'caption' ] );
-		$caption .= '</div>';
-		$caption .= '<div class="caption-alt">';
-		$caption .= wpautop( isset ( $image[ 'alt' ] ) ? $image[ 'alt' ] : null );
-		$caption .= wpautop( sprintf( '<a href="%s" class="button">%s</a>', $image[ 'link' ], $image[ 'linktitle' ] ) );
-		$caption .= '</div>';
-		$caption .= '</div></div>';
-		$caption .= '</div>';
+	function soliloquy_output_after_caption( $output, $id, $item, $data, $i ) {
+		$output = $output . '</div>';
 
-		return $caption;
+		return $output;
+	}
+
+	function soliloquy_output_caption( $caption, $id, $item, $data, $i ) {
+		$output = '<div class="caption-full">';
+		$output .= wpautop( $caption );
+		$output .= '</div>';
+
+		$output .= '<div class="caption-alt">';
+		$output .= wpautop( isset ( $item[ 'alt' ] ) ? $item[ 'alt' ] : null );
+
+		if ( isset ( $item[ 'link' ] ) ) {
+			$output .= wpautop( sprintf( '<a href="%s" class="button">%s</a>', $item[ 'link' ], $item[ 'title' ] ) );
+		}
+
+		$output .= '</div>';
+
+		return $output;
 	}
 
 	function slider_options() {
@@ -117,18 +117,3 @@ class Marketify_Widget_Slider_Soliloquy extends Marketify_Widget {
 		return $_sliders;
 	}
 }
-
-function marketify_tgmsp_end_of_settings( $post ) {
-	$retina      = get_post_meta( $post->ID, '_soliloquy_settings', true );
-	$retina      = isset ( $retina[ 'retina' ] ) ? 1 : 0;
-?>
-	<tr id="soliloquy-retina-box" valign="middle">
-		<th scope="row"><label for="soliloquy-retina"><?php _e( 'Retina Images', 'marketify' ); ?></label></th>
-		<td>
-			<input id="soliloquy-retina" type="checkbox" name="_soliloquy_settings[retina]" value="<?php echo $retina; ?>" <?php checked( $retina, 1 ); ?> />
-			<span class="description"><?php _e( 'Load images for retina (upload <code>@2x</code> images)', 'marketify' ); ?></span>
-		</td>
-	</tr>
-<?php
-}
-add_action( 'tgmsp_end_of_settings', 'marketify_tgmsp_end_of_settings' );

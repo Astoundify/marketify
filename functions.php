@@ -333,7 +333,7 @@ function marketify_widgets_init() {
 	register_widget( 'Marketify_Widget_Price_Option' );
 	register_widget( 'Marketify_Widget_Recent_Posts' );
 
-	if ( function_exists( 'soliloquy_slider' ) ) {
+	if ( function_exists( 'soliloquy' ) ) {
 		register_widget( 'Marketify_Widget_Slider_Soliloquy' );
 	}
 
@@ -827,7 +827,7 @@ require get_template_directory() . '/inc/widgets/class-widget-price-option.php';
 require get_template_directory() . '/inc/widgets/class-widget-price-table.php';
 require get_template_directory() . '/inc/widgets/class-widget-blog-posts.php';
 
-if ( function_exists( 'soliloquy_slider' ) ) {
+if ( function_exists( 'soliloquy' ) ) {
 	require get_template_directory() . '/inc/widgets/class-widget-slider-soliloquy.php';
 }
 

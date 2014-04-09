@@ -3026,6 +3026,7 @@ body .soliloquy-container .soliloquy-caption {
 	right: auto;
 	bottom: auto;
 	top: auto;
+	background: none;
 }
 
 body .soliloquy-container .soliloquy-caption .soliloquy-caption-inside {
@@ -3059,11 +3060,12 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 	transition:         none;
 }
 
-.soliloquy-caption-wrap {
+body .soliloquy-container .soliloquy-caption-outer {
 	text-align: center;
 	width: 100%;
 	position: absolute;
 	top: 50%;
+	bottom: auto;
 	z-index: 10;
 
 	-webkit-transform: translate(0, -50%);
@@ -3071,8 +3073,13 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 	transform:         translate(0, -50%);
 }
 
-.soliloquy-caption-wrap .button {
+.soliloquy-container .soliloquy-caption-outer .button {
 	display: inline-block !important;
+}
+
+body .soliloquy-container .soliloquy-caption-outer p {
+	margin-bottom: 1.5em;
+	line-height: 26px;
 }
 
 /** Misc */
@@ -4335,6 +4342,14 @@ body .soliloquy-control-nav.soliloquy-control-paging a {
 	/** Footer */
 	.footer-widget {
 		height: auto !important;
+	}
+
+	body .soliloquy-container .soliloquy-caption .caption-full {
+		display: none;
+	}
+
+	body .soliloquy-container .soliloquy-caption .caption-alt {
+		display: block;
 	}
 }
 
