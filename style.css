@@ -3082,6 +3082,10 @@ body .soliloquy-container .soliloquy-caption-outer p {
 	line-height: 26px;
 }
 
+body .soliloquy-theme-classic .soliloquy-pager {
+	text-align: center;
+}
+
 /** Misc */
 
 .marketify_widget_recent_posts {
