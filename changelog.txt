@@ -10,6 +10,7 @@
 * New: Homepage taxonomy widget to display tags or categories in a "styled" way.
 * New: Add a "Description" field to some homepage widgets.
 * New: Images for the "Audio" post format are output under the audio player.
+* Fix: Soliloquy 2.0.0+ compatibility. Requires Soliloquy 2.0.0+ to continue using widget.
 * Fix: Make sure ratings schema is properly output
 * Fix: Only output the first audio file for audio previews in the grid to improve load times.
 * Fix: Truncate titles longer than one line (optional in "Appearance > Customize")
