@@ -2914,6 +2914,7 @@ object {
 
 .individual-testimonial .testimonials-text p {
 	margin-bottom: 0;
+	display: inline;
 }
 
 .individual-testimonial .testimonials-text:before,
