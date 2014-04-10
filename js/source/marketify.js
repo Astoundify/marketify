@@ -158,6 +158,8 @@ Marketify.App = ( function($) {
 			$( '.entry-image' ).bind( 'touchstart', function(e) {
 				$(this).toggleClass( 'hover' );
 			});
+
+			$( '.individual-testimonial .avatar' ).wrap( '<div class="avatar-wrap"></div>' );
 		},
 
 		popup : function( args ) {

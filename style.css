@@ -2933,16 +2933,22 @@ object {
 	transform:         rotate(-180deg);
 }
 
+.individual-testimonial .avatar-wrap {
+	border-radius: 50%;
+	overflow: hidden;
+	margin-left: 27px;
+	float: left;
+	display: inline-block;
+}
+
 .individual-testimonial .avatar,
 .individual-testimonial .avatar-link,
 .individual-testimonial .author {
 	float: left;
 }
 
-.individual-testimonial .avatar,
-.individual-testimonial .avatar-link {
+.individual-testimonial .author {
 	margin-left: 27px;
-	margin-right: 20px;
 }
 
 .individual-testimonial .avatar-link img {
