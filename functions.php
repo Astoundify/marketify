@@ -612,6 +612,11 @@ add_filter( 'post_class', 'marketify_post_classes' );
  * @since Marketify 1.1
  */
 function marketify_homepage_search( $content ) {
+	global $post;
+
+	if ( 'page' != $post->post_type )
+		return $content;
+
 	if ( ! is_page_template( 'page-templates/home-search.php' ) )
 		return $content;
 
