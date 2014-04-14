@@ -5,6 +5,10 @@
 
 // Are we on a homepage widget?
 $is_home = is_page_template( 'page-templates/home.php' ) || is_page_template( 'page-templates/home-search.php' );
+
+global $more;
+
+$more = 0;
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'row' ); ?>>

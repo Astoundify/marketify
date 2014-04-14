@@ -54,7 +54,17 @@ function marketify_download_standard_player() {
 	if ( 'grid' == marketify_theme_mod( 'product-display', 'product-display-single-style' ) )
 		return;
 
-	$images = get_attached_media( 'image', $post->ID );
+	$images  = array();
+	$_images = get_post_meta( $download_id, 'preview_images', true );
+
+	if ( $_images ) {
+		foreach ( $_images as $image ) {
+			$images = get_post( $image );
+		}
+	} else {
+		$images = get_attached_media( 'image', $post->ID );
+	}
+
 	$before = '<div class="download-image">';
 	$after  = '</div>';
 
@@ -281,7 +291,17 @@ function marketify_download_grid_previewer() {
 	if ( in_array( get_post_format(), array( 'video' ) ) )
 		return;
 
-	$images = get_attached_media( 'image', $post->ID );
+	$images  = array();
+	$_images = get_post_meta( $download_id, 'preview_images', true );
+
+	if ( $_images ) {
+		foreach ( $_images as $image ) {
+			$images = get_post( $image );
+		}
+	} else {
+		$images = get_attached_media( 'image', $post->ID );
+	}
+
 	$before = '<div class="download-image-grid-preview">';
 	$after  = '</div>';
 

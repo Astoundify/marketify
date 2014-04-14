@@ -82,6 +82,10 @@ class Marketify_Widget_Recent_Posts extends Marketify_Widget {
 		if ( ! $posts->have_posts() )
 			return;
 
+		global $more;
+
+		$more = 0;
+
 		echo $before_widget;
 
 		if ( $title ) echo $before_title . $title . $after_title;

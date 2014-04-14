@@ -544,7 +544,7 @@ add_action( 'wp_enqueue_scripts', 'marketify_scripts' );
  * Adds custom classes to the array of body classes.
  */
 function marketify_body_classes( $classes ) {
-	global $wp_query;
+	global $wp_query, $fes_options;
 
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
@@ -566,7 +566,7 @@ function marketify_body_classes( $classes ) {
 		$classes[] = 'archive-download';
 	}
 
-	if ( class_exists( 'EDD_Front_End_Submissions' ) && is_page( EDD_FES()->fes_options->get_option( 'vendor-dashboard-page' ) ) ) {
+	if ( class_exists( 'EDD_Front_End_Submissions' ) && is_page( $fes_options[ 'vendor-dashboard-page' ] ) ) {
 		$classes[] = 'fes-page';
 	}
 
