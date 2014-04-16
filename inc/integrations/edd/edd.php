@@ -297,11 +297,15 @@ function marketify_edd_downloads_query( $query, $atts ) {
 			);
 		}
 	} else {
-		$orderby = get_query_var( 'orderby' ) ? get_query_var( 'orderby' ) : 'post_date';
-		$order   = get_query_var( 'order' ) ? get_query_var( 'order' ) : 'DESC';
-
-		$query[ 'orderby' ] = $orderby;
-		$query[ 'order' ]   = $order;
+		foreach ( array( 'orderby', 'order' ) as $key ) {
+			if ( isset( $atts[ $key ] ) ) {
+				$query[ $key ] = $atts[ $key ];
+			} else if ( get_query_var( $key ) ) {
+				$query[ $key ] = get_query_var( $key );
+			} else {
+				$query[ $key ] = null;
+			}
+		}
 
 		if ( 'sales' == get_query_var( 'orderby' ) ) {
 			$query[ 'orderby' ]  = 'meta_value_num';

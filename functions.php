@@ -588,9 +588,6 @@ add_filter( 'body_class', 'marketify_body_classes' );
 function marketify_post_classes( $classes ) {
 	global $post;
 
-	if ( 'download' != get_post_type() )
-		return $classes;
-
 	if ( '1' == marketify_theme_mod( 'product-display', 'product-display-grid-info' ) ) {
 		$classes[] = 'force-info';
 	} elseif ( '2' == marketify_theme_mod( 'product-display', 'product-display-grid-info' ) ) {
@@ -700,12 +697,20 @@ class Marketify_Author {
 	 * Create a publically accessible link
 	 */
 	public static function url( $where = 'downloads', $user_id = null ) {
+		global $wp_rewrite;
+
+		$link = $wp_rewrite->get_author_permastruct();
+
 		if ( $user_id )
 			$user = new WP_User( $user_id );
 		else
 			$user = wp_get_current_user();
 
-		return esc_url( get_author_posts_url( $user->ID, $user->user_nicename ) . trailingslashit( $where ) );
+		if ( empty( $link ) ) {
+			return esc_url( add_query_arg( 'author_downloads', true, get_author_posts_url( $user->ID, $user->user_nicename ) ) );
+		} else {
+			$url = esc_url( get_author_posts_url( $user->ID, $user->user_nicename ) . trailingslashit( $where ) );
+		}
 	}
 
 	/**
