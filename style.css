@@ -4549,6 +4549,10 @@ body .soliloquy-theme-classic .soliloquy-pager {
 		border-right: 0;
 	}
 
+	.pricing-table-widget-description h2 {
+		font-size: 30px;
+	}
+
 }
 
 /* =Flexslider
