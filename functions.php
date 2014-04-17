@@ -707,10 +707,12 @@ class Marketify_Author {
 			$user = wp_get_current_user();
 
 		if ( empty( $link ) ) {
-			return esc_url( add_query_arg( 'author_downloads', true, get_author_posts_url( $user->ID, $user->user_nicename ) ) );
+			$url = esc_url( add_query_arg( 'author_' . $where, true, get_author_posts_url( $user->ID, $user->user_nicename ) ) );
 		} else {
 			$url = esc_url( get_author_posts_url( $user->ID, $user->user_nicename ) . trailingslashit( $where ) );
 		}
+
+		return $url;
 	}
 
 	/**
@@ -802,7 +804,7 @@ class Marketify_Author {
 		if ( ! is_page_template( 'page-templates/wishlist.php' ) )
 			return;
 
-		wp_safe_redirect( $this->url( 'wishlist' ), 307 );
+		wp_safe_redirect( $this->url( 'likes' ), 307 );
 		exit();
 	}
 }

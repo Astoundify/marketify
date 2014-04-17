@@ -299,7 +299,7 @@ function marketify_edd_downloads_query( $query, $atts ) {
 	} else {
 		foreach ( array( 'orderby', 'order' ) as $key ) {
 			if ( isset( $atts[ $key ] ) ) {
-				$query[ $key ] = $atts[ $key ];
+				continue;
 			} else if ( get_query_var( $key ) ) {
 				$query[ $key ] = get_query_var( $key );
 			} else {
