@@ -292,7 +292,7 @@ function marketify_download_grid_previewer() {
 		return;
 
 	$images  = array();
-	$_images = get_post_meta( $download_id, 'preview_images', true );
+	$_images = get_post_meta( $post->ID, 'preview_images', true );
 
 	if ( $_images ) {
 		foreach ( $_images as $image ) {
@@ -332,14 +332,14 @@ function marketify_download_grid_previewer() {
 	?>
 
 	<div class="row">
-		<div class="col-md-10 col-sm-12 image-preview">
+		<div class="col-sm-12 image-preview">
 			<a id="1" href="<?php echo wp_get_attachment_url( $image->ID ); ?>" class="image-preview-gallery"><?php echo wp_get_attachment_image( current( $images )->ID, 'large' ); ?></a>
 		</div>
 
-		<div class="col-md-2 col-sm-12">
+		<div class="col-sm-12">
 			<ul class="slides row">
 				<?php $i = 1; foreach ( $images as $image ) : ?>
-				<li class="col-md-12 col-xs-4"><a id="<?php echo $i; ?>" href="<?php echo wp_get_attachment_url( $image->ID ); ?>" class="image-preview-gallery"><?php echo wp_get_attachment_image( $image->ID, 'large' ); ?></a></li>
+				<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a id="<?php echo $i; ?>" href="<?php echo wp_get_attachment_url( $image->ID ); ?>" class="image-preview-gallery"><?php echo wp_get_attachment_image( $image->ID, 'large' ); ?></a></li>
 				<?php $i++; endforeach; ?>
 			</ul>
 		</div>

@@ -508,10 +508,14 @@ function marketify_scripts() {
 	global $wp_registered_widgets;
 
 	$widgetized = wp_get_sidebars_widgets();
-	$widgets    = $widgetized[ 'home-1' ];
+	$widgets    = isset( $widgetized[ 'home-1' ] ) ? $widgetized[ 'home-1' ] : null;
 
 	if ( $widgets ) {
 		foreach ( $widgets as $widget ) {
+			if ( ! isset( $wp_registered_widgets[ $widget ] ) ) {
+				continue;
+			}
+
 			$widget_obj = $wp_registered_widgets[ $widget ];
 			$prefix     = substr( $widget_obj[ 'classname' ], 0, 7 ) == 'widget_' ? '' : 'widget_';
 			$settings   = get_option( $prefix . $widget_obj[ 'classname' ] );
@@ -743,10 +747,10 @@ class Marketify_Author {
 		$slug = defined( 'EDD_SLUG' ) ? EDD_SLUG : 'downloads';
 
 		$new_rules = array(
-			'author/([^/]+)/' . $slug . '/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_downloads=1',
-			'author/([^/]+)/likes/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_wishlist=1',
-			'author/([^/]+)/' . $slug . '/page/?([0-9]{1,})/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_downloads=1&paged=' . $wp_rewrite->preg_index( 2 ),
-			'author/([^/]+)/likes/page/?([0-9]{1,})/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_wishlist=1&paged=' . $wp_rewrite->preg_index( 2 )
+			$wp_rewrite->author_base . '/([^/]+)/' . $slug . '/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_downloads=1',
+			$wp_rewrite->author_base . 'autho/([^/]+)/likes/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_wishlist=1',
+			$wp_rewrite->author_base . '/([^/]+)/' . $slug . '/page/?([0-9]{1,})/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_downloads=1&paged=' . $wp_rewrite->preg_index( 2 ),
+			$wp_rewrite->author_base . '/([^/]+)/likes/page/?([0-9]{1,})/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_wishlist=1&paged=' . $wp_rewrite->preg_index( 2 )
 		);
 
 		$wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
