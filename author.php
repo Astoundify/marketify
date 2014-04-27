@@ -46,7 +46,7 @@ get_header(); ?>
 
 					</div>
 
-					<div class="download-author-sales<?php echo ! get_the_author_meta( 'description' ) && ! marketify_entry_author_social( get_the_author_meta( 'ID' ) ) ? ' blank' : ''; ?>">
+					<div class="download-author-sales">
 						<strong><?php global $wp_query; echo $wp_query->found_posts; ?></strong>
 
 						<?php if ( get_query_var( 'author_downloads' ) ) : ?>
@@ -63,7 +63,7 @@ get_header(); ?>
 					<?php endif; ?>
 
 					<div class="download-author-message">
-						<a href="mailto:<?php echo antispambot( esc_attr( $author->user_email ) ); ?>" class="button fullsize small"><?php _e( 'Send Message', 'marketify' ); ?></a>
+						<?php echo do_shortcode( '[fes_vendor_contact_form id="' . $author->ID . '"]' ); ?>
 					</div>
 				</div>
 			</div><!-- #secondary -->

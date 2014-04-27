@@ -65,8 +65,9 @@ function marketify_edd_fes_vendor_dashboard_menu( $menu ) {
 		$menu[ 'earnings' ][ 'icon' ] = 'chart-line';
 	}
 
+	$menu[ 'orders' ][ 'icon' ] = 'ticket';
 	$menu[ 'logout' ][ 'icon' ] = 'logout';
 
 	return $menu;
 }
-add_filter( 'edd_fes_vendor_dashboard_menu', 'marketify_edd_fes_vendor_dashboard_menu' );
+add_filter( 'fes_vendor_dashboard_menu', 'marketify_edd_fes_vendor_dashboard_menu' );

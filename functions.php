@@ -615,6 +615,10 @@ add_filter( 'post_class', 'marketify_post_classes' );
 function marketify_homepage_search( $content ) {
 	global $post;
 
+	if ( ! is_a( $post, 'WP_Post' ) ) {
+		return $content;
+	}
+
 	if ( 'page' != $post->post_type )
 		return $content;
 

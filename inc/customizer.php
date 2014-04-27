@@ -359,7 +359,9 @@ function marketify_header_css() {
 	body a.edd-wl-action,
 	body a.edd-wl-action.edd-wl-button,
 	#recaptcha_area .recaptchatable a,
-	#recaptcha_area .recaptchatable a:hover {
+	#recaptcha_area .recaptchatable a:hover,
+	.fes-feat-image-btn,
+	.upload_file_button {
 		color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 	}
 
@@ -379,7 +381,9 @@ function marketify_header_css() {
 	.nav-next a:hover,
 	body a.edd-wl-action,
 	body a.edd-wl-action.edd-wl-button,
-	body a.edd-wl-action.edd-wl-button:hover {
+	body a.edd-wl-action.edd-wl-button:hover,
+	.fes-feat-image-btn,
+	.upload_file_button {
 		border-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 	}
 
@@ -393,7 +397,9 @@ function marketify_header_css() {
 	.flex-control-nav a.flex-active,
 	.search-form .search-submit,
 	.fes-pagination a.page-numbers:hover,
-	body a.edd-wl-action.edd-wl-button:hover {
+	body a.edd-wl-action.edd-wl-button:hover,
+	.fes-feat-image-btn:hover,
+	.upload_file_button:hover {
 		background-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 	}
 
@@ -424,7 +430,8 @@ function marketify_header_css() {
 	#fes-insert-image,
 	#fes-view-comment a,
 	.edd_terms_links,
-	.site-footer.dark .mailbag-wrap input[type=submit] {
+	.site-footer.dark .mailbag-wrap input[type=submit],
+	.insert-file-row {
 		border-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 
@@ -447,7 +454,8 @@ function marketify_header_css() {
 	.site-footer.dark .mailbag-wrap input[type=submit],
 	.home-search .page-header .search-submit,
 	.search-form-overlay .search-submit,
-	.marketify_widget_taxonomy_stylized {
+	.marketify_widget_taxonomy_stylized,
+	.insert-file-row {
 		background-color: " . marketify_theme_mod( 'colors', 'accent' ) . ";
 	}
 

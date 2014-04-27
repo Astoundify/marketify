@@ -876,7 +876,7 @@ div.fes-form fieldset.has-error .fes-label {
 
 div.fes-form fieldset {
 	padding: 0;
-	margin-bottom: 35px;
+	margin-bottom: 2em;
 }
 
 div.fes-form fieldset .fes-fields {
@@ -904,8 +904,9 @@ div.fes-form fieldset .fes-section-wrap .fes-section-details {
 }
 
 /** Other */
-body.minimal .fes_header,
+body.minimal .fes-form h1,
 body.minimal .edd_form legend {
+	font-size: 19px;
 	color: #fff;
 	font-weight: 700;
 	text-align: center;
@@ -939,12 +940,14 @@ body.minimal .edd_form legend {
 }
 
 .fes-form #wp-post_content-wrap td,
-.fes-form #recaptcha_area td {
+.fes-form #recaptcha_area td,
+.fes-form .multiple td {
 	display: table-cell;
 }
 
 .fes-form .recaptchatable,
-#recaptcha_area tr {
+#recaptcha_area tr,
+.fes-form .multiple tr {
 	display: table-row;
 }
 
@@ -985,6 +988,10 @@ body.minimal .edd_form legend {
 
 .entry-content #fes_half:last-child {
 	margin-right: 0;
+}
+
+.fes-submit .fes-label {
+	display: none;
 }
 
 /** Price and Files */
@@ -1252,18 +1259,60 @@ td.col-author {
 	display: none;
 }
 
-/* =Misc
--------------------------------------------------------------- */
-
-.edd-lost-password {
-	text-align: center;
+.fes-feat-image-upload img {
+	max-width: 20%;
 }
 
-.edd-lost-password a {
+.fes-single-variation td,
+.file_upload td {
+	display: table-cell;
+}
+
+.fes-url-row {
+	width: 75%;
+}
+
+.entry-content .fes-single-variation .fes-url-choose-row {
+	width: 20%;
+	padding: 0 0 0 15px;
+}
+
+.fes-form .multiple .fes-variations-list-multiple td {
+	padding: 0 12px 12px 0;
+}
+
+.fes-form .multiple .fes-variations-list-multiple .fes-name-row  {
+	width: 40%;
+}
+
+.fes-form .multiple .fes-variations-list-multiple .fes-price-row {
+	width: 25%;
+}
+
+.fes-form .delete {
 	text-decoration: none;
 }
 
-.edd-lost-password a:before {
+.entry-content #fes-product-list td {
+	vertical-align: middle;
+}
+
+/* =Misc
+-------------------------------------------------------------- */
+
+.fes-vendor-menu ~ h2,
+.fes-vendor-menu ~ h1 {
+	display: none;
+}
+
+#fes_lost_password_link {
+	margin-top: 1em;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+}
+
+#fes_lost_password_link:before {
 	content: '\2753';
 }
 

@@ -54,7 +54,7 @@ div.bbp-topic-tags p:before,
 div.bbp-template-notice p:before,
 #edd_secure_site_wrapper span.padlock:before,
 .edd-icon-spinner:before,
-.edd-lost-password a:before,
+#fes_lost_password_link:before,
 .content-grid-download .entry-image .image-placeholder:before,
 .download-sorting label[for="orderby"]:after {
   font-family: 'fontello';

@@ -428,7 +428,10 @@ body:not(.minimal) .edd_form fieldset > span legend,
 .edd_terms_links,
 #edd-wl-modal h2#edd-wl-modal-label,
 a.edd-wl-action,
-.download-sorting select {
+.download-sorting select,
+.fes-feat-image-btn,
+.upload_file_button,
+.insert-file-row {
 	font: 700 13px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -456,7 +459,8 @@ input[name="edd_update_cart_submit"],
 .fes-cmt-submit-form,
 .fes-ignore,
 #fes-view-comment a,
-.edd_terms_links {
+.edd_terms_links,
+.insert-file-row {
 	font-size: 12px;
 	padding: 6px 10px;
 }
@@ -509,7 +513,10 @@ a.button:hover,
 .edd_terms_links:hover,
 .site-footer.dark .mailbag-wrap input[type=submit],
 body a.edd-wl-action:hover,
-body a.edd-wl-action.edd-wl-button:hover {
+body a.edd-wl-action.edd-wl-button:hover,
+.fes-feat-image-btn:hover,
+.upload_file_button:hover,
+a.insert-file-row {
 	color: #fff;
 }
 
