@@ -22,25 +22,6 @@ function marketify_edd_fes_recaptcha() {
 add_action( 'wp_head', 'marketify_edd_fes_recaptcha' );
 
 /**
- * Remove the FES vendor/author archive URL redirection.
- */
-add_filter( 'edd_fes_vendor_archive_switch', '__return_false' );
-
-/**
- * Set our own vendor archive URL
- *
- * @since Marketify 1.0
- *
- * @param string $url
- * @param object $user
- * @return string uknown
- */
-function marketify_edd_fes_vendor_archive_url( $url, $user ) {
-	return Marketify_Author::url( 'downloads', $user->ID );
-}
-add_filter( 'edd_fes_vendor_archive_url', 'marketify_edd_fes_vendor_archive_url', 10, 2 );
-
-/**
  * Remove FES Styles
  *
  * @since Marketify 1.0
@@ -61,7 +42,7 @@ add_action( 'wp_enqueue_scripts', 'marketify_edd_fes_enqueue_scripts' );
  * @return array $menu
  */
 function marketify_edd_fes_vendor_dashboard_menu( $menu ) {
-	if ( EDD_FES()->vendors->is_commissions_active() ) {
+	if ( EDD_FES()->integrations->is_commissions_active() ) {
 		$menu[ 'earnings' ][ 'icon' ] = 'chart-line';
 	}
 
@@ -71,3 +52,13 @@ function marketify_edd_fes_vendor_dashboard_menu( $menu ) {
 	return $menu;
 }
 add_filter( 'fes_vendor_dashboard_menu', 'marketify_edd_fes_vendor_dashboard_menu' );
+
+function marketify_count_user_downloads( $userid, $post_type = 'download' ) {
+	global $wpdb;
+
+	$where = get_posts_by_author_sql( $post_type, true, $userid );
+
+	$count = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->posts $where" );
+
+  	return apply_filters( 'get_usernumposts', $count, $userid );
+}

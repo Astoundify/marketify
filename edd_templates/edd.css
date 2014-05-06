@@ -1426,6 +1426,18 @@ body .edd-wish-list li span.edd-wl-edit {
 	margin-top: 7px;
 }
 
+.fes-form-vendor-contact-form #fes-contact-form-title {
+	display: none;
+}
+
+.fes-form-vendor-contact-form .fes-submit:last-child {
+	margin-bottom: 0;
+}
+
+.fes-form-vendor-contact-form .textareafield {
+	height: 200px;
+}
+
 /* =Ajax Add To Cart Button
 -------------------------------------------------------------- */
 .edd_purchase_submit_wrapper { position: relative; }

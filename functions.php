@@ -290,7 +290,8 @@ function marketify_entry_page_title() {
 		! marketify_is_bbpress() ||
 		is_page_template( 'page-templates/shop.php' ) ||
 		is_page_template( 'page-templates/popular.php' ) ||
-		is_post_type_archive( 'download' )
+		is_post_type_archive( 'download' ) ||
+		get_query_var( 'vendor' )
 	)
 		return;
 
@@ -548,7 +549,7 @@ add_action( 'wp_enqueue_scripts', 'marketify_scripts' );
  * Adds custom classes to the array of body classes.
  */
 function marketify_body_classes( $classes ) {
-	global $wp_query, $fes_options;
+	global $wp_query, $fes_settings;
 
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
@@ -570,7 +571,7 @@ function marketify_body_classes( $classes ) {
 		$classes[] = 'archive-download';
 	}
 
-	if ( class_exists( 'EDD_Front_End_Submissions' ) && is_page( $fes_options[ 'vendor-dashboard-page' ] ) ) {
+	if ( class_exists( 'EDD_Front_End_Submissions' ) && is_page( $fes_settings[ 'fes-vendor-dashboard-page' ] ) ) {
 		$classes[] = 'fes-page';
 	}
 
@@ -580,6 +581,10 @@ function marketify_body_classes( $classes ) {
 
 	if ( is_singular( 'download' ) && 'classic' != marketify_theme_mod( 'product-display', 'product-display-single-style' ) ) {
 		$classes[] = 'product-display-inline';
+	}
+
+	if ( is_singular( 'download' ) && marketify_theme_mod( 'product-display', 'product-display-show-buy' ) ) {
+		$classes[] = 'force-buy';
 	}
 
 	return $classes;
@@ -655,168 +660,6 @@ function marketify_popular_get_term_link( $link, $term, $taxonomy ) {
 	return add_query_arg( array( 'popular_cat' => $term->term_id ), get_permalink( get_page_by_path( $wp_query->query[ 'pagename' ] ) ) );
 }
 add_filter( 'term_link', 'marketify_popular_get_term_link', 10, 3 );
-
-/**
- * Download Authors
- *
- * Since WordPres only supports author archives of a singular (or all) post
- * types, we need to create a way to just view an author's downloads.
- *
- * This sets up a new query variable called `author_ptype` which can be used
- * to fetch a specific post type when viewing author archives.
- *
- * @since Marketify 1.0
- */
-class Marketify_Author {
-
-	/**
-	 * @var $instance
-	 */
-	public static $instance;
-
-	/**
-	 * @var ran
-	 */
-	public $ran = false;
-
-	/*
-	 * Init so we can attach to an action
-	 */
-	public static function init() {
-		if ( ! isset ( self::$instance ) ) {
-			self::$instance = new self;
-		}
-
-		return self::$instance;
-	}
-
-	/*
-	 * Hooks and Filters
-	 */
-	public function __construct() {
-		add_filter( 'query_vars', array( $this, 'query_vars' ) );
-		add_filter( 'generate_rewrite_rules', array( $this, 'rewrites' ) );
-
-		add_action( 'parse_request', array( $this, 'parse_request' ) );
-		add_action( 'template_redirect', array( $this, 'redirect' ) );
-	}
-
-	/*
-	 * Create a publically accessible link
-	 */
-	public static function url( $where = 'downloads', $user_id = null ) {
-		global $wp_rewrite;
-
-		$link = $wp_rewrite->get_author_permastruct();
-
-		if ( $user_id )
-			$user = new WP_User( $user_id );
-		else
-			$user = wp_get_current_user();
-
-		if ( empty( $link ) ) {
-			$url = esc_url( add_query_arg( 'author_' . $where, true, get_author_posts_url( $user->ID, $user->user_nicename ) ) );
-		} else {
-			$url = esc_url( get_author_posts_url( $user->ID, $user->user_nicename ) . trailingslashit( $where ) );
-		}
-
-		return $url;
-	}
-
-	/**
-	 * Register the `author_ptype` query variable.
-	 *
-	 * @since Marketify 1.0
-	 *
-	 * @param array $query_vars Existing query variables
-	 * @return array $query_vars Modified array of query variables
-	 */
-	public function query_vars( $query_vars ) {
-		$query_vars[] = 'author_downloads';
-		$query_vars[] = 'author_wishlist';
-
-		return $query_vars;
-	}
-
-	/**
-	 * Create the new permalink endpoints/structures.
-	 *
-	 * @since Marketify 1.0
-	 *
-	 * @return object $wp_rewrite
-	 */
-	public function rewrites() {
-		global $wp_rewrite;
-
-		$slug = defined( 'EDD_SLUG' ) ? EDD_SLUG : 'downloads';
-
-		$new_rules = array(
-			$wp_rewrite->author_base . '/([^/]+)/' . $slug . '/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_downloads=1',
-			$wp_rewrite->author_base . 'autho/([^/]+)/likes/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_wishlist=1',
-			$wp_rewrite->author_base . '/([^/]+)/' . $slug . '/page/?([0-9]{1,})/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_downloads=1&paged=' . $wp_rewrite->preg_index( 2 ),
-			$wp_rewrite->author_base . '/([^/]+)/likes/page/?([0-9]{1,})/?$' => 'index.php?author_name=' . $wp_rewrite->preg_index(1) . '&author_wishlist=1&paged=' . $wp_rewrite->preg_index( 2 )
-		);
-
-		$wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
-
-		return $wp_rewrite->rules;
-	}
-
-	public function parse_request() {
-		add_action( 'parse_query', array( $this, 'parse_query' ) );
-	}
-
-	/**
-	 * Show author products or wishlist
-	 *
-	 * @since Marketify 1.0
-	 *
-	 * @param object $query Current WP_Query
-	 * @return void
-	 */
-	public function parse_query( $query ) {
-		if ( $this->ran ) {
-			return;
-		}
-
-		if ( ! ( get_query_var( 'author_downloads' ) || get_query_var( 'author_wishlist' ) ) ) {
-			return;
-		}
-
-		$query->is_author = true;
-		$query->set( 'post_type', 'download' );
-		$query->set( 'post_status', 'publish' );
-
-		if ( ! get_query_var( 'author_wishlist' ) ) {
-			$this->ran = true;
-
-			return $query;
-		}
-
-		$author = get_user_by( 'slug', $query->query[ 'author_name' ] );
-		$loves  = get_user_option( 'li_user_loves', $author->ID );
-
-		$query->set( 'post__in', $loves );
-		$query->set( 'author', 0 );
-		$query->set( 'author_name', '' );
-
-		$this->ran = true;
-
-		return $query;
-	}
-
-	/**
-	 * Redirect the wishlist page template to the current user's loves.
-	 */
-	public function redirect() {
-		if ( ! is_page_template( 'page-templates/wishlist.php' ) )
-			return;
-
-		wp_safe_redirect( $this->url( 'likes' ), 307 );
-		exit();
-	}
-}
-add_action( 'init', array( 'Marketify_Author', 'init' ), 100 );
 
 /**
  * Implement the Custom Header feature.

@@ -13,6 +13,17 @@ get_header(); ?>
 		<?php the_post(); ?>
 		<h1 class="page-title"><?php the_title(); ?></h1>
 
+		<?php
+			if (
+				'grid' == marketify_theme_mod( 'product-display', 'product-display-single-style' ) &&
+				'1' == marketify_theme_mod( 'product-display', 'product-display-show-buy' )
+			) :
+		?>
+			<div class="download-actions">
+				<?php do_action( 'marketify_download_actions' ); ?>
+			</div>
+		<?php endif; ?>
+
 		<?php if ( 'classic' == marketify_theme_mod( 'product-display', 'product-display-single-style' ) ) : ?>
 			<div class="download-actions">
 				<?php do_action( 'marketify_download_actions' ); ?>
@@ -45,7 +56,7 @@ get_header(); ?>
 				</main><!-- #main -->
 			</section><!-- #primary -->
 
-			<?php get_sidebar( 'single-download' ); ?>
+			<?php get_sidebar( 'sidebar-single-download' ); ?>
 
 		</div><!-- #content -->
 

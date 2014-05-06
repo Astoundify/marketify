@@ -97,7 +97,8 @@ function marketify_get_theme_mods( $args = array() ) {
 					2 => 2,
 					3 => 3,
 					4 => 4
-				)
+				),
+				'priority' => 10
 			),
 			'product-display-single-style' => array(
 				'title'   => __( 'Single Display Style', 'marketify' ),
@@ -106,7 +107,8 @@ function marketify_get_theme_mods( $args = array() ) {
 				'choices' => array(
 					'classic' => __( 'Featured Header Slider', 'marketify' ),
 					'grid'    => __( 'Inline Switcher', 'marketify' )
-				)
+				),
+				'priority' => 20
 			),
 			'product-display-grid-info' => array(
 				'title'   => __( 'Grid Product Information', 'marketify' ),
@@ -116,17 +118,26 @@ function marketify_get_theme_mods( $args = array() ) {
 					0 => __( 'Auto', 'marketify' ),
 					1 => __( 'Always show', 'marketify' ),
 					2 => __( 'Never show', 'marketify' )
-				)
+				),
+				'priority' => 30
 			),
 			'product-display-excerpt' => array(
 				'title'   => __( 'Display excerpt on grid items' ),
 				'type'    => 'checkbox',
-				'std'     => 0
+				'std'     => 0,
+				'priority' => 40
 			),
 			'product-display-truncate-title' => array(
 				'title'   => __( 'Truncate grid item titles' ),
 				'type'    => 'checkbox',
-				'std'     => 0
+				'std'     => 0,
+				'priority' => 50
+			),
+			'product-display-show-buy' => array(
+				'title'   => __( 'Always show buy button' ),
+				'type'    => 'checkbox',
+				'std'     => 0,
+				'priority' => 60
 			)
 		),
 		'footer' => array(

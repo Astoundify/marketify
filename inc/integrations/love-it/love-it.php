@@ -30,3 +30,24 @@ function marketify_li_love_link() {
 }
 add_action( 'marketify_download_author_before', 'marketify_li_love_link' );
 add_action( 'marketify_download_content_image_overlay_before', 'marketify_li_love_link' );
+
+/**
+ * Love It Archives
+ *
+ * @since Marketify 1.2
+ */
+class Marketify_Love_It_Archives {
+
+
+
+	/**
+	 * Redirect the wishlist page template to the current user's loves.
+	 */
+	public function redirect() {
+		if ( ! is_page_template( 'page-templates/wishlist.php' ) )
+			return;
+
+		exit();
+	}
+}
+add_action( 'init', array( 'Marketify_Love_It_Archives', 'init' ), 100 );

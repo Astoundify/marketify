@@ -1743,6 +1743,10 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	padding-bottom: 100px;
 }
 
+.product-display-inline.force-buy.single-download .page-header {
+	padding-bottom: 40px;
+}
+
 .single-download .featured-image img {
 	margin: 0 auto;
 	display: block;
@@ -3364,18 +3368,17 @@ body .soliloquy-theme-classic .soliloquy-pager {
 }
 
 .download-author {
+	text-align: center;
 	overflow: hidden;
 }
 
 .download-author img {
-	margin-right: 20px;
 	border-radius: 50%;
-	float: left;
 }
 
 .download-author .author-link {
 	text-decoration: none;
-	margin: 6px 0 4px;
+	margin: 10px 0 4px;
 	display: block;
 }
 
@@ -3484,7 +3487,7 @@ body .soliloquy-theme-classic .soliloquy-pager {
 }
 
 .product-details-pull .download-actions .button {
-	margin: 0 4px;
+	margin: 0 8px;
 }
 
 .download-product-details .download-info {
