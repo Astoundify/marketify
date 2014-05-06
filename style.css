@@ -3443,10 +3443,6 @@ body .soliloquy-theme-classic .soliloquy-pager {
 	height: 50px;
 }
 
-.download-product-details.author-archive img {
-	margin-right: 10px;
-}
-
 .download-author-social {
 	text-align: center;
 }
@@ -3913,6 +3909,7 @@ body .soliloquy-theme-classic .soliloquy-pager {
 
 .download-author .love-it-wrapper .love-it,
 .download-author .love-it-wrapper .loved {
+	right: -13px;
 	color: #fff;
 }
 

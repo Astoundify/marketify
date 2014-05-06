@@ -31,11 +31,9 @@ get_header(); ?>
 			<div id="secondary" class="author-widget-area col-md-3 col-sm-5 col-xs-12" role="complementary">
 				<div class="download-product-details author-archive">
 					<div class="download-author">
-						<?php do_action( 'marketify_download_author_before' ); ?>
 						<?php echo get_avatar( $author->ID, 100 ); ?>
-						<?php printf( '<a class="author-link" href="%s" rel="author">%s</a>', Marketify_Author::url( 'downloads', $author->ID ), esc_attr( $author->display_name ) ); ?>
+						<?php printf( '<a class="author-link" href="%s" rel="author">%s</a>', marketify_edd_fes_author_url( $author->ID ), esc_attr( $author->display_name ) ); ?>
 						<span class="author-joined"><?php printf( __( 'Author since: %s', 'marketify' ), date_i18n( 'Y', strtotime( $author->user_registered ) ) ); ?></span>
-						<?php do_action( 'marketify_download_author_after' ); ?>
 					</div>
 
 					<div class="download-author-bio">

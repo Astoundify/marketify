@@ -290,8 +290,9 @@ function marketify_entry_page_title() {
 		! marketify_is_bbpress() ||
 		is_page_template( 'page-templates/shop.php' ) ||
 		is_page_template( 'page-templates/popular.php' ) ||
-		is_post_type_archive( 'download' ) ||
-		get_query_var( 'vendor' )
+		is_page_template( 'page-templates/vendor.php' ) ||
+		is_page_template( 'page-templates/wishlist.php' ) ||
+		is_post_type_archive( 'download' )
 	)
 		return;
 
@@ -660,6 +661,48 @@ function marketify_popular_get_term_link( $link, $term, $taxonomy ) {
 	return add_query_arg( array( 'popular_cat' => $term->term_id ), get_permalink( get_page_by_path( $wp_query->query[ 'pagename' ] ) ) );
 }
 add_filter( 'term_link', 'marketify_popular_get_term_link', 10, 3 );
+
+/**
+ * Find pages that contain shortcodes.
+ *
+ * To avoid options, try to find pages for them.
+ *
+ * @since Marketify 1.2
+ *
+ * @return $_page
+ */
+function marketify_find_page_with_template( $template ) {
+	$_page = 0;
+
+	if ( ! get_option( 'marketify_page_' . sanitize_title( $template ) ) ) {
+		$pages = new WP_Query( array(
+			'post_type'              => 'page',
+			'post_status'            => 'publish',
+			'ignore_sticky_posts'    => 1,
+			'no_found_rows'          => true,
+			'nopaging'               => true,
+			'update_post_meta_cache' => false,
+			'update_post_term_cache' => false,
+			'meta_query'             => array(
+				array(
+					'key' => '_wp_page_template',
+					'value' => $template,
+					'compare' => '='
+				)
+			)
+		) );
+
+		if ( $pages->have_posts() ) {
+			$_page = $pages->post->ID;
+		}
+
+		add_option( 'marketify_page_' . sanitize_title( $template ), $_page );
+	} else {
+		$_page = get_option( 'marketify_page_' . sanitize_title( $template ) );
+	}
+
+	return $_page;
+}
 
 /**
  * Implement the Custom Header feature.
