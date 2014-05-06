@@ -59,7 +59,7 @@ function marketify_single_project_content_before_content() {
 
 	global $post;
 
-	$attachment_ids = projects_get_gallery_attachment_ids();
+	$attachment_ids = projects_get_gallery_attachment_ids( $post->ID );
 	$before         = '<div class="download-image-grid-preview">';
 	$after          = '</div>';
 
@@ -67,14 +67,14 @@ function marketify_single_project_content_before_content() {
 	?>
 
 	<div class="row">
-		<div class="col-md-10 col-sm-12 image-preview">
-			<a id="1" href="<?php echo wp_get_attachment_url( $image->ID ); ?>" class="image-preview-gallery"><?php echo wp_get_attachment_image( current( $attachment_ids ), 'large' ); ?></a>
+		<div class="col-sm-12 image-preview">
+			<a id="1" href="<?php echo wp_get_attachment_url( current( $attachment_ids ) ); ?>" class="image-preview-gallery"><?php echo wp_get_attachment_image( current( $attachment_ids ), 'large' ); ?></a>
 		</div>
 
-		<div class="col-md-2 col-sm-12">
+		<div class="col-sm-12 image-grid-previewer">
 			<ul class="slides row">
 				<?php $i = 1; foreach ( $attachment_ids as $image ) : ?>
-				<li class="col-md-12 col-xs-4"><a id="<?php echo $i; ?>" href="<?php echo wp_get_attachment_url( $image ); ?>" class="image-preview-gallery"><?php echo wp_get_attachment_image( $image, 'large' ); ?></a></li>
+				<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a id="<?php echo $i; ?>" href="<?php echo wp_get_attachment_url( $image->ID ); ?>" class="image-preview-gallery"><?php echo wp_get_attachment_image( $image, 'large' ); ?></a></li>
 				<?php $i++; endforeach; ?>
 			</ul>
 		</div>

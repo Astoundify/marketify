@@ -334,7 +334,7 @@ function marketify_download_grid_previewer() {
 	<div class="row image-grid-previewer-wrap">
 		<?php do_action( 'marketify_download_grid_previewer_before' ); ?>
 		<div class="col-sm-12 image-preview">
-			<a id="1" href="<?php echo wp_get_attachment_url( $image->ID ); ?>" class="image-preview-gallery"><?php echo wp_get_attachment_image( current( $images )->ID, 'large' ); ?></a>
+			<a id="1" href="<?php echo wp_get_attachment_url( current( $images )->ID ); ?>" class="image-preview-gallery"><?php echo wp_get_attachment_image( current( $images )->ID, 'large' ); ?></a>
 		</div>
 
 		<div class="col-sm-12 image-grid-previewer">

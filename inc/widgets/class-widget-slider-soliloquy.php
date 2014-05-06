@@ -1,6 +1,6 @@
 <?php
 /**
- * Solioquy Hero Slider
+ * Soliloquy Hero Slider
  *
  * @since Marketify 1.0
  */
@@ -13,7 +13,7 @@ class Marketify_Widget_Slider_Soliloquy extends Marketify_Widget {
 		$this->widget_cssclass    = 'marketify_widget_slider_hero';
 		$this->widget_description = __( 'Display "Hero" Soliloquy slider.', 'marketify' );
 		$this->widget_id          = 'marketify_widget_slider_hero';
-		$this->widget_name        = __( 'Marketify - Home: Solioquy Slider', 'marketify' );
+		$this->widget_name        = __( 'Marketify - Home: Soliloquy Slider', 'marketify' );
 		$this->settings           = array(
 			'slider' => array(
 				'type'    => 'select',

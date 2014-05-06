@@ -1745,7 +1745,8 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	padding-bottom: 100px;
 }
 
-.product-display-inline.force-buy.single-download .page-header {
+.product-display-inline.force-buy.single-download .page-heade,
+body.product-display-inline .single-project .page-header {
 	padding-bottom: 40px;
 }
 
