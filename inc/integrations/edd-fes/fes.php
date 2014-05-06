@@ -19,7 +19,7 @@ if ( version_compare( fes_plugin_version, '2.2', '>=' ) && ! get_user_meta( get_
 function marketify_edd_fes_admin_notice_ignore() {
 	$user_id = get_current_user_id();
 
-	if ( isset( $_GET[ 'marketify_fes_nag_hide' ] ) && '0' == $_GET[ 'marketify_fes_nag_hide '] ) {
+	if ( isset( $_GET[ 'marketify_fes_nag_hide' ] ) && '0' == $_GET[ 'marketify_fes_nag_hide' ] ) {
 		add_user_meta( $user_id, 'marketify_fes_nag_hide', 'true', true );
 	}
 }

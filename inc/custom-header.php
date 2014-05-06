@@ -86,16 +86,18 @@ function marketify_admin_header_style() {
 			padding: 40px;
 			width: auto;
 		}
-		
+
 		#headimg h1,
 		#desc {
 		}
 
 		#headimg h1 {
 			margin: 0 0 0 40px;
-			font-family: 'Pacifico', cursive;
-			font-size: 36px;
-			font-weight: normal;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 700;
+			text-transform: uppercase;
+			font-size: 26px;
+			clear: none;
 			line-height: <?php echo get_custom_header()->height; ?>px
 		}
 
