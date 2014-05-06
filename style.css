@@ -1204,6 +1204,7 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	position: absolute;
 	top: 0;
 	left: 0;
+	bottom: 0;
 	z-index: 5;
 	opacity: 0;
 	visibility: hidden;
@@ -1220,9 +1221,10 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 
 .search-form-overlay .search-form {
 	position: relative;
+	width: 40%;
 	top: 50%;
-	max-width: 600px;
-	margin: 0 auto;
+	left: 30%;
+	position: absolute;
 	overflow: visible;
 }
 
@@ -4256,6 +4258,11 @@ body .soliloquy-theme-classic .soliloquy-pager {
 
 	h2.soliloquy-caption-title {
 		font-size: 38px;
+	}
+
+	.search-form-overlay .search-form {
+		width: 50%;
+		left: 25%;
 	}
 }
 
