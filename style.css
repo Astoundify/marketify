@@ -2044,7 +2044,9 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 
 .content-grid-download.truncate-title .entry-title {
 	height: 20px;
+	white-space: nowrap;
 	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .content-grid-download .entry-title a {

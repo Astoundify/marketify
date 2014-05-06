@@ -41,26 +41,6 @@ Marketify.App = ( function($) {
 		});
 	}
 
-	function skipLink() {
-		var is_webkit = navigator.userAgent.toLowerCase().indexOf( 'webkit' ) > -1,
-			is_opera  = navigator.userAgent.toLowerCase().indexOf( 'opera' )  > -1,
-			is_ie     = navigator.userAgent.toLowerCase().indexOf( 'msie' )   > -1;
-
-		if ( ( is_webkit || is_opera || is_ie ) && 'undefined' !== typeof( document.getElementById ) ) {
-			var eventMethod = ( window.addEventListener ) ? 'addEventListener' : 'attachEvent';
-			window[ eventMethod ]( 'hashchange', function() {
-				var element = document.getElementById( location.hash.substring( 1 ) );
-
-				if ( element ) {
-					if ( ! /^(?:a|select|input|button|textarea)$/i.test( element.tagName ) )
-						element.tabIndex = -1;
-
-					element.focus();
-				}
-			}, false );
-		}
-	}
-
 	function footerHeight() {
 		var checks = $( '.site-info, .site-footer .row' );
 
@@ -103,17 +83,44 @@ Marketify.App = ( function($) {
 		}
 	}
 
+	function equalHeights( elements ) {
+		var tallest = 0;
+
+		$.each( elements, function(key, elements) {
+			$.each( elements, function() {
+				if ( $(this).outerHeight() > tallest ) {
+					tallest = $(this).outerHeight();
+				}
+			});
+
+			$(elements).css( 'height', tallest );
+
+			if ( $(window).width() < 768 ) {
+				$(elements).css( 'height', 'auto' );
+			}
+
+			tallest = 0;
+		});
+	}
+
 	return {
 		init : function() {
 			menuSearch();
 			menuMobile();
-			skipLink();
 			footerHeight();
 			soliloquySliders();
+
+			var equalHeighters = [
+				$( '.home-widget.widget_woothemes_features .feature' ),
+				$( '.page-template-page-templatesteam-php .entry-author' )
+			];
+
+			equalHeights( equalHeighters );
 
 			$(window).resize(function() {
 				footerHeight();
 				soliloquySliders();
+				equalHeights( equalHeighters );
 			});
 
 			$( '.popup-trigger' ).click(function(e) {
