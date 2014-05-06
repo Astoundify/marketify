@@ -5,6 +5,26 @@
  * @package Marketify
  */
 
+function marketify_edd_fes_admin_notice() {
+?>
+	<div class="updated error">
+       <p>A few things have changed in Frontend Submissions 2.2. Please <a href="http://docs.astoundify.com/marketify/#upgrading-to-fes-2-2-101">review the documentation</a> and take the necessary steps for migrating your content. &nbsp;&bull;&nbsp; <a href="<?php echo esc_url( add_query_arg( 'marketify_fes_nag_hide', '0', admin_url() ) ); ?>">Hide Notice</a></p>
+    </div>
+<?php
+}
+if ( version_compare( fes_plugin_version, '2.2', '>=' ) && ! get_user_meta( get_current_user_id(), 'marketify_fes_nag_hide' ) ) {
+	add_action( 'admin_notices', 'marketify_edd_fes_admin_notice' );
+}
+
+function marketify_edd_fes_admin_notice_ignore() {
+	$user_id = get_current_user_id();
+
+	if ( isset( $_GET[ 'marketify_fes_nag_hide' ] ) && '0' == $_GET[ 'marketify_fes_nag_hide '] ) {
+		add_user_meta( $user_id, 'marketify_fes_nag_hide', 'true', true );
+	}
+}
+add_action( 'admin_init', 'marketify_edd_fes_admin_notice_ignore');
+
 function marketify_edd_fes_author_url( $author = null ) {
 	if ( ! $author ) {
 		$author = wp_get_current_user();
