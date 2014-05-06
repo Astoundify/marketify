@@ -704,6 +704,30 @@ function marketify_find_page_with_template( $template ) {
 	return $_page;
 }
 
+function marketify_edd_fes_author_url( $author = null ) {
+	if ( ! $author ) {
+		$author = wp_get_current_user();
+	} else {
+		$author = new WP_User( $author );
+	}
+
+	if ( ! class_exists( 'EDD_Front_End_Submissions' ) ) {
+		return get_author_posts_url( $author->ID, $author->user_nicename );
+	}
+
+	global $wp_rewrite;
+
+	if ( $wp_rewrite->permalink_structure == '' ) {
+		$vendor_url = add_query_arg( 'vendor', $author->user_nicename, get_permalink( EDD_FES()->helper->get_option( 'fes-vendor-page', false ) ) );
+	} else {
+		$vendor_url = trailingslashit( get_permalink( EDD_FES()->helper->get_option( 'fes-vendor-page', false ) ) ) . trailingslashit( $author->user_nicename );
+	}
+
+	$vendor_url = apply_filters( 'fes_vendor_archive_url', $vendor_url, $author );
+
+	return $vendor_url;
+}
+
 /**
  * Implement the Custom Header feature.
  */

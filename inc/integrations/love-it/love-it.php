@@ -109,6 +109,10 @@ class Marketify_Love_It_Archives {
 
 		$page = marketify_find_page_with_template( 'page-templates/wishlist.php' );
 
+		if ( ! $page ) {
+			return;
+		}
+
 		$new_rules = array(
 			$page->post_name . '/([^/]+)/?$' => 'index.php?page_id=' . $page->ID . '&author_wishlist=' . $wp_rewrite->preg_index(1),
 		);

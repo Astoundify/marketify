@@ -25,26 +25,6 @@ function marketify_edd_fes_admin_notice_ignore() {
 }
 add_action( 'admin_init', 'marketify_edd_fes_admin_notice_ignore');
 
-function marketify_edd_fes_author_url( $author = null ) {
-	if ( ! $author ) {
-		$author = wp_get_current_user();
-	} else {
-		$author = new WP_User( $author );
-	}
-
-	global $wp_rewrite;
-
-	if ( $wp_rewrite->permalink_structure == '' ) {
-		$vendor_url = add_query_arg( 'vendor', $author->user_nicename, get_permalink( EDD_FES()->helper->get_option( 'fes-vendor-page', false ) ) );
-	} else {
-		$vendor_url = trailingslashit( get_permalink( EDD_FES()->helper->get_option( 'fes-vendor-page', false ) ) ) . trailingslashit( $author->user_nicename );
-	}
-
-	$vendor_url = apply_filters( 'fes_vendor_archive_url', $vendor_url, $author );
-
-	return $vendor_url;
-}
-
 /**
  * Change the reCAPTCHA color scheme.
  *
