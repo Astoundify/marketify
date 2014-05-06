@@ -741,6 +741,9 @@ if ( function_exists( 'soliloquy' ) ) {
  * Integrations
  */
 
+// TGM Plugin Activation
+require_once( get_template_directory() . '/inc/tgmpa/plugins.php' );
+
 // Jetpack
 require get_template_directory() . '/inc/integrations/jetpack/jetpack.php';
 

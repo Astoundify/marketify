@@ -11,7 +11,10 @@ get_header(); ?>
 
 	<header class="page-header">
 		<?php the_post(); ?>
-		<h1 class="page-title"><?php the_title(); ?></h1>
+
+		<div class="container">
+			<h1 class="page-title"><?php the_title(); ?></h1>
+		</div>
 
 		<?php
 			if (
@@ -56,7 +59,7 @@ get_header(); ?>
 				</main><!-- #main -->
 			</section><!-- #primary -->
 
-			<?php get_sidebar( 'sidebar-single-download' ); ?>
+			<?php get_sidebar( 'single-download' ); ?>
 
 		</div><!-- #content -->
 
