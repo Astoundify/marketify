@@ -46,7 +46,7 @@ get_header(); ?>
 
 								printf( '<div class="gravatar">%1$s %2$s</div>',
 									sprintf( '<div class="author-social">%1$s</div>', $social ),
-									get_avatar( $user_id, 300 )
+									get_avatar( $user_id, 400 )
 								);
 							?>
 							<?php
@@ -83,5 +83,5 @@ get_header(); ?>
 
 		</div>
 	</div>
-	
+
 <?php get_footer(); ?>
