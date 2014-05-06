@@ -1990,6 +1990,11 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	top: 60%;
 }
 
+.content-grid-download.portrait .entry-image:hover .item-price,
+.content-grid-download.portrait .entry-image.hover .item-price {
+	top: 50%;
+}
+
 .content-grid-download .entry-image .item-price span {
 	font: 400 13px 'Montserrat', sans-serif;
 	color: #fff;
@@ -3443,8 +3448,8 @@ body .soliloquy-theme-classic .soliloquy-pager {
 }
 
 .download-author img {
-	width: 50px;
-	height: 50px;
+	width: 65px;
+	height: 65px;
 }
 
 .download-author-social {
@@ -3846,6 +3851,10 @@ body .soliloquy-theme-classic .soliloquy-pager {
 /* =Love It
 ----------------------------------------------- */
 
+.image-grid-previewer-wrap {
+	position: relative;
+}
+
 .love-it-wrapper .loved,
 .love-it-wrapper .love-it {
 	color: #ea626f;
@@ -3854,13 +3863,6 @@ body .soliloquy-theme-classic .soliloquy-pager {
 	position: relative;
 	z-index: 5;
 	visibility: hidden;
-}
-
-.love-it-pro.single-download .love-it-wrapper .love-it,
-.single-download .edd-recommended-products .love-it-wrapper .love-it,
-.single-download .download-author .love-it-wrapper .loved,
-.single-download .download-author .love-it-wrapper .love-it {
-	right: 0;
 }
 
 .love-it-wrapper .love-it:before,
@@ -3878,7 +3880,8 @@ body .soliloquy-theme-classic .soliloquy-pager {
 	content: '\2665';
 }
 
-.content-grid-download .love-it-wrapper {
+.content-grid-download .love-it-wrapper,
+.image-grid-previewer-wrap .love-it-wrapper {
 	font-size: 0;
 	visibility: hidden;
 	float: right;
@@ -3886,7 +3889,7 @@ body .soliloquy-theme-classic .soliloquy-pager {
 }
 
 .content-grid-download .love-it-wrapper:after,
-.download-author .love-it-wrapper:after {
+.image-grid-previewer-wrap .love-it-wrapper:after {
 	width: 0;
 	height: 0;
 	position: absolute;
@@ -3898,25 +3901,24 @@ body .soliloquy-theme-classic .soliloquy-pager {
 	visibility: visible;
 }
 
-.download-author .love-it-wrapper {
+.image-grid-previewer-wrap .love-it-wrapper {
 	position: absolute;
 	top: 0;
-	right: 0;
+	right: 15px;
 	margin: 0;
+	z-index: 10;
 }
 
-.download-author .love-it-wrapper:after {
+.image-grid-previewer-wrap .love-it-wrapper:after {
 	border-top-color: #bdc3c7;
 }
 
-.download-author .love-it-wrapper .love-it,
-.download-author .love-it-wrapper .loved {
-	right: -13px;
+.image-grid-previewer-wrap .love-it-wrapper .love-it,
+.image-grid-previewer-wrap .love-it-wrapper .loved {
 	color: #fff;
 }
 
-.love-it-wrapper .love-count,
-.author.archive .download-author .love-it-wrapper {
+.love-it-wrapper .love-count {
 	display: none;
 }
 

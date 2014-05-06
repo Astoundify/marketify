@@ -121,6 +121,12 @@ function marketify_get_theme_mods( $args = array() ) {
 				),
 				'priority' => 30
 			),
+			'product-display-aspect' => array(
+				'title'    => __( 'Use Portrait aspect ratio' ),
+				'type'     => 'checkbox',
+				'std'      => 0,
+				'priority' => 35
+			),
 			'product-display-excerpt' => array(
 				'title'   => __( 'Display excerpt on grid items' ),
 				'type'    => 'checkbox',

@@ -331,12 +331,13 @@ function marketify_download_grid_previewer() {
 	echo $before;
 	?>
 
-	<div class="row">
+	<div class="row image-grid-previewer-wrap">
+		<?php do_action( 'marketify_download_grid_previewer_before' ); ?>
 		<div class="col-sm-12 image-preview">
 			<a id="1" href="<?php echo wp_get_attachment_url( $image->ID ); ?>" class="image-preview-gallery"><?php echo wp_get_attachment_image( current( $images )->ID, 'large' ); ?></a>
 		</div>
 
-		<div class="col-sm-12">
+		<div class="col-sm-12 image-grid-previewer">
 			<ul class="slides row">
 				<?php $i = 1; foreach ( $images as $image ) : ?>
 				<li class="col-lg-2 col-md-3 col-sm-4 col-xs-6"><a id="<?php echo $i; ?>" href="<?php echo wp_get_attachment_url( $image->ID ); ?>" class="image-preview-gallery"><?php echo wp_get_attachment_image( $image->ID, 'large' ); ?></a></li>

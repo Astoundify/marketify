@@ -28,8 +28,9 @@ function marketify_li_love_link() {
 		echo li_love_link();
 	}
 }
-add_action( 'marketify_download_author_before', 'marketify_li_love_link' );
+add_action( 'marketify_download_grid_previewer_before', 'marketify_li_love_link' );
 add_action( 'marketify_download_content_image_overlay_before', 'marketify_li_love_link' );
+add_action( 'marketify_download_previewer_before', 'marketify_li_love_link' );
 
 function marketify_love_it_url( $author = null ) {
 	if ( ! $author ) {
@@ -107,7 +108,7 @@ class Marketify_Love_It_Archives {
 	public function rewrites() {
 		global $wp_rewrite;
 
-		$page = marketify_find_page_with_template( 'page-templates/wishlist.php' );
+		$page = get_post( marketify_find_page_with_template( 'page-templates/wishlist.php' ) );
 
 		if ( ! $page ) {
 			return;

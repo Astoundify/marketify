@@ -45,18 +45,36 @@ function marketify_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
+	if ( marketify_theme_mod( 'product-display', 'product-display-aspect' ) ) {
+		$g_w = 440;
+		$g_h = 600;
+		$g_c = true;
+
+		$s_w = 9999;
+		$s_h = 9999;
+		$s_c = false;
+	} else {
+		$g_w = 640;
+		$g_h = 400;
+		$g_c = true;
+
+		$s_w = 9999;
+		$s_h = 400;
+		$s_c = true;
+	}
+
 	add_image_size(
 		'content-grid-download',
-		apply_filters( 'marketify_image_content_grid_download_w', 640  ),
-		apply_filters( 'marketify_image_content_grid_download_h', 440  ),
-		apply_filters( 'marketify_image_content_grid_download_c', true )
+		apply_filters( 'marketify_image_content_grid_download_w', $g_w ),
+		apply_filters( 'marketify_image_content_grid_download_h', $g_h ),
+		apply_filters( 'marketify_image_content_grid_download_c', $g_c )
 	);
 
 	add_image_size(
 		'content-single-download',
-		apply_filters( 'marketify_image_content_single_download_w', 9999 ),
-		apply_filters( 'marketify_image_content_single_download_h', 400  ),
-		apply_filters( 'marketify_image_content_single_download_c', true )
+		apply_filters( 'marketify_image_content_single_download_w', $s_w ),
+		apply_filters( 'marketify_image_content_single_download_h', $s_h ),
+		apply_filters( 'marketify_image_content_single_download_c', $s_c )
 	);
 
 	if (class_exists('MultiPostThumbnails')) {
@@ -606,6 +624,10 @@ function marketify_post_classes( $classes ) {
 
 	if ( marketify_theme_mod( 'product-display', 'product-display-truncate-title' ) ) {
 		$classes[] = 'truncate-title';
+	}
+
+	if ( marketify_theme_mod( 'product-display', 'product-display-aspect' ) ) {
+		$classes[] = 'portrait';
 	}
 
 	return $classes;
