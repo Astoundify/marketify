@@ -123,7 +123,7 @@ Marketify.App = ( function($) {
 				equalHeights( equalHeighters );
 			});
 
-			$( '.popup-trigger' ).click(function(e) {
+			$(document).on( 'click', '.popup-trigger', function(e) {
 				e.preventDefault();
 
 				Marketify.App.popup({

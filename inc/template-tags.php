@@ -12,7 +12,12 @@
 function marketify_downloads_section_title() {
 	if ( is_page_template( 'page-templates/popular.php' ) ) {
 		$cat   = get_term( get_query_var( 'popular_cat' ), 'download_category' );
-		$base  = $cat->name;
+
+		if ( is_wp_error( $cat ) ) {
+			$base = '';
+		} else {
+			$base  = $cat->name;
+		}
 
 		printf( __( 'Popular %s', 'marketify' ), $base );
 	} else {
