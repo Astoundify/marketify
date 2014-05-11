@@ -1988,12 +1988,7 @@ body.product-display-inline .single-project .page-header {
 
 .content-grid-download .entry-image:hover .item-price,
 .content-grid-download .entry-image.hover .item-price {
-	top: 60%;
-}
-
-.content-grid-download.portrait .entry-image:hover .item-price,
-.content-grid-download.portrait .entry-image.hover .item-price {
-	top: 50%;
+	margin-top: 10px;
 }
 
 .content-grid-download .entry-image .item-price span {

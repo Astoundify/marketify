@@ -568,7 +568,7 @@ add_action( 'wp_enqueue_scripts', 'marketify_scripts' );
  * Adds custom classes to the array of body classes.
  */
 function marketify_body_classes( $classes ) {
-	global $wp_query, $fes_settings;
+	global $wp_query;
 
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
@@ -590,7 +590,7 @@ function marketify_body_classes( $classes ) {
 		$classes[] = 'archive-download';
 	}
 
-	if ( class_exists( 'EDD_Front_End_Submissions' ) && is_page( $fes_settings[ 'fes-vendor-dashboard-page' ] ) ) {
+	if ( class_exists( 'EDD_Front_End_Submissions' ) && is_page( EDD_FES()->helper->get_option( 'fes-vendor-dashboard-page' ) ) ) {
 		$classes[] = 'fes-page';
 	}
 
@@ -737,17 +737,7 @@ function marketify_edd_fes_author_url( $author = null ) {
 		return get_author_posts_url( $author->ID, $author->user_nicename );
 	}
 
-	global $wp_rewrite;
-
-	if ( $wp_rewrite->permalink_structure == '' ) {
-		$vendor_url = add_query_arg( 'vendor', $author->user_nicename, get_permalink( EDD_FES()->helper->get_option( 'fes-vendor-page', false ) ) );
-	} else {
-		$vendor_url = trailingslashit( get_permalink( EDD_FES()->helper->get_option( 'fes-vendor-page', false ) ) ) . trailingslashit( $author->user_nicename );
-	}
-
-	$vendor_url = apply_filters( 'fes_vendor_archive_url', $vendor_url, $author );
-
-	return $vendor_url;
+	return FES_Vendors::get_vendor_store_url( $author );
 }
 
 /**
@@ -834,9 +824,11 @@ if ( class_exists( 'Woothemes_Testimonials' ) ) {
 }
 
 // WooTheme Projects
+/*
 if ( class_exists( 'Projects' ) ) {
 	require get_template_directory() . '/inc/integrations/woo-projects/projects.php';
 }
+*/
 
 // Love It
 if ( defined( 'LI_BASE_DIR' ) || class_exists( 'Love_It_Pro' ) ) {

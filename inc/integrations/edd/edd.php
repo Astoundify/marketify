@@ -135,8 +135,9 @@ add_filter( 'edd_downloads_list_wrapper_class', 'marketify_edd_downloads_list_wr
  * @return string The updated class list
  */
 function marketify_edd_download_class( $class, $id, $atts ) {
-	if ( ! isset( $atts[ 'columns' ] ) )
-		$atts[ 'columns' ] = 3;
+	if ( ! isset( $atts[ 'columns' ] ) ) {
+		$atts[ 'columns' ] = marketify_theme_mod( 'product-display', 'product-display-columns' );
+	}
 
 	if ( 4 == $atts[ 'columns' ] )
 		$cols = 3;
@@ -147,7 +148,17 @@ function marketify_edd_download_class( $class, $id, $atts ) {
 	else
 		$cols = 12;
 
-	return $class . sprintf( ' content-grid-download col-lg-%d col-md-6 col-sm-6 col-xs-12', $cols );
+	$classes = array(
+		'content-grid-download',
+		'col-lg-%d',
+		'col-md-6',
+		'col-xs-12'
+	);
+
+	$newclass = marketify_post_classes( $classes );
+	$newclass = implode( ' ', $newclass );
+
+	return $class . ' ' . sprintf( $newclass, $cols );
 }
 add_filter( 'edd_download_class', 'marketify_edd_download_class', 10, 3 );
 
