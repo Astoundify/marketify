@@ -46,7 +46,7 @@ class Marketify_Widget_Slider_Soliloquy extends Marketify_Widget {
 
 		echo $before_widget;
 
-		if ( function_exists( 'soliloquy_slider' ) ) {
+		if ( function_exists( 'soliloquy' ) ) {
 			add_filter( 'soliloquy_output_before_caption', array( $this, 'soliloquy_output_before_caption' ), 10, 5 );
 			add_filter( 'soliloquy_output_after_caption', array( $this, 'soliloquy_output_after_caption' ), 10, 5 );
 			add_filter( 'soliloquy_output_caption', array( $this, 'soliloquy_output_caption' ), 10, 5 );

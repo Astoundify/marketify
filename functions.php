@@ -737,7 +737,7 @@ function marketify_edd_fes_author_url( $author = null ) {
 		return get_author_posts_url( $author->ID, $author->user_nicename );
 	}
 
-	return FES_Vendors::get_vendor_store_url( $author );
+	return FES_Vendors::get_vendor_store_url( $author->ID );
 }
 
 /**
@@ -824,11 +824,9 @@ if ( class_exists( 'Woothemes_Testimonials' ) ) {
 }
 
 // WooTheme Projects
-/*
 if ( class_exists( 'Projects' ) ) {
 	require get_template_directory() . '/inc/integrations/woo-projects/projects.php';
 }
-*/
 
 // Love It
 if ( defined( 'LI_BASE_DIR' ) || class_exists( 'Love_It_Pro' ) ) {

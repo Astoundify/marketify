@@ -366,7 +366,7 @@ function marketify_header_css() {
 	.main-navigation .edd-cart .cart_item.edd_checkout a,
 	.page-header .button:hover,
 	.content-grid-download .button:hover,
-	.soliloquy-caption a.button:hover,
+	body .marketify_widget_slider_hero .soliloquy-caption a.button:hover,
 	#edd_checkout_form_wrap fieldset#edd_cc_fields legend,
 	.marketify_widget_featured_popular .home-widget-title span:hover,
 	.marketify_widget_featured_popular .home-widget-title span.active,

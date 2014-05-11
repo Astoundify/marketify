@@ -481,14 +481,14 @@ input[name="edd_update_cart_submit"],
 
 .page-header .button,
 .content-grid-download .button,
-.soliloquy-caption a.button {
+body .marketify_widget_slider_hero .soliloquy-caption a.button {
 	color: #fff;
 	border-color: #fff;
 }
 
 .page-header .button:hover,
 .content-grid-download .button:hover,
-.soliloquy-caption a.button:hover {
+body .marketify_widget_slider_hero .soliloquy-caption a.button:hover {
 	background-color: #fff;
 }
 
@@ -1070,12 +1070,16 @@ a.insert-file-row {
 
 .page-header .button,
 .page-header a.button,
-.soliloquy-caption a.button {
+body .marketify_widget_slider_hero .soliloquy-caption a.button {
 	font-size: 18px;
 	border-width: 3px;
 	margin: 0 15px;
 	padding: 14px 24px;
 	border-radius: 0;
+}
+
+body .marketify_widget_slider_hero .soliloquy-caption a.button:hover {
+	color: #ddd;
 }
 
 .section-title,
@@ -1736,8 +1740,7 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 /* =Download
 ----------------------------------------------- */
 
-.single-download .page-header,
-.single-project .page-header {
+.single-download .page-header {
 	padding-bottom: 0;
 }
 
@@ -1745,8 +1748,9 @@ body:not(.minimal) .edd_form fieldset > span:first-child {
 	padding-bottom: 100px;
 }
 
-.product-display-inline.force-buy.single-download .page-heade,
-body.product-display-inline .single-project .page-header {
+.product-display-inline.force-buy.single-download .page-header,
+body.product-display-inline .single-project .page-header,
+.single-project .page-header {
 	padding-bottom: 40px;
 }
 
@@ -3032,17 +3036,18 @@ object {
 /**
  * Slider
  */
-.soliloquy-container {
-	margin: 100px 0;
+body .marketify_widget_slider_hero .soliloquy-container {
+	height: auto;
+	max-height: none;
 }
 
-.soliloquy-container .soliloquy .soliloquy-slides img {
+body .marketify_widget_slider_hero .soliloquy-container .soliloquy .soliloquy-slides img {
 	width: auto;
 	height: auto;
 }
 
-body .soliloquy-container .soliloquy-caption {
-	max-width: 50%;
+body .marketify_widget_slider_hero .soliloquy-container .soliloquy-caption {
+	max-width: 80%;
 	margin: 40px auto 0;
 	position: relative;
 	left: auto;
@@ -3052,7 +3057,7 @@ body .soliloquy-container .soliloquy-caption {
 	background: none;
 }
 
-body .soliloquy-container .soliloquy-caption .soliloquy-caption-inside {
+body .marketify_widget_slider_hero .soliloquy-container .soliloquy-caption .soliloquy-caption-inside {
 	font-size: 16px;
 	line-height: 26px;
 	text-align: center;
@@ -3061,29 +3066,29 @@ body .soliloquy-container .soliloquy-caption .soliloquy-caption-inside {
 	padding: 0;
 }
 
-h2.soliloquy-caption-title {
+body .marketify_widget_slider_hero h2.soliloquy-caption-title {
 	font: 700 58px 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	color: #fff;
 }
 
-body .soliloquy-container .soliloquy-caption .caption-alt {
+body .marketify_widget_slider_hero .soliloquy-container .soliloquy-caption .caption-alt {
 	display: none;
 }
 
-body .soliloquy-control-nav.soliloquy-control-paging {
+body .marketify_widget_slider_hero .soliloquy-control-nav.soliloquy-control-paging {
 	position: absolute;
 	bottom: 50px;
 	left: 50%;
 }
 
-body .soliloquy-control-nav.soliloquy-control-paging a {
+body .marketify_widget_slider_hero .soliloquy-control-nav.soliloquy-control-paging a {
 	-webkit-transition: none;
 	-moz-transition:    none;
 	transition:         none;
 }
 
-body .soliloquy-container .soliloquy-caption-outer {
+body .marketify_widget_slider_hero .soliloquy-container .soliloquy-caption-outer {
 	text-align: center;
 	width: 100%;
 	position: absolute;
@@ -3096,16 +3101,16 @@ body .soliloquy-container .soliloquy-caption-outer {
 	transform:         translate(0, -50%);
 }
 
-.soliloquy-container .soliloquy-caption-outer .button {
+body .marketify_widget_slider_hero .soliloquy-container .soliloquy-caption-outer .button {
 	display: inline-block !important;
 }
 
-body .soliloquy-container .soliloquy-caption-outer p {
+body .marketify_widget_slider_hero .soliloquy-container .soliloquy-caption-outer p {
 	margin-bottom: 1.5em;
 	line-height: 26px;
 }
 
-body .soliloquy-theme-classic .soliloquy-pager {
+body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 	text-align: center;
 }
 
@@ -4307,12 +4312,12 @@ body .soliloquy-theme-classic .soliloquy-pager {
 }
 
 @media screen and (max-width: 768px) {
-	body .soliloquy-container .soliloquy-caption  {
+	body .marketify_widget_slider_hero .soliloquy-container .soliloquy-caption  {
 		max-width: 80%;
 		margin-top: 20px;
 	}
 
-	body .soliloquy-container .soliloquy-caption a.button {
+	body .marketify_widget_slider_hero .soliloquy-container .soliloquy-caption a.button {
 		font-weight: 400;
 		font-size: 14px;
 		border-width: 2px;
@@ -4367,11 +4372,11 @@ body .soliloquy-theme-classic .soliloquy-pager {
 		height: auto !important;
 	}
 
-	body .soliloquy-container .soliloquy-caption .caption-full {
+	body .marketify_widget_slider_hero .soliloquy-container .soliloquy-caption .caption-full {
 		display: none;
 	}
 
-	body .soliloquy-container .soliloquy-caption .caption-alt {
+	body .marketify_widget_slider_hero .soliloquy-container .soliloquy-caption .caption-alt {
 		display: block;
 	}
 }
@@ -4413,7 +4418,7 @@ body .soliloquy-theme-classic .soliloquy-pager {
 }
 
 @media screen and (max-width: 500px) {
-	h2.soliloquy-caption-title {
+	body .marketify_widget_slider_hero h2.soliloquy-caption-title {
 		font-size: 30px;
 	}
 

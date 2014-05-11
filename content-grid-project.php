@@ -15,13 +15,13 @@ $client = get_post_meta( $post->ID, '_client', true );
 
 			<div class="actions">
 				<a href="<?php the_permalink(); ?>" rel="bookmark" class="button"><?php _e( 'Project Details', 'marketify' ); ?></a>
-			</div>
 
-			<?php if ( $client ) : ?>
-			<strong class="item-price">
-				<span><?php printf( 'Client: %s', esc_attr( $client ) ); ?></span>
-			</strong>
-			<?php endif; ?>
+				<?php if ( $client ) : ?>
+				<strong class="item-price">
+					<span><?php printf( 'Client: %s', esc_attr( $client ) ); ?></span>
+				</strong>
+				<?php endif; ?>
+			</div>
 
 			<?php do_action( 'marketify_project_content_image_overlay_after' ); ?>
 		</div>
