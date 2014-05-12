@@ -1931,6 +1931,7 @@ body.product-display-inline .single-project .page-header,
 
 .content-grid-download .entry-image .actions {
 	width: 100%;
+	height: 42px;
 	position: absolute;
 	top: 50%;
 	bottom: 10%;
