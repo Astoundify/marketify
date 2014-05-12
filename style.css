@@ -1090,7 +1090,7 @@ body .marketify_widget_slider_hero .soliloquy-caption a.button:hover {
 .fes-section-wrap,
 body:not(.minimal) .edd_form fieldset > span,
 .modal-header,
-.fes-headers {
+.entry-content .fes-headers {
 	text-align: center;
 	width: 100%;
 	margin: 70px 0;
@@ -1145,7 +1145,8 @@ body:not(.minimal) .edd_form fieldset > span legend,
 	border-color: #bdc3c7;
 }
 
-body:not(.minimal) .edd_form fieldset > span:first-child {
+body:not(.minimal) .edd_form fieldset > span:first-child,
+.entry-content .fes-headers {
 	margin-top: 0;
 }
 

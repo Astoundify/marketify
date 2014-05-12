@@ -58,11 +58,6 @@ function jobify_register_required_plugins() {
 			'required'  => false,
 		),
 		array(
-			'name'      => 'bbPress',
-			'slug'      => 'bbpress',
-			'required'  => false,
-		),
-		array(
 			'name'      => 'Jetpack',
 			'slug'      => 'jetpack',
 			'required'  => false,
