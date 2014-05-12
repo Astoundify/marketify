@@ -1297,11 +1297,15 @@ td.col-author {
 	vertical-align: middle;
 }
 
+.fes-product-list-status-bar {
+	margin-bottom: 1em;
+}
+
 /* =Misc
 -------------------------------------------------------------- */
 
-.fes-vendor-menu ~ h2,
-.fes-vendor-menu ~ h1 {
+.entry-content .fes-vendor-menu ~ h2,
+.entry-content .fes-vendor-menu ~ h1 {
 	display: none;
 }
 
@@ -1362,6 +1366,11 @@ body .edd_reviews_breakdown .edd-counter-label {
 
 body .edd_reviews_breakdown .edd-counter-back {
 	width: 100px;
+}
+
+div.fes-form fieldset .fes-fields.edd_simple_shipping .edd-fes-shipping-fields label,
+div.fes-form fieldset .fes-fields .edd-shipping-field {
+	margin-right: 4%;
 }
 
 /* =Wish Lists
