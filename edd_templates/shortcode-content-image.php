@@ -15,9 +15,9 @@ global $post;
 			<a href="<?php the_permalink(); ?>" rel="bookmark" class="button"><?php _e( 'Details', 'marketify' ); ?></a>
 
 			<strong class="item-price"><span><?php printf( __( 'Item Price: %s', 'marketify' ), edd_price( get_the_ID(), false ) ); ?></span></strong>
-		</div>
 
-		<?php do_action( 'marketify_download_content_image_overlay_after' ); ?>
+			<?php do_action( 'marketify_download_content_image_overlay_after' ); ?>
+		</div>
 	</div>
 
 	<?php if ( class_exists( 'MultiPostThumbnails' ) && MultiPostThumbnails::get_the_post_thumbnail( 'download', 'grid-image' ) ) : ?>

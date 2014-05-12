@@ -29,7 +29,7 @@ function marketify_download_entry_meta_rating( $comment_id = null ) {
 	else
 		$rating = get_comment_meta( $comment_id, 'edd_rating', true );
 
-	if ( 0 == $rating && ! is_singular( 'download' ) || did_action( 'marketify_entry_before' ) )
+	if ( 0 == $rating || did_action( 'marketify_product_details_before' ) )
 		return;
 ?>
 	<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="star-rating">

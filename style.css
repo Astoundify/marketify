@@ -1983,9 +1983,7 @@ body.product-display-inline .single-project .page-header,
 }
 
 .content-grid-download .entry-image .item-price {
-	position: absolute;
-	top: 100%;
-	left: 0;
+	display: block;
 	width: 100%;
 
 	-webkit-backface-visibility: hidden;
@@ -2000,6 +1998,7 @@ body.product-display-inline .single-project .page-header,
 .content-grid-download .entry-image:hover .item-price,
 .content-grid-download .entry-image.hover .item-price {
 	margin-top: 10px;
+	margin-bottom: 20px;
 }
 
 .content-grid-download .entry-image .item-price span {
@@ -2011,9 +2010,7 @@ body.product-display-inline .single-project .page-header,
 }
 
 .content-grid-download .entry-image .star-rating {
-	position: absolute;
-	top: 100%;
-	left: 0;
+	display: block;
 	width: 100%;
 
 	-webkit-backface-visibility: hidden;
