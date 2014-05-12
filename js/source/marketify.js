@@ -150,7 +150,7 @@ Marketify.App = ( function($) {
 				$( this ).addClass( 'active' );
 			});
 
-			$( '#bbpress-forums #bbp-user-wrapper h2.entry-title, #bbpress-forums fieldset.bbp-form legend, .fes-form h1' ).wrapInner( '<span></span>' );
+			$( '#bbpress-forums #bbp-user-wrapper h2.entry-title, #bbpress-forums fieldset.bbp-form legend, .fes-form h1, .fes-headers' ).wrapInner( '<span></span>' );
 
 			$( '#edd_simple_shipping_fields legend' ).wrap( '<span></span>' );
 

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Marketify 1.2.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/marketify\n"
-"POT-Creation-Date: 2014-05-06 14:11:49+00:00\n"
+"POT-Creation-Date: 2014-05-12 17:47:17+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -70,26 +70,6 @@ msgstr ""
 
 #: archive.php:54
 msgid "Archives"
-msgstr ""
-
-#: author.php:24
-msgid "%s&#39;s Likes"
-msgstr ""
-
-#: author.php:39
-#: inc/integrations/edd/widgets/class-widget-download-details.php:62
-#: page-templates/vendor.php:36 page-templates/wishlist.php:34
-msgid "Author since: %s"
-msgstr ""
-
-#: author.php:55 page-templates/wishlist.php:52
-msgid "Like"
-msgid_plural "Likes"
-msgstr[0] ""
-msgstr[1] ""
-
-#: author.php:93
-msgid "Hey, it looks like %s has not liked anything yet!"
 msgstr ""
 
 #: bbpress/form-search.php:14 searchform-header.php:14 searchform.php:22
@@ -192,7 +172,7 @@ msgstr ""
 msgid "Details"
 msgstr ""
 
-#: edd_templates/shortcode-content-image.php:18
+#: edd_templates/shortcode-content-image.php:17
 msgid "Item Price: %s"
 msgstr ""
 
@@ -216,43 +196,43 @@ msgstr ""
 msgid "&copy; %d %s. All rights reserved."
 msgstr ""
 
-#: functions.php:65
+#: functions.php:83
 msgid "Grid Image"
 msgstr ""
 
-#: functions.php:76
+#: functions.php:94
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:77
+#: functions.php:95
 msgid "Footer Social"
 msgstr ""
 
-#: functions.php:344
+#: functions.php:362
 msgid "Homepage"
 msgstr ""
 
-#: functions.php:345
+#: functions.php:363
 msgid "Widgets that appear on the \"Homepage\" Page Template"
 msgstr ""
 
-#: functions.php:355
+#: functions.php:373
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:373
+#: functions.php:391
 msgid "Footer"
 msgstr ""
 
-#: functions.php:374
+#: functions.php:392
 msgid "Widgets that appear in the page footer"
 msgstr ""
 
-#: functions.php:391
+#: functions.php:409
 msgid "Price Table"
 msgstr ""
 
-#: functions.php:393
+#: functions.php:411
 msgid "Drag multiple \"Price Option\" widgets here. Then drag the \"Pricing Table\" widget to the \"Homepage\" Widget Area."
 msgstr ""
 
@@ -260,7 +240,7 @@ msgstr ""
 #. 	 * supported by Source Sans Pro, translate this to 'off'. Do not translate
 #. 	 * into your own language.
 
-#: functions.php:417
+#: functions.php:435
 msgctxt "Source Sans Pro font: on or off"
 msgid "on"
 msgstr ""
@@ -270,7 +250,7 @@ msgstr ""
 #. your
 #. 	 * own language.
 
-#: functions.php:423
+#: functions.php:441
 msgctxt "Roboto Slab font: on or off"
 msgid "on"
 msgstr ""
@@ -280,7 +260,7 @@ msgstr ""
 #. your
 #. 	 * own language.
 
-#: functions.php:429
+#: functions.php:447
 msgctxt "Montserrat font: on or off"
 msgid "on"
 msgstr ""
@@ -341,46 +321,50 @@ msgid "Never show"
 msgstr ""
 
 #: inc/customizer.php:125
-msgid "Display excerpt on grid items"
+msgid "Use Portrait aspect ratio"
 msgstr ""
 
 #: inc/customizer.php:131
-msgid "Truncate grid item titles"
+msgid "Display excerpt on grid items"
 msgstr ""
 
 #: inc/customizer.php:137
+msgid "Truncate grid item titles"
+msgstr ""
+
+#: inc/customizer.php:143
 msgid "Always show buy button"
 msgstr ""
 
-#: inc/customizer.php:145
+#: inc/customizer.php:151
 msgid "Style"
 msgstr ""
 
-#: inc/customizer.php:148
+#: inc/customizer.php:154
 msgid "Dark"
 msgstr ""
 
-#: inc/customizer.php:149
+#: inc/customizer.php:155
 msgid "Light"
 msgstr ""
 
-#: inc/customizer.php:154
+#: inc/customizer.php:160
 msgid "Contact Address"
 msgstr ""
 
-#: inc/customizer.php:159
+#: inc/customizer.php:165
 msgid "Logo"
 msgstr ""
 
-#: inc/customizer.php:166
+#: inc/customizer.php:172
 msgid "Page Header Color"
 msgstr ""
 
-#: inc/customizer.php:171
+#: inc/customizer.php:177
 msgid "Button/Primary Color"
 msgstr ""
 
-#: inc/customizer.php:176
+#: inc/customizer.php:182
 msgid "Accent Color"
 msgstr ""
 
@@ -408,12 +392,12 @@ msgstr ""
 msgid "To play the media you will need to either update your browser to a recent version or update your <a href=\"http://get.adobe.com/flashplayer/\" target=\"_blank\">Flash plugin</a>."
 msgstr ""
 
-#: inc/integrations/edd/edd-template-tags.php:372
+#: inc/integrations/edd/edd-template-tags.php:373
 #: inc/integrations/edd/widgets/class-widget-download-details.php:68
 msgid "Purchase"
 msgstr ""
 
-#: inc/integrations/edd/edd-template-tags.php:420
+#: inc/integrations/edd/edd-template-tags.php:421
 msgid "Demo"
 msgstr ""
 
@@ -429,19 +413,19 @@ msgstr ""
 msgid "%s Single Comments Sidebar"
 msgstr ""
 
-#: inc/integrations/edd/edd.php:243
+#: inc/integrations/edd/edd.php:254
 msgid "Date"
 msgstr ""
 
-#: inc/integrations/edd/edd.php:244
+#: inc/integrations/edd/edd.php:255
 msgid "Title"
 msgstr ""
 
-#: inc/integrations/edd/edd.php:245
+#: inc/integrations/edd/edd.php:256
 msgid "Sales"
 msgstr ""
 
-#: inc/integrations/edd/edd.php:246
+#: inc/integrations/edd/edd.php:257
 msgid "Price"
 msgstr ""
 
@@ -475,6 +459,11 @@ msgstr ""
 
 #: inc/integrations/edd/widgets/class-widget-download-details.php:16
 msgid "Marketify - Download Single: Product Details"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-download-details.php:62
+#: page-templates/vendor.php:36 page-templates/wishlist.php:34
+msgid "Author since: %s"
 msgstr ""
 
 #: inc/integrations/edd/widgets/class-widget-download-details.php:83
@@ -638,7 +627,7 @@ msgstr ""
 msgid "Customer Reviews"
 msgstr ""
 
-#: inc/integrations/love-it/love-it.php:157
+#: inc/integrations/love-it/love-it.php:162
 msgid "%s's Likes"
 msgstr ""
 
@@ -654,41 +643,41 @@ msgstr ""
 msgid "Visit Project"
 msgstr ""
 
-#: inc/template-tags.php:17
+#: inc/template-tags.php:22
 msgid "Popular %s"
 msgstr ""
 
-#: inc/template-tags.php:20
+#: inc/template-tags.php:25
 msgid "by %s"
 msgstr ""
 
-#: inc/template-tags.php:22
+#: inc/template-tags.php:27
 msgid "All %s%s"
 msgstr ""
 
-#: inc/template-tags.php:84
+#: inc/template-tags.php:89
 msgid "Purchased"
 msgstr ""
 
-#: inc/template-tags.php:100
+#: inc/template-tags.php:105
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: inc/template-tags.php:114
+#: inc/template-tags.php:119
 msgid "Edit"
 msgstr ""
 
-#: inc/template-tags.php:118
+#: inc/template-tags.php:123
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/template-tags.php:170
+#: inc/template-tags.php:175
 msgctxt "noun"
 msgid "Menu"
 msgstr ""
 
-#: inc/template-tags.php:206
+#: inc/template-tags.php:211
 msgid "Post navigation"
 msgstr ""
 
@@ -996,7 +985,7 @@ msgid "Display \"Hero\" Soliloquy slider."
 msgstr ""
 
 #: inc/widgets/class-widget-slider-soliloquy.php:16
-msgid "Marketify - Home: Solioquy Slider"
+msgid "Marketify - Home: Soliloquy Slider"
 msgstr ""
 
 #: inc/widgets/class-widget-slider-soliloquy.php:20
@@ -1039,3 +1028,9 @@ msgstr ""
 #: no-results.php:27
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
+
+#: page-templates/wishlist.php:52
+msgid "Like"
+msgid_plural "Likes"
+msgstr[0] ""
+msgstr[1] ""
