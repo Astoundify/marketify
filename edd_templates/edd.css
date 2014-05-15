@@ -1309,14 +1309,20 @@ td.col-author {
 	display: none;
 }
 
-#fes_lost_password_link {
+#fes_lost_password_link,
+.edd-lost-password {
 	margin-top: 1em;
 	text-align: center;
 	text-decoration: none;
 	display: block;
 }
 
-#fes_lost_password_link:before {
+.edd-lost-password a {
+	text-decoration: none;
+}
+
+#fes_lost_password_link:before,
+.edd-lost-password a:before {
 	content: '\2753';
 }
 
