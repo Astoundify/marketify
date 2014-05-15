@@ -6,6 +6,20 @@
  */
 
 /**
+ * Don't link things.
+ *
+ * @since Marketify 1.2
+ *
+ * @return void
+ */
+function marketify_woothemes_features_default_args( $args ) {
+	$args[ 'link_title' ] = false;
+
+	return $args;
+}
+add_filter( 'woothemes_features_default_args', 'marketify_woothemes_features_default_args' );
+
+/**
  * Depending on the settings of the features widgets, apply a filter to
  * the output.
  *
