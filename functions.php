@@ -219,6 +219,8 @@ function marketify_before_shim() {
 		return;
 	}
 
+	$background = apply_filters( 'marketify_header_outer_image', $background );
+
 	printf( '<div class="header-outer%2$s" style="background-image: url(%1$s);">', $background[0], is_array( $background ) ? ' custom-featured-image' : '' );
 }
 add_action( 'before', 'marketify_before_shim' );
@@ -287,8 +289,9 @@ function marketify_has_header_background() {
 
 	$background = apply_filters( 'marketify_has_header_background_force', is_singular( array( 'post', 'page' ) ) || marketify_is_bbpress() ) ? true : false;
 
-	if ( has_post_thumbnail( $post->ID ) )
+	if ( has_post_thumbnail( $post->ID ) && ! is_array( $background ) ) {
 		$background = wp_get_attachment_image_src( get_post_thumbnail_id(), 'fullsize' );
+	}
 
 	$post = $_post;
 

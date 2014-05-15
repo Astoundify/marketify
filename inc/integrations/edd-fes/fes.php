@@ -72,3 +72,29 @@ function marketify_edd_fes_vendor_dashboard_menu( $menu ) {
 	return $menu;
 }
 add_filter( 'fes_vendor_dashboard_menu', 'marketify_edd_fes_vendor_dashboard_menu' );
+
+function marketify_header_outer_image_fes( $background ) {
+	global $wp_query;
+
+	if ( ! is_page_template( 'page-templates/vendor.php' ) ) {
+		return $background;
+	}
+
+	$vendor = isset( $wp_query->query_vars[ 'vendor' ] ) ? $wp_query->query_vars[ 'vendor' ] : null;
+
+	if ( ! $vendor ) {
+		return $background;
+	}
+
+	$vendor = new WP_User( $vendor );
+
+	$image = get_user_meta( $vendor->ID, 'cover_image', true );
+	$image = wp_get_attachment_image_src( $image );
+
+	if ( is_array( $image ) ) {
+		return $image;
+	}
+
+	return $background;
+}
+add_filter( 'marketify_header_outer_image', 'marketify_header_outer_image_fes', 1 );
