@@ -740,6 +740,16 @@ function marketify_edd_fes_author_url( $author = null ) {
 	return FES_Vendors::get_vendor_store_url( $author->ID );
 }
 
+function marketify_count_user_downloads( $userid, $post_type = 'download' ) {
+	global $wpdb;
+
+	$where = get_posts_by_author_sql( $post_type, true, $userid );
+
+	$count = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->posts $where" );
+
+  	return apply_filters( 'get_usernumposts', $count, $userid );
+}
+
 /**
  * Implement the Custom Header feature.
  */

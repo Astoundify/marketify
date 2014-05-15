@@ -72,13 +72,3 @@ function marketify_edd_fes_vendor_dashboard_menu( $menu ) {
 	return $menu;
 }
 add_filter( 'fes_vendor_dashboard_menu', 'marketify_edd_fes_vendor_dashboard_menu' );
-
-function marketify_count_user_downloads( $userid, $post_type = 'download' ) {
-	global $wpdb;
-
-	$where = get_posts_by_author_sql( $post_type, true, $userid );
-
-	$count = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->posts $where" );
-
-  	return apply_filters( 'get_usernumposts', $count, $userid );
-}

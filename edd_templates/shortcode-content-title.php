@@ -1,12 +1,10 @@
 <header class="entry-header">
 	<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 
-	<?php if ( marketify_theme_mod( 'product-display', 'product-display-excerpt' ) ) : ?>
-		<?php if ( class_exists( 'EDD_FES' ) ) : remove_filter( 'the_content', array( EDD_FES()->vendor_shop, 'content' ) ); endif; ?>
+	<?php if ( marketify_theme_mod( 'product-display', 'product-display-excerpt' ) && ! is_page_template( 'page-templates/vendor.php' ) ) : ?>
 
 		<div class="entry-excerpt"><?php the_excerpt(); ?></div>
 
-		<?php if ( class_exists( 'EDD_FES' ) ) : add_filter( 'the_content', array( EDD_FES()->vendor_shop, 'content' ) ); endif; ?>
 	<?php endif; ?>
 
 	<div class="entry-meta">
