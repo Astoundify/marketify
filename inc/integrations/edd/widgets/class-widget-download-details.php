@@ -49,7 +49,7 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 		extract( $args );
 
 		$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
-		$count = isset( $instance[ 'purchase-count' ] ) && 'on' == $instance[ 'purchase-count' ] ? true : false;
+		$count = isset( $instance[ 'purchase-count' ] ) && 1 == $instance[ 'purchase-count' ] ? false : true;
 
 		echo $before_widget;
 
