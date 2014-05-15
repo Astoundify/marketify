@@ -128,7 +128,10 @@ Marketify.App = ( function($) {
 
 				Marketify.App.popup({
 					items : {
-						src : $(this).attr( 'href' )
+						src : $(this).attr( 'href' ),
+						fixedContentPos: false,
+						fixedBgPos: false,
+						overflowY: 'scroll'
 					}
 				});
 			});
