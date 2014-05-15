@@ -3068,6 +3068,8 @@ body .marketify_widget_slider_hero .soliloquy-container .soliloquy-caption .soli
 	text-shadow: none;
 	background: none;
 	padding: 0;
+	max-width: 75%;
+	margin: 0 auto;
 }
 
 body .marketify_widget_slider_hero h2.soliloquy-caption-title {
