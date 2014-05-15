@@ -3420,6 +3420,11 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 	float: left;
 }
 
+.download-product-details .download-comments.full,
+.download-product-details .download-ratings.full {
+	width: 100%;
+}
+
 .download-product-details .download-purchases {
 	border-right: 1px solid #bdc3c7
 }

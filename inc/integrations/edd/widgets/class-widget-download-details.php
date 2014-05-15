@@ -19,6 +19,11 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 				'type'  => 'text',
 				'std'   => 'Product Details',
 				'label' => __( 'Title:', 'marketify' )
+			),
+			'purchase-count' => array(
+				'type'  => 'checkbox',
+				'std'   => '',
+				'label' => __( 'Hide purchase count', 'marketify' )
 			)
 		);
 		parent::__construct();
@@ -44,6 +49,7 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 		extract( $args );
 
 		$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+		$count = isset( $instance[ 'purchase-count' ] ) && 'on' == $instance[ 'purchase-count' ] ? true : false;
 
 		echo $before_widget;
 
@@ -63,14 +69,16 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 					<?php do_action( 'marketify_download_author_after' ); ?>
 				</div>
 
+				<?php if ( $count ) : ?>
 				<div class="download-purchases">
 					<strong><?php echo edd_get_download_sales_stats( get_the_ID() ); ?></strong>
 					<?php echo _n( 'Purchase', 'Purchases', edd_get_download_sales_stats( get_the_ID() ), 'marketify' ); ?>
 				</div>
+				<?php endif; ?>
 
 				<?php if ( class_exists( 'EDD_Reviews' ) ) : ?>
 				<?php $rating = edd_reviews()->average_rating( false ); ?>
-				<div class="download-ratings">
+				<div class="download-ratings <?php echo ! $count ? 'full' : ''; ?>">
 					<a href="#comments"><strong>
 						<?php for ( $i = 1; $i <= $rating; $i++ ) : ?>
 						<i class="icon-star"></i>
@@ -83,7 +91,7 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 					<?php _e( 'Average Rating', 'marketify' ); ?></a>
 				</div>
 				<?php else : ?>
-				<div class="download-comments">
+				<div class="download-comments <?php echo ! $count ? 'full' : ''; ?>">
 					<a href="#comments"><strong><?php echo get_comments_number(); ?></strong>
 					<?php echo _n( 'Comment', 'Comments', get_comments_number(), 'marketify' ); ?></a>
 				</div>
