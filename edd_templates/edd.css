@@ -1306,7 +1306,7 @@ td.col-author {
 
 .entry-content .fes-vendor-menu ~ h2,
 .entry-content .fes-vendor-menu ~ h1 {
-	display: none;
+	display: none !important;
 }
 
 #fes_lost_password_link,
