@@ -432,7 +432,7 @@ a.edd-wl-action,
 .fes-feat-image-btn,
 .upload_file_button,
 .insert-file-row,
-.fes-headers span {
+body:not(.minimal) .fes-headers span {
 	font: 700 13px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -1090,7 +1090,7 @@ body .marketify_widget_slider_hero .soliloquy-caption a.button:hover {
 .fes-section-wrap,
 body:not(.minimal) .edd_form fieldset > span,
 .modal-header,
-.entry-content .fes-headers {
+body:not(.minimal) .entry-content .fes-headers {
 	text-align: center;
 	width: 100%;
 	margin: 70px 0;
@@ -1105,7 +1105,7 @@ body:not(.minimal) .edd_form fieldset > span,
 .fes-section-wrap:after,
 body:not(.minimal) .edd_form fieldset > span:after,
 .modal-header:after,
-.fes-headers:after {
+body:not(.minimal) .fes-headers:after {
 	content: ' ';
 	position: absolute;
 	left: 0;
@@ -1122,7 +1122,7 @@ body:not(.minimal) .edd_form fieldset > span:after,
 .entry-content .fes-section-wrap h2,
 body:not(.minimal) .edd_form fieldset > span legend,
 #edd-wl-modal h2#edd-wl-modal-label,
-.fes-headers span {
+body:not(.minimal) .fes-headers span {
 	font-size: 15px;
 	text-align: center;
 	margin: 0 auto;
@@ -1140,7 +1140,7 @@ body:not(.minimal) .edd_form fieldset > span legend,
 #edd-wl-modal h2#edd-wl-modal-label,
 .download-sorting select,
 .download-sorting span,
-.fes-headers span {
+body:not(.minimal) .fes-headers span {
 	color: #bdc3c7;
 	border-color: #bdc3c7;
 }
