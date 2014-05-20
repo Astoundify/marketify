@@ -3482,6 +3482,7 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 }
 
 .product-details-pull {
+	color: #82878E;
 	margin-top: -30px;
 	margin-bottom: 40px;
 	text-align: center;
@@ -3513,6 +3514,14 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 
 .download-product-details .edd_price {
 	margin-bottom: 0;
+}
+
+.product-details-pull .edd-cp-container {
+	color: #505965;
+}
+
+.product-details-pull input[type="text"].edd_cp_price {
+	border: 1px solid #bdc3c7;
 }
 
 /** Cart */

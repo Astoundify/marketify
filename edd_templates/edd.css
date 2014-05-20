@@ -1348,9 +1348,10 @@ td.col-author {
 }
 
 input[type="text"].edd_cp_price {
-	width: 100% !important;
+	width: 80px !important;
 	border: 0;
-	margin: 5px 0 2px;
+	margin: 5px 8px 2px 5px;
+	display: inline-block;
 }
 
 #edd_address_country {
