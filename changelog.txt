@@ -10,6 +10,7 @@
 * New: Homepage taxonomy widget to display tags or categories in a "styled" way.
 * New: Add a "Description" field to some homepage widgets.
 * New: Images for the "Audio" post format are output under the audio player.
+* New: Author profiles can now have a header background image when using FES add an upload fields to the vendor profile with the meta key of `cover_image`.
 * Fix: Soliloquy 2.0.0+ compatibility. Requires Soliloquy 2.0.0+ to continue using widget.
 * Fix: FES 2.2.0+ compatibility. Requires FES 2.2.0+ to continue using.
 * Fix: Make sure ratings schema is properly output

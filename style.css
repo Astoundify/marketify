@@ -1889,6 +1889,10 @@ body.product-display-inline .single-project .page-header,
 	display: block;
 }
 
+.content-grid-download .entry-image img {
+	min-width: 100%;
+}
+
 .content-grid-download .entry-image .image-placeholder {
 	min-height: 200px;
 	background: #eee;
@@ -2843,7 +2847,6 @@ object {
 }
 
 .feature {
-	margin-bottom: 3em;
 	text-align: center;
 }
 
@@ -2870,7 +2873,7 @@ object {
 .feature-content {
 	color: #515a63;
 	line-height: 1.75;
-	margin: 1.5em 0 5em;
+	margin: 1.5em 0 3em;
 	clear: both;
 }
 
