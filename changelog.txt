@@ -2,6 +2,8 @@
 
 = 1.2.0: May 21, 2014 =
 
+* Note: This is a fairly major update. There should be no backwards compatibility issues but it is always important to test on in a development environment before updating your production website.
+
 * New: Projects by WooThemes support.
 * New: Product page layout using inline previews moves buy now/action buttons to "Product Details" widget.
 * New: Recent Blog Posts widget can be styled like other grid items.
