@@ -1301,6 +1301,12 @@ td.col-author {
 	margin-bottom: 1em;
 }
 
+.fes-avatar-image-upload .fes-avatar-image {
+	display: block;
+	max-width: 100px;
+}
+
+
 /* =Misc
 -------------------------------------------------------------- */
 
