@@ -1314,6 +1314,14 @@ td.col-author {
 	max-height: 100%;
 }
 
+#edd_checkout_form_wrap #edd_simple_shipping_diff_address input[type="checkbox"] {
+	margin-top: -1px;
+}
+
+#edd_simple_shipping_fields legend {
+	display: none;
+}
+
 .entry-content .fes-vendor-menu ~ h2,
 .entry-content .fes-vendor-menu ~ h1 {
 	display: none !important;
