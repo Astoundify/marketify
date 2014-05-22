@@ -255,8 +255,7 @@ body #edd-wl-modal input[type="radio"]:focus {
 }
 
 #edd_checkout_cart input.edd-item-quantity {
-	width: 3em;
-	max-height: 90%;
+	max-width: 3em;
 	padding: 2px;
 }
 
@@ -1309,10 +1308,6 @@ td.col-author {
 
 /* =Misc
 -------------------------------------------------------------- */
-
-#edd_checkout_cart input.edd-item-quantity {
-	max-height: 100%;
-}
 
 #edd_checkout_form_wrap #edd_simple_shipping_diff_address input[type="checkbox"] {
 	margin-top: -1px;
