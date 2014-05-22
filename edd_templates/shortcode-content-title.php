@@ -1,9 +1,17 @@
+<?php
+/**
+ *
+ */
+
+global $post;
+?>
+
 <header class="entry-header">
 	<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 
-	<?php if ( marketify_theme_mod( 'product-display', 'product-display-excerpt' ) && ! is_page_template( 'page-templates/vendor.php' ) ) : ?>
+	<?php if ( marketify_theme_mod( 'product-display', 'product-display-excerpt' ) ) : ?>
 
-		<div class="entry-excerpt"><?php the_excerpt(); ?></div>
+		<div class="entry-excerpt"><?php echo esc_attr( wp_trim_words( $post->post_content, 10 ) ); ?></div>
 
 	<?php endif; ?>
 
