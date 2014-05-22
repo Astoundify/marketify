@@ -1310,6 +1310,10 @@ td.col-author {
 /* =Misc
 -------------------------------------------------------------- */
 
+#edd_checkout_cart input.edd-item-quantity {
+	max-height: 100%;
+}
+
 .entry-content .fes-vendor-menu ~ h2,
 .entry-content .fes-vendor-menu ~ h1 {
 	display: none !important;
