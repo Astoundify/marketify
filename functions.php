@@ -46,8 +46,8 @@ function marketify_setup() {
 	add_theme_support( 'post-thumbnails' );
 
 	if ( marketify_theme_mod( 'product-display', 'product-display-aspect' ) ) {
-		$g_w = 440;
-		$g_h = 600;
+		$g_w = 520;
+		$g_h = 640;
 		$g_c = true;
 
 		$s_w = 9999;
@@ -55,11 +55,11 @@ function marketify_setup() {
 		$s_c = false;
 	} else {
 		$g_w = 640;
-		$g_h = 400;
+		$g_h = 520;
 		$g_c = true;
 
 		$s_w = 9999;
-		$s_h = 400;
+		$s_h = 520;
 		$s_c = true;
 	}
 
