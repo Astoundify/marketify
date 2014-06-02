@@ -89,7 +89,7 @@ function marketify_header_outer_image_fes( $background ) {
 	$vendor = new WP_User( $vendor );
 
 	$image = get_user_meta( $vendor->ID, 'cover_image', true );
-	$image = wp_get_attachment_image_src( $image );
+	$image = wp_get_attachment_image_src( $image, 'fullsize' );
 
 	if ( is_array( $image ) ) {
 		return $image;
