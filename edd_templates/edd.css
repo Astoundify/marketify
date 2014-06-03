@@ -1274,6 +1274,7 @@ td.col-author {
 .entry-content .fes-single-variation .fes-url-choose-row {
 	width: 20%;
 	padding: 0 0 0 15px;
+	vertical-align: top;
 }
 
 .fes-form .multiple .fes-variations-list-multiple td {
