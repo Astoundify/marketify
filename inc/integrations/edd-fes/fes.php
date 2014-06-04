@@ -66,7 +66,7 @@ function marketify_edd_fes_vendor_dashboard_menu( $menu ) {
 		$menu[ 'earnings' ][ 'icon' ] = 'chart-line';
 	}
 
-	$menu[ 'dashboard' ][ 'icon' ] = 'house';
+	$menu[ 'home' ][ 'icon' ] = 'house';
 	$menu[ 'orders' ][ 'icon' ] = 'ticket';
 	$menu[ 'logout' ][ 'icon' ] = 'logout';
 
