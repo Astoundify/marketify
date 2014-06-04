@@ -83,26 +83,6 @@ Marketify.App = ( function($) {
 		}
 	}
 
-	function equalHeights( elements ) {
-		var tallest = 0;
-
-		$.each( elements, function(key, elements) {
-			$.each( elements, function() {
-				if ( $(this).outerHeight() > tallest ) {
-					tallest = $(this).outerHeight();
-				}
-			});
-
-			$(elements).css( 'height', tallest );
-
-			if ( $(window).width() < 768 ) {
-				$(elements).css( 'height', 'auto' );
-			}
-
-			tallest = 0;
-		});
-	}
-
 	return {
 		init : function() {
 			menuSearch();
@@ -110,17 +90,9 @@ Marketify.App = ( function($) {
 			footerHeight();
 			soliloquySliders();
 
-			var equalHeighters = [
-				$( '.home-widget.widget_woothemes_features .feature' ),
-				$( '.page-template-page-templatesteam-php .entry-author' )
-			];
-
-			equalHeights( equalHeighters );
-
 			$(window).resize(function() {
 				footerHeight();
 				soliloquySliders();
-				equalHeights( equalHeighters );
 			});
 
 			$(document).on( 'click', '.popup-trigger', function(e) {
@@ -239,6 +211,26 @@ Marketify.App = ( function($) {
 					}
 				});
 			});
+		},
+
+		equalHeights : function( elements ) {
+			var tallest = 0;
+
+			$.each( elements, function(key, elements) {
+				$.each( elements, function() {
+					if ( $(this).outerHeight() > tallest ) {
+						tallest = $(this).outerHeight();
+					}
+				});
+
+				$(elements).css( 'height', tallest );
+
+				if ( $(window).width() < 768 ) {
+					$(elements).css( 'height', 'auto' );
+				}
+
+				tallest = 0;
+			});
 		}
 	}
 } )(jQuery);
@@ -345,4 +337,15 @@ jQuery(window).load(function() {
 	Marketify.App.downloadStandard();
 	Marketify.App.featuredPopular();
 	Marketify.App.downloadGridViewer();
+
+	var equalHeighters = [
+		jQuery( '.home-widget.widget_woothemes_features .feature' ),
+		jQuery( '.page-template-page-templatesteam-php .entry-author' )
+	];
+
+	Marketify.App.equalHeights( equalHeighters );
+
+	$(window).resize(function() {
+		Marketify.App.equalHeights( equalHeighters );
+	});
 });
