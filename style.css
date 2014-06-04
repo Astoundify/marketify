@@ -2348,6 +2348,10 @@ object {
 	list-style: none;
 }
 
+.comment-list .comment-author {
+	text-align: center;
+}
+
 .comment-list .children .comment-author.vcard img {
 	margin-top: 26px;
 	width: 40px;
@@ -2355,7 +2359,7 @@ object {
 }
 
 .comment-list .children .comment-content {
-	margin-left: 65px;
+	margin-left: 100px;
 }
 
 .comment-list .comment_form_rating {
@@ -4410,6 +4414,26 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 	body .marketify_widget_slider_hero .soliloquy-container .soliloquy-caption .caption-alt {
 		display: block;
 	}
+
+	.comment-list .comment-author.vcard img {
+		margin-top: 26px;
+		width: 40px;
+		height: 40px;
+	}
+
+	.comment-list .comment-content,
+	.comment-list .comment.depth-1 .comment-content {
+		margin-left: 100px;
+	}
+
+	.comment-list .children .comment-meta {
+		display: none;
+	}
+
+	.comment-list .children .comment-content,
+	.comment-list .children .children {
+		margin-left: 15px !important;
+	}
 }
 
 @media screen and (min-width: 300px) and (max-width: 992px) {
@@ -4544,6 +4568,17 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 
 	.comment-metadata .fn {
 		display: block;
+	}
+
+	.comment-list .comment-meta,
+	.comment.depth-1 > .comment-body .comment-content:before,
+	.comment.depth-1 > .comment-body .comment-content:after {
+		display: none;
+	}
+
+	.comment-list .children,
+	.comment-list .comment-content {
+		margin-left: 0 !important;
 	}
 
 	/** Audio */

@@ -38,7 +38,7 @@ function marketify_download_entry_meta_rating( $comment_id = null ) {
 		<?php endfor; ?>
 
 		<?php for( $i = 0; $i < ( 5 - $rating ); $i++ ) : ?>
-		<i class="icon-star-empty"></i>
+		<i class="icon-star2"></i>
 		<?php endfor; ?>
 
 		<div style="display:none" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
@@ -90,19 +90,19 @@ function marketify_edd_reviews_rating_box() {
 ?>
 	<span class="edd_reviews_rating_box">
 		<span class="edd_ratings">
-			<a class="edd_rating" href="" data-rating="5"><i class="icon-star-empty"></i></a>
+			<a class="edd_rating" href="" data-rating="5"><i class="icon-star2"></i></a>
 			<span class="edd_show_if_no_js"><input type="radio" name="edd_rating" id="edd_rating" value="5"/>5&nbsp;</span>
 
-			<a class="edd_rating" href="" data-rating="4"><i class="icon-star-empty"></i></a>
+			<a class="edd_rating" href="" data-rating="4"><i class="icon-star2"></i></a>
 			<span class="edd_show_if_no_js"><input type="radio" name="edd_rating" id="edd_rating" value="4"/>4&nbsp;</span>
 
-			<a class="edd_rating" href="" data-rating="3"><i class="icon-star-empty"></i></a>
+			<a class="edd_rating" href="" data-rating="3"><i class="icon-star2"></i></a>
 			<span class="edd_show_if_no_js"><input type="radio" name="edd_rating" id="edd_rating" value="3"/>3&nbsp;</span>
 
-			<a class="edd_rating" href="" data-rating="2"><i class="icon-star-empty"></i></a>
+			<a class="edd_rating" href="" data-rating="2"><i class="icon-star2"></i></a>
 			<span class="edd_show_if_no_js"><input type="radio" name="edd_rating" id="edd_rating" value="2"/>2&nbsp;</span>
 
-			<a class="edd_rating" href="" data-rating="1"><i class="icon-star-empty"></i></a>
+			<a class="edd_rating" href="" data-rating="1"><i class="icon-star2"></i></a>
 			<span class="edd_show_if_no_js"><input type="radio" name="edd_rating" id="edd_rating" value="1"/>1&nbsp;</span>
 		</span>
 	</span>
