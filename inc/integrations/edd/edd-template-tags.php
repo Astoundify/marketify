@@ -57,9 +57,9 @@ function marketify_download_standard_player() {
 	$images  = array();
 	$_images = get_post_meta( $post->ID, 'preview_images', true );
 
-	if ( $_images ) {
+	if ( is_array( $_images ) ) {
 		foreach ( $_images as $image ) {
-			$images = get_post( $image );
+			$images[] = get_post( $image );
 		}
 	} else {
 		$images = get_attached_media( 'image', $post->ID );
