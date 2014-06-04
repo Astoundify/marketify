@@ -125,7 +125,7 @@ Marketify.App = ( function($) {
 				$( this ).addClass( 'active' );
 			});
 
-			$( '#bbpress-forums #bbp-user-wrapper h2.entry-title, #bbpress-forums fieldset.bbp-form legend, .fes-form h1, .fes-headers' ).wrapInner( '<span></span>' );
+			$( '#bbpress-forums #bbp-user-wrapper h2.entry-title, #bbpress-forums fieldset.bbp-form legend, .fes-form h1, .fes-headers, .edd_form legend' ).wrapInner( '<span></span>' );
 
 			$( '#edd_simple_shipping_fields legend' ).wrap( '<span></span>' );
 
@@ -345,7 +345,7 @@ jQuery(window).load(function() {
 
 	Marketify.App.equalHeights( equalHeighters );
 
-	$(window).resize(function() {
+	jQuery(window).resize(function() {
 		Marketify.App.equalHeights( equalHeighters );
 	});
 });

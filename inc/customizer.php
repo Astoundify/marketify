@@ -467,6 +467,7 @@ function marketify_header_css() {
 	#fes-insert-image:hover,
 	.edd-reviews-voting-buttons a:hover,
 	.minimal #edd_login_submit,
+	.minimal input[name=edd_register_submit],
 	.edd_terms_links:hover,
 	.site-footer.dark .mailbag-wrap input[type=submit],
 	.home-search .page-header .search-submit,

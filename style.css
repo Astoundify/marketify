@@ -432,7 +432,8 @@ a.edd-wl-action,
 .fes-feat-image-btn,
 .upload_file_button,
 .insert-file-row,
-body:not(.minimal) .fes-headers span {
+body:not(.minimal) .fes-headers span,
+body:not(.minimal) .edd_form legend span {
 	font: 700 13px/normal 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -470,6 +471,7 @@ input[name="edd_update_cart_submit"],
 #edd-purchase-button,
 #edd_profile_editor_submit,
 #edd_login_submit,
+input[name="edd_register_submit"],
 #fes_login_submit,
 #fes_registration_form input[type="submit"],
 .fes-submit input[type=submit],
@@ -499,6 +501,7 @@ input[type=submit]:hover,
 .button:hover,
 a.button:hover,
 .minimal #edd_login_submit,
+.minimal input[name="edd_register_submit"],
 .minimal #edd-purchase-button,
 .popup .edd_go_to_checkout.button.edd-submit,
 .popup .edd_go_to_checkout.button.edd-submit:hover,
@@ -1090,7 +1093,8 @@ body .marketify_widget_slider_hero .soliloquy-caption a.button:hover {
 .fes-section-wrap,
 body:not(.minimal) .edd_form fieldset > span,
 .modal-header,
-body:not(.minimal) .entry-content .fes-headers {
+body:not(.minimal) .entry-content .fes-headers,
+body:not(.minimal) .edd_form legend {
 	text-align: center;
 	width: 100%;
 	margin: 70px 0;
@@ -1105,7 +1109,8 @@ body:not(.minimal) .entry-content .fes-headers {
 .fes-section-wrap:after,
 body:not(.minimal) .edd_form fieldset > span:after,
 .modal-header:after,
-body:not(.minimal) .fes-headers:after {
+body:not(.minimal) .fes-headers:after,
+body:not(.minimal) .edd_form legend:after {
 	content: ' ';
 	position: absolute;
 	left: 0;
@@ -1122,7 +1127,8 @@ body:not(.minimal) .fes-headers:after {
 .entry-content .fes-section-wrap h2,
 body:not(.minimal) .edd_form fieldset > span legend,
 #edd-wl-modal h2#edd-wl-modal-label,
-body:not(.minimal) .fes-headers span {
+body:not(.minimal) .fes-headers span,
+body:not(.minimal) .edd_form legend span {
 	font-size: 15px;
 	text-align: center;
 	margin: 0 auto;
@@ -1140,13 +1146,15 @@ body:not(.minimal) .edd_form fieldset > span legend,
 #edd-wl-modal h2#edd-wl-modal-label,
 .download-sorting select,
 .download-sorting span,
-body:not(.minimal) .fes-headers span {
+body:not(.minimal) .fes-headers span,
+body:not(.minimal) .edd_form legend span {
 	color: #bdc3c7;
 	border-color: #bdc3c7;
 }
 
 body:not(.minimal) .edd_form fieldset > span:first-child,
-.entry-content .fes-headers {
+.entry-content .fes-headers,
+body:not(.minimal) .edd_form legend {
 	margin-top: 0;
 }
 
