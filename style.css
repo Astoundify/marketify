@@ -2487,7 +2487,7 @@ object {
 .comment_form_rating .edd_reviews_rating_box a:hover i:before,
 .comment_form_rating .edd_reviews_rating_box a.active ~ a i:before,
 .comment_form_rating .edd_reviews_rating_box a.active i:before {
-	content: '\2605';
+	content: '\e61b';
 }
 
 .download-product-review-details .download-single-widget-title {
@@ -3905,7 +3905,7 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 .love-it-wrapper .love-it:before,
 .love-it-wrapper .loved:before {
 	font-size: 16px;
-	content: '\2661';
+	content: '\e61a';
 	visibility: visible;
 	margin: 6px 6px 0 0;
 	font-size: 18px;
@@ -3914,7 +3914,7 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 }
 
 .love-it-wrapper .loved:before {
-	content: '\2665';
+	content: '\e619';
 }
 
 .content-grid-download .love-it-wrapper,
