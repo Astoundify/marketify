@@ -57,12 +57,12 @@ function marketify_download_standard_player() {
 	$images  = array();
 	$_images = get_post_meta( $post->ID, 'preview_images', true );
 
-	if ( is_array( $_images ) ) {
+	if ( is_array( $_images ) && ! empty( $_images ) ) {
 		foreach ( $_images as $image ) {
 			$images[] = get_post( $image );
 		}
 	} else {
-		$images = get_attached_media( 'image', $post->ID );
+		$images = get_attached_media( 'image', $post );
 	}
 
 	$before = '<div class="download-image">';
@@ -71,13 +71,13 @@ function marketify_download_standard_player() {
 	/*
 	 * Just one image and it's featured.
 	 */
-	if ( count( $images ) == 1 && has_post_thumbnail( $post->ID ) ) {
+	if ( has_post_thumbnail( $post->ID ) && count( $images ) < 2 ) {
 		echo $before;
 		echo get_the_post_thumbnail( $post->ID, 'fullsize' );
 		echo $after;
 
 		return;
-	} elseif ( count( $images ) > 1 ) {
+	} else {
 
 		$before = '<div class="download-image flexslider">';
 
@@ -92,7 +92,6 @@ function marketify_download_standard_player() {
 
 	<?php
 		echo $after;
-
 	}
 }
 endif;
