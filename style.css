@@ -780,7 +780,9 @@ a.insert-file-row {
 }
 
 .main-navigation li a:first-child:nth-last-child(2):after {
-	content: '\e760';
+	content: '\e6ce';
+	margin: 0px 0 0 6px;
+	vertical-align: middle;
 }
 
 .main-navigation ul ul {
@@ -901,7 +903,7 @@ a.insert-file-row {
 }
 
 .main-navigation li ul li a:first-child:nth-last-child(2):before {
-	content: '\e761';
+	content: '\e6cd';
 	margin-right: 2px;
 }
 
@@ -1910,7 +1912,7 @@ body.product-display-inline .single-project .page-header,
 
 .content-grid-download .entry-image .image-placeholder:before {
 	color: #bbb;
-	content: '\1f304';
+	content: '\e69c';
 	width: 20px;
 	height: 20px;
 	text-align: center;
@@ -2581,7 +2583,7 @@ object {
 .widget-area .widget.widget_pages li:before,
 .widget-area .widget.widget_categories li:before,
 .widget-area .widget.widget_archive li:before {
-	content: '\e762';
+	content: '\e6d0';
 }
 
 .edd-taxonomy-widget .children {
@@ -2628,7 +2630,7 @@ object {
 .edd_repeatable_upload_field_container .edd_upload_file a:before {
 	font-size: 15px;
 	visibility: visible !important;
-	content: '\2715';
+	content: '\e678';
 }
 
 .widget .cart_item.edd_subtotal {
@@ -2960,7 +2962,7 @@ object {
 .individual-testimonial .testimonials-text:before,
 .individual-testimonial .testimonials-text:after {
 	color: #bdc3c7;
-	content: '\275e';
+	content: '\e621';
 }
 
 .individual-testimonial .testimonials-text:before {
@@ -3673,7 +3675,7 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 
 /** Facebook */
 .footer-social a[href*="facebook.com"]::before {
-	content: '\f30c';
+	content: '\e6f6';
 }
 
 .footer-social a:hover[href*="facebook.com"]::before {
@@ -3682,7 +3684,7 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 
 /** Twitter */
 .footer-social a[href*="twitter.com"]::before {
-	content: '\f309';
+	content: '\e6f4';
 }
 
 .footer-social a:hover[href*="twitter.com"]::before {
@@ -3691,7 +3693,7 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 
 /** Google Plus */
 .footer-social a[href*="plus.google.com"]::before {
-	content: '\f30f';
+	content: '\e6f9';
 }
 
 .footer-social a:hover[href*="plus.google.com"]::before {
@@ -3700,7 +3702,7 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 
 /** Linkedin */
 .footer-social a[href*="linkedin.com"]::before {
-	content: '\f318';
+	content: '\e6ff';
 }
 
 .footer-social a:hover[href*="linkedin.com"]::before {
@@ -3709,7 +3711,7 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 
 /** Instagram */
 .footer-social a[href*="instagram.com"]::before {
-	content: '\f32d';
+	content: '\e70c';
 }
 
 .footer-social a:hover[href*="instagram.com"]::before {
@@ -3718,7 +3720,7 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 
 /** Pinterest */
 .footer-social a[href*="pinterest.com"]::before {
-	content: '\f312';
+	content: '\e6fb';
 }
 
 .footer-social a:hover[href*="pinterest.com"]::before {
@@ -3727,7 +3729,7 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 
 /** Vimeo */
 .footer-social a[href*="vimeo.com"]::before {
-	content: '\f306';
+	content: '\e6f2';
 }
 
 .footer-social a:hover[href*="vimeo.com"]::before {
@@ -3736,7 +3738,7 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 
 /** RSS */
 .footer-social a[href$=".rss"]::before {
-	content: '\e73a';
+	content: '\e66a';
 }
 
 .footer-social a:hover[href$=".rss"]::before {

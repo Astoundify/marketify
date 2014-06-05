@@ -202,10 +202,10 @@ function marketify_download_audio_player() {
 			</div>
 			<div class="jp-gui jp-interface">
 				<ul class="jp-controls">
-					<li><a href="javascript:;" class="jp-previous" tabindex="1"><i class="icon-fast-backward"></i></a></li>
+					<li><a href="javascript:;" class="jp-previous" tabindex="1"><i class="icon-previous"></i></a></li>
 					<li><a href="javascript:;" class="jp-play" tabindex="1"><i class="icon-play"></i></a></li>
 					<li><a href="javascript:;" class="jp-pause" tabindex="1"><i class="icon-pause"></i></a></li>
-					<li><a href="javascript:;" class="jp-next" tabindex="1"><i class="icon-fast-forward"></i></a></li>
+					<li><a href="javascript:;" class="jp-next" tabindex="1"><i class="icon-next"></i></a></li>
 				</ul>
 				<div class="jp-progress">
 					<div class="jp-seek-bar">

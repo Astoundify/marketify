@@ -5,7 +5,7 @@
  */
 
 .edd-icon-spinner:before {
-	content: '\1f504';
+	content: '\e688';
 }
 
 .edd-icon-spin {
@@ -150,7 +150,7 @@ body #edd-wl-modal input[type="radio"]:focus {
 	visibility: visible;
 	display: block;
 	text-indent: 0;
-	content: '\2713';
+	content: '\e667';
 	position: absolute;
 	top: 16px;
 	left: 7px;
@@ -166,7 +166,7 @@ body #edd-wl-modal input[type="radio"]:focus {
 	top: 19px;
 	left: 10px;
 	font-size: 34px;
-	content: '\e73d';
+	content: '\e677';
 }
 
 .edd_price_options label,
@@ -490,7 +490,7 @@ body #edd-wl-modal input[type="radio"]:focus {
 
 #edd_secure_site_wrapper span.padlock:before,
 #edd_checkout_form_wrap fieldset#edd_cc_fields > span legend:before {
-	content: '\1f512';
+	content: '\e673';
 }
 
 #edd_checkout_form_wrap input.edd-input.card-number.valid {
@@ -671,7 +671,7 @@ body #edd-wl-modal input[type="radio"]:focus {
 }
 
 .edd-slg-social-login-facebook span:before {
-	content: '\f30e';
+	content: '\e6f6';
 }
 
 .edd-slg-social-login-twitter {
@@ -679,7 +679,7 @@ body #edd-wl-modal input[type="radio"]:focus {
 }
 
 .edd-slg-social-login-twitter span:before {
-	content: '\f309';
+	content: '\e6f4';
 }
 
 .edd-slg-social-login-googleplus {
@@ -687,7 +687,7 @@ body #edd-wl-modal input[type="radio"]:focus {
 }
 
 .edd-slg-social-login-googleplus span:before {
-	content: '\f30f';
+	content: '\e6f9';
 }
 
 .edd-slg-social-login-linkedin {
@@ -695,7 +695,7 @@ body #edd-wl-modal input[type="radio"]:focus {
 }
 
 .edd-slg-social-login-linkedin span:before {
-	content: '\f318';
+	content: '\e6ff';
 }
 
 .edd-slg-social-login-yahoo {
@@ -748,7 +748,7 @@ body #edd-wl-modal input[type="radio"]:focus {
 .edd_error:before,
 .fes_login_errors .error:before {
 	font-size: 20px;
-	content: '\26a0';
+	content: '\e687';
 	float: left;
 	margin-right: 10px;
 }
@@ -772,7 +772,7 @@ body #edd-wl-modal input[type="radio"]:focus {
 
 #edd_msg_edd_cart_save_successful.edd_error:before,
 #edd_msg_edd_cart_restoration_successful.edd_error:before {
-	content: '\2713';
+	content: '\e677';
 }
 
 .fes-error.edd_errors {
@@ -1337,7 +1337,7 @@ td.col-author {
 
 #fes_lost_password_link:before,
 .edd-lost-password a:before {
-	content: '\2753';
+	content: '\e685';
 }
 
 .section-title.recommended-products {

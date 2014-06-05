@@ -61,7 +61,8 @@ div.bbp-template-notice p:before,
   width: 1em;
   margin-right: 0.2em;
   text-align: center;
-  margin-top: -1px;
+  margin-top: -2px;
+  vertical-align: middle;
 
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
