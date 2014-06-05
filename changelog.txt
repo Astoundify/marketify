@@ -1,5 +1,13 @@
 == Changelog ==
 
+= 1.2.1: June 6, 2014 =
+
+* New: Add support for [edd_register] shortcode.
+* Fix: Don't cut off elements when setting equal heights.
+* Fix: Load the full size cover image for vendor stores.
+* Fix: Improve nested comment styling on mobile.
+* Fix: Improve the stability of gallery and featured image output on downloads.
+
 = 1.2.0: May 21, 2014 =
 
 * Note: This is a fairly major update. There should be no backwards compatibility issues but it is always important to test on in a development environment before updating your production website.
