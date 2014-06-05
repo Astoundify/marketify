@@ -306,7 +306,6 @@ function marketify_download_grid_previewer() {
 	 * Just one image and it's featured.
 	 */
 	if ( count( $images ) == 1 && has_post_thumbnail( $post->ID ) ) {
-		echo 'wat';
 		echo $before;
 		echo '<a href="' . wp_get_attachment_url( get_post_thumbnail_id() ) . '">' . get_the_post_thumbnail( $post->ID, 'large' ) . '</a>';
 		echo $after;
