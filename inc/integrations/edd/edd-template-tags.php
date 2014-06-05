@@ -289,7 +289,7 @@ function marketify_download_grid_previewer() {
 
 	if ( $_images ) {
 		foreach ( $_images as $image ) {
-			$images = get_post( $image );
+			$images[] = get_post( $image );
 		}
 	} else {
 		$images = get_attached_media( 'image', $post->ID );

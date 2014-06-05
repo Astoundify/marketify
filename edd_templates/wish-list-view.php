@@ -10,6 +10,11 @@ $list_id = get_query_var( 'view' );
 
 // gets the list
 $downloads = edd_wl_get_wish_list( $list_id );
+
+if ( ! is_array( $downloads ) ) {
+	return;
+}
+
 $downloads = wp_list_pluck( $downloads, 'id' );
 
 $downloads = new WP_Query( array(

@@ -27,7 +27,6 @@
 					'position': 'absolute'
 				} );
 			} else {
-				console.log( 'wat' );
 				$( '.site-title a' ).css( {
 					'clip': 'auto',
 					'color': to,

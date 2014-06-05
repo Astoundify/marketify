@@ -8,12 +8,11 @@
  */
 
 $author = get_query_var( 'vendor' );
+$author = get_user_by( 'slug', $author );
 
 if ( ! $author ) {
 	$author = get_current_user_id();
 }
-
-$author = new WP_User( $author );
 
 get_header(); ?>
 
@@ -32,15 +31,19 @@ get_header(); ?>
 				<div class="download-product-details author-archive">
 					<div class="download-author">
 						<?php echo get_avatar( $author->ID, 130 ); ?>
-						<?php printf( '<a class="author-link" href="%s" rel="author">%s</a>', marketify_edd_fes_author_url( $author->ID ), esc_attr( $author->display_name ) ); ?>
+						<?php printf( '<a class="author-link" href="%s" rel="author">%s</a>', marketify_edd_fes_author_url( $author->ID ), '' != $author->display_name ? esc_attr( $author->display_name ) : esc_attr( $author->user_login ) ); ?>
 						<span class="author-joined"><?php printf( __( 'Author since: %s', 'marketify' ), date_i18n( 'Y', strtotime( $author->user_registered ) ) ); ?></span>
 					</div>
+
+					<?php if ( '' != $author->description ) : ?>
 
 					<div class="download-author-bio">
 
 						<?php echo esc_attr( $author->description ); ?>
 
 					</div>
+
+					<?php endif; ?>
 
 					<div class="download-author-sales">
 						<strong><?php echo marketify_count_user_downloads( $author->ID ); ?></strong>
