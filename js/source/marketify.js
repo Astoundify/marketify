@@ -163,8 +163,8 @@ Marketify.App = ( function($) {
 				maxItems      : 1,
 				controlNav    : false,
 				smoothHeight  : true,
-				prevText      : '<i class="icon-left-open-big"></i>',
-				nextText      : '<i class="icon-right-open-big"></i>'
+				prevText      : '<i class="icon-arrow-left5"></i>',
+				nextText      : '<i class="icon-arrow-right5"></i>'
 			});
 		},
 

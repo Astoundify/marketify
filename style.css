@@ -1824,6 +1824,7 @@ body.product-display-inline .single-project .page-header,
 
 .download-info .star-rating i {
 	font-size: 17px;
+	vertical-align: bottom;
 }
 
 .edd-cart-added-alert {
