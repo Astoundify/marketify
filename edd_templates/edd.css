@@ -152,8 +152,8 @@ body #edd-wl-modal input[type="radio"]:focus {
 	text-indent: 0;
 	content: '\e667';
 	position: absolute;
-	top: 16px;
-	left: 7px;
+	top: 18px;
+	left: 12px;
 }
 
 .download-variable .entry-content .edd_go_to_checkout,
@@ -163,8 +163,8 @@ body #edd-wl-modal input[type="radio"]:focus {
 
 .download-variable .entry-content .edd_go_to_checkout:before,
 .popup .edd_go_to_checkout:before {
-	top: 19px;
-	left: 10px;
+	top: 22px;
+	left: 17px;
 	font-size: 34px;
 	content: '\e677';
 }
