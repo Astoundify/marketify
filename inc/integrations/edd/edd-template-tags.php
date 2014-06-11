@@ -298,6 +298,10 @@ function marketify_download_grid_previewer() {
 	$before = '<div class="download-image-grid-preview">';
 	$after  = '</div>';
 
+	if ( ! has_post_thumbnail( $post->ID ) ) {
+		return;
+	}
+
 	/*
 	 * Just one image and it's featured.
 	 */
