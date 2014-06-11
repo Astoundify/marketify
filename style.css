@@ -422,7 +422,7 @@ a.button,
 .home-widget-title span,
 .section-title span,
 #edd_checkout_form_wrap legend,
-body:not(.minimal) .edd_form fieldset > span legend,
+body:not(.minimal) .edd_form fieldset legend > span legend,
 .fes-section-title,
 #fes-view-comment a,
 .edd_terms_links,
@@ -1127,7 +1127,7 @@ body:not(.minimal) .edd_form legend:after {
 #edd_checkout_form_wrap fieldset > span legend,
 #edd_checkout_form_wrap fieldset#edd_cc_fields > span legend,
 .entry-content .fes-section-wrap h2,
-body:not(.minimal) .edd_form fieldset > span legend,
+body:not(.minimal) .edd_form fieldset legend > span legend,
 #edd-wl-modal h2#edd-wl-modal-label,
 body:not(.minimal) .fes-headers span,
 body:not(.minimal) .edd_form legend span {
@@ -1144,7 +1144,7 @@ body:not(.minimal) .edd_form legend span {
 .home-widget-title span,
 #edd_checkout_form_wrap fieldset > span legend,
 .entry-content .fes-section-wrap h2,
-body:not(.minimal) .edd_form fieldset > span legend,
+body:not(.minimal) .edd_form fieldset legend > span legend,
 #edd-wl-modal h2#edd-wl-modal-label,
 .download-sorting select,
 .download-sorting span,
@@ -2178,6 +2178,7 @@ body.product-display-inline .single-project .page-header,
 .download-image-grid-preview img {
 	display: block;
 	position: relative;
+	text-align: center;
 }
 
 .download-image-grid-preview .slides {
