@@ -79,7 +79,7 @@ class Marketify_Widget_Download_Review_Details extends Marketify_Widget {
 						<?php endfor; ?>
 
 						<?php for( $i = 0; $i < ( 5 - $rating ); $i++ ) : ?>
-						<i class="icon-star-empty"></i>
+						<i class="icon-star2"></i>
 						<?php endfor; ?>
 					</strong>
 				</div>
