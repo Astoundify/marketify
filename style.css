@@ -1111,8 +1111,7 @@ body:not(.minimal) .edd_form legend {
 .fes-section-wrap:after,
 body:not(.minimal) .edd_form fieldset > span:after,
 .modal-header:after,
-body:not(.minimal) .fes-headers:after,
-body:not(.minimal) .edd_form legend:after {
+body:not(.minimal) .fes-headers:after {
 	content: ' ';
 	position: absolute;
 	left: 0;
