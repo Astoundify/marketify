@@ -3278,15 +3278,15 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 }
 
 .download-sorting label[for="orderby"]:after {
-	font-size: 14px;
-	color: #bdc3c7;
-	content: '\e74f';
+	font-size: 18px;
+	color: #BDC3C7;
+	content: '\e6ce';
 	display: block;
 	width: 15px;
 	height: 15px;
 	position: absolute;
-	right: 4px;
-	top: 12px;
+	right: 9px;
+	top: 13px;
 }
 
 .download-sorting select:focus {
