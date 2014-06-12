@@ -150,10 +150,10 @@ body #edd-wl-modal input[type="radio"]:focus {
 	visibility: visible;
 	display: block;
 	text-indent: 0;
-	content: '\e667';
+	content: '\e677';
 	position: absolute;
 	top: 18px;
-	left: 12px;
+	left: 14px;
 }
 
 .download-variable .entry-content .edd_go_to_checkout,
@@ -163,10 +163,10 @@ body #edd-wl-modal input[type="radio"]:focus {
 
 .download-variable .entry-content .edd_go_to_checkout:before,
 .popup .edd_go_to_checkout:before {
-	top: 22px;
-	left: 17px;
+	top: 20px;
+	left: 15px;
 	font-size: 34px;
-	content: '\e677';
+	content: '\e667';
 }
 
 .edd_price_options label,
