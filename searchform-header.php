@@ -15,7 +15,7 @@
 			<input type="search" class="search-field" placeholder="<?php echo esc_attr__( 'Search', 'marketify' ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>" name="s" title="<?php echo esc_attr__( 'Search for:', 'marketify' ); ?>">
 		</label>
 
-		<a href="#" class="header-search-toggle"><i class="icon-cancel"></i></a>
+		<a href="#" class="header-search-toggle"><i class="icon-cross"></i></a>
 
 		<input type="hidden" name="post_type" value="download" />
 	</form>
