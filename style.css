@@ -2145,6 +2145,11 @@ body.product-display-inline .single-project .page-header,
 	vertical-align: top;
 }
 
+.content-grid-download .entry-header div.jp-interface ul.jp-controls a.jp-play i {
+	margin-left: 2px;
+	vertical-align: middle;
+}
+
 .content-grid-download .entry-header div.jp-interface ul.jp-controls a.jp-pause {
 	margin: 2px 0 0 1px;
 	font-size: 16px;
