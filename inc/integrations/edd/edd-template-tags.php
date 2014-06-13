@@ -71,14 +71,13 @@ function marketify_download_standard_player() {
 	/*
 	 * Just one image and it's featured.
 	 */
-	if ( has_post_thumbnail( $post->ID ) && count( $images ) < 2 ) {
+	if ( has_post_thumbnail( $post->ID ) && count( $images ) == 1 ) {
 		echo $before;
 		echo get_the_post_thumbnail( $post->ID, 'fullsize' );
 		echo $after;
 
 		return;
 	} else {
-
 		$before = '<div class="download-image flexslider">';
 
 		echo $before;
