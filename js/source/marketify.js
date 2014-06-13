@@ -127,7 +127,7 @@ Marketify.App = ( function($) {
 
 			$( '#bbpress-forums #bbp-user-wrapper h2.entry-title, #bbpress-forums fieldset.bbp-form legend, .fes-form h1, .fes-headers' ).wrapInner( '<span></span>' );
 
-			$( '#edd_simple_shipping_fields legend' ).wrap( '<span></span>' );
+			$( '#edd_simple_shipping_fields legend, .edd_form *:not(span) > legend' ).wrap( '<span></span>' );
 
 			$('body').on('click.eddwlOpenModal', '.edd-add-to-wish-list', function (e) {
 				$( '#edd-wl-modal-label' ).wrapInner( '<span></span>' );
