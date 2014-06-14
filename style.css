@@ -2137,6 +2137,11 @@ body.product-display-inline .single-project .page-header,
 	float: left;
 }
 
+.single-download div.jp-interface ul.jp-controls {
+	margin-top: 2px;
+	margin-bottom: -2px;
+}
+
 .content-grid-download .entry-header div.jp-interface ul.jp-controls a {
 	font-size: 20px;
 }
@@ -2153,6 +2158,12 @@ body.product-display-inline .single-project .page-header,
 .content-grid-download .entry-header div.jp-interface ul.jp-controls a.jp-pause {
 	margin: 2px 0 0 1px;
 	font-size: 16px;
+}
+
+.content-grid-download .entry-header div.jp-interface ul.jp-controls a.jp-pause i {
+	vertical-align: middle;
+	margin-left: 3px;
+	line-height: 1;
 }
 
 .content-grid-download.force-info .entry-header {
