@@ -77,7 +77,7 @@ function marketify_download_standard_player() {
 		echo $after;
 
 		return;
-	} else {
+	} elseif ( count( $images ) > 1 ) {
 		$before = '<div class="download-image flexslider">';
 
 		echo $before;
@@ -297,20 +297,16 @@ function marketify_download_grid_previewer() {
 	$before = '<div class="download-image-grid-preview">';
 	$after  = '</div>';
 
-	if ( ! has_post_thumbnail( $post->ID ) ) {
-		return;
-	}
-
 	/*
 	 * Just one image and it's featured.
 	 */
-	if ( has_post_thumbnail( $post->ID ) && count( $images ) < 2 ) {
+	if ( has_post_thumbnail( $post->ID ) && count( $images ) == 1 ) {
 		echo $before;
 		echo '<a href="' . wp_get_attachment_url( get_post_thumbnail_id() ) . '">' . get_the_post_thumbnail( $post->ID, 'large' ) . '</a>';
 		echo $after;
 
 		return;
-	} else {
+	} elseif ( count( $images ) > 1 ) {
 
 		echo $before;
 	?>
