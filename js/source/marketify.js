@@ -306,7 +306,7 @@ Marketify.Widgets = ( function($) {
 
 			quotes.find( ':first-child, :nth-child(2n)' ).addClass( 'active' );
 
-			function cycleQuotes () {
+			function cycleQuotes (settings) {
 				var current = quotes.filter(".active"), next;
 
 				if (current.length == 0 || (next = current.next().next()).length == 0 ) {
@@ -317,10 +317,10 @@ Marketify.Widgets = ( function($) {
 					next.addClass( 'active' ).fadeIn();
 				});
 
-				setTimeout(cycleQuotes, settings.speed);
+				setTimeout(function() { cycleQuotes(settings) }, settings.speed);
 			}
 
-			cycleQuotes();
+			cycleQuotes(settings);
 
 			this.alreadyCalled = true;
 		}
