@@ -1,5 +1,10 @@
 == Changelog ==
 
+= 1.2.1.1: June 25, 2014 =
+
+* Fix: If there is only a featured image and it's not attached to the parent, still show it.
+* Fix: Make sure JS settings are always passed to the Testimonials widget
+
 = 1.2.1: June 12, 2014 =
 
 * New: Add support for [edd_register] shortcode.
