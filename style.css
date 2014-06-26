@@ -3596,6 +3596,7 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 .edd-fpd th,
 .edd-fpd td {
 	padding: 7px 5px;
+	vertical-align: middle
 }
 
 .edd-fpd th {
