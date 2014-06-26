@@ -22,7 +22,7 @@ function marketify_downloads_section_title() {
 		printf( __( 'Popular %s', 'marketify' ), $base );
 	} else {
 		$base  = is_tax() ? single_term_title( '', false ) : edd_get_label_plural();
-		$order = get_query_var( 'orderby' ) ? sprintf( '&nbsp;' . __( 'by %s', 'marketify' ), marketify_edd_sorting_options( get_query_var( 'orderby' ) ) ) : '';
+		$order = get_query_var( 'm-orderby' ) ? sprintf( '&nbsp;' . __( 'by %s', 'marketify' ), marketify_edd_sorting_options( get_query_var( 'm-orderby' ) ) ) : '';
 
 		printf( __( 'All %s%s', 'marketify' ), $base, $order );
 	}

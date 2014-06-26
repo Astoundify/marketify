@@ -47,8 +47,8 @@ class Marketify_Widget_Download_Archive_Sorting extends Marketify_Widget {
 		extract( $args );
 
 		$title   = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
-		$order   = get_query_var( 'order' ) ? strtolower( get_query_var( 'order' ) ) : 'desc';
-		$orderby = get_query_var( 'orderby' ) ? strtolower( marketify_edd_sorting_options( get_query_var( 'orderby' ) ) ) : 'post_date';
+		$order   = get_query_var( 'm-order' ) ? strtolower( get_query_var( 'm-order' ) ) : 'desc';
+		$orderby = get_query_var( 'm-orderby' ) ? strtolower( marketify_edd_sorting_options( get_query_var( 'm-orderby' ) ) ) : 'post_date';
 
 		echo $before_widget;
 
@@ -60,8 +60,8 @@ class Marketify_Widget_Download_Archive_Sorting extends Marketify_Widget {
 				<?php _e( 'Sort by:', 'marketify' ); ?>
 				<?php
 					echo EDD()->html->select( array(
-						'name' => 'orderby',
-						'id' => 'orderby',
+						'name' => 'm-orderby',
+						'id' => 'm-orderby',
 						'selected' => $orderby,
 						'show_option_all' => false,
 						'show_option_none' => false,
@@ -70,21 +70,17 @@ class Marketify_Widget_Download_Archive_Sorting extends Marketify_Widget {
 				?>
 			</label>
 
-			<?php if ( 'desc' == $order ) : ?>
+
 				<label for="order-asc">
-					<input type="radio" name="order" id="order-asc" value="asc" <?php checked( 'asc', $order ); ?>><span class="icon-up"></span>
+					<input type="radio" name="m-order" id="order-asc" value="asc" <?php checked( 'asc', $order ); ?>><span class="icon-arrow-up"></span>
 				</label>
-			<?php else : ?>
+
 				<label for="order-desc">
-					<input type="radio" name="order" id="order-desc" value="desc" <?php checked( 'desc', $order ); ?>><span class="icon-down"></span>
+					<input type="radio" name="m-order" id="order-desc" value="desc" <?php checked( 'desc', $order ); ?>><span class="icon-arrow-down2"></span>
 				</label>
-			<?php endif; ?>
 
-			<?php global $wp_query; if ( is_array( $wp_query->query ) ) : foreach ( $wp_query->query as $key => $value ) : ?>
-				<?php if ( in_array( $key, array( 'order', 'orderby' ) ) ) continue; ?>
 
-				<input type="hidden" name="<?php echo esc_attr( $key ); ?>" value="<?php echo esc_attr( $value ); ?>" />
-			<?php endforeach; endif; ?>
+
 		</form>
 
 		<?php

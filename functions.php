@@ -667,6 +667,8 @@ add_filter( 'the_content', 'marketify_homepage_search' );
  */
 function marketify_query_vars( $vars ) {
 	$vars[] = 'popular_cat';
+	$vars[] = 'm-orderby';
+	$vars[] = 'm-order';
 
 	return $vars;
 }

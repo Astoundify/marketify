@@ -17,7 +17,7 @@ get_header(); ?>
 
 	<div class="container">
 
-		<?php if ( ! is_paged() && ! get_query_var( 'orderby' ) && ! is_page_template( 'page-templates/popular.php' ) ) : ?>
+		<?php if ( ! is_paged() && ! get_query_var( 'm-orderby' ) && ! is_page_template( 'page-templates/popular.php' ) ) : ?>
 			<?php get_template_part( 'content-grid-download', 'popular' ); ?>
 		<?php endif; ?>
 

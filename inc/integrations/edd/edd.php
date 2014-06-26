@@ -254,11 +254,11 @@ function marketify_edd_sorting_options( $single_key = false  ) {
 		'date'  => __( 'Date', 'marketify' ),
 		'title' => __( 'Title', 'marketify' ),
 		'sales' => __( 'Sales', 'marketify' ),
-		'price' => __( 'Price', 'marketify' )
+		'pricing' => __( 'Price', 'marketify' )
 	);
 
 	if ( 'edd_price' == get_query_var( 'meta_key' ) ) {
-		$key = 'price';
+		$key = 'pricing';
 	} elseif ( '_edd_download_sales' == get_query_var( 'meta_key' ) ) {
 		$key = 'sales';
 	} else {
@@ -266,7 +266,7 @@ function marketify_edd_sorting_options( $single_key = false  ) {
 	}
 
 	if ( $single_key && $key ) {
-		return $options[ $key ];
+		return $key;
 	}
 
 	return $options;
@@ -276,14 +276,14 @@ function marketify_edd_sorting_options( $single_key = false  ) {
  * Sorting for standard query
  */
 function marketify_edd_orderby( $query ) {
-	if ( ! $query->is_main_query() || is_admin() || ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
+	if ( ! $query->is_main_query() || is_admin() || ( defined( 'DOING_AJAX' ) && DOING_AJAX ) || is_page_template( 'page-templates/shop.php' ) ) {
 		return;
 	}
 
-	if ( get_query_var( 'orderby' ) && 'price' == get_query_var( 'orderby' ) ) {
+	if ( get_query_var( 'm-orderby' ) && 'pricing' == get_query_var( 'm-orderby' ) ) {
 		$query->set( 'orderby', 'meta_value_num' );
 		$query->set( 'meta_key', 'edd_price' );
-	} elseif ( get_query_var( 'orderby' ) && 'sales' == get_query_var( 'orderby' ) ) {
+	} elseif ( get_query_var( 'm-orderby' ) && 'sales' == get_query_var( 'm-orderby' ) ) {
 		$query->set( 'orderby', 'meta_value_num' );
 		$query->set( 'meta_key', '_edd_download_sales' );
 	}
@@ -296,7 +296,7 @@ add_filter( 'pre_get_posts', 'marketify_edd_orderby' );
 function marketify_edd_downloads_query( $query, $atts ) {
 	if ( is_page_template( 'page-templates/popular.php' ) ) {
 		$query[ 'meta_key' ] = '_edd_download_sales';
-		$query[ 'orderby' ]  = 'meta_value';
+		$query[ 'orderby' ]  = 'meta_value_num';
 
 		if ( get_query_var( 'popular_cat' ) ) {
 			$query[ 'tax_query' ] = array(
@@ -308,21 +308,24 @@ function marketify_edd_downloads_query( $query, $atts ) {
 			);
 		}
 	} else {
-		foreach ( array( 'orderby', 'order' ) as $key ) {
+		foreach ( array( 'm-orderby', 'm-order' ) as $key ) {
 			if ( isset( $atts[ $key ] ) ) {
 				continue;
 			} else if ( get_query_var( $key ) ) {
-				$query[ $key ] = get_query_var( $key );
+				$query[ str_replace( 'm-', '', $key ) ] = get_query_var( $key );
 			} else {
-				$query[ $key ] = null;
+				$query[ str_replace( 'm-', '', $key ) ] = null;
 			}
 		}
 
-		if ( 'sales' == get_query_var( 'orderby' ) ) {
+		if ( 'sales' == get_query_var( 'm-orderby' ) ) {
 			$query[ 'orderby' ]  = 'meta_value_num';
 			$query[ 'meta_key' ] = '_edd_download_sales';
+		} elseif( 'pricing' == get_query_var( 'm-orderby' ) ) {
+			$query[ 'orderby' ]  = 'meta_value_num';
+			$query[ 'meta_key' ] = 'edd_price';
 		}
-	}
+	};
 
 	return $query;
 }
