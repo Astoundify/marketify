@@ -71,13 +71,13 @@ function marketify_download_standard_player() {
 	/*
 	 * Just one image and it's featured.
 	 */
-	if ( has_post_thumbnail( $post->ID ) && empty( $images ) ) {
+	if ( has_post_thumbnail( $post->ID ) && empty( $images ) || 1 == count( $images ) ) {
 		echo $before;
 		echo get_the_post_thumbnail( $post->ID, 'fullsize' );
 		echo $after;
 
 		return;
-	} elseif ( count( $images ) > 1 ) {
+	} else {
 		$before = '<div class="download-image flexslider">';
 
 		echo $before;
@@ -300,7 +300,7 @@ function marketify_download_grid_previewer() {
 	/*
 	 * Just one image and it's featured.
 	 */
-	if ( has_post_thumbnail( $post->ID ) && count( $images ) == 1 ) {
+	if ( has_post_thumbnail( $post->ID ) && empty( $images ) || 1 == count( $images ) ) {
 		echo $before;
 		echo '<a href="' . wp_get_attachment_url( get_post_thumbnail_id() ) . '">' . get_the_post_thumbnail( $post->ID, 'large' ) . '</a>';
 		echo $after;
