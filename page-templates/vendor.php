@@ -57,9 +57,11 @@ get_header(); ?>
 					</div>
 					<?php endif; ?>
 
+					<?php if ( get_current_user_id() != $author->ID ) : ?>
 					<div class="download-author-message">
 						<?php echo do_shortcode( '[fes_vendor_contact_form id="' . $author->ID . '"]' ); ?>
 					</div>
+					<?php endif; ?>
 				</div>
 			</div><!-- #secondary -->
 
