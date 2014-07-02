@@ -1,5 +1,11 @@
 == Changelog ==
 
+= 1.2.1.2: July 5, 2014 =
+
+* Fix: Always show the product slider/grid if there are any attached images that aren't also featured.
+* Fix: Sorting on shop page template
+* Fix: Don't show vendor contact form if viewing your own profile.
+
 = 1.2.1.1: June 25, 2014 =
 
 * Fix: If there is only a featured image and it's not attached to the parent, still show it.
