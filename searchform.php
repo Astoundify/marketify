@@ -9,6 +9,7 @@ $type = 'post';
 
 if (
 	is_post_type_archive( 'download' ) ||
+	is_singular( 'download' ) ||
 	is_tax( array( 'download_tag', 'download_category' ) ) ||
 	is_page_template( 'page-templates/home-search.php' ) ||
 	is_front_page()
