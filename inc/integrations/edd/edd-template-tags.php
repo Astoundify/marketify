@@ -71,7 +71,7 @@ function marketify_download_standard_player() {
 	/*
 	 * Just one image and it's featured.
 	 */
-	if ( has_post_thumbnail( $post->ID ) && empty( $images ) || 1 == count( $images ) ) {
+	if ( has_post_thumbnail( $post->ID ) && ( 1 == count( $images ) && current($images)->ID == get_post_thumbnail_id() ) ) {
 		echo $before;
 		echo get_the_post_thumbnail( $post->ID, 'fullsize' );
 		echo $after;
@@ -300,7 +300,7 @@ function marketify_download_grid_previewer() {
 	/*
 	 * Just one image and it's featured.
 	 */
-	if ( has_post_thumbnail( $post->ID ) && empty( $images ) || 1 == count( $images ) ) {
+	if ( has_post_thumbnail( $post->ID ) && ( 1 == count( $images ) && current($images)->ID == get_post_thumbnail_id() ) ) {
 		echo $before;
 		echo '<a href="' . wp_get_attachment_url( get_post_thumbnail_id() ) . '">' . get_the_post_thumbnail( $post->ID, 'large' ) . '</a>';
 		echo $after;
