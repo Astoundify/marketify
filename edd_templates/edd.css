@@ -1253,8 +1253,7 @@ td.col-author {
 	font-weight: 700;
 }
 
-#fes-product-name b,
-#fes-vendor-store-link {
+#fes-product-name b {
 	display: none;
 }
 
