@@ -1,5 +1,12 @@
 == Changelog ==
 
+= 1.2.2: July 24, 2014 =
+
+* New: Masonry/stackable grids
+* Fix: Respect search for products when on product pages.
+* Fix: Better gallery/product image stability with recent FES fixes.
+* Fix: Responsive fixes for homepage taxonomy widget.
+
 = 1.2.1: June 12, 2014 =
 
 * New: Add support for [edd_register] shortcode.
