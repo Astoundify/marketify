@@ -68,7 +68,6 @@ class Marketify_Widget_Recent_Downloads extends Marketify_Widget {
 		$description  = isset( $instance[ 'description' ] ) ? $instance[ 'description' ] : null;
 		$number       = isset ( $instance[ 'number' ] ) ? absint( $instance[ 'number' ] ) : 8;
 		$columns      = isset ( $instance[ 'columns' ] ) ? absint( $instance[ 'columns' ] ) : 4;
-		$columns      = absint( 12 / $columns );
 
 		$downloads = new WP_Query( array(
 			'post_type'              => 'download',
@@ -91,11 +90,9 @@ class Marketify_Widget_Recent_Downloads extends Marketify_Widget {
 			<h2 class="home-widget-description"><?php echo $description; ?></h2>
 		<?php endif; ?>
 
-		<div class="row">
+		<div class="download-grid-wrapper columns-<?php echo $columns; ?> row" data-columns>
 			<?php while ( $downloads->have_posts() ) : $downloads->the_post(); ?>
-			<div class="col-lg-<?php echo $columns; ?> col-md-4 col-sm-6">
-				<?php get_template_part( 'content-grid', 'download' ); ?>
-			</div>
+			<?php get_template_part( 'content-grid', 'download' ); ?>
 			<?php endwhile; ?>
 		</div>
 

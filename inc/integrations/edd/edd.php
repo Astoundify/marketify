@@ -116,10 +116,24 @@ add_filter( 'wp_nav_menu_items', 'marketify_wp_nav_menu_items', 10, 2 );
  * @param string $class
  * @return string The updated class list
  */
-function marketify_edd_downloads_list_wrapper_class( $class ) {
-	return 'row ' . $class;
+function marketify_edd_downloads_list_wrapper_class( $class, $atts ) {
+	if ( ! isset( $atts[ 'columns' ] ) ) {
+		$atts[ 'columns' ] = marketify_theme_mod( 'product-display', 'product-display-columns' );
+	}
+
+	return 'row download-grid-wrapper columns-' . $atts[ 'columns' ] . ' ' . $class;
 }
-add_filter( 'edd_downloads_list_wrapper_class', 'marketify_edd_downloads_list_wrapper_class' );
+add_filter( 'edd_downloads_list_wrapper_class', 'marketify_edd_downloads_list_wrapper_class', 10, 2 );
+
+/**
+ *
+ */
+function marketify_downloads_shortcode( $display ) {
+	$display = str_replace( '<div class="edd_downloads_list', '<div data-columns class="edd_downloads_list', $display );
+
+	return $display;
+}
+add_filter( 'downloads_shortcode', 'marketify_downloads_shortcode' );
 
 /**
  * EDD Download Class
@@ -135,30 +149,7 @@ add_filter( 'edd_downloads_list_wrapper_class', 'marketify_edd_downloads_list_wr
  * @return string The updated class list
  */
 function marketify_edd_download_class( $class, $id, $atts ) {
-	if ( ! isset( $atts[ 'columns' ] ) ) {
-		$atts[ 'columns' ] = marketify_theme_mod( 'product-display', 'product-display-columns' );
-	}
-
-	if ( 4 == $atts[ 'columns' ] )
-		$cols = 3;
-	elseif ( 3 == $atts[ 'columns' ] )
-		$cols = 4;
-	elseif ( 2 == $atts[ 'columns' ] )
-		$cols = 6;
-	else
-		$cols = 12;
-
-	$classes = array(
-		'content-grid-download',
-		'col-lg-%d',
-		'col-md-6',
-		'col-xs-12'
-	);
-
-	$newclass = marketify_post_classes( $classes );
-	$newclass = implode( ' ', $newclass );
-
-	return $class . ' ' . sprintf( $newclass, $cols );
+	return $class . ' content-grid-download';
 }
 add_filter( 'edd_download_class', 'marketify_edd_download_class', 10, 3 );
 
