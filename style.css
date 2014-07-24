@@ -2828,7 +2828,7 @@ object {
 }
 
 .marketify_widget_taxonomy_stylized {
-	margin-top: -100px;
+	margin-top: -70px;
 	padding: 30px 0;
 }
 
@@ -2840,10 +2840,26 @@ object {
 
 .marketify_widget_taxonomy_stylized li {
 	margin: 5px 0;
-	width: 25%;
+	width: 100%;
 	float: left;
 	text-align: center;
 }
+
+	@media (min-width: 768px) {
+		.marketify_widget_taxonomy_stylized {
+			margin-top: -100px;
+		}
+
+		.marketify_widget_taxonomy_stylized li {
+			width: 50%;
+		}
+	}
+
+	@media (min-width: 992px) {
+		.marketify_widget_taxonomy_stylized li {
+			width: 25%;
+		}
+	}
 
 .marketify_widget_taxonomy_stylized a {
 	font: 700 14px 'Montserrat', sans-serif;
