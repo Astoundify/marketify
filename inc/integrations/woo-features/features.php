@@ -49,7 +49,7 @@ add_action( 'dynamic_sidebar', 'marketify_woothemes_features_item' );
  * @return string
  */
 function marketify_woothemes_features_item_template( $template, $args ) {
-	return '<div class="%%CLASS%% col-lg-4 col-sm-6 col-xs-12 feature-large">%%IMAGE%%<h3 class="feature-title">%%TITLE%%</h3><div class="feature-content">%%CONTENT%%</div></div>';
+	return '<div class="%%CLASS%% feature-large">%%IMAGE%%<h3 class="feature-title">%%TITLE%%</h3><div class="feature-content">%%CONTENT%%</div></div>';
 }
 
 /**
@@ -60,5 +60,12 @@ function marketify_woothemes_features_item_template( $template, $args ) {
  * @return string
  */
 function marketify_woothemes_features_item_template_mini( $template, $args ) {
-	return '<div class="%%CLASS%% col-lg-3 col-md-4 col-sm-6 col-xs-12 feature-mini">%%IMAGE%%<h3 class="feature-title">%%TITLE%%</h3><div class="feature-content">%%CONTENT%%</div></div>';
+	return '<div class="%%CLASS%% feature-mini">%%IMAGE%%<h3 class="feature-title">%%TITLE%%</h3><div class="feature-content">%%CONTENT%%</div></div>';
 }
+
+function marketify_woothemes_features_html( $html ) {
+	$html = str_replace( '<div class="features', '<div data-columns class="features', $html );
+
+	return $html;
+}
+add_filter( 'woothemes_features_html', 'marketify_woothemes_features_html' );

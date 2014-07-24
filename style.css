@@ -1881,20 +1881,23 @@ body.product-display-inline .single-project .page-header,
 ----------------------------------------------- */
 
 .download-grid-wrapper[data-columns]::before,
-.download-grid-wrapper.columns-1[data-columns]::before {
+.download-grid-wrapper.columns-1[data-columns]::before,
+.features[data-columns]::before {
 	content: '1 .col-xs-12';
 }
 
 @media (min-width: 768px) {
 	.download-grid-wrapper[data-columns]::before,
-	.download-grid-wrapper.columns-2[data-columns]::before {
+	.download-grid-wrapper.columns-2[data-columns]::before,
+	.features[data-columns]::before {
 		content: '2 .col-sm-6';
 	}
 }
 
 @media (min-width: 992px) {
 	.download-grid-wrapper[data-columns]::before,
-	.download-grid-wrapper.columns-3[data-columns]::before {
+	.download-grid-wrapper.columns-3[data-columns]::before,
+	.features[data-columns]::before {
 		content: '3 .col-md-4';
 	}
 }
