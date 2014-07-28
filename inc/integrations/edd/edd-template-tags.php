@@ -153,10 +153,6 @@ function marketify_download_audio_player() {
 		$attachments = get_attached_media( 'audio', $download_id );
 	}
 
-	if ( 'marketify_download_entry_meta_before_audio' == current_filter() ) {
-		array_splice( $attachments, 1 );
-	}
-
 	foreach ( $attachments as $attachment ) {
 		$file = wp_get_attachment_url( $attachment->ID );
 		$info = wp_check_filetype( $file );
