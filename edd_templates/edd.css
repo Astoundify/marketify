@@ -1305,6 +1305,19 @@ td.col-author {
 	max-width: 100px;
 }
 
+.fes-avatar-image-upload .image-wrap {
+	position: relative;
+}
+
+.fes-avatar-image-upload .image-wrap .fes-remove-avatar-image {
+	position: absolute;
+	top: 0;
+	left: 5px;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 24px;
+}
+
 
 /* =Misc
 -------------------------------------------------------------- */
