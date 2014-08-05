@@ -1305,17 +1305,21 @@ td.col-author {
 	max-width: 100px;
 }
 
-.fes-avatar-image-upload .image-wrap {
+.fes-avatar-image-upload .image-wrap,
+.fes-feat-image-upload .image-wrap {
 	position: relative;
 }
 
-.fes-avatar-image-upload .image-wrap .fes-remove-avatar-image {
+.fes-avatar-image-upload .image-wrap .fes-remove-avatar-image,
+.fes-feat-image-upload .image-wrap .fes-remove-feat-image {
 	position: absolute;
 	top: 0;
 	left: 5px;
 	color: #FFF;
 	font-weight: bold;
 	font-size: 24px;
+	cursor: pointer;
+	text-shadow: rgba(0, 0, 0, .50) 0 1px 0;
 }
 
 
