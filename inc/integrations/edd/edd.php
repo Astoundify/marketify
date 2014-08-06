@@ -166,6 +166,7 @@ function marketify_shortcode_atts_downloads( $atts ) {
 	$atts[ 'full_content' ] = 'no';
 	$atts[ 'price' ]        = 'no';
 	$atts[ 'buy_button' ]   = 'no';
+	$atts[ 'columns' ] = 9999;
 
 	return $atts;
 }
