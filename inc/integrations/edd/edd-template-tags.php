@@ -68,24 +68,14 @@ function marketify_download_standard_player() {
 	$before = '<div class="download-image">';
 	$after  = '</div>';
 
-<<<<<<< HEAD
-	/*
-	 * Just one image and it's featured.
-	 */
-	if ( has_post_thumbnail( $post->ID ) && ( 1 == count( $images ) && current($images)->ID == get_post_thumbnail_id() ) ) {
-=======
+
 	if ( empty( $images ) && has_post_thumbnail( $post->ID ) ) {
->>>>>>> release/1.2.2
 		echo $before;
 		echo get_the_post_thumbnail( $post->ID, 'fullsize' );
 		echo $after;
 
 		return;
-<<<<<<< HEAD
 	} else {
-=======
-	} elseif ( count( $images ) > 0 ) {
->>>>>>> release/1.2.2
 		$before = '<div class="download-image flexslider">';
 
 		echo $before;
@@ -304,11 +294,7 @@ function marketify_download_grid_previewer() {
 	/*
 	 * Just one image and it's featured.
 	 */
-<<<<<<< HEAD
-	if ( has_post_thumbnail( $post->ID ) && ( 1 == count( $images ) && current($images)->ID == get_post_thumbnail_id() ) ) {
-=======
 	if ( empty( $images ) && has_post_thumbnail( $post->ID ) ) {
->>>>>>> release/1.2.2
 		echo $before;
 		echo '<a href="' . wp_get_attachment_url( get_post_thumbnail_id() ) . '">' . get_the_post_thumbnail( $post->ID, 'large' ) . '</a>';
 		echo $after;
