@@ -44,13 +44,9 @@ get_header(); ?>
 
 				<?php if ( have_posts() ) : ?>
 
-					<div class="row">
+					<div class="download-grid-wrapper columns-<?php echo marketify_theme_mod( 'product-display', 'product-display-columns' ); ?> row" data-columns>
 						<?php while ( have_posts() ) : the_post(); ?>
-
-							<div class="col-lg-<?php marketify_download_columns(); ?> col-md-6 col-sm-12">
-								<?php get_template_part( 'content-grid', 'download' ); ?>
-							</div>
-
+							<?php get_template_part( 'content-grid', 'download' ); ?>
 						<?php endwhile; ?>
 					</div>
 

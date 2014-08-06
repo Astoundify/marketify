@@ -91,7 +91,7 @@ class Marketify_Love_It_Archives {
 	public function content($content) {
 		global $wp_query;
 
-		if ( get_query_var( 'author_wishlist' ) ) {
+		if ( get_query_var( 'author_wishlist' ) && in_the_loop() ) {
 			echo do_shortcode( '[downloads]' );
 		} else {
 			return $content;

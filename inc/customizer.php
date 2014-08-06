@@ -378,7 +378,8 @@ function marketify_header_css() {
 	#recaptcha_area .recaptchatable a,
 	#recaptcha_area .recaptchatable a:hover,
 	.fes-feat-image-btn,
-	.upload_file_button {
+	.upload_file_button,
+	.fes-avatar-image-btn {
 		color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 	}
 
@@ -400,7 +401,8 @@ function marketify_header_css() {
 	body a.edd-wl-action.edd-wl-button,
 	body a.edd-wl-action.edd-wl-button:hover,
 	.fes-feat-image-btn,
-	.upload_file_button {
+	.upload_file_button,
+	.fes-avatar-image-btn {
 		border-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 	}
 
@@ -416,7 +418,8 @@ function marketify_header_css() {
 	.fes-pagination a.page-numbers:hover,
 	body a.edd-wl-action.edd-wl-button:hover,
 	.fes-feat-image-btn:hover,
-	.upload_file_button:hover {
+	.upload_file_button:hover,
+	.fes-avatar-image-btn:hover {
 		background-color: " . marketify_theme_mod( 'colors', 'primary' ) . ";
 	}
 

@@ -99,8 +99,6 @@ function marketify_get_attached_media_args( $args, $type, $post ) {
 	if ( 'download' != $post->post_type )
 		return $args;
 
-	$args[ 'exclude' ] = array( get_post_thumbnail_id( $post->ID ) );
-
 	if ( class_exists( 'MultiPostThumbnails' ) && MultiPostThumbnails::get_the_post_thumbnail( 'download', 'grid-image' ) )
 		$args[ 'exclude' ] = MultiPostThumbnails::get_post_thumbnail_id( 'download', 'grid-image', $post->ID );
 

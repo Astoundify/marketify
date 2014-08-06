@@ -4,7 +4,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Marketify 1.2.1.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/marketify\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2014-06-25 13:22:55+00:00\n"
+=======
+"POT-Creation-Date: 2014-07-20 07:25:12+00:00\n"
+>>>>>>> release/1.2.2
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -72,16 +76,16 @@ msgstr ""
 msgid "Archives"
 msgstr ""
 
-#: bbpress/form-search.php:14 searchform-header.php:14 searchform.php:22
+#: bbpress/form-search.php:14 searchform-header.php:14 searchform.php:23
 msgctxt "label"
 msgid "Search for:"
 msgstr ""
 
-#: bbpress/form-search.php:15 searchform-header.php:15 searchform.php:23
+#: bbpress/form-search.php:15 searchform-header.php:15 searchform.php:24
 msgid "Search"
 msgstr ""
 
-#: bbpress/form-search.php:15 searchform-header.php:15 searchform.php:23
+#: bbpress/form-search.php:15 searchform-header.php:15 searchform.php:24
 msgid "Search for:"
 msgstr ""
 
@@ -384,20 +388,20 @@ msgstr ""
 msgid "%s Demo URL"
 msgstr ""
 
-#: inc/integrations/edd/edd-template-tags.php:219
+#: inc/integrations/edd/edd-template-tags.php:216
 msgid "Update Required"
 msgstr ""
 
-#: inc/integrations/edd/edd-template-tags.php:220
+#: inc/integrations/edd/edd-template-tags.php:217
 msgid "To play the media you will need to either update your browser to a recent version or update your <a href=\"http://get.adobe.com/flashplayer/\" target=\"_blank\">Flash plugin</a>."
 msgstr ""
 
-#: inc/integrations/edd/edd-template-tags.php:355
+#: inc/integrations/edd/edd-template-tags.php:351
 #: inc/integrations/edd/widgets/class-widget-download-details.php:75
 msgid "Purchase"
 msgstr ""
 
-#: inc/integrations/edd/edd-template-tags.php:403
+#: inc/integrations/edd/edd-template-tags.php:399
 msgid "Demo"
 msgstr ""
 

@@ -345,7 +345,6 @@ jQuery(window).load(function() {
 	Marketify.App.downloadGridViewer();
 
 	var equalHeighters = [
-		jQuery( '.home-widget.widget_woothemes_features .feature' ),
 		jQuery( '.page-template-page-templatesteam-php .entry-author' )
 	];
 

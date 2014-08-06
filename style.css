@@ -4,7 +4,11 @@ Theme URI: http://astoundify.com/themes/marketify
 Author: Astoundify
 Author URI: http://astoundify.com
 Description: Your beautiful handcrafted digital marketplace.
+<<<<<<< HEAD
 Version: 1.2.1.2
+=======
+Version: 1.2.2
+>>>>>>> release/1.2.2
 License: GNU General Public License
 License URI: license.txt
 Text Domain: marketify
@@ -1880,6 +1884,35 @@ body.product-display-inline .single-project .page-header,
 /* =Download Grid
 ----------------------------------------------- */
 
+.download-grid-wrapper[data-columns]::before,
+.download-grid-wrapper.columns-1[data-columns]::before,
+.features[data-columns]::before {
+	content: '1 .col-xs-12';
+}
+
+@media (min-width: 768px) {
+	.download-grid-wrapper[data-columns]::before,
+	.download-grid-wrapper.columns-2[data-columns]::before,
+	.features[data-columns]::before {
+		content: '2 .col-sm-6';
+	}
+}
+
+@media (min-width: 992px) {
+	.download-grid-wrapper[data-columns]::before,
+	.download-grid-wrapper.columns-3[data-columns]::before,
+	.features[data-columns]::before {
+		content: '3 .col-md-4';
+	}
+}
+
+@media (min-width: 1200px) {
+	.download-grid-wrapper[data-columns]::before,
+	.download-grid-wrapper.columns-4[data-columns]::before {
+		content: '4 .col-md-3';
+	}
+}
+
 .content-grid-download {
 	margin-bottom: 30px;
 
@@ -2799,7 +2832,7 @@ object {
 }
 
 .marketify_widget_taxonomy_stylized {
-	margin-top: -100px;
+	margin-top: -70px;
 	padding: 30px 0;
 }
 
@@ -2811,10 +2844,26 @@ object {
 
 .marketify_widget_taxonomy_stylized li {
 	margin: 5px 0;
-	width: 25%;
+	width: 100%;
 	float: left;
 	text-align: center;
 }
+
+	@media (min-width: 768px) {
+		.marketify_widget_taxonomy_stylized {
+			margin-top: -100px;
+		}
+
+		.marketify_widget_taxonomy_stylized li {
+			width: 50%;
+		}
+	}
+
+	@media (min-width: 992px) {
+		.marketify_widget_taxonomy_stylized li {
+			width: 25%;
+		}
+	}
 
 .marketify_widget_taxonomy_stylized a {
 	font: 700 14px 'Montserrat', sans-serif;

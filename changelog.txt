@@ -1,5 +1,12 @@
 == Changelog ==
 
+= 1.2.2: July 24, 2014 =
+
+* New: Masonry/stackable grids
+* Fix: Respect search for products when on product pages.
+* Fix: Better gallery/product image stability with recent FES fixes.
+* Fix: Responsive fixes for homepage taxonomy widget.
+
 = 1.2.1.2: July 5, 2014 =
 
 * Fix: Always show the product slider/grid if there are any attached images that aren't also featured.
