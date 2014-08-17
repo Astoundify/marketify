@@ -30,7 +30,15 @@ get_header(); ?>
 					<?php marketify_downloads_section_title(); ?>
 				</span></div>
 
-				<?php echo do_shortcode( sprintf( '[downloads number="%s"]', get_option( 'posts_per_page' ) ) ); ?>
+				<?php while ( have_posts() ) : the_post(); ?>
+
+					<?php if ( '' == get_the_content() ) : ?>
+						<?php echo do_shortcode( sprintf( '[downloads number="%s"]', get_option( 'posts_per_page' ) ) ); ?>
+					<?php else : ?>
+						<?php the_content(); ?>
+					<?php endif; ?>
+
+				<?php endwhile; ?>
 
 				</main><!-- #main -->
 			</section><!-- #primary -->
