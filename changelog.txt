@@ -1,5 +1,13 @@
 == Changelog ==
 
+= 1.2.2.1: August 20, 2014 =
+
+* Fix: Fix pagination positioning on certain pages
+* Fix: Updated Earnings icon in FES dashboard
+* Fix: Don't escape vendor description/bio which caused the output of HTML tags
+* Fix: Make sure the proper classes are still assigned to download grid items
+* Fix: Allow the Shop page template to inert its own content
+
 = 1.2.2: July 24, 2014 =
 
 * New: Masonry/stackable grids
