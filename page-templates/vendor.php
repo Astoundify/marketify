@@ -39,7 +39,7 @@ get_header(); ?>
 
 					<div class="download-author-bio">
 
-						<?php echo esc_attr( $author->description ); ?>
+						<?php echo esc_html( $author->description ); ?>
 
 					</div>
 
