@@ -43,7 +43,7 @@ add_action( 'wp_enqueue_scripts', 'marketify_edd_fes_enqueue_scripts' );
  */
 function marketify_edd_fes_vendor_dashboard_menu( $menu ) {
 	if ( EDD_FES()->integrations->is_commissions_active() ) {
-		$menu[ 'earnings' ][ 'icon' ] = 'chart-line';
+		$menu[ 'earnings' ][ 'icon' ] = 'graph';
 	}
 
 	$menu[ 'home' ][ 'icon' ] = 'house';
