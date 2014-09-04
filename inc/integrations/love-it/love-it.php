@@ -146,6 +146,7 @@ class Marketify_Love_It_Archives {
 		}
 
 		$query[ 'post__in' ] = $loves;
+		$query[ 'posts_per_page' ] = -1;
 
 		return $query;
 	}
