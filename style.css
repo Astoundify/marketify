@@ -1891,7 +1891,6 @@ body.product-display-inline .single-project .page-header,
 }
 
 @media (min-width: 768px) {
-	.download-grid-wrapper[data-columns]::before,
 	.download-grid-wrapper.columns-2[data-columns]::before,
 	.features[data-columns]::before {
 		content: '2 .col-sm-6';
@@ -1899,7 +1898,6 @@ body.product-display-inline .single-project .page-header,
 }
 
 @media (min-width: 992px) {
-	.download-grid-wrapper[data-columns]::before,
 	.download-grid-wrapper.columns-3[data-columns]::before,
 	.features[data-columns]::before {
 		content: '3 .col-md-4';
@@ -1907,7 +1905,6 @@ body.product-display-inline .single-project .page-header,
 }
 
 @media (min-width: 1200px) {
-	.download-grid-wrapper[data-columns]::before,
 	.download-grid-wrapper.columns-4[data-columns]::before {
 		content: '4 .col-md-3';
 	}

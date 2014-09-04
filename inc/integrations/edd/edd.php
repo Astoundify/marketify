@@ -117,11 +117,9 @@ add_filter( 'wp_nav_menu_items', 'marketify_wp_nav_menu_items', 10, 2 );
  * @return string The updated class list
  */
 function marketify_edd_downloads_list_wrapper_class( $class, $atts ) {
-	if ( ! isset( $atts[ 'columns' ] ) ) {
-		$atts[ 'columns' ] = marketify_theme_mod( 'product-display', 'product-display-columns' );
-	}
+	$columns = marketify_theme_mod( 'product-display', 'product-display-columns' );
 
-	return 'row download-grid-wrapper columns-' . $atts[ 'columns' ] . ' ' . $class;
+	return 'row download-grid-wrapper columns-' . $columns . ' ' . $class;
 }
 add_filter( 'edd_downloads_list_wrapper_class', 'marketify_edd_downloads_list_wrapper_class', 10, 2 );
 
