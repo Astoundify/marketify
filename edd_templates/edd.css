@@ -1484,6 +1484,16 @@ body .edd-wish-list li span.edd-wl-edit {
 	height: 200px;
 }
 
+#fes_login_registration_form_row_left,
+#fes_login_registration_form_row_right {
+	width: 48% !important;
+	border-top: 0 !important;
+}
+
+#fes_login_registration_form_row_right {
+	float: right !important;
+}
+
 /* =Ajax Add To Cart Button
 -------------------------------------------------------------- */
 .edd_purchase_submit_wrapper { position: relative; }
