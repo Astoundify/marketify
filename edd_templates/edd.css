@@ -609,6 +609,7 @@ body #edd-wl-modal input[type="radio"]:focus {
 .minimal .entry-content fieldset.edd-slg-social-container > span {
 	position: relative;
 	display: block;
+	text-align: center;
 }
 
 .minimal .entry-content fieldset.edd-slg-social-container > span:after {
