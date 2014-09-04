@@ -39,7 +39,7 @@ $privacy = get_post_status( $list_id );
 		/**
 		 * All all items in list to cart
 		*/
-		echo '<p>' . edd_wl_add_all_to_cart_link( array( 'list_id' => $list_id ) ) . '</p>';
+		echo '<p>' . edd_wl_add_all_to_cart_link( $list_id ) . '</p>';
 	?>
 
 

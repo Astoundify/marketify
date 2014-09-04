@@ -148,6 +148,22 @@ Marketify.App = ( function($) {
 			});
 
 			$( '.individual-testimonial .avatar' ).wrap( '<div class="avatar-wrap"></div>' );
+
+			//$( '.download-grid-wrapper' ).find( ':not(.edd_download)' ).remove();
+
+			function pagi() {
+				if ( ! $( '#edd_download_pagination' ).length ) {
+					return;
+				}
+
+				var pagi = $( '#edd_download_pagination' ).clone();
+
+				$( '#edd_download_pagination' ).remove();
+
+				pagi.insertAfter( '.edd_downloads_list' );
+			}
+
+			pagi();
 		},
 
 		popup : function( args ) {

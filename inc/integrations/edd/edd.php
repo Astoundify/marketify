@@ -147,7 +147,11 @@ add_filter( 'downloads_shortcode', 'marketify_downloads_shortcode' );
  * @return string The updated class list
  */
 function marketify_edd_download_class( $class, $id, $atts ) {
-	return $class . ' content-grid-download';
+	$classes   = marketify_post_classes( array() );
+	$classes[] = $class;
+	$classes[] = 'content-grid-download';
+
+	return implode( ' ', $classes );
 }
 add_filter( 'edd_download_class', 'marketify_edd_download_class', 10, 3 );
 
@@ -164,6 +168,7 @@ function marketify_shortcode_atts_downloads( $atts ) {
 	$atts[ 'full_content' ] = 'no';
 	$atts[ 'price' ]        = 'no';
 	$atts[ 'buy_button' ]   = 'no';
+	$atts[ 'columns' ] = 9999;
 
 	return $atts;
 }

@@ -300,7 +300,7 @@ function marketify_download_grid_previewer() {
 		echo $after;
 
 		return;
-	} elseif ( count( $images ) > 0 ) {
+	} else {
 		echo $before;
 	?>
 
