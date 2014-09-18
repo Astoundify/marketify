@@ -72,7 +72,7 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 				<?php if ( $count ) : ?>
 				<div class="download-purchases">
 					<strong><?php echo edd_get_download_sales_stats( get_the_ID() ); ?></strong>
-					<?php echo _n( 'Purchase', 'Purchases', edd_get_download_sales_stats( get_the_ID() ), 'marketify' ); ?>
+					<?php echo _n( 'Purchases', 'Purchases', edd_get_download_sales_stats( get_the_ID() ), 'marketify' ); ?>
 				</div>
 				<?php endif; ?>
 

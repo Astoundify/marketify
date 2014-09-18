@@ -507,7 +507,7 @@ function marketify_scripts() {
 	wp_enqueue_style( 'marketify-plugins', get_template_directory_uri() . '/css/plugins.min.css' );
 
 	/* Custom CSS */
-	wp_enqueue_style( 'marketify-base', get_stylesheet_uri() );
+	wp_enqueue_style( 'marketify-base', get_template_directory_uri() . '/style.css' );
 
 	/*
 	 * Scripts

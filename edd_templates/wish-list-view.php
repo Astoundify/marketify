@@ -43,11 +43,9 @@ $privacy = get_post_status( $list_id );
 	?>
 
 
-	<div class="row">
-		<?php while ( $downloads->have_posts() ) : $downloads->the_post(); ?>
-			<div class="col-lg-4 col-md-6 col-sm-12">
-				<?php get_template_part( 'content-grid', 'download' ); ?>
-			</div>
+	<div class="download-grid-wrapper columns-<?php echo marketify_theme_mod( 'product-display', 'product-display-columns' ); ?> row" data-columns>
+		<?php while ( have_posts() ) : the_post(); ?>
+			<?php get_template_part( 'content-grid', 'download' ); ?>
 		<?php endwhile; ?>
 	</div>
 

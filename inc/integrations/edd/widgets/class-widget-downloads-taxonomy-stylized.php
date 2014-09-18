@@ -54,11 +54,11 @@ class Marketify_Widget_Taxonomy_Stylized extends Marketify_Widget {
 		<div class="container">
 
 		<ul class="edd-taxonomy-widget">
-			<?php wp_list_categories( array(
+			<?php wp_list_categories( apply_filters( 'marketify_taxonomy_stylized_terms', array(
 				'title_li' => '',
 				'taxonomy' => $taxonomy,
 				'depth'    => 1
-			) ); ?>
+			) ) ); ?>
 		</ul>
 
 		</div>

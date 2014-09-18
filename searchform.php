@@ -12,6 +12,7 @@ if (
 	is_singular( 'download' ) ||
 	is_tax( array( 'download_tag', 'download_category' ) ) ||
 	is_page_template( 'page-templates/home-search.php' ) ||
+	is_page_template( 'page-templates/shop.php' ) ||
 	is_front_page()
 )
 	$type = 'download';
