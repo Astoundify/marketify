@@ -145,7 +145,7 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 		<div id="items-featured" class="row flexslider">
 			<ul class="slides">
 				<?php while ( $featured->have_posts() ) : $featured->the_post(); ?>
-				<li class="col-lg-3 col-sm-6">
+				<li class="col-xs-12 col-sm-6 col-md-3">
 					<?php get_template_part( 'content-grid', 'download' ); ?>
 				</li>
 				<?php endwhile; ?>
@@ -157,7 +157,7 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 		<div id="items-popular" class="row flexslider">
 			<ul class="slides">
 				<?php while ( $popular->have_posts() ) : $popular->the_post(); ?>
-				<li class="col-lg-3 col-sm-6">
+				<li class="col-xs-12 col-sm-6 col-md-3">
 					<?php get_template_part( 'content-grid', 'download' ); ?>
 				</li>
 				<?php endwhile; ?>

@@ -11,7 +11,7 @@ global $post;
 
 	<?php if ( marketify_theme_mod( 'product-display', 'product-display-excerpt' ) ) : ?>
 
-		<div class="entry-excerpt"><?php echo esc_attr( wp_trim_words( $post->post_content, 10 ) ); ?></div>
+		<div class="entry-excerpt"><?php echo esc_attr( wp_trim_words( get_the_excerpt(), 10 ) ); ?></div>
 
 	<?php endif; ?>
 
