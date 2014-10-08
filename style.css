@@ -1060,7 +1060,7 @@ a.insert-file-row {
 
 .page-header {
 	text-align: center;
-	padding: 40px 0 130px;
+	padding: 0 0 90px;
 }
 
 .page-title,
@@ -1458,8 +1458,8 @@ body:not(.minimal) .edd_form legend {
 .entry-page-title {
 	color: #fff;
 	text-align: center;
-	padding-top: 40px;
-	padding-bottom: 130px;
+	padding-top: 0;
+	padding-bottom: 90px;
 }
 
 .single-post .entry-page-title {
