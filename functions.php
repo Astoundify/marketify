@@ -45,29 +45,20 @@ function marketify_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	if ( marketify_theme_mod( 'product-display', 'product-display-aspect' ) ) {
-		$g_w = 520;
-		$g_h = 640;
-		$g_c = true;
-
-		$s_w = 9999;
-		$s_h = 9999;
-		$s_c = false;
-	} else {
-		$g_w = 640;
-		$g_h = 520;
-		$g_c = true;
-
-		$s_w = 9999;
-		$s_h = 520;
-		$s_c = true;
-	}
-
 	add_image_size(
 		'content-grid-download',
-		apply_filters( 'marketify_image_content_grid_download_w', $g_w ),
-		apply_filters( 'marketify_image_content_grid_download_h', $g_h ),
-		apply_filters( 'marketify_image_content_grid_download_c', $g_c )
+		apply_filters(
+			'marketify_image_content_grid_download_w',
+			marketify_theme_mod( 'product-display', 'grid-width' )
+		),
+		apply_filters(
+			'marketify_image_content_grid_download_h',
+			marketify_theme_mod( 'product-display', 'grid-height' )
+		),
+		apply_filters(
+			'marketify_image_content_grid_download_c',
+			marketify_theme_mod( 'product-display', 'grid-crop' )
+		)
 	);
 
 	add_image_size(

@@ -88,6 +88,24 @@ function marketify_get_theme_mods( $args = array() ) {
 			)
 		),
 		'product-display' => array(
+			'grid-width' => array(
+				'title'   => __( 'Grid Image Width (px)', 'marketify' ),
+				'type'    => 'number',
+				'default' => 640,
+				'priority' => 7
+			),
+			'grid-height' => array(
+				'title'   => __( 'Grid Image Height (px)', 'marketify' ),
+				'type'    => 'number',
+				'default' => 520,
+				'priority' => 8
+			),
+			'grid-crop' => array(
+				'title' => __( 'Hard Crop Grid Images', 'marketify' ),
+				'type' => 'checkbox',
+				'std' => 1,
+				'priority' => 9
+			),
 			'product-display-columns' => array(
 				'title'   => __( 'Grid Columns', 'marketify' ),
 				'type'    => 'select',
@@ -120,12 +138,6 @@ function marketify_get_theme_mods( $args = array() ) {
 					2 => __( 'Never show', 'marketify' )
 				),
 				'priority' => 30
-			),
-			'product-display-aspect' => array(
-				'title'    => __( 'Use Portrait aspect ratio' ),
-				'type'     => 'checkbox',
-				'std'      => 0,
-				'priority' => 35
 			),
 			'product-display-excerpt' => array(
 				'title'   => __( 'Display excerpt on grid items' ),
@@ -232,7 +244,7 @@ function marketify_customize_register_settings( $wp_customize ) {
 
 			$type = $setting[ 'type' ];
 
-			if ( in_array( $type, array( 'text', 'checkbox', 'radio', 'select', 'dropdown-pages' ) ) ) {
+			if ( in_array( $type, array( 'text', 'number', 'checkbox', 'radio', 'select', 'dropdown-pages' ) ) ) {
 				$wp_customize->add_control( $key, array(
 					'label'      => $setting[ 'title' ],
 					'section'    => $section,
