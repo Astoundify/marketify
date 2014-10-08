@@ -108,7 +108,7 @@ function marketify_setup() {
 	/**
 	 * Editor Style
 	 */
-	add_editor_style( 'css/editor-style.min.css' );
+	add_editor_style( 'css/editor-style.css' );
 
 	/**
 	 * Setup the WordPress core custom background feature.
@@ -503,8 +503,6 @@ function marketify_scripts() {
 
 	/* Supplimentary CSS */
 	wp_enqueue_style( 'marketify-fonts', marketify_fonts_url() );
-	wp_enqueue_style( 'entypo', get_template_directory_uri() . '/css/entypo.min.css' );
-	wp_enqueue_style( 'marketify-plugins', get_template_directory_uri() . '/css/plugins.min.css' );
 
 	/* Custom CSS */
 	wp_enqueue_style( 'marketify-base', get_template_directory_uri() . '/style.css' );
@@ -518,8 +516,7 @@ function marketify_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_script( 'marketify-plugins', get_template_directory_uri() . '/js/plugins.min.js', array( 'jquery' ), '20140515', true );
-	wp_enqueue_script( 'marketify', get_template_directory_uri() . '/js/main.min.js', array( 'jquery', 'marketify-plugins' ), '20140515', true );
+	wp_enqueue_script( 'marketify', get_template_directory_uri() . '/js/marketify.min.js', array( 'jquery' ), '20140908', true );
 
 	$marketify_js_settings = apply_filters( 'marketify_jsparams', array(
 		'widgets' => array()

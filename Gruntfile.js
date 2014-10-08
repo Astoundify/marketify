@@ -3,34 +3,30 @@ module.exports = function(grunt) {
 
 	grunt.initConfig({
 
+		dirs: {
+			js: 'js',
+			css: 'css'
+		},
+
 		// watch for changes and trigger compass, jshint, uglify and livereload
 		watch: {
 			options: {
 				livereload: true,
 			},
 			js: {
-				files: '<%= jshint.all %>',
+				files: [
+					'js/vendor/*.js',
+					'js/app/*.js'
+				],
 				tasks: ['uglify']
 			},
 			css: {
 				files: [
-					'style.css',
-					'css/source/*.css',
-					'css/source/vendor/*.css'
+					'<%= dirs.css %>/sass/*.scss',
+					'<%= dirs.css %>/vendor/*.css'
 				],
-				tasks: ['concat', 'cssmin', 'clean']
+				tasks: ['sass', 'concat', 'clean']
 			}
-		},
-
-		// javascript linting with jshint
-		jshint: {
-			options: {
-				"force": true
-			},
-			all: [
-				'Gruntfile.js',
-				'js/source/**/*.js'
-			]
 		},
 
 		// uglify to concat, minify, and make source maps
@@ -40,23 +36,33 @@ module.exports = function(grunt) {
 					sourceMap: true
 				},
 				files: {
-					'js/plugins.min.js': [
-						'js/source/vendor/**.js'
+					'js/vendor.min.js': [ 'js/vendor/*.js' ],
+					'js/marketify.min.js': [
+						'js/vendor.min.js',
+						'js/app/jobify.js'
 					],
-					'js/main.min.js': [
-						'js/source/marketify.js'
-					],
-					'js/customizer.min.js': [
-						'js/source/customizer.js'
-					]
+				}
+			}
+		},
+
+		sass: {
+			dist: {
+				files: {
+					'css/style.css' : 'css/sass/style.scss'
 				}
 			}
 		},
 
 		concat: {
-			dist: {
+			initial: {
 				files: {
-					'css/plugins.css': ['css/source/vendor/*.css']
+					'css/vendor.css': ['css/vendor/*.css'],
+					'css/style.min.css': [ 'css/vendor.css', 'css/style.css']
+				}
+			},
+			header: {
+				files: {
+					'style.css': ['css/_theme.css', 'css/style.min.css' ]
 				}
 			}
 		},
@@ -64,17 +70,20 @@ module.exports = function(grunt) {
 		cssmin: {
 			dist: {
 				files: {
-					'css/plugins.min.css': [ 'css/plugins.css' ],
-					'css/bbpress.min.css': ['css/source/bbpress.css'],
-					'css/entypo.min.css': ['css/source/entypo.css'],
-					'css/editor-style.min.css': ['css/source/editor-style.css']
+					'css/style.min.css': [ 'css/style.css' ]
 				}
 			}
 		},
 
 		clean: {
 			dist: {
-				src: ['css/plugins.css']
+				src: [
+					'css/style.css',
+					'css/style.min.css',
+					'css/vendor.css',
+					'js/vendor.min.js',
+					'js/vendor.min.map'
+				]
 			}
 		},
 
@@ -97,11 +106,11 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-contrib-concat' );
 	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
-	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
+	grunt.loadNpmTasks( 'grunt-contrib-sass' );
 
 	// register task
 	grunt.registerTask('default', ['watch']);
-	grunt.registerTask('build', ['jshint', 'uglify', 'concat', 'cssmin', 'clean', 'shell']);
+	grunt.registerTask('build', ['uglify', 'sass', 'concat', 'clean', 'shell']);
 
 };
