@@ -6450,38 +6450,6 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
   width: 100% important;
   display: block; }
 
-.edd-fpd {
-  margin: -25px 0;
-  width: 100%; }
-
-.edd-fpd tr:first-child th,
-.edd-fpd tr:first-child td {
-  padding-top: 25px; }
-
-.edd-fpd tr:last-child th,
-.edd-fpd tr:last-child td {
-  padding-bottom: 25px; }
-
-.edd-fpd th,
-.edd-fpd td {
-  padding: 7px 5px;
-  vertical-align: middle; }
-
-.edd-fpd th {
-  font: 700 14px/normal 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  width: 45%;
-  border-right: 1px solid #ccc;
-  padding-right: 5%; }
-
-.edd-fpd th {
-  color: #515a63; }
-
-.edd-fpd td {
-  font-size: 14px;
-  color: #82878e;
-  padding-left: 5%; }
-
 /* =Footer
 ----------------------------------------------- */
 .site-footer {
@@ -8632,3 +8600,33 @@ body .edd-wish-list li span {
     display: block;
     line-height: 1;
     margin-top: 7px; }
+
+.widget_edd_fpd .download-single-widget-title {
+  margin: -25px -25px 0;
+  padding: 25px;
+  border-bottom: 1px solid #ccc; }
+.widget_edd_fpd .edd-fpd {
+  margin: 0 0 -25px;
+  width: 100%; }
+.widget_edd_fpd .edd-fpd tr:first-child th,
+.widget_edd_fpd .edd-fpd tr:first-child td {
+  padding-top: 25px; }
+.widget_edd_fpd .edd-fpd tr:last-child th,
+.widget_edd_fpd .edd-fpd tr:last-child td {
+  padding-bottom: 25px; }
+.widget_edd_fpd .edd-fpd th,
+.widget_edd_fpd .edd-fpd td {
+  padding: 7px 5px;
+  vertical-align: middle; }
+.widget_edd_fpd .edd-fpd th {
+  font: 700 14px/normal 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  width: 45%;
+  border-right: 1px solid #ccc;
+  padding-right: 5%; }
+.widget_edd_fpd .edd-fpd th {
+  color: #515a63; }
+.widget_edd_fpd .edd-fpd td {
+  font-size: 14px;
+  color: #82878e;
+  padding-left: 5%; }
