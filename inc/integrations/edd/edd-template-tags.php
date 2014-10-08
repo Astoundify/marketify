@@ -110,13 +110,12 @@ function marketify_download_video_player() {
 	if ( ! $video )
 		return;
 
-	$oembed = wp_oembed_get( $video );
-
-	if ( $oembed ) {
+	if ( ! is_array( $video ) ) {
 		global $wp_embed;
 
 		$output = $wp_embed->run_shortcode( '[embed]' . $video . '[/embed]' );
 	} else {
+		$video = current( $video );
 		$file = wp_get_attachment_url( $video );
 		$info = wp_check_filetype( $file );
 
