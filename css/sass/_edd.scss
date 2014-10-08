@@ -1411,68 +1411,6 @@ div.fes-form fieldset .fes-fields .edd-shipping-field {
 	margin-right: 4%;
 }
 
-/* =Wish Lists
--------------------------------------------------------------- */
-
-body .modal-content {
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
-	border-radius: 0;
-}
-
-body .modal .modal-dialog {
-	margin-top: 100px;
-	width: 450px;
-}
-
-.modal-content label {
-	display: inline-block;
-}
-
-body .modal-backdrop.in {
-	opacity: 0.70;
-}
-
-body #edd-wl-modal .modal-header {
-	margin: 50px 0;
-	padding: 0;
-	border-bottom: 0;
-	min-height: 0;
-}
-
-body #edd-wl-modal .modal-body {
-	padding: 0 40px 40px;
-}
-
-#edd-wl-modal .modal-header p {
-	display: none;
-}
-
-body #edd-wl-modal a.edd-wl-close {
-	right: -29px;
-	top: -76px;
-	color: #fff;
-}
-
-body .edd-wish-list li,
-body .edd-wish-list li span {
-	font-size: 100%;
-	line-height: 1;
-}
-
-body .edd-wish-list li:after {
-	width: auto;
-	display: block;
-	content: ' ';
-}
-
-body .edd-wish-list li span.edd-wl-edit {
-	display: block;
-	line-height: 1;
-	margin-top: 7px;
-}
-
 .fes-form-vendor-contact-form #fes-contact-form-title {
 	display: none;
 }
