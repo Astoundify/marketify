@@ -741,11 +741,14 @@ function marketify_edd_fes_author_url( $author = null ) {
 }
 
 function marketify_count_user_downloads( $userid, $post_type = 'download' ) {
-	global $wpdb;
+	if ( false === ( $count = get_transient( $userid . $post_type ) ) ) {
+		global $wpdb;
 
-	$where = get_posts_by_author_sql( $post_type, true, $userid );
+		$where = get_posts_by_author_sql( $post_type, true, $userid );
+		$count = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->posts $where" );
 
-	$count = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->posts $where" );
+		set_transient( $userid . $post_type, $count, 12 * HOUR_IN_SECONDS );
+	}
 
   	return apply_filters( 'get_usernumposts', $count, $userid );
 }
