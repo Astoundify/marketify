@@ -82,21 +82,9 @@ class Marketify_Love_It_Archives {
 		add_filter( 'generate_rewrite_rules', array( $this, 'rewrites' ) );
 		add_action( 'query_vars', array( $this, 'query_vars' ) );
 
-		add_action( 'the_content', array( $this, 'content' ) );
 		add_filter( 'the_title',  array( $this, 'change_the_title' ) );
 
 		add_action( 'template_redirect', array( $this, 'template_redirect' ) );
-	}
-
-	public function content($content) {
-		global $wp_query;
-
-		if ( get_query_var( 'author_wishlist' ) && in_the_loop() ) {
-			echo do_shortcode( '[downloads]' );
-		} else {
-			return $content;
-		}
-
 	}
 
 	public function query_vars( $query_vars ) {
@@ -116,6 +104,7 @@ class Marketify_Love_It_Archives {
 
 		$new_rules = array(
 			$page->post_name . '/([^/]+)/?$' => 'index.php?page_id=' . $page->ID . '&author_wishlist=' . $wp_rewrite->preg_index(1),
+			$page->post_name . '/([^/]+)/page/([0-9]+)?$' => 'index.php?page_id=' . $page->ID . '&author_wishlist=' . $wp_rewrite->preg_index(1) . '&paged=' . $wp_rewrite->preg_index(2),
 		);
 
 		$wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
@@ -146,7 +135,6 @@ class Marketify_Love_It_Archives {
 		}
 
 		$query[ 'post__in' ] = $loves;
-		$query[ 'posts_per_page' ] = -1;
 
 		return $query;
 	}
