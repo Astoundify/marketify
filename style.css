@@ -8583,6 +8583,12 @@ a.edd-add-to-cart .edd-add-to-cart-label, a.edd-add-to-cart .edd-loading {
   position: absolute; }
 
 /**
+ * Discounts
+ */
+.edd-apply-discount {
+  margin-top: 1em; }
+
+/**
  * Be a bit overly specific since there are a lot of IDs
  * that make it difficult to override otherwise.
  */
