@@ -38,8 +38,8 @@ module.exports = function(grunt) {
 				files: {
 					'js/vendor.min.js': [ 'js/vendor/*.js' ],
 					'js/marketify.min.js': [
-						'js/vendor.min.js',
-						'js/app/jobify.js'
+						'js/vendor/*.js',
+						'js/app/marketify.js'
 					],
 				}
 			}
