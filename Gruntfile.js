@@ -47,7 +47,7 @@ module.exports = function(grunt) {
 
 		sass: {
 			dist: {
-				files: {
+        files: {
 					'css/style.css' : 'css/sass/style.scss'
 				}
 			}
@@ -63,14 +63,6 @@ module.exports = function(grunt) {
 			header: {
 				files: {
 					'style.css': ['css/_theme.css', 'css/style.min.css' ]
-				}
-			}
-		},
-
-		cssmin: {
-			dist: {
-				files: {
-					'css/style.min.css': [ 'css/style.css' ]
 				}
 			}
 		},
