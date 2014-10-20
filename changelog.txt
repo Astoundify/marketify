@@ -1,5 +1,17 @@
 == Changelog ==
 
+= 1.2.3: October 20, 2014 =
+
+* New: Hooks in vendor profile page template to output custom information
+* Fix: Cache download count for vendor profiles
+* Fix: Love It pagination not working
+* Fix: Load the real excerpt and not the post content
+* Fix: More reliable self hosted videos for Video format
+* Fix: Improve wish list page display
+* Fix: Improve FES FPD widget title display
+* Fix: Allow grid image size to be set in customizer
+* Tweak: Reduce the height of page headers
+
 = 1.2.2.1: August 20, 2014 =
 
 * Fix: Fix pagination positioning on certain pages

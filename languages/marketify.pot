@@ -2,22 +2,25 @@
 # This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
-"Project-Id-Version: Marketify 1.2.2.1\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tags/marketify\n"
-"POT-Creation-Date: 2014-10-08 14:51:21+00:00\n"
+"Project-Id-Version: Marketify 1.2.3\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
+"POT-Creation-Date: 2014-10-20 17:31:34+00:00\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n 0.4.9\n"
 
 #: 404.php:11
 msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
 #: 404.php:24
-msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the "
+"links below or a search?"
 msgstr ""
 
 #: 404.php:37
@@ -70,11 +73,6 @@ msgstr ""
 
 #: archive.php:54
 msgid "Archives"
-msgstr ""
-
-#: bbpress/form-search.php:14 searchform-header.php:14 searchform.php:24
-msgctxt "label"
-msgid "Search for:"
 msgstr ""
 
 #: bbpress/form-search.php:15 searchform-header.php:15 searchform.php:25
@@ -180,6 +178,10 @@ msgstr ""
 msgid "View all %s by %s"
 msgstr ""
 
+#: edd_templates/wish-list-view.php:50
+msgid "Share"
+msgstr ""
+
 #: footer.php:45
 msgid "Contact Us"
 msgstr ""
@@ -188,88 +190,46 @@ msgstr ""
 msgid "&copy; %d %s. All rights reserved."
 msgstr ""
 
-#: functions.php:83
+#: functions.php:74
 msgid "Grid Image"
 msgstr ""
 
-#: functions.php:94
+#: functions.php:85
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:95
+#: functions.php:86
 msgid "Footer Social"
 msgstr ""
 
-#: functions.php:365
+#. Template Name of the plugin/theme
 msgid "Homepage"
 msgstr ""
 
-#: functions.php:366
+#: functions.php:357
 msgid "Widgets that appear on the \"Homepage\" Page Template"
 msgstr ""
 
-#: functions.php:376
+#: functions.php:367
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:394
+#: functions.php:385
 msgid "Footer"
 msgstr ""
 
-#: functions.php:395
+#: functions.php:386
 msgid "Widgets that appear in the page footer"
 msgstr ""
 
-#: functions.php:412
+#: functions.php:403
 msgid "Price Table"
 msgstr ""
 
-#: functions.php:414
-msgid "Drag multiple \"Price Option\" widgets here. Then drag the \"Pricing Table\" widget to the \"Homepage\" Widget Area."
-msgstr ""
-
-#. Translators: If there are characters in your language that are not
-#. 	 * supported by Source Sans Pro, translate this to 'off'. Do not translate
-#. 	 * into your own language.
-
-#: functions.php:438
-msgctxt "Source Sans Pro font: on or off"
-msgid "on"
-msgstr ""
-
-#. Translators: If there are characters in your language that are not
-#. 	 * supported by Roboto Slab, translate this to 'off'. Do not translate into
-#. your
-#. 	 * own language.
-
-#: functions.php:444
-msgctxt "Roboto Slab font: on or off"
-msgid "on"
-msgstr ""
-
-#. Translators: If there are characters in your language that are not
-#. 	 * supported by Montserrat, translate this to 'off'. Do not translate into
-#. your
-#. 	 * own language.
-
-#: functions.php:450
-msgctxt "Montserrat font: on or off"
-msgid "on"
-msgstr ""
-
-#: inc/customizer.php:47
-msgctxt "Theme customizer section title"
-msgid "General"
-msgstr ""
-
-#: inc/customizer.php:52
-msgctxt "Theme customizer section title"
-msgid "Product Display"
-msgstr ""
-
-#: inc/customizer.php:57
-msgctxt "Theme customizer section title"
-msgid "Footer"
+#: functions.php:405
+msgid ""
+"Drag multiple \"Price Option\" widgets here. Then drag the \"Pricing "
+"Table\" widget to the \"Homepage\" Widget Area."
 msgstr ""
 
 #: inc/customizer.php:80
@@ -281,82 +241,90 @@ msgid "Download Label Plural"
 msgstr ""
 
 #: inc/customizer.php:92
-msgid "Grid Columns"
+msgid "Grid Image Width (px)"
+msgstr ""
+
+#: inc/customizer.php:98
+msgid "Grid Image Height (px)"
 msgstr ""
 
 #: inc/customizer.php:104
+msgid "Hard Crop Grid Images"
+msgstr ""
+
+#: inc/customizer.php:110
+msgid "Grid Columns"
+msgstr ""
+
+#: inc/customizer.php:122
 msgid "Single Display Style"
 msgstr ""
 
-#: inc/customizer.php:108
+#: inc/customizer.php:126
 msgid "Featured Header Slider"
 msgstr ""
 
-#: inc/customizer.php:109
+#: inc/customizer.php:127
 msgid "Inline Switcher"
 msgstr ""
 
-#: inc/customizer.php:114
+#: inc/customizer.php:132
 msgid "Grid Product Information"
 msgstr ""
 
-#: inc/customizer.php:118
+#: inc/customizer.php:136
 msgid "Auto"
 msgstr ""
 
-#: inc/customizer.php:119
+#: inc/customizer.php:137
 msgid "Always show"
 msgstr ""
 
-#: inc/customizer.php:120
+#: inc/customizer.php:138
 msgid "Never show"
 msgstr ""
 
-#: inc/customizer.php:125
-msgid "Use Portrait aspect ratio"
-msgstr ""
-
-#: inc/customizer.php:131
+#: inc/customizer.php:143
 msgid "Display excerpt on grid items"
 msgstr ""
 
-#: inc/customizer.php:137
+#: inc/customizer.php:149
 msgid "Truncate grid item titles"
 msgstr ""
 
-#: inc/customizer.php:143
+#: inc/customizer.php:155
 msgid "Always show buy button"
 msgstr ""
 
-#: inc/customizer.php:151
+#: inc/customizer.php:163
 msgid "Style"
 msgstr ""
 
-#: inc/customizer.php:154
+#: inc/customizer.php:166
 msgid "Dark"
 msgstr ""
 
-#: inc/customizer.php:155
+#: inc/customizer.php:167
 msgid "Light"
 msgstr ""
 
-#: inc/customizer.php:160
+#: inc/customizer.php:172
 msgid "Contact Address"
 msgstr ""
 
-#: inc/customizer.php:165
+#: inc/customizer.php:177
 msgid "Logo"
 msgstr ""
 
-#: inc/customizer.php:172
+#: inc/customizer.php:184
 msgid "Page Header Color"
 msgstr ""
 
-#: inc/customizer.php:177
+#: inc/customizer.php:189
 msgid "Button/Primary Color"
 msgstr ""
 
-#: inc/customizer.php:182
+#: inc/customizer.php:194
 msgid "Accent Color"
 msgstr ""
 
@@ -381,7 +349,10 @@ msgid "Update Required"
 msgstr ""
 
 #: inc/integrations/edd/edd-template-tags.php:213
-msgid "To play the media you will need to either update your browser to a recent version or update your <a href=\"http://get.adobe.com/flashplayer/\" target=\"_blank\">Flash plugin</a>."
+msgid ""
+"To play the media you will need to either update your browser to a recent "
+"version or update your <a href=\"http://get.adobe.com/flashplayer/\" "
+"target=\"_blank\">Flash plugin</a>."
 msgstr ""
 
 #: inc/integrations/edd/edd-template-tags.php:347
@@ -457,7 +428,7 @@ msgid "Hide purchase count"
 msgstr ""
 
 #: inc/integrations/edd/widgets/class-widget-download-details.php:68
-#: page-templates/vendor.php:35 page-templates/wishlist.php:34
+#: page-templates/vendor.php:37 page-templates/wishlist.php:34
 msgid "Author since: %s"
 msgstr ""
 
@@ -628,7 +599,7 @@ msgstr ""
 msgid "Customer Reviews"
 msgstr ""
 
-#: inc/integrations/love-it/love-it.php:163
+#: inc/integrations/love-it/love-it.php:151
 msgid "%s's Likes"
 msgstr ""
 
@@ -660,22 +631,12 @@ msgstr ""
 msgid "Purchased"
 msgstr ""
 
-#: inc/template-tags.php:105
-msgctxt "1: date, 2: time"
-msgid "%1$s at %2$s"
-msgstr ""
-
 #: inc/template-tags.php:119
 msgid "Edit"
 msgstr ""
 
 #: inc/template-tags.php:123
 msgid "Your comment is awaiting moderation."
-msgstr ""
-
-#: inc/template-tags.php:175
-msgctxt "noun"
-msgid "Menu"
 msgstr ""
 
 #: inc/template-tags.php:211
@@ -711,8 +672,14 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:202
-msgid "Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed."
-msgid_plural "Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed."
+msgid ""
+"Sorry, but you do not have the correct permissions to install the %s "
+"plugin. Contact the administrator of this site for help on getting the "
+"plugin installed."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to install the %s "
+"plugins. Contact the administrator of this site for help on getting the "
+"plugins installed."
 msgstr[0] ""
 msgstr[1] ""
 
@@ -729,20 +696,36 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:205
-msgid "Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated."
-msgid_plural "Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated."
+msgid ""
+"Sorry, but you do not have the correct permissions to activate the %s "
+"plugin. Contact the administrator of this site for help on getting the "
+"plugin activated."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to activate the %s "
+"plugins. Contact the administrator of this site for help on getting the "
+"plugins activated."
 msgstr[0] ""
 msgstr[1] ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:206
-msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
-msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:207
-msgid "Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated."
-msgid_plural "Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated."
+msgid ""
+"Sorry, but you do not have the correct permissions to update the %s plugin. "
+"Contact the administrator of this site for help on getting the plugin "
+"updated."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to update the %s "
+"plugins. Contact the administrator of this site for help on getting the "
+"plugins updated."
 msgstr[0] ""
 msgstr[1] ""
 
@@ -828,7 +811,9 @@ msgid "Activate"
 msgstr ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:1361
-msgid "No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the Dashboard\">Return to the Dashboard</a>"
+msgid ""
+"No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
+"Dashboard\">Return to the Dashboard</a>"
 msgstr ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:1377
@@ -884,7 +869,9 @@ msgid "Plugin activation failed."
 msgstr ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:2064
-msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
+msgid ""
+"The installation and activation process is starting. This process may take "
+"a while on some hosts, so please be patient."
 msgstr ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:2065
@@ -910,7 +897,9 @@ msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:2071
-msgid "The installation process is starting. This process may take a while on some hosts, so please be patient."
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
 msgstr ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:2072
@@ -966,7 +955,9 @@ msgid "Background Color:"
 msgstr ""
 
 #: inc/widgets/class-widget-price-option.php:31
-msgid "Use <code>h2</code> tags for large titles, and <code>h3</code> tags for subtitles. Unordered lists create a great look."
+msgid ""
+"Use <code>h2</code> tags for large titles, and <code>h3</code> tags for "
+"subtitles. Unordered lists create a great look."
 msgstr ""
 
 #: inc/widgets/class-widget-price-table.php:14
@@ -978,7 +969,9 @@ msgid "Marketify - Home: Price Table"
 msgstr ""
 
 #: inc/widgets/class-widget-price-table.php:30
-msgid "Drag \"Price Option\" widgets to the \"Price Table\" widget area to populate this widget."
+msgid ""
+"Drag \"Price Option\" widgets to the \"Price Table\" widget area to "
+"populate this widget."
 msgstr ""
 
 #: inc/widgets/class-widget-slider-soliloquy.php:14
@@ -1009,11 +1002,6 @@ msgstr ""
 msgid "Search Results: %s"
 msgstr ""
 
-#: index.php:20
-msgctxt "blog page title"
-msgid "Blog"
-msgstr ""
-
 #: modal-download-purchase.php:10
 msgid "Buying Options"
 msgstr ""
@@ -1023,11 +1011,15 @@ msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
 #: no-results.php:19
-msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
 msgstr ""
 
 #: no-results.php:27
-msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
 msgstr ""
 
 #: page-templates/wishlist.php:52
@@ -1035,3 +1027,124 @@ msgid "Like"
 msgid_plural "Likes"
 msgstr[0] ""
 msgstr[1] ""
+
+#. Theme Name of the plugin/theme
+msgid "Marketify"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "http://astoundify.com/themes/marketify"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Your beautiful handcrafted digital marketplace."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Astoundify"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://astoundify.com"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Full Width"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Homepage (with Search)"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Minimal"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Popular Items"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Pricing Table"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Shop"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Single Column"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "The Team"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Vendor"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Likes"
+msgstr ""
+
+#: bbpress/form-search.php:14 searchform-header.php:14 searchform.php:24
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: functions.php:429
+#. Translators: If there are characters in your language that are not
+#. * supported by Source Sans Pro, translate this to 'off'. Do not translate
+#. * into your own language.
+msgctxt "Source Sans Pro font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:435
+#. Translators: If there are characters in your language that are not
+#. * supported by Roboto Slab, translate this to 'off'. Do not translate into
+#. your
+#. * own language.
+msgctxt "Roboto Slab font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:441
+#. Translators: If there are characters in your language that are not
+#. * supported by Montserrat, translate this to 'off'. Do not translate into
+#. your
+#. * own language.
+msgctxt "Montserrat font: on or off"
+msgid "on"
+msgstr ""
+
+#: inc/customizer.php:47
+msgctxt "Theme customizer section title"
+msgid "General"
+msgstr ""
+
+#: inc/customizer.php:52
+msgctxt "Theme customizer section title"
+msgid "Product Display"
+msgstr ""
+
+#: inc/customizer.php:57
+msgctxt "Theme customizer section title"
+msgid "Footer"
+msgstr ""
+
+#: inc/template-tags.php:105
+msgctxt "1: date, 2: time"
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: inc/template-tags.php:175
+msgctxt "noun"
+msgid "Menu"
+msgstr ""
+
+#: index.php:20
+msgctxt "blog page title"
+msgid "Blog"
+msgstr ""

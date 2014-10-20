@@ -87,18 +87,13 @@ module.exports = function(grunt) {
 			}
 		},
 
-		shell: {
-			options: {
-				stdout: true,
-				stderr: true
-			},
-			generatepot: {
-				command: [
-					'makepot wp-theme marketify'
-				].join( '&&' )
+    makepot: {
+			theme: {
+				options: {
+					type: 'wp-theme'
+				}
 			}
 		}
-
 	});
 
 	grunt.loadNpmTasks( 'grunt-shell' );
@@ -108,9 +103,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-contrib-sass' );
+  grunt.loadNpmTasks( 'grunt-wp-i18n' );
 
 	// register task
 	grunt.registerTask('default', ['watch']);
-	grunt.registerTask('build', ['uglify', 'sass', 'concat', 'clean', 'shell']);
+	grunt.registerTask('build', ['uglify', 'sass', 'concat', 'clean', 'makepot']);
 
 };

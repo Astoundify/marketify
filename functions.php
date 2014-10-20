@@ -63,9 +63,9 @@ function marketify_setup() {
 
 	add_image_size(
 		'content-single-download',
-		apply_filters( 'marketify_image_content_single_download_w', $s_w ),
-		apply_filters( 'marketify_image_content_single_download_h', $s_h ),
-		apply_filters( 'marketify_image_content_single_download_c', $s_c )
+		apply_filters( 'marketify_image_content_single_download_w', 9999 ),
+		apply_filters( 'marketify_image_content_single_download_h', 9999 ),
+		apply_filters( 'marketify_image_content_single_download_c', false )
 	);
 
 	if (class_exists('MultiPostThumbnails')) {
@@ -277,6 +277,8 @@ function marketify_has_header_background() {
 	if ( is_home() ) {
 		$post = get_post( get_option( 'page_for_posts' ) );
 	}
+
+  $background = false;
 
 	if ( has_post_thumbnail( $post->ID ) && ! is_array( $background ) ) {
 		$background = wp_get_attachment_image_src( get_post_thumbnail_id(), 'fullsize' );
