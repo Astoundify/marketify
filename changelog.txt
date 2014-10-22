@@ -2,6 +2,7 @@
 
 = 1.2.3: October 20, 2014 =
 
+* New: [downloads] shortcode required on "Likes" page template.
 * New: Hooks in vendor profile page template to output custom information
 * Fix: Cache download count for vendor profiles
 * Fix: Love It pagination not working
