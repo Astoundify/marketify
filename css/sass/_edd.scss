@@ -741,9 +741,9 @@ body #edd-wl-modal input[type="radio"]:focus {
 	padding: 10px;
 	border: 3px solid #ffb400;
 	background: transparent;
-	display: block;
 	border-radius: 0;
 	box-shadow: none;
+	width: 100%;
 }
 
 .edd-wl-msgs.edd_errors {
