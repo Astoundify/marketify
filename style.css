@@ -5951,17 +5951,17 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 .download-sorting label[for="orderby"] {
   position: relative; }
 
-.download-sorting label[for="orderby"]:after {
-  font-size: 18px;
-  color: #BDC3C7;
-  content: '\e6ce';
-  display: block;
-  width: 15px;
-  height: 15px;
-  position: absolute;
-  right: 9px;
-  top: 13px; }
-
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .download-sorting label[for="orderby"]:after {
+    font-size: 18px;
+    color: #BDC3C7;
+    content: '\e6ce';
+    display: block;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    right: 9px;
+    top: 13px; } }
 .download-sorting select:focus {
   outline: 0; }
 
