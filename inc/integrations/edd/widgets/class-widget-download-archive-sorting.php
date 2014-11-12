@@ -70,17 +70,19 @@ class Marketify_Widget_Download_Archive_Sorting extends Marketify_Widget {
 				?>
 			</label>
 
+			<label for="order-asc">
+				<input type="radio" name="m-order" id="order-asc" value="asc" <?php checked( 'asc', $order ); ?>><span class="icon-arrow-up"></span>
+			</label>
 
-				<label for="order-asc">
-					<input type="radio" name="m-order" id="order-asc" value="asc" <?php checked( 'asc', $order ); ?>><span class="icon-arrow-up"></span>
-				</label>
-
-				<label for="order-desc">
-					<input type="radio" name="m-order" id="order-desc" value="desc" <?php checked( 'desc', $order ); ?>><span class="icon-arrow-down2"></span>
-				</label>
-
+			<label for="order-desc">
+				<input type="radio" name="m-order" id="order-desc" value="desc" <?php checked( 'desc', $order ); ?>><span class="icon-arrow-down2"></span>
+			</label>
 
 
+			<?php if ( is_search() ) : ?>
+				<input type="hidden" name="s" value="<?php echo get_query_var( 's' ); ?>" />
+				<input type="hidden" name="post_type" value="download" />
+			<?php endif; ?>
 		</form>
 
 		<?php
