@@ -48,9 +48,8 @@ body {
 		}
 	}
 
-	.edd-wish-list {
-		li,
-		li span {
+	.entry-content .edd-wish-list {
+		li {
 			font-size: 100%;
 			line-height: 1;
 
@@ -60,10 +59,28 @@ body {
 				content: ' ';
 			}
 
-			&.edd-wl-edit {
-				display: block;
-				line-height: 1;
-				margin-top: 7px;
+			> span {
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+			.edd-wl-item-title {
+			}
+
+			.edd_download_purchase_form {
+				border: 0;
+				margin: 0 !important;
+				padding: 0;
+
+				.edd_purchase_submit_wrapper {
+					margin: 0;
+				}
+			}
+
+			span.edd-wl-item-image {
+				display: inline-block;
+				vertical-align: middle;
+				margin-left: 10px;
 			}
 		}
 	}
