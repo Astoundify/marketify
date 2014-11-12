@@ -244,12 +244,12 @@ function marketify_shortcode_atts_edd_login( $atts ) {
 add_filter( 'shortcode_atts_edd_login', 'marketify_shortcode_atts_edd_login' );
 
 function marketify_edd_sorting_options( $single_key = false  ) {
-	$options = array(
+	$options = apply_filters( 'marketify_sorting_options', array(
 		'date'  => __( 'Date', 'marketify' ),
 		'title' => __( 'Title', 'marketify' ),
 		'sales' => __( 'Sales', 'marketify' ),
 		'pricing' => __( 'Price', 'marketify' )
-	);
+	) );
 
 	if ( 'edd_price' == get_query_var( 'meta_key' ) ) {
 		$key = 'pricing';
