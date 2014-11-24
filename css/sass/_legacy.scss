@@ -3941,7 +3941,7 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 
 .flexslider .slides > li {display: none; -webkit-backface-visibility: hidden; padding: 0; margin-right: 30px;}
 .flexslider .slides > li:first-child {display: block; -webkit-backface-visibility: visible;}
-.flexslider .slides img {width: 100%; display: block;}
+.flexslider .slides img {width: auto; display: block;}
 .flex-pauseplay span {text-transform: capitalize;}
 
 /* Clearfix for the .slides element */
