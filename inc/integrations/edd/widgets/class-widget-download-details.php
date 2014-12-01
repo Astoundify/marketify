@@ -39,10 +39,19 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 	 * @return void
 	 */
 	function widget( $args, $instance ) {
-		if ( $this->get_cached_widget( $args ) )
-			return;
-
 		global $post;
+
+		$args[ 'widget_id' ] = $args[ 'widget_id' ] . '-' . $post->ID;
+
+		if ( $this->get_cached_widget( $args ) ) {
+			return;
+		}
+
+		if ( ! $post->post_author ) {
+			return;
+		}
+
+		$user = new WP_User( $post->post_author );
 
 		ob_start();
 
@@ -63,9 +72,27 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 
 				<div class="download-author">
 					<?php do_action( 'marketify_download_author_before' ); ?>
-					<?php printf( '<a class="author-link" href="%s" rel="author">%s</a>', marketify_edd_fes_author_url( get_the_author_meta( 'ID' ) ), get_avatar( get_the_author_meta( 'ID' ), 130 ) ); ?>
-					<?php printf( '<a class="author-link" href="%s" rel="author">%s</a>', marketify_edd_fes_author_url( get_the_author_meta( 'ID' ) ), get_the_author() ); ?>
-					<span class="author-joined"><?php printf( __( 'Author since: %s', 'marketify' ), date_i18n( get_option( 'date_format' ), strtotime( get_the_author_meta( 'user_registered' ) ) ) ); ?></span>
+					<?php 
+						printf( 
+							'<a class="author-link" href="%s" rel="author">%s</a>',
+							marketify_edd_fes_author_url( $user->ID ),
+							get_avatar( $user->ID, 130 )
+						);
+					?>
+					<?php 
+						printf( 
+							'<a class="author-link" href="%s" rel="author">%s</a>', 
+							marketify_edd_fes_author_url( $user->ID ), 
+							$user->display_name 
+						); 
+					?>
+
+					<span class="author-joined"><?php 
+						printf( 
+							__( 'Author since: %s', 'marketify' ), 
+							date_i18n( get_option( 'date_format' ), strtotime( $user->user_registered ) )
+						);
+					?></span>
 					<?php do_action( 'marketify_download_author_after' ); ?>
 				</div>
 
