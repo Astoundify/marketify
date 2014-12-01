@@ -41,13 +41,13 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 	function widget( $args, $instance ) {
 		global $post;
 
-		$args[ 'widget_id' ] = $args[ 'widget_id' ] . '-' . $post->ID;
-
-		if ( $this->get_cached_widget( $args ) ) {
+		if ( ! $post->post_author ) {
 			return;
 		}
 
-		if ( ! $post->post_author ) {
+		$args[ 'widget_id' ] = $args[ 'widget_id' ] . '-' . $post->post_author;
+
+		if ( $this->get_cached_widget( $args ) ) {
 			return;
 		}
 
