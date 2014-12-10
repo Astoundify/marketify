@@ -140,19 +140,19 @@ function marketify_get_theme_mods( $args = array() ) {
 				'priority' => 30
 			),
 			'product-display-excerpt' => array(
-				'title'   => __( 'Display excerpt on grid items' ),
+				'title'   => __( 'Display excerpt on grid items', 'marketify' ),
 				'type'    => 'checkbox',
 				'std'     => 0,
 				'priority' => 40
 			),
 			'product-display-truncate-title' => array(
-				'title'   => __( 'Truncate grid item titles' ),
+				'title'   => __( 'Truncate grid item titles', 'marketify' ),
 				'type'    => 'checkbox',
 				'std'     => 0,
 				'priority' => 50
 			),
 			'product-display-show-buy' => array(
-				'title'   => __( 'Always show buy button' ),
+				'title'   => __( 'Always show buy button', 'marketify' ),
 				'type'    => 'checkbox',
 				'std'     => 0,
 				'priority' => 60

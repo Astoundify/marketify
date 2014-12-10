@@ -48,7 +48,7 @@ function marketify_project_client_link() {
 	if ( ! $url )
 		return;
 
-	printf( '<a href="%s" class="button">%s</a>', $url, __( 'Visit Project' ) );
+	printf( '<a href="%s" class="button">%s</a>', $url, __( 'Visit Project', 'marketify' ) );
 }
 add_action( 'marketify_project_actions', 'marketify_project_client_link' );
 endif;

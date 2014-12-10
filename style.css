@@ -7026,7 +7026,7 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
   -webkit-backface-visibility: visible; }
 
 .flexslider .slides img {
-  width: 100%;
+  width: auto;
   display: block; }
 
 .flex-pauseplay span {
