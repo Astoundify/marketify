@@ -9,7 +9,7 @@ License: GNU General Public License
 License URI: license.txt
 Text Domain: marketify
 Domain Path: /languages/
-Tags: white, two-columns, one-column, right-sidebar, left-sidebar, flexible-width, custom-background, custom-header, theme-options, full-width-template, featured-images, flexible-header, custom-menu, translation-ready
+Tags: white, two-columns, one-column, right-sidebar, left-sidebar, fluid-layout, custom-background, custom-header, theme-options, full-width-template, featured-images, flexible-header, custom-menu, translation-ready
 */
 
 /*!
@@ -1388,6 +1388,7 @@ button,
 input,
 select,
 textarea,
+.popup .edd_download_quantity_wrapper input,
 .whistles {
   color: #404040;
   font-family: 'Source Sans Pro', sans-serif;
@@ -1509,7 +1510,8 @@ img {
 button,
 input,
 select,
-textarea {
+textarea,
+.popup .edd_download_quantity_wrapper input {
   font-size: 100%;
   /* Corrects font size not being inherited in all browsers */
   margin: 0;
@@ -1580,7 +1582,8 @@ input[type="email"],
 input[type="url"],
 input[type="password"],
 input[type="search"],
-textarea {
+textarea,
+.popup .edd_download_quantity_wrapper input {
   line-height: 25px;
   color: #515a63;
   padding: 10px;
@@ -1605,10 +1608,11 @@ input[type="email"]:focus,
 input[type="url"]:focus,
 input[type="password"]:focus,
 input[type="search"]:focus,
-textarea:focus {
+textarea:focus,
+.popup .edd_download_quantity_wrapper input:focus {
   outline: 0; }
 
-textarea {
+textarea, .popup .edd_download_quantity_wrapper input {
   overflow: auto;
   /* Removes default vertical scrollbar in IE6/7/8/9 */
   vertical-align: top;
@@ -3177,17 +3181,21 @@ td.bbp-topic-counts {
 
 #bbpress-forums fieldset.bbp-form p,
 #bbpress-forums fieldset.bbp-form textarea,
+#bbpress-forums fieldset.bbp-form .popup .edd_download_quantity_wrapper input,
+.popup .edd_download_quantity_wrapper #bbpress-forums fieldset.bbp-form input,
 #bbpress-forums fieldset.bbp-form select,
 #bbpress-forums fieldset.bbp-form input {
   margin: 0 0 10px; }
 
-textarea#bbp_reply_content,
+textarea#bbp_reply_content, .popup .edd_download_quantity_wrapper input#bbp_reply_content,
 textarea#bbp_topic_content,
-textarea#bbp_forum_content {
+.popup .edd_download_quantity_wrapper input#bbp_topic_content,
+textarea#bbp_forum_content,
+.popup .edd_download_quantity_wrapper input#bbp_forum_content {
   width: 97%;
   box-sizing: border-box; }
 
-textarea#bbp_forum_content {
+textarea#bbp_forum_content, .popup .edd_download_quantity_wrapper input#bbp_forum_content {
   height: 210px; }
 
 #bbpress-forums fieldset.bbp-forum-form-attributes {
@@ -3250,7 +3258,7 @@ p.form-allowed-tags {
 #bbpress-forums div.bbp-the-content-wrapper {
   margin-bottom: 10px; }
 
-#bbpress-forums div.bbp-the-content-wrapper textarea.bbp-the-content {
+#bbpress-forums div.bbp-the-content-wrapper textarea.bbp-the-content, #bbpress-forums div.bbp-the-content-wrapper .popup .edd_download_quantity_wrapper input.bbp-the-content, .popup .edd_download_quantity_wrapper #bbpress-forums div.bbp-the-content-wrapper input.bbp-the-content {
   width: 100%;
   margin: 0; }
 
@@ -4808,12 +4816,16 @@ body:not(.minimal) .edd_form legend {
 .minimal div.fes-form fieldset .fes-fields input[type=url],
 .minimal div.fes-form fieldset .fes-fields input[type=number],
 .minimal div.fes-form fieldset .fes-fields textarea,
+.minimal div.fes-form fieldset .fes-fields .popup .edd_download_quantity_wrapper input,
+.popup .edd_download_quantity_wrapper .minimal div.fes-form fieldset .fes-fields input,
 .minimal .entry-content .fes-form input[type=text],
 .minimal .entry-content .fes-form input[type=password],
 .minimal .entry-content .fes-form input[type=email],
 .minimal .entry-content .fes-form input[type=url],
 .minimal .entry-content .fes-form input[type=number],
-.minimal .entry-content .fes-form textarea {
+.minimal .entry-content .fes-form textarea,
+.minimal .entry-content .fes-form .popup .edd_download_quantity_wrapper input,
+.popup .edd_download_quantity_wrapper .minimal .entry-content .fes-form input {
   border-color: #fff; }
 
 .minimal,
@@ -7614,7 +7626,9 @@ body #edd-wl-modal input[type="radio"]:focus {
   margin: 0 0 8px; }
 
 #edd_checkout_form_wrap input.edd-input,
-#edd_checkout_form_wrap textarea.edd-input {
+#edd_checkout_form_wrap textarea.edd-input,
+#edd_checkout_form_wrap .popup .edd_download_quantity_wrapper input.edd-input,
+.popup .edd_download_quantity_wrapper #edd_checkout_form_wrap input.edd-input {
   display: block;
   width: 100%;
   margin-top: 8px; }
@@ -7628,7 +7642,9 @@ body #edd-wl-modal input[type="radio"]:focus {
   width: auto; }
 
 #edd_checkout_form_wrap input.edd-input.error,
-#edd_checkout_form_wrap textarea.edd-input.error {
+#edd_checkout_form_wrap textarea.edd-input.error,
+#edd_checkout_form_wrap .popup .edd_download_quantity_wrapper input.edd-input.error,
+.popup .edd_download_quantity_wrapper #edd_checkout_form_wrap input.edd-input.error {
   border-color: #c4554e; }
 
 #edd_checkout_form_wrap #edd_terms_agreement label,
@@ -8065,7 +8081,7 @@ div.fes-form fieldset .fes-fields {
   float: none;
   width: auto; }
 
-div.fes-form fieldset .fes-fields textarea#post_content {
+div.fes-form fieldset .fes-fields textarea#post_content, div.fes-form fieldset .fes-fields .popup .edd_download_quantity_wrapper input#post_content, .popup .edd_download_quantity_wrapper div.fes-form fieldset .fes-fields input#post_content {
   height: 250px; }
 
 div.fes-form fieldset .fes-section-wrap {
@@ -8654,5 +8670,27 @@ body .entry-content .edd-wish-list li {
 @media (min-width: 768px) {
   .widget_edd_fpd .edd-fpd td {
     padding-left: 5%; } }
+
+.download-actions .edd_download_quantity_wrapper,
+.download-actions .edd_purchase_submit_wrapper {
+  display: inline-block;
+  vertical-align: top; }
+.download-actions .edd_download_quantity_wrapper input {
+  border: 0;
+  font-size: 18px;
+  padding: 17px 17px 16px;
+  vertical-align: top;
+  width: 100px; }
+
+.popup .edd_download_quantity_wrapper {
+  text-align: center;
+  margin: 20px; }
+  .popup .edd_download_quantity_wrapper input {
+    width: auto;
+    margin: 0 auto;
+    padding: 0 10px; }
+
+.entry-image .edd_download_quantity_wrapper {
+  display: none; }
 
 /*# sourceMappingURL=style.css.map */

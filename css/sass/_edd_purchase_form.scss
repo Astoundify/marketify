@@ -1,0 +1,33 @@
+.download-actions {
+	.edd_download_quantity_wrapper,
+	.edd_purchase_submit_wrapper {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	.edd_download_quantity_wrapper input {
+		border: 0;
+		font-size: 18px;
+		padding: 17px 17px 16px;
+		vertical-align: top;
+		width: 100px;
+	}
+}
+
+.popup {
+	.edd_download_quantity_wrapper {
+		text-align: center;
+		margin: 20px;
+
+		input {
+			@extend textarea;
+			width: auto;
+			margin: 0 auto;
+			padding: 0 10px;
+		}
+	}
+}
+
+.entry-image .edd_download_quantity_wrapper {
+	display: none;
+}
