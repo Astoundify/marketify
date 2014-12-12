@@ -14,7 +14,27 @@
 	}
 }
 
-.popup {
+.entry-content .edd_price_options {
+
+	li {
+		overflow: hidden;
+	}
+
+	label,
+	.edd_download_quantity_wrapper {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.edd_download_quantity_wrapper {
+		margin-left: 5px;
+
+		input {
+			width: 50px;
+		}
+	}
+}
+
 	.edd_download_quantity_wrapper {
 		text-align: center;
 		margin: 20px;
@@ -26,7 +46,19 @@
 			padding: 0 10px;
 		}
 	}
-}
+
+	.edd_price_options li .edd_download_quantity_wrapper {
+		margin: 10px 0 0 30px;
+
+		.edd_price_option_sep {
+			display: none;
+		}
+
+		.edd-item-quantity {
+			margin: 0;
+			width: 50px;
+		}
+	}
 
 .entry-image .edd_download_quantity_wrapper {
 	display: none;
