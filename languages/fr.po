@@ -1,16 +1,19 @@
 # Copyright (C) 2014 Astoundify
 # This file is distributed under the GNU General Public License.
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: Marketify 1.2.3.1\n"
+"Project-Id-Version: Marketify\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
 "POT-Creation-Date: 2014-12-11 21:42:45+00:00\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2014-12-11 21:42+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: French (http://www.transifex.com/projects/p/marketify/language/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: grunt-wp-i18n 0.4.9\n"
 
 #: 404.php:11
@@ -19,8 +22,8 @@ msgstr ""
 
 #: 404.php:24
 msgid ""
-"It looks like nothing was found at this location. Maybe try one of the "
-"links below or a search?"
+"It looks like nothing was found at this location. Maybe try one of the links"
+" below or a search?"
 msgstr ""
 
 #: 404.php:37
@@ -224,8 +227,8 @@ msgstr ""
 
 #: functions.php:405
 msgid ""
-"Drag multiple \"Price Option\" widgets here. Then drag the \"Pricing "
-"Table\" widget to the \"Homepage\" Widget Area."
+"Drag multiple \"Price Option\" widgets here. Then drag the \"Pricing Table\""
+" widget to the \"Homepage\" Widget Area."
 msgstr ""
 
 #: inc/customizer.php:80
@@ -669,9 +672,9 @@ msgstr[1] ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:202
 msgid ""
-"Sorry, but you do not have the correct permissions to install the %s "
-"plugin. Contact the administrator of this site for help on getting the "
-"plugin installed."
+"Sorry, but you do not have the correct permissions to install the %s plugin."
+" Contact the administrator of this site for help on getting the plugin "
+"installed."
 msgid_plural ""
 "Sorry, but you do not have the correct permissions to install the %s "
 "plugins. Contact the administrator of this site for help on getting the "
@@ -719,9 +722,9 @@ msgid ""
 "Contact the administrator of this site for help on getting the plugin "
 "updated."
 msgid_plural ""
-"Sorry, but you do not have the correct permissions to update the %s "
-"plugins. Contact the administrator of this site for help on getting the "
-"plugins updated."
+"Sorry, but you do not have the correct permissions to update the %s plugins."
+" Contact the administrator of this site for help on getting the plugins "
+"updated."
 msgstr[0] ""
 msgstr[1] ""
 
@@ -866,8 +869,8 @@ msgstr ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:2064
 msgid ""
-"The installation and activation process is starting. This process may take "
-"a while on some hosts, so please be patient."
+"The installation and activation process is starting. This process may take a"
+" while on some hosts, so please be patient."
 msgstr ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:2065
@@ -966,8 +969,8 @@ msgstr ""
 
 #: inc/widgets/class-widget-price-table.php:30
 msgid ""
-"Drag \"Price Option\" widgets to the \"Price Table\" widget area to "
-"populate this widget."
+"Drag \"Price Option\" widgets to the \"Price Table\" widget area to populate"
+" this widget."
 msgstr ""
 
 #: inc/widgets/class-widget-slider-soliloquy.php:14
@@ -1089,28 +1092,28 @@ msgctxt "label"
 msgid "Search for:"
 msgstr ""
 
-#: functions.php:429
 #. Translators: If there are characters in your language that are not
 #. * supported by Source Sans Pro, translate this to 'off'. Do not translate
 #. * into your own language.
+#: functions.php:429
 msgctxt "Source Sans Pro font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:435
 #. Translators: If there are characters in your language that are not
 #. * supported by Roboto Slab, translate this to 'off'. Do not translate into
 #. your
 #. * own language.
+#: functions.php:435
 msgctxt "Roboto Slab font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:441
 #. Translators: If there are characters in your language that are not
 #. * supported by Montserrat, translate this to 'off'. Do not translate into
 #. your
 #. * own language.
+#: functions.php:441
 msgctxt "Montserrat font: on or off"
 msgid "on"
 msgstr ""

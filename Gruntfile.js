@@ -79,11 +79,36 @@ module.exports = function(grunt) {
 			}
 		},
 
-    makepot: {
+		makepot: {
 			theme: {
 				options: {
 					type: 'wp-theme'
 				}
+			}
+		},
+
+		exec: {
+			txpull: {
+				cmd: 'tx pull -a'
+			},
+			txpush_s: {
+				cmd: 'tx push -s'
+			},
+		},
+
+		potomo: {
+			dist: {
+				options: {
+					poDel: false // Set to true if you want to erase the .po
+				},
+				files: [{
+					expand: true,
+					cwd: 'languages',
+					src: ['*.po'],
+					dest: 'languages',
+					ext: '.mo',
+					nonull: true
+				}]
 			}
 		}
 	});
@@ -95,10 +120,16 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-contrib-sass' );
-  grunt.loadNpmTasks( 'grunt-wp-i18n' );
+	grunt.loadNpmTasks( 'grunt-wp-i18n' );
+	grunt.loadNpmTasks( 'grunt-exec' );
+	grunt.loadNpmTasks( 'grunt-potomo' );
 
 	// register task
 	grunt.registerTask('default', ['watch']);
-	grunt.registerTask('build', ['uglify', 'sass', 'concat', 'clean', 'makepot']);
+
+	grunt.registerTask( 'tx', ['exec:txpull', 'potomo']);
+	grunt.registerTask( 'makeandpush', ['makepot', 'exec:txpush_s']);
+
+	grunt.registerTask('build', ['uglify', 'sass', 'concat', 'clean', 'makepot', 'tx', 'makeandpush']);
 
 };

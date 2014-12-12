@@ -1,16 +1,19 @@
 # Copyright (C) 2014 Astoundify
 # This file is distributed under the GNU General Public License.
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: Marketify 1.2.3.1\n"
+"Project-Id-Version: Marketify\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
 "POT-Creation-Date: 2014-12-11 21:42:45+00:00\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2014-12-11 21:42+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Slovenian (Slovenia) (http://www.transifex.com/projects/p/marketify/language/sl_SI/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sl_SI\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 "X-Generator: grunt-wp-i18n 0.4.9\n"
 
 #: 404.php:11
@@ -19,8 +22,8 @@ msgstr ""
 
 #: 404.php:24
 msgid ""
-"It looks like nothing was found at this location. Maybe try one of the "
-"links below or a search?"
+"It looks like nothing was found at this location. Maybe try one of the links"
+" below or a search?"
 msgstr ""
 
 #: 404.php:37
@@ -224,8 +227,8 @@ msgstr ""
 
 #: functions.php:405
 msgid ""
-"Drag multiple \"Price Option\" widgets here. Then drag the \"Pricing "
-"Table\" widget to the \"Homepage\" Widget Area."
+"Drag multiple \"Price Option\" widgets here. Then drag the \"Pricing Table\""
+" widget to the \"Homepage\" Widget Area."
 msgstr ""
 
 #: inc/customizer.php:80
@@ -433,6 +436,8 @@ msgid "Purchases"
 msgid_plural "Purchases"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: inc/integrations/edd/widgets/class-widget-download-details.php:118
 msgid "Average Rating"
@@ -443,6 +448,8 @@ msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: inc/integrations/edd/widgets/class-widget-download-review-details.php:14
 msgid "Display average review information."
@@ -660,36 +667,46 @@ msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:201
 msgid "This theme recommends the following plugin: %1$s."
 msgid_plural "This theme recommends the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:202
 msgid ""
-"Sorry, but you do not have the correct permissions to install the %s "
-"plugin. Contact the administrator of this site for help on getting the "
-"plugin installed."
+"Sorry, but you do not have the correct permissions to install the %s plugin."
+" Contact the administrator of this site for help on getting the plugin "
+"installed."
 msgid_plural ""
 "Sorry, but you do not have the correct permissions to install the %s "
 "plugins. Contact the administrator of this site for help on getting the "
 "plugins installed."
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:203
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:204
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:205
 msgid ""
@@ -702,6 +719,8 @@ msgid_plural ""
 "plugins activated."
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:206
 msgid ""
@@ -712,6 +731,8 @@ msgid_plural ""
 "maximum compatibility with this theme: %1$s."
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:207
 msgid ""
@@ -719,23 +740,29 @@ msgid ""
 "Contact the administrator of this site for help on getting the plugin "
 "updated."
 msgid_plural ""
-"Sorry, but you do not have the correct permissions to update the %s "
-"plugins. Contact the administrator of this site for help on getting the "
-"plugins updated."
+"Sorry, but you do not have the correct permissions to update the %s plugins."
+" Contact the administrator of this site for help on getting the plugins "
+"updated."
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:208
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:209
 msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:210
 msgid "Return to Required Plugins Installer"
@@ -866,8 +893,8 @@ msgstr ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:2064
 msgid ""
-"The installation and activation process is starting. This process may take "
-"a while on some hosts, so please be patient."
+"The installation and activation process is starting. This process may take a"
+" while on some hosts, so please be patient."
 msgstr ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:2065
@@ -966,8 +993,8 @@ msgstr ""
 
 #: inc/widgets/class-widget-price-table.php:30
 msgid ""
-"Drag \"Price Option\" widgets to the \"Price Table\" widget area to "
-"populate this widget."
+"Drag \"Price Option\" widgets to the \"Price Table\" widget area to populate"
+" this widget."
 msgstr ""
 
 #: inc/widgets/class-widget-slider-soliloquy.php:14
@@ -1023,6 +1050,8 @@ msgid "Like"
 msgid_plural "Likes"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #. Theme Name of the plugin/theme
 msgid "Marketify"
@@ -1089,28 +1118,28 @@ msgctxt "label"
 msgid "Search for:"
 msgstr ""
 
-#: functions.php:429
 #. Translators: If there are characters in your language that are not
 #. * supported by Source Sans Pro, translate this to 'off'. Do not translate
 #. * into your own language.
+#: functions.php:429
 msgctxt "Source Sans Pro font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:435
 #. Translators: If there are characters in your language that are not
 #. * supported by Roboto Slab, translate this to 'off'. Do not translate into
 #. your
 #. * own language.
+#: functions.php:435
 msgctxt "Roboto Slab font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:441
 #. Translators: If there are characters in your language that are not
 #. * supported by Montserrat, translate this to 'off'. Do not translate into
 #. your
 #. * own language.
+#: functions.php:441
 msgctxt "Montserrat font: on or off"
 msgid "on"
 msgstr ""
