@@ -1,5 +1,12 @@
 == Changelog ==
 
+= 1.2.3.1: December 10, 2014 =
+
+* New: Add support for quantity forms on purchase buttons in EDD 2.2.
+* Fix: Make sure sorting when on search results works properly.
+* Fix: Don't stretch images in Flexslider.
+* Fix: Avoid overly caching download details widget to avoid stale information.
+
 = 1.2.3: October 20, 2014 =
 
 * New: [downloads] shortcode required on "Likes" page template.
