@@ -1388,7 +1388,7 @@ button,
 input,
 select,
 textarea,
-.edd_download_quantity_wrapper input,
+.entry-content .edd_download_quantity_wrapper input,
 .whistles {
   color: #404040;
   font-family: 'Source Sans Pro', sans-serif;
@@ -1511,7 +1511,7 @@ button,
 input,
 select,
 textarea,
-.edd_download_quantity_wrapper input {
+.entry-content .edd_download_quantity_wrapper input {
   font-size: 100%;
   /* Corrects font size not being inherited in all browsers */
   margin: 0;
@@ -1583,7 +1583,7 @@ input[type="url"],
 input[type="password"],
 input[type="search"],
 textarea,
-.edd_download_quantity_wrapper input {
+.entry-content .edd_download_quantity_wrapper input {
   line-height: 25px;
   color: #515a63;
   padding: 10px;
@@ -1609,10 +1609,10 @@ input[type="url"]:focus,
 input[type="password"]:focus,
 input[type="search"]:focus,
 textarea:focus,
-.edd_download_quantity_wrapper input:focus {
+.entry-content .edd_download_quantity_wrapper input:focus {
   outline: 0; }
 
-textarea, .edd_download_quantity_wrapper input {
+textarea, .entry-content .edd_download_quantity_wrapper input {
   overflow: auto;
   /* Removes default vertical scrollbar in IE6/7/8/9 */
   vertical-align: top;
@@ -3181,21 +3181,21 @@ td.bbp-topic-counts {
 
 #bbpress-forums fieldset.bbp-form p,
 #bbpress-forums fieldset.bbp-form textarea,
-#bbpress-forums fieldset.bbp-form .edd_download_quantity_wrapper input,
-.edd_download_quantity_wrapper #bbpress-forums fieldset.bbp-form input,
+#bbpress-forums fieldset.bbp-form .entry-content .edd_download_quantity_wrapper input,
+.entry-content .edd_download_quantity_wrapper #bbpress-forums fieldset.bbp-form input,
 #bbpress-forums fieldset.bbp-form select,
 #bbpress-forums fieldset.bbp-form input {
   margin: 0 0 10px; }
 
-textarea#bbp_reply_content, .edd_download_quantity_wrapper input#bbp_reply_content,
+textarea#bbp_reply_content, .entry-content .edd_download_quantity_wrapper input#bbp_reply_content,
 textarea#bbp_topic_content,
-.edd_download_quantity_wrapper input#bbp_topic_content,
+.entry-content .edd_download_quantity_wrapper input#bbp_topic_content,
 textarea#bbp_forum_content,
-.edd_download_quantity_wrapper input#bbp_forum_content {
+.entry-content .edd_download_quantity_wrapper input#bbp_forum_content {
   width: 97%;
   box-sizing: border-box; }
 
-textarea#bbp_forum_content, .edd_download_quantity_wrapper input#bbp_forum_content {
+textarea#bbp_forum_content, .entry-content .edd_download_quantity_wrapper input#bbp_forum_content {
   height: 210px; }
 
 #bbpress-forums fieldset.bbp-forum-form-attributes {
@@ -3258,7 +3258,7 @@ p.form-allowed-tags {
 #bbpress-forums div.bbp-the-content-wrapper {
   margin-bottom: 10px; }
 
-#bbpress-forums div.bbp-the-content-wrapper textarea.bbp-the-content, #bbpress-forums div.bbp-the-content-wrapper .edd_download_quantity_wrapper input.bbp-the-content, .edd_download_quantity_wrapper #bbpress-forums div.bbp-the-content-wrapper input.bbp-the-content {
+#bbpress-forums div.bbp-the-content-wrapper textarea.bbp-the-content, #bbpress-forums div.bbp-the-content-wrapper .entry-content .edd_download_quantity_wrapper input.bbp-the-content, .entry-content .edd_download_quantity_wrapper #bbpress-forums div.bbp-the-content-wrapper input.bbp-the-content {
   width: 100%;
   margin: 0; }
 
@@ -4816,8 +4816,8 @@ body:not(.minimal) .edd_form legend {
 .minimal div.fes-form fieldset .fes-fields input[type=url],
 .minimal div.fes-form fieldset .fes-fields input[type=number],
 .minimal div.fes-form fieldset .fes-fields textarea,
-.minimal div.fes-form fieldset .fes-fields .edd_download_quantity_wrapper input,
-.edd_download_quantity_wrapper .minimal div.fes-form fieldset .fes-fields input,
+.minimal div.fes-form fieldset .fes-fields .entry-content .edd_download_quantity_wrapper input,
+.entry-content .edd_download_quantity_wrapper .minimal div.fes-form fieldset .fes-fields input,
 .minimal .entry-content .fes-form input[type=text],
 .minimal .entry-content .fes-form input[type=password],
 .minimal .entry-content .fes-form input[type=email],
@@ -4825,7 +4825,7 @@ body:not(.minimal) .edd_form legend {
 .minimal .entry-content .fes-form input[type=number],
 .minimal .entry-content .fes-form textarea,
 .minimal .entry-content .fes-form .edd_download_quantity_wrapper input,
-.edd_download_quantity_wrapper .minimal .entry-content .fes-form input {
+.minimal .entry-content .edd_download_quantity_wrapper .fes-form input {
   border-color: #fff; }
 
 .minimal,
@@ -7627,8 +7627,8 @@ body #edd-wl-modal input[type="radio"]:focus {
 
 #edd_checkout_form_wrap input.edd-input,
 #edd_checkout_form_wrap textarea.edd-input,
-#edd_checkout_form_wrap .edd_download_quantity_wrapper input.edd-input,
-.edd_download_quantity_wrapper #edd_checkout_form_wrap input.edd-input {
+#edd_checkout_form_wrap .entry-content .edd_download_quantity_wrapper input.edd-input,
+.entry-content .edd_download_quantity_wrapper #edd_checkout_form_wrap input.edd-input {
   display: block;
   width: 100%;
   margin-top: 8px; }
@@ -7643,8 +7643,8 @@ body #edd-wl-modal input[type="radio"]:focus {
 
 #edd_checkout_form_wrap input.edd-input.error,
 #edd_checkout_form_wrap textarea.edd-input.error,
-#edd_checkout_form_wrap .edd_download_quantity_wrapper input.edd-input.error,
-.edd_download_quantity_wrapper #edd_checkout_form_wrap input.edd-input.error {
+#edd_checkout_form_wrap .entry-content .edd_download_quantity_wrapper input.edd-input.error,
+.entry-content .edd_download_quantity_wrapper #edd_checkout_form_wrap input.edd-input.error {
   border-color: #c4554e; }
 
 #edd_checkout_form_wrap #edd_terms_agreement label,
@@ -8081,7 +8081,7 @@ div.fes-form fieldset .fes-fields {
   float: none;
   width: auto; }
 
-div.fes-form fieldset .fes-fields textarea#post_content, div.fes-form fieldset .fes-fields .edd_download_quantity_wrapper input#post_content, .edd_download_quantity_wrapper div.fes-form fieldset .fes-fields input#post_content {
+div.fes-form fieldset .fes-fields textarea#post_content, div.fes-form fieldset .fes-fields .entry-content .edd_download_quantity_wrapper input#post_content, .entry-content .edd_download_quantity_wrapper div.fes-form fieldset .fes-fields input#post_content {
   height: 250px; }
 
 div.fes-form fieldset .fes-section-wrap {
@@ -8693,19 +8693,18 @@ body .entry-content .edd-wish-list li {
   .entry-content .edd_price_options .edd_download_quantity_wrapper input {
     width: 50px; }
 
-.edd_download_quantity_wrapper {
+.entry-content .edd_download_quantity_wrapper {
   text-align: center;
   margin: 20px; }
-  .edd_download_quantity_wrapper input {
+  .entry-content .edd_download_quantity_wrapper input {
     width: auto;
     margin: 0 auto;
     padding: 0 10px; }
-
-.edd_price_options li .edd_download_quantity_wrapper {
+.entry-content .edd_price_options li .edd_download_quantity_wrapper {
   margin: 10px 0 0 30px; }
-  .edd_price_options li .edd_download_quantity_wrapper .edd_price_option_sep {
+  .entry-content .edd_price_options li .edd_download_quantity_wrapper .edd_price_option_sep {
     display: none; }
-  .edd_price_options li .edd_download_quantity_wrapper .edd-item-quantity {
+  .entry-content .edd_price_options li .edd_download_quantity_wrapper .edd-item-quantity {
     margin: 0;
     width: 50px; }
 
