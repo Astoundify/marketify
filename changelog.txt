@@ -1,5 +1,9 @@
 == Changelog ==
 
+= 1.2.3.2: December 17, 2014 =
+
+* Fix: Add support for updated FES vendor URLs
+
 = 1.2.3.1: December 17, 2014 =
 
 * New: Add support for quantity forms on purchase buttons in EDD 2.2.

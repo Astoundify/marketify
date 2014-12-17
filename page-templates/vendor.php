@@ -7,11 +7,15 @@
  * @package Marketify
  */
 
-$author = get_query_var( 'vendor' );
-$author = get_user_by( 'slug', $author );
+if ( function_exists( 'fes_get_vendor' ) ) {
+	$author = fes_get_vendor();
+} else {
+	$author = get_query_var( 'vendor' );
+	$author = get_user_by( 'slug', $author );
 
-if ( ! $author ) {
-	$author = get_current_user_id();
+	if ( ! $author ) {
+		$author = get_current_user_id();
+	}
 }
 
 get_header(); ?>
