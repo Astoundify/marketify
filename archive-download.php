@@ -42,21 +42,7 @@ get_header(); ?>
 					<?php endif; ?>
 				</span></div>
 
-				<?php if ( have_posts() ) : ?>
-
-					<div class="download-grid-wrapper columns-<?php echo marketify_theme_mod( 'product-display', 'product-display-columns' ); ?> row" data-columns>
-						<?php while ( have_posts() ) : the_post(); ?>
-							<?php get_template_part( 'content-grid', 'download' ); ?>
-						<?php endwhile; ?>
-					</div>
-
-					<?php marketify_content_nav( 'nav-below' ); ?>
-
-				<?php else : ?>
-
-					<?php get_template_part( 'no-results', 'download' ); ?>
-
-				<?php endif; ?>
+				<?php echo do_shortcode( '[downloads]' ); ?>
 
 				</main><!-- #main -->
 			</section><!-- #primary -->
