@@ -73,6 +73,8 @@ function marketify_header_outer_image_fes( $background ) {
 	$image = wp_get_attachment_image_src( $image, 'fullsize' );
 
 	if ( is_array( $image ) ) {
+		add_filter( 'marketify_needs_a_background', '__true' );
+
 		return $image;
 	}
 

@@ -204,15 +204,15 @@ add_action( 'init', 'marketify_remove_post_formats' );
 function marketify_before_shim() {
 	global $post;
 
-	if ( ! $background = marketify_has_header_background() ) {
+	$background = marketify_get_header_background();
+
+	if ( ! is_array( $background ) ) {
 		echo '<div class="header-outer">';
 
 		return;
 	}
 
-	$background = apply_filters( 'marketify_header_outer_image', $background );
-
-	printf( '<div class="header-outer%2$s" style="background-image: url(%1$s);">', $background[0], is_array( $background ) ? ' custom-featured-image' : '' );
+	printf( '<div class="header-outer custom-featured-image" style="background-image: url(%1$s);">', $background[0] );
 }
 add_action( 'before', 'marketify_before_shim' );
 
@@ -231,60 +231,28 @@ function marketify_entry_header_background_end() {
 add_action( 'marketify_entry_before', 'marketify_entry_header_background_end', 100 );
 
 /**
- * Hip Header CSS
- *
- * If the current page qualifies, add extra CSS so the hip header
- * background shines through.
- *
- * @since Marketify 1.0
- *
- * @return mixed
- */
-function marketify_before_shim_css() {
-	global $post;
-
-	if ( ! marketify_has_header_background() )
-		return;
-
-	wp_add_inline_style( 'marketify-base', '.site-header, .page-header { background-color: transparent; }' );
-}
-add_action( 'wp_enqueue_scripts', 'marketify_before_shim_css', 11 );
-
-/**
  * Hip Header Qualification
  *
  * @since Marketify 1.0
  *
  * @return mixed boolean|string False if not qualified or no header, URL to image if one exists.
  */
-function marketify_has_header_background() {
+function marketify_get_header_background() {
 	global $post;
 
-	$_post = $post;
+	$background = false;
 
-	$is_correct = apply_filters( 'marketify_has_header_background', (
-		marketify_is_bbpress() ||
-		( is_singular( 'download' ) && in_array( get_post_format(), array( 'video' ) ) ) ||
+	$needs_a_background = apply_filters( 'marketify_needs_a_background',
+		in_array( get_post_format(), array( 'audio', 'video' ) ) ||
 		is_singular( array( 'page', 'post' ) ) ||
-		is_page_template( 'page-templates/home.php' ) ||
-		is_page_template( 'page-templates/home-search.php' ) ||
-		is_home()
-	) );
+		marketify_is_bbpress()
+	);
 
-	if ( ! $is_correct || is_post_type_archive( 'download' ) )
-		return false;
-
-	if ( is_home() ) {
-		$post = get_post( get_option( 'page_for_posts' ) );
-	}
-
-  $background = false;
-
-	if ( has_post_thumbnail( $post->ID ) && ! is_array( $background ) ) {
+	if ( has_post_thumbnail( $post->ID ) && $needs_a_background ) {
 		$background = wp_get_attachment_image_src( get_post_thumbnail_id(), 'fullsize' );
 	}
 
-	$post = $_post;
+	$background = apply_filters( 'marketify_header_outer_image', $background );
 
 	return $background;
 }

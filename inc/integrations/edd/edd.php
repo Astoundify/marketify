@@ -321,6 +321,10 @@ function marketify_edd_downloads_query( $query, $atts ) {
 		}
 	};
 
+	if ( isset( $_GET[ 's' ] ) && 'download' == isset( $_GET[ 'post_type' ] ) ) {
+		$query[ 's' ] = esc_attr( $_GET[ 's' ] );
+	}
+
 	return $query;
 }
 add_filter( 'edd_downloads_query', 'marketify_edd_downloads_query', 10, 2 );

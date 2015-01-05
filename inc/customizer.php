@@ -359,9 +359,9 @@ function marketify_hex2rgb($hex) {
  */
 function marketify_header_css() {
 	$css = "
-	.site-header,
+	.header-outer:not(.custom-featured-image) .site-header,
+	.header-outer:not(.custom-featured-image) .page-header,
 	.site-footer,
-	.page-header,
 	body.minimal,
 	body.custom-background.minimal,
 	.header-outer,
