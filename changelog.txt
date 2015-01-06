@@ -1,5 +1,12 @@
 == Changelog ==
 
+= 1.2.4: January 6, 2015 = 
+
+* Fix: Allow pages with default shortcodes to be overwritten by providing their own in the page content.
+* Fix: Better checking for page custom headers (including vendor page template).
+* Fix: Make sure parameters in all shortcodes are respected.
+* Fix: Bullets in EDD Taxonomy children widget.
+
 = 1.2.3.2: December 17, 2014 =
 
 * Fix: Add support for updated FES vendor URLs
