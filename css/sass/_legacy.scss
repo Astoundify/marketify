@@ -1887,8 +1887,16 @@ object {
 
 .edd-taxonomy-widget .children {
 	list-style: disc;
-	list-style-position: inside;
-	margin-left: 10px;
+	margin-left: 40px;
+
+	li a {
+		padding-left: 0 !important;
+		display: inline;
+
+		&:hover {
+			background: none !important;
+		}
+	}
 }
 
 .widget a {
