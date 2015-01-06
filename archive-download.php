@@ -42,7 +42,11 @@ get_header(); ?>
 					<?php endif; ?>
 				</span></div>
 
-				<?php echo do_shortcode( '[downloads]' ); ?>
+				<?php if ( '' == get_the_content() ) : ?>
+					<?php echo do_shortcode( sprintf( '[downloads number="%s"]', get_option( 'posts_per_page' ) ) ); ?>
+				<?php else : ?>
+					<?php the_content(); ?>
+				<?php endif; ?>
 
 				</main><!-- #main -->
 			</section><!-- #primary -->

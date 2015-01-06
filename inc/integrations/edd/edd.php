@@ -303,12 +303,8 @@ function marketify_edd_downloads_query( $query, $atts ) {
 		}
 	} else {
 		foreach ( array( 'm-orderby', 'm-order' ) as $key ) {
-			if ( isset( $atts[ $key ] ) ) {
-				continue;
-			} else if ( get_query_var( $key ) ) {
+			if ( get_query_var( $key ) ) {
 				$query[ str_replace( 'm-', '', $key ) ] = get_query_var( $key );
-			} else {
-				$query[ str_replace( 'm-', '', $key ) ] = null;
 			}
 		}
 
