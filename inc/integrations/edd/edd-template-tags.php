@@ -68,10 +68,11 @@ function marketify_download_standard_player() {
 	$before = '<div class="download-image">';
 	$after  = '</div>';
 
+	$size = apply_filters( 'marketify_standard_player_image_size', 'fullsize' );
 
 	if ( empty( $images ) && has_post_thumbnail( $post->ID ) ) {
 		echo $before;
-		echo get_the_post_thumbnail( $post->ID, 'fullsize' );
+		echo get_the_post_thumbnail( $post->ID, $size );
 		echo $after;
 
 		return;
@@ -83,7 +84,7 @@ function marketify_download_standard_player() {
 
 		<ul class="slides">
 			<?php foreach ( $images as $image ) : ?>
-			<li><?php echo wp_get_attachment_image( $image->ID, 'fullsize' ); ?></li>
+			<li><?php echo wp_get_attachment_image( $image->ID, $size ); ?></li>
 			<?php endforeach; ?>
 		</ul>
 
