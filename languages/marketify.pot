@@ -1,14 +1,14 @@
-# Copyright (C) 2014 Astoundify
+# Copyright (C) 2015 Astoundify
 # This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
-"Project-Id-Version: Marketify 1.2.3.2\n"
+"Project-Id-Version: Marketify 1.2.4\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2014-12-17 20:20:23+00:00\n"
+"POT-Creation-Date: 2015-01-12 17:48:10+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.4.9\n"
@@ -202,27 +202,27 @@ msgstr ""
 msgid "Homepage"
 msgstr ""
 
-#: functions.php:357
+#: functions.php:325
 msgid "Widgets that appear on the \"Homepage\" Page Template"
 msgstr ""
 
-#: functions.php:367
+#: functions.php:335
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:385
+#: functions.php:353
 msgid "Footer"
 msgstr ""
 
-#: functions.php:386
+#: functions.php:354
 msgid "Widgets that appear in the page footer"
 msgstr ""
 
-#: functions.php:403
+#: functions.php:371
 msgid "Price Table"
 msgstr ""
 
-#: functions.php:405
+#: functions.php:373
 msgid ""
 "Drag multiple \"Price Option\" widgets here. Then drag the \"Pricing "
 "Table\" widget to the \"Homepage\" Widget Area."
@@ -340,22 +340,22 @@ msgstr ""
 msgid "%s Demo URL"
 msgstr ""
 
-#: inc/integrations/edd/edd-template-tags.php:212
+#: inc/integrations/edd/edd-template-tags.php:213
 msgid "Update Required"
 msgstr ""
 
-#: inc/integrations/edd/edd-template-tags.php:213
+#: inc/integrations/edd/edd-template-tags.php:214
 msgid ""
 "To play the media you will need to either update your browser to a recent "
 "version or update your <a href=\"http://get.adobe.com/flashplayer/\" "
 "target=\"_blank\">Flash plugin</a>."
 msgstr ""
 
-#: inc/integrations/edd/edd-template-tags.php:347
+#: inc/integrations/edd/edd-template-tags.php:348
 msgid "Purchase"
 msgstr ""
 
-#: inc/integrations/edd/edd-template-tags.php:395
+#: inc/integrations/edd/edd-template-tags.php:396
 msgid "Demo"
 msgstr ""
 
@@ -1089,7 +1089,7 @@ msgctxt "label"
 msgid "Search for:"
 msgstr ""
 
-#: functions.php:429
+#: functions.php:397
 #. Translators: If there are characters in your language that are not
 #. * supported by Source Sans Pro, translate this to 'off'. Do not translate
 #. * into your own language.
@@ -1097,7 +1097,7 @@ msgctxt "Source Sans Pro font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:435
+#: functions.php:403
 #. Translators: If there are characters in your language that are not
 #. * supported by Roboto Slab, translate this to 'off'. Do not translate into
 #. your
@@ -1106,7 +1106,7 @@ msgctxt "Roboto Slab font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:441
+#: functions.php:409
 #. Translators: If there are characters in your language that are not
 #. * supported by Montserrat, translate this to 'off'. Do not translate into
 #. your
