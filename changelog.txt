@@ -1,6 +1,10 @@
 == Changelog ==
 
-= 1.2.4: January 6, 2015 = 
+= 1.2.4.1: January 13, 2015 =
+
+* Fix: Make sure the blog page respects its set featured image.
+
+= 1.2.4: January 12, 2015 = 
 
 * Fix: Allow pages with default shortcodes to be overwritten by providing their own in the page content.
 * Fix: Better checking for page custom headers (including vendor page template).

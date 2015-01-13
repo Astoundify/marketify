@@ -252,6 +252,11 @@ function marketify_get_header_background() {
 		$background = wp_get_attachment_image_src( get_post_thumbnail_id(), 'fullsize' );
 	}
 
+	/* special case for the blog page */
+	if ( is_home() ) {
+		$background = wp_get_attachment_image_src( get_post_thumbnail_id( get_option( 'page_for_posts' ) ), 'fullsize' );
+	}
+
 	$background = apply_filters( 'marketify_header_outer_image', $background );
 
 	return $background;
