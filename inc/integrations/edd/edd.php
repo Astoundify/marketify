@@ -288,6 +288,18 @@ add_filter( 'pre_get_posts', 'marketify_edd_orderby' );
  * Sorting for standard shortcode
  */
 function marketify_edd_downloads_query( $query, $atts ) {
+	if ( is_tax( array( 'download_category', 'download_tag' ) ) ) {
+		$tax = get_queried_object();
+
+		$query[ 'tax_query' ] = array(
+			array(
+				'taxonomy' => $tax->taxonomy,
+				'field'    => 'id',
+				'terms'    => $tax->term_id
+			)
+		);
+	}
+
 	if ( is_page_template( 'page-templates/popular.php' ) ) {
 		$query[ 'meta_key' ] = '_edd_download_sales';
 		$query[ 'orderby' ]  = 'meta_value_num';
