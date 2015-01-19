@@ -111,15 +111,17 @@ function marketify_download_video_player() {
 	if ( ! $video )
 		return;
 
-	if ( ! is_array( $video ) ) {
+	if ( is_array( $video ) ) {
+		$video = current( $video );
+	}
+
+	$info = wp_check_filetype( $video );
+
+	if ( '' == $info[ 'ext' ] ) {
 		global $wp_embed;
 
 		$output = $wp_embed->run_shortcode( '[embed]' . $video . '[/embed]' );
 	} else {
-		$video = current( $video );
-		$file = wp_get_attachment_url( $video );
-		$info = wp_check_filetype( $file );
-
 		$output = do_shortcode( sprintf( '[video %s="%s"]', $info[ 'ext' ], $video ) );
 	}
 	?>
