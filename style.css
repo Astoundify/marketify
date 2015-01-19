@@ -7090,15 +7090,19 @@ html[xmlns] .slides {
 
 @media (min-width: 768px) {
   .download-grid-wrapper.columns-2[data-columns]::before,
-  .features[data-columns]::before {
+  .features.columns-2[data-columns]::before {
     content: '2 .col-sm-6'; } }
 @media (min-width: 992px) {
   .download-grid-wrapper.columns-3[data-columns]::before,
-  .features[data-columns]::before {
+  .features.columns-3[data-columns]::before {
     content: '3 .col-md-4'; } }
 @media (min-width: 1200px) {
-  .download-grid-wrapper.columns-4[data-columns]::before {
-    content: '4 .col-md-3'; } }
+  .download-grid-wrapper.columns-4[data-columns]::before,
+  .features.columns-4[data-columns]::before {
+    content: '4 .col-md-3'; }
+
+  .features.columns-5[data-columns]::before {
+    content: '6 .col-md-2'; } }
 .content-grid-download {
   margin-bottom: 30px;
   -webkit-backface-visibility: hidden;
