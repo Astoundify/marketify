@@ -2,6 +2,7 @@
 
 = 1.2.5: January 20, 2015 =
 
+* New: Add Envato WordPress Toolkit to TMGPA
 * Fix: Make sure taxonomy archives respect the selected terms.
 * Fix: Always get the current author in the grid.
 * Fix: Respect the shortcode count for the Features widget.
