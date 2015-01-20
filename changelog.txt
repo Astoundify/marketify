@@ -1,5 +1,12 @@
 == Changelog ==
 
+= 1.2.5: January 20, 2015 =
+
+* Fix: Make sure taxonomy archives respect the selected terms.
+* Fix: Always get the current author in the grid.
+* Fix: Respect the shortcode count for the Features widget.
+* Fix: Make sure self-hosted videos can embed properly.
+
 = 1.2.4.1: January 13, 2015 =
 
 * Fix: Make sure the blog page respects its set featured image.
