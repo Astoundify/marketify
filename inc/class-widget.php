@@ -38,6 +38,8 @@ class Marketify_Widget extends WP_Widget {
 	 * get_cached_widget function.
 	 */
 	function get_cached_widget( $args ) {
+		return false;
+
 		$cache = wp_cache_get( $this->widget_id, 'widget' );
 
 		if ( ! is_array( $cache ) )
