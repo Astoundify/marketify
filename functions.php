@@ -243,12 +243,12 @@ function marketify_get_header_background() {
 	$background = false;
 
 	$needs_a_background = apply_filters( 'marketify_needs_a_background',
-		in_array( get_post_format(), array( 'audio', 'video' ) ) ||
+		in_array( get_post_format(), array( 'video' ) ) ||
 		is_singular( array( 'page', 'post' ) ) ||
 		marketify_is_bbpress()
 	);
 
-	if ( has_post_thumbnail( $post->ID ) && $needs_a_background ) {
+	if ( has_post_thumbnail( $post->ID ) && $needs_a_background && ! is_archive() ) {
 		$background = wp_get_attachment_image_src( get_post_thumbnail_id(), 'fullsize' );
 	}
 
@@ -643,6 +643,10 @@ add_filter( 'query_vars', 'marketify_query_vars' );
 function marketify_popular_get_term_link( $link, $term, $taxonomy ) {
 	if ( ! is_page_template( 'page-templates/popular.php' ) )
 		return $link;
+
+	if ( ! did_action( 'marketify_entry_before' ) ) {
+		return $link;
+	}
 
 	global $wp_query;
 
