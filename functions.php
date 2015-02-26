@@ -664,9 +664,9 @@ add_filter( 'term_link', 'marketify_popular_get_term_link', 10, 3 );
  * @return $_page
  */
 function marketify_find_page_with_template( $template ) {
-	$_page = 0;
+	$_page = get_option( 'marketify_page_' . sanitize_title( $template ) );
 
-	if ( ! get_option( 'marketify_page_' . sanitize_title( $template ) ) ) {
+	if ( ! get_post( $_page ) ) {
 		$pages = new WP_Query( array(
 			'post_type'              => 'page',
 			'post_status'            => 'publish',
@@ -689,8 +689,6 @@ function marketify_find_page_with_template( $template ) {
 		}
 
 		add_option( 'marketify_page_' . sanitize_title( $template ), $_page );
-	} else {
-		$_page = get_option( 'marketify_page_' . sanitize_title( $template ) );
 	}
 
 	return $_page;
