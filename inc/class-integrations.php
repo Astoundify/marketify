@@ -10,6 +10,10 @@ class Marketify_Integrations {
 			'easy-digital-downloads' => array(
 				class_exists( 'Easy_Digital_Downloads' ),
 				'Marketify_Easy_Digital_Downloads'
+			),
+			'bbpress' => array(
+				class_exists( 'bbPress' ),
+				'Marketify_bbPress'
 			)
 		);
 

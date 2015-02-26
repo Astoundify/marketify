@@ -9,6 +9,7 @@ class Marketify_Easy_Digital_Downloads extends Marketify_Integration {
 			'class-easy-digital-downloads-shortcode.php',
 			'class-easy-digital-downloads-purchase-form.php',
 			'class-easy-digital-downloads-query.php',
+			'class-easy-digital-downloads-metaboxes.php',
 			'widgets/class-widget-download-archive-sorting.php',
 			'widgets/class-widget-downloads-curated.php',
 			'widgets/class-widget-downloads-recent.php',
@@ -26,6 +27,7 @@ class Marketify_Easy_Digital_Downloads extends Marketify_Integration {
 		$this->navigation = new Marketify_Easy_Digital_Downloads_Navigation();
 		$this->shortcode = new Marketify_Easy_Digital_Downloads_Navigation();
 		$this->purchase_form = new Marketify_Easy_Digital_Downloads_Purchase_Form();
+		$this->metaboxes = new Marketify_Easy_Digital_Downloads_Metaboxes();
 	}
 
 	public function setup_actions() {
