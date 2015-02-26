@@ -9,3 +9,5 @@ Using Grunt:
 	- $ npm install
 5. Run the Grunt watch task to monitor files
 	- $ grunt watch
+	
+Thanks!
