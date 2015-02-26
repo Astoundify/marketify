@@ -50,38 +50,8 @@ function jobify_register_required_plugins() {
 			'required'  => true,
 		),
 		array(
-			'name'      => 'Easy Digital Downloads - Featured Downloads',
-			'slug'      => 'edd-featured-downloads',
-			'required'  => false,
-		),
-		array(
-			'name'      => 'Easy Digital Downloads - Frontend Submission Product Details Widget',
-			'slug'      => 'easy-digital-downloads-frontend-submissions-product-details-widget',
-			'required'  => false,
-		),
-		array(
-			'name'      => 'Multiple Post Thumbnails',
-			'slug'      => 'multiple-post-thumbnails',
-			'required'  => false,
-		),
-		array(
 			'name'      => 'Jetpack',
 			'slug'      => 'jetpack',
-			'required'  => false,
-		),
-		array(
-			'name'      => 'Soliloquy Lite',
-			'slug'      => 'soliloquy-lite',
-			'required'  => false,
-		),
-		array(
-			'name'      => 'Testimonials',
-			'slug'      => 'testimonials-by-woothemes',
-			'required'  => false,
-		),
-		array(
-			'name'      => 'Features',
-			'slug'      => 'features-by-woothemes',
 			'required'  => false,
 		),
 		array(
@@ -90,29 +60,20 @@ function jobify_register_required_plugins() {
 			'required'  => false,
 		),
 		array(
-			'name'      => 'BAW Login/Logout',
-			'slug'      => 'baw-login-logout-menu',
-			'required'  => false,
-		),
-		array(
-			'name'      => 'Column Shortcode',
-			'slug'      => 'column-shortcodes',
-			'required'  => false,
-		),
-		array(
-			'name'      => 'Simple Custom CSS',
-			'slug'      => 'simple-custom-css',
-			'required'  => false,
+			'name'      => 'WordPress Importer',
+			'slug'      => 'wordpress-importer',
+			'required'  => false 
 		),
 		array(
 			'name'      => 'Widget Importer & Exporter',
 			'slug'      => 'widget-importer-exporter',
 			'required'  => false,
-		),
+		)
 	);
 
 	$config = array(
-		'id'           => 'tgmpa-marketify'          // Unique ID for hashing notices for multiple instances of TGMPA.
+		'id'          => 'tgmpa-marketify-' . get_option( 'marketify_version', '2.0.0' ),
+		'has_notices' => false
 	);
 
 	tgmpa( $plugins, $config );

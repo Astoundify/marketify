@@ -1,12 +1,5 @@
 <?php
 /**
- * Widget Base Class
- *
- * @package Marketify
- */
-
-
-/**
  * Widget base
  */
 class Marketify_Widget extends WP_Widget {
@@ -27,7 +20,14 @@ class Marketify_Widget extends WP_Widget {
 			'description' => $this->widget_description
 		);
 
+		if ( ! $this->widget_id ) {
+			$this->widget_id = null;
+		}
+
 		$this->WP_Widget( $this->widget_id, $this->widget_name, $widget_ops, $this->control_ops );
+
+		$this->settings = apply_filters( 'jobify_widget_settings', $this->settings );
+		$this->settings = apply_filters( 'jobify_widget_settings_' . $this->widget_id, $this->settings );
 
 		add_action( 'save_post', array( $this, 'flush_widget_cache' ) );
 		add_action( 'deleted_post', array( $this, 'flush_widget_cache' ) );
@@ -38,12 +38,13 @@ class Marketify_Widget extends WP_Widget {
 	 * get_cached_widget function.
 	 */
 	function get_cached_widget( $args ) {
-		return false;
-
 		$cache = wp_cache_get( $this->widget_id, 'widget' );
 
 		if ( ! is_array( $cache ) )
 			$cache = array();
+
+		if ( ! isset( $args[ 'widget_id' ] ) )
+			return false;
 
 		if ( isset( $cache[ $args[ 'widget_id' ] ] ) ) {
 			echo $cache[ $args[ 'widget_id' ] ];
@@ -57,6 +58,9 @@ class Marketify_Widget extends WP_Widget {
 	 * Cache the widget
 	 */
 	public function cache_widget( $args, $content ) {
+		if ( ! isset( $args[ 'widget_id' ] ) )
+			return;
+
 		$cache[ $args[ 'widget_id' ] ] = $content;
 
 		wp_cache_set( $this->widget_id, $cache, 'widget' );
@@ -95,6 +99,9 @@ class Marketify_Widget extends WP_Widget {
 				break;
 				case 'number' :
 					$instance[ $key ] = absint( $new_instance[ $key ] );
+				break;
+				case 'multicheck' :
+					$instance[ $key ] = maybe_serialize( $new_instance[ $key ] );
 				break;
 				default :
 					$instance[ $key ] = sanitize_text_field( $new_instance[ $key ] );
@@ -142,9 +149,26 @@ class Marketify_Widget extends WP_Widget {
 					?>
 					<p>
 						<label for="<?php echo $this->get_field_id( $key ); ?>">
-							<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo $this->get_field_name( $key ); ?>" type="text" value="1" <?php checked( 1, esc_attr( $value ) ); ?>/>
+							<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo $this->get_field_name( $key ); ?>" value="1" <?php checked( 1, esc_attr( $value ) ); ?>/>
 							<?php echo $setting[ 'label' ]; ?>
 						</label>
+					</p>
+					<?php
+				break;
+				case 'multicheck' :
+					$value = maybe_unserialize( $value );
+
+					if ( ! is_array( $value ) )
+						$value = array();
+					?>
+					<p><?php echo esc_attr( $setting[ 'label' ] ); ?></p>
+					<p>
+						<?php foreach ( $setting[ 'options' ] as $id => $label ) : ?>
+						<label for="<?php echo esc_attr( $id ); ?>">
+							<input type="checkbox" id="<?php echo esc_attr( $id ); ?>" name="<?php echo $this->get_field_name( $key ); ?>[]" value="<?php echo esc_attr( $id ); ?>" <?php if ( in_array( $id, $value ) ) : ?>checked="checked"<?php endif; ?>/>
+							<?php echo esc_attr( $label ); ?><br />
+						</label>
+						<?php endforeach; ?>
 					</p>
 					<?php
 				break;
