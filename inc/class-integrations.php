@@ -11,6 +11,14 @@ class Marketify_Integrations {
 				class_exists( 'Easy_Digital_Downloads' ),
 				'Marketify_Easy_Digital_Downloads'
 			),
+			'easy-digital-downloads-frontend-submissions' => array(
+				defined( 'EDD_Front_End_Submissions' ),
+				'Marketify_Easy_Digital_Downloads_Frontend_Submission'
+			),
+			'easy-digital-downloads-cross-sell-upsell' => array(
+				defined( 'edd_csau_version' ),
+				'Marketify_Easy_Digital_Downloads_Cross_Sell_UpSell'
+			),
 			'bbpress' => array(
 				class_exists( 'bbPress' ),
 				'Marketify_bbPress'
