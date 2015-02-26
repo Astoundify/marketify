@@ -1,9 +1,11 @@
 Using Grunt:
 
 1. Install http://nodejs.org/
-2. Checkout /marketify/ (current repository)
+2. Install Grunt
+	- $ npm install -g grunt-cli
+3. Checkout /marketify/ (current repository)
 	- $ cd marketify
-3. Install node packages
+4. Install node packages
 	- $ npm install
-4. Run the Grunt watch task to monitor files
+5. Run the Grunt watch task to monitor files
 	- $ grunt watch
