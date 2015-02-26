@@ -44,7 +44,7 @@ function marketify_love_it_url( $author = null ) {
 	$page = marketify_find_page_with_template( 'page-templates/wishlist.php' );
 
 	if ( $wp_rewrite->permalink_structure == '' ) {
-		$vendor_url = add_query_arg( array( 'page_id' => $page->ID, 'author_wishlist' => $author->user_nicename ), home_url() );
+		$vendor_url = add_query_arg( array( 'page_id' => $page, 'author_wishlist' => $author->user_nicename ), home_url() );
 	} else {
 		$vendor_url = get_permalink( $page );
 		$vendor_url = trailingslashit( $vendor_url ) . trailingslashit( $author->user_nicename );
