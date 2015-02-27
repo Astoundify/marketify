@@ -18,7 +18,7 @@ class Marketify_Assets {
 	}
 
 	public function enqueue_styles() {
-		/* do_action( 'jobify_output_customizer_css' ); */
+		do_action( 'marketify_output_customizer_css' );
 
 		$fonts_url = $this->google_fonts_url();
 
@@ -27,8 +27,9 @@ class Marketify_Assets {
 		}
 
 		wp_enqueue_style( 'marketify-base', get_template_directory_uri() . '/style.css' );
-		/* $jobify_customizer_css = new Jobify_Customizer_CSS(); */
-		/* $jobify_customizer_css->output(); */
+
+		$customizer_css = new Marketify_Customizer_CSS();
+		$customizer_css->output();
 	}
 
 	public function mce_css( $mce_css ) {

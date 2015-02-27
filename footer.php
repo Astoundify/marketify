@@ -18,9 +18,9 @@
 			<?php endif; ?>
 
 			<div class="site-info row<?php echo is_active_sidebar( 'footer-1' ) ? ' has-widgets' : ''; ?>">
-				<?php if ( marketify_get_theme_menu( 'social' ) ) : ?>
+				<?php if ( Marketify::$navigation->get_theme_menu( 'social' ) ) : ?>
 				<div class="col-md-4">
-					<h1 class="footer-widget-title"><?php echo marketify_get_theme_menu_name( 'social' ); ?></h1>
+					<h1 class="footer-widget-title"><?php echo Marketify::$navigation->get_theme_menu_name( 'social' ); ?></h1>
 
 					<?php
 						$social = wp_nav_menu( array(
@@ -38,24 +38,11 @@
 				</div>
 				<?php endif; ?>
 
-				<?php $contact = marketify_theme_mod( 'footer', 'footer-contact-address' ); ?>
-
-				<?php if ( $contact ) : ?>
 				<div class="col-md-4">
 					<h1 class="footer-widget-title"><?php _e( 'Contact Us', 'marketify' ); ?></h1>
 
 					<?php echo wpautop( marketify_theme_mod( 'footer', 'footer-contact-address' ) ); ?>
 				</div>
-				<?php endif; ?>
-
-				<?php
-					$cols = 4;
-
-					if ( ! $contact && ! marketify_get_theme_menu( 'social' ) )
-						$cols = 12;
-					else if ( ! $contact || ! marketify_get_theme_menu( 'social' ) )
-						$cols = 8;
-				?>
 
 				<div class="col-md-<?php echo $cols; ?>">
 					<h1 class="site-title"><a href="<?php echo home_url(); ?>">

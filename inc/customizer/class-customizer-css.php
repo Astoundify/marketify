@@ -75,7 +75,7 @@ class Marketify_Customizer_CSS extends Marketify_Customizer {
 			}
 		}
 
-		wp_add_inline_style( 'jobify-parent', $output );
+		wp_add_inline_style( 'marketify-base', $output );
 	}
 
 	private function parse_selectors( $selectors ) {

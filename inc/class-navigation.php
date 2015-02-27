@@ -13,4 +13,35 @@ class Marketify_Navigation {
 		) );
 	}
 
+	public function get_theme_menu( $theme_location ) {
+		$theme_locations = get_nav_menu_locations();
+
+		if ( ! isset( $theme_locations[$theme_location] ) ) {
+			return false;
+		}
+
+		$menu_obj = get_term( $theme_locations[$theme_location], 'nav_menu' );
+
+		if( ! $menu_obj ) {
+			return false;
+		}
+
+		return $menu_obj;
+	}
+
+	public function get_theme_menu_name( $theme_location ) {
+		$menu_obj = $this->get_theme_menu( $theme_location );
+		$default  = _x( 'Menu', 'noun', 'marketify' );
+
+		if( ! $menu_obj ) {
+			return $default;
+		}
+
+		if( ! isset( $menu_obj->name ) ) {
+			return $default;
+		}
+
+		return $menu_obj->name;
+	}
+
 }

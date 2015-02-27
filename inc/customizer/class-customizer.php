@@ -21,10 +21,7 @@ class Marketify_Customizer {
 
 	public function setup_actions() {
 		add_action( 'customize_register', array( $this, 'custom_controls' ) );
-
 		add_action( 'customize_register', array( $this, 'init_panels' ) );
-
-		add_action( 'plugins_loaded', array( $this, 'init_output' ) );
 	}
 
 	public function custom_controls() {
@@ -34,10 +31,6 @@ class Marketify_Customizer {
 
 	public function init_panels() {
 		$this->panels = new Marketify_Customizer_Panels();
-	}
-
-	public function init_output() {
-		$this->colors = new Marketify_Customizer_Output_Colors();
 	}
 
 }
