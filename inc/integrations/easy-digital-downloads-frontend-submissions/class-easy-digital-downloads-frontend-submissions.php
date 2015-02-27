@@ -3,7 +3,7 @@
 class Marketify_Easy_Digital_Downloads_Frontend_Submissions extends Marketify_Integration {
 
 	public function __construct() {
-		$this->files = array(
+		$this->includes = array(
 			'class-easy-digital-downloads-frontend-submissions-vendors.php'
 		);
 
@@ -15,8 +15,8 @@ class Marketify_Easy_Digital_Downloads_Frontend_Submissions extends Marketify_In
 	}
 
 	public function setup_actions() {
-		add_action( 'wp_enqueue_scripts', 'dequeue_styles', 11 );
-		add_action( 'wp_head', 'recaptcha_style' );
+		add_action( 'wp_enqueue_scripts', array( $this, 'dequeue_styles' ), 11 );
+		add_action( 'wp_head', array( $this, 'recaptcha_style' ) );
 	}
 
 	function recaptcha_style() {

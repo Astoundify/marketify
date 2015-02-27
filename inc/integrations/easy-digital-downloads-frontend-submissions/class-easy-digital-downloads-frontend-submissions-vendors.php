@@ -5,6 +5,26 @@ class Marketify_Easy_Digital_Downloads_Frontend_Submissions_Vendors {
 	public function __construct() {
 		add_filter( 'fes_vendor_dashboard_menu', array( $this, 'dashboard_menu_icons' ) );
 		add_filter( 'marketify_header_outer_image', array( $this, 'profile_cover_image' ), 1 );
+
+		add_action( 'marketify_download_entry_meta', array( $this, 'byline' ) );
+	}
+
+	public function get_url( $author_id ) {
+		return FES_Vendors::get_vendor_store_url( $author_id );
+	}
+
+	public function byline() {	
+		global $post;
+
+		printf(
+			__( '<span class="byline"> by %1$s</span>', 'marketify' ),
+			sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s %4$s</a></span>',
+				$this->get_url( $post->post_author ),
+				esc_attr( sprintf( __( 'View all %s by %s', 'marketify' ), edd_get_label_plural(), get_the_author() ) ),
+				esc_html( get_the_author_meta( 'display_name', $post->post_author ) ),
+				get_avatar( get_the_author_meta( 'ID', $post->post_author ), 50, apply_filters( 'marketify_default_avatar', null ) )
+			)
+		);
 	}
 
 	public function dashboard_menu_icons( $menu ) {

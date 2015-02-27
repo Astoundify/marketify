@@ -3,8 +3,29 @@
 class Marketify_Easy_Digital_Downloads_Purchase_Form {
 	
 	public function __construct() {
+		add_action( 'marketify_download_actions', array( $this, 'purchase_link' ) );
+		add_action( 'marketify_download_content_actions_before', array( $this, 'purchase_link' ) );
+
 		add_filter( 'edd_purchase_download_form', array( $this, 'download_form_class' ), 10, 2 );
 		add_filter( 'edd_button_colors', array( $this, 'button_colors' ) );
+	}
+
+	public function purchase_link( $download_id = null ) {
+		global $post, $edd_options;
+
+		if ( ! $download_id ) {
+			$download_id = $post->ID;
+		}
+
+		$variable = edd_has_variable_prices( $download_id );
+
+		if ( ! $variable ) {
+			echo edd_get_purchase_link( array( 'download_id' => $download_id, 'price' => false ) );
+		} else {
+			$button = ! empty( $edd_options[ 'add_to_cart_text' ] ) ? $edd_options[ 'add_to_cart_text' ] : __( 'Purchase', 'marketify' );
+
+			printf( '<a href="#buy-now-%s" class="button buy-now popup-trigger">%s</a>', $post->ID, $button );
+		}
 	}
 
 	public function download_form_class( $purchase_form, $args ) {

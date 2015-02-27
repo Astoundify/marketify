@@ -16,8 +16,8 @@ class Marketify_Integrations {
 				'Marketify_Easy_Digital_Downloads'
 			),
 			'easy-digital-downloads-frontend-submissions' => array(
-				defined( 'EDD_Front_End_Submissions' ),
-				'Marketify_Easy_Digital_Downloads_Frontend_Submission'
+				class_exists( 'EDD_Front_End_Submissions' ),
+				'Marketify_Easy_Digital_Downloads_Frontend_Submissions'
 			),
 			'easy-digital-downloads-product-reviews' => array(
 				class_exists( 'EDD_Reviews' ),
