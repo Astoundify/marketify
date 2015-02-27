@@ -1,9 +1,9 @@
 <?php
 
-class Jobify_Customizer_Panels {
+class Marketify_Customizer_Panels {
 
 	public function __construct() {
-		$this->priority = new Jobify_Customizer_Priority(0, 10);
+		$this->priority = new Marketify_Customizer_Priority(0, 10);
 
 		add_action( 'customize_register', array( $this, 'register_panels' ), 9 );
 		add_action( 'customize_register', array( $this, 'organize_appearance' ), 11 );
@@ -11,57 +11,20 @@ class Jobify_Customizer_Panels {
 	}
 
 	public function panel_list() {
-		$jobs = array(
-			'accounts' => array(
-				'title' => __( 'Accounts', 'jobify' ),
-				'priority' => $this->priority->next()
-			),
-			'jobs' => array(
-				'title' => __( 'Jobs', 'jobify' ),
-				'priority' => $this->priority->next()
-			),
-			'map-behavior' => array(
-				'title' => __( 'Map Settings', 'jobify' ),
-				'priority' => 99
-			)
-		);
-
-		if ( jobify()->integrations->has( 'wp-job-manager-resumes' ) ) {
-			$jobs[ 'resumes' ] = array(
-				'title' => __( 'Resumes', 'jobify' ),
-				'priority' => $this->priority->next()
-			);
-		}
-
-		$this->panels = apply_filters( 'jobify_customizer_panels', array(
+		$this->panels = apply_filters( 'marketify_customizer_panels', array(
 			'general' => array(
-				'title' => __( 'General', 'jobify' ),
+				'title' => __( 'General', 'marketify' ),
 				'sections' => array(
 				)
 			),
 			'appearance' => array(
-				'title' => __( 'Appearance', 'jobify' ),
+				'title' => __( 'Appearance', 'marketify' ),
 				'sections' => array(
 					'colors' => array(
-						'title' => __( 'Colors', 'jobify' ),
-					),
-				)
-			),
-			'jobs' => array(
-				'title' => jobify()->integrations->has( 'wp-job-manager-resumes' ) ? __( 'Jobs & Resumes', 'jobify' ) : __( 'Jobs', 'jobify' ),
-				'sections' => $jobs
-			),
-			'footer' => array(
-				'title' => __( 'Footer', 'jobify' ),
-				'sections' => array(
-					'cta' => array(
-						'title' => __( 'Call to Action', 'jobify' )
-					),
-					'copyright' => array(
-						'title' => __( 'Copyright', 'jobify' )
+						'title' => __( 'Colors', 'marketify' ),
 					)
 				)
-			)
+			),
 		) );
 
 		return $this->panels;
@@ -105,7 +68,7 @@ class Jobify_Customizer_Panels {
 		$wp_customize->get_section( 'colors' )->panel = 'appearance';
 		
 		$wp_customize->get_section( 'header_image' )->panel = 'appearance';
-		$wp_customize->get_section( 'header_image' )->title = __( 'Header & Logo', 'jobify' );
+		$wp_customize->get_section( 'header_image' )->title = __( 'Header & Logo', 'marketify' );
 
 		$wp_customize->get_section( 'background_image' )->panel = 'appearance';
 
@@ -114,12 +77,12 @@ class Jobify_Customizer_Panels {
 
 	public function organize_general( $wp_customize ) {
 		$wp_customize->get_section( 'title_tagline' )->panel = 'general';
-		$wp_customize->get_section( 'title_tagline' )->title = __( 'Site Title', 'jobify' );
+		$wp_customize->get_section( 'title_tagline' )->title = __( 'Site Title', 'marketify' );
 
 		$wp_customize->get_section( 'nav' )->panel = 'general';
 
 		$wp_customize->get_section( 'static_front_page' )->panel = 'general';
-		$wp_customize->get_section( 'static_front_page' )->title = __( 'Homepage Display', 'jobify' );
+		$wp_customize->get_section( 'static_front_page' )->title = __( 'Homepage Display', 'marketify' );
 
 		$wp_customize->remove_control( 'blogdescription' );
 		$wp_customize->get_control( 'display_header_text' )->section = 'header_image';

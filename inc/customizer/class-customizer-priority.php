@@ -1,6 +1,6 @@
 <?php
 
-class Jobify_Customizer_Priority {
+class Marketify_Customizer_Priority {
 
 	public $priority;
 

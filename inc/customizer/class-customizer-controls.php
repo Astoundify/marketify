@@ -1,17 +1,17 @@
 <?php
 
-class Jobify_Customizer_Controls {
+class Marketify_Customizer_Controls {
 
 	public $section;
 
 	public function __construct() {	
 		if ( ! isset( $this->priority ) ) {
-			$this->priority = new Jobify_Customizer_Priority();
+			$this->priority = new Marketify_Customizer_Priority();
 		}
 	}
 	
 	public function set_controls( $wp_customize ) {
-		$this->controls = apply_filters( 'jobify_pre_controls_' . $this->section, $this->controls,
+		$this->controls = apply_filters( 'marketify_pre_controls_' . $this->section, $this->controls,
 		$this->section, $wp_customize );
 
 		foreach ( $this->controls as $key => $control ) {
@@ -24,7 +24,7 @@ class Jobify_Customizer_Controls {
 			$control = wp_parse_args( $control, $defaults );
 
 			$wp_customize->add_setting( $key, array(
-				'default' => jobify_theme_mod( $key )
+				'default' => marketify_theme_mod( $key )
 			) );
 
 			if ( class_exists( $control[ 'type' ] ) ) { 

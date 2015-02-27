@@ -1,6 +1,6 @@
 <?php
 
-class Jobify_Customizer_CSS extends Jobify_Customizer {
+class Marketify_Customizer_CSS extends Marketify_Customizer {
 
 	private static $data = array();
 

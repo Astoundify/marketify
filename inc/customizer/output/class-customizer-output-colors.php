@@ -277,5 +277,3 @@ class Jobify_Customizer_Output_Colors {
 	}
 
 }
-
-new Jobify_Customizer_Output_Colors();

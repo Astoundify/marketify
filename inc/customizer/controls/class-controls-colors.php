@@ -1,12 +1,12 @@
 <?php
 
-class Jobify_Customizer_Controls_Colors extends Jobify_Customizer_Controls {
+class Marketify_Customizer_Controls_Colors extends Marketify_Customizer_Controls {
 
 	public $controls = array();
 
 	public function __construct() {
 		$this->section = 'colors';
-		$this->priority = new Jobify_Customizer_Priority(49, 1);
+		$this->priority = new Marketify_Customizer_Priority(49, 1);
 
 		parent::__construct();
 
@@ -16,20 +16,16 @@ class Jobify_Customizer_Controls_Colors extends Jobify_Customizer_Controls {
 
 	public function add_controls( $wp_customize ) {
 		$this->controls = array(
-			'color-header-background' => array(
-				'label' => __( 'Header Background Color', 'jobify' ),
-				'type'    => 'WP_Customize_Color_Control'
-			),
-			'color-navigation-text' => array(
-				'label' => __( 'Navigation Link Color', 'jobify' ),
+			'color-page-header-background' => array(
+				'label' => __( 'Page Header Background Color', 'marketify' ),
 				'type'    => 'WP_Customize_Color_Control'
 			),
 			'color-primary' => array(
-				'label' => __( 'Primary Color', 'jobify' ),
+				'label' => __( 'Primary Color', 'marketify' ),
 				'type'    => 'WP_Customize_Color_Control'
 			),
 			'color-accent' => array(
-				'label' => __( 'Accent Color', 'jobify' ),
+				'label' => __( 'Accent Color', 'marketify' ),
 				'type'    => 'WP_Customize_Color_Control'
 			),
 		);
@@ -39,4 +35,4 @@ class Jobify_Customizer_Controls_Colors extends Jobify_Customizer_Controls {
 	
 }
 
-new Jobify_Customizer_Controls_Colors();
+new Marketify_Customizer_Controls_Colors();

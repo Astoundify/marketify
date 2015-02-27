@@ -13,6 +13,7 @@ class Marketify {
 
 	private static $instance;
 
+	public static $customizer;
 	public static $strings;
 	public static $integrations;
 	public static $assets;
@@ -30,6 +31,7 @@ class Marketify {
 
 	private function base() {
 		$this->files = array(
+			'customizer/class-customizer.php',
 			'class-plugins.php',
 			'class-strings.php',
 			/* 'class-activation.php', */
@@ -52,6 +54,7 @@ class Marketify {
 	}
 
 	private function setup() {
+		self::$customizer = new Marketify_Customizer();
 		self::$strings = new Marketify_Strings();
 		/* $this->activation = new Marketify_Activation(); */
 		/* $this->setup = new Jobify_Setup(); */
