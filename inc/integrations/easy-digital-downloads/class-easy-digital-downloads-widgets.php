@@ -4,7 +4,7 @@ class Marketify_Easy_Digital_Downloads_Widgets {
 	
 	public function __construct() {
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
-		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
+		add_action( 'widgets_init', array( $this, 'register_sidebars' ), 20 );
 	}
 
 	public function register_widgets() {

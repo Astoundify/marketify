@@ -19,6 +19,7 @@ class Marketify {
 	public static $assets;
 	public static $navigation;
 	public static $page_header;
+	public static $widgets;
 
 	public function __construct() {
 		$this->base();
@@ -40,8 +41,7 @@ class Marketify {
 			'class-integrations.php',
 			'class-integration.php',
 			'class-assets.php',
-			/* 'class-widgets.php', */
-			/* 'class-widgetized-pages.php', */	
+			'class-widgets.php',
 			'class-widget.php',
 			'class-navigation.php',
 			'class-page-header.php',
@@ -66,8 +66,7 @@ class Marketify {
 		self::$page_header = new Marketify_Page_Header();
 		/* $this->pagination = new Jobify_Pagination(); */
 		/* $this->comments = new Jobify_Comments(); */
-		/* $this->widgets = new Jobify_Widgets(); */
-		/* $this->widgetized_pages = new Jobify_Widgetized_Pages(); */
+		self::$widgets = new Marketify_Widgets();
 
 		add_action( 'after_setup_theme', array( $this, 'setup_theme' ) );
 	}
