@@ -42,6 +42,18 @@ class Marketify_Integrations {
 			'love-it' => array(
 				defined( 'LI_BASE_DIR' ),
 				'Marketify_Love_It'
+			),
+			'woothemes-features' => array(
+				class_exists( 'WooThemes_Features' ),
+				'Marketify_WooThemes_Features'
+			),
+			'woothemes-projects' => array(
+				class_exists( 'WooThemes_Projects' ),
+				'Marketify_WooThemes_Projects'
+			),
+			'woothemes-testimonials' => array(
+				class_exists( 'WooThemes_Testimonials' ),
+				'Marketify_WooThemes_Testimonials'
 			)
 		);
 

@@ -1,4 +1,5 @@
 <?php
+
 class Marketify_Love_It extends Marketify_Integration {
 
 	public function __construct() {
