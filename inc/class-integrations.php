@@ -7,6 +7,10 @@ class Marketify_Integrations {
 	
 	public function __construct() {
 		$this->supported_integrations = array(
+			'bbpress' => array(
+				class_exists( 'bbPress' ),
+				'Marketify_bbPress'
+			),
 			'easy-digital-downloads' => array(
 				class_exists( 'Easy_Digital_Downloads' ),
 				'Marketify_Easy_Digital_Downloads'
@@ -23,13 +27,21 @@ class Marketify_Integrations {
 				function_exists( 'edd_rp_get_suggestions' ),
 				'Marketify_Easy_Digital_Downloads_Recommended_Products'
 			),
+			'easy-digital-downloads-wish-lists' => array(
+				class_exists( 'EDD_Wish_Lists' ),
+				'Marketify_Easy_Digital_Downloads_Wish_Lists'
+			),
 			'easy-digital-downloads-cross-sell-upsell' => array(
 				defined( 'edd_csau_version' ),
 				'Marketify_Easy_Digital_Downloads_Cross_Sell_UpSell'
 			),
-			'bbpress' => array(
-				class_exists( 'bbPress' ),
-				'Marketify_bbPress'
+			'jetpack' => array(
+				class_exists( 'Jetpack' ),
+				'Marketify_Jetpack'
+			),
+			'love-it' => array(
+				defined( 'LI_BASE_DIR' ),
+				'Marketify_Love_It'
 			)
 		);
 

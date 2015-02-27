@@ -7,8 +7,8 @@ class Marketify_Easy_Digital_Downloads_Recommended_Products extends Marketify_In
 	}
 
 	public function setup_actions() {
-		add_action( 'init', 'remove_auto_output', 12 );
-		add_action( 'marketify_single_download_after', 'output' );
+		add_action( 'init', array( $this, 'remove_auto_output' ), 12 );
+		add_action( 'marketify_single_download_after', array( $this, 'output' ) );
 	}	
 
 	public function remove_auto_output() {
@@ -16,7 +16,7 @@ class Marketify_Easy_Digital_Downloads_Recommended_Products extends Marketify_In
 		remove_filter( 'edd_after_checkout_cart', 'edd_rp_display_checkout' );
 	}
 
-	public function function output() {
+	public function output() {
 		if ( is_singular( 'download' ) ) {
 			global $post;
 
@@ -24,7 +24,7 @@ class Marketify_Easy_Digital_Downloads_Recommended_Products extends Marketify_In
 		} else {
 			$cart_items = edd_get_cart_contents();
 
-			if ( empty( $cart_items ) ) {j
+			if ( empty( $cart_items ) ) {
 				return;
 			}
 
