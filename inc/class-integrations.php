@@ -19,6 +19,10 @@ class Marketify_Integrations {
 				class_exists( 'EDD_Reviews' ),
 				'Marketify_Easy_Digital_Downloads_Product_Reviews'
 			),
+			'easy-digital-downloads-recommended-products' => array(
+				function_exists( 'edd_rp_get_suggestions' ),
+				'Marketify_Easy_Digital_Downloads_Recommended_Products'
+			),
 			'easy-digital-downloads-cross-sell-upsell' => array(
 				defined( 'edd_csau_version' ),
 				'Marketify_Easy_Digital_Downloads_Cross_Sell_UpSell'
