@@ -4,6 +4,7 @@ class Marketify_Easy_Digital_Downloads extends Marketify_Integration {
 
 	public function __construct() {
 		$this->includes = array(
+			'class-easy-digital-downloads-template.php',
 			'class-easy-digital-downloads-widgets.php',
 			'class-easy-digital-downloads-navigation.php',
 			'class-easy-digital-downloads-shortcode.php',
@@ -22,6 +23,7 @@ class Marketify_Easy_Digital_Downloads extends Marketify_Integration {
 	}
 
 	public function init() {
+		$this->template = new Marketify_Easy_Digital_Downloads_Template();
 		$this->query = new Marketify_Easy_Digital_Downloads_Query();
 		$this->widgets = new Marketify_Easy_Digital_Downloads_Widgets();
 		$this->navigation = new Marketify_Easy_Digital_Downloads_Navigation();

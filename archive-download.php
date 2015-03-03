@@ -10,24 +10,14 @@
 get_header(); ?>
 
 	<header class="page-header">
-		<h1 class="page-title">
-			<?php if ( is_tax() ) : ?>
-				<?php single_term_title(); ?>
-			<?php elseif ( is_search() ) : ?>
-				<?php echo esc_attr( get_search_query() ); ?>
-			<?php else : ?>
-				<?php echo apply_filters( 'marketify_downloads_archive_title', edd_get_label_plural() ); ?>
-			<?php endif; ?>
-		</h1>
+		<h1 class="page-title"><?php echo apply_filters( 'marketify_archive_title', edd_get_label_plural() ); ?></h1>
 	</header><!-- .page-header -->
 
 	<?php do_action( 'marketify_entry_before' ); ?>
 
 	<div class="container">
 
-		<?php if ( ! is_paged() && ! get_query_var( 'm-orderby' ) ) : ?>
-			<?php get_template_part( 'content-grid-download', 'popular' ); ?>
-		<?php endif; ?>
+		<?php get_template_part( 'content-grid-download', 'popular' ); ?>
 
 		<div id="content" class="site-content row">
 
@@ -35,11 +25,7 @@ get_header(); ?>
 				<main id="main" class="site-main" role="main">
 
 				<div class="section-title"><span>
-					<?php if ( is_search() ) : ?>
-						<?php printf( '&quot;%s&quot;', esc_attr( get_search_query() ) ); ?>
-					<?php else : ?>
-						<?php marketify_downloads_section_title(); ?>
-					<?php endif; ?>
+					<?php echo apply_filters( 'marketify_archive_section_title', '' ); ?>
 				</span></div>
 
 				<?php echo do_shortcode( sprintf( '[downloads number="%s"]', get_option( 'posts_per_page' ) ) ); ?>

@@ -264,7 +264,11 @@ a.insert-file-row {
 }
 
 .site-header {
-	padding: 50px 0;
+	padding: 25px 0;
+
+	@include bp(sm) {
+		padding: 50px 0;
+	}
 }
 
 .site-header .container {
@@ -3378,7 +3382,6 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 	}
 
 	.site-header .container {
-		max-width: 100%;
 		padding: 0;
 		position: inherit;
 	}

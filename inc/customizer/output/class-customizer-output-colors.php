@@ -17,13 +17,12 @@ class Marketify_Customizer_Output_Colors {
 
 		$this->css->add( array(
 			'selectors' => array(
-				'.header-outer:not(.custom-featured-image) .site-header',
-				'.header-outer:not(.custom-featured-image) .page-header',
+				'.header-outer.no-image .site-header',
+				'.header-outer.no-image .page-header',
 				'.site-footer',
 				'body.minimal',
 				'body.custom-background.minimal',
-				'.header-outer',
-				'.minimal .entry-content .edd-slg-social-container span legend)'
+				'.minimal .entry-content .edd-slg-social-container span legend'
 			),
 			'declarations' => array(
 				'background-color' => $page_header_background

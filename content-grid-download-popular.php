@@ -5,10 +5,15 @@
  * @since Marketify 1.0
  */
 
-$popular = marketify_download_archive_popular();
-
-if ( ! $popular->have_posts() )
+if ( ! is_paged() && ! get_query_var( 'm-orderby' ) ) {
 	return;
+}
+
+$popular = new WP_Query(); // marketify_download_archive_popular();
+
+if ( ! $popular->have_posts() ) {
+	return;
+}
 ?>
 
 <div class="marketify_widget_featured_popular popular">
