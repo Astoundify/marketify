@@ -12,10 +12,11 @@ module.exports = () ->
         tasks: [ 'sass', 'concat:initial', 'cssmin', 'concat:header' ]
       js:
         files: [
-          'gruntfile.*'
-          'js/coffee/*.coffee'
+          'Gruntfile.*'
+          'js/coffee/*.coffee',
+          'js/app/*.js'
         ]
-        tasks: [ 'newer:coffee' ]
+        tasks: [ 'newer:coffee', 'newer:uglify' ]
 
     sass:
       dist:

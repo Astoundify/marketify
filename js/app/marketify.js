@@ -262,21 +262,13 @@ Marketify.Widgets = ( function($) {
 
 	return {
 		init : function() {
-			$.each( marketifySettings.widgets, function(m, value) {
-				var cb       = value.cb;
-				var settings = value.settings;
-				var fn       = Marketify.Widgets[cb];
-
-				widgetSettings[m] = settings;
-
-				if ( typeof fn === 'function' )
-					fn( m );
-			} );
+			Marketify.Widgets.featured_popular();
+			Marketify.Widgets.testimonials();
 
 			$( '.widget_woothemes_features, .widget_woothemes_testimonials' ).find( '.fix' ).remove();
 		},
 
-		marketify_widget_featured_popular : function( widget_id ) {
+		featured_popular : function( widget_id ) {
 			var settings = widgetSettings[ widget_id ];
 
 			var slider = $( '.marketify_widget_featured_popular .flexslider' ).flexslider({
@@ -312,7 +304,7 @@ Marketify.Widgets = ( function($) {
 			});
 		},
 
-		widget_woothemes_testimonials : function( widget_id ) {
+		testimonials : function( widget_id ) {
 			if ( this.alreadyCalled )
 				return;
 
@@ -352,7 +344,7 @@ Marketify.Widgets = ( function($) {
 
 jQuery(document).ready(function() {
 	Marketify.App.init();
-	Marketify.Widgets.init();
+	/* Marketify.Widgets.init(); */
 });
 
 jQuery(window).load(function() {
