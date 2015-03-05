@@ -15,6 +15,7 @@ abstract class Marketify_Integration {
 		$this->includes();
 		$this->init();
 		$this->setup_actions();
+		$this->internal_actions();
 	}
 
 	private function includes() {
@@ -30,5 +31,22 @@ abstract class Marketify_Integration {
 	public function init() {}
 
 	public function setup_actions() {}
+
+	private function internal_actions() {
+		add_filter( 'body_class', array( $this, 'body_class' ) );
+	}
+
+	public function body_class( $classes ) {
+		$classes[] = $this->get_slug();
+
+		return $classes;
+	}
+
+	private function get_slug() {
+		$pieces = explode( '/', $this->directory );
+		$slug = end( $pieces );
+
+		return $slug;
+	}
 
 }
