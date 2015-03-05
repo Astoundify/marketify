@@ -65,12 +65,12 @@ class Marketify_Widget_Feature_Callout extends Marketify_Widget {
 			),
 			'text_color' => array(
 				'type'  => 'colorpicker',
-				'std'   => '#717A8F',
+				'std'   => '#515a63',
 				'label' => __( 'Text Color:', 'listify' )
 			),
 			'background_color' => array(
 				'type'  => 'colorpicker',
-				'std'   => '#ffffff',
+				'std'   => '#f9f9f9',
 				'label' => __( 'Background Color:', 'listify' )
 			),
 			'title' => array(
