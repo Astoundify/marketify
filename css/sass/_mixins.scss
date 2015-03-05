@@ -1,10 +1,15 @@
 @mixin bp($point) {
 
-	$bp-sm: "(min-width: 768px)";
-	$bp-md: "(min-width: 992px)";
-	$bp-lg: "(min-width: 1200px)";
+	$bp-pt: "screen and (min-width: 400px) and (max-width: 767px)";
+	$bp-sm: "screen and (min-width: 768px) and (max-width: 991px)";
+	$bp-md: "screen and (min-width: 992px) and (max-width: 1199px)";
+	$bp-lg: "screen and (min-width: 1200px)";
+	
+	@if $point == pt {
+		@media #{$bp-pt} { @content; }
+	}
 
-	@if $point == sm {
+	@else if $point == sm {
 		@media #{$bp-sm} { @content; }
 	}
 
