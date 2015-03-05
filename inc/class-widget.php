@@ -216,6 +216,28 @@ class Marketify_Widget extends WP_Widget {
 						<p></p>
 					<?php
 				break;
+				case 'image' :
+					wp_enqueue_media();
+					wp_enqueue_script( 'app-image-widget-admin', get_template_directory_uri() . '/js/app/app-image-widget-admin.js', array( 'jquery' ), '', true );
+				?>
+					<p style="margin-bottom: 0;">
+						<label for="<?php echo $this->get_field_id( $key ); ?>"><?php echo $setting[ 'label' ]; ?></label>
+					</p>
+					<p style="margin-top: 3px;">
+						<a href="#" class="button-secondary <?php echo esc_attr( $this->get_field_id( $key ) ); ?>-add"><?php _e( 'Choose Image', 'marketify' ); ?></a>
+					</p>
+					<p>
+						<input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo $this->get_field_name( $key ); ?>"value="<?php echo $value; ?>" placeholder="http://" />
+					</p>
+					<script>
+						jQuery(document).on( 'ready', function($) {
+							var <?php echo $key; ?> = new cImageWidget.MediaManager({
+								target: '<?php echo esc_attr( $this->get_field_id( $key ) ); ?>',
+							});
+						});
+					</script>
+				<?php
+				break;
 			}
 		}
 	}
