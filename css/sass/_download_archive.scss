@@ -50,32 +50,12 @@
 }
 
 .content-grid-download .entry-image a,
-.content-grid-download .entry-image img,
-.content-grid-download .entry-image .image-placeholder {
+.content-grid-download .entry-image img {
 	display: block;
 }
 
 .content-grid-download .entry-image img {
 	min-width: 100%;
-}
-
-.content-grid-download .entry-image .image-placeholder {
-	min-height: 200px;
-	background: #eee;
-	position: relative;
-}
-
-.content-grid-download .entry-image .image-placeholder:before {
-	color: #bbb;
-	content: '\e69c';
-	width: 20px;
-	height: 20px;
-	text-align: center;
-	top: 50%;
-	left: 50%;
-	margin-top: -10px;
-	margin-left: -10px;
-	position: absolute;
 }
 
 .content-grid-download .entry-image .overlay {
