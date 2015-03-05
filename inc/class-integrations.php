@@ -43,6 +43,10 @@ class Marketify_Integrations {
 				defined( 'LI_BASE_DIR' ),
 				'Marketify_Love_It'
 			),
+			'multiple-post-thumbnails' => array(
+				class_exists( 'MultiPostThumbnails' ),
+				'Marketify_Multiple_Post_Thumbnails'
+			),
 			'woothemes-features' => array(
 				class_exists( 'WooThemes_Features' ),
 				'Marketify_WooThemes_Features'
