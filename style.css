@@ -7091,11 +7091,25 @@ html[xmlns] .slides {
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .download-grid-wrapper[data-columns]::before,
   .features[data-columns]::before {
-    content: '2 .col-sm-6'; } }
+    content: '2 .col-sm-6'; }
+
+  .download-grid-wrapper.columns-1[data-columns]::before,
+  .features.columns-1[data-columns]::before {
+    content: '1 .col-xs-12'; } }
 @media screen and (min-width: 992px) and (max-width: 1199px) {
   .download-grid-wrapper[data-columns]::before,
-  .features[data-columns]::before {
-    content: '3 .col-md-4'; } }
+  .features[data-columns]::before,
+  .download-grid-wrapper.columns-3[data-columns]::before,
+  .features.columns-3[data-columns]::before {
+    content: '3 .col-md-4'; }
+
+  .download-grid-wrapper.columns-2[data-columns]::before,
+  .features.columns-2[data-columns]::before {
+    content: '2 .col-sm-6'; }
+
+  .download-grid-wrapper.columns-1[data-columns]::before,
+  .features.columns-1[data-columns]::before {
+    content: '1 .col-xs-12'; } }
 @media screen and (min-width: 1200px) {
   .download-grid-wrapper.columns-1[data-columns]::before,
   .features.columns-1[data-columns]::before {
