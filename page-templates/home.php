@@ -7,17 +7,19 @@
 
 get_header(); ?>
 
-		<?php the_post(); if ( ! ( '' == $post->post_content && '' == $post->post_title ) ) : ?>
+		<?php the_post(); ?>
 		<header class="page-header">
 			<div class="container">
 				<h1 class="page-title"><?php the_title(); ?></h1>
 
+				<?php add_filter( 'wp_video_shortcode_library', '__return_false' ); ?>
 				<?php the_content(); ?>
+				<?php remove_filter( 'wp_video_shortcode_library', '__return_false' ); ?>
 			</div>
 		</header><!-- .page-header -->
-		<?php endif; rewind_posts(); ?>
+		<?php rewind_posts(); ?>
 
-	</div>
+	<?php do_action( 'marketify_entry_before' ); ?>
 
 	<div id="content" class="site-content">
 

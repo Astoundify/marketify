@@ -1,0 +1,17 @@
+/** Video */
+
+.home .header-outer {
+	position: relative;
+
+	.wp-video {
+		visibility: hidden;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		overflow: hidden;
+		width: 100% !important;
+		height: auto !important;
+		position: absolute !important;
+	}
+}
