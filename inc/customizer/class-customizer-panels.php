@@ -25,6 +25,20 @@ class Marketify_Customizer_Panels {
 					)
 				)
 			),
+			'downloads' => array(
+				'title' => edd_get_label_plural(),
+				'sections' => array(
+					'downloads-behavior' => array(
+						'title' => __( 'Labels & Behavior', 'marketify' ),
+					),
+					'download-archives' => array(
+						'title' => sprintf( __( '%s Archives', 'marketify' ), edd_get_label_singular() )
+					),
+					'download-single' => array(
+						'title' => sprintf( __( 'Single %s', 'marketify' ), edd_get_label_singular() )
+					)
+				)
+			),
 		) );
 
 		return $this->panels;

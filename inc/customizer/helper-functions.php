@@ -5,7 +5,22 @@ function marketify_get_theme_mod_defaults() {
 		// Colors
 		'color-page-header-background' => '#515a63',
 		'color-primary' => '#515a63',
-		'color-accent' => '#50ca8b'
+		'color-accent' => '#50ca8b',
+
+		// Downloads
+		'download-label-singular' => 'Download',
+		'download-label-plural' => 'Downloads',
+		'download-label-generate' => 'on',
+
+		'download-archives-popular' => 'on',
+		'download-archives-excerpt' => '',
+		'download-archives-truncate-title' => '',
+		'download-archives-meta' => 'auto',
+		'downloads-grid-height' => 520,
+		'downloads-per-page' => 12,
+		'downloads-columns' => 3,
+
+		'download-feature-area' => 'top',
 	);
 
 	return apply_filters( 'marketify_theme_mod_defaults', $mods );

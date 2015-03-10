@@ -5,7 +5,7 @@
  * @since Marketify 1.0
  */
 
-if ( ! is_paged() && ! get_query_var( 'm-orderby' ) ) {
+if ( ! is_paged() && ! get_query_var( 'm-orderby' ) || ! marketify_theme_mod( 'downloads-archive-popular' ) ) {
 	return;
 }
 

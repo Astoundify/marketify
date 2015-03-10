@@ -22,8 +22,8 @@ class Marketify_Strings {
 
 	public function get_labels() {
 		$this->labels = array(
-			'singular' => 'Singular Label',
-			'plural' => 'Plural Label'
+			'singular' => marketify_theme_mod( 'download-label-singular' ),
+			'plural' => marketify_theme_mod( 'download-label-plural' )
 		);
 
 		return $this->labels;
