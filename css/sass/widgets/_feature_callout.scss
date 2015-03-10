@@ -45,7 +45,6 @@
 	.button {
 		font-size: 18px;
 		border-width: 3px;
-		margin: 0 15px;
 		padding: 14px 24px;
 		border-radius: 0;
 		color: #fff;
@@ -58,6 +57,12 @@
 	}
 }
 
+.feature-callout.text-center {
+	.button{
+		margin: 0 15px;
+	}
+}
+
 .feature-callout.text-right {
 	.feature-callout-content {
 		text-align: right;
@@ -66,10 +71,20 @@
 	.feature-callout-cover {
 		background-position: center left;
 	}
+
+	.button{
+		margin: 0 0 0 15px;
+	}
 }
 
-.feature-callout.text-left .feature-callout-cover {
-	background-position: center right;
+.feature-callout.text-left  {
+	.feature-callout-cover {
+		background-position: center right;
+	}
+
+	.button{
+		margin: 0 15px 0 0;
+	}
 }
 
 	@include bp(sm) {

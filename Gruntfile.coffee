@@ -23,12 +23,12 @@ module.exports = () ->
         options:
           style: 'compressed'
         files:
-          'css/style.css': 'css/sass/style.scss'
+          'css/style.scss.css': 'css/sass/style.scss'
 
     concat:
       initial:
         files:
-          'css/style.css': [ 'css/vendor/*.css', 'css/style.css']
+          'css/style.css': [ 'css/vendor/*.css', 'css/style.scss.css']
       header:
         files:
           'style.css': [ 'css/_theme.css', 'css/style.css' ]

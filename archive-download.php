@@ -9,9 +9,9 @@
 
 get_header(); ?>
 
-	<header class="page-header">
-		<h1 class="page-title"><?php echo apply_filters( 'marketify_archive_title', edd_get_label_plural() ); ?></h1>
-	</header><!-- .page-header -->
+		<header class="page-header">
+			<h1 class="page-title"><?php echo apply_filters( 'marketify_archive_title', edd_get_label_plural() ); ?></h1>
+		</header><!-- .page-header -->
 
 	<?php do_action( 'marketify_entry_before' ); ?>
 
