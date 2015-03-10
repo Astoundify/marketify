@@ -4,6 +4,11 @@ class Marketify_Page_Header {
 	
 	public function __construct() {
 		add_filter( 'marketify_page_header', array( $this, 'tag_atts' ), 10, 2 );
+		add_action( 'marketify_entry_before', array( $this, 'close_header_outer' ) );
+	}
+
+	public function close_header_outer() {
+		echo '</div>';
 	}
 
 	public function tag_atts( $args ) {

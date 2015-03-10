@@ -51,5 +51,3 @@
 
 		<?php locate_template( array( 'searchform-header.php' ), true ); ?>
 
-	</div>
-
