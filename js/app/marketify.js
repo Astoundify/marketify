@@ -89,6 +89,7 @@ Marketify.App = ( function($) {
 			menuMobile();
 			footerHeight();
 			soliloquySliders();
+			Marketify.App.initHeaderVideo();
 
 			$(window).resize(function() {
 				footerHeight();
@@ -201,6 +202,35 @@ Marketify.App = ( function($) {
 				maxItems       : 3,
 				directionNav   : false
 			});
+		},
+
+		initHeaderVideo : function() {
+			var video = $( '.home .header-outer .wp-video video' ).get(0);
+
+			if ( typeof video === 'undefined' ) {
+				return;
+			}
+
+			var vide = $( '.home .header-outer .wp-video' ).vide();
+
+			video.play();
+			vide.resize();
+
+			function adjustHeight() {
+				if ( $(window).width() < 768 ) {
+					$( video ).hide();
+				} else {
+					$( video ).show();
+				}
+			}
+
+			adjustHeight();
+
+			$(window).resize(function() {
+				adjustHeight();
+			});
+
+			return;
 		},
 
 		downloadGridViewer : function() {
