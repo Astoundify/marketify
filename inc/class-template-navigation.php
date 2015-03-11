@@ -1,6 +1,6 @@
 <?php
 
-class Marketify_Navigation {
+class Marketify_Template_Navigation {
 
 	public function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'register_menus' ) );

@@ -16,10 +16,9 @@ class Marketify {
 	public static $customizer;
 	public static $strings;
 	public static $integrations;
-	public static $assets;
-	public static $navigation;
-	public static $page_header;
 	public static $widgets;
+
+	public static $template;
 
 	public function __construct() {
 		$this->base();
@@ -36,15 +35,18 @@ class Marketify {
 			'customizer/class-customizer.php',
 			'class-plugins.php',
 			'class-strings.php',
-			/* 'class-activation.php', */
-			/* 'class-setup.php', */
-			'class-integrations.php',
-			'class-integration.php',
-			'class-assets.php',
 			'class-widgets.php',
 			'class-widget.php',
-			'class-navigation.php',
-			'class-page-header.php',
+			'class-integrations.php',
+			'class-integration.php',
+
+			'class-template-assets.php',
+			'class-template-navigation.php',
+			'class-template-page-header.php',
+			'class-template-footer.php',
+
+			/* 'class-activation.php', */
+			/* 'class-setup.php', */
 			/* 'class-pagination.php', */
 			/* 'class-comments.php', */
 			/* 'custom-header.php' */
@@ -58,15 +60,20 @@ class Marketify {
 	private function setup() {
 		self::$customizer = new Marketify_Customizer();
 		self::$strings = new Marketify_Strings();
+		self::$integrations = new Marketify_Integrations();
+		self::$widgets = new Marketify_Widgets();
+
+		self::$template = new stdClass();
+
+		self::$template->assets = new Marketify_Template_Assets();
+		self::$template->navigation = new Marketify_Template_Navigation();
+		self::$template->page_header = new Marketify_Template_Page_Header();
+		self::$template->footer = new Marketify_Template_Footer();
+
 		/* $this->activation = new Marketify_Activation(); */
 		/* $this->setup = new Jobify_Setup(); */
-		self::$integrations = new Marketify_Integrations();
-		self::$assets = new Marketify_Assets();
-		self::$navigation = new Marketify_Navigation();
-		self::$page_header = new Marketify_Page_Header();
 		/* $this->pagination = new Jobify_Pagination(); */
 		/* $this->comments = new Jobify_Comments(); */
-		self::$widgets = new Marketify_Widgets();
 
 		add_action( 'after_setup_theme', array( $this, 'setup_theme' ) );
 	}

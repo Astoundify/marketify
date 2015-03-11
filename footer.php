@@ -10,51 +10,11 @@
 
 	<footer id="colophon" class="site-footer <?php echo marketify_theme_mod( 'footer', 'footer-style' ); ?>" role="contentinfo">
 		<div class="container">
-
-			<?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
-				<div class="row">
-					<?php dynamic_sidebar( 'footer-1' ); ?>
-				</div>
-			<?php endif; ?>
+				
+			<?php do_action( 'marketify_footer_above' ); ?>
 
 			<div class="site-info row<?php echo is_active_sidebar( 'footer-1' ) ? ' has-widgets' : ''; ?>">
-				<?php if ( Marketify::$navigation->get_theme_menu( 'social' ) ) : ?>
-				<div class="col-md-4">
-					<h1 class="footer-widget-title"><?php echo Marketify::$navigation->get_theme_menu_name( 'social' ); ?></h1>
-
-					<?php
-						$social = wp_nav_menu( array(
-							'theme_location'  => 'social',
-							'container_class' => 'footer-social',
-							'items_wrap'      => '%3$s',
-							'depth'           => 1,
-							'echo'            => false,
-							'link_before'     => '<span class="screen-reader-text">',
-							'link_after'      => '</span>',
-						) );
-
-						echo strip_tags( $social, '<a><div><span>' );
-					?>
-				</div>
-				<?php endif; ?>
-
-				<div class="col-md-4">
-					<h1 class="footer-widget-title"><?php _e( 'Contact Us', 'marketify' ); ?></h1>
-
-					<?php echo wpautop( marketify_theme_mod( 'footer', 'footer-contact-address' ) ); ?>
-				</div>
-
-				<div class="col-md-<?php echo $cols; ?>">
-					<h1 class="site-title"><a href="<?php echo home_url(); ?>">
-						<?php if ( marketify_theme_mod( 'footer', 'footer-logo' ) ) : ?>
-							<img src="<?php echo marketify_theme_mod( 'footer', 'footer-logo' ); ?>" />
-						<?php else : ?>
-							<?php bloginfo( 'name' ); ?>
-						<?php endif; ?>
-					</a></h1>
-
-					<?php printf( __( '&copy; %d %s. All rights reserved.', 'marketify' ), date( 'Y' ), get_bloginfo( 'name' ) ); ?>
-				</div>
+				<?php do_action( 'marketify_footer_site_info' ); ?>
 			</div><!-- .site-info -->
 
 		</div>

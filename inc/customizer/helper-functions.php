@@ -21,6 +21,9 @@ function marketify_get_theme_mod_defaults() {
 		'downloads-columns' => 3,
 
 		'download-feature-area' => 'top',
+
+		// Footer
+		'footer-contact-address' => false
 	);
 
 	return apply_filters( 'marketify_theme_mod_defaults', $mods );

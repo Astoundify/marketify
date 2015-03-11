@@ -47,38 +47,43 @@ class Marketify_Widgets {
 			'after_title'   => '</span></h1>',
 		) );
 
-		/*
-		 * Figure out how many columns the footer has
-		 */
-		$the_sidebars = wp_get_sidebars_widgets();
-		$footer       = isset ( $the_sidebars[ 'footer-1' ] ) ? $the_sidebars[ 'footer-1' ] : array();
-		$count        = count( $footer );
-		$count        = floor( 12 / ( $count == 0 ? 1 : $count ) );
-
 		/* Footer */
 		register_sidebar( array(
-			'name'          => __( 'Footer', 'marketify' ),
-			'description'   => __( 'Widgets that appear in the page footer', 'marketify' ),
+			'name'          => __( 'Footer Left', 'marketify' ),
+			'description'   => __( 'The left footer widget area', 'marketify' ),
 			'id'            => 'footer-1',
-			'before_widget' => '<aside id="%1$s" class="footer-widget %2$s col-md-' . $count . '">',
+			'before_widget' => '<aside id="%1$s" class="footer-widget %2$s col-xs-12 col-sm-6 col-md-4">',
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h1 class="footer-widget-title">',
 			'after_title'   => '</h1>',
 		) );
 
-		/*
-		 * Figure out how many columns the price table has
-		 */
-		$prices = isset ( $the_sidebars[ 'widget-area-price-options' ] ) ? $the_sidebars[ 'widget-area-price-options' ] : array();
-		$count = count( $prices );
-		$count = floor( 12 / ( $count == 0 ? 1 : $count ) );
+		register_sidebar( array(
+			'name'          => __( 'Footer Center', 'marketify' ),
+			'description'   => __( 'The center footer widget area', 'marketify' ),
+			'id'            => 'footer-2',
+			'before_widget' => '<aside id="%1$s" class="footer-widget %2$s col-xs-12 col-sm-6 col-md-4">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h1 class="footer-widget-title">',
+			'after_title'   => '</h1>',
+		) );
+
+		register_sidebar( array(
+			'name'          => __( 'Footer Right', 'marketify' ),
+			'description'   => __( 'The right footer widget area', 'marketify' ),
+			'id'            => 'footer-3',
+			'before_widget' => '<aside id="%1$s" class="footer-widget %2$s col-xs-12 col-sm-6 col-md-4">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h1 class="footer-widget-title">',
+			'after_title'   => '</h1>',
+		) );
 
 		/* Price Table */
 		register_sidebar( array(
 			'name'          => __( 'Price Table', 'marketify' ),
 			'id'            => 'widget-area-price-options',
 			'description'   => __( 'Drag multiple "Price Option" widgets here. Then drag the "Pricing Table" widget to the "Homepage" Widget Area.', 'marketify' ),
-			'before_widget' => '<div id="%1$s" class="pricing-table-widget %2$s col-lg-' . $count . ' col-md-6">',
+			'before_widget' => '<div id="%1$s" class="pricing-table-widget %2$s col-xs-12 col-sm-6 col-md-4">',
 			'after_widget'  => '</div>'
 		) );
 	}

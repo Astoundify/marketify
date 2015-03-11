@@ -1,6 +1,6 @@
 <?php
 
-class Marketify_Assets {
+class Marketify_Template_Assets {
 
 	public function __construct() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );

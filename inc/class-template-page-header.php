@@ -1,6 +1,6 @@
 <?php
 
-class Marketify_Page_Header {
+class Marketify_Template_Page_Header {
 	
 	public function __construct() {
 		add_filter( 'marketify_page_header', array( $this, 'tag_atts' ), 10, 2 );
