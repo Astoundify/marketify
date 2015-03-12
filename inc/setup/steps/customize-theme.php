@@ -1,3 +1,2 @@
-
-					'<p>' . __( 'Manage the appearance and behavior of various theme components with the live customizer.', 'jobify' ) . '</p>' .
-					'<p>' . sprintf( '<a href="%s" class="button button-primary button-large">%s</a>', admin_url( 'customize.php' ), __( 'Customize', 'jobify' ) ) . '</p>',
+<p>Manage the appearance and behavior of various theme components with the live customizer.</p>
+<p><a href="<?php echo admin_url( 'customize.php' ); ?>" class="button button-primary button-large">Customize</a></p>

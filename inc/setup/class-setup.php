@@ -152,7 +152,7 @@ class Marketify_Setup {
     ?>
 		<h1><?php printf( __( 'Welcome to %s %s', 'jobify' ), $this->theme->Name, $this->theme->Version ); ?></h1>
 		<p class="about-text"><?php printf( __( 'Creating a job listing website has never been easier with Jobify — the easiest to use job board theme available. Use the steps below to finish setting up your new website. If you have more questions please <a href="%s">review the documentation</a>.', 'jobify' ), 'http://jobify.astoundify.com' ); ?></p>
-		<div class="jobify-badge"><img src="<?php echo get_template_directory_uri(); ?>/images/marketify-banner-welcome.jpg" width="140" alt="" /></div>
+		<div class="jobify-badge"><img src="<?php echo get_template_directory_uri(); ?>/inc/setup/images/banner.jpg" width="140" alt="" /></div>
     <?php
     }
 
