@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Vendor
+ * Template Name: Account: Vendor
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *

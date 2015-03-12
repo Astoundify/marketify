@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: The Team
+ * Template Name: Page: Meet the Team
  *
  * @package Marketify
  */

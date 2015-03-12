@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Pricing Table
+ * Template Name: Page: Pricing Table
  *
  * @package Marketify
  */

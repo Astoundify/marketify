@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Single Column
+ * Template Name: Layout: Single Column
  *
  * @package Marketify
  */

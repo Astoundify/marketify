@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Likes
+ * Template Name: Account: Loves
  *
  * @package Marketify
  */

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Minimal
+ * Template Name: Layout: Minimal
  *
  * @package Marketify
  */

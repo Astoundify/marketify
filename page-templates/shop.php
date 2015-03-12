@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Shop
+ * Template Name: Page: Shop
  *
  * Load the [downloads] shortcode.
  *

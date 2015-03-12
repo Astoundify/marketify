@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Popular Items
+ * Template Name: Page: Popular Items
  *
  * @package Marketify
  */
