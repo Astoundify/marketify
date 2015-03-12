@@ -14,6 +14,10 @@ class Marketify {
 	private static $instance;
 
 	public static $customizer;
+
+	public static $activation;
+	public static $setup;
+
 	public static $strings;
 	public static $integrations;
 	public static $widgets;
@@ -33,6 +37,10 @@ class Marketify {
 	private function base() {
 		$this->files = array(
 			'customizer/class-customizer.php',
+
+			'activation/class-activation.php',
+			'setup/class-setup.php',
+
 			'class-plugins.php',
 			'class-strings.php',
 			'class-widgets.php',
@@ -45,8 +53,6 @@ class Marketify {
 			'class-template-page-header.php',
 			'class-template-footer.php',
 
-			/* 'class-activation.php', */
-			/* 'class-setup.php', */
 			/* 'class-pagination.php', */
 			/* 'class-comments.php', */
 			/* 'custom-header.php' */
@@ -59,6 +65,10 @@ class Marketify {
 
 	private function setup() {
 		self::$customizer = new Marketify_Customizer();
+
+		self::$activation = new Marketify_Activation();
+		self::$setup = new Marketify_Setup();
+
 		self::$strings = new Marketify_Strings();
 		self::$integrations = new Marketify_Integrations();
 		self::$widgets = new Marketify_Widgets();

@@ -1,6 +1,6 @@
 <?php
 
-class Jobify_Activation {
+class Marketify_Activation {
 
 	public function __construct() {
 		$this->theme = wp_get_theme( 'jobify' );
