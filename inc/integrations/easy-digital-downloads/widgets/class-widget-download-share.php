@@ -13,7 +13,7 @@ class Marketify_Widget_Download_Share extends Marketify_Widget {
 		$this->widget_cssclass    = 'marketify_widget_download_share';
 		$this->widget_description = __( 'Display sharing options for this product.', 'marketify' );
 		$this->widget_id          = 'marketify_widget_download_share';
-		$this->widget_name        = __( 'Marketify - Download Single: Social Sharing', 'marketify' );
+		$this->widget_name        = __( 'Marketify - Download Single: Share', 'marketify' );
 		$this->settings           = array(
 			'title' => array(
 				'type'  => 'text',

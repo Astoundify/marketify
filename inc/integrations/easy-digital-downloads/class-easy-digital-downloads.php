@@ -11,12 +11,17 @@ class Marketify_Easy_Digital_Downloads extends Marketify_Integration {
 			'class-easy-digital-downloads-purchase-form.php',
 			'class-easy-digital-downloads-query.php',
 			'class-easy-digital-downloads-metaboxes.php',
-			'widgets/class-widget-download-archive-sorting.php',
+
 			'widgets/class-widget-downloads-curated.php',
 			'widgets/class-widget-downloads-recent.php',
 			'widgets/class-widget-downloads-taxonomy.php',
 			'widgets/class-widget-downloads-taxonomy-stylized.php',
-			'widgets/class-widget-downloads-featured-popular.php'
+			'widgets/class-widget-downloads-featured-popular.php',
+
+			'widgets/class-widget-download-archive-sorting.php',
+
+			'widgets/class-widget-download-details.php',
+			'widgets/class-widget-download-share.php'
 		);
 
 		parent::__construct( dirname( __FILE__) );
