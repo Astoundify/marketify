@@ -12,7 +12,7 @@ class Marketify_Widgets {
 		);
 
 		foreach ( $widgets as $widget ) {
-			require_once( get_template_directory() . '/inc/widgets/' . $widget );
+			require_once( dirname( __FILE__ ) . '/_widgets/' . $widget );
 		}
 
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );

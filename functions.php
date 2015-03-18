@@ -30,7 +30,7 @@ class Marketify {
 	}
 	
 	// Integration getter helper
-	public function get( $integration ) {
+	public static function get( $integration ) {
 		return self::$integrations->get( $integration );
 	}
 
@@ -39,23 +39,18 @@ class Marketify {
 			'customizer/class-customizer.php',
 
 			'activation/class-activation.php',
+
 			'setup/class-setup.php',
 
-			'class-plugins.php',
 			'class-strings.php',
-			'class-widgets.php',
-			'class-widget.php',
-			'class-integrations.php',
-			'class-integration.php',
 
-			'class-template-assets.php',
-			'class-template-navigation.php',
-			'class-template-page-header.php',
-			'class-template-footer.php',
+			'integrations/class-integrations.php',
+			'integrations/class-integration.php',
 
-			/* 'class-pagination.php', */
-			/* 'class-comments.php', */
-			/* 'custom-header.php' */
+			'widgets/class-widgets.php',
+			'widgets/class-widget.php',
+
+			'template/class-template.php',
 		);
 
 		foreach ( $this->files as $file ) {
@@ -73,17 +68,7 @@ class Marketify {
 		self::$integrations = new Marketify_Integrations();
 		self::$widgets = new Marketify_Widgets();
 
-		self::$template = new stdClass();
-
-		self::$template->assets = new Marketify_Template_Assets();
-		self::$template->navigation = new Marketify_Template_Navigation();
-		self::$template->page_header = new Marketify_Template_Page_Header();
-		self::$template->footer = new Marketify_Template_Footer();
-
-		/* $this->activation = new Marketify_Activation(); */
-		/* $this->setup = new Jobify_Setup(); */
-		/* $this->pagination = new Jobify_Pagination(); */
-		/* $this->comments = new Jobify_Comments(); */
+		self::$template = new Marketify_Template();
 
 		add_action( 'after_setup_theme', array( $this, 'setup_theme' ) );
 	}
