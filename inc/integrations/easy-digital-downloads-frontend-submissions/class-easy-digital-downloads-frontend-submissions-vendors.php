@@ -9,10 +9,6 @@ class Marketify_Easy_Digital_Downloads_Frontend_Submissions_Vendors {
 		add_action( 'marketify_download_entry_meta', array( $this, 'byline' ) );
 	}
 
-	public function get_url( $author_id ) {
-		return FES_Vendors::get_vendor_store_url( $author_id );
-	}
-
 	public function byline() {	
 		global $post;
 

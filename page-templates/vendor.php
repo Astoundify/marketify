@@ -1,21 +1,18 @@
 <?php
 /**
- * Template Name: Account: Vendor
+ * Template Name: Account: Vendor Profile
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
  * @package Marketify
  */
 
-if ( function_exists( 'fes_get_vendor' ) ) {
-	$author = fes_get_vendor();
-} else {
-	$author = get_query_var( 'vendor' );
-	$author = get_user_by( 'slug', $author );
+$fes = Marketify::get( 'easy-digital-downloads-frontend-submissions' );
+$vendor = $fes->vendor();
 
-	if ( ! $author ) {
-		$author = get_current_user_id();
-	}
+if ( ! $vendor->obj ) {
+	wp_redirect( $vendor->url( get_current_user_id() ) );
+	exit();
 }
 
 get_header(); ?>
@@ -33,49 +30,7 @@ get_header(); ?>
 
 			<div id="secondary" class="author-widget-area col-md-3 col-sm-5 col-xs-12" role="complementary">
 				<div class="download-product-details author-archive">
-					<?php do_action( 'marketify_vendor_profile_before', $author ); ?>
-
-					<div class="download-author">
-						<?php echo get_avatar( $author->ID, 130 ); ?>
-						<?php printf( '<a class="author-link" href="%s" rel="author">%s</a>', marketify_edd_fes_author_url( $author->ID ), '' != $author->display_name ? esc_attr( $author->display_name ) : esc_attr( $author->user_login ) ); ?>
-						<span class="author-joined"><?php printf( __( 'Author since: %s', 'marketify' ), date_i18n( 'Y', strtotime( $author->user_registered ) ) ); ?></span>
-					</div>
-
-					<?php do_action( 'marketify_vendor_profile_after_author', $author ); ?>
-
-					<?php if ( '' != $author->description ) : ?>
-					<div class="download-author-bio">
-
-						<?php echo esc_html( $author->description ); ?>
-
-					</div>
-					<?php endif; ?>
-
-					<?php do_action( 'marketify_vendor_profile_after_bio', $author ); ?>
-
-					<div class="download-author-sales">
-						<strong><?php echo marketify_count_user_downloads( $author->ID ); ?></strong>
-
-						<?php echo _n( edd_get_label_singular(), edd_get_label_plural(), marketify_count_user_downloads( $author->ID ), 'marketify' ); ?>
-					</div>
-
-					<?php do_action( 'marketify_vendor_profile_after_sales', $author ); ?>
-
-					<?php if ( marketify_entry_author_social( $author->ID ) ) : ?>
-					<div class="download-author-social">
-						<?php echo marketify_entry_author_social( $author->ID ); ?>
-					</div>
-					<?php endif; ?>
-
-					<?php do_action( 'marketify_vendor_profile_after_social', $author ); ?>
-
-					<?php if ( get_current_user_id() != $author->ID ) : ?>
-					<div class="download-author-message">
-						<?php echo do_shortcode( '[fes_vendor_contact_form id="' . $author->ID . '"]' ); ?>
-					</div>
-					<?php endif; ?>
-
-					<?php do_action( 'marketify_vendor_profile_after', $author ); ?>
+					<?php dynamic_sidebar( 'sidebar-vendor' ); ?>
 				</div>
 			</div><!-- #secondary -->
 

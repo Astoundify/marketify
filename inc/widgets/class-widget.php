@@ -198,7 +198,10 @@ class Marketify_Widget extends WP_Widget {
 						<label for="<?php echo $this->get_field_id( $key ); ?>"><?php echo $setting[ 'label' ]; ?></label>
 						<textarea class="widefat" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo $this->get_field_name( $key ); ?>" rows="<?php echo $setting[ 'rows' ]; ?>"><?php echo esc_html( $value ); ?></textarea>
 					</p>
-					<?php
+					<?php if ( isset ( $setting[ 'description' ] ) ) : ?>
+					<p><?php echo $setting[ 'description' ]; ?></p>
+					<?php endif; ?>
+				<?php
 				break;
 				case 'colorpicker' :
 						wp_enqueue_script( 'wp-color-picker' );

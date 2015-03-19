@@ -22,7 +22,7 @@ class Marketify_Easy_Digital_Downloads_Widgets {
 
 	public function register_sidebars() {
 		register_sidebar( array(
-			'name'          => sprintf( __( '%s Archive Sidebar', 'marketify' ), edd_get_label_singular() ),
+			'name'          => __( 'Shop Sidebar', 'marketify' ),
 			'id'            => 'sidebar-download',
 			'before_widget' => '<aside id="%1$s" class="widget download-archive-widget %2$s">',
 			'after_widget'  => '</aside>',
@@ -31,7 +31,7 @@ class Marketify_Easy_Digital_Downloads_Widgets {
 		) );
 
 		register_sidebar( array(
-			'name'          => sprintf( __( '%s Single Sidebar', 'marketify' ), edd_get_label_singular() ),
+			'name'          => sprintf( __( '%s Sidebar', 'marketify' ), edd_get_label_singular() ),
 			'id'            => 'sidebar-download-single',
 			'before_widget' => '<aside id="%1$s" class="widget download-single-widget %2$s">',
 			'after_widget'  => '</aside>',
@@ -40,7 +40,7 @@ class Marketify_Easy_Digital_Downloads_Widgets {
 		) );
 
 		register_sidebar( array(
-			'name'          => sprintf( __( '%s Single Comments Sidebar', 'marketify' ), edd_get_label_singular() ),
+			'name'          => sprintf( __( '%s Comments Sidebar', 'marketify' ), edd_get_label_singular() ),
 			'id'            => 'sidebar-download-single-comments',
 			'before_widget' => '<aside id="%1$s" class="widget download-single-widget comments %2$s">',
 			'after_widget'  => '</aside>',
