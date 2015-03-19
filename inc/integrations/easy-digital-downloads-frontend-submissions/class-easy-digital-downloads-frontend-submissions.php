@@ -11,6 +11,7 @@ class Marketify_Easy_Digital_Downloads_Frontend_Submissions extends Marketify_In
 
 			'widgets/class-widget-vendor.php',
 			'widgets/class-widget-vendor-description.php',
+			'widgets/class-widget-product-details.php'
 		);
 
 		parent::__construct( dirname( __FILE__ ) );

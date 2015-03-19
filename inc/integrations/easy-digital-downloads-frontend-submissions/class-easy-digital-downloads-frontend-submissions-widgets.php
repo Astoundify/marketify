@@ -10,6 +10,7 @@ class Marketify_Easy_Digital_Downloads_Frontend_Submissions_Widgets {
 	public function register_widgets() {
 		register_widget( 'Marketify_Widget_FES_Vendor' );
 		register_widget( 'Marketify_Widget_FES_Vendor_Description' );
+		register_widget( 'Marketify_Widget_FES_Product_Details' );
 	}
 
 	public function register_sidebars() {
