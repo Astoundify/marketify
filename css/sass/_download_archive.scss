@@ -4,7 +4,7 @@
 
 @include bp(pt) {
 	.download-grid-wrapper[data-columns]::before,
-	.download-grid-wrapper.columns-1[data-columns]::before,
+	.download-grid-wrapper.edd_download_columns_1[data-columns]::before,
 	.features[data-columns]::before {
 		content: '1 .col-xs-12';
 	}
@@ -15,7 +15,7 @@
 	.features[data-columns]::before {
 		content: '2 .col-sm-6';
 	}
-	.download-grid-wrapper.columns-1[data-columns]::before,
+	.download-grid-wrapper.edd_download_columns_1[data-columns]::before,
 	.features.columns-1[data-columns]::before {
 		content: '1 .col-xs-12';
 	}
@@ -24,34 +24,35 @@
 @include bp(md) {
 	.download-grid-wrapper[data-columns]::before,
 	.features[data-columns]::before,
-	.download-grid-wrapper.columns-3[data-columns]::before,
+	.download-grid-wrapper.edd_download_columns_3[data-columns]::before,
 	.features.columns-3[data-columns]::before {
 		content: '3 .col-md-4';
 	}
-	.download-grid-wrapper.columns-2[data-columns]::before,
+	.download-grid-wrapper.edd_download_columns_2[data-columns]::before,
 	.features.columns-2[data-columns]::before {
 		content: '2 .col-sm-6';
 	}
-	.download-grid-wrapper.columns-1[data-columns]::before,
+	.download-grid-wrapper.edd_download_columns_1[data-columns]::before,
 	.features.columns-1[data-columns]::before {
 		content: '1 .col-xs-12';
 	}
 }
 
 @include bp(lg) {
-	.download-grid-wrapper.columns-1[data-columns]::before,
+	.download-grid-wrapper.edd_download_columns_1[data-columns]::before,
 	.features.columns-1[data-columns]::before {
 		content: '1 .col-xs-12';
 	}
-	.download-grid-wrapper.columns-2[data-columns]::before,
+	.download-grid-wrapper.edd_download_columns_2[data-columns]::before,
 	.features.columns-2[data-columns]::before {
 		content: '2 .col-sm-6';
 	}
-	.download-grid-wrapper.columns-3[data-columns]::before,
+	.download-grid-wrapper.edd_download_columns_3[data-columns]::before,
 	.features.columns-3[data-columns]::before {
 		content: '3 .col-md-4';
 	}
-	.download-grid-wrapper.columns-4[data-columns]::before,
+
+	.download-grid-wrapper.edd_download_columns_4[data-columns]::before,
 	.features.columns-4[data-columns]::before {
 		content: '4 .col-md-3';
 	}

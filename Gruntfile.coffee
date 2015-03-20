@@ -16,7 +16,7 @@ module.exports = () ->
           'js/coffee/*.coffee',
           'js/app/*.js'
         ]
-        tasks: [ 'newer:coffee', 'newer:uglify' ]
+        tasks: [ 'coffee', 'uglify' ]
 
     sass:
       dist:
