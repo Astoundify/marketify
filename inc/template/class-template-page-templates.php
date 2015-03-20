@@ -8,7 +8,7 @@ class Marketify_Template_Page_Templates {
 	}
 
 	public function fes( $page_templates ) {
-		if ( Marketify::get( 'easy-digital-downloads-frontend-submissions' ) ) {
+		if ( marketify()->get( 'easy-digital-downloads-frontend-submissions' ) ) {
 			return $page_templates;
 		}
 
@@ -18,7 +18,7 @@ class Marketify_Template_Page_Templates {
 	}
 
 	public function love_it( $page_templates ) {
-		if ( Marketify::get( 'love-it' ) ) {
+		if ( marketify()->get( 'love-it' ) ) {
 			return $page_templates;
 		}
 

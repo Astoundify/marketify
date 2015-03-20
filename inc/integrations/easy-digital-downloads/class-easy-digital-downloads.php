@@ -27,7 +27,7 @@ class Marketify_Easy_Digital_Downloads extends Marketify_Integration {
 		parent::__construct( dirname( __FILE__) );
 	}
 
-	public function init() {
+	public function init_props() {
 		$this->template = new Marketify_Easy_Digital_Downloads_Template();
 		$this->query = new Marketify_Easy_Digital_Downloads_Query();
 		$this->widgets = new Marketify_Easy_Digital_Downloads_Widgets();
@@ -39,7 +39,7 @@ class Marketify_Easy_Digital_Downloads extends Marketify_Integration {
 
 	public function setup_actions() {
 		add_action( 'after_setup_theme', array( $this, 'theme_support' ) );
-		add_filter( 'edd_default_downloads_name', array( Marketify::$strings, 'get_labels' ) );
+		add_filter( 'edd_default_downloads_name', array( marketify()->strings, 'get_labels' ) );
 	}
 
 	public function add_theme_support() {
@@ -50,6 +50,7 @@ class Marketify_Easy_Digital_Downloads extends Marketify_Integration {
 	}
 
 	public function theme_support() {
+		print_r( marketify() );
 	}
 
 }

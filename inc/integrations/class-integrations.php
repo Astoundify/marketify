@@ -16,6 +16,7 @@ class Marketify_Integrations {
 				'Marketify_Easy_Digital_Downloads'
 			),
 			'easy-digital-downloads-frontend-submissions' => array(
+
 				class_exists( 'EDD_Front_End_Submissions' ),
 				'Marketify_Easy_Digital_Downloads_Frontend_Submissions'
 			),
@@ -83,7 +84,7 @@ class Marketify_Integrations {
 	private function load_integrations() {
 		foreach ( $this->supported_integrations as $key => $integration ) {
 			if ( $integration[0] ) {
-				require_once( get_template_directory() . '/inc/integrations/' . $key . '/class-' . $key . '.php' );
+				require_once( trailingslashit( dirname( __FILE__ ) ) . trailingslashit( $key ) . 'class-' . $key . '.php' );
 
 				$class = new $integration[1];
 

@@ -6,7 +6,7 @@ class Marketify_Easy_Digital_Downloads_Frontend_Submissions_Vendor_Widget extend
 	public $vendor;
 
 	public function __construct() {
-		$this->fes = Marketify::get( 'easy-digital-downloads-frontend-submissions' );
+		$this->fes = marketify()->get( 'easy-digital-downloads-frontend-submissions' );
 		$this->vendor = $this->fes->vendor();
 
 		parent::__construct();

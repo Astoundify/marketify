@@ -9,7 +9,7 @@ class Marketify_Template_Footer {
 	}
 
 	private function has_social_menu() {
-		return Marketify::$template->navigation->get_theme_menu( 'social' );
+		return marketify()->template->navigation->get_theme_menu( 'social' );
 	}	
 
 	public function social_menu() {
@@ -18,7 +18,7 @@ class Marketify_Template_Footer {
 		}
 	?>
 		<div class="<?php echo $this->get_column_class(); ?>">
-			<h1 class="footer-widget-title"><?php echo Marketify::$template->navigation->get_theme_menu_name( 'social' ); ?></h1>
+			<h1 class="footer-widget-title"><?php echo marketify()->template->navigation->get_theme_menu_name( 'social' ); ?></h1>
 			<?php
 				$social = wp_nav_menu( array(
 					'theme_location'  => 'social',

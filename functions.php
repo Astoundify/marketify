@@ -13,16 +13,24 @@ class Marketify {
 
 	private static $instance;
 
-	public static $customizer;
+	public $customizer;
 
-	public static $activation;
-	public static $setup;
+	public $activation;
+	public $setup;
 
-	public static $strings;
-	public static $integrations;
-	public static $widgets;
+	public $strings;
+	public $integrations;
+	public $widgets;
 
-	public static $template;
+	public $template;
+
+	public static function instance() {
+		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Marketify ) ) {
+			self::$instance = new self;
+		}
+
+		return self::$instance;
+	}
 
 	public function __construct() {
 		$this->base();
@@ -30,8 +38,8 @@ class Marketify {
 	}
 	
 	// Integration getter helper
-	public static function get( $integration ) {
-		return self::$integrations->get( $integration );
+	public function get( $integration ) {
+		return $this->integrations->get( $integration );
 	}
 
 	private function base() {
@@ -44,8 +52,8 @@ class Marketify {
 
 			'class-strings.php',
 
-			'integrations/class-integrations.php',
 			'integrations/class-integration.php',
+			'integrations/class-integrations.php',
 
 			'widgets/class-widgets.php',
 			'widgets/class-widget.php',
@@ -59,16 +67,16 @@ class Marketify {
 	}
 
 	private function setup() {
-		self::$customizer = new Marketify_Customizer();
+		$this->customizer = new Marketify_Customizer();
 
-		self::$activation = new Marketify_Activation();
-		self::$setup = new Marketify_Setup();
+		$this->activation = new Marketify_Activation();
+		$this->setup = new Marketify_Setup();
 
-		self::$strings = new Marketify_Strings();
-		self::$integrations = new Marketify_Integrations();
-		self::$widgets = new Marketify_Widgets();
+		$this->strings = new Marketify_Strings();
+		$this->integrations = new Marketify_Integrations();
+		$this->widgets = new Marketify_Widgets();
 
-		self::$template = new Marketify_Template();
+		$this->template = new Marketify_Template();
 
 		add_action( 'after_setup_theme', array( $this, 'setup_theme' ) );
 	}
@@ -92,4 +100,8 @@ class Marketify {
 
 }
 
-new Marketify();
+function marketify() {
+	return Marketify::instance();
+}
+
+marketify();

@@ -13,8 +13,7 @@ abstract class Marketify_Integration {
 		$this->directory = $directory;
 
 		$this->includes();
-		$this->init();
-		$this->setup_actions();
+		$this->start();
 		$this->internal_actions();
 	}
 
@@ -28,9 +27,10 @@ abstract class Marketify_Integration {
 		}
 	}
 
-	public function init() {}
-
-	public function setup_actions() {}
+	public function start() {
+		add_action( 'plugins_loaded', array( $this, 'init' ), 0 );
+		add_action( 'plugins_loaded', array( $this, 'setup_actions' ), 0 );
+	}
 
 	private function internal_actions() {
 		add_filter( 'body_class', array( $this, 'body_class' ) );

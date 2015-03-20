@@ -7,7 +7,7 @@
  * @package Marketify
  */
 
-$fes = Marketify::get( 'easy-digital-downloads-frontend-submissions' );
+$fes = marketify()->get( 'easy-digital-downloads-frontend-submissions' );
 $vendor = $fes->vendor();
 
 if ( ! $vendor->obj ) {

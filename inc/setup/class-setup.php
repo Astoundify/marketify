@@ -8,7 +8,7 @@ class Marketify_Setup {
 		}
 
 		$menus = get_theme_mod( 'nav_menu_locations' );
-		$this->theme = Marketify::$activation->theme;
+		$this->theme = marketify()->activation->theme;
 
 		$has_downloads = new WP_Query( array( 'post_type' => 'downloads', 'fields' => 'ids', 'posts_per_page' => 1 ) );
 
