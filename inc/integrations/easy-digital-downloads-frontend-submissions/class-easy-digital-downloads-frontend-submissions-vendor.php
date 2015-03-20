@@ -7,8 +7,8 @@ class Marketify_Easy_Digital_Downloads_Frontend_Submissions_Vendor {
 	public function __construct( $author = false ) {
 		if ( ! $author ) { 
 			$author = $this->find();
-		} elseif ( is_int( $author ) ) {
-			$author = new WP_User( $author->ID );
+		} elseif ( is_numeric( $author ) ) {
+			$author = new WP_User( $author );
 		}
 		
 		$this->obj = $author;

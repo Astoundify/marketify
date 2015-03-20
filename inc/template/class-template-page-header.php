@@ -5,10 +5,42 @@ class Marketify_Template_Page_Header {
 	public function __construct() {
 		add_filter( 'marketify_page_header', array( $this, 'tag_atts' ), 10, 2 );
 		add_action( 'marketify_entry_before', array( $this, 'close_header_outer' ) );
+		
+		add_action( 'marketify_entry_before', array( $this, 'singular_object_title' ), 9 );
 	}
 
 	public function close_header_outer() {
 		echo '</div>';
+	}
+
+	public function singular_object_title() {
+		if ( ! is_singular( array( 'post', 'page' ) ) ) {
+			return;
+		}
+
+		the_post();
+	?>
+		<div class="entry-page-title container">
+			<?php get_template_part( 'content', 'author' ); ?>
+
+			<h1 class="entry-title"><?php the_title(); ?></h1>
+
+			<?php
+				$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+				if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) )
+					$time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';
+
+				if ( is_singular( 'post' ) )
+					printf( $time_string,
+						esc_attr( get_the_date( 'c' ) ),
+						esc_html( get_the_date() ),
+						esc_attr( get_the_modified_date( 'c' ) ),
+						esc_html( get_the_modified_date() )
+					);
+			?>
+		</div>
+	<?php
+		rewind_posts();
 	}
 
 	public function tag_atts( $args ) {

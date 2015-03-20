@@ -1,9 +1,9 @@
 <?php
 
-class Jobify_Pagination {
+class Marketify_Template_Pagination {
 
 	public function __construct() {
-		add_action( 'jobify_loop_after', array( $this, 'output' ) );
+		add_action( 'marketify_loop_after', array( $this, 'output' ) );
 	}
 
 	public function output() {

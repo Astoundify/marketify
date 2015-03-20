@@ -12,10 +12,12 @@ class Marketify_Easy_Digital_Downloads_Frontend_Submissions_Vendors {
 	public function byline() {	
 		global $post;
 
+		$vendor = marketify()->get( 'easy-digital-downloads-frontend-submissions' )->vendor( $post->post_author );
+
 		printf(
 			__( '<span class="byline"> by %1$s</span>', 'marketify' ),
 			sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s %4$s</a></span>',
-				$this->get_url( $post->post_author ),
+				$vendor->url(),
 				esc_attr( sprintf( __( 'View all %s by %s', 'marketify' ), edd_get_label_plural(), get_the_author() ) ),
 				esc_html( get_the_author_meta( 'display_name', $post->post_author ) ),
 				get_avatar( get_the_author_meta( 'ID', $post->post_author ), 50, apply_filters( 'marketify_default_avatar', null ) )

@@ -13,6 +13,9 @@ class Marketify_Template {
 			'class-template-page-templates.php',
 			'class-template-navigation.php',
 			'class-template-page-header.php',
+			'class-template-entry.php',
+			'class-template-comments.php',
+			'class-template-pagination.php',
 			'class-template-footer.php',
 		);
 
@@ -26,6 +29,9 @@ class Marketify_Template {
 		$this->page_templates = new Marketify_Template_Page_Templates();
 		$this->navigation = new Marketify_Template_Navigation();
 		$this->page_header = new Marketify_Template_Page_Header();
+		$this->entry = new Marketify_Template_Entry();
+		$this->comments = new Marketify_Template_Comments();
+		$this->pagination = new Marketify_Template_Pagination();
 		$this->footer = new Marketify_Template_Footer();
 	}
 

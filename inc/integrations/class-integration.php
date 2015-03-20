@@ -28,8 +28,8 @@ abstract class Marketify_Integration {
 	}
 
 	public function start() {
-		add_action( 'plugins_loaded', array( $this, 'init' ), 0 );
-		add_action( 'plugins_loaded', array( $this, 'setup_actions' ), 0 );
+		add_action( 'after_setup_theme', array( $this, 'init' ), 0 );
+		add_action( 'after_setup_theme', array( $this, 'setup_actions' ), 0 );
 	}
 
 	private function internal_actions() {

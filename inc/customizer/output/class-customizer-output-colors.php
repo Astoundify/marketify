@@ -17,8 +17,7 @@ class Marketify_Customizer_Output_Colors {
 
 		$this->css->add( array(
 			'selectors' => array(
-				'.header-outer.no-image .site-header',
-				'.header-outer.no-image .page-header',
+				'.header-outer',
 				'.site-footer',
 				'body.minimal',
 				'body.custom-background.minimal',

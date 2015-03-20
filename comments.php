@@ -35,13 +35,10 @@ if ( post_password_required() )
 		<?php if ( have_comments() ) : ?>
 			<ol class="comment-list">
 				<?php
-					/* Loop through and list the comments. Tell wp_list_comments()
-					 * to use marketify_comment() to format the comments.
-					 * If you want to override this in a child theme, then you can
-					 * define marketify_comment() and that will be used instead.
-					 * See marketify_comment() in inc/template-tags.php for more.
-					 */
-					wp_list_comments( array( 'callback' => 'marketify_comment', 'avatar_size' => 180 ) );
+					wp_list_comments( array(
+						'callback' => array( marketify()->template->comments, 'comment' ),
+						'avatar_size' => 180 
+					) );
 				?>
 			</ol><!-- .comment-list -->
 

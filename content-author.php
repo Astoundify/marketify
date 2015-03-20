@@ -4,15 +4,16 @@
  * @since Marketify 1.0
  */
 
-if ( is_singular( 'page' ) || ( function_exists( 'is_bbpress' ) && is_bbpress() ) )
+if ( is_singular( 'page' ) || ( marketify()->get( 'bbpress' ) && is_bbpress() ) ) {
 	return;
+}
 
 global $post;
 ?>
 
 <section class="entry-author">
 	<?php
-		$social = marketify_entry_author_social();
+		$social = apply_filters( 'marketify_entry_author_social', '' );
 
 		printf( '<div class="gravatar">%1$s %2$s</div>',
 			sprintf( '<div class="author-social">%1$s</div>', $social ),
