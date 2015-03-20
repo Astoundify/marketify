@@ -7,6 +7,10 @@ class Marketify_Setup {
 			return;
 		}
 
+		add_action( 'after_setup_theme', array( $this, 'init' ), 0 );
+	}
+
+	public function init() {
 		$menus = get_theme_mod( 'nav_menu_locations' );
 		$this->theme = marketify()->activation->theme;
 

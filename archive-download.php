@@ -23,12 +23,12 @@ get_header(); ?>
 
 			<section id="primary" class="content-area col-xs-12 <?php echo is_active_sidebar( 'sidebar-download' ) ? 'col-sm-7 col-md-9' : ''; ?>">
 				<main id="main" class="site-main" role="main">
-
-				<div class="section-title"><span>
-					<?php echo apply_filters( 'marketify_archive_section_title', '' ); ?>
-				</span></div>
+				
+				<?php do_action( 'marketify_downloads_before' ); ?>
 
 				<?php echo do_shortcode( sprintf( '[downloads number="%s"]', get_option( 'posts_per_page' ) ) ); ?>
+
+				<?php do_action( 'marketify_downloads_after' ); ?>
 
 				</main><!-- #main -->
 			</section><!-- #primary -->

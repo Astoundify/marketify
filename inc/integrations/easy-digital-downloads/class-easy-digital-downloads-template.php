@@ -6,7 +6,6 @@ class Marketify_Easy_Digital_Downloads_Template {
 		add_action( 'init', array( $this, 'featured_area' ) );
 
 		add_filter( 'marketify_archive_title', array( $this, 'archive_title' ) );
-		add_filter( 'marketify_archive_section_title', array( $this, 'archive_section_title' ) );
 	}
 
 	public function archive_title( $title ) {
@@ -14,16 +13,6 @@ class Marketify_Easy_Digital_Downloads_Template {
 			$title = single_term_title( '', false );
 		} else if ( is_search() ) {
 			$title = esc_attr( get_search_query() );
-		}
-
-		return $title;
-	}
-
-	public function archive_section_title( $title ) {
-		if ( is_search() ) {
-			$title = sprintf( '&quot;%s&quot;', esc_attr( get_search_query() ) );
-		} else {
-			$title = '';
 		}
 
 		return $title;
