@@ -70,6 +70,7 @@ class Marketify_Widget_Curated_Downloads extends Marketify_Widget {
 		$downloads = new WP_Query( array(
 			'post_type'              => 'download',
 			'post__in'               => $ids,
+			'nopaging'               => true,
 			'no_found_rows'          => true,
 			'update_post_term_cache' => false,
 			'update_post_meta_cache' => false,
