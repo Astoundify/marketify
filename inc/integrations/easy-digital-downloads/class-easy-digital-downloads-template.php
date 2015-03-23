@@ -8,6 +8,19 @@ class Marketify_Easy_Digital_Downloads_Template {
 		add_filter( 'marketify_archive_title', array( $this, 'archive_title' ) );
 	}
 
+	public function author_url( $user_id ) {
+		$fes = marketify()->get( 'easy-digital-downloads-frontend-submissions' );
+
+		if ( ! $fes ) {
+			$vendor = $this->fes->vendor( $user_id );
+			$url = $vendor->url();
+		} else {
+			$url = get_author_posts_url( $user_id );
+		}
+
+		return apply_filters( 'marketify_author_url', esc_url( $url ) );
+	}
+
 	public function archive_title( $title ) {
 		if ( is_tax() ) {
 			$title = single_term_title( '', false );

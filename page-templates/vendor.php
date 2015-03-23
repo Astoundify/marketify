@@ -19,10 +19,6 @@ get_header(); ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
-	<header class="page-header">
-		<h1 class="page-title"><?php the_title(); ?></h1>
-	</header><!-- .page-header -->
-
 	<?php do_action( 'marketify_entry_before' ); ?>
 
 	<div class="container">

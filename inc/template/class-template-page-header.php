@@ -17,8 +17,6 @@ class Marketify_Template_Page_Header {
 		if ( ! is_singular( array( 'post', 'page' ) ) ) {
 			return;
 		}
-
-		the_post();
 	?>
 		<div class="entry-page-title container">
 			<?php get_template_part( 'content', 'author' ); ?>
@@ -40,7 +38,6 @@ class Marketify_Template_Page_Header {
 			?>
 		</div>
 	<?php
-		rewind_posts();
 	}
 
 	public function tag_atts( $args ) {

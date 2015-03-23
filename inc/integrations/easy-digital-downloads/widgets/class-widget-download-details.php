@@ -13,7 +13,7 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 		$this->widget_cssclass    = 'marketify_widget_download_details';
 		$this->widget_description = __( 'Display information related to the current download', 'marketify' );
 		$this->widget_id          = 'marketify_widget_download_details';
-		$this->widget_name        = __( 'Marketify - Download Single: Details', 'marketify' );
+		$this->widget_name        = __( 'Marketify - Download: About', 'marketify' );
 		$this->settings           = array(
 			'title' => array(
 				'type'  => 'text',
@@ -47,20 +47,15 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 
 		$args[ 'widget_id' ] = $args[ 'widget_id' ] . '-' . $post->post_author;
 
-		if ( $this->get_cached_widget( $args ) ) {
-			return;
-		}
-
-		$user = new WP_User( $post->post_author );
-
 		ob_start();
-
-		extract( $args );
 
 		$title = apply_filters( 'widget_title', isset( $instance['title'] ) ? $instance[ 'title' ] : '', $instance, $this->id_base );
 		$count = isset( $instance[ 'purchase-count' ] ) && 1 == $instance[ 'purchase-count' ] ? false : true;
 
-		echo $before_widget;
+		$user = new WP_User( $post->post_author );
+		$url = marketify()->get( 'easy-digital-downloads' )->template->author_url( $user->ID );
+
+		echo $args[ 'before_widget' ];
 
 		if ( $title ) echo '<h1 class="section-title"><span>' . $title . '</span></h1>';
 
@@ -72,20 +67,10 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 
 				<div class="download-author">
 					<?php do_action( 'marketify_download_author_before' ); ?>
-					<?php 
-						printf( 
-							'<a class="author-link" href="%s" rel="author">%s</a>',
-							marketify_edd_fes_author_url( $user->ID ),
-							get_avatar( $user->ID, 130 )
-						);
-					?>
-					<?php 
-						printf( 
-							'<a class="author-link" href="%s" rel="author">%s</a>', 
-							marketify_edd_fes_author_url( $user->ID ), 
-							$user->display_name 
-						); 
-					?>
+
+					<?php printf(  '<a class="author-link" href="%s" rel="author">%s</a>', $url, get_avatar( $user->ID, 130 ) ); ?>
+
+					<?php printf( '<a class="author-link" href="%s" rel="author">%s</a>', $url, $user->display_name ); ?>
 
 					<span class="author-joined"><?php 
 						printf( 
@@ -130,7 +115,7 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 
 		do_action( 'marketify_product_details_widget_after', $instance );
 
-		echo $after_widget;
+		echo $args[ 'after_widget' ];
 
 		$content = ob_get_clean();
 

@@ -47,4 +47,17 @@ class Marketify_Easy_Digital_Downloads_Frontend_Submissions_Vendor {
 		return date_i18n( 'Y', strtotime( $this->obj->user_registered ) );
 	}
 
+	public function downloads_count( $userid, $post_type = 'download' ) {
+		if ( false === ( $count = get_transient( $userid . $post_type ) ) ) {
+			global $wpdb;
+
+			$where = get_posts_by_author_sql( $post_type, true, $userid );
+			$count = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->posts $where" );
+
+			set_transient( $userid . $post_type, $count, 12 * HOUR_IN_SECONDS );
+		}
+
+		return apply_filters( 'get_usernumposts_' . $post_type, $count, $userid );
+	}
+
 }

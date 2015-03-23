@@ -7,6 +7,16 @@ class Marketify_Easy_Digital_Downloads_Frontend_Submissions_Vendors {
 		add_filter( 'marketify_header_outer_image', array( $this, 'profile_cover_image' ), 1 );
 
 		add_action( 'marketify_download_entry_meta', array( $this, 'byline' ) );
+
+		add_action( 'save_post', array( $this, 'clear_download_count_cache' ) );
+	}
+
+	public function clear_download_count_cache( $post_id, $post ) {
+		if ( 'download' != $post->post_type ) {
+			return;
+		}
+
+		delete_transient( $post->post_author . 'download' );
 	}
 
 	public function byline() {	
