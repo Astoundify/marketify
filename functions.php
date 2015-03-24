@@ -51,6 +51,7 @@ class Marketify {
 			'setup/class-setup.php',
 
 			'class-strings.php',
+			'class-helpers.php',
 
 			'integrations/class-integration.php',
 			'integrations/class-integrations.php',

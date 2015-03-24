@@ -28,14 +28,6 @@ class Marketify_Widget_Recent_Downloads extends Marketify_Widget {
 				'std'   => 8,
 				'label' => __( 'Number to display:', 'marketify' )
 			),
-			'columns' => array(
-				'type'  => 'number',
-				'step'  => 1,
-				'min'   => 1,
-				'max'   => 4,
-				'std'   => 4,
-				'label' => __( 'Number of columns:', 'marketify' )
-			),
 			'description' => array(
 				'type'  => 'textarea',
 				'std'   => '',
@@ -55,54 +47,28 @@ class Marketify_Widget_Recent_Downloads extends Marketify_Widget {
 	 * @return void
 	 */
 	function widget( $args, $instance ) {
-		if ( $this->get_cached_widget( $args ) )
-			return;
-
 		ob_start();
-
-		global $post;
-
-		extract( $args );
 
 		$title        = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
 		$description  = isset( $instance[ 'description' ] ) ? $instance[ 'description' ] : null;
 		$number       = isset ( $instance[ 'number' ] ) ? absint( $instance[ 'number' ] ) : 8;
-		$columns      = isset ( $instance[ 'columns' ] ) ? absint( $instance[ 'columns' ] ) : 4;
 
-		$downloads = new WP_Query( array(
-			'post_type'              => 'download',
-			'posts_per_page'         => $number,
-			'no_found_rows'          => true,
-			'update_post_term_cache' => false,
-			'update_post_meta_cache' => false,
-			'cache_results'          => false
-		) );
+		echo $args[ 'before_widget' ];
 
-		if ( ! $downloads->have_posts() )
-			return;
-
-		echo $before_widget;
-
-		if ( $title ) echo $before_title . $title . $after_title;
+		if ( $title ) echo $args[ 'before_title' ] . $title . $args[ 'after_title' ];
 		?>
 
 		<?php if ( $description ) : ?>
 			<h2 class="home-widget-description"><?php echo $description; ?></h2>
 		<?php endif; ?>
 
-		<div class="download-grid-wrapper columns-<?php echo $columns; ?> row" data-columns>
-			<?php while ( $downloads->have_posts() ) : $downloads->the_post(); ?>
-			<?php get_template_part( 'content-grid', 'download' ); ?>
-			<?php endwhile; ?>
-		</div>
+		<?php echo do_shortcode( '[downloads number="' . $number . '"]' ); ?>
 
 		<?php
-		echo $after_widget;
+		echo $args[ 'after_widget' ];
 
 		$content = ob_get_clean();
 
 		echo $content;
-
-		$this->cache_widget( $args, $content );
 	}
 }

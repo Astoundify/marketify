@@ -41,7 +41,8 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 					'day'   => __( 'Day', 'marketify' ),
 					'week'  => __( 'Week', 'marketify' ),
 					'month' => __( 'Month', 'marketify' ),
-					'year'  => __( 'Year', 'marketify' )
+					'year'  => __( 'Year', 'marketify' ),
+					'all'   => __( 'All Time', 'marketify' )
 				)
 			),
 			'scroll' => array(
@@ -108,24 +109,15 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 			'orderby'                => 'meta_value',
 		);
 
-		if ( 'day' == $timeframe ) {
-			$frame = date( 'd' );
-		} else if ( 'week' == $timeframe ) {
-			$frame = date( 'W' );
-		} else if ( 'month' == $timeframe ) {
-			$frame = date( 'm' );
-		} else {
-			$frame = date( 'Y' );
-		}
-
-		$featured_args[ 'date_query' ] = array( array( $timeframe => $frame ) );
-		$popular_args[  'date_query' ] = array( array( $timeframe => $frame ) );
+		$featured_args = Marketify_Helpers::apply_date_query( $featured_args, $timeframe );
+		$popular_args = Marketify_Helpers::apply_date_query( $popular_args, $timeframe );
 
 		$featured = new WP_Query( $featured_args );
 		$popular  = new WP_Query( $popular_args );
 
-		if ( ! $featured->have_posts() && ! $popular->have_posts() )
+		if ( ! $featured->have_posts() && ! $popular->have_posts() ) {
 			return;
+		}
 
 		echo $before_widget;
 
@@ -145,7 +137,7 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 		<div id="items-featured" class="row flexslider">
 			<ul class="slides">
 				<?php while ( $featured->have_posts() ) : $featured->the_post(); ?>
-				<li class="col-xs-12 col-sm-6 col-md-3">
+				<li class="col-xs-12 col-sm-6 col-md-4">
 					<?php get_template_part( 'content-grid', 'download' ); ?>
 				</li>
 				<?php endwhile; ?>
@@ -157,7 +149,7 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 		<div id="items-popular" class="row flexslider">
 			<ul class="slides">
 				<?php while ( $popular->have_posts() ) : $popular->the_post(); ?>
-				<li class="col-xs-12 col-sm-6 col-md-3">
+				<li class="col-xs-12 col-sm-6 col-md-4">
 					<?php get_template_part( 'content-grid', 'download' ); ?>
 				</li>
 				<?php endwhile; ?>

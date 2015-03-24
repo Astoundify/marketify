@@ -122,8 +122,8 @@
 	padding: 3em 0;
 
 	h2 {
-		font-size: 24px;
-		margin-top: 0;
+		font-size: 30px;
+		margin: 0 0 20px;
 	}
 
 	p {
@@ -145,11 +145,6 @@
 			padding-top: 6em;
 			padding-bottom: 6em;
 
-			h2 {
-				font-size: 40px;
-				margin: 0;
-			}
-
 			p {
 				font-size: 16px;
 				line-height: 2;
@@ -167,13 +162,18 @@
 	}
 
 	@include bp(md) {
-		.callout-feature-content {
-			padding-top: 8em;
-			padding-bottom: 8em;
+		.callout-feature-content h2 {
+			font-size: 36px;
+			margin-bottom: 30px;
 		}
 	}
 
 	@include bp(lg) {
+		.callout-feature-content h2 {
+			font-size: 58px;
+			margin-bottom: 40px;
+		}
+
 		.feature-callout.text-left .callout-feature-content {
 			padding-right: 3em;
 		}
