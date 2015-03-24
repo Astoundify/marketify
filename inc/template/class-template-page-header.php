@@ -6,17 +6,27 @@ class Marketify_Template_Page_Header {
 		add_filter( 'marketify_page_header', array( $this, 'tag_atts' ), 10, 2 );
 		add_action( 'marketify_entry_before', array( $this, 'close_header_outer' ) );
 		
-		add_action( 'marketify_entry_before', array( $this, 'singular_object_title' ), 9 );
+		add_action( 'marketify_entry_before', array( $this, 'singular_object_title' ), 5 );
+		add_action( 'marketify_entry_before', array( $this, 'home_title' ), 6 );
 	}
 
 	public function close_header_outer() {
 		echo '</div>';
 	}
 
-	public function singular_object_title() {
-		if ( ! is_singular( array( 'post', 'page' ) ) ) {
+	public function home_title() { 
+		if ( ! is_front_page() ) {
 			return;
 		}
+
+		the_post();
+
+		the_content();
+
+		rewind_posts();
+	}
+
+	public function singular_object_title() {
 	?>
 		<div class="entry-page-title container">
 			<?php get_template_part( 'content', 'author' ); ?>
@@ -24,17 +34,19 @@ class Marketify_Template_Page_Header {
 			<h1 class="entry-title"><?php the_title(); ?></h1>
 
 			<?php
-				$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-				if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) )
-					$time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';
+				if ( is_singular( 'post' ) ) {
+					$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 
-				if ( is_singular( 'post' ) )
+					if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+						$time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';
+					}
 					printf( $time_string,
 						esc_attr( get_the_date( 'c' ) ),
 						esc_html( get_the_date() ),
 						esc_attr( get_the_modified_date( 'c' ) ),
 						esc_html( get_the_modified_date() )
 					);
+				}
 			?>
 		</div>
 	<?php

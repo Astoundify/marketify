@@ -9,7 +9,7 @@
   font-style: normal;
 }
 
-[class^="icon-"]:before, [class*=" icon-"]:before,
+:not(.fa)[class^="icon-"]:before, :not(.fa)[class*=" icon-"]:before,
 .edd-remove-from-cart:before,
 .edd-add-to-cart-label:before,
 .edd_go_to_checkout:before,

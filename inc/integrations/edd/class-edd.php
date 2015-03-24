@@ -7,6 +7,7 @@ class Marketify_EDD extends Marketify_Integration {
 			'class-edd-template.php',
 			'class-edd-template-purchase-form.php',
 			'class-edd-template-navigation.php',
+			'class-edd-template-download.php',
 			'class-edd-widgets.php',
 			'class-edd-shortcode.php',
 			'class-edd-query.php',
@@ -29,8 +30,6 @@ class Marketify_EDD extends Marketify_Integration {
 
 	public function init() {
 		$this->template = new Marketify_EDD_Template();
-		$this->navigation = new Marketify_EDD_Template_Navigation();
-		$this->purchase_form = new Marketify_EDD_Template_Purchase_Form();
 		$this->query = new Marketify_EDD_Query();
 		$this->widgets = new Marketify_EDD_Widgets();
 		$this->shortcode = new Marketify_EDD_Shortcode();

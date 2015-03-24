@@ -13,7 +13,7 @@ module.exports = () ->
       js:
         files: [
           'Gruntfile.*'
-          'js/coffee/*.coffee',
+          'js/**/*.coffee',
           'js/app/*.js'
         ]
         tasks: [ 'coffee', 'uglify' ]
@@ -23,12 +23,12 @@ module.exports = () ->
         options:
           style: 'compressed'
         files:
-          'css/style.scss.css': 'css/sass/style.scss'
+          'css/style.css': 'css/sass/style.scss'
 
     concat:
       initial:
         files:
-          'css/style.css': [ 'css/vendor/*.css', 'css/style.scss.css']
+          'css/style.css': [ 'css/vendor/*.css', 'css/style.css']
       header:
         files:
           'style.css': [ 'css/_theme.css', 'css/style.css' ]
@@ -40,7 +40,7 @@ module.exports = () ->
     coffee:
       dist:
         files:
-          'js/app.js': 'js/coffee/app.coffee'
+          'js/download/download.js': 'js/download/download.coffee'
 
     uglify:
       dist:

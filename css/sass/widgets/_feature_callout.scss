@@ -176,9 +176,19 @@
 
 		.feature-callout.text-left .callout-feature-content {
 			padding-right: 3em;
+
+			h2 {
+				margin-bottom: 0;
+				font-size: 40px;
+			}
 		}
 
 		.feature-callout.text-right .callout-feature-content {
 			padding-left: 3em;
+
+			h2 {
+				margin-bottom: 0;
+				font-size: 40px;
+			}
 		}
 	}

@@ -9,41 +9,6 @@
 
 get_header(); ?>
 
-	<header class="page-header">
-		<?php the_post(); ?>
-
-		<div class="container">
-			<h1 class="page-title"><?php the_title(); ?></h1>
-		</div>
-
-		<?php
-			if (
-				'grid' == marketify_theme_mod( 'product-display', 'product-display-single-style' ) &&
-				'1' == marketify_theme_mod( 'product-display', 'product-display-show-buy' )
-			) :
-		?>
-			<div class="download-actions">
-				<?php do_action( 'marketify_download_actions' ); ?>
-			</div>
-		<?php endif; ?>
-
-		<?php if ( 'classic' == marketify_theme_mod( 'product-display', 'product-display-single-style' ) ) : ?>
-			<div class="download-actions">
-				<?php do_action( 'marketify_download_actions' ); ?>
-			</div>
-
-			<div class="download-info">
-				<?php do_action( 'marketify_download_info' ); ?>
-			</div>
-
-			<div class="featured-image container">
-				<?php do_action( 'marketify_download_featured_area' ); ?>
-			</div>
-		<?php endif; ?>
-
-		<?php rewind_posts(); ?>
-	</header><!-- .page-header -->
-
 	<?php do_action( 'marketify_entry_before' ); ?>
 
 	<div class="container">

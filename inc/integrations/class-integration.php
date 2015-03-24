@@ -28,8 +28,13 @@ abstract class Marketify_Integration {
 	}
 
 	public function start() {
-		add_action( 'after_setup_theme', array( $this, 'init' ), 0 );
-		add_action( 'after_setup_theme', array( $this, 'setup_actions' ), 0 );
+		if ( method_exists( $this, 'init' ) ) {
+			add_action( 'after_setup_theme', array( $this, 'init' ), 0 );
+		}
+
+		if ( method_exists( $this, 'setup_actions' ) ) {
+			add_action( 'after_setup_theme', array( $this, 'setup_actions' ), 0 );
+		}
 	}
 
 	private function internal_actions() {

@@ -41,7 +41,7 @@ class Marketify_Customizer_Output_Colors {
 				'a.button',
 				'.fes-button',
 				'.main-navigation .edd-cart .cart_item.edd_checkout a',
-				'.page-header .button:hover',
+				'.header-outer a.button:hover',
 				'.content-grid-download .button:hover',
 				'body .marketify_widget_slider_hero .soliloquy-caption a.button:hover',
 				'#edd_checkout_form_wrap fieldset#edd_cc_fields legend',

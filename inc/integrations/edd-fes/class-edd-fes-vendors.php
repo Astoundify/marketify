@@ -8,7 +8,7 @@ class Marketify_EDD_FES_Vendors {
 
 		add_action( 'marketify_download_entry_meta', array( $this, 'byline' ) );
 
-		add_action( 'save_post', array( $this, 'clear_download_count_cache' ) );
+		add_action( 'save_post', array( $this, 'clear_download_count_cache' ), 10, 2 );
 	}
 
 	public function clear_download_count_cache( $post_id, $post ) {

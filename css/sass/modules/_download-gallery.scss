@@ -1,0 +1,16 @@
+.header-outer .download-gallery {
+	max-width: 80%;
+	margin: 0 auto;
+}
+
+	@include bp(lg) {
+		.header-outer .download-gallery {
+			max-width: 60%;
+		}
+	}
+
+.download-gallery__image {
+	img {
+		margin: 0 auto;
+	}
+}
