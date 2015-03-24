@@ -1,6 +1,6 @@
 <?php
 
-class Marketify_Easy_Digital_Downloads_Metaboxes {
+class Marketify_EDD_Metaboxes {
 
 	public function __construct() {
 		add_action( 'add_meta_boxes',          array( $this, 'add_meta_boxes' ) );

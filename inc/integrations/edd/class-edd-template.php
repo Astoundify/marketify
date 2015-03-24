@@ -1,6 +1,6 @@
 <?php
 	
-class Marketify_Easy_Digital_Downloads_Template {
+class Marketify_EDD_Template {
 
 	public function __construct() {
 		add_action( 'init', array( $this, 'featured_area' ) );
@@ -9,7 +9,7 @@ class Marketify_Easy_Digital_Downloads_Template {
 	}
 
 	public function author_url( $user_id ) {
-		$fes = marketify()->get( 'easy-digital-downloads-frontend-submissions' );
+		$fes = marketify()->get( 'edd-fes' );
 
 		if ( ! $fes ) {
 			$vendor = $this->fes->vendor( $user_id );

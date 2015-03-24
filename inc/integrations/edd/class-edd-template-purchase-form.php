@@ -1,6 +1,6 @@
 <?php
 
-class Marketify_Easy_Digital_Downloads_Purchase_Form {
+class Marketify_EDD_Template_Purchase_Form {
 	
 	public function __construct() {
 		add_action( 'marketify_download_actions', array( $this, 'purchase_link' ) );

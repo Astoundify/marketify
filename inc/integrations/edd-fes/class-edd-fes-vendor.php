@@ -1,6 +1,6 @@
 <?php
 
-class Marketify_Easy_Digital_Downloads_Frontend_Submissions_Vendor {
+class Marketify_EDD_FES_Vendor {
 
 	public $obj;
 

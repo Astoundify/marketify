@@ -1,16 +1,16 @@
 <?php
 
-class Marketify_Easy_Digital_Downloads extends Marketify_Integration {
+class Marketify_EDD extends Marketify_Integration {
 
 	public function __construct() {
 		$this->includes = array(
-			'class-easy-digital-downloads-template.php',
-			'class-easy-digital-downloads-widgets.php',
-			'class-easy-digital-downloads-navigation.php',
-			'class-easy-digital-downloads-shortcode.php',
-			'class-easy-digital-downloads-purchase-form.php',
-			'class-easy-digital-downloads-query.php',
-			'class-easy-digital-downloads-metaboxes.php',
+			'class-edd-template.php',
+			'class-edd-template-purchase-form.php',
+			'class-edd-template-navigation.php',
+			'class-edd-widgets.php',
+			'class-edd-shortcode.php',
+			'class-edd-query.php',
+			'class-edd-metaboxes.php',
 
 			'widgets/class-widget-downloads-curated.php',
 			'widgets/class-widget-downloads-recent.php',
@@ -28,13 +28,13 @@ class Marketify_Easy_Digital_Downloads extends Marketify_Integration {
 	}
 
 	public function init() {
-		$this->template = new Marketify_Easy_Digital_Downloads_Template();
-		$this->query = new Marketify_Easy_Digital_Downloads_Query();
-		$this->widgets = new Marketify_Easy_Digital_Downloads_Widgets();
-		$this->navigation = new Marketify_Easy_Digital_Downloads_Navigation();
-		$this->shortcode = new Marketify_Easy_Digital_Downloads_Shortcode();
-		$this->purchase_form = new Marketify_Easy_Digital_Downloads_Purchase_Form();
-		$this->metaboxes = new Marketify_Easy_Digital_Downloads_Metaboxes();
+		$this->template = new Marketify_EDD_Template();
+		$this->navigation = new Marketify_EDD_Template_Navigation();
+		$this->purchase_form = new Marketify_EDD_Template_Purchase_Form();
+		$this->query = new Marketify_EDD_Query();
+		$this->widgets = new Marketify_EDD_Widgets();
+		$this->shortcode = new Marketify_EDD_Shortcode();
+		$this->metaboxes = new Marketify_EDD_Metaboxes();
 	}
 
 	public function setup_actions() {

@@ -1,6 +1,6 @@
 <?php
 
-class Marketify_Easy_Digital_Downloads_Shortcode {
+class Marketify_EDD_Shortcode {
 
 	public function __construct() {
 		add_filter( 'shortcode_atts_downloads', array( $this, 'shortcode_atts' ) );

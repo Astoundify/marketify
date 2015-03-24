@@ -1,6 +1,6 @@
 <?php
 
-class Marketify_Easy_Digital_Downloads_Navigation {
+class Marketify_EDD_Template_Navigation {
 	
 	public function __construct() {
 		add_filter( 'wp_nav_menu_items', array( $this, 'add_cart_item' ), 10, 2 );

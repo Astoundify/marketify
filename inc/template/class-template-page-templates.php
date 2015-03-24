@@ -8,7 +8,7 @@ class Marketify_Template_Page_Templates {
 	}
 
 	public function fes( $page_templates ) {
-		if ( marketify()->get( 'easy-digital-downloads-frontend-submissions' ) ) {
+		if ( marketify()->get( 'edd-fes' ) ) {
 			return $page_templates;
 		}
 

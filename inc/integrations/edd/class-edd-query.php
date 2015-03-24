@@ -1,6 +1,6 @@
 <?php
 
-class Marketify_Easy_Digital_Downloads_Query {
+class Marketify_EDD_Query {
 	
 	public function __construct() {
 		add_filter( 'edd_downloads_query', array( $this, 'shortcode_query' ), 10, 2 );

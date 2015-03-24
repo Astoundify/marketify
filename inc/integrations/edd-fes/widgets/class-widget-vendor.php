@@ -1,6 +1,6 @@
 <?php
 
-class Marketify_Widget_FES_Vendor extends Marketify_Easy_Digital_Downloads_Frontend_Submissions_Vendor_Widget {
+class Marketify_Widget_FES_Vendor extends Marketify_EDD_FES_Vendor_Widget {
 
 	/**
 	 * Constructor

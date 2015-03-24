@@ -1,6 +1,6 @@
 <?php
 
-class Marketify_Easy_Digital_Downloads_Frontend_Submissions_Vendors {
+class Marketify_EDD_FES_Vendors {
 
 	public function __construct() {
 		add_filter( 'fes_vendor_dashboard_menu', array( $this, 'dashboard_menu_icons' ) );
@@ -22,7 +22,7 @@ class Marketify_Easy_Digital_Downloads_Frontend_Submissions_Vendors {
 	public function byline() {	
 		global $post;
 
-		$vendor = marketify()->get( 'easy-digital-downloads-frontend-submissions' )->vendor( $post->post_author );
+		$vendor = marketify()->get( 'edd-fes' )->vendor( $post->post_author );
 
 		printf(
 			__( '<span class="byline"> by %1$s</span>', 'marketify' ),

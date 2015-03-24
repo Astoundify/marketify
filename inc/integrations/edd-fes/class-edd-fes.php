@@ -1,13 +1,13 @@
 <?php
 
-class Marketify_Easy_Digital_Downloads_Frontend_Submissions extends Marketify_Integration {
+class Marketify_EDD_FES extends Marketify_Integration {
 
 	public function __construct() {
 		$this->includes = array(
-			'class-easy-digital-downloads-frontend-submissions-vendor-widget.php',
-			'class-easy-digital-downloads-frontend-submissions-vendors.php',
-			'class-easy-digital-downloads-frontend-submissions-vendor.php',
-			'class-easy-digital-downloads-frontend-submissions-widgets.php',
+			'class-edd-fes-vendor-widget.php',
+			'class-edd-fes-vendors.php',
+			'class-edd-fes-vendor.php',
+			'class-edd-fes-widgets.php',
 
 			'widgets/class-widget-vendor.php',
 			'widgets/class-widget-vendor-description.php',
@@ -18,8 +18,8 @@ class Marketify_Easy_Digital_Downloads_Frontend_Submissions extends Marketify_In
 	}
 
 	public function init() {
-		$this->vendors = new Marketify_Easy_Digital_Downloads_Frontend_Submissions_Vendors();
-		$this->widgets = new Marketify_Easy_Digital_Downloads_Frontend_Submissions_Widgets();
+		$this->vendors = new Marketify_EDD_FES_Vendors();
+		$this->widgets = new Marketify_EDD_FES_Widgets();
 	}
 
 	public function setup_actions() {
@@ -28,7 +28,7 @@ class Marketify_Easy_Digital_Downloads_Frontend_Submissions extends Marketify_In
 	}
 
 	public function vendor( $author = false ) {
-		return new Marketify_Easy_Digital_Downloads_Frontend_Submissions_Vendor( $author );
+		return new Marketify_EDD_FES_Vendor( $author );
 	}
 
 	function recaptcha_style() {

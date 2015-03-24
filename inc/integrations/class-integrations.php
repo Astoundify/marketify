@@ -11,29 +11,29 @@ class Marketify_Integrations {
 				class_exists( 'bbPress' ),
 				'Marketify_bbPress'
 			),
-			'easy-digital-downloads' => array(
+			'edd' => array(
 				class_exists( 'Easy_Digital_Downloads' ),
-				'Marketify_Easy_Digital_Downloads'
+				'Marketify_EDD'
 			),
-			'easy-digital-downloads-frontend-submissions' => array(
+			'edd-fes' => array(
 				class_exists( 'EDD_Front_End_Submissions' ),
-				'Marketify_Easy_Digital_Downloads_Frontend_Submissions'
+				'Marketify_EDD_FES'
 			),
-			'easy-digital-downloads-product-reviews' => array(
+			'edd-product-reviews' => array(
 				class_exists( 'EDD_Reviews' ),
-				'Marketify_Easy_Digital_Downloads_Product_Reviews'
+				'Marketify_EDD_Product_Reviews'
 			),
-			'easy-digital-downloads-recommended-products' => array(
+			'edd-recommended-products' => array(
 				function_exists( 'edd_rp_get_suggestions' ),
-				'Marketify_Easy_Digital_Downloads_Recommended_Products'
+				'Marketify_EDD_Recommended_Products'
 			),
-			'easy-digital-downloads-wish-lists' => array(
+			'edd-wish-lists' => array(
 				class_exists( 'EDD_Wish_Lists' ),
-				'Marketify_Easy_Digital_Downloads_Wish_Lists'
+				'Marketify_EDD_Wish_Lists'
 			),
-			'easy-digital-downloads-cross-sell-upsell' => array(
+			'edd-cross-sell-upsell' => array(
 				defined( 'edd_csau_version' ),
-				'Marketify_Easy_Digital_Downloads_Cross_Sell_UpSell'
+				'Marketify_EDD_Cross_Sell_UpSell'
 			),
 			'jetpack' => array(
 				class_exists( 'Jetpack' ),

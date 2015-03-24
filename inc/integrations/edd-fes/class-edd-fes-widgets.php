@@ -1,6 +1,6 @@
 <?php
 
-class Marketify_Easy_Digital_Downloads_Frontend_Submissions_Widgets {
+class Marketify_EDD_FES_Widgets {
 	
 	public function __construct() {
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
