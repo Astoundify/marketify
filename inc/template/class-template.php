@@ -12,6 +12,7 @@ class Marketify_Template {
 			'class-template-assets.php',
 			'class-template-page-templates.php',
 			'class-template-navigation.php',
+			'class-template-header.php',
 			'class-template-page-header.php',
 			'class-template-entry.php',
 			'class-template-comments.php',
@@ -28,6 +29,7 @@ class Marketify_Template {
 		$this->assets = new Marketify_Template_Assets();
 		$this->page_templates = new Marketify_Template_Page_Templates();
 		$this->navigation = new Marketify_Template_Navigation();
+		$this->header = new Marketify_Template_Header();
 		$this->page_header = new Marketify_Template_Page_Header();
 		$this->entry = new Marketify_Template_Entry();
 		$this->comments = new Marketify_Template_Comments();

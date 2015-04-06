@@ -47,11 +47,11 @@ module.exports = () ->
         options:
           sourceMap: true
         files:
-          'js/vendor.min.js': [ 'js/vendor/*.js' ]
           'js/marketify.min.js': [
             'js/vendor/*.js',
             'js/app/marketify.js'
           ]
+          'js/download/download.min.js': 'js/download/download.js'
 
     makepot:
       theme:
