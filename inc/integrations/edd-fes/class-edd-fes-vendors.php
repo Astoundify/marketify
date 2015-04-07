@@ -3,12 +3,28 @@
 class Marketify_EDD_FES_Vendors {
 
 	public function __construct() {
+		add_action( 'template_redirect', array( $this, 'vendor_archive' ) );
+
 		add_filter( 'fes_vendor_dashboard_menu', array( $this, 'dashboard_menu_icons' ) );
 		add_filter( 'marketify_header_outer_image', array( $this, 'profile_cover_image' ), 1 );
 
 		add_action( 'marketify_download_entry_meta', array( $this, 'byline' ) );
 
 		add_action( 'save_post', array( $this, 'clear_download_count_cache' ), 10, 2 );
+	}
+
+	public function vendor_archive() {
+		if ( ! is_page_template( 'page-templates/vendor.php' ) ) {
+			return;
+		}
+
+		if ( ! get_query_var( 'vendor' ) ) {
+			$fes = marketify()->get( 'edd-fes' );
+			$vendor = $fes->vendor();
+
+			wp_redirect( $vendor->url( get_current_user_id() ) );
+			exit();
+		}
 	}
 
 	public function clear_download_count_cache( $post_id, $post ) {

@@ -80,6 +80,10 @@ class Marketify_EDD_Template_Download {
 	public function featured_area() {
 		global $post;
 
+		if ( ! $post || ! is_singular( 'download' ) ) {
+			return;
+		}
+
 		$format = get_post_format();
 
 		if ( '' == $format ) {
@@ -98,6 +102,10 @@ class Marketify_EDD_Template_Download {
 	}
 
 	public function featured_area_header_actions() {
+		if ( ! is_singular( 'download' ) ) {
+			return;
+		}
+
 		if ( 'top' != $this->get_featured_area_location() ) {
 			return;
 		}
