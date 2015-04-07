@@ -41,6 +41,7 @@ module.exports = () ->
       dist:
         files:
           'js/download/download.js': 'js/download/download.coffee'
+          'js/widgets/featured-popular.js': 'js/widgets/featured-popular.coffee'
 
     uglify:
       dist:
@@ -50,9 +51,10 @@ module.exports = () ->
           'js/marketify.min.js': [
             'js/vendor/*.js',
             'js/app/marketify.js',
+            'js/download/download.js',
+            'js/widgets/featured-popular.js',
             '!js/vendor/salvattore.min.js'
           ]
-          'js/download/download.min.js': 'js/download/download.js'
 
     makepot:
       theme:

@@ -10,16 +10,14 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 	 * Constructor
 	 */
 	public function __construct() {
+		$this->has_featured = marketify()->get( 'edd-featured-downloads' );
+
 		$this->widget_cssclass    = 'marketify_widget_featured_popular';
 		$this->widget_description = sprintf( __( 'Display featured and popular %s in sliding grid.', 'marketify' ), edd_get_label_plural() );
 		$this->widget_id          = 'marketify_widget_featured_popular';
 		$this->widget_name        = sprintf( __( 'Marketify - Home:  Featured &amp; Popular %s', 'marketify' ), edd_get_label_plural() );
+
 		$this->settings           = array(
-			'featured-title' => array(
-				'type'  => 'text',
-				'std'   => 'Featured',
-				'label' => __( 'Featured Title:', 'marketify' )
-			),
 			'popular-title' => array(
 				'type'  => 'text',
 				'std'   => 'Popular',
@@ -56,6 +54,15 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 				'label' => __( 'Slideshow Speed (ms)', 'marketify' )
 			),
 		);
+
+		if ( $this->has_featured ) {
+			$this->settings[ 'featured-title' ] = array(
+				'type'  => 'text',
+				'std'   => 'Featured',
+				'label' => __( 'Featured Title:', 'marketify' )
+			);
+		}
+
 		parent::__construct();
 	}
 
@@ -69,9 +76,6 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 	 * @return void
 	 */
 	function widget( $args, $instance ) {
-		if ( $this->get_cached_widget( $args ) )
-			return;
-
 		ob_start();
 
 		global $post;
@@ -83,87 +87,32 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 		$f_title   = isset( $instance[ 'featured-title' ] ) ? $instance[ 'featured-title' ] : __( 'Featured', 'marketify' );
 		$p_title   = isset( $instance[ 'popular-title' ] ) ? $instance[ 'popular-title' ] : __( 'Popular', 'marketify' );
 
-		$featured_args = array(
-			'post_type'              => 'download',
-			'posts_per_page'         => $number,
-			'no_found_rows'          => true,
-			'update_post_term_cache' => false,
-			'update_post_meta_cache' => false,
-			'cache_results'          => false,
-			'meta_query'             => array(
-				array(
-					'key'   => 'edd_feature_download',
-					'value' => true
-				)
-			)
-		);
-
-		$popular_args = array(
-			'post_type'              => 'download',
-			'posts_per_page'         => $number,
-			'no_found_rows'          => true,
-			'update_post_term_cache' => false,
-			'update_post_meta_cache' => false,
-			'cache_results'          => false,
-			'meta_key'               => '_edd_download_sales',
-			'orderby'                => 'meta_value',
-		);
-
-		$featured_args = Marketify_Helpers::apply_date_query( $featured_args, $timeframe );
-		$popular_args = Marketify_Helpers::apply_date_query( $popular_args, $timeframe );
-
-		$featured = new WP_Query( $featured_args );
-		$popular  = new WP_Query( $popular_args );
-
-		if ( ! $featured->have_posts() && ! $popular->have_posts() ) {
-			return;
-		}
-
 		echo $before_widget;
-
-		?>
+	?>
 
 		<h1 class="home-widget-title">
-			<?php if ( $featured->have_posts() ) : ?>
-			<span><?php echo esc_attr( $f_title ); ?> </span>
+			<?php if ( $this->has_featured ) : ?>
+				<span><?php echo esc_attr( $f_title ); ?> </span>
 			<?php endif; ?>
 
-			<?php if ( $popular->have_posts() ) : ?>
 			<span><?php echo esc_attr( $p_title ); ?></span>
-			<?php endif; ?>
 		</h1>
 
-		<?php if ( $featured->have_posts() ) : ?>
-		<div id="items-featured" class="row flexslider">
-			<ul class="slides">
-				<?php while ( $featured->have_posts() ) : $featured->the_post(); ?>
-				<li class="col-xs-12 col-sm-6 col-md-4">
-					<?php get_template_part( 'content-grid', 'download' ); ?>
-				</li>
-				<?php endwhile; ?>
-			</ul>
-		</div>
+		<?php if ( $this->has_featured ) : ?>
+			<div id="items-featured" class="row">
+				<?php echo do_shortcode( '[edd_featured_downloads]' ); ?>
+			</div>
 		<?php endif; ?>
 
-		<?php if ( $popular->have_posts() ) : ?>
-		<div id="items-popular" class="row flexslider">
-			<ul class="slides">
-				<?php while ( $popular->have_posts() ) : $popular->the_post(); ?>
-				<li class="col-xs-12 col-sm-6 col-md-4">
-					<?php get_template_part( 'content-grid', 'download' ); ?>
-				</li>
-				<?php endwhile; ?>
-			</ul>
+		<div id="items-popular" class="row">
+			<?php echo do_shortcode( '[downloads flat=true orderby=sales]' ); ?>
 		</div>
-		<?php endif; ?>
 
-		<?php
+	<?php
 		echo $after_widget;
 
 		$content = ob_get_clean();
 
 		echo $content;
-
-		$this->cache_widget( $args, $content );
 	}
 }

@@ -2096,45 +2096,6 @@ object {
 	margin: 0 10px;
 }
 
-.marketify_widget_featured_popular .home-widget-title {
-	margin-bottom: 100px;
-}
-
-.marketify_widget_featured_popular .flex-control-nav {
-	text-align: center;
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	position: absolute;
-	width: 100%;
-	top: 75px;
-	left: 0;
-}
-
-.marketify_widget_featured_popular .flex-control-nav li {
-	float: none;
-	display: inline-block;
-	cursor: pointer;
-}
-
-.marketify_widget_featured_popular .flex-control-nav a {
-	margin: 0 3px;
-	width: 10px;
-	height: 10px;
-	text-indent: -9999em;
-	border-radius: 50%;
-	background: #bdc3c7;
-	display: block;
-}
-
-.marketify_widget_featured_popular .content-grid-download .entry-header {
-	display: none;
-}
-
-.marketify_widget_featured_popular .content-grid-download.force-info .entry-header {
-	display: block;
-}
-
 /** Features */
 .features {
 	overflow: hidden;
