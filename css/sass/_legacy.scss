@@ -853,47 +853,7 @@ body:not(.minimal) .edd_form legend {
 /* =Content
 ----------------------------------------------- */
 
-.content-area {
-	padding-bottom: 100px;
-}
-
-.content-area.full {
-	margin-bottom: -25px;
-}
-
-.site-content {
-	margin-top: 100px;
-}
-
-.post-type-archive-download .site-content,
-.post-type-archive-project .site-content,
-.single-download .site-content,
-.single-project .site-content,
-.tax-download_category .site-content,
-.tax-download_tag .site-content,
-.tax-project-category .site-content,
-.page-template-page-templatespopular-php .site-content,
-.page-template-page-templatesshop-php .site-content {
-	margin-top: 0;
-}
-
-.single-download #primary.content-area {
-	padding-bottom: 0;
-}
-
 .sticky {
-}
-
-.hentry {
-	margin: 0 0 4em;
-}
-
-.single-download .hentry {
-	margin-bottom: 2em;
-}
-
-.single-post .hentry {
-	margin-bottom: 0;
 }
 
 .hentry.row .entry-title,
@@ -1851,10 +1811,6 @@ object {
 
 /* =Global Widgets
 ----------------------------------------------- */
-
-.widget-area {
-	margin-bottom: 200px;
-}
 
 .widget-area .section-title {
 	margin: 55px 0;

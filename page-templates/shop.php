@@ -22,9 +22,6 @@ get_header(); ?>
 			<section id="primary" class="content-area col-md-<?php echo is_active_sidebar( 'sidebar-download' ) ? '9' : '12'; ?> col-sm-7 col-xs-12">
 				<main id="main" class="site-main" role="main">
 
-				<div class="section-title"><span>
-				</span></div>
-
 				<?php while ( have_posts() ) : the_post(); ?>
 
 					<?php if ( ! has_shortcode( get_the_content(), 'downloads' ) ) : ?>

@@ -15,7 +15,7 @@ get_header(); ?>
 		<div id="content" class="site-content row">
 
 			<div id="secondary" class="author-widget-area col-md-3 col-sm-5 col-xs-12" role="complementary">
-				<div class="download-product-details author-archive">
+				<div class="vendor-widget-area">
 					<?php 
 						if ( ! dynamic_sidebar( 'sidebar-vendor' ) ) :
 							$args = array(				
