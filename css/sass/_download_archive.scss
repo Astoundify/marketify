@@ -1,6 +1,7 @@
 
-/* =Download Grid
------------------------------------------------ */
+.download-grid-wrapper {
+	margin-bottom: -30px;
+}
 
 @media screen and (max-width: 499px) {
 	.download-grid-wrapper[data-columns]::before,

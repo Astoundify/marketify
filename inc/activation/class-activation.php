@@ -17,7 +17,7 @@ class Marketify_Activation {
 			$this->upgrade( $version );
 		}
 
-		add_action( 'after_switch_theme', array( $this, 'after_switch_theme' ), 10, 2 );
+		add_action( 'after_switch_theme', array( $this, 'after_switch_theme' ), 10 );
 	}
 
 	public function upgrade( $version ) {
@@ -30,7 +30,7 @@ class Marketify_Activation {
 		$this->set_version();
 	}
 
-	public function after_switch_theme( $theme, $old ) {
+	public function after_switch_theme( $theme ) {
 		$this->flush_rules();
 
 		// If it's set just update version can cut out
@@ -45,7 +45,7 @@ class Marketify_Activation {
 	}
 
 	public function set_version() {
-		update_option( 'jobify_version', $this->theme->version );
+		update_option( 'marketify_version', $this->theme->version );
 	}
 
 	public function flush_rules() {

@@ -62,6 +62,10 @@ class Marketify_Integrations {
 			'woothemes-testimonials' => array(
 				class_exists( 'WooThemes_Testimonials' ),
 				'Marketify_WooThemes_Testimonials'
+			),
+			'tgmpa' => array(
+				true,
+				'Marketify_TGMPA'
 			)
 		);
 

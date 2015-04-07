@@ -16,7 +16,7 @@ class Marketify_Template_Page_Header {
 	}
 
 	public function home_title() { 
-		if ( ! is_front_page() ) {
+		if ( ! is_front_page() || is_home() ) {
 			return;
 		}
 
