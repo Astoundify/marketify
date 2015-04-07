@@ -49,7 +49,8 @@ module.exports = () ->
         files:
           'js/marketify.min.js': [
             'js/vendor/*.js',
-            'js/app/marketify.js'
+            'js/app/marketify.js',
+            '!js/vendor/salvattore.min.js'
           ]
           'js/download/download.min.js': 'js/download/download.js'
 
