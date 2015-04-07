@@ -90,22 +90,24 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 		echo $before_widget;
 	?>
 
-		<h1 class="home-widget-title">
+		<h1 class="featured-popular-switcher home-widget-title">
 			<?php if ( $this->has_featured ) : ?>
-				<span><?php echo esc_attr( $f_title ); ?> </span>
+				<span data-tab="#items-featured"><?php echo esc_attr( $f_title ); ?> </span>
 			<?php endif; ?>
 
-			<span><?php echo esc_attr( $p_title ); ?></span>
+			<span data-tab="#items-popular"><?php echo esc_attr( $p_title ); ?></span>
 		</h1>
 
-		<?php if ( $this->has_featured ) : ?>
-			<div id="items-featured" class="featured-popular-slick">
-				<?php echo do_shortcode( '[edd_featured_downloads]' ); ?>
-			</div>
-		<?php endif; ?>
+		<div class="featured-popular-tabs">
+			<?php if ( $this->has_featured ) : ?>
+				<div id="items-featured" class="inactive featured-popular-slick">
+					<?php echo do_shortcode( sprintf( '[edd_featured_downloads number=%s flat=true excerpt=no full_content=no price=no buy_button=no]', $number ) ); ?>
+				</div>
+			<?php endif; ?>
 
-		<div id="items-popular" class="featured-popular-slick">
-			<?php echo do_shortcode( '[downloads flat=true orderby=sales]' ); ?>
+			<div id="items-popular" class="inactive featured-popular-slick">
+				<?php echo do_shortcode( sprintf( '[downloads number=%s flat=true orderby=sales]', $number ) ); ?>
+			</div>
 		</div>
 
 	<?php

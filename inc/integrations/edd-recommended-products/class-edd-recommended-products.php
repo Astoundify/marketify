@@ -1,6 +1,6 @@
 <?php
 
-class Marketify_Easy_Digital_Downloads_Recommended_Products extends Marketify_Integration {
+class Marketify_EDD_Recommended_Products extends Marketify_Integration {
 
 	public function __construct() {
 		parent::__construct( dirname( __FILE__ ) );

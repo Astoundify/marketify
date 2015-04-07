@@ -23,6 +23,10 @@ class Marketify_Integrations {
 				class_exists( 'EDD_Reviews' ),
 				'Marketify_EDD_Product_Reviews'
 			),
+			'edd-featured-downloads' => array(
+				function_exists( 'edd_fd_textdomain' ),
+				'Marketify_EDD_Featured_Downloads'
+			),
 			'edd-recommended-products' => array(
 				function_exists( 'edd_rp_get_suggestions' ),
 				'Marketify_EDD_Recommended_Products'

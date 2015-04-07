@@ -2,10 +2,12 @@
 /* =Download Grid
 ----------------------------------------------- */
 
-.download-grid-wrapper[data-columns]::before,
-.download-grid-wrapper.edd_download_columns_1[data-columns]::before,
-.features[data-columns]::before {
-	content: '1 .col-xs-12';
+@media screen and (max-width: 499px) {
+	.download-grid-wrapper[data-columns]::before,
+	.download-grid-wrapper.edd_download_columns_1[data-columns]::before,
+	.features[data-columns]::before {
+		content: '1 .col-xs-12';
+	}
 }
 
 @media screen and (min-width: 500px) and (max-width: 767px) {
