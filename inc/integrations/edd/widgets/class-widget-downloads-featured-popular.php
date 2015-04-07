@@ -99,12 +99,12 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 		</h1>
 
 		<?php if ( $this->has_featured ) : ?>
-			<div id="items-featured" class="row">
+			<div id="items-featured" class="featured-popular-slick">
 				<?php echo do_shortcode( '[edd_featured_downloads]' ); ?>
 			</div>
 		<?php endif; ?>
 
-		<div id="items-popular" class="row">
+		<div id="items-popular" class="featured-popular-slick">
 			<?php echo do_shortcode( '[downloads flat=true orderby=sales]' ); ?>
 		</div>
 
