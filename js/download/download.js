@@ -29,7 +29,6 @@
 
       DownloadStandard.prototype.initTopSlider = function() {
         return $(this.el).slick({
-          fade: true,
           adaptiveHeight: true
         });
       };

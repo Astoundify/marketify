@@ -3,7 +3,7 @@
 class Marketify_EDD_Template_Download {
 
 	public function __construct() {
-		add_action( 'init', array( $this, 'featured_area' ) );
+		add_action( 'wp_head', array( $this, 'featured_area' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		
 		add_action( 'marketify_entry_before', array( $this, 'featured_area_header_actions' ), 5 );

@@ -21,7 +21,6 @@ jQuery ($) ->
   
     initTopSlider: =>
       $(@el).slick
-        fade: true
         adaptiveHeight: true
 
     initContentSlider: =>
