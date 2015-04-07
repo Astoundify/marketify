@@ -15,7 +15,18 @@ get_header(); ?>
 			<main id="main" class="site-main" role="main">
 
 				<div class="container">
-					<?php dynamic_sidebar( 'home-1' ); ?>
+					<?php 
+						if ( ! dynamic_sidebar( 'home-1' ) ) :
+							$args = array(
+								'before_widget' => '<aside class="home-widget">',
+								'after_widget'  => '</aside>',
+								'before_title'  => '<h1 class="home-widget-title"><span>',
+								'after_title'   => '</span></h1>',
+							);
+
+							the_widget( 'Marketify_Widget_Recent_Downloads', array( 'title' => 'Recent Downloads' ), $args );
+						endif;
+					?>
 				</div>
 
 			</main><!-- #main -->

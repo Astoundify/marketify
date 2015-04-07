@@ -7,13 +7,6 @@
 @import "page";
 @import "download_archive";
 
-@import "edd/_edd";
-@import "edd/_checkout_discounts";
-@import "edd/_wish_lists";
-@import "edd/_favorites";
-@import "edd/_fes_fpd";
-@import "edd/_purchase_form";
-
 
 @import "modules/button";
 @import "modules/site-content";
@@ -30,9 +23,17 @@
 @import "modules/home/header";
 @import "modules/home/video";
 
+@import "modules/widgets/base";
 @import "modules/widgets/feature_callout";
 @import "modules/widgets/featured-popular";
 
+@import "modules/edd/edd";
+@import "modules/edd/checkout_discounts";
+@import "modules/edd/wish_lists";
+@import "modules/edd/favorites";
+@import "modules/edd/fes_fpd";
+@import "modules/edd/purchase_form";
+@import "modules/edd/pagination";
 
 @import "modules/edd-fes/dashboard";
 @import "modules/edd-fes/vendor-widget-area";

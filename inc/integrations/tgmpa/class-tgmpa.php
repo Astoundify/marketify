@@ -33,6 +33,11 @@ class Marketify_TGMPA {
 				'required'  => false,
 			),
 			array(
+				'name'      => 'Features by WooThemes',
+				'slug'      => 'features-by-woothemes',
+				'required'  => false
+			),
+			array(
 				'name'      => 'Nav Menu Roles',
 				'slug'      => 'nav-menu-roles',
 				'required'  => false,
