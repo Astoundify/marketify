@@ -6,11 +6,11 @@
 global $post;
 ?>
 
-<div class="entry-image">
-	<div class="overlay">
+<div class="content-grid-download__entry-image">
+	<div class="content-grid-download__overlay">
 		<?php do_action( 'marketify_download_content_image_overlay_before' ); ?>
 
-		<div class="actions">
+		<div class="content-grid-download__actions">
 			<?php do_action( 'marketify_download_content_actions_before' ); ?>
 
 			<a href="<?php the_permalink(); ?>" rel="bookmark" class="button"><?php _e( 'Details', 'marketify' ); ?></a>

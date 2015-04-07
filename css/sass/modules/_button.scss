@@ -1,0 +1,19 @@
+.button--size-small {
+	font-size: 12px;
+	padding: 6px 10px;
+}
+
+.button--size-large {
+	font-size: 18px;
+	padding: 14px 20px;
+	border-width: 3px;
+}
+
+.button--color-white {
+	border-color: #fff;
+	color: #fff;
+
+	&:hover {
+		background-color: #fff;
+	}
+}

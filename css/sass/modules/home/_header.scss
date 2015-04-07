@@ -1,0 +1,27 @@
+.home .header-outer {
+	.entry-page-title,
+	p {
+		text-align: center;
+		max-width: 60%;
+		margin: 0 auto;
+		padding: 0 0 1.5em
+	}
+
+	p {
+		font: 20px 'Roboto Slab', serif;
+		color: #fff;
+	}
+
+	.button {
+		margin: 0 15px;
+	}
+
+	p:last-of-type {
+		max-width: 980px;
+		
+		img {
+			margin: 1.5em 0 -1.5em;
+			display: block;
+		}
+	}
+}

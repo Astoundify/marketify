@@ -71,20 +71,6 @@ input[name="edd_register_submit"],
 .edd-wish-list-save {
 	font-size: 15px;
 	padding: 14px 20px;
-	width: 100%;
-}
-
-.header-outer a.button,
-.content-grid-download .button,
-body .marketify_widget_slider_hero .soliloquy-caption a.button {
-	color: #fff;
-	border-color: #fff;
-}
-
-.header-outer a.button:hover,
-.content-grid-download .button:hover,
-body .marketify_widget_slider_hero .soliloquy-caption a.button:hover {
-	background-color: #fff;
 }
 
 button:hover,
@@ -748,36 +734,6 @@ body:not(.minimal) .edd_form legend {
 	margin-top: 0;
 }
 
-/* =Homepage 1
------------------------------------------------ */
-
-.home-1 .page-header h1 {
-	max-width: 60%;
-	margin: 0 auto;
-}
-
-.home-1 .page-header {
-	margin-bottom: 70px;
-	padding: 0;
-}
-
-.home-1 .page-header .page-title {
-	margin-bottom: 50px;
-}
-
-.home-1 .page-header p {
-	font: 300 20px 'Roboto Slab', serif;
-	color: #fff;
-}
-
-.home-1 p img {
-	max-width: 95%;
-	margin: 50px auto -1.5em;
-}
-
-.home-1 p img {
-	display: block;
-}
 
 /* =Homepage Search
 ----------------------------------------------- */
@@ -1298,23 +1254,9 @@ body:not(.minimal) .edd_form legend {
 /* =Download
 ----------------------------------------------- */
 
-.single-download .page-header {
-	padding-bottom: 0;
-}
-
-.product-display-inline.single-download .page-header {
-	padding-bottom: 100px;
-}
-
-.product-display-inline.force-buy.single-download .page-header,
-body.product-display-inline .single-project .page-header,
-.single-project .page-header {
-	padding-bottom: 40px;
-}
-
-.single-download .featured-image img {
-	margin: 0 auto;
-	display: block;
+.download-actions .edd_download_purchase_form .edd_errors {
+	width: 100%;
+	max-width: 100%;
 }
 
 .single-download .featured-image .download-video {

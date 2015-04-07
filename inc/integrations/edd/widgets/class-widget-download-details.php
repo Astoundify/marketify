@@ -67,7 +67,7 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 			<div class="download-product-details">
 				<?php do_action( 'marketify_product_details_before', $instance ); ?>
 
-				<div class="download-author">
+				<div class="widget vendor-widget download-author">
 					<?php do_action( 'marketify_download_author_before' ); ?>
 
 					<?php printf(  '<a class="author-link" href="%s" rel="author">%s</a>', $url, get_avatar( $user->ID, 130 ) ); ?>

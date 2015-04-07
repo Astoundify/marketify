@@ -1,6 +1,12 @@
 .header-outer {
+	text-align: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: relative;
 	overflow: hidden;
+
+	.button {
+		@extend .button--size-large;
+		@extend .button--color-white;
+	}
 }

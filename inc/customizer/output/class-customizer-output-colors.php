@@ -38,12 +38,10 @@ class Marketify_Customizer_Output_Colors {
 				'input[type=reset]',
 				'input[type=submit]',
 				'.button',
-				'a.button',
 				'.fes-button',
 				'.main-navigation .edd-cart .cart_item.edd_checkout a',
-				'.header-outer a.button:hover',
+				'.header-outer .button:hover',
 				'.content-grid-download .button:hover',
-				'body .marketify_widget_slider_hero .soliloquy-caption a.button:hover',
 				'#edd_checkout_form_wrap fieldset#edd_cc_fields legend',
 				'.marketify_widget_featured_popular .home-widget-title span:hover',
 				'.marketify_widget_featured_popular .home-widget-title span.active',
@@ -206,10 +204,8 @@ class Marketify_Customizer_Output_Colors {
 
 		$this->css->add( array(
 			'selectors' => array(
-				'.content-grid-download .entry-image:hover .overlay',
-				'.content-grid-download .entry-image.hover .overlay',
-				'.download-image-grid-preview .slides li.active a:before',
-				'.download-image-grid-preview .slides li:hover a:before',
+				'.content-grid-download__entry-image:hover .content-grid-download__overlay',
+				'.content-grid-download__entry-image.hover .content-grid-download__overlay'
 			),
 			'declarations' => array(
 				'background' => 'rgba(' . $this->css->hex2rgb( $primary ) . ',.80)',
