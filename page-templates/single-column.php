@@ -30,7 +30,7 @@ get_header(); ?>
 
 					<?php endwhile; ?>
 
-					<?php marketify_content_nav( 'nav-below' ); ?>
+					<?php do_action( 'marketify_loop_after' ); ?>
 
 				<?php else : ?>
 

@@ -12,7 +12,7 @@ class Marketify_EDD_Template {
 		$fes = marketify()->get( 'edd-fes' );
 
 		if ( $fes ) {
-			$vendor = $this->fes->vendor( $user_id );
+			$vendor = $fes->vendor( $user_id );
 			$url = $vendor->url();
 		} else {
 			$url = get_author_posts_url( $user_id );

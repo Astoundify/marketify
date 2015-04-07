@@ -2695,31 +2695,21 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 	overflow: hidden;
 }
 
-.download-author,
-.download-author-bio,
-.download-author-social,
-.download-author-sales,
-.download-author-message,
+.widget.vendor-widget,
 .download-product-details .download-info {
 	margin: 0;
 	padding: 25px;
 	border-bottom: 1px solid #bdc3c7;
 	position: relative;
 	clear: both;
+
+	&:last-child {
+		border: 0;
+	}
 }
 
 .download-product-details .download-info {
 	border-top: 1px solid #bdc3c7;
-}
-
-.download-author-bio p:last-child,
-.download-author-bio p:only-child {
-	margin-bottom: 0;
-}
-
-.download-author-sales.blank,
-.download-author-message {
-	border-bottom: 0;
 }
 
 .download-author-message .button {
@@ -2792,10 +2782,6 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 .download-product-details .download-ratings strong i {
 	font-size: 17px;
 	margin: 0 -2px;
-}
-
-.download-product-details.author-archive .download-author {
-	padding: 20px;
 }
 
 .download-product-details.author-archive .author-link {

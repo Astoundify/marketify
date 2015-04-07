@@ -9,7 +9,7 @@ class Marketify_Widget_FES_Vendor extends Marketify_EDD_FES_Vendor_Widget {
 		$this->widget_cssclass    = 'marketify_widget_fes_vendor';
 		$this->widget_description = __( 'Display the vendor avatar and extra information.', 'marketify' );
 		$this->widget_id          = 'marketify_widget_fes_vendor';
-		$this->widget_name        = __( 'Marketify - Vendor: Vendor', 'marketify' );
+		$this->widget_name        = __( 'Marketify - Vendor: Name + Avatar', 'marketify' );
 		$this->settings           = array(
 			'extras' => array(
 				'type'  => 'textarea',

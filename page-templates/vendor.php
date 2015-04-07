@@ -16,7 +16,19 @@ get_header(); ?>
 
 			<div id="secondary" class="author-widget-area col-md-3 col-sm-5 col-xs-12" role="complementary">
 				<div class="download-product-details author-archive">
-					<?php dynamic_sidebar( 'sidebar-vendor' ); ?>
+					<?php 
+						if ( ! dynamic_sidebar( 'sidebar-vendor' ) ) :
+							$args = array(				
+								'before_widget' => '<aside class="widget vendor-widget">',
+								'after_widget'  => '</aside>',
+								'before_title'  => '<h3 class="vendor-widget-title">',
+								'after_title'   => '</h3>',
+							);
+
+							the_widget( 'Marketify_Widget_FES_Vendor', array( 'extras' => '' ), $args );
+							the_widget( 'Marketify_Widget_FES_Vendor_Description', array(), $args );
+						endif;
+					?>
 				</div>
 			</div><!-- #secondary -->
 

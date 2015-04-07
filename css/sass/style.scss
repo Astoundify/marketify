@@ -7,8 +7,6 @@
 @import "page";
 @import "download_archive";
 
-@import "home/_video";
-
 @import "edd/_edd";
 @import "edd/_checkout_discounts";
 @import "edd/_wish_lists";
@@ -16,7 +14,11 @@
 @import "edd/_fes_fpd";
 @import "edd/_purchase_form";
 
-@import "widgets/_feature_callout";
+@import "modules/home/video";
 
-@import "modules/_slick";
-@import "modules/_download-gallery";
+@import "modules/widgets/feature_callout";
+
+@import "modules/slick";
+@import "modules/download-gallery";
+
+@import "modules/edd-fes/dashboard";
