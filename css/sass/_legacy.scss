@@ -257,12 +257,6 @@ a.insert-file-row {
 /* =Header
 ----------------------------------------------- */
 
-.header-outer {
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-}
-
 .site-header {
 	padding: 25px 0;
 
@@ -2564,18 +2558,6 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 	border: 1px solid #bdc3c7;
 	margin: 0 0 45px;
 	padding: 25px;
-}
-
-.download-single-widget:first-child {
-	margin-top: 70px;
-}
-
-.download-single-widget.comments:first-child {
-	margin-top: 92px;
-}
-
-#secondary .download-single-widget.comments:first-child {
-	margin-top: 0;
 }
 
 .download-single-widget-title {

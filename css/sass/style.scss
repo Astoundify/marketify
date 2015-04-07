@@ -16,10 +16,14 @@
 
 
 @import "modules/site-content";
+@import "modules/header-outer";
 @import "modules/hentry";
 @import "modules/slick";
 
+@import "modules/download/title";
+@import "modules/download/content";
 @import "modules/download/gallery";
+
 @import "modules/home/video";
 
 @import "modules/widgets/feature_callout";
