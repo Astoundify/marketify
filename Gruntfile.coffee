@@ -31,11 +31,11 @@ module.exports = () ->
           'css/style.css': [ 'css/vendor/*.css', 'css/style.css']
       header:
         files:
-          'style.css': [ 'css/_theme.css', 'css/style.css' ]
+          'style.css': [ 'css/_theme.css', 'css/style.min.css' ]
 
     cssmin:
       dist:
-        file: 'css/style.min.css': [ 'css/style.css' ]
+        files: 'css/style.min.css': [ 'css/style.css' ]
 
     coffee:
       dist:
