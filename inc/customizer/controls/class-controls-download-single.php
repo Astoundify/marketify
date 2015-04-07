@@ -17,7 +17,7 @@ class Marketify_Customizer_Controls_Download_Single extends Marketify_Customizer
 	public function add_controls( $wp_customize ) {
 		$this->controls = array(
 			'download-feature-area' => array(
-				'label' => __( 'Feature Area', 'marketify' ),
+				'label' => __( 'Feature Area Location', 'marketify' ),
 				'type'    => 'select',
 				'choices' => array(
 					'top' => __( 'Page Header', 'marketify' ),

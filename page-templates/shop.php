@@ -9,10 +9,6 @@
 
 get_header(); ?>
 
-	<header class="page-header">
-		<h1 class="page-title"><?php the_title(); ?></h1>
-	</header><!-- .page-header -->
-
 	<?php do_action( 'marketify_entry_before' ); ?>
 
 	<div class="container">
@@ -27,13 +23,12 @@ get_header(); ?>
 				<main id="main" class="site-main" role="main">
 
 				<div class="section-title"><span>
-					<?php marketify_downloads_section_title(); ?>
 				</span></div>
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php if ( '' == get_the_content() ) : ?>
-						<?php echo do_shortcode( sprintf( '[downloads number="%s"]', get_option( 'posts_per_page' ) ) ); ?>
+					<?php if ( ! has_shortcode( get_the_content(), 'downloads' ) ) : ?>
+						<?php echo do_shortcode( '[downloads]' ); ?>
 					<?php else : ?>
 						<?php the_content(); ?>
 					<?php endif; ?>

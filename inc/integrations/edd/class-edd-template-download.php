@@ -5,6 +5,11 @@ class Marketify_EDD_Template_Download {
 	public function __construct() {
 		add_action( 'init', array( $this, 'featured_area' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		
+		add_action( 'marketify_entry_before', array( $this, 'featured_area_header_actions' ), 5 );
+
+		add_action( 'marketify_download_info', array( $this, 'download_price' ), 5 );
+		add_action( 'marketify_download_actions', array( $this, 'demo_link' ) );
 	}
 
 	public function enqueue_scripts() {
@@ -16,6 +21,39 @@ class Marketify_EDD_Template_Download {
 		);
 
 		wp_localize_script( 'marketify-download', 'marketifyDownload', $args );
+	}
+
+	public function download_price() {
+		global $post;
+
+		edd_price( $post->ID );
+	}
+
+	function demo_link( $download_id = null ) {
+		global $post, $edd_options;
+
+		if ( 'download' != get_post_type() ) {
+			return;
+		}
+
+		if ( ! $download_id ) {
+			$download_id = $post->ID;
+		}
+
+		$field = apply_filters( 'marketify_demo_field', 'demo' );
+		$demo  = get_post_meta( $download_id, $field, true );
+
+		if ( ! $demo ) {
+			return;
+		}
+
+		$label = apply_filters( 'marketify_demo_button_label', __( 'Demo', 'marketify' ) );
+
+		if ( $post->_edd_cp_custom_pricing ) {
+			echo '<br /><br />';
+		}
+
+		echo apply_filters( 'marketify_demo_link', sprintf( '<a href="%s" class="button" target="_blank">%s</a>', esc_url( $demo ), $label ) );
 	}
 
 	private function get_featured_area_location() {
@@ -57,6 +95,21 @@ class Marketify_EDD_Template_Download {
 				add_action( 'marketify_single_download_content_before_content', array( $this, 'featured_standard_navigation' ), 11 );
 			}
 		}
+	}
+
+	public function featured_area_header_actions() {
+		if ( 'top' != $this->get_featured_area_location() ) {
+			return;
+		}
+	?>
+		<div class="download-actions">
+			<?php do_action( 'marketify_download_actions' ); ?>
+		</div>
+
+		<div class="download-info">
+			<?php do_action( 'marketify_download_info' ); ?>
+		</div>
+	<?php
 	}
 
 	public function featured_standard() {

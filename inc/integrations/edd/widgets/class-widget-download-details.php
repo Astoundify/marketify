@@ -26,7 +26,10 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 				'label' => __( 'Hide purchase count', 'marketify' )
 			)
 		);
+
 		parent::__construct();
+
+		add_action( 'marketify_product_details_after', array( $this, 'inline_extra_details' ) );
 	}
 
 	/**
@@ -60,7 +63,6 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 		if ( $title ) echo '<h1 class="section-title"><span>' . $title . '</span></h1>';
 
 		do_action( 'marketify_product_details_widget_before', $instance );
-
 		?>
 			<div class="download-product-details">
 				<?php do_action( 'marketify_product_details_before', $instance ); ?>
@@ -122,5 +124,22 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 		echo $content;
 
 		$this->cache_widget( $args, $content );
+	}
+
+	function inline_extra_details() {
+		if ( 'top' == marketify_theme_mod( 'download-feature-area' ) ) {
+			return;
+		}
+	?>
+		<div class="product-details-pull">
+			<div class="download-info">
+				<?php do_action( 'marketify_download_info' ); ?>
+			</div>
+
+			<div class="download-actions">
+				<?php do_action( 'marketify_download_actions' ); ?>
+			</div>
+		</div>
+	<?php
 	}
 }

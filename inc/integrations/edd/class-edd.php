@@ -41,14 +41,11 @@ class Marketify_EDD extends Marketify_Integration {
 		add_filter( 'edd_default_downloads_name', array( marketify()->strings, 'get_labels' ) );
 	}
 
-	public function add_theme_support() {
+	public function theme_support() {
 		add_theme_support( 'post-formats', array( 'audio', 'video' ) );
 		add_post_type_support( 'download', 'post-formats' );
 
 		add_post_type_support( 'download', 'comments' );
-	}
-
-	public function theme_support() {
 	}
 
 }

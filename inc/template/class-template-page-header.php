@@ -6,7 +6,8 @@ class Marketify_Template_Page_Header {
 		add_filter( 'marketify_page_header', array( $this, 'tag_atts' ), 10, 2 );
 		add_action( 'marketify_entry_before', array( $this, 'close_header_outer' ) );
 		
-		add_action( 'marketify_entry_before', array( $this, 'singular_object_title' ), 5 );
+		add_action( 'marketify_entry_before', array( $this, 'singular_title' ), 5 );
+		add_action( 'marketify_entry_before', array( $this, 'archive_title' ), 5 );
 		add_action( 'marketify_entry_before', array( $this, 'home_title' ), 6 );
 	}
 
@@ -26,10 +27,30 @@ class Marketify_Template_Page_Header {
 		rewind_posts();
 	}
 
-	public function singular_object_title() {
+	public function archive_title() {
+		if ( ! is_archive() ) {
+			return;
+		}
 	?>
 		<div class="entry-page-title container">
-			<?php get_template_part( 'content', 'author' ); ?>
+			<h1 class="entry-title"><?php the_archive_title(); ?></h1>
+		</div>
+	<?php
+	}
+
+	public function singular_title() {
+		if ( ! is_singular() ) {
+			return;
+		}
+
+		the_post();
+	?>
+		<div class="entry-page-title container">
+			<?php 
+				if ( ! is_singular( 'download' ) ) {
+					get_template_part( 'content', 'author' );
+				}
+			?>
 
 			<h1 class="entry-title"><?php the_title(); ?></h1>
 
@@ -50,6 +71,7 @@ class Marketify_Template_Page_Header {
 			?>
 		</div>
 	<?php
+		rewind_posts();
 	}
 
 	public function tag_atts( $args ) {

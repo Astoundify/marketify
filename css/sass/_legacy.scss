@@ -1054,8 +1054,6 @@ body:not(.minimal) .edd_form legend {
 .entry-page-title {
 	color: #fff;
 	text-align: center;
-	padding-top: 0;
-	padding-bottom: 90px;
 }
 
 .single-post .entry-page-title {
@@ -1394,6 +1392,7 @@ body.product-display-inline .single-project .page-header,
 
 .download-actions,
 .download-info {
+	text-align: center;
 	margin: 40px 0;
 }
 
@@ -2216,7 +2215,7 @@ object {
 .feature-content {
 	color: #515a63;
 	line-height: 1.75;
-	margin: 1.5em 0 3em;
+	margin: 1.5em 3em 3em;
 	clear: both;
 }
 
