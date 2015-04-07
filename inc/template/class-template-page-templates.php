@@ -5,6 +5,8 @@ class Marketify_Template_Page_Templates {
 	public function __construct() {
 		add_filter( 'theme_page_templates', array( $this, 'fes' ) );
 		add_filter( 'theme_page_templates', array( $this, 'love_it' ) );
+
+		add_filter( 'body_class', array( $this, 'body_class' ) );
 	}
 
 	public function fes( $page_templates ) {
@@ -25,6 +27,22 @@ class Marketify_Template_Page_Templates {
 		unset( $page_templates[ 'page-templates/wishlist.php' ] );
 
 		return $page_templates;
+	}
+
+	public function body_class( $classes ) {
+		if ( is_page_template( 'page-templates/home.php' ) ) {
+			$classes[] = 'home-1';
+		}
+
+		if ( is_page_template( 'page-templates/home-search.php' ) ) {
+			$classes[] = 'home-search';
+		}
+
+		if ( is_page_template( 'page-templates/minimal.php' ) ) {
+			$classes[] = 'minimal';
+		}
+
+		return $classes;
 	}
 
 }
