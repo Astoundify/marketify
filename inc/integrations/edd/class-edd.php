@@ -41,7 +41,7 @@ class Marketify_EDD extends Marketify_Integration {
 	public function setup_actions() {
 		add_action( 'after_setup_theme', array( $this, 'theme_support' ) );
 		add_filter( 'edd_default_downloads_name', array( marketify()->strings, 'get_labels' ) );
-		add_action( 'init', array( $this, 'update_slug' ), 0 );
+		add_action( 'init', array( $this, 'update_slug' ), -1 );
 	}
 
 	public function update_slug() {
