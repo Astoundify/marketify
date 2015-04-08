@@ -14,7 +14,9 @@ class Marketify_Template_Footer {
 	?>
 		<div class="footer-widget-areas row">
 		<?php for ( $i = 1; $i <= 3; $i++ ) : ?>
-			<?php dynamic_sidebar( 'footer-' . $i ); ?>
+			<div class="footer-widget-area footer-widget-area--<?Php echo $i; ?> col-xs-12 col-sm-6 col-md-4">
+				<?php dynamic_sidebar( 'footer-' . $i ); ?>
+			</div>
 		<?php endfor; ?>
 		</div>
 	<?php
@@ -49,7 +51,7 @@ class Marketify_Template_Footer {
 	}
 
 	private function has_contact_address() {
-		return marketify_theme_mod( 'footer-contact-address' );
+		return marketify_theme_mod( 'footer-contact-us-display' );
 	}
 
 	public function contact_address() {
@@ -65,18 +67,22 @@ class Marketify_Template_Footer {
 	<?php
 	}
 
+	public function has_site_info() {
+		return marketify_theme_mod( 'footer-copyright-display' ); 
+	}
+
 	public function site_info() {
 	?>
 		<div class="<?php echo $this->get_column_class(); ?>">
 			<h1 class="site-title"><a href="<?php echo home_url(); ?>">
-				<?php if ( marketify_theme_mod( 'footer', 'footer-logo' ) ) : ?>
-					<img src="<?php echo marketify_theme_mod( 'footer', 'footer-logo' ); ?>" />
+				<?php if ( marketify_theme_mod( 'footer-copyright-logo' ) ) : ?>
+					<img src="<?php echo marketify_theme_mod( 'footer-copyright-logo' ); ?>" />
 				<?php else : ?>
 					<?php bloginfo( 'name' ); ?>
 				<?php endif; ?>
 			</a></h1>
 			
-			<?php echo esc_attr( marketify_theme_mod( 'footer-copyright' ) ); ?>
+			<?php echo esc_attr( marketify_theme_mod( 'footer-copyright-text' ) ); ?>
 		</div>
 	<?php
 	}
@@ -89,6 +95,10 @@ class Marketify_Template_Footer {
 		}
 
 		if ( ! $this->has_contact_address() ) {
+			$columns--;
+		}
+
+		if ( ! $this->has_site_info() ) {
 			$columns--;
 		}
 

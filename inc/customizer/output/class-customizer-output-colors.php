@@ -189,14 +189,6 @@ class Marketify_Customizer_Output_Colors {
 	}
 
 	public function footer() {
-		$this->css->add( array(
-			'selectors' => array(
-				'.site-footer.light'
-			),
-			'declarations' => array(
-				'color' => '#' . get_theme_mod( 'background_color' )
-			)
-		) );
 	}
 
 	public function overlay() {

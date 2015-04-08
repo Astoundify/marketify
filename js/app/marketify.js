@@ -10,7 +10,7 @@ Marketify.App = ( function($) {
 	}
 
 	function footerHeight() {
-		var checks = $( '.site-info, .site-footer .row' );
+		var checks = $( '.site-info, .footer-widget-areas' );
 
 		checks.each(function() {
 			var min      = 0;

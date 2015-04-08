@@ -2673,61 +2673,6 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 /* =Footer
 ----------------------------------------------- */
 
-.site-footer {
-	color: #fff;
-	padding: 63px 0 100px;
-}
-
-.footer-widget,
-.footer-widget a,
-.footer-widget-title {
-	line-height: 25px;
-	color: #fff;
-}
-
-.footer-widget a:hover {
-	color: #fff;
-	text-decoration: underline;
-}
-
-.footer-widget-title {
-	font: 700 16px 'Montserrat', sans-serif;
-	color: #fff;
-	letter-spacing: 0.10em;
-	text-transform: uppercase;
-	margin-bottom: 15px;
-}
-
-.footer-widget ol,
-.footer-widget ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-.footer-widget ol ol,
-.footer-widget ul ul {
-	margin: 10px 0 0 10px;
-	list-style: disc;
-	list-style-position: inside;
-}
-
-.footer-widget li {
-	margin-bottom: 6px;
-}
-
-.footer-widget a {
-	text-decoration: none;
-}
-
-.site-footer.light .site-info {
-	margin-top: 75px;
-}
-
-.site-info .col-md-8 {
-	text-align: center;
-}
-
 .footer-social a {
 	margin: 0 16px 0 0;
 	font-size: 25px;
@@ -2812,59 +2757,6 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 
 .footer-social a:hover[href$=".rss"]::before {
 	color: #FF6600;
-}
-
-/** Light */
-.site-footer.light {
-	color: #404040;
-	padding-top: 0;
-	background: #fff;
-}
-
-.site-footer.light .footer-widget,
-.site-footer.light .footer-widget a,
-.site-footer.light .footer-widget-title {
-	color: #515a63;
-}
-
-.site-footer.light .container {
-	border-top: 1px solid #bdc3c7;
-}
-
-.site-footer.light .site-info:not(.has-widgets) {
-	border-top: 0;
-}
-
-.site-footer.light .footer-widget,
-.site-footer.light .site-info [class^="col-"] {
-	border-right: 0;
-	border-bottom: 1px solid #bdc3c7;
-}
-
-.site-footer.light .footer-widget:last-child,
-.site-footer.light .site-info [class^="col-"]:last-child {
-	border-right: 0;
-}
-
-.site-footer.light .site-info {
-	margin-top: 0;
-}
-
-.site-footer .footer-widget,
-.site-footer .site-info [class^="col-"] {
-	padding: 40px 25px;
-}
-
-.site-footer .site-info [class^="col-"] p:last-child {
-	margin-bottom: 0;
-}
-
-.site-info [class^="col-"] .site-title a {
-	display: block;
-}
-
-.site-info .col-md-12 {
-	text-align: center;
 }
 
 /* =Modals
@@ -3383,17 +3275,6 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 
 	.home-search .page-header .search-form {
 		max-width: 50%;
-	}
-
-	/* Footer */
-	.site-footer.light .footer-widget,
-	.site-footer.light .site-info [class^="col-"] {
-		border-right: 1px solid #bdc3c7;
-		border-bottom: 0;
-	}
-
-	.site-footer.light .site-info {
-		border-top: 1px solid #bdc3c7;
 	}
 
 	/** Testimonials */
