@@ -34,7 +34,16 @@
       };
 
       DownloadStandard.prototype.initContentSlider = function() {
-        $(this.el).slick({
+        $(this.elAsNav).slick({
+          slidesToShow: 6,
+          slidesToScroll: 1,
+          asNavFor: this.el,
+          focusOnSelect: true,
+          dots: true,
+          arrows: false,
+          slide: 'div'
+        });
+        return $(this.el).slick({
           slidesToShow: 1,
           slidesToScroll: 1,
           arrows: false,
@@ -42,18 +51,14 @@
           asNavFor: this.elAsNav,
           adaptiveHeight: true
         });
-        return $(this.elAsNav).slick({
-          slidesToShow: 6,
-          slidesToScroll: 1,
-          asNavFor: this.el,
-          focusOnSelect: true
-        });
       };
 
       return DownloadStandard;
 
     })();
-    return new Download;
+    return $(document).ready(function() {
+      return new Download;
+    });
   });
 
 }).call(this);

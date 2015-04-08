@@ -23,6 +23,9 @@
 
       FeaturedPopular.prototype.initSliders = function() {
         var extras;
+        if (!$('.featured-popular-slick .edd_downloads_list').length) {
+          return;
+        }
         extras = marketifyFeaturedPopular;
         return $('.featured-popular-slick .edd_downloads_list').slick({
           autoPlay: extras.autoPlay,

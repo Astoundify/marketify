@@ -153,7 +153,7 @@ class Marketify_EDD_Template_Download {
 
 	public function featured_standard_navigation() {
 		$images = $this->get_featured_images();
-		$before = '<div class="download-gallery-navigation">';
+		$before = '<div class="download-gallery-navigation ' . ( count ( $images ) > 6 ? 'has-dots' : '' ) . '">';
 		$after  = '</div>';
 
 		$size = apply_filters( 'marketify_featured_standard_image_size_navigation', 'thumbnail' );

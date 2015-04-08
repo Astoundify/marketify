@@ -19,6 +19,8 @@ jQuery ($) ->
 
   
     initSliders: =>
+      if ! $( '.featured-popular-slick .edd_downloads_list' ).length then return
+
       extras = marketifyFeaturedPopular
 
       $( '.featured-popular-slick .edd_downloads_list' ).slick

@@ -24,18 +24,23 @@ jQuery ($) ->
         adaptiveHeight: true
 
     initContentSlider: =>
-      $(@el).slick
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        fade: true,
-        asNavFor: @elAsNav
-        adaptiveHeight: true
-
       $(@elAsNav).slick
         slidesToShow: 6
         slidesToScroll: 1
         asNavFor: @el
         focusOnSelect: true 
+        dots: true
+        arrows: false
+        slide: 'div'
+
+      $(@el).slick
+        slidesToShow: 1
+        slidesToScroll: 1
+        arrows: false
+        fade: true
+        asNavFor: @elAsNav
+        adaptiveHeight: true
   
-  new Download
+
+  $(document).ready () ->
+    new Download

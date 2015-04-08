@@ -208,6 +208,7 @@ class Marketify_Customizer_Output_Colors {
 		$this->css->add( array(
 			'selectors' => array(
 				'.search-form-overlay',
+				'.download-gallery-navigation__image.slick-active:before'
 			),
 			'declarations' => array(
 				'background-color' => 'rgba(' . $this->css->hex2rgb( $primary ) . ', .90)',
