@@ -21,21 +21,10 @@ class Marketify_Widget_FES_Vendor extends Marketify_EDD_FES_Vendor_Widget {
 		parent::__construct();
 	}
 
-	/**
-	 * widget function.
-	 *
-	 * @see WP_Widget
-	 * @access public
-	 * @param array $args
-	 * @param array $instance
-	 * @return void
-	 */
 	function widget( $args, $instance ) {
 		$url = $this->vendor->url();
 		$display_name = $this->vendor->display_name();
 		$registered = $this->vendor->date_registered();
-
-		ob_start();
 
 		echo $args[ 'before_widget' ];
 	?>
@@ -48,10 +37,6 @@ class Marketify_Widget_FES_Vendor extends Marketify_EDD_FES_Vendor_Widget {
 		</div>
 	<?php
 		echo $args[ 'after_widget' ];
-
-		$content = ob_get_clean();
-
-		echo $content;
 	}
 
 }

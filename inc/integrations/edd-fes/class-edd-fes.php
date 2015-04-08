@@ -11,6 +11,7 @@ class Marketify_EDD_FES extends Marketify_Integration {
 
 			'widgets/class-widget-vendor.php',
 			'widgets/class-widget-vendor-description.php',
+			'widgets/class-widget-vendor-contact.php',
 			'widgets/class-widget-product-details.php'
 		);
 

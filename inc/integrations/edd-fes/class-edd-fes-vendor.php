@@ -30,7 +30,7 @@ class Marketify_EDD_FES_Vendor {
 	}
 
 	public function url() {
-		return FES_Vendors::get_vendor_store_url( $this->obj->ID );
+		return trailingslashit( FES_Vendors::get_vendor_store_url( $this->obj->ID ) );
 	}
 
 	public function display_name() {
