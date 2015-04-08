@@ -9,9 +9,9 @@ class Marketify_Activation {
 			$this->theme = wp_get_theme();
 		}
 
-		$this->version = get_option( 'marketify_version' );
+		$this->version = get_option( 'marketify_version', 0 );
 
-		if ( $this->version && version_compare( $this->version, $this->theme->Version, '<' ) ) {
+		if ( version_compare( $this->version, $this->theme->Version, '<' ) ) {
 			$version = str_replace( '.', '', $this->theme->Version );
 
 			$this->upgrade( $version );
@@ -35,12 +35,12 @@ class Marketify_Activation {
 
 		// If it's set just update version can cut out
 		if ( get_option( 'marketify_version' ) ) {
-			$this->set_version();
+			/* $this->set_version(); */
 
 			return;
 		}
 
-		$this->set_version();
+		/* $this->set_version(); */
 		$this->redirect();
 	}
 
@@ -62,14 +62,42 @@ class Marketify_Activation {
 
 	private function _upgrade_200() {
 		$theme_mods = get_theme_mods();
-		
+
 		foreach ( $theme_mods as $mod => $value ) {
 			switch ($mod) {
-				case 'jobify_listings_display_area' :
-					set_theme_mod( 'job-display-sidebar', $value );
-					set_theme_mod( 'resume-display-sidebar', $value );
-					remove_theme_mod( 'jobify_listings_display_area' );
+				case 'general-downloads-label-singular' :
+					set_theme_mod( 'download-label-singular', $value );
+					set_theme_mod( 'download-label-generate', 'on' );
+				case 'general-downloads-label-plural' :
+					set_theme_mod( 'download-label-plural', $value );
+				case 'grid-height' :
+					set_theme_mod( 'downloads-grid-height', $value );
+					remove_theme_mod( 'grid-width' );
+					remove_theme_mod( 'grid-crop' );
+				case 'product-display-columns' :
+					set_theme_mod( 'downloads-columns', $value );
+				case 'product-display-single-style' :
+					set_theme_mod( 'downloads-columns', $value );
+				case 'product-display-grid-info' :
+					set_theme_mod( 'download-archives-meta', $value );
+				case 'product-display-excerpt' :
+					set_theme_mod( 'download-archives-excerpt', $value );
+				case 'product-display-truncate-title' :
+					set_theme_mod( 'download-archives-truncate-title', $value );
+					remove_theme_mod( 'product-display-show-buy' );
+				case 'footer-contact-address' :
+					set_theme_mod( 'footer-contact-us-adddress', $value );
+				case 'footer-logo' :
+					set_theme_mod( 'footer-copyright-logo', $value );
+				case 'header' :
+					set_theme_mod( 'color-page-header-background', $value );
+				case 'primary' :
+					set_theme_mod( 'color-primary', $value );
+				case 'accent' :
+					set_theme_mod( 'color-accent', $value );
 			}
+
+			remove_theme_mod( $mod );
 		}
 	}
 
