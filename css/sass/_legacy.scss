@@ -2288,10 +2288,6 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 	padding-left: 15px;
 }
 
-.download-archive-widget:first-child {
-	padding-top: 75px;
-}
-
 .download-archive-widget.widget li {
 	margin: 0;
 }
@@ -2386,64 +2382,6 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 .widget-download-price {
 	display: block;
 	font-weight: 700;
-}
-
-.download-sorting {
-	overflow: hidden;
-}
-
-.download-sorting select {
-	margin-left: 5px;
-	padding: 8px 30px 8px 12px;
-	width: auto;
-	min-width: 0;
-	border: 3px solid;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	text-indent: 0.01px;
-    text-overflow: '';
-}
-
-.download-sorting label[for="orderby"] {
-	position: relative;
-}
-
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-	.download-sorting label[for="orderby"]:after {
-		font-size: 18px;
-		color: #BDC3C7;
-		content: '\e6ce';
-		display: block;
-		width: 15px;
-		height: 15px;
-		position: absolute;
-		right: 9px;
-		top: 13px;
-	}
-}
-
-.download-sorting select:focus {
-	outline: 0;
-}
-
-.download-sorting label {
-	font-size: 15px;
-	font-family: 'Source Sans Pro';
-	font-weight: normal;
-	text-transform: none;
-	letter-spacing: 0;
-	float: left;
-}
-
-.download-sorting label input[type="radio"] {
-	display: none;
-}
-
-.download-sorting span {
-	font-size: 20px;
-	display: inline-block;
-	margin-top: 6px;
-	margin-left: 3px;
 }
 
 /* Download Single Widgets

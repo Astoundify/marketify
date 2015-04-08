@@ -48,7 +48,7 @@ class Marketify_Widget_Download_Archive_Sorting extends Marketify_Widget {
 
 		$title   = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
 		$order   = get_query_var( 'm-order' ) ? strtolower( get_query_var( 'm-order' ) ) : 'desc';
-		$orderby = get_query_var( 'm-orderby' ) ? strtolower( marketify_edd_sorting_options( get_query_var( 'm-orderby' ) ) ) : 'post_date';
+		$orderby = get_query_var( 'm-orderby' ) ? get_query_var( 'm-orderby' ) : 'post_date';
 
 		echo $before_widget;
 
@@ -65,17 +65,19 @@ class Marketify_Widget_Download_Archive_Sorting extends Marketify_Widget {
 						'selected' => $orderby,
 						'show_option_all' => false,
 						'show_option_none' => false,
-						'options' => marketify_edd_sorting_options()
+						'options' => marketify()->get( 'edd' )->sorting->options()
 					) );
 				?>
 			</label>
 
 			<label for="order-asc">
-				<input type="radio" name="m-order" id="order-asc" value="asc" <?php checked( 'asc', $order ); ?>><span class="icon-arrow-up"></span>
+				<input type="radio" name="m-order" id="order-asc" value="asc" <?php checked( 'asc', $order ); ?>><span
+				class="<?php echo checked( 'asc', $order, false ) ? 'active ': ''; ?>icon-arrow-up"></span>
 			</label>
 
 			<label for="order-desc">
-				<input type="radio" name="m-order" id="order-desc" value="desc" <?php checked( 'desc', $order ); ?>><span class="icon-arrow-down2"></span>
+				<input type="radio" name="m-order" id="order-desc" value="desc" <?php checked( 'desc', $order );
+				?>><span class="<?php echo checked( 'desc', $order, false ) ? 'active ': ''; ?>icon-arrow-down2"></span>
 			</label>
 
 			<?php if ( is_search() ) : ?>
