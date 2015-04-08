@@ -35,12 +35,12 @@ class Marketify_Activation {
 
 		// If it's set just update version can cut out
 		if ( get_option( 'marketify_version' ) ) {
-			/* $this->set_version(); */
+			$this->set_version();
 
 			return;
 		}
 
-		/* $this->set_version(); */
+		$this->set_version();
 		$this->redirect();
 	}
 

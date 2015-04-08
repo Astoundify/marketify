@@ -41,6 +41,17 @@ class Marketify_EDD extends Marketify_Integration {
 	public function setup_actions() {
 		add_action( 'after_setup_theme', array( $this, 'theme_support' ) );
 		add_filter( 'edd_default_downloads_name', array( marketify()->strings, 'get_labels' ) );
+		add_action( 'init', array( $this, 'update_slug' ), 0 );
+	}
+
+	public function update_slug() {
+		if ( 'on' != marketify_theme_mod( 'download-label-generate' ) ) {
+			return;
+		}
+
+		$labels = marketify()->strings->get_labels();
+
+		define( 'EDD_SLUG', strtolower( $labels[ 'plural' ] ) );
 	}
 
 	public function theme_support() {

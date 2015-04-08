@@ -27,7 +27,8 @@ class Marketify_Customizer_Controls_Downloads_Behavior extends Marketify_Customi
 			'download-label-generate' => array(
 				'label' => __( 'Generate New Permalinks', 'marketify' ),
 				'type' => 'checkbox',
-				'description' => __( 'Use these labels to create updated permalinks. Visit "Settings > Permalinks" once saved.', 'marketify' )
+				'description' => sprintf( __( 'Use these labels to create updated permalinks. Visit <a href="%s">Settings &rarr;
+				Permalinks</a> once saved.', 'marketify' ), admin_url( 'options-permalink.php' ) )
 			),
 		);
 
