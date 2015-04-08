@@ -22,6 +22,10 @@ class Marketify_Customizer_Panels {
 				'sections' => array(
 					'colors' => array(
 						'title' => __( 'Colors', 'marketify' ),
+					),
+					'footer' => array(
+						'title' => __( 'Footer', 'marketify' ),
+						'priority' => 100
 					)
 				)
 			),
@@ -36,6 +40,17 @@ class Marketify_Customizer_Panels {
 					),
 					'download-single' => array(
 						'title' => sprintf( __( 'Single %s', 'marketify' ), edd_get_label_singular() )
+					)
+				)
+			),
+			'footer' => array(
+				'title' => __( 'Footer', 'marketify' ),
+				'sections' => array(
+					'contact-us' => array(
+						'title' => __( 'Contact Us', 'marketify' ),
+					),
+					'copyright' => array(
+						'title' => __( 'Copyright', 'marketify' ),
 					)
 				)
 			),

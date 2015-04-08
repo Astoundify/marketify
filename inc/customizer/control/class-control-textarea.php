@@ -4,7 +4,7 @@
  *
  * @since Jobify 2.1.0
  */
-class Jobify_Customize_Textarea_Control extends WP_Customize_Control {
+class Marketify_Customize_Textarea_Control extends WP_Customize_Control {
 	public $type = 'textarea';
 
 	public function render_content() {

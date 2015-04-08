@@ -23,7 +23,15 @@ function marketify_get_theme_mod_defaults() {
 		'download-feature-area' => 'top',
 
 		// Footer
-		'footer-contact-address' => false
+		'footer-style' => 'light',
+
+		'footer-contact-us-display' => 'on',
+		'footer-contact-us-title' => 'Contact Us',
+		'footer-contact-us-adddress' => "393 Bay Street, 2nd Floor\nToronto, Ontario, Canada, L9T8S2",
+
+		'footer-copyright-display' => 'on',
+		'footer-copyright-logo' => '',
+		'footer-copyright-text' => sprintf( 'Copyright &copy; %s %s', date( 'Y' ), get_bloginfo( 'name' ) )
 	);
 
 	return apply_filters( 'marketify_theme_mod_defaults', $mods );

@@ -56,11 +56,15 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 		);
 
 		if ( $this->has_featured ) {
-			$this->settings[ 'featured-title' ] = array(
-				'type'  => 'text',
-				'std'   => 'Featured',
-				'label' => __( 'Featured Title:', 'marketify' )
+			$featured = array(
+				'featured-title' => array(
+					'type'  => 'text',
+					'std'   => 'Featured',
+					'label' => __( 'Featured Title:', 'marketify' )
+				)
 			);
+
+			$this->settings = array_merge( $featured, $this->settings );
 		}
 
 		parent::__construct();
@@ -87,8 +91,18 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 		$f_title   = isset( $instance[ 'featured-title' ] ) ? $instance[ 'featured-title' ] : __( 'Featured', 'marketify' );
 		$p_title   = isset( $instance[ 'popular-title' ] ) ? $instance[ 'popular-title' ] : __( 'Popular', 'marketify' );
 
+		$auto      = isset( $instance[ 'scroll' ] ) && 1 == $instance[ 'scroll' ] ? 'true' : 'false';
+		$speed     = isset( $instance[ 'speed' ] ) ? $instance[ 'speed' ] : 70000;
+
 		echo $before_widget;
 	?>
+		
+		<script>
+			var marketifyFeaturedPopular = {
+				'autoPlay': '<?php echo $auto; ?>',
+				'autoPlaySpeed': <?php echo $speed; ?>
+			}
+		</script>
 
 		<h1 class="featured-popular-switcher home-widget-title">
 			<?php if ( $this->has_featured ) : ?>

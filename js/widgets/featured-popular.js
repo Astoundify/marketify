@@ -22,7 +22,11 @@
       };
 
       FeaturedPopular.prototype.initSliders = function() {
+        var extras;
+        extras = marketifyFeaturedPopular;
         return $('.featured-popular-slick .edd_downloads_list').slick({
+          autoPlay: extras.autoPlay,
+          autoPlaySpeed: parseInt(extras.autoPlaySpeed),
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,

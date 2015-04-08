@@ -6,6 +6,18 @@ class Marketify_Template_Footer {
 		add_action( 'marketify_footer_site_info', array( $this, 'social_menu' ), 10 );
 		add_action( 'marketify_footer_site_info', array( $this, 'contact_address' ), 20 );
 		add_action( 'marketify_footer_site_info', array( $this, 'site_info' ), 30 );
+
+		add_action( 'marketify_footer_above', array( $this, 'footer_widget_areas' ) );
+	}
+
+	public function footer_widget_areas() {
+	?>
+		<div class="footer-widget-areas row">
+		<?php for ( $i = 1; $i <= 3; $i++ ) : ?>
+			<?php dynamic_sidebar( 'footer-' . $i ); ?>
+		<?php endfor; ?>
+		</div>
+	<?php
 	}
 
 	private function has_social_menu() {

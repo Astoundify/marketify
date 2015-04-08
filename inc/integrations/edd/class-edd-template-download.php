@@ -10,6 +10,14 @@ class Marketify_EDD_Template_Download {
 
 		add_action( 'marketify_download_info', array( $this, 'download_price' ), 5 );
 		add_action( 'marketify_download_actions', array( $this, 'demo_link' ) );
+
+		add_filter( 'body_class', array( $this, 'body_class' ) );
+	}
+
+	public function body_class( $classes ) {
+		$classes[] = 'featured-location-' . $this->get_featured_area_location();
+
+		return $classes;
 	}
 
 	public function enqueue_scripts() {
