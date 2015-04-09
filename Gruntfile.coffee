@@ -14,7 +14,8 @@ module.exports = () ->
         files: [
           'Gruntfile.*'
           'js/**/*.coffee',
-          'js/app/*.js'
+          'js/app/*.js',
+          'inc/**/*.coffee'
         ]
         tasks: [ 'coffee', 'uglify' ]
 
@@ -42,6 +43,7 @@ module.exports = () ->
         files:
           'js/download/download.js': 'js/download/download.coffee'
           'js/widgets/featured-popular.js': 'js/widgets/featured-popular.coffee'
+          'inc/integrations/facetwp/js/facetwp.js': 'inc/integrations/facetwp/js/facetwp.coffee'
 
     uglify:
       dist:
@@ -53,6 +55,7 @@ module.exports = () ->
             'js/app/marketify.js',
             'js/download/download.js',
             'js/widgets/featured-popular.js',
+            'inc/integrations/facetwp/js/facetwp.js',
             '!js/vendor/salvattore.min.js'
           ]
 

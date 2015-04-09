@@ -39,6 +39,10 @@ class Marketify_Integrations {
 				defined( 'edd_csau_version' ),
 				'Marketify_EDD_Cross_Sell_UpSell'
 			),
+			'facetwp' => array(
+				class_exists( 'FacetWP' ),
+				'Marketify_FacetWP'
+			),
 			'jetpack' => array(
 				class_exists( 'Jetpack' ),
 				'Marketify_Jetpack'
