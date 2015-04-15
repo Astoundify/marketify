@@ -2436,6 +2436,14 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 .download-author {
 	text-align: center;
 	overflow: hidden;
+
+	p {
+		margin: 1em 0;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
 }
 
 .download-author img {
@@ -2532,6 +2540,10 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 	margin-top: -30px;
 	margin-bottom: 40px;
 	text-align: center;
+
+	.download-info .star-rating {
+		display: none;
+	}
 }
 
 .product-details-pull .page-title {

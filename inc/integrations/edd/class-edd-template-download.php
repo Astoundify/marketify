@@ -15,6 +15,11 @@ class Marketify_EDD_Template_Download {
 	}
 
 	public function body_class( $classes ) {
+		$format = $this->get_post_format();
+		$setting = marketify_theme_mod( "download-{$format}-feature-area" );
+
+		$classes[] = 'feature-location-' . $setting;
+
 		return $classes;
 	}
 
@@ -88,7 +93,7 @@ class Marketify_EDD_Template_Download {
 		if ( $this->is_format_location( 'top' ) ) {
 			add_action( 'marketify_entry_before', array( $this, "featured_{$format}" ), 5 );
 
-			if ( 'standard' != $format && $this->format_style_is( 'inline' ) ) {
+			if ( 'standard' != $format && $this->is_format_style( 'inline' ) ) {
 				add_action( 'marketify_entry_before', array( $this, 'featured_standard' ), 6 );
 			}
 		} else {
@@ -96,7 +101,7 @@ class Marketify_EDD_Template_Download {
 
 			add_action( 'marketify_single_download_content_before_content', array( $this, 'featured_standard_navigation' ), 11 );
 
-			if ( 'standard' != $format && $this->format_style_is( 'inline' ) ) {
+			if ( 'standard' != $format && $this->is_format_style( 'inline' ) ) {
 				add_action( 'marketify_single_download_content_before_content', array( $this, 'featured_standard' ), 6 );
 			}
 		}
@@ -133,7 +138,7 @@ class Marketify_EDD_Template_Download {
 		return false;
 	}
 
-	public function format_style_is( $style ) {
+	public function is_format_style( $style ) {
 		if ( ! is_array( $style ) ) {
 			$style = array( $style );
 		}

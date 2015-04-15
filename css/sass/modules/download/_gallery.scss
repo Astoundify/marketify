@@ -39,4 +39,8 @@
 
 .content-area .download-gallery {
 	margin: 3em 0;
+
+	&:first-child {
+		margin-top: 0;
+	}
 }
