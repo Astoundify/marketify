@@ -1,11 +1,11 @@
 <?php
 
-class Marketify_Customizer_Controls_Download_Single extends Marketify_Customizer_Controls {
+class Marketify_Customizer_Controls_Download_Single_Audio extends Marketify_Customizer_Controls {
 
 	public $controls = array();
 
 	public function __construct() {
-		$this->section = 'download-single-standard';
+		$this->section = 'download-single-audio';
 		$this->priority = new Marketify_Customizer_Priority(0, 10);
 
 		parent::__construct();
@@ -16,19 +16,20 @@ class Marketify_Customizer_Controls_Download_Single extends Marketify_Customizer
 
 	public function add_controls( $wp_customize ) {
 		$this->controls = array(
-			'download-standard-feature-area' => array(
-				'label' => __( 'Image Gallery Location', 'marketify' ),
+			'download-audio-feature-area' => array(
+				'label' => __( 'Audio Player Location', 'marketify' ),
 				'type'    => 'select',
 				'choices' => array(
 					'top' => __( 'Page Header', 'marketify' ),
 					'inline' => __( 'Page Content', 'marketify' )
 				),
 			),
-			'download-standard-feature-image' => array(
+			'download-audio-feature-image' => array(
 				'label' => __( 'Featured Image Display', 'marketify' ),
 				'type'    => 'select',
 				'choices' => array(
 					'background' => __( 'Header Background', 'marketify' ),
+					'inline' => __( 'Below Audio Player', 'marketify' ),
 					'none' => __( 'None', 'marketify' )
 				),
 			)
@@ -39,4 +40,4 @@ class Marketify_Customizer_Controls_Download_Single extends Marketify_Customizer
 	
 }
 
-new Marketify_Customizer_Controls_Download_Single();
+new Marketify_Customizer_Controls_Download_Single_Audio();

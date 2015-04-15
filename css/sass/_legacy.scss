@@ -674,7 +674,7 @@ body:not(.minimal) .edd_form fieldset > span,
 body:not(.minimal) .entry-content .fes-headers {
 	text-align: center;
 	width: 100%;
-	margin: 70px 0;
+	margin: 3em 0;
 	position: relative;
 	display: block;
 }
@@ -1257,15 +1257,6 @@ body:not(.minimal) .edd_form legend {
 .download-actions .edd_download_purchase_form .edd_errors {
 	width: 100%;
 	max-width: 100%;
-}
-
-.site-content .download-video,
-.site-content div.jp-audio {
-	margin: 70px 0 60px;
-}
-
-.site-content div.jp-audio {
-	width: 100%;
 }
 
 .single-download .site-content .jp-type-playlist {

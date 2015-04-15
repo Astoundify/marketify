@@ -23,8 +23,11 @@ function marketify_get_theme_mod_defaults() {
 		'download-standard-feature-area' => 'top',
 		'download-standard-feature-image' => 'inline',
 
-		'download-audio-featured-image' => 'background',
-		'download-video-featured-image' => 'background',
+		'download-audio-feature-area' => 'top',
+		'download-audio-feature-image' => 'background',
+
+		'download-video-feature-area' => 'top',
+		'download-video-feature-image' => 'background',
 
 		// Footer
 		'footer-style' => 'light',

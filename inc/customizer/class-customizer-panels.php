@@ -40,6 +40,12 @@ class Marketify_Customizer_Panels {
 					),
 					'download-single-standard' => array(
 						'title' => sprintf( __( 'Single %s - Standard', 'marketify' ), edd_get_label_singular() )
+					),
+					'download-single-audio' => array(
+						'title' => sprintf( __( 'Single %s - Audio', 'marketify' ), edd_get_label_singular() )
+					),
+					'download-single-video' => array(
+						'title' => sprintf( __( 'Single %s - Video', 'marketify' ), edd_get_label_singular() )
 					)
 				)
 			),
