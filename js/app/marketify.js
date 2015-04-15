@@ -116,22 +116,20 @@ Marketify.App = ( function($) {
 
 			$( '.individual-testimonial .avatar' ).wrap( '<div class="avatar-wrap"></div>' );
 
-			//$( '.download-grid-wrapper' ).find( ':not(.edd_download)' ).remove();
+			$( '.edd_downloads_list' ).each(function() {
+				console.log($(this));
+				var pagination = $(this).find( $( '#edd_download_pagination' ) );
 
-				$( '.edd_downloads_list' ).each(function() {
-					console.log($(this));
-					var pagination = $(this).find( $( '#edd_download_pagination' ) );
+				if ( ! pagination.length ) {
+					return;
+				}
 
-					if ( ! pagination.length ) {
-						return;
-					}
+				var clone = pagination.clone();
 
-					var clone = pagination.clone();
+				pagination.remove();
 
-					pagination.remove();
-
-					clone.insertAfter( $(this) );
-				});
+				clone.insertAfter( $(this) );
+			});
 
 		},
 

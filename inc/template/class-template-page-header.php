@@ -120,7 +120,12 @@ class Marketify_Template_Page_Header {
 	private function find_background_image( $args ) {
 		$background_image = false;
 
-		if ( is_page() ) {
+		$format_style_is_background = marketify()->get( 'edd' )->template->download->format_style_is( array( 'combined', 'background' ) );
+
+		if (
+			is_page() ||
+			( is_singular( 'download' ) && $format_style_is_background )
+		) {
 			$background_image = wp_get_attachment_image_src( get_post_thumbnail_id(), $args[ 'size' ] );
 			$background_image = $background_image[0];
 		}

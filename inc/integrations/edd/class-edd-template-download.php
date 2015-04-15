@@ -68,6 +68,10 @@ class Marketify_EDD_Template_Download {
 		return marketify_theme_mod( 'download-feature-area' );
 	}
 
+	private function get_featured_image_location() {
+		return marketify_theme_mod( 'download-featured-image' );
+	}
+
 	private function get_featured_images() {
 		global $post;
 
@@ -99,7 +103,15 @@ class Marketify_EDD_Template_Download {
 		}
 
 		if ( 'top' == $this->get_featured_area_location() ) {
-			add_action( 'marketify_entry_before', array( $this, 'featured_' . $format ), 9 );
+			if ( ! $this->format_style_is( 'background' ) ) {
+				add_action( 'marketify_entry_before', array( $this, "featured_{$format}" ), 5 );
+			} elseif ( $this->format_style_is( 'inline' ) && 'standard' != $format ) {
+				add_action( 'marketify_entry_before', array( $this, 'featured_standard' ), 5 );
+			}
+
+			if ( 'standard' != $format && $this->format_style_is( 'inline' ) ) {
+				add_action( 'marketify_entry_before', array( $this, 'featured_standard' ), 6 );
+			}
 		} else {
 			add_action( 'marketify_single_download_content_before_content', array( $this, 'featured_' . $format ) );
 
@@ -107,6 +119,32 @@ class Marketify_EDD_Template_Download {
 				add_action( 'marketify_single_download_content_before_content', array( $this, 'featured_standard_navigation' ), 11 );
 			}
 		}
+	}
+
+	public function format_style_is( $style ) {
+		global $post;
+
+		if ( ! $post ) {
+			return false;
+		}
+
+		if ( ! is_array( $style ) ) {
+			$style = array( $style );
+		}
+
+		$format = get_post_format();
+
+		if ( '' == $format ) {
+			$format = 'standard';
+		}
+
+		$setting = marketify_theme_mod( "download-{$format}-featured-image" );
+		
+		if ( in_array( $setting, $style ) ) {
+			return true;
+		}
+
+		return false;
 	}
 
 	public function featured_area_header_actions() {
@@ -178,7 +216,29 @@ class Marketify_EDD_Template_Download {
 	}
 
 	public function featured_video() {
-		echo 'video';
+		global $post;
+
+		$field = apply_filters( 'marketify_video_field', 'video' );
+		$video = get_post_meta( $post->ID, $field, true );
+
+		if ( ! $video )
+			return;
+
+		if ( is_array( $video ) ) {
+			$video = current( $video );
+		}
+
+		$info = wp_check_filetype( $video );
+
+		if ( '' == $info[ 'ext' ] ) {
+			global $wp_embed;
+
+			$output = $wp_embed->run_shortcode( '[embed]' . $video . '[/embed]' );
+		} else {
+			$output = do_shortcode( sprintf( '[video %s="%s"]', $info[ 'ext' ], $video ) );
+		}
+		
+		echo '<div class="download-video">' . $output . '</div>';
 	}
 
 }

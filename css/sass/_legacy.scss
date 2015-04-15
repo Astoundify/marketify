@@ -1259,10 +1259,6 @@ body:not(.minimal) .edd_form legend {
 	max-width: 100%;
 }
 
-.single-download .featured-image .download-video {
-	margin-bottom: 60px;
-}
-
 .site-content .download-video,
 .site-content div.jp-audio {
 	margin: 70px 0 60px;
@@ -1286,6 +1282,11 @@ body:not(.minimal) .edd_form legend {
 .download-info {
 	text-align: center;
 	margin: 40px 0;
+}
+
+.download-info:last-child {
+	margin-bottom: 0;
+	padding-bottom: 40px;
 }
 
 .download-info {

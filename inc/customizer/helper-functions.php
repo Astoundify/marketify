@@ -21,6 +21,9 @@ function marketify_get_theme_mod_defaults() {
 		'downloads-columns' => 3,
 
 		'download-feature-area' => 'top',
+		'download-standard-featured-image' => 'inline',
+		'download-audio-featured-image' => 'background',
+		'download-video-featured-image' => 'background',
 
 		// Footer
 		'footer-style' => 'light',

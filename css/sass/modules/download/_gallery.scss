@@ -1,6 +1,14 @@
 .header-outer .download-gallery {
 	max-width: 80%;
 	margin: 0 auto;
+
+	img {
+		display: block;
+	}
+}
+
+.header-outer .download-video + .download-gallery {
+	margin-top: 3em;
 }
 
 	@include bp(lg) {
