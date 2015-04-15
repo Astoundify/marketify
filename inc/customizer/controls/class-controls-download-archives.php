@@ -16,6 +16,12 @@ class Marketify_Customizer_Controls_Download_Archives extends Marketify_Customiz
 
 	public function add_controls( $wp_customize ) {
 		$this->controls = array(
+			'downloads-per-page' => array(
+				'label' => sprintf( __( '%s Per Page', 'marketify' ), edd_get_label_plural() ),
+				'type' => 'number',
+				'description' => __( 'Can be overwritten by passing <code>number</code> to the <code>[downloads]</code>
+				shortcode', 'marketify' )
+			),
 			'download-archives-popular' => array(
 				'label' => __( 'Display "Popular Items" above results', 'marketify' ),
 				'type'    => 'checkbox'
@@ -36,12 +42,6 @@ class Marketify_Customizer_Controls_Download_Archives extends Marketify_Customiz
 					'always' => __( 'Always', 'marketify' ),
 					'never' => __( 'Never', 'marketify' )
 				)
-			),
-			'downloads-per-page' => array(
-				'label' => sprintf( __( '%s Per Page', 'marketify' ), edd_get_label_plural() ),
-				'type' => 'number',
-				'description' => __( 'Can be overwritten by passing <code>number</code> to the <code>[downloads]</code>
-				shortcode', 'marketify' )
 			),
 			'downloads-grid-height' => array(
 				'label' => __( 'Grid Image Height (px)', 'marketify' ),
