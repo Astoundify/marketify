@@ -103,11 +103,7 @@ class Marketify_EDD_Template_Download {
 		}
 
 		if ( 'top' == $this->get_featured_area_location() ) {
-			if ( ! $this->format_style_is( 'background' ) ) {
-				add_action( 'marketify_entry_before', array( $this, "featured_{$format}" ), 5 );
-			} elseif ( $this->format_style_is( 'inline' ) && 'standard' != $format ) {
-				add_action( 'marketify_entry_before', array( $this, 'featured_standard' ), 5 );
-			}
+			add_action( 'marketify_entry_before', array( $this, "featured_{$format}" ), 5 );
 
 			if ( 'standard' != $format && $this->format_style_is( 'inline' ) ) {
 				add_action( 'marketify_entry_before', array( $this, 'featured_standard' ), 6 );
@@ -167,6 +163,10 @@ class Marketify_EDD_Template_Download {
 	}
 
 	public function featured_standard() {
+		if ( $this->format_style_is( 'background' ) ) {
+			return;
+		}
+
 		$images = $this->get_featured_images();
 		$before = '<div class="download-gallery">';
 		$after  = '</div>';
@@ -212,7 +212,83 @@ class Marketify_EDD_Template_Download {
 	}
 
 	public function featured_audio() {
-		echo 'audio';
+		global $post;
+
+		$download_id = $post->ID;
+		$_attachments = get_post_meta( $download_id, 'preview_files', true );
+
+		$audio       = array();
+		$exts        = array();
+		$attachments = array();
+
+		if ( $_attachments ) {
+			foreach ( $_attachments as $attachment ) {
+				$attachments[$attachment] = get_post( $attachment );
+			}
+		} else {
+			$attachments = get_attached_media( 'audio', $download_id );
+		}
+
+		foreach ( $attachments as $attachment ) {
+			$file = wp_get_attachment_url( $attachment->ID );
+			$info = wp_check_filetype( $file );
+
+			if ( ! in_array( $info[ 'ext' ], $exts ) )
+				$exts[] = $info[ 'ext' ];
+
+			$audio[] = array(
+				'title'          => get_the_title( $attachment->ID ),
+				$info[ 'ext' ]   => $file
+			);
+		}
+		?>
+		<script type="text/javascript">
+			//<![CDATA[
+			jQuery(document).ready(function($){
+				new jPlayerPlaylist({
+					jPlayer: "#jplayer_<?php echo $download_id; ?>",
+					cssSelectorAncestor: "#jp_container_<?php echo $download_id; ?>"
+				}, <?php echo json_encode( $audio ); ?>, {
+					swfPath        : "<?php echo get_template_directory_uri(); ?>/js",
+					supplied       : "<?php echo implode( ', ', $exts ); ?>",
+					wmode          : "window",
+					smoothPlayBar  : true,
+					keyEnabled     : true
+				});
+			});
+			//]]>
+			</script>
+
+		<div id="jplayer_<?php echo $download_id; ?>" class="jp-jplayer"></div>
+
+		<div id="jp_container_<?php echo $download_id; ?>" class="jp-audio">
+			<div class="jp-type-playlist">
+				<div class="jp-playlist">
+					<ul>
+						<li></li>
+					</ul>
+				</div>
+				<div class="jp-gui jp-interface">
+					<ul class="jp-controls">
+						<li><a href="javascript:;" class="jp-previous" tabindex="1"><i class="icon-previous"></i></a></li>
+						<li><a href="javascript:;" class="jp-play" tabindex="1"><i class="icon-play"></i></a></li>
+						<li><a href="javascript:;" class="jp-pause" tabindex="1"><i class="icon-pause"></i></a></li>
+						<li><a href="javascript:;" class="jp-next" tabindex="1"><i class="icon-next"></i></a></li>
+					</ul>
+					<div class="jp-progress">
+						<div class="jp-seek-bar">
+							<div class="jp-play-bar"></div>
+						</div>
+					</div>
+					<div class="jp-volume-bar">
+						<div class="jp-volume-bar-value"></div>
+					</div>
+				</div>
+				<div class="jp-no-solution"><?php _e( 'Error', 'marketify' ); ?></div>
+			</div>
+		</div>
+
+		<?php
 	}
 
 	public function featured_video() {
