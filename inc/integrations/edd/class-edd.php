@@ -16,7 +16,6 @@ class Marketify_EDD extends Marketify_Integration {
 
 			'widgets/class-widget-downloads-curated.php',
 			'widgets/class-widget-downloads-recent.php',
-			'widgets/class-widget-downloads-taxonomy.php',
 			'widgets/class-widget-downloads-taxonomy-stylized.php',
 			'widgets/class-widget-downloads-featured-popular.php',
 
