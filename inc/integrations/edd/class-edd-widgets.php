@@ -11,13 +11,15 @@ class Marketify_EDD_Widgets {
 		register_widget( 'Marketify_Widget_Recent_Downloads' );
 		register_widget( 'Marketify_Widget_Curated_Downloads' );
 		register_widget( 'Marketify_Widget_Featured_Popular_Downloads' );
-		register_widget( 'Marketify_Widget_Downloads_Taxonomy' );
 		register_widget( 'Marketify_Widget_Taxonomy_Stylized' );
 
 		register_widget( 'Marketify_Widget_Download_Archive_Sorting' );
 
 		register_widget( 'Marketify_Widget_Download_Details' );
 		register_widget( 'Marketify_Widget_Download_Share' );
+
+		unregister_widget( 'edd_product_details_widget' );
+
 	}
 
 	public function register_sidebars() {
