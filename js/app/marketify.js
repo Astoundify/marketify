@@ -118,17 +118,6 @@ Marketify.App = ( function($) {
 
 			$( '.edd_downloads_list' ).each(function() {
 				var pagination = $(this).find( $( '#edd_download_pagination' ) );
-
-				if ( $(this).hasClass( 'facetwp-template' ) ) {
-					return pagination.remove();
-				}
-
-				if ( ! pagination.length ) {
-					return;
-				}
-
-				console.log('wat');
-
 				var clone = pagination.clone();
 
 				pagination.remove();
