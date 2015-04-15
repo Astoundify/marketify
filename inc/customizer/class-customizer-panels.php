@@ -38,8 +38,8 @@ class Marketify_Customizer_Panels {
 					'download-archives' => array(
 						'title' => sprintf( __( '%s Archives', 'marketify' ), edd_get_label_singular() )
 					),
-					'download-single' => array(
-						'title' => sprintf( __( 'Single %s', 'marketify' ), edd_get_label_singular() )
+					'download-single-standard' => array(
+						'title' => sprintf( __( 'Single %s - Standard', 'marketify' ), edd_get_label_singular() )
 					)
 				)
 			),

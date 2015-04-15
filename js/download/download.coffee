@@ -1,23 +1,13 @@
 jQuery ($) ->
 
-  options = marketifyDownload;
-  
   class Download
-  
-    constructor: ->
-      if 'standard' == options.format 
-        new DownloadStandard()
-  
-  class DownloadStandard
   
     constructor: ->
       @el = '.download-gallery'
       @elAsNav = '.download-gallery-navigation'
   
-      if 'top' == options.featuredLocation
-        @initTopSlider()
-      else
-        @initContentSlider()
+      @initTopSlider()
+      @initContentSlider()
   
     initTopSlider: =>
       $(@el).slick

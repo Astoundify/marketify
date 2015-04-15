@@ -15,20 +15,11 @@ class Marketify_EDD_Template_Download {
 	}
 
 	public function body_class( $classes ) {
-		$classes[] = 'featured-location-' . $this->get_featured_area_location();
-
 		return $classes;
 	}
 
 	public function enqueue_scripts() {
 		wp_enqueue_script( 'marketify-download', get_template_directory_uri() . '/js/download/download.js', array( 'marketify' ) );
-
-		$args = array(
-			'format' => get_post_format() ? get_post_format() : 'standard',
-			'featuredLocation' => $this->get_featured_area_location()
-		);
-
-		wp_localize_script( 'marketify-download', 'marketifyDownload', $args );
 	}
 
 	public function download_price() {
@@ -64,14 +55,6 @@ class Marketify_EDD_Template_Download {
 		echo apply_filters( 'marketify_demo_link', sprintf( '<a href="%s" class="button" target="_blank">%s</a>', esc_url( $demo ), $label ) );
 	}
 
-	private function get_featured_area_location() {
-		return marketify_theme_mod( 'download-feature-area' );
-	}
-
-	private function get_featured_image_location() {
-		return marketify_theme_mod( 'download-featured-image' );
-	}
-
 	private function get_featured_images() {
 		global $post;
 
@@ -102,7 +85,7 @@ class Marketify_EDD_Template_Download {
 			$format = 'standard';
 		}
 
-		if ( 'top' == $this->get_featured_area_location() ) {
+		if ( $this->is_format_location( 'top' ) ) {
 			add_action( 'marketify_entry_before', array( $this, "featured_{$format}" ), 5 );
 
 			if ( 'standard' != $format && $this->format_style_is( 'inline' ) ) {
@@ -117,15 +100,11 @@ class Marketify_EDD_Template_Download {
 		}
 	}
 
-	public function format_style_is( $style ) {
+	private function get_post_format() {
 		global $post;
 
 		if ( ! $post ) {
 			return false;
-		}
-
-		if ( ! is_array( $style ) ) {
-			$style = array( $style );
 		}
 
 		$format = get_post_format();
@@ -134,8 +113,32 @@ class Marketify_EDD_Template_Download {
 			$format = 'standard';
 		}
 
-		$setting = marketify_theme_mod( "download-{$format}-featured-image" );
-		
+		return $format;
+	}
+
+	public function is_format_location( $location ) {
+		if ( ! is_array( $location ) ) {
+			$location = array( $location );
+		}
+
+		$format = $this->get_post_format();
+		$setting = marketify_theme_mod( "download-{$format}-feature-area" );
+
+		if ( in_array( $setting, $location ) ) {
+			return true;
+		}
+
+		return false;
+	}
+
+	public function format_style_is( $style ) {
+		if ( ! is_array( $style ) ) {
+			$style = array( $style );
+		}
+
+		$format = $this->get_post_format();
+		$setting = marketify_theme_mod( "download-{$format}-feature-image" );
+
 		if ( in_array( $setting, $style ) ) {
 			return true;
 		}
@@ -148,7 +151,7 @@ class Marketify_EDD_Template_Download {
 			return;
 		}
 
-		if ( 'top' != $this->get_featured_area_location() ) {
+		if ( ! $this->is_format_location( 'top' ) ) {
 			return;
 		}
 	?>
@@ -163,10 +166,6 @@ class Marketify_EDD_Template_Download {
 	}
 
 	public function featured_standard() {
-		if ( $this->format_style_is( 'background' ) ) {
-			return;
-		}
-
 		$images = $this->get_featured_images();
 		$before = '<div class="download-gallery">';
 		$after  = '</div>';

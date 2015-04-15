@@ -20,8 +20,9 @@ function marketify_get_theme_mod_defaults() {
 		'downloads-per-page' => 12,
 		'downloads-columns' => 3,
 
-		'download-feature-area' => 'top',
-		'download-standard-featured-image' => 'inline',
+		'download-standard-feature-area' => 'top',
+		'download-standard-feature-image' => 'inline',
+
 		'download-audio-featured-image' => 'background',
 		'download-video-featured-image' => 'background',
 

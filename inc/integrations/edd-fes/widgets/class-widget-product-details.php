@@ -6,7 +6,7 @@ class Marketify_Widget_FES_Product_Details extends Marketify_Widget {
 		$this->widget_cssclass    = 'marketify_widget_fes_product_details';
 		$this->widget_description = __( 'Output specificed submission form fields.', 'marketify' );
 		$this->widget_id          = 'marketify_widget_fes_product_details';
-		$this->widget_name        = __( 'Marketify - Download: Product Details', 'marketify' );
+		$this->widget_name        = sprintf( __( 'Marketify - %s Sidebar: Product Meta', 'marketify' ), edd_get_label_singular() );
 		$this->settings           = array(
 			'title' => array(
 				'type'  => 'text',
