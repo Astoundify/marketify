@@ -1,21 +1,30 @@
 <?php
 
-class Marketify_Easy_Digital_Downloads_Product_Reviews extends Marketify_Integration {
+class Marketify_EDD_Product_Reviews extends Marketify_Integration {
 
 	public function __construct() {
+		$this->includes = array(
+			'widgets/class-widget-download-review-details.php',
+			'class-edd-product-reviews-widgets.php'
+		);
+
 		parent::__construct( dirname( __FILE__ ) );
 	}
 
 	public function setup_actions() {
 		add_filter( 'edd_reviews_reviews_title', array( $this, 'section_title' ) );
 
-		add_action( 'marketify_edd_rating', 'output_in_comment' );
+		add_action( 'marketify_edd_rating', array( $this, 'output_in_comment' ) );
 		add_filter( 'edd_reviews_ratings_html', '__return_false', 10, 2 );
 
-		add_action( 'marketify_download_info', array( $this, 'output' ) );
-		add_action( 'marketify_download_content_image_overlay_after', array( $this, 'output' ) );
+		add_action( 'marketify_download_info', array( $this, 'output_stars' ) );
+		add_action( 'marketify_download_content_image_overlay_after', array( $this, 'output_stars' ) );
 
 		add_filter( 'edd_reviews_rating_box', array( $this, 'output_comment_form' ) );
+	}
+
+	public function init() {
+		$this->widgets = new Marketify_EDD_Product_Reviews_Widgets();
 	}
 
 	function section_title( $title ) {
@@ -26,7 +35,7 @@ class Marketify_Easy_Digital_Downloads_Product_Reviews extends Marketify_Integra
 		global $post;
 	?>
 		<div class="marketify-edd-rating">
-			<?php $this->output( $comment->comment_ID ); ?>
+			<?php echo $this->output_stars( $comment->comment_ID ); ?>
 
 			<span itemprop="name" class="review-title-text"><?php echo get_comment_meta( $comment->comment_ID, 'edd_review_title', true ); ?></span>
 		</div>
@@ -41,9 +50,6 @@ class Marketify_Easy_Digital_Downloads_Product_Reviews extends Marketify_Integra
 		} else {
 			$rating = get_comment_meta( $comment_id, 'edd_rating', true );
 		}
-
-		if ( 0 == $rating || did_action( 'marketify_product_details_before' ) )
-			return;
 	?>
 		<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="star-rating">
 			<?php for ( $i = 1; $i <= $rating; $i++ ) : ?>
