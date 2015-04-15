@@ -80,8 +80,6 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 	 * @return void
 	 */
 	function widget( $args, $instance ) {
-		ob_start();
-
 		global $post;
 
 		extract( $args );
@@ -126,9 +124,5 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 
 	<?php
 		echo $after_widget;
-
-		$content = ob_get_clean();
-
-		echo $content;
 	}
 }

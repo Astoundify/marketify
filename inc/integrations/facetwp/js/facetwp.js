@@ -2,13 +2,10 @@
   jQuery(function($) {
     var el;
     el = '.edd_downloads_list';
-    $(document).on('facetwp-refresh', function() {
-      return $(el).html('');
-    });
+    $(document).on('facetwp-refresh', function() {});
     return $(document).on('facetwp-loaded', function() {
       var grid;
-      grid = document.querySelector(el);
-      return salvattore['recreateColumns'](grid);
+      return grid = document.querySelector(el);
     });
   });
 

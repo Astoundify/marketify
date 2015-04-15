@@ -118,19 +118,21 @@ Marketify.App = ( function($) {
 
 			//$( '.download-grid-wrapper' ).find( ':not(.edd_download)' ).remove();
 
-			function pagi() {
-				if ( ! $( '#edd_download_pagination' ).length ) {
-					return;
-				}
+				$( '.edd_downloads_list' ).each(function() {
+					console.log($(this));
+					var pagination = $(this).find( $( '#edd_download_pagination' ) );
 
-				var pagi = $( '#edd_download_pagination' ).clone();
+					if ( ! pagination.length ) {
+						return;
+					}
 
-				$( '#edd_download_pagination' ).remove();
+					var clone = pagination.clone();
 
-				pagi.insertAfter( '.edd_downloads_list' );
-			}
+					pagination.remove();
 
-			pagi();
+					clone.insertAfter( $(this) );
+				});
+
 		},
 
 		popup : function( args ) {
