@@ -31,18 +31,6 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 				'std'   => 6,
 				'label' => __( 'Number to display:', 'marketify' )
 			),
-			'timeframe' => array(
-				'type'  => 'select',
-				'std'   => 'week',
-				'label' => __( 'Based on the current:', 'marketify' ),
-				'options'   => array(
-					'day'   => __( 'Day', 'marketify' ),
-					'week'  => __( 'Week', 'marketify' ),
-					'month' => __( 'Month', 'marketify' ),
-					'year'  => __( 'Year', 'marketify' ),
-					'all'   => __( 'All Time', 'marketify' )
-				)
-			),
 			'scroll' => array(
 				'type'  => 'checkbox',
 				'std'   => 1,
@@ -85,7 +73,6 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 		extract( $args );
 
 		$number    = isset( $instance[ 'number' ] ) ? absint( $instance[ 'number' ] ) : 8;
-		$timeframe = isset( $instance[ 'timeframe' ] ) ? $instance[ 'timeframe' ] : 'week';
 		$f_title   = isset( $instance[ 'featured-title' ] ) ? $instance[ 'featured-title' ] : __( 'Featured', 'marketify' );
 		$p_title   = isset( $instance[ 'popular-title' ] ) ? $instance[ 'popular-title' ] : __( 'Popular', 'marketify' );
 
