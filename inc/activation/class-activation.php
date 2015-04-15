@@ -71,19 +71,21 @@ class Marketify_Activation {
 				case 'general-downloads-label-plural' :
 					set_theme_mod( 'download-label-plural', $value );
 				case 'grid-height' :
-					set_theme_mod( 'downloads-grid-height', $value );
+					set_theme_mod( 'downloads-archives-grid-height', $value );
 					remove_theme_mod( 'grid-width' );
 					remove_theme_mod( 'grid-crop' );
 				case 'product-display-columns' :
-					set_theme_mod( 'downloads-columns', $value );
+					set_theme_mod( 'downloads-archives-columns', $value );
 				case 'product-display-single-style' :
-					set_theme_mod( 'downloads-columns', $value );
+					set_theme_mod( 'download-standard-feature-area', $value );
+					set_theme_mod( 'download-audio-feature-area', $value );
+					set_theme_mod( 'download-video-feature-area', $value );
 				case 'product-display-grid-info' :
-					set_theme_mod( 'download-archives-meta', $value );
+					set_theme_mod( 'downloads-archives-meta', $value );
 				case 'product-display-excerpt' :
-					set_theme_mod( 'download-archives-excerpt', $value );
+					set_theme_mod( 'downloads-archives-excerpt', $value );
 				case 'product-display-truncate-title' :
-					set_theme_mod( 'download-archives-truncate-title', $value );
+					set_theme_mod( 'downloads-archives-truncate-title', $value );
 					remove_theme_mod( 'product-display-show-buy' );
 				case 'footer-contact-address' :
 					set_theme_mod( 'footer-contact-us-adddress', $value );

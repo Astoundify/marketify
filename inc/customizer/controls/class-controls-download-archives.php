@@ -16,11 +16,16 @@ class Marketify_Customizer_Controls_Download_Archives extends Marketify_Customiz
 
 	public function add_controls( $wp_customize ) {
 		$this->controls = array(
-			'downloads-per-page' => array(
+			'download-archives-per-page' => array(
 				'label' => sprintf( __( '%s Per Page', 'marketify' ), edd_get_label_plural() ),
 				'type' => 'number',
 				'description' => __( 'Can be overwritten by passing <code>number</code> to the <code>[downloads]</code>
 				shortcode', 'marketify' )
+			),
+			'download-archives-columns' => array(
+				'label' => __( 'Number of Columns', 'marketify' ),
+				'type' => 'select',
+				'choices' => array( 1 => 1, 2 => 2, 3 => 3, 4 => 4 )
 			),
 			'download-archives-popular' => array(
 				'label' => __( 'Display "Popular Items" above results', 'marketify' ),
@@ -43,16 +48,11 @@ class Marketify_Customizer_Controls_Download_Archives extends Marketify_Customiz
 					'never' => __( 'Never', 'marketify' )
 				)
 			),
-			'downloads-grid-height' => array(
+			'downloads-archives-grid-height' => array(
 				'label' => __( 'Grid Image Height (px)', 'marketify' ),
 				'type' => 'number',
 				'description' => '<a
 				href="http://marketify.astoundify.com/article/599-why-are-my-grid-items-different-sizes">' . __( 'Read more about grid images', 'marketify' ) . '</a>'
-			),
-			'downloads-columns' => array(
-				'label' => __( 'Number of Columns', 'marketify' ),
-				'type' => 'select',
-				'options' => array( 1, 2, 3, 4 )
 			),
 		);
 
