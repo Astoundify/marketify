@@ -117,7 +117,6 @@ Marketify.App = ( function($) {
 			$( '.individual-testimonial .avatar' ).wrap( '<div class="avatar-wrap"></div>' );
 
 			$( '.edd_downloads_list' ).each(function() {
-				console.log($(this));
 				var pagination = $(this).find( $( '#edd_download_pagination' ) );
 
 				if ( ! pagination.length ) {
