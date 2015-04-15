@@ -22,17 +22,14 @@
       };
 
       FeaturedPopular.prototype.initSliders = function() {
-        var extras;
         if (!$('.featured-popular-slick .edd_downloads_list').length) {
           return;
         }
-        extras = marketifyFeaturedPopular;
         return $('.featured-popular-slick .edd_downloads_list').slick({
-          autoPlay: extras.autoPlay,
-          autoPlaySpeed: parseInt(extras.autoPlaySpeed),
+          autoPlay: typeof marketifyFeaturedPopular !== "undefined" && marketifyFeaturedPopular !== null ? marketifyFeaturedPopular.autoPlay : void 0,
+          autoPlaySpeed: parseInt(typeof marketifyFeaturedPopular !== "undefined" && marketifyFeaturedPopular !== null ? marketifyFeaturedPopular.autoPlaySpeed : void 0),
           slidesToShow: 3,
           slidesToScroll: 3,
-          infinite: true,
           arrows: false,
           dots: true,
           adaptiveHeight: true,

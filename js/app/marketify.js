@@ -127,6 +127,8 @@ Marketify.App = ( function($) {
 					return;
 				}
 
+				console.log('wat');
+
 				var clone = pagination.clone();
 
 				pagination.remove();

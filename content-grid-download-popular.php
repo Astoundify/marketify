@@ -5,29 +5,16 @@
  * @since Marketify 1.0
  */
 
-if ( ! is_paged() && ! get_query_var( 'm-orderby' ) || ! marketify_theme_mod( 'downloads-archive-popular' ) ) {
-	return;
-}
-
-$popular = new WP_Query(); // marketify_download_archive_popular();
-
-if ( ! $popular->have_posts() ) {
-	return;
-}
 ?>
 
 <div class="marketify_widget_featured_popular popular">
 
 	<h1 class="section-title"><span><?php _e( 'Popular', 'marketify' ); ?></span></h1>
 
-	<div id="items-popular" class="row flexslider">
-		<ul class="slides">
-			<?php while ( $popular->have_posts() ) : $popular->the_post(); ?>
-			<li class="col-lg-3 col-sm-6">
-				<?php get_template_part( 'content-grid', 'download' ); ?>
-			</li>
-			<?php endwhile; ?>
-		</ul>
+	<div class="featured-popular-tabs">
+		<div id="items-popular" class="inactive featured-popular-slick">
+			<?php echo do_shortcode( '[downloads number=6 flat=true orderby=sales]' ); ?>
+		</div>
 	</div>
 
 </div>

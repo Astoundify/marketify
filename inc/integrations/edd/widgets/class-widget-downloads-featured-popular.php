@@ -100,12 +100,12 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 		<div class="featured-popular-tabs">
 			<?php if ( $this->has_featured ) : ?>
 				<div id="items-featured" class="inactive featured-popular-slick">
-					<?php echo do_shortcode( sprintf( '[edd_featured_downloads number=%s flat=true excerpt=no full_content=no price=no buy_button=no]', $number ) ); ?>
+					<?php echo do_shortcode( "[edd_featured_downloads number={$number} flat=true excerpt=no full_content=no price=no buy_button=no]" ); ?>
 				</div>
 			<?php endif; ?>
 
 			<div id="items-popular" class="inactive featured-popular-slick">
-				<?php echo do_shortcode( sprintf( '[downloads number=%s flat=true orderby=sales]', $number ) ); ?>
+				<?php echo do_shortcode( "[downloads number={$number} flat=true orderby=sales]" ); ?>
 			</div>
 		</div>
 

@@ -16,6 +16,7 @@ class Marketify_EDD_Shortcode {
 		$out[ 'full_content' ] = 'no';
 		$out[ 'price' ]        = 'no';
 		$out[ 'buy_button' ]   = 'no';
+		$out[ 'columns' ]      = marketify_theme_mod( 'downloads-archives-columns' );
 
 		if ( isset( $atts[ 'flat' ] ) && $atts[ 'flat' ] == true ) {
 			$out[ 'salvattore' ] = 'no';

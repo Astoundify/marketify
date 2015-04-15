@@ -15,9 +15,11 @@ class Marketify_FacetWP extends Marketify_Integration {
 		unregister_widget( 'Marketify_Widget_Download_Archive_Sorting' );
 	}
 
-	public function facetwp_template( $output ) {
-		$output = str_replace( 'class="edd_downloads_list', 'class="edd_downloads_list facetwp-template', $output );
-		$output .= do_shortcode( '[facetwp pager="true"]' );
+	public function facetwp_template( $output, $atts ) {
+		if ( ! isset( $atts[ 'salvattore' ] ) || 'no' != $atts[ 'salvattore' ] ) {
+			$output = str_replace( 'class="edd_downloads_list', 'class="edd_downloads_list facetwp-template', $output );
+			$output .= do_shortcode( '[facetwp pager="true"]' );
+		}
 
 		return $output;
 	}

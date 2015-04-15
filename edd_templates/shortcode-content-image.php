@@ -21,7 +21,7 @@ global $post;
 		</div>
 	</div>
 
-	<?php the_post_thumbnail( 'content-grid-download' ); ?>
+	<?php the_post_thumbnail( 'medium' ); ?>
 </div>
 
 <?php locate_template( array( 'modal-download-purchase.php' ), true, false ); ?>

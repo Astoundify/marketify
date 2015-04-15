@@ -1,7 +1,7 @@
 (function() {
   jQuery(function($) {
     var el;
-    el = '.edd_downloads_list';
+    el = '.facetwp-template.edd_downloads_list';
     $(document).on('facetwp-refresh', function() {});
     return $(document).on('facetwp-loaded', function() {
       var grid;

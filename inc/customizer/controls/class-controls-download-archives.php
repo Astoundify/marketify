@@ -47,13 +47,7 @@ class Marketify_Customizer_Controls_Download_Archives extends Marketify_Customiz
 					'always' => __( 'Always', 'marketify' ),
 					'never' => __( 'Never', 'marketify' )
 				)
-			),
-			'downloads-archives-grid-height' => array(
-				'label' => __( 'Grid Image Height (px)', 'marketify' ),
-				'type' => 'number',
-				'description' => '<a
-				href="http://marketify.astoundify.com/article/599-why-are-my-grid-items-different-sizes">' . __( 'Read more about grid images', 'marketify' ) . '</a>'
-			),
+			)
 		);
 
 		return $this->controls;

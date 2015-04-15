@@ -21,14 +21,11 @@ jQuery ($) ->
     initSliders: =>
       if ! $( '.featured-popular-slick .edd_downloads_list' ).length then return
 
-      extras = marketifyFeaturedPopular
-
-      $( '.featured-popular-slick .edd_downloads_list' ).slick
-        autoPlay: extras.autoPlay
-        autoPlaySpeed: parseInt extras.autoPlaySpeed
+      $( '.featured-popular-slick .edd_downloads_list' ).slick(
+        autoPlay: marketifyFeaturedPopular?.autoPlay
+        autoPlaySpeed: parseInt marketifyFeaturedPopular?.autoPlaySpeed
         slidesToShow: 3
         slidesToScroll: 3
-        infinite: true
         arrows: false
         dots: true
         adaptiveHeight: true
@@ -48,5 +45,6 @@ jQuery ($) ->
             }
           }
        ]
+     )
 
   new FeaturedPopular()
