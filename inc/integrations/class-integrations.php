@@ -59,10 +59,6 @@ class Marketify_Integrations {
 				class_exists( 'WooThemes_Features' ),
 				'Marketify_WooThemes_Features'
 			),
-			'woothemes-projects' => array(
-				class_exists( 'WooThemes_Projects' ),
-				'Marketify_WooThemes_Projects'
-			),
 			'woothemes-testimonials' => array(
 				class_exists( 'WooThemes_Testimonials' ),
 				'Marketify_WooThemes_Testimonials'
