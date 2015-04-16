@@ -22,6 +22,12 @@ get_header(); ?>
 				
 				<?php do_action( 'marketify_downloads_before' ); ?>
 
+				<?php if ( 'on' == marketify_theme_mod( 'downloads-archives-popular' ) ) : ?>
+				<div class="section-title"><span>
+					<?php the_archive_title(); ?>
+				</span></div>
+				<?php endif; ?>
+
 				<?php echo do_shortcode( sprintf( '[downloads number="%s"]', get_option( 'posts_per_page' ) ) ); ?>
 
 				<?php do_action( 'marketify_downloads_after' ); ?>

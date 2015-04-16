@@ -9,7 +9,7 @@
 
 <div class="marketify_widget_featured_popular popular">
 
-	<h1 class="section-title"><span><?php _e( 'Popular', 'marketify' ); ?></span></h1>
+	<h1 class="section-title"><span><?php printf( __( 'Popular in %s', 'marketify' ), single_term_title( '', false ) ); ?></span></h1>
 
 	<div class="featured-popular-tabs">
 		<div id="items-popular" class="inactive featured-popular-slick">
