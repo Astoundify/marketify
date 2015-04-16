@@ -5,6 +5,7 @@ class Marketify_Template_Page_Templates {
 	public function __construct() {
 		add_filter( 'theme_page_templates', array( $this, 'fes' ) );
 		add_filter( 'theme_page_templates', array( $this, 'love_it' ) );
+		add_filter( 'theme_page_templates', array( $this, 'facetwp' ) );
 
 		add_filter( 'body_class', array( $this, 'body_class' ) );
 	}
@@ -25,6 +26,16 @@ class Marketify_Template_Page_Templates {
 		}
 
 		unset( $page_templates[ 'page-templates/wishlist.php' ] );
+
+		return $page_templates;
+	}
+
+	public function facetwp( $page_templates ) {
+		if ( ! marketify()->get( 'facetwp' ) ) {
+			return $page_templates;
+		}
+
+		unset( $page_templates[ 'page-templates/popular.php' ] );
 
 		return $page_templates;
 	}

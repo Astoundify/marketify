@@ -10,6 +10,7 @@ class Marketify_EDD extends Marketify_Integration {
 			'class-edd-template-download.php',
 			'class-edd-widgets.php',
 			'class-edd-sorting.php',
+			'class-edd-popular.php',
 			'class-edd-shortcode.php',
 			'class-edd-query.php',
 			'class-edd-metaboxes.php',
@@ -31,6 +32,7 @@ class Marketify_EDD extends Marketify_Integration {
 	public function init() {
 		$this->template = new Marketify_EDD_Template();
 		$this->sorting = new Marketify_EDD_Sorting();
+		$this->popular = new Marketify_EDD_Popular();
 		$this->query = new Marketify_EDD_Query();
 		$this->widgets = new Marketify_EDD_Widgets();
 		$this->shortcode = new Marketify_EDD_Shortcode();

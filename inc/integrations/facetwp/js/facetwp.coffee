@@ -4,7 +4,7 @@ jQuery ($) ->
   $(document).on 'facetwp-refresh', ->
     
   $(document).on 'facetwp-loaded', ->
-    $( '.edd_download.content-grid-download' ).attr( 'style', '' );
+    $(el).find( $( '.edd_download.content-grid-download' ) ).attr( 'style', '' );
 
     grid = document.querySelector el
     salvattore[ 'registerGrid' ](grid)

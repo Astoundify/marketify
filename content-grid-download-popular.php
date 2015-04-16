@@ -5,6 +5,9 @@
  * @since Marketify 1.0
  */
 
+if ( ! marketify()->get( 'edd' )->template->show_popular() ) {
+	return;
+}
 ?>
 
 <div class="marketify_widget_featured_popular popular">
