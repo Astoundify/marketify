@@ -35,15 +35,20 @@ class Marketify_Widget_FES_Product_Details extends Marketify_Widget {
 	function widget( $args, $instance ) {
 		ob_start();
 
+		$title  = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
 		$chosen = isset( $instance[ 'fields' ] ) ? $instance[ 'fields' ] : array();
 		$chosen = maybe_unserialize( $chosen );
 
 		$output = $this->get_product_details_output( $chosen );
 
 		echo $args[ 'before_widget' ];
-		?>
+			
+		if ( $title ) {
+			echo $args[ 'before_title' ] . $title . $args[ 'after_title' ];
+		}
+	?>
 
-		<table class="product-details-table">
+		<table class="edd-fpd">
 			<?php foreach ( $output as $label => $value ) : if ( '' == $value ) continue; ?>
 			<tr>
 				<th><?php echo $label; ?></th>
