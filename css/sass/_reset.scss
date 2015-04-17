@@ -247,7 +247,7 @@ input {
 }
 
 button,
-html input[type="button"]:not(.edd_button),
+input[type="button"],
 input[type="reset"],
 input[type="submit"] {
 	font: 700 13px/normal 'Montserrat', sans-serif;

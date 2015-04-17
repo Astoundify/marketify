@@ -55,7 +55,7 @@ class Marketify_Customizer_Output_Colors {
 				'.fes-feat-image-btn',
 				'.upload_file_button',
 				'.fes-avatar-image-btn',
-				'.facetwp-slider-reset',
+				'.facetwp-facet .facetwp-slider-reset',
 			),
 			'declarations' => array(
 				'color' => $primary
@@ -84,7 +84,7 @@ class Marketify_Customizer_Output_Colors {
 				'.fes-feat-image-btn',
 				'.upload_file_button',
 				'.fes-avatar-image-bt',
-				'.facetwp-slider-reset'
+				'.facetwp-facet .facetwp-slider-reset'
 			),
 			'declarations' => array(
 				'border-color' => $primary
@@ -105,7 +105,9 @@ class Marketify_Customizer_Output_Colors {
 				'.fes-pagination a.page-numbers:hover',
 				'body a.edd-wl-action.edd-wl-button:hover',
 				'.fes-feat-image-btn:hover',
-				'.upload_file_button:hover'
+				'.upload_file_button:hover',
+				'.facetwp-facet .facetwp-slider-reset:hover',
+				'.facetwp-type-slider .noUi-connect'
 			),
 			'declarations' => array(
 				'background-color' => $primary

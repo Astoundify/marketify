@@ -1,5 +1,16 @@
-.facetwp-facet .facetwp-slider-reset {
-	@extend .button;
-	box-shadow: none;
-	border-radius: 0;
+.facetwp-type-slider { 
+	
+	> * {
+		box-shadow: none;
+	}
+
+	.facetwp-slider-reset {
+		@extend .button;
+		border-radius: 0;
+	}
+
+	.facetwp-slider-label + div {
+		margin-top: 1em;
+	}
+
 }
