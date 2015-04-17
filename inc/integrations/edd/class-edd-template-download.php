@@ -11,6 +11,8 @@ class Marketify_EDD_Template_Download {
 		add_action( 'marketify_download_info', array( $this, 'download_price' ), 5 );
 		add_action( 'marketify_download_actions', array( $this, 'demo_link' ) );
 
+		add_action( 'marketify_download_entry_meta_before_audio', array( $this, 'featured_audio' ) );
+
 		add_filter( 'body_class', array( $this, 'body_class' ) );
 	}
 
@@ -226,49 +228,33 @@ class Marketify_EDD_Template_Download {
 		global $post;
 
 		$download_id = $post->ID;
-		$_attachments = get_post_meta( $download_id, 'preview_files', true );
+		$data = $this->get_audio();
 
-		$audio       = array();
-		$exts        = array();
-		$attachments = array();
-
-		if ( $_attachments ) {
-			foreach ( $_attachments as $attachment ) {
-				$attachments[$attachment] = get_post( $attachment );
-			}
-		} else {
-			$attachments = get_attached_media( 'audio', $download_id );
+		if ( ! isset( $data[ 'files' ][0] ) ) {
+			return;
 		}
 
-		foreach ( $attachments as $attachment ) {
-			$file = wp_get_attachment_url( $attachment->ID );
-			$info = wp_check_filetype( $file );
+		$this->audio_player( $download_id, $data );
+	}
 
-			if ( ! in_array( $info[ 'ext' ], $exts ) )
-				$exts[] = $info[ 'ext' ];
-
-			$audio[] = array(
-				'title'          => get_the_title( $attachment->ID ),
-				$info[ 'ext' ]   => $file
-			);
-		}
-		?>
+	public function audio_player( $download_id, $data ) {
+	?>
 		<script type="text/javascript">
 			//<![CDATA[
 			jQuery(document).ready(function($){
 				new jPlayerPlaylist({
 					jPlayer: "#jplayer_<?php echo $download_id; ?>",
 					cssSelectorAncestor: "#jp_container_<?php echo $download_id; ?>"
-				}, <?php echo json_encode( $audio ); ?>, {
+				}, <?php echo json_encode( $data[ 'files' ] ); ?>, {
 					swfPath        : "<?php echo get_template_directory_uri(); ?>/js",
-					supplied       : "<?php echo implode( ', ', $exts ); ?>",
+					supplied       : "<?php echo implode( ', ', $data[ 'exts' ] ); ?>",
 					wmode          : "window",
 					smoothPlayBar  : true,
 					keyEnabled     : true
 				});
 			});
 			//]]>
-			</script>
+		</script>
 
 		<div id="jplayer_<?php echo $download_id; ?>" class="jp-jplayer"></div>
 
@@ -298,8 +284,44 @@ class Marketify_EDD_Template_Download {
 				<div class="jp-no-solution"><?php _e( 'Error', 'marketify' ); ?></div>
 			</div>
 		</div>
+	<?php
+	}
 
-		<?php
+	private function get_audio() {
+		global $post;
+
+		$download_id = $post->ID;
+		$_attachments = get_post_meta( $download_id, 'preview_files', true );
+
+		$audio       = array();
+		$exts        = array();
+		$attachments = array();
+
+		if ( $_attachments ) {
+			foreach ( $_attachments as $attachment ) {
+				$attachments[$attachment] = get_post( $attachment );
+			}
+		} else {
+			$attachments = get_attached_media( 'audio', $download_id );
+		}
+
+		foreach ( $attachments as $attachment ) {
+			$file = wp_get_attachment_url( $attachment->ID );
+			$info = wp_check_filetype( $file );
+
+			if ( ! in_array( $info[ 'ext' ], $exts ) )
+				$exts[] = $info[ 'ext' ];
+
+			$audio[] = array(
+				'title'          => get_the_title( $attachment->ID ),
+				$info[ 'ext' ]   => $file
+			);
+		}
+
+		return array(
+			'files' => $audio,
+			'exts'  => $exts
+		);
 	}
 
 	public function featured_video() {

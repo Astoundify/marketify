@@ -7,13 +7,13 @@
 	}
 
 	.edd-fpd {
-		margin: 10px 0 -15px;
-		width: 100%;
+		margin: 10px -10px -15px;
+		width: 110%;
 	}
 
 		@include bp(sm) {
 			.edd-fpd {
-				margin: 0 0 -25px;
+				margin: 0 -10px -25px;
 			}
 
 			.edd-fpd tr:first-child th,

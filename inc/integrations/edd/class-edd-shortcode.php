@@ -31,6 +31,7 @@ class Marketify_EDD_Shortcode {
 	public function grid_item_download_class( $class, $id, $atts ) {
 		$classes[] = $class;
 		$classes[] = 'content-grid-download';
+		$classes[] = get_post_class( $id );
 
 		return implode( ' ', $classes );
 	}
