@@ -55,6 +55,7 @@ class Marketify_Customizer_Output_Colors {
 				'.fes-feat-image-btn',
 				'.upload_file_button',
 				'.fes-avatar-image-btn',
+				'.facetwp-slider-reset',
 			),
 			'declarations' => array(
 				'color' => $primary
@@ -82,7 +83,8 @@ class Marketify_Customizer_Output_Colors {
 				'body a.edd-wl-action.edd-wl-button:hover',
 				'.fes-feat-image-btn',
 				'.upload_file_button',
-				'.fes-avatar-image-bt'
+				'.fes-avatar-image-bt',
+				'.facetwp-slider-reset'
 			),
 			'declarations' => array(
 				'border-color' => $primary

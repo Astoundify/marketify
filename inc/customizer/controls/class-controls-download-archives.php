@@ -16,30 +16,30 @@ class Marketify_Customizer_Controls_Download_Archives extends Marketify_Customiz
 
 	public function add_controls( $wp_customize ) {
 		$this->controls = array(
-			'download-archives-per-page' => array(
+			'downloads-archives-per-page' => array(
 				'label' => sprintf( __( '%s Per Page', 'marketify' ), edd_get_label_plural() ),
 				'type' => 'number',
 				'description' => __( 'Can be overwritten by passing <code>number</code> to the <code>[downloads]</code>
 				shortcode', 'marketify' )
 			),
-			'download-archives-columns' => array(
+			'downloads-archives-columns' => array(
 				'label' => __( 'Number of Columns', 'marketify' ),
 				'type' => 'select',
 				'choices' => array( 1 => 1, 2 => 2, 3 => 3, 4 => 4 )
 			),
-			'download-archives-popular' => array(
+			'downloads-archives-popular' => array(
 				'label' => __( 'Display "Popular Items" above results', 'marketify' ),
 				'type'    => 'checkbox'
 			),
-			'download-archives-excerpt' => array(
+			'downloads-archives-excerpt' => array(
 				'label' => __( 'Display excerpt below title', 'marketify' ),
 				'type'    => 'checkbox'
 			),
-			'download-archives-truncate-title' => array(
+			'downloads-archives-truncate-title' => array(
 				'label' => __( 'Truncate item titles', 'marketify' ),
 				'type'    => 'checkbox'
 			),
-			'download-archives-meta' => array(
+			'downloads-archives-meta' => array(
 				'label' => __( 'Display Titles & Meta', 'marketify' ),
 				'type'    => 'radio',
 				'choices' => array(

@@ -15,6 +15,7 @@
 @import "modules/hentry";
 @import "modules/content-grid-download";
 @import "modules/archive-popular";
+@import "modules/pagination";
 @import "modules/footer";
 @import "modules/footer-widget";
 
@@ -47,3 +48,6 @@
 @import "modules/edd-fes/vendor-widget-area";
 
 @import "modules/facetwp/pagination";
+@import "modules/facetwp/widget";
+@import "modules/facetwp/checkbox";
+@import "modules/facetwp/slider";

@@ -1,0 +1,15 @@
+.page-numbers {
+	color: #bdc3c7;
+	border-color: #bdc3c7;
+}
+
+.page-numbers.current,
+.page-numbers--current {
+	color: inherit;
+	border-color: #515a63;
+}
+
+.page-numbers.prev,
+.page-numbers.next {
+	border: 0;
+}

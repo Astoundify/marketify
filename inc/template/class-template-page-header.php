@@ -14,7 +14,9 @@ class Marketify_Template_Page_Header {
 	}
 
 	public function get_the_archive_title( $title ) { 
-		if ( is_tax() ) {
+		if ( is_post_type_archive( 'download' ) ) {
+			$title = edd_get_label_plural();
+		} else if ( is_tax() ) {
 			$title = single_term_title( '', false );
 
 			if ( did_action( 'marketify_downloads_before' ) ) {
