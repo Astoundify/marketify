@@ -50,7 +50,7 @@ function marketify_love_it_url( $author = null ) {
 		$vendor_url = trailingslashit( $vendor_url ) . trailingslashit( $author->user_nicename );
 	}
 
-	return $vendor_url;
+	return esc_url( $vendor_url );
 }
 
 /**

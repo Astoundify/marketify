@@ -430,7 +430,7 @@ function marketify_fonts_url() {
 			'subset' => urlencode( 'latin,latin-ext' ),
 		);
 
-		$fonts_url = add_query_arg( $query_args, "//fonts.googleapis.com/css" );
+		$fonts_url = esc_url( add_query_arg( $query_args, "//fonts.googleapis.com/css" ) );
 	}
 
 	return $fonts_url;
@@ -646,7 +646,8 @@ function marketify_popular_get_term_link( $link, $term, $taxonomy ) {
 
 	global $wp_query;
 
-	return add_query_arg( array( 'popular_cat' => $term->term_id ), get_permalink( get_page_by_path( $wp_query->query[ 'pagename' ] ) ) );
+	return esc_url( add_query_arg( array( 'popular_cat' => $term->term_id ), get_permalink( get_page_by_path(
+	$wp_query->query[ 'pagename' ] ) ) ) );
 }
 add_filter( 'term_link', 'marketify_popular_get_term_link', 10, 3 );
 
