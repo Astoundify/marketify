@@ -1,5 +1,10 @@
 == Changelog ==
 
+= 1.2.5.1: April 21, 2015 =
+
+* Fix: Update TGM Plugin Activation class.
+* Fix: Escape a few instances of add_query_arg().
+
 = 1.2.5: January 20, 2015 =
 
 * New: Add Envato WordPress Toolkit to TMGPA
