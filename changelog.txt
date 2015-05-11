@@ -1,5 +1,9 @@
 == Changelog ==
 
+= 1.2.5.3: May 11, 2015 =
+
+* Fix: Update TGM Plugin Activation to 2.4.2
+
 = 1.2.5.2: April 21, 2015 =
 
 * Fix: Update TGM Plugin Activation class (again).

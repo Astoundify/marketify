@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
-"Project-Id-Version: Marketify 1.2.5.2\n"
+"Project-Id-Version: Marketify 1.2.5.3\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2015-04-21 14:25:19+00:00\n"
+"POT-Creation-Date: 2015-05-11 16:11:49+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -746,12 +746,12 @@ msgid "Return to the dashboard"
 msgstr ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:177
-#: inc/tgmpa/class-tgm-plugin-activation.php:1939
+#: inc/tgmpa/class-tgm-plugin-activation.php:1956
 msgid "Plugin activated successfully."
 msgstr ""
 
 #: inc/tgmpa/class-tgm-plugin-activation.php:178
-#: inc/tgmpa/class-tgm-plugin-activation.php:1630
+#: inc/tgmpa/class-tgm-plugin-activation.php:1644
 msgid "The following plugin was activated successfully:"
 msgstr ""
 
@@ -763,150 +763,152 @@ msgstr ""
 msgid "Dismiss this notice"
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:531
-#: inc/tgmpa/class-tgm-plugin-activation.php:2156
+#: inc/tgmpa/class-tgm-plugin-activation.php:532
+#: inc/tgmpa/class-tgm-plugin-activation.php:2173
 msgid "Return to the Dashboard"
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:1166
+#: inc/tgmpa/class-tgm-plugin-activation.php:1167
+#: inc/tgmpa/class-tgm-plugin-activation.php:1348
 msgid "Private Repository"
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:1169
+#: inc/tgmpa/class-tgm-plugin-activation.php:1170
+#: inc/tgmpa/class-tgm-plugin-activation.php:1351
 msgid "Pre-Packaged"
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:1174
+#: inc/tgmpa/class-tgm-plugin-activation.php:1175
 msgid "WordPress Repository"
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:1177
+#: inc/tgmpa/class-tgm-plugin-activation.php:1178
 msgid "Required"
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:1177
+#: inc/tgmpa/class-tgm-plugin-activation.php:1178
 msgid "Recommended"
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:1180
+#: inc/tgmpa/class-tgm-plugin-activation.php:1181
 msgid "Not Installed"
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:1182
+#: inc/tgmpa/class-tgm-plugin-activation.php:1183
 msgid "Installed But Not Activated"
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:1287
-#: inc/tgmpa/class-tgm-plugin-activation.php:1395
+#: inc/tgmpa/class-tgm-plugin-activation.php:1288
+#: inc/tgmpa/class-tgm-plugin-activation.php:1409
 msgid "Install"
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:1309
-#: inc/tgmpa/class-tgm-plugin-activation.php:1396
+#: inc/tgmpa/class-tgm-plugin-activation.php:1312
+#: inc/tgmpa/class-tgm-plugin-activation.php:1410
 msgid "Activate"
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:1358
+#: inc/tgmpa/class-tgm-plugin-activation.php:1372
 msgid ""
 "No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
 "Dashboard\">Return to the Dashboard</a>"
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:1374
+#: inc/tgmpa/class-tgm-plugin-activation.php:1388
 msgid "Plugin"
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:1375
+#: inc/tgmpa/class-tgm-plugin-activation.php:1389
 msgid "Source"
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:1376
+#: inc/tgmpa/class-tgm-plugin-activation.php:1390
 msgid "Type"
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:1377
+#: inc/tgmpa/class-tgm-plugin-activation.php:1391
 msgid "Status"
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:1922
+#: inc/tgmpa/class-tgm-plugin-activation.php:1939
 msgid "Install package not available."
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:1923
+#: inc/tgmpa/class-tgm-plugin-activation.php:1940
 msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:1924
+#: inc/tgmpa/class-tgm-plugin-activation.php:1941
 msgid "Unpacking the package&#8230;"
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:1925
+#: inc/tgmpa/class-tgm-plugin-activation.php:1942
 msgid "Installing the plugin&#8230;"
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:1926
+#: inc/tgmpa/class-tgm-plugin-activation.php:1943
 msgid "Plugin install failed."
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:1927
+#: inc/tgmpa/class-tgm-plugin-activation.php:1944
 msgid "Plugin installed successfully."
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:1938
+#: inc/tgmpa/class-tgm-plugin-activation.php:1955
 msgid "Plugin activation failed."
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:2052
+#: inc/tgmpa/class-tgm-plugin-activation.php:2069
 msgid ""
 "The installation and activation process is starting. This process may take "
 "a while on some hosts, so please be patient."
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:2053
+#: inc/tgmpa/class-tgm-plugin-activation.php:2070
 msgid "%1$s installed and activated successfully."
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:2053
-#: inc/tgmpa/class-tgm-plugin-activation.php:2062
+#: inc/tgmpa/class-tgm-plugin-activation.php:2070
+#: inc/tgmpa/class-tgm-plugin-activation.php:2079
 msgid "Show Details"
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:2053
-#: inc/tgmpa/class-tgm-plugin-activation.php:2062
+#: inc/tgmpa/class-tgm-plugin-activation.php:2070
+#: inc/tgmpa/class-tgm-plugin-activation.php:2079
 msgid "Hide Details"
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:2054
+#: inc/tgmpa/class-tgm-plugin-activation.php:2071
 msgid "All installations and activations have been completed."
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:2055
+#: inc/tgmpa/class-tgm-plugin-activation.php:2072
 msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:2059
+#: inc/tgmpa/class-tgm-plugin-activation.php:2076
 msgid ""
 "The installation process is starting. This process may take a while on some "
 "hosts, so please be patient."
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:2060
+#: inc/tgmpa/class-tgm-plugin-activation.php:2077
 msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:2061
+#: inc/tgmpa/class-tgm-plugin-activation.php:2078
 msgid "The installation of %1$s failed."
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:2062
+#: inc/tgmpa/class-tgm-plugin-activation.php:2079
 msgid "%1$s installed successfully."
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:2063
+#: inc/tgmpa/class-tgm-plugin-activation.php:2080
 msgid "All installations have been completed."
 msgstr ""
 
-#: inc/tgmpa/class-tgm-plugin-activation.php:2064
+#: inc/tgmpa/class-tgm-plugin-activation.php:2081
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
