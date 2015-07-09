@@ -1,3 +1,21 @@
+.button {
+	font: 700 13px/normal 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	text-decoration: none;
+	text-shadow: none;
+	text-align: center;
+	display: inline-block;
+	padding: 10px 20px;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 0;
+	height: auto;
+
+	-webkit-transition: all 0.2s;
+	-moz-transition:    all 0.2s;
+	transition:         all 0.2s;
+}
+
 .button--size-small {
 	font-size: 12px;
 	padding: 6px 10px;

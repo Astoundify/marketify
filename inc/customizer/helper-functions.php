@@ -46,7 +46,7 @@ function marketify_get_theme_mod_defaults() {
 
 function marketify_theme_mod( $key ) {
 	$mods = marketify_get_theme_mod_defaults();
-	
+
 	$default = isset( $mods[ $key ] ) ? $mods[ $key ] : '';
 
 	return get_theme_mod( $key, $default );

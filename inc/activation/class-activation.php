@@ -66,9 +66,17 @@ class Marketify_Activation {
 		foreach ( $theme_mods as $mod => $value ) {
 			switch ($mod) {
 				case 'general-downloads-label-singular' :
+					if ( ! $value ) {
+						$value = 'Download';
+					}
+
 					set_theme_mod( 'download-label-singular', $value );
 					set_theme_mod( 'download-label-generate', 'on' );
 				case 'general-downloads-label-plural' :
+					if ( ! $value ) {
+						$value = 'Downloads';
+					}
+
 					set_theme_mod( 'download-label-plural', $value );
 				case 'grid-height' :
 					set_theme_mod( 'downloads-archives-grid-height', $value );

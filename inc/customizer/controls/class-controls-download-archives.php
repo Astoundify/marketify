@@ -25,7 +25,8 @@ class Marketify_Customizer_Controls_Download_Archives extends Marketify_Customiz
 			'downloads-archives-columns' => array(
 				'label' => __( 'Number of Columns', 'marketify' ),
 				'type' => 'select',
-				'choices' => array( 1 => 1, 2 => 2, 3 => 3, 4 => 4 )
+				'choices' => array( 1 => 1, 2 => 2, 3 => 3, 4 => 4 ),
+				'description' => __( 'Can be overwritten by passing <code>columns</code> to the <code>[downloads]</code> shortcode', 'marketify' )
 			),
 			'downloads-archives-popular' => array(
 				'label' => __( 'Display "Popular Items" above results', 'marketify' ),
