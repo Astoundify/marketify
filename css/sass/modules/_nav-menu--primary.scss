@@ -1,0 +1,12 @@
+
+.nav-menu--primary {
+
+}
+
+@include bp(md) {
+	.nav-menu--primary {
+		display: table-cell;
+		vertical-align: middle;
+		text-align: right;
+	}
+}

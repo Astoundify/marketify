@@ -10,11 +10,17 @@
 @import "helpers/clearfix";
 
 @import "modules/button";
-@import "modules/site-content";
+
+@import "modules/site-header";
+@import "modules/site-title";
+@import "modules/site-branding";
 @import "modules/header-outer";
+
+@import "modules/nav-menu";
+@import "modules/nav-menu--primary";
+
+@import "modules/site-content";
 @import "modules/hentry";
-@import "modules/content-grid-download";
-@import "modules/archive-popular";
 @import "modules/pagination";
 @import "modules/footer";
 @import "modules/footer-widget";
@@ -26,6 +32,9 @@
 @import "modules/download/gallery";
 @import "modules/download/video";
 @import "modules/download/audio";
+
+@import "modules/content-grid-download";
+@import "modules/archive-popular";
 
 @import "modules/home/header";
 @import "modules/home/video";
