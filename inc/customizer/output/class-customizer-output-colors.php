@@ -6,6 +6,7 @@ class Marketify_Customizer_Output_Colors {
 		$this->css = new Marketify_Customizer_CSS;
 
 		add_action( 'marketify_output_customizer_css', array( $this, 'page_header' ), 10 );
+		add_action( 'marketify_output_customizer_css', array( $this, 'navigation' ), 20 );
 		add_action( 'marketify_output_customizer_css', array( $this, 'primary' ), 30 );
 		add_action( 'marketify_output_customizer_css', array( $this, 'accent' ), 30 );
 		add_action( 'marketify_output_customizer_css', array( $this, 'footer' ), 40 );
@@ -29,6 +30,19 @@ class Marketify_Customizer_Output_Colors {
 		) );
 	}
 	
+	public function navigation() {
+		$primary = marketify_theme_mod( 'color-primary' );
+
+		$this->css->add( array(
+			'selectors' => array(
+				'.nav-menu--primary li li a'
+			),
+			'declarations' => array(
+				'color' => $primary
+			)
+		) );
+	}
+
 	public function primary() {
 		$primary = marketify_theme_mod( 'color-primary' );
 		
