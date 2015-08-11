@@ -73,7 +73,8 @@ class Marketify_Widget_Curated_Downloads extends Marketify_Widget {
 			'no_found_rows'          => true,
 			'update_post_term_cache' => false,
 			'update_post_meta_cache' => false,
-			'cache_results'          => false
+            'cache_results'          => false,
+            'posts_per_page'         => -1
 		) );
 
 		if ( ! $downloads->have_posts() )
