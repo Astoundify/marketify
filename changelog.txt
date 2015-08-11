@@ -1,6 +1,6 @@
 == Changelog ==
 
-= 1.2.7: July 10, 2015 =
+= 1.2.7: August 11, 2015 =
 
 * Fix: Sane version numbers.
 * Fix: Don't limit output on Curated downloads widget.
