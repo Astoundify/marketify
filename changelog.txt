@@ -2,6 +2,8 @@
 
 = 1.2.7: July 10, 2015 =
 
+* Fix: Sane version numbers.
+* Fix: Don't limit output on Curated downloads widget.
 * Fix: Remove PHP4 style constructors.
 
 = 1.2.5.3: May 11, 2015 =
