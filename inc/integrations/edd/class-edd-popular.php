@@ -1,74 +1,86 @@
 <?php
 
 class Marketify_EDD_Popular {
-	
-	public function __construct() {
-		$this->slug = _x( 'popular', 'URL slug to determine category sorting', 'marketify' );
 
-		add_action( 'marketify_downloads_before', array( $this, 'archive_section_title' ) );
-		add_filter( 'get_the_archive_title', array( $this, 'get_the_archive_title' ) );
+    public function __construct() {
+        $this->slug = _x( 'popular', 'URL slug to determine category sorting', 'marketify' );
 
-		add_action( 'init', array( $this, 'endpoint' ) );
-		add_filter( 'edd_download_category_args', array( $this, 'category_args' ) );
-		add_action( 'template_redirect', array( $this, 'filter_query' ) );
-	}
+        add_action( 'marketify_downloads_before', array( $this, 'archive_section_title' ) );
+        add_filter( 'get_the_archive_title', array( $this, 'get_the_archive_title' ) );
 
-	public function is_popular_query() {
-		if ( ! is_tax( 'download_category' ) ) {
-			return false;
-		}
+        add_action( 'init', array( $this, 'endpoint' ) );
+        add_filter( 'edd_download_category_args', array( $this, 'category_args' ) );
+        add_action( 'template_redirect', array( $this, 'filter_query' ) );
+    }
 
-		global $wp_query;
-		
-		if ( ! isset( $wp_query->query_vars[ $this->slug ] ) ) {
-			return false;
-		}
+    public function show_popular() {
+        if ( 'on' != marketify_theme_mod( 'downloads-archives-popular' ) ) {
+            return false;
+        }
 
-		return true;
-	}
+        if ( $this->is_popular_query() ) {
+            return false;
+        }
 
-	public function filter_query() {
-		if ( ! $this->is_popular_query() ) {
-			return;
-		}
+        return true;
+    }
 
-		add_filter( 'edd_downloads_query', array( $this, 'edd_downloads_query' ), 10, 2 );
-	}
+    public function is_popular_query() {
+        if ( ! is_tax( 'download_category' ) ) {
+            return false;
+        }
 
-	public function edd_downloads_query( $query, $atts ) {
-		$query[ 'meta_key' ] = '_edd_download_sales';
-		$query[ 'orderby' ]  = 'meta_value_num';
+        global $wp_query;
+        
+        if ( ! isset( $wp_query->query_vars[ $this->slug ] ) ) {
+            return false;
+        }
 
-		return $query;
-	}
+        return true;
+    }
 
-	public function category_args( $args ) {
-		$args[ 'rewrite' ][ 'ep_mask' ] = EP_CATEGORIES;
+    public function filter_query() {
+        if ( ! $this->is_popular_query() ) {
+            return;
+        }
 
-		return $args;
-	}
+        add_filter( 'edd_downloads_query', array( $this, 'edd_downloads_query' ), 10, 2 );
+    }
 
-	public function endpoint() {
-		add_rewrite_endpoint( $this->slug, EP_CATEGORIES );
-	}
+    public function edd_downloads_query( $query, $atts ) {
+        $query[ 'meta_key' ] = '_edd_download_sales';
+        $query[ 'orderby' ]  = 'meta_value_num';
 
-	public function get_the_archive_title( $title ) { 
-		if ( $this->is_popular_query() ) {
-			$title = sprintf( __( 'Popular in %s', 'marketify' ), single_term_title( '', false ) );
-		}
+        return $query;
+    }
 
-		return $title;
-	}
+    public function category_args( $args ) {
+        $args[ 'rewrite' ][ 'ep_mask' ] = EP_CATEGORIES;
 
-	public function archive_section_title() {
-		if ( ! marketify()->get( 'edd' )->template->show_popular() ) {
-			return;
-		}
-	?>
-		<div class="section-title"><span>
-			<?php the_archive_title(); ?>
-		</span></div>
-	<?php
-	}
+        return $args;
+    }
+
+    public function endpoint() {
+        add_rewrite_endpoint( $this->slug, EP_CATEGORIES );
+    }
+
+    public function get_the_archive_title( $title ) { 
+        if ( $this->is_popular_query() ) {
+            $title = sprintf( __( 'Popular in %s', 'marketify' ), single_term_title( '', false ) );
+        }
+
+        return $title;
+    }
+
+    public function archive_section_title() {
+        if ( ! $this->show_popular() ) {
+            return;
+        }
+    ?>
+        <div class="section-title"><span>
+            <?php the_archive_title(); ?>
+        </span></div>
+    <?php
+    }
 
 }

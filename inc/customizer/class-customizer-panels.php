@@ -2,127 +2,116 @@
 
 class Marketify_Customizer_Panels {
 
-	public function __construct() {
-		$this->priority = new Marketify_Customizer_Priority(0, 10);
+    public function __construct() {
+        $this->priority = new Marketify_Customizer_Priority(0, 10);
 
-		add_action( 'customize_register', array( $this, 'register_panels' ), 9 );
-		add_action( 'customize_register', array( $this, 'organize_appearance' ), 11 );
-		add_action( 'customize_register', array( $this, 'organize_general' ), 11 );
-	}
+        add_action( 'customize_register', array( $this, 'register_panels' ), 9 );
+        add_action( 'customize_register', array( $this, 'organize_appearance' ), 11 );
+        add_action( 'customize_register', array( $this, 'organize_general' ), 11 );
+    }
 
-	public function panel_list() {
-		$this->panels = apply_filters( 'marketify_customizer_panels', array(
-			'general' => array(
-				'title' => __( 'General', 'marketify' ),
-				'sections' => array(
-				)
-			),
-			'appearance' => array(
-				'title' => __( 'Appearance', 'marketify' ),
-				'sections' => array(
-					'colors' => array(
-						'title' => __( 'Colors', 'marketify' ),
-					),
-					'footer' => array(
-						'title' => __( 'Footer', 'marketify' ),
-						'priority' => 100
-					)
-				)
-			),
-			'downloads' => array(
-				'title' => edd_get_label_plural(),
-				'sections' => array(
-					'downloads-behavior' => array(
-						'title' => __( 'Labels & Behavior', 'marketify' ),
-					),
-					'download-archives' => array(
-						'title' => __( 'Shop', 'marketify' )
-					),
-					'download-single-standard' => array(
-						'title' => sprintf( __( 'Standard %s', 'marketify' ), edd_get_label_singular() )
-					),
-					'download-single-audio' => array(
-						'title' => sprintf( __( 'Audio %s', 'marketify' ), edd_get_label_singular() )
-					),
-					'download-single-video' => array(
-						'title' => sprintf( __( 'Video %s', 'marketify' ), edd_get_label_singular() )
-					)
-				)
-			),
-			'footer' => array(
-				'title' => __( 'Footer', 'marketify' ),
-				'sections' => array(
-					'contact-us' => array(
-						'title' => __( 'Contact Us', 'marketify' ),
-					),
-					'copyright' => array(
-						'title' => __( 'Copyright', 'marketify' ),
-					)
-				)
-			),
-		) );
+    public function panel_list() {
+        $this->panels = apply_filters( 'marketify_customizer_panels', array(
+            'general' => array(
+                'title' => __( 'General', 'marketify' ),
+                'sections' => array(
+                )
+            ),
+            'appearance' => array(
+                'title' => __( 'Appearance', 'marketify' ),
+                'sections' => array(
+                    'colors' => array(
+                        'title' => __( 'Colors', 'marketify' ),
+                    ),
+                    'footer' => array(
+                        'title' => __( 'Footer', 'marketify' ),
+                        'priority' => 100
+                    )
+                )
+            ),
+            'downloads' => array(
+                'title' => edd_get_label_plural(),
+                'sections' => array(
+                    'downloads-behavior' => array(
+                        'title' => __( 'Labels & Behavior', 'marketify' ),
+                    ),
+                    'download-archives' => array(
+                        'title' => __( 'Shop', 'marketify' )
+                    ),
+                    'download-single-standard' => array(
+                        'title' => sprintf( __( 'Standard %s', 'marketify' ), edd_get_label_singular() )
+                    ),
+                    'download-single-audio' => array(
+                        'title' => sprintf( __( 'Audio %s', 'marketify' ), edd_get_label_singular() )
+                    ),
+                    'download-single-video' => array(
+                        'title' => sprintf( __( 'Video %s', 'marketify' ), edd_get_label_singular() )
+                    )
+                )
+            ),
+            'footer' => array(
+                'title' => __( 'Footer', 'marketify' ),
+                'sections' => array(
+                    'contact-us' => array(
+                        'title' => __( 'Contact Us', 'marketify' ),
+                    ),
+                    'copyright' => array(
+                        'title' => __( 'Copyright', 'marketify' ),
+                    )
+                )
+            ),
+        ) );
 
-		return $this->panels;
-	}
+        return $this->panels;
+    }
 
-	public function register_panels( $wp_customize ) {
-		$panels = $this->panel_list();
+    public function register_panels( $wp_customize ) {
+        $panels = $this->panel_list();
 
-		foreach ( $panels as $key => $panel ) {
-			$defaults = array(
-				'priority' => $this->priority->next()
-			);
+        foreach ( $panels as $key => $panel ) {
+            $defaults = array(
+                'priority' => $this->priority->next()
+            );
 
-			$panel = wp_parse_args( $defaults, $panel );
+            $panel = wp_parse_args( $defaults, $panel );
 
-			$wp_customize->add_panel( $key, $panel );
+            $wp_customize->add_panel( $key, $panel );
 
-			$sections = isset( $panel[ 'sections' ] ) ? $panel[ 'sections' ] : false;
+            $sections = isset( $panel[ 'sections' ] ) ? $panel[ 'sections' ] : false;
 
-			if ( $sections ) {
-				$this->add_sections( $key, $sections, $wp_customize );
-			}
-		}
-	}
+            if ( $sections ) {
+                $this->add_sections( $key, $sections, $wp_customize );
+            }
+        }
+    }
 
-	public function add_sections( $panel, $sections, $wp_customize ) {
-		foreach ( $sections as $key => $section ) {
-			$wp_customize->add_section( $key, array(
-				'title' => $section[ 'title' ],
-				'panel' => $panel,
-				'priority' => isset( $section[ 'priority' ] ) ? $section[ 'priority' ] : $this->priority->next(),
-				'description' => isset( $section[ 'description' ] ) ? $section[
-				'description' ] : ''
-			) );
+    public function add_sections( $panel, $sections, $wp_customize ) {
+        foreach ( $sections as $key => $section ) {
+            $wp_customize->add_section( $key, array(
+                'title' => $section[ 'title' ],
+                'panel' => $panel,
+                'priority' => isset( $section[ 'priority' ] ) ? $section[ 'priority' ] : $this->priority->next(),
+                'description' => isset( $section[ 'description' ] ) ? $section[
+                'description' ] : ''
+            ) );
 
-			include_once( dirname( __FILE__ ) . '/controls/class-controls-' . $key . '.php' );
-		}
-	}
+            include_once( dirname( __FILE__ ) . '/controls/class-controls-' . $key . '.php' );
+        }
+    }
 
-	public function organize_appearance( $wp_customize ) {
-		$wp_customize->get_section( 'colors' )->panel = 'appearance';
-		
-		$wp_customize->get_section( 'header_image' )->panel = 'appearance';
-		$wp_customize->get_section( 'header_image' )->title = __( 'Header & Logo', 'marketify' );
+    public function organize_appearance( $wp_customize ) {
+        $wp_customize->get_section( 'colors' )->panel = 'title_tagline';
+        $wp_customize->get_section( 'background_image' )->panel = 'title_tagline';
 
-		$wp_customize->get_section( 'background_image' )->panel = 'appearance';
+        return $wp_customize;
+    }
 
-		return $wp_customize;
-	}
+    public function organize_general( $wp_customize ) {
+        $wp_customize->get_section( 'nav' )->panel = 'general';
 
-	public function organize_general( $wp_customize ) {
-		$wp_customize->get_section( 'title_tagline' )->panel = 'general';
-		$wp_customize->get_section( 'title_tagline' )->title = __( 'Site Title', 'marketify' );
+        $wp_customize->remove_control( 'blogdescription' );
 
-		$wp_customize->get_section( 'nav' )->panel = 'general';
-
-		$wp_customize->get_section( 'static_front_page' )->panel = 'general';
-		$wp_customize->get_section( 'static_front_page' )->title = __( 'Homepage Display', 'marketify' );
-
-		$wp_customize->remove_control( 'blogdescription' );
-		$wp_customize->get_control( 'display_header_text' )->section = 'header_image';
-
-		return $wp_customize;
-	}
+        return $wp_customize;
+    }
 
 }

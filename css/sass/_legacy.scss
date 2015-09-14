@@ -139,11 +139,9 @@
 
 .page-header {
 	text-align: center;
-	padding: 0 0 90px;
 }
 
-.page-title,
-.entry-page-title h1 {
+.page-title {
 	font: 300 40px 'Roboto Slab', serif;
 	color: #fff;
 	text-align: center;
@@ -394,34 +392,14 @@ body .marketify_widget_slider_hero .soliloquy-caption a.button:hover {
 	margin: 0 0 1.5em;
 }
 
-.entry-page-title {
-	color: #fff;
-	text-align: center;
-	padding-bottom: 90px;
-}
-
-.entry-page-title a {
-	color: #fff;
-	text-decoration: none;
-}
-
-.entry-page-title a:hover {
-	color: #fff;
-}
-
-.custom-featured-image .entry-page-title h1,
-.custom-featured-image .entry-page-title .byline,
-.custom-featured-image .entry-page-title .entry-date,
-.custom-featured-image .page-header .page-title {
+.custom-featured-image .page-title,
+.custom-featured-image .page-title .byline,
+.custom-featured-image .page-title .entry-date {
 	text-shadow: rgba(0, 0, 0, .39) 0 2px 18px;
 }
 
-.entry-page-title h1 {
-	margin: 0;
-}
-
-.entry-page-title .byline,
-.entry-page-title .entry-date {
+.page-title .byline,
+.page-title .entry-date {
 	font: 700 18px 'Montserrat', sans-serif;
 	letter-spacing: 0.10em;
 	text-transform: uppercase;
@@ -2597,16 +2575,6 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 		padding: 10px 20px;
 		margin: 8px 3px;
 		display: inline-block;
-	}
-
-	/** Page */
-	.entry-page-title {
-		padding-top: 0;
-		padding-bottom: 40px;
-	}
-
-	.site-content {
-		margin-top: 50px;
 	}
 
 	/** FES */

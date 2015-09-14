@@ -5,7 +5,7 @@
  * @since Marketify 1.0
  */
 
-if ( ! marketify()->get( 'edd' )->template->show_popular() ) {
+if ( ! marketify()->get( 'edd' )->popular->show_popular() ) {
 	return;
 }
 ?>

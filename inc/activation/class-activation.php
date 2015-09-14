@@ -72,39 +72,55 @@ class Marketify_Activation {
 
 					set_theme_mod( 'download-label-singular', $value );
 					set_theme_mod( 'download-label-generate', 'on' );
+                    break;
 				case 'general-downloads-label-plural' :
 					if ( ! $value ) {
 						$value = 'Downloads';
 					}
 
 					set_theme_mod( 'download-label-plural', $value );
+                    break;
 				case 'grid-height' :
 					set_theme_mod( 'downloads-archives-grid-height', $value );
 					remove_theme_mod( 'grid-width' );
 					remove_theme_mod( 'grid-crop' );
+                    break;
 				case 'product-display-columns' :
 					set_theme_mod( 'downloads-archives-columns', $value );
+                    break;
 				case 'product-display-single-style' :
 					set_theme_mod( 'download-standard-feature-area', $value );
 					set_theme_mod( 'download-audio-feature-area', $value );
 					set_theme_mod( 'download-video-feature-area', $value );
+                    break;
 				case 'product-display-grid-info' :
 					set_theme_mod( 'downloads-archives-meta', $value );
+                    break;
 				case 'product-display-excerpt' :
 					set_theme_mod( 'downloads-archives-excerpt', $value );
+                    break;
 				case 'product-display-truncate-title' :
 					set_theme_mod( 'downloads-archives-truncate-title', $value );
 					remove_theme_mod( 'product-display-show-buy' );
+                    break;
 				case 'footer-contact-address' :
 					set_theme_mod( 'footer-contact-us-adddress', $value );
+                    break;
 				case 'footer-logo' :
 					set_theme_mod( 'footer-copyright-logo', $value );
+                    break;
 				case 'header' :
 					set_theme_mod( 'color-page-header-background', $value );
+                    break;
 				case 'primary' :
 					set_theme_mod( 'color-primary', $value );
+                    break;
 				case 'accent' :
 					set_theme_mod( 'color-accent', $value );
+                    break;
+                default:
+                    //
+                    break;
 			}
 
 			remove_theme_mod( $mod );

@@ -21,16 +21,5 @@ class Marketify_EDD_Template {
 		return apply_filters( 'marketify_author_url', esc_url( $url ) );
 	}
 
-	public function show_popular() {
-		if ( 'on' != marketify_theme_mod( 'downloads-archives-popular' ) ) {
-			return false;
-		}
-
-		if ( marketify()->get( 'edd' )->popular->is_popular_query() ) {
-			return false;
-		}
-
-		return true;
-	}
 
 }
