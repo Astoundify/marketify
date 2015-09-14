@@ -33,18 +33,18 @@ class Marketify_Widgets {
 			'id'            => 'sidebar-1',
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
-			'before_title'  => '<h1 class="widget-title section-title"><span>',
-			'after_title'   => '</span></h1>',
+			'before_title'  => '<h3 class="widget-title section-title">',
+			'after_title'   => '</h3>',
 		) );
 
 		register_sidebar( array(
-			'name'          => __( 'Homepage', 'marketify' ),
-			'description'   => __( 'Widgets that appear on the "Homepage" Page Template', 'marketify' ),
+			'name'          => __( 'Home', 'marketify' ),
+			'description'   => __( 'Widgets that appear on the "Page: Home" Page Template', 'marketify' ),
 			'id'            => 'home-1',
 			'before_widget' => '<aside id="%1$s" class="home-widget %2$s">',
 			'after_widget'  => '</aside>',
-			'before_title'  => '<h1 class="home-widget-title"><span>',
-			'after_title'   => '</span></h1>',
+			'before_title'  => '<h3 class="widget-title widget-title--home section-title"><span>',
+			'after_title'   => '</span></h3>',
 		) );
 
 		/* Footer */
@@ -54,8 +54,8 @@ class Marketify_Widgets {
 			'id'            => 'footer-1',
 			'before_widget' => '<aside id="%1$s" class="footer-widget %2$s">',
 			'after_widget'  => '</aside>',
-			'before_title'  => '<h1 class="footer-widget-title">',
-			'after_title'   => '</h1>',
+			'before_title'  => '<h3 class="widget-title widget-title--footer">',
+			'after_title'   => '</h3>',
 		) );
 
 		register_sidebar( array(
@@ -64,8 +64,8 @@ class Marketify_Widgets {
 			'id'            => 'footer-2',
 			'before_widget' => '<aside id="%1$s" class="footer-widget %2$s">',
 			'after_widget'  => '</aside>',
-			'before_title'  => '<h1 class="footer-widget-title">',
-			'after_title'   => '</h1>',
+			'before_title'  => '<h3 class="widget-title widget-title--footer">',
+			'after_title'   => '</h3>',
 		) );
 
 		register_sidebar( array(
@@ -74,8 +74,8 @@ class Marketify_Widgets {
 			'id'            => 'footer-3',
 			'before_widget' => '<aside id="%1$s" class="footer-widget %2$s">',
 			'after_widget'  => '</aside>',
-			'before_title'  => '<h1 class="footer-widget-title">',
-			'after_title'   => '</h1>',
+			'before_title'  => '<h3 class="widget-title widget-title--footer">',
+			'after_title'   => '</h3>',
 		) );
 
 		/* Price Table */

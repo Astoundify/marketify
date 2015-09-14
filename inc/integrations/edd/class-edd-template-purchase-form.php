@@ -2,56 +2,57 @@
 
 class Marketify_EDD_Template_Purchase_Form {
 	
-	public function __construct() {
-		add_action( 'marketify_download_actions', array( $this, 'purchase_link' ) );
-		add_action( 'marketify_download_content_actions_before', array( $this, 'purchase_link' ) );
+    public function __construct() {
+        add_action( 'marketify_download_actions', array( $this, 'purchase_link' ) );
+        add_action( 'marketify_download_content_actions_before', array( $this, 'purchase_link' ) );
 
-		add_filter( 'edd_purchase_download_form', array( $this, 'download_form_class' ), 10, 2 );
-		add_filter( 'edd_button_colors', array( $this, 'button_colors' ) );
-	}
+        add_filter( 'edd_purchase_download_form', array( $this, 'download_form_class' ), 10, 2 );
+        add_filter( 'edd_button_colors', array( $this, 'button_colors' ) );
+    }
 
-	public function purchase_link( $download_id = null ) {
-		global $post, $edd_options;
+    public function purchase_link( $download_id = null ) {
+        global $post, $edd_options;
 
-		if ( ! $download_id ) {
-			$download_id = $post->ID;
-		}
+        if ( ! $download_id ) {
+            $download_id = $post->ID;
+        }
 
-		$variable = edd_has_variable_prices( $download_id );
-		$form = edd_get_purchase_link( array( 'download_id' => $download_id, 'price' => false ) );
-		
-		// ghetto check for sold out
-		$label = edd_get_option( 'edd_purchase_limit_sold_out_label', 'Sold Out' );
-		$sold_out = strpos( $form, $label );
+        $variable = edd_has_variable_prices( $download_id );
+        $form = edd_get_purchase_link( array( 'download_id' => $download_id, 'price' => false ) );
 
-		if ( ! $variable || $sold_out != false ) {
-			echo $form;
-		} else {
-			$button = ! empty( $edd_options[ 'add_to_cart_text' ] ) ? $edd_options[ 'add_to_cart_text' ] : __( 'Purchase', 'marketify' );
+        // ghetto check for sold out
+        $label = edd_get_option( 'edd_purchase_limit_sold_out_label', 'Sold Out' );
+        $sold_out = strpos( $form, $label );
 
-			printf( '<a href="#buy-now-%s" class="button buy-now popup-trigger">%s</a>', $post->ID, $button );
-		}
-	}
+        if ( ! $variable || $sold_out != false ) {
+            echo $form;
+        } else {
+            $button = ! empty( $edd_options[ 'add_to_cart_text' ] ) ? $edd_options[ 'add_to_cart_text' ] : __( 'Purchase', 'marketify' );
 
-	public function download_form_class( $purchase_form, $args ) {
-		$download_id = $args[ 'download_id' ];
+            printf( '<a href="#buy-now-%s" class="button buy-now popup-trigger">%s</a>', $post->ID, $button );
+        }
+    }
 
-		if ( ! $download_id || edd_has_variable_prices( $download_id ) ) {
-			return $purchase_form;
-		}
+    public function download_form_class( $purchase_form, $args ) {
+        $download_id = $args[ 'download_id' ];
 
-		$purchase_form = str_replace( 'class="edd_download_purchase_form"', 'class="edd_download_purchase_form download-variable"', $purchase_form );
+        if ( ! $download_id || edd_has_variable_prices( $download_id ) ) {
+            return $purchase_form;
+        }
 
-		return $purchase_form;
-	}
+        $purchase_form = str_replace( 'class="edd_download_purchase_form"', 'class="edd_download_purchase_form download-variable"', $purchase_form );
 
-	public function button_colors( $colors ) {
-		$unset = array( 'white', 'blue', 'gray', 'red', 'green', 'yellow', 'orange', 'dark-gray' );
+        return $purchase_form;
+    }
 
-		foreach ( $unset as $color ) {
-			unset( $colors[ $color ] );
-		}
+    public function button_colors( $colors ) {
+        $unset = array( 'white', 'blue', 'gray', 'red', 'green', 'yellow', 'orange', 'dark-gray' );
 
-		return $colors;
-	}
+        foreach ( $unset as $color ) {
+            unset( $colors[ $color ] );
+        }
+
+        return $colors;
+    }
+
 }

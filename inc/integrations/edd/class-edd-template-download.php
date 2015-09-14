@@ -159,10 +159,6 @@ class Marketify_EDD_Template_Download {
         if ( ! is_singular( 'download' ) ) {
             return;
         }
-
-        if ( ! $this->is_format_location( 'top' ) ) {
-            return;
-        }
     ?>
         <div class="download-actions">
             <?php do_action( 'marketify_download_actions' ); ?>

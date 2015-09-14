@@ -22,13 +22,13 @@ get_header(); ?>
 			<section id="primary" class="content-area col-md-<?php echo is_active_sidebar( 'sidebar-archive-project' ) ? '9' : '12'; ?> col-sm-7 col-xs-12">
 				<main id="main" class="site-main" role="main">
 
-				<div class="section-title"><span>
+				<h3 class="section-title"><span>
 					<?php if ( is_tax( 'project-category' ) ) : ?>
 						<?php single_term_title( '' ); ?>
 					<?php else : ?>
 						<?php _e( 'All Projects', 'marketify' ); ?>
 					<?php endif; ?>
-				</span></div>
+				</h3></div>
 
 				<?php if ( have_posts() ) : ?>
 

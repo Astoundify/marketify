@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Page: Homepage
+ * Template Name: Page: Home
  *
  * @package Marketify
  */

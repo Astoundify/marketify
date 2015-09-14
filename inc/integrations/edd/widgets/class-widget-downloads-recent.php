@@ -34,11 +34,6 @@ class Marketify_Widget_Recent_Downloads extends Marketify_Widget {
 				'label' => __( 'Columns:', 'marketify' ),
 				'options' => array( 1 => 1, 2 => 2, 3 => 3, 4 => 4 )
 			),
-			'description' => array(
-				'type'  => 'textarea',
-				'std'   => '',
-				'label' => __( 'Description:', 'marketify' )
-			)
 		);
 		parent::__construct();
 	}
@@ -56,7 +51,6 @@ class Marketify_Widget_Recent_Downloads extends Marketify_Widget {
 		ob_start();
 
 		$title        = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
-		$description  = isset( $instance[ 'description' ] ) ? $instance[ 'description' ] : null;
 		$number       = isset ( $instance[ 'number' ] ) ? absint( $instance[ 'number' ] ) : 8;
 		$columns      = isset ( $instance[ 'columns' ] ) ? absint( $instance[ 'columns' ] ) : 3;
 
@@ -64,10 +58,6 @@ class Marketify_Widget_Recent_Downloads extends Marketify_Widget {
 
 		if ( $title ) echo $args[ 'before_title' ] . $title . $args[ 'after_title' ];
 		?>
-
-		<?php if ( $description ) : ?>
-			<h2 class="home-widget-description"><?php echo $description; ?></h2>
-		<?php endif; ?>
 
 		<?php echo do_shortcode( "[downloads columns={$columns} number={$number}]" ); ?>
 

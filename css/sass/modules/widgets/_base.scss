@@ -1,13 +1,7 @@
 .home-widget {
-	margin-bottom: 6em;
-}
+	margin: 6em 0;
 
-.home-widget-title {
-	margin-top: 0;
-}
-
-.home-widget-description {
-	font-size: 18px;
-	text-align: center;
-	margin: 0 0 70px;
+    &:first-child {
+        margin-top: 0;
+    }
 }

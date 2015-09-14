@@ -48,7 +48,7 @@ class Marketify_Template_Page_Header {
             return;
         }
     ?>
-        <div class="page-title container">
+        <div class="page-header container">
             <h1 class="page-title"><?php the_archive_title(); ?></h1>
         </div>
     <?php
@@ -61,14 +61,14 @@ class Marketify_Template_Page_Header {
 
         the_post();
     ?>
-        <div class="page-title container">
+        <div class="page-header container">
             <?php 
                 if ( ! is_singular( 'download' ) ) {
                     get_template_part( 'content', 'author' );
                 }
             ?>
 
-            <h1 class="title"><?php the_title(); ?></h1>
+            <h1 class="page-title"><?php the_title(); ?></h1>
 
             <?php
                 if ( is_singular( 'post' ) ) {
