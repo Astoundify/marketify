@@ -310,48 +310,6 @@ input::-moz-focus-inner { /* Corrects inner padding and border displayed oddly i
 	padding: 0;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"],
-textarea {
-	line-height: 25px;
-	color: #515a63;
-	padding: 10px;
-	background: #fff;
-	border: 1px solid #bdc3c7;
-	width: 100%;
-	box-shadow: none;
-	border-radius: 0;
-
-	-webkit-box-sizing: border-box;
-	-moz-box-siding:    border-box;
-	box-sizing:         border-box;
-}
-
-.bbp-the-content-wrapper {
-	border: 1px solid #bdc3c7;
-}
-
-input:disabled {
-	opacity: .50;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="password"]:focus,
-input[type="search"]:focus,
-textarea:focus {
-	outline: 0;
-}
-
-textarea {
-	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
-	vertical-align: top; /* Improves readability and alignment in all browsers */
-	width: 98%;
-}
 
 label {
 	font: 700 16px/normal 'Montserrat', sans-serif;
