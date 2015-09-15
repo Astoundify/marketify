@@ -12,40 +12,40 @@
 
 get_header(); ?>
 
-	<?php do_action( 'marketify_entry_before' ); ?>
+    <?php do_action( 'marketify_entry_before' ); ?>
 
-	<div class="container">
-		<div id="content" class="site-content row">
+    <div class="container">
+        <div id="content" class="site-content row">
 
-			<div id="primary" class="content-area col-md-<?php echo is_active_sidebar( 'sidebar-1' ) ? '8' : '12'; ?> col-xs-12">
-				<main id="main" class="site-main" role="main">
+            <div id="primary" class="content-area col-md-<?php echo is_active_sidebar( 'sidebar-1' ) ? '8' : '12'; ?> col-xs-12">
+                <main id="main" class="site-main" role="main">
 
-				<?php if ( have_posts() ) : ?>
+                <?php if ( have_posts() ) : ?>
 
-					<?php /* Start the Loop */ ?>
-					<?php while ( have_posts() ) : the_post(); ?>
+                    <?php /* Start the Loop */ ?>
+                    <?php while ( have_posts() ) : the_post(); ?>
 
-						<?php get_template_part( 'content', 'page' ); ?>
+                        <?php get_template_part( 'content', 'page' ); ?>
 
-						<?php
-							// If comments are open or we have at least one comment, load up the comment template
-							if ( comments_open() || '0' != get_comments_number() )
-								comments_template();
-						?>
+                        <?php
+                            // If comments are open or we have at least one comment, load up the comment template
+                            if ( comments_open() || '0' != get_comments_number() )
+                                comments_template();
+                        ?>
 
-					<?php endwhile; ?>
+                    <?php endwhile; ?>
 
-				<?php else : ?>
+                <?php else : ?>
 
-					<?php get_template_part( 'no-results', 'index' ); ?>
+                    <?php get_template_part( 'no-results', 'index' ); ?>
 
-				<?php endif; ?>
+                <?php endif; ?>
 
-				</main><!-- #main -->
-			</div><!-- #primary -->
+                </main><!-- #main -->
+            </div><!-- #primary -->
 
-			<?php get_sidebar(); ?>
-		</div>
-	</div>
+            <?php get_sidebar(); ?>
+        </div>
+    </div>
 
 <?php get_footer(); ?>

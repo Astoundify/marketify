@@ -9,7 +9,8 @@ class Marketify_Template_Page_Header {
         add_action( 'marketify_entry_before', array( $this, 'close_header_outer' ) );
         
         add_action( 'marketify_entry_before', array( $this, 'archive_title' ), 5 );
-        add_action( 'marketify_entry_before', array( $this, 'home_title' ), 6 );
+        add_action( 'marketify_entry_before', array( $this, 'page_title' ), 5 );
+        add_action( 'marketify_entry_before', array( $this, 'home_title' ), 5 );
     }
 
     public function get_the_archive_title( $title ) { 
@@ -39,6 +40,19 @@ class Marketify_Template_Page_Header {
 
         the_content();
 
+        rewind_posts();
+    }
+
+    public function page_title() {
+        if ( ! is_singular() || is_singular( 'download' ) ) {
+            return;
+        }
+
+        the_post();
+    ?>
+        <div class="page-header page-header--singular container">
+            <h1 class="page-title"><?php the_title(); ?></h1>
+    <?php
         rewind_posts();
     }
 

@@ -157,11 +157,11 @@ class Marketify_EDD_Template_Download {
     }
 
     public function download_title() {
-        the_post();
-
         if ( ! is_singular( 'download' ) ) {
             return;
         }
+
+        the_post();
     ?>
         <div class="page-header page-header--download download-header container">
             <h1 class="page-title"><?php the_title(); ?></h1>
@@ -199,18 +199,18 @@ class Marketify_EDD_Template_Download {
         } else {
     ?>
         <?php foreach ( $images as $image ) : ?>
-        <div class="download-gallery__image"><?php echo wp_get_attachment_image( $image->ID, $size ); ?></div>
+            <div class="download-gallery__image"><?php echo wp_get_attachment_image( $image->ID, $size ); ?></div>
         <?php endforeach; ?>
     <?php
         }
-        
+
         echo $after;
     }
 
     public function featured_standard_navigation() {
         $images = $this->get_featured_images();
 
-        if ( count( $images ) == 1 ) {
+        if ( empty( $images ) ) {
             return;
         }
 
@@ -230,7 +230,7 @@ class Marketify_EDD_Template_Download {
         <div class="download-gallery-navigation__image"><?php echo wp_get_attachment_image( $image->ID, $size ); ?></div>
     <?php
         }
-        
+
         echo $after;
     }
 
@@ -356,7 +356,7 @@ class Marketify_EDD_Template_Download {
         } else {
             $output = do_shortcode( sprintf( '[video %s="%s"]', $info[ 'ext' ], $video ) );
         }
-        
+
         echo '<div class="download-video">' . $output . '</div>';
     }
 
