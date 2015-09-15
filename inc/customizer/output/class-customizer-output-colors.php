@@ -58,6 +58,7 @@ class Marketify_Customizer_Output_Colors {
                 '#edd-purchase-button',
                 '.edd-submit',
                 '.edd-submit.button',
+                '.edd-submit.button:visited',
                 'input[type=submit].edd-submit'
             ),
             'declarations' => array(
@@ -90,7 +91,11 @@ class Marketify_Customizer_Output_Colors {
         // white buttons use text color
         $this->css->add( array(
             'selectors' => array(
-                '.button.button--color-white:hover'
+                '.button.button--color-white:hover',
+
+                // edd
+                '.edd-submit.button.edd-add-to-cart.button--color-white:hover',
+                '.edd-submit.button.edd_go_to_checkout.button--color-white:hover'
             ),
             'declarations' => array(
                 'color' => $primary,

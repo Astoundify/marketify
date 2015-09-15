@@ -1,6 +1,19 @@
 #edd-purchase-button, 
 .edd-submit, 
 .edd-submit.button, 
+.edd-submit.button:visited, 
 input[type=submit].edd-submit {
     @extend .button;
+}
+
+
+// ludacris
+.edd-submit.button.edd-add-to-cart.button--color-white,
+.edd-submit.button.edd_go_to_checkout.button--color-white {
+    @extend .button--color-white;
+
+	&:hover {
+		background-color: #fff;
+        border-color: #fff;
+	}
 }
