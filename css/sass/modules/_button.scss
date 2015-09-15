@@ -31,10 +31,12 @@ input[type=submit],
 }
 
 .button--color-white {
-	border-color: #fff;
 	color: #fff;
+	border-color: #fff;
+    background-color: transparent;
 
 	&:hover {
 		background-color: #fff;
+        border-color: #fff;
 	}
 }

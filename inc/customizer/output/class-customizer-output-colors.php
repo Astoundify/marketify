@@ -90,10 +90,10 @@ class Marketify_Customizer_Output_Colors {
         // white buttons use text color
         $this->css->add( array(
             'selectors' => array(
-                '.button--color-white:hover'
+                '.button.button--color-white:hover'
             ),
             'declarations' => array(
-                'color' => $primary
+                'color' => $primary,
             )
         ) );
 
