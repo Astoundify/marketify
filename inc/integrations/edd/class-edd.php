@@ -36,7 +36,10 @@ class Marketify_EDD extends Marketify_Integration {
 		$this->query = new Marketify_EDD_Query();
 		$this->widgets = new Marketify_EDD_Widgets();
 		$this->shortcode = new Marketify_EDD_Shortcode();
-		$this->metaboxes = new Marketify_EDD_Metaboxes();
+
+        if ( ! marketify()->get( 'edd-fes' ) ) {
+		    $this->metaboxes = new Marketify_EDD_Metaboxes();
+        }
 	}
 
 	public function setup_actions() {

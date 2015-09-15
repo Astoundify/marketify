@@ -6,6 +6,7 @@ class Marketify_EDD_Template_Download {
         add_action( 'wp_head', array( $this, 'featured_area' ) );
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
         
+        add_action( 'marketify_entry_before', array( $this, 'download_title' ), 5 );
         add_action( 'marketify_entry_before', array( $this, 'featured_area_header_actions' ), 5 );
 
         add_action( 'marketify_download_info', array( $this, 'download_price' ), 5 );
@@ -59,7 +60,7 @@ class Marketify_EDD_Template_Download {
             echo '<br /><br />';
         }
 
-        echo apply_filters( 'marketify_demo_link', sprintf( '<a href="%s" class="button" target="_blank">%s</a>', esc_url( $demo ), $label ) );
+        echo apply_filters( 'marketify_demo_link', sprintf( '<a href="%s" class="button button--color-white" target="_blank">%s</a>', esc_url( $demo ), $label ) );
     }
 
     private function get_featured_images() {
@@ -155,16 +156,29 @@ class Marketify_EDD_Template_Download {
         return false;
     }
 
+    public function download_title() {
+        the_post();
+
+        if ( ! is_singular( 'download' ) ) {
+            return;
+        }
+    ?>
+        <div class="page-header page-header--download download-header container">
+            <h1 class="page-title"><?php the_title(); ?></h1>
+    <?php
+        rewind_posts();
+    }
+
     public function featured_area_header_actions() {
         if ( ! is_singular( 'download' ) ) {
             return;
         }
     ?>
-        <div class="download-actions">
+        <div class="download-header__info download-header__info--actions">
             <?php do_action( 'marketify_download_actions' ); ?>
         </div>
 
-        <div class="download-info">
+        <div class="download-header__info">
             <?php do_action( 'marketify_download_info' ); ?>
         </div>
     <?php

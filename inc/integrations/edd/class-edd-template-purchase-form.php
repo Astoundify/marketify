@@ -8,6 +8,7 @@ class Marketify_EDD_Template_Purchase_Form {
 
         add_filter( 'edd_purchase_download_form', array( $this, 'download_form_class' ), 10, 2 );
         add_filter( 'edd_button_colors', array( $this, 'button_colors' ) );
+        add_filter( 'edd_purchase_link_args', array( $this, 'button_class' ) );
     }
 
     public function purchase_link( $download_id = null ) {
@@ -28,8 +29,13 @@ class Marketify_EDD_Template_Purchase_Form {
             echo $form;
         } else {
             $button = ! empty( $edd_options[ 'add_to_cart_text' ] ) ? $edd_options[ 'add_to_cart_text' ] : __( 'Purchase', 'marketify' );
+            $class = 'button buy-now popup-trigger';
 
-            printf( '<a href="#buy-now-%s" class="button buy-now popup-trigger">%s</a>', $post->ID, $button );
+            if ( ! did_action( 'marketify_single_download_content_before' ) ) {
+                $class .= ' button--color-white';
+            }
+
+            printf( '<a href="#buy-now-%s" class="%s">%s</a>', $post->ID, $class, $button );
         }
     }
 
@@ -53,6 +59,14 @@ class Marketify_EDD_Template_Purchase_Form {
         }
 
         return $colors;
+    }
+
+    public function button_class( $args ) {
+        if ( ! did_action( 'marketify_single_download_content_before' ) ) {
+            $args[ 'class' ] = $args[ 'class' ] . ' button--color-white';
+        }
+
+        return $args;
     }
 
 }

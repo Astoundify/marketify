@@ -8,7 +8,6 @@ class Marketify_Template_Page_Header {
         add_filter( 'marketify_page_header', array( $this, 'tag_atts' ), 10, 2 );
         add_action( 'marketify_entry_before', array( $this, 'close_header_outer' ) );
         
-        add_action( 'marketify_entry_before', array( $this, 'singular_title' ), 5 );
         add_action( 'marketify_entry_before', array( $this, 'archive_title' ), 5 );
         add_action( 'marketify_entry_before', array( $this, 'home_title' ), 6 );
     }
@@ -28,7 +27,7 @@ class Marketify_Template_Page_Header {
     }
 
     public function close_header_outer() {
-        echo '</div>';
+        echo '</div></div>';
     }
 
     public function home_title() { 
@@ -50,44 +49,7 @@ class Marketify_Template_Page_Header {
     ?>
         <div class="page-header container">
             <h1 class="page-title"><?php the_archive_title(); ?></h1>
-        </div>
     <?php
-    }
-
-    public function singular_title() {
-        if ( ! is_singular() ) {
-            return;
-        }
-
-        the_post();
-    ?>
-        <div class="page-header container">
-            <?php 
-                if ( ! is_singular( 'download' ) ) {
-                    get_template_part( 'content', 'author' );
-                }
-            ?>
-
-            <h1 class="page-title"><?php the_title(); ?></h1>
-
-            <?php
-                if ( is_singular( 'post' ) ) {
-                    $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-
-                    if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-                        $time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';
-                    }
-                    printf( $time_string,
-                        esc_attr( get_the_date( 'c' ) ),
-                        esc_html( get_the_date() ),
-                        esc_attr( get_the_modified_date( 'c' ) ),
-                        esc_html( get_the_modified_date() )
-                    );
-                }
-            ?>
-        </div>
-    <?php
-        rewind_posts();
     }
 
     public function tag_atts( $args ) {

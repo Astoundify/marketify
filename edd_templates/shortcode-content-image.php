@@ -13,7 +13,7 @@ global $post;
 		<div class="content-grid-download__actions">
 			<?php do_action( 'marketify_download_content_actions_before' ); ?>
 
-			<a href="<?php the_permalink(); ?>" rel="bookmark" class="button"><?php _e( 'Details', 'marketify' ); ?></a>
+			<a href="<?php the_permalink(); ?>" rel="bookmark" class="button button--color-white"><?php _e( 'Details', 'marketify' ); ?></a>
 
 			<strong class="item-price"><span><?php printf( __( 'Item Price: %s', 'marketify' ), edd_price( get_the_ID(), false ) ); ?></span></strong>
 

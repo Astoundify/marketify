@@ -55,29 +55,31 @@ class Marketify_Customizer_Output_Colors {
                 '.button'
             ),
             'declarations' => array(
-                'color' => $primary
-            )
-        ) );
-
-        $this->css->add( array(
-            'selectors' => array(
-                'button',
-                'input[type=reset]',
-                'input[type=submit]',
-                '.button'
-            ),
-            'declarations' => array(
+                'color' => $primary,
                 'border-color' => $primary
             )
         ) );
 
         $this->css->add( array(
             'selectors' => array(
+                'button:hover',
+                'input[type=reset]:hover',
+                'input[type=submit]:hover',
                 '.button:hover'
             ),
             'declarations' => array(
                 'color' => '#ffffff',
                 'background-color' => $primary
+            )
+        ) );
+
+        // white buttons use text color
+        $this->css->add( array(
+            'selectors' => array(
+                '.button--color-white:hover'
+            ),
+            'declarations' => array(
+                'color' => $primary
             )
         ) );
 
