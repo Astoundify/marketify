@@ -52,11 +52,18 @@ class Marketify_Customizer_Output_Colors {
                 'button',
                 'input[type=reset]',
                 'input[type=submit]',
-                '.button'
+                '.button',
+
+                // edd
+                '#edd-purchase-button',
+                '.edd-submit',
+                '.edd-submit.button',
+                'input[type=submit].edd-submit'
             ),
             'declarations' => array(
                 'color' => $primary,
-                'border-color' => $primary
+                'border-color' => $primary,
+                'background' => '#ffffff'
             )
         ) );
 
@@ -65,11 +72,18 @@ class Marketify_Customizer_Output_Colors {
                 'button:hover',
                 'input[type=reset]:hover',
                 'input[type=submit]:hover',
-                '.button:hover'
+                '.button:hover',
+
+                // edd
+                '#edd-purchase-button:hover',
+                '.edd-submit:hover',
+                '.edd-submit.button:hover',
+                'input[type=submit].edd-submit:hover'
             ),
             'declarations' => array(
                 'color' => '#ffffff',
-                'background-color' => $primary
+                'background-color' => $primary,
+                'border-color' => $primary
             )
         ) );
 

@@ -1,6 +1,4 @@
 .section-title {
-    font: 700 15px/normal 'Montserrat', sans-serif;
-    color: #bdc3c7;
     text-transform: uppercase;
     text-decoration: none;
     text-shadow: none;
@@ -12,6 +10,8 @@
 
     .section-title__inner,
     span {
+        font: 700 15px/normal 'Montserrat', sans-serif;
+        color: #bdc3c7;
         padding: 10px 20px;
         border: 3px solid #bdc3c7;
         background: #fff;
@@ -38,11 +38,4 @@
 }
 
 
-// fill in things we don't have access to
-.edd_form fieldset > span {
-    @extend .section-title;
 
-    legend {
-        @extend .section-title__inner;
-    }
-}

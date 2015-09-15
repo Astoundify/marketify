@@ -52,6 +52,8 @@
 @import "modules/widgets/sorting";
 
 @import "modules/edd/edd";
+@import "modules/edd/button";
+@import "modules/edd/section-title";
 @import "modules/edd/checkout_discounts";
 @import "modules/edd/wish_lists";
 @import "modules/edd/favorites";
@@ -59,6 +61,7 @@
 @import "modules/edd/purchase_form";
 @import "modules/edd/pagination";
 
+@import "modules/edd-fes/section-title";
 @import "modules/edd-fes/dashboard";
 @import "modules/edd-fes/vendor-widget-area";
 @import "modules/edd-fes/vendor-widget";

@@ -1,0 +1,6 @@
+#edd-purchase-button, 
+.edd-submit, 
+.edd-submit.button, 
+input[type=submit].edd-submit {
+    @extend .button;
+}

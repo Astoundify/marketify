@@ -1,0 +1,19 @@
+// ridiculous
+#edd_checkout_form_wrap {
+    #edd_checkout_user_info {
+        margin-top: 120px;
+    }
+
+    .edd_form fieldset > span {
+        @extend .section-title;
+        margin: -100px -1.387em 55px !important;
+        display: block;
+
+        legend {
+            @extend .section-title__inner;
+            display: block;
+            margin: 0 auto;
+            width: auto;
+        }
+    }
+}

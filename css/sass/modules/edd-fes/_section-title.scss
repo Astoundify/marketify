@@ -1,0 +1,7 @@
+.fes-headers {
+    @extend .section-title;
+
+    span {
+        @extend .section-title__inner;
+    }
+}

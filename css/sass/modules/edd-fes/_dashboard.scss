@@ -1,5 +1,14 @@
-#fes-vendor-dashboard {
-	.fes-headers {
-		display: none;
-	}
+// a shortcode will always be in the page's content, so override
+// global styles automatically
+.entry-content {
+    #fes-vendor-dashboard {
+        .fes-headers {
+            display: none;
+        }
+    }
+
+    .fes_login_registration_form_row {
+        padding: 0;
+        border: 0;
+    }
 }
