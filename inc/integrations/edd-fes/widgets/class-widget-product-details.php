@@ -2,193 +2,178 @@
 
 class Marketify_Widget_FES_Product_Details extends Marketify_Widget {
 
-	public function __construct() {
-		$this->widget_cssclass    = 'marketify_widget_fes_product_details';
-		$this->widget_description = __( 'Output specificed submission form fields.', 'marketify' );
-		$this->widget_id          = 'marketify_widget_fes_product_details';
-		$this->widget_name        = sprintf( __( 'Marketify - %s Sidebar: Product Meta', 'marketify' ), edd_get_label_singular() );
-		$this->settings           = array(
-			'title' => array(
-				'type'  => 'text',
-				'std'   => '',
-				'label' => __( 'Title:', 'marketify' )
-			),
-			'fields' => array(
-				'type'  => 'multicheck',
-				'label' => __( 'Fields to Output:', 'marketify' ),
-				'std' => '',
-				'options' => $this->get_fields_list()
-			),
-		);
-		parent::__construct();
-	}
+    public function __construct() {
+        $this->widget_cssclass    = 'marketify_widget_fes_product_details';
+        $this->widget_description = __( 'Output specificed submission form fields.', 'marketify' );
+        $this->widget_id          = 'marketify_widget_fes_product_details';
+        $this->widget_name        = sprintf( __( 'Marketify - %s Sidebar: Product Meta', 'marketify' ), edd_get_label_singular() );
+        $this->settings           = array(
+            'title' => array(
+                'type'  => 'text',
+                'std'   => '',
+                'label' => __( 'Title:', 'marketify' )
+            ),
+            'fields' => array(
+                'type'  => 'multicheck',
+                'label' => __( 'Fields to Output:', 'marketify' ),
+                'std' => '',
+                'options' => $this->get_fields_list()
+            ),
+        );
+        parent::__construct();
+    }
 
-	/**
-	 * widget function.
-	 *
-	 * @see WP_Widget
-	 * @access public
-	 * @param array $args
-	 * @param array $instance
-	 * @return void
-	 */
-	function widget( $args, $instance ) {
-		ob_start();
+    function widget( $args, $instance ) {
+        $title  = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+        $chosen = isset( $instance[ 'fields' ] ) ? $instance[ 'fields' ] : array();
+        $chosen = maybe_unserialize( $chosen );
 
-		$title  = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
-		$chosen = isset( $instance[ 'fields' ] ) ? $instance[ 'fields' ] : array();
-		$chosen = maybe_unserialize( $chosen );
+        $output = $this->get_product_details_output( $chosen );
 
-		$output = $this->get_product_details_output( $chosen );
+        echo $args[ 'before_widget' ];
 
-		echo $args[ 'before_widget' ];
-			
-		if ( $title ) {
-			echo $args[ 'before_title' ] . $title . $args[ 'after_title' ];
-		}
-	?>
+        if ( $title ) {
+            echo $args[ 'before_title' ] . $title . $args[ 'after_title' ];
+        }
+    ?>
 
-		<table class="edd-fpd">
-			<?php foreach ( $output as $label => $value ) : if ( '' == $value ) continue; ?>
-			<tr>
-				<th><?php echo $label; ?></th>
-				<td><?php echo $value; ?></td>
-			</tr>
-			<?php endforeach; ?>
-		</table>
+        <table class="edd-fpd">
+            <?php foreach ( $output as $label => $value ) : if ( '' == $value ) continue; ?>
+            <tr>
+                <th><?php echo $label; ?></th>
+                <td><?php echo $value; ?></td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
 
-		<?php
-		echo $args[ 'after_widget' ];
+        <?php
+        echo $args[ 'after_widget' ];
+    }
 
-		$content = ob_get_clean();
+    private function get_fields_list() {
+        $fields  = $this->get_form_fields();
 
-		echo $content;
-	}
+        if ( ! is_array( $fields ) ) {
+            return array();
+        }
 
-	private function get_fields_list() {
-		$fields  = $this->get_form_fields();
+        $labels = wp_list_pluck( $fields, 'label' );
+        $names  = wp_list_pluck( $fields, 'name' );
 
-		if ( ! is_array( $fields ) ) {
-			return array();
-		}
+        $options = array_combine( $names, $labels );
 
-		$labels = wp_list_pluck( $fields, 'label' );
-		$names  = wp_list_pluck( $fields, 'name' );
+        return $options;
+    }
 
-		$options = array_combine( $names, $labels );
+    public function get_form_fields() {
+        $form_id = EDD_FES()->helper->get_option( 'fes-submission-form' );
 
-		return $options;
-	}
+        if ( ! $form_id ) {
+            return array();
+        }
 
-	public function get_form_fields() {
-		$form_id = EDD_FES()->helper->get_option( 'fes-submission-form' );
+        $fields  = get_post_meta( $form_id, 'fes-form', true );
 
-		if ( ! $form_id ) {
-			return array();
-		}
+        return $fields;
+    }
 
-		$fields  = get_post_meta( $form_id, 'fes-form', true );
+    public function get_product_details_output( $chosen ) {
+        global $post;
 
-		return $fields;
-	}
+        $fields  = $this->get_form_fields();
+        $meta    = array();
 
-	public function get_product_details_output( $chosen ) {
-		global $post;
+        if ( ! $fields ) {
+            return;
+        }
 
-		$fields  = $this->get_form_fields();
-		$meta    = array();
+        foreach ( $fields as $field ) {
+            if ( ! in_array( $field[ 'name' ], $chosen ) ) {
+                continue;
+            }
 
-		if ( ! $fields ) {
-			return;
-		}
+            $value = get_post_meta( $post->ID, $field[ 'name' ], true );
 
-		foreach ( $fields as $field ) {
-			if ( ! in_array( $field[ 'name' ], $chosen ) ) {
-				continue;
-			}
+            switch ( $field[ 'input_type' ] ) {
+                case 'image_upload' :
+                    if ( 'featured_image' == $field[ 'template' ] ) {
+                        $value = get_the_post_thumbnail( $post->ID, 'thumbnail' );
+                    }
+                break;
 
-			$value = get_post_meta( $post->ID, $field[ 'name' ], true );
+                case 'file_upload' :
+                    $uploads = array();
 
-			switch ( $field[ 'input_type' ] ) {
-				case 'image_upload' :
-					if ( 'featured_image' == $field[ 'template' ] ) {
-						$value = get_the_post_thumbnail( $post->ID, 'thumbnail' );
-					}
-				break;
+                    $value = '';
 
-				case 'file_upload' :
-					$uploads = array();
+                    if ( is_array( $value ) ) {
+                        foreach ( $value as $attachment_id ) {
+                            $uploads[] = wp_get_attachment_link( $attachment_id, 'thumbnail', false, true );
+                        }
 
-					$value = '';
+                        $value = implode( '<br />', $uploads );
+                    }
+                break;
 
-					if ( is_array( $value ) ) {
-						foreach ( $value as $attachment_id ) {
-							$uploads[] = wp_get_attachment_link( $attachment_id, 'thumbnail', false, true );
-						}
+                case 'checkbox' :
+                case 'multiselect' :
+                    if ( ! is_array( $value ) ) {
+                        $value = explode( '|', $value );
+                    } else {
+                        $value = array_map( 'trim', $value );
+                    }
 
-						$value = implode( '<br />', $uploads );
-					}
-				break;
+                    $value = implode( $this->multi_sep, $value );
+                break;
 
-				case 'checkbox' :
-				case 'multiselect' :
-					if ( ! is_array( $value ) ) {
-						$value = explode( '|', $value );
-					} else {
-						$value = array_map( 'trim', $value );
-					}
+                case 'taxonomy' :
+                    $terms = wp_get_post_terms( $post->ID, $field[ 'name' ] );
 
-					$value = implode( $this->multi_sep, $value );
-				break;
+                    if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
+                        switch ( $field[ 'type' ] ) {
 
-				case 'taxonomy' :
-					$terms = wp_get_post_terms( $post->ID, $field[ 'name' ] );
+                            case 'checkbox' :
+                            case 'multiselect' :
+                            case 'text' :
+                                $_terms = array();
 
-					if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
-						switch ( $field[ 'type' ] ) {
+                                foreach ( $terms as $term ) {
+                                    $_terms[] = sprintf( '<a href="%s">%s</a>', get_term_link( $term, $field[ 'name' ] ), $term->name );
+                                }
 
-							case 'checkbox' :
-							case 'multiselect' :
-							case 'text' :
-								$_terms = array();
+                                $value = implode( $this->multi_sep, $_terms );
+                            break;
 
-								foreach ( $terms as $term ) {
-									$_terms[] = sprintf( '<a href="%s">%s</a>', get_term_link( $term, $field[ 'name' ] ), $term->name );
-								}
+                            case 'select' :
+                                $value = sprintf( '<a href="%s">%s</a>', get_term_link( current( $terms ), $field[ 'name' ] ), current( $terms )->name );
+                            break;
 
-								$value = implode( $this->multi_sep, $_terms );
-							break;
+                        }
+                    }
+                break;
 
-							case 'select' :
-								$value = sprintf( '<a href="%s">%s</a>', get_term_link( current( $terms ), $field[ 'name' ] ), current( $terms )->name );
-							break;
+                default :
+                    if ( 'no' != $field[ 'is_meta' ] ) {
+                        $value = get_post_meta( $post->ID, $field[ 'name' ], true );
+                    } else {
+                        $value = get_post_field( $field[ 'name' ], $post->ID );
+                    }
+                break;
+            }
 
-						}
-					}
-				break;
+            $value = make_clickable( $value );
 
-				default :
-					if ( 'no' != $field[ 'is_meta' ] ) {
-						$value = get_post_meta( $post->ID, $field[ 'name' ], true );
-					} else {
-						$value = get_post_field( $field[ 'name' ], $post->ID );
-					}
-				break;
-			}
+            $label = apply_filters( 'edd_fpd_label', $field[ 'label' ], $field );
+            $value = apply_filters( 'edd_fpd_value', $value, $field );
 
-			$value = make_clickable( $value );
+            if ( empty( $value ) )
+                continue;
 
-			$label = apply_filters( 'edd_fpd_label', $field[ 'label' ], $field );
-			$value = apply_filters( 'edd_fpd_value', $value, $field );
+            $meta[ $label ] = $value;
 
-			if ( empty( $value ) )
-				continue;
+        }
 
-			$meta[ $label ] = $value;
-
-		}
-
-		return $meta;
-	}
+        return $meta;
+    }
 
 }
