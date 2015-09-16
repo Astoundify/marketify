@@ -1,0 +1,19 @@
+
+@import "button";
+@import "section-title";
+@import "modal";
+@import "purchase-form";
+
+/**
+ * Be a bit overly specific since there are a lot of IDs
+ * that make it difficult to override otherwise.
+ */
+body {
+	.entry-content .edd-wish-list li {
+        span.edd-wl-item-image {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+	}
+}

@@ -1,0 +1,29 @@
+#edd-wl-modal {
+    .modal-dialog {
+        margin: 6em auto;
+    }
+
+    .modal-content {
+        border: 0;
+		box-shadow: none;
+		border-radius: 0;
+
+		label {
+			display: inline-block;
+		}
+    }
+
+    .modal-body {
+        padding: 0 40px 40px;
+    }
+
+    a.edd-wl-close {
+        color: #fff;
+        top: -28px;
+        right: -22px;
+    }
+
+	.modal-backdrop.in {
+		opacity: 0.70;
+	}
+}

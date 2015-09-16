@@ -15,62 +15,51 @@ $author = new WP_User( $author );
 
 get_header(); ?>
 
-	<?php while ( have_posts() ) : the_post(); ?>
+    <?php do_action( 'marketify_entry_before' ); ?>
 
-	<header class="page-header">
-		<h1 class="page-title"><?php the_title(); ?></h1>
-	</header><!-- .page-header -->
+    <div class="container">
+        <div id="content" class="site-content row">
 
-	<?php do_action( 'marketify_entry_before' ); ?>
+            <div id="secondary" class="author-widget-area col-md-3 col-sm-5 col-xs-12" role="complementary">
+                <div class="vendor-widget-area">
+                    <?php 
+                        if ( ! dynamic_sidebar( 'sidebar-vendor' ) ) :
+                            $args = array(				
+                                'before_widget' => '<aside class="widget vendor-widget">',
+                                'after_widget'  => '</aside>',
+                                'before_title'  => '<h3 class="vendor-widget-title">',
+                                'after_title'   => '</h3>',
+                            );
 
-	<div class="container">
-		<div id="content" class="site-content row">
+                            the_widget( 'Marketify_Widget_FES_Vendor', array( 'extras' => '' ), $args );
+                            the_widget( 'Marketify_Widget_FES_Vendor_Description', array(), $args );
+                        endif;
+                    ?>
+                    <div class="download-author-sales">
+                        <?php
+                            $loves = get_user_option( 'li_user_loves', $author->ID );
 
-			<div id="secondary" class="author-widget-area col-md-3 col-sm-5 col-xs-12" role="complementary">
-				<div class="download-product-details author-archive">
-					<div class="download-author">
-						<?php echo get_avatar( $author->ID, 130 ); ?>
-						<a href="#" class="author-link"><?php echo esc_attr( $author->display_name ); ?></a>
-						<span class="author-joined"><?php printf( __( 'Author since: %s', 'marketify' ), date_i18n( 'Y', strtotime( $author->user_registered ) ) ); ?></span>
-					</div>
+                            if ( ! is_array( $loves ) ) {
+                                $loves = array();
+                            }
+                        ?>
 
-					<div class="download-author-bio">
-						<?php echo esc_attr( $author->description ); ?>
-					</div>
+                        <strong><?php echo count( $loves ); ?></strong>
 
-					<div class="download-author-sales">
-						<?php
-							$loves = get_user_option( 'li_user_loves', $author->ID );
+                        <?php echo _n( 'Love', 'Loves', count( $loves ), 'marketify' ); ?>
+                    </div>
+                </div>
+            </div><!-- #secondary -->
 
-							if ( ! is_array( $loves ) ) {
-								$loves = array();
-							}
-						?>
+            <div role="main" class="content-area col-md-9 col-sm-7 col-xs-12">
 
-						<strong><?php echo count( $loves ); ?></strong>
+                <?php while ( have_posts() ) : the_post(); ?>
+                    <?php the_content(); ?>
+                <?php endwhile; ?>
 
-						<?php echo _n( 'Like', 'Likes', count( $loves ), 'marketify' ); ?>
-					</div>
+            </div>
 
-					<?php if ( marketify_entry_author_social( $author->ID ) ) : ?>
-					<div class="download-author-social">
-						<?php echo marketify_entry_author_social( $author->ID ); ?>
-					</div>
-					<?php endif; ?>
-				</div>
-			</div><!-- #secondary -->
-
-			<section id="primary" class="content-area col-md-9 col-sm-7 col-xs-12">
-				<main id="main" class="site-main" role="main">
-
-					<?php the_content(); ?>
-
-				</main><!-- #main -->
-			</section><!-- #primary -->
-
-		</div><!-- #content -->
-	</div>
-
-	<?php endwhile; ?>
+        </div><!-- #content -->
+    </div>
 
 <?php get_footer(); ?>

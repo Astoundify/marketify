@@ -69,7 +69,13 @@ class Marketify_Customizer_Output_Colors {
                 '.edd-submit',
                 '.edd-submit.button',
                 '.edd-submit.button:visited',
-                'input[type=submit].edd-submit'
+                'input[type=submit].edd-submit',
+
+                // edd wish lists
+                '.edd-wl-button',
+                'a.edd-wl-button',
+                '.edd-wl-button.edd-wl-action',
+                'a.edd-wl-button.edd-wl-action'
             ),
             'declarations' => array(
                 'color' => $primary,
@@ -89,7 +95,13 @@ class Marketify_Customizer_Output_Colors {
                 '#edd-purchase-button:hover',
                 '.edd-submit:hover',
                 '.edd-submit.button:hover',
-                'input[type=submit].edd-submit:hover'
+                'input[type=submit].edd-submit:hover',
+
+                // edd wish lists
+                '.edd-wl-button:hover',
+                'a.edd-wl-button:hover',
+                '.edd-wl-button.edd-wl-action:hover',
+                'a.edd-wl-button.edd-wl-action:hover'
             ),
             'declarations' => array(
                 'color' => '#ffffff',

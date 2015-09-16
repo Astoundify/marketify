@@ -1,3 +1,15 @@
+.section-title__inner {
+    font: 700 15px/normal 'Montserrat', sans-serif;
+    color: #bdc3c7;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border: 3px solid #bdc3c7;
+    background: #fff;
+    display: inline-block;
+    z-index: 10;
+    position: relative;
+}
+
 .section-title {
     text-transform: uppercase;
     text-decoration: none;
@@ -8,16 +20,8 @@
     border-radius: 0;
     position: relative;
 
-    .section-title__inner,
     span {
-        font: 700 15px/normal 'Montserrat', sans-serif;
-        color: #bdc3c7;
-        padding: 10px 20px;
-        border: 3px solid #bdc3c7;
-        background: #fff;
-        display: inline-block;
-        z-index: 10;
-        position: relative;
+        @extend .section-title__inner;
     }
 
     &:after {
@@ -36,6 +40,4 @@
         margin-top: 0;
     }
 }
-
-
 

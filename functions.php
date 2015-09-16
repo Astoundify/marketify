@@ -11,93 +11,93 @@ if ( ! isset( $content_width ) ) {
 
 class Marketify {
 
-	private static $instance;
+    private static $instance;
 
-	public $customizer;
+    public $customizer;
 
-	public $activation;
-	public $setup;
+    public $activation;
+    public $setup;
 
-	public $strings;
-	public $integrations;
-	public $widgets;
+    public $strings;
+    public $integrations;
+    public $widgets;
 
-	public $template;
+    public $template;
 
-	public static function instance() {
-		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Marketify ) ) {
-			self::$instance = new self;
-		}
+    public static function instance() {
+        if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Marketify ) ) {
+            self::$instance = new self;
+        }
 
-		return self::$instance;
-	}
+        return self::$instance;
+    }
 
-	public function __construct() {
-		$this->base();
-		$this->setup();
-	}
-	
-	// Integration getter helper
-	public function get( $integration ) {
-		return $this->integrations->get( $integration );
-	}
+    public function __construct() {
+        $this->base();
+        $this->setup();
+    }
 
-	private function base() {
-		$this->files = array(
-			'customizer/class-customizer.php',
+    // Integration getter helper
+    public function get( $integration ) {
+        return $this->integrations->get( $integration );
+    }
 
-			'activation/class-activation.php',
+    private function base() {
+        $this->files = array(
+            'customizer/class-customizer.php',
 
-			'setup/class-setup.php',
+            'activation/class-activation.php',
 
-			'class-strings.php',
-			'class-helpers.php',
+            'setup/class-setup.php',
 
-			'integrations/class-integration.php',
-			'integrations/class-integrations.php',
+            'class-strings.php',
+            'class-helpers.php',
 
-			'widgets/class-widgets.php',
-			'widgets/class-widget.php',
+            'integrations/class-integration.php',
+            'integrations/class-integrations.php',
 
-			'template/class-template.php',
-		);
+            'widgets/class-widgets.php',
+            'widgets/class-widget.php',
 
-		foreach ( $this->files as $file ) {
-			require_once( get_template_directory() . '/inc/' . $file );
-		}
-	}
+            'template/class-template.php',
+        );
 
-	private function setup() {
-		$this->customizer = new Marketify_Customizer();
+        foreach ( $this->files as $file ) {
+            require_once( get_template_directory() . '/inc/' . $file );
+        }
+    }
 
-		$this->activation = new Marketify_Activation();
-		$this->setup = new Marketify_Setup();
+    private function setup() {
+        $this->customizer = new Marketify_Customizer();
 
-		$this->strings = new Marketify_Strings();
-		$this->integrations = new Marketify_Integrations();
-		$this->widgets = new Marketify_Widgets();
+        $this->activation = new Marketify_Activation();
+        $this->setup = new Marketify_Setup();
 
-		$this->template = new Marketify_Template();
+        $this->strings = new Marketify_Strings();
+        $this->integrations = new Marketify_Integrations();
+        $this->widgets = new Marketify_Widgets();
 
-		add_action( 'after_setup_theme', array( $this, 'setup_theme' ) );
-	}
-	
-	public function setup_theme() {
-		$locale = apply_filters( 'plugin_locale', get_locale(), 'marketify' );
-		load_textdomain( 'marketify', WP_LANG_DIR . "/marketify-$locale.mo" );
-		load_theme_textdomain( 'marketify', get_template_directory() . '/languages' );
+        $this->template = new Marketify_Template();
 
-		add_theme_support( 'automatic-feed-links' );
-		add_theme_support( 'post-thumbnails' );
-		add_theme_support( 'title-tag' );
+        add_action( 'after_setup_theme', array( $this, 'setup_theme' ) );
+    }
 
-		add_editor_style( 'css/editor-style.css' );
+    public function setup_theme() {
+        $locale = apply_filters( 'plugin_locale', get_locale(), 'marketify' );
+        load_textdomain( 'marketify', WP_LANG_DIR . "/marketify-$locale.mo" );
+        load_theme_textdomain( 'marketify', get_template_directory() . '/languages' );
 
-		add_theme_support( 'custom-background', apply_filters( 'marketify_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-		) ) );
-	}
+        add_theme_support( 'automatic-feed-links' );
+        add_theme_support( 'post-thumbnails' );
+        add_theme_support( 'title-tag' );
+
+        add_editor_style( 'css/editor-style.css' );
+
+        add_theme_support( 'custom-background', apply_filters( 'marketify_custom_background_args', array(
+            'default-color' => 'ffffff',
+            'default-image' => '',
+        ) ) );
+    }
 
 }
 

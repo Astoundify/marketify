@@ -7,115 +7,123 @@
  */
 class Marketify_Love_It_Archives {
 
-	public function __construct() {
-		add_action( 'pre_get_posts', array( $this, 'vendor_download_query' ) );
+    public function __construct() {
+        add_action( 'pre_get_posts', array( $this, 'vendor_download_query' ) );
 
-		add_filter( 'generate_rewrite_rules', array( $this, 'rewrites' ) );
-		add_action( 'query_vars', array( $this, 'query_vars' ) );
+        add_filter( 'generate_rewrite_rules', array( $this, 'rewrites' ) );
+        add_action( 'query_vars', array( $this, 'query_vars' ) );
 
-		add_filter( 'the_title',  array( $this, 'change_the_title' ) );
+        add_filter( 'the_title',  array( $this, 'change_the_title' ) );
 
-		add_action( 'template_redirect', array( $this, 'template_redirect' ) );
-	}
+        add_action( 'template_redirect', array( $this, 'template_redirect' ) );
+    }
 
-	function get_url( $author = null ) {
-		if ( ! $author ) {
-			$author = wp_get_current_user();
-		} else {
-			$author = new WP_User( $author );
-		}
+    function get_url( $author = null ) {
+        if ( ! $author ) {
+            $author = wp_get_current_user();
+        } else {
+            $author = new WP_User( $author );
+        }
 
-		global $wp_rewrite;
+        global $wp_rewrite;
 
-		$page = marketify_find_page_with_template( 'page-templates/wishlist.php' );
+        $page = marketify()->template->page_templates->find_page( 'page-templates/wishlist.php' );
 
-		if ( $wp_rewrite->permalink_structure == '' ) {
-			$vendor_url = add_query_arg( array( 'page_id' => $page, 'author_wishlist' => $author->user_nicename ), home_url() );
-		} else {
-			$vendor_url = get_permalink( $page );
-			$vendor_url = trailingslashit( $vendor_url ) . trailingslashit( $author->user_nicename );
-		}
+        if ( ! $page ) {
+            return home_url();
+        }
 
-		return $vendor_url;
-	}
+        $page = get_post( $page[0] );
 
-	public function query_vars( $query_vars ) {
-		$query_vars[] = 'author_wishlist';
+        if ( $wp_rewrite->permalink_structure == '' ) {
+            $vendor_url = add_query_arg( array( 'page_id' => $page->ID, 'author_wishlist' => $author->user_nicename ), home_url() );
+        } else {
+            $vendor_url = get_permalink( $page->ID );
+            $vendor_url = trailingslashit( $vendor_url ) . trailingslashit( $author->user_nicename );
+        }
 
-		return $query_vars;
-	}
+        return $vendor_url;
+    }
 
-	public function rewrites() {
-		global $wp_rewrite;
+    public function query_vars( $query_vars ) {
+        $query_vars[] = 'author_wishlist';
 
-		$page = get_post( marketify_find_page_with_template( 'page-templates/wishlist.php' ) );
+        return $query_vars;
+    }
 
-		if ( ! $page ) {
-			return;
-		}
+    public function rewrites() {
+        global $wp_rewrite;
 
-		$new_rules = array(
-			$page->post_name . '/([^/]+)/?$' => 'index.php?page_id=' . $page->ID . '&author_wishlist=' . $wp_rewrite->preg_index(1),
-			$page->post_name . '/([^/]+)/page/([0-9]+)?$' => 'index.php?page_id=' . $page->ID . '&author_wishlist=' . $wp_rewrite->preg_index(1) . '&paged=' . $wp_rewrite->preg_index(2),
-		);
+        $page = marketify()->template->page_templates->find_page( 'page-templates/wishlist.php' );
 
-		$wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
+        if ( ! $page ) {
+            return;
+        }
 
-		return $wp_rewrite->rules;
-	}
+        $page = get_post( $page[0] );
 
-	public function vendor_download_query( $query ) {
-		global $wp_query, $post;
+        $new_rules = array(
+            $page->post_name . '/([^/]+)/?$' => 'index.php?page_id=' . $page->ID . '&author_wishlist=' . $wp_rewrite->preg_index(1),
+            $page->post_name . '/([^/]+)/page/([0-9]+)?$' => 'index.php?page_id=' . $page->ID . '&author_wishlist=' . $wp_rewrite->preg_index(1) . '&paged=' . $wp_rewrite->preg_index(2),
+        );
 
-		if ( is_admin() || ! is_page() ) {
-			return;
-		}
+        $wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
 
-		if ( isset( $wp_query->query_vars[ 'author_wishlist' ] ) ) {
-			add_filter( 'edd_downloads_query', array( $this, 'set_shortcode' ) );
-		}
-	}
+        return $wp_rewrite->rules;
+    }
 
-	public function set_shortcode( $query ) {
-		global $wp_query;
+    public function vendor_download_query( $query ) {
+        global $wp_query, $post;
 
-		$author = get_user_by( 'slug', $wp_query->query_vars[ 'author_wishlist' ] );
-		$loves  = get_user_option( 'li_user_loves', $author->ID );
+        if ( is_admin() || ! is_page() ) {
+            return;
+        }
 
-		if ( ! is_array( $loves ) ) {
-			$loves = array(0);
-		}
+        if ( isset( $wp_query->query_vars[ 'author_wishlist' ] ) ) {
+            add_filter( 'edd_downloads_query', array( $this, 'set_shortcode' ) );
+        }
+    }
 
-		$query[ 'post__in' ] = $loves;
+    public function set_shortcode( $query ) {
+        global $wp_query;
 
-		return $query;
-	}
+        $author = get_user_by( 'slug', $wp_query->query_vars[ 'author_wishlist' ] );
+        $loves  = get_user_option( 'li_user_loves', $author->ID );
 
-	public function change_the_title( $title ) {
-		global $wp_query;
+        if ( ! is_array( $loves ) ) {
+            $loves = array(0);
+        }
 
-		if ( isset ( $wp_query->query_vars[ 'author_wishlist' ] ) && in_the_loop() && is_page_template( 'page-templates/wishlist.php' ) ) {
-			remove_filter( 'the_title',  array( $this, 'change_the_title' ) );
+        $query[ 'post__in' ] = $loves;
 
-			$vendor_nicename = get_query_var( 'author_wishlist' );
-			$vendor          = get_user_by( 'slug', $vendor_nicename );
+        return $query;
+    }
 
-			$title = sprintf( __( '%s\'s Likes', 'marketify' ), $vendor->display_name );
-		}
+    public function change_the_title( $title ) {
+        global $wp_query;
 
-		return $title;
-	}
+        if ( isset ( $wp_query->query_vars[ 'author_wishlist' ] ) && in_the_loop() && is_page_template( 'page-templates/wishlist.php' ) ) {
+            remove_filter( 'the_title',  array( $this, 'change_the_title' ) );
 
-	public function template_redirect() {
-		global $wp_query;
+            $vendor_nicename = get_query_var( 'author_wishlist' );
+            $vendor          = get_user_by( 'slug', $vendor_nicename );
 
-		if ( ! is_page_template( 'page-templates/wishlist.php' ) ) {
-			return;
-		}
+            $title = sprintf( __( '%s\'s Likes', 'marketify' ), $vendor->display_name );
+        }
 
-		if ( ! isset ( $wp_query->query_vars[ 'author_wishlist' ] ) ) {
-			wp_safe_redirect( $this->get_url( get_current_user_id() ), 301 );
-			exit();
-		}
-	}
+        return $title;
+    }
+
+    public function template_redirect() {
+        global $wp_query;
+
+        if ( ! is_page_template( 'page-templates/wishlist.php' ) ) {
+            return;
+        }
+
+        if ( ! isset ( $wp_query->query_vars[ 'author_wishlist' ] ) ) {
+            wp_safe_redirect( $this->get_url( get_current_user_id() ), 301 );
+            exit();
+        }
+    }
 }
