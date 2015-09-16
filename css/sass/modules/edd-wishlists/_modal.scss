@@ -27,3 +27,8 @@
 		opacity: 0.70;
 	}
 }
+
+// dont show on variable price popup
+.mfp-content a.edd-wl-action.edd-wl-button {
+    display: none;
+}

@@ -62,6 +62,7 @@ class Marketify_Customizer_Output_Colors {
                 'button',
                 'input[type=reset]',
                 'input[type=submit]',
+                'input[type=radio]:checked',
                 '.button',
 
                 // edd

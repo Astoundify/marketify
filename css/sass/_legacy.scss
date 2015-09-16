@@ -1,4 +1,3 @@
-
 /* Alignment */
 .alignleft {
 	display: inline;
@@ -1789,54 +1788,6 @@ object {
 	transform:         scale(0.25);
 }
 
-
-
-/* =Whistles
------------------------------------------------ */
-
-.whistles-tabs .whistles-tabs-nav {
-	width: 90%;
-	margin: 0 auto;
-}
-
-.whistles-tabs .whistles-tabs-nav li a,
-.whistles-tabs .whistles-tabs-nav li a:hover {
-	background: transparent;
-}
-
-.whistles-tabs .whistles-tabs-nav li[aria-selected='true'] a:hover {
-	background: #fff;
-}
-
-.whistles-tabs .whistles-tabs-nav li:last-child a {
-	border-right-width: 3px;
-}
-
-.whistles-tabs .whistles-tabs-wrap {
-	margin: -3px;
-	padding: 0;
-	border-width: 3px;
-	border-color: #bdc3c7;
-}
-
-.whistles-toggle .whistle-content,
-.whistles-accordion .whistle-content {
-	border-color: #bdc3c7;
-}
-
-.whistles-tabs-wrap .whistle-content {
-	padding: 2em;
-}
-
-.whistles-toggle .whistle-title,
-.whistles-accordion .whistle-title {
-	font: 700 13px/normal 'Montserrat', sans-serif;
-	text-transform: uppercase;
-	text-decoration: none;
-	padding: 10px 20px;
-	border-color: #bdc3c7;
-	background: #fff;
-}
 
 /* =WPML
 ----------------------------------------------- */

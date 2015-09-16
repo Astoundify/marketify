@@ -4,6 +4,7 @@ input[type="email"],
 input[type="url"],
 input[type="password"],
 input[type="search"],
+input[type="number"],
 textarea {
 	line-height: 25px;
 	color: #515a63;
@@ -28,12 +29,28 @@ input[type="email"]:focus,
 input[type="url"]:focus,
 input[type="password"]:focus,
 input[type="search"]:focus,
+input[type="number"]:focus,
 textarea:focus {
 	outline: 0;
 }
 
 textarea {
-	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
-	vertical-align: top; /* Improves readability and alignment in all browsers */
+	vertical-align: top; 
 	width: 98%;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+    padding: 3px;
+    border: 6px solid #bcc3c8;
+    background: #fff;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-top: -4px;
+    cursor: pointer;
+    -webkit-appearance: none;
+
+    &:focus {
+        outline: 0;
+    }
 }
