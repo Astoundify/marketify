@@ -1,13 +1,14 @@
 jQuery ($) ->
 
   class FeaturedPopular
-  
+
     constructor: ->
-      @initSwitcher()
       @initSliders()
+      @initSwitcher()
 
     initSwitcher: =>
-      $( '.featured-popular-tabs > div:first-child' ).removeClass( 'inactive' ).addClass( 'active' )
+      $( '.featured-popular-tabs > div:first-child' ).addClass( 'active' )
+      $( '.featured-popular-tabs > div:last-child' ).addClass( 'inactive' )
 
       $( '.featured-popular-switcher span' ).click (e) ->
         e.preventDefault();
@@ -17,7 +18,6 @@ jQuery ($) ->
 
         $( '.featured-popular-slick .edd_downloads_list' ).slick 'setPosition'
 
-  
     initSliders: =>
       if ! $( '.featured-popular-slick .edd_downloads_list' ).length then return
 
@@ -25,7 +25,6 @@ jQuery ($) ->
         autoPlay: marketifyFeaturedPopular?.autoPlay
         autoPlaySpeed: parseInt marketifyFeaturedPopular?.autoPlaySpeed
         slidesToShow: 3
-        slidesToScroll: 3
         arrows: false
         dots: true
         adaptiveHeight: true

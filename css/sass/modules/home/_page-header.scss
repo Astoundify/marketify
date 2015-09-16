@@ -1,0 +1,23 @@
+.home .page-header {
+    p {
+        font: 20px 'Roboto Slab', serif;
+        color: #fff;
+        text-align: center;
+        max-width: 60%;
+        margin: 0 auto;
+    }
+
+    .button {
+        margin: 2.5em 15px;
+    }
+
+    p:last-of-type {
+        font-size: 15px;
+        max-width: 980px;
+
+        img {
+            margin-bottom: -6em;
+            display: block;
+        }
+    }
+}

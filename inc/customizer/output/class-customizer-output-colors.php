@@ -45,6 +45,16 @@ class Marketify_Customizer_Output_Colors {
 
     public function primary() {
         $primary = marketify_theme_mod( 'color-primary' );
+
+        $this->css->add( array(
+            'selectors' => array(
+                '.featured-popular-switcher span:hover'
+            ),
+            'declarations' => array(
+                'border-color' => $primary,
+                'color' => $primary
+            )
+        ) );
         
         // Buttons
         $this->css->add( array(

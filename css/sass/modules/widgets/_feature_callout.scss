@@ -41,26 +41,6 @@
 		position: relative;
 		z-index: 2;
 	}
-
-	.button {
-		font-size: 18px;
-		border-width: 3px;
-		padding: 14px 24px;
-		border-radius: 0;
-		color: #fff;
-		border-color: #fff;
-
-		&:hover {
-			color: #515a63;
-			background: #fff;
-		}
-	}
-}
-
-.feature-callout.text-center {
-	.button{
-		margin: 0 15px;
-	}
 }
 
 .feature-callout.text-right {
@@ -162,6 +142,11 @@
 	}
 
 	@include bp(md) {
+        .callout-feature-content {
+            padding-top: 8em;
+            padding-bottom: 8em;
+        }
+
 		.callout-feature-content h2 {
 			font-size: 36px;
 			margin-bottom: 30px;

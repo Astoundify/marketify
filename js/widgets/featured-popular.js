@@ -7,12 +7,13 @@
       function FeaturedPopular() {
         this.initSliders = bind(this.initSliders, this);
         this.initSwitcher = bind(this.initSwitcher, this);
-        this.initSwitcher();
         this.initSliders();
+        this.initSwitcher();
       }
 
       FeaturedPopular.prototype.initSwitcher = function() {
-        $('.featured-popular-tabs > div:first-child').removeClass('inactive').addClass('active');
+        $('.featured-popular-tabs > div:first-child').addClass('active');
+        $('.featured-popular-tabs > div:last-child').addClass('inactive');
         return $('.featured-popular-switcher span').click(function(e) {
           e.preventDefault();
           $('.featured-popular-tabs > div').removeClass('active').addClass('inactive');
@@ -29,7 +30,6 @@
           autoPlay: typeof marketifyFeaturedPopular !== "undefined" && marketifyFeaturedPopular !== null ? marketifyFeaturedPopular.autoPlay : void 0,
           autoPlaySpeed: parseInt(typeof marketifyFeaturedPopular !== "undefined" && marketifyFeaturedPopular !== null ? marketifyFeaturedPopular.autoPlaySpeed : void 0),
           slidesToShow: 3,
-          slidesToScroll: 3,
           arrows: false,
           dots: true,
           adaptiveHeight: true,

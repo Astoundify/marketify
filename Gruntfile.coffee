@@ -51,11 +51,11 @@ module.exports = () ->
           sourceMap: true
         files:
           'js/marketify.min.js': [
-            'js/vendor/*.js',
-            'js/app/marketify.js',
-            'js/download/download.js',
-            'js/widgets/featured-popular.js',
-            'inc/integrations/facetwp/js/facetwp.js',
+            'js/vendor/*.js'
+            'js/app/marketify.js'
+            'js/download/download.js'
+            'js/widgets/featured-popular.js'
+            'inc/integrations/facetwp/js/facetwp.js'
             '!js/vendor/salvattore.min.js'
           ]
 
