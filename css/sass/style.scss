@@ -2,11 +2,10 @@
 
 @import "reset";
 @import "legacy"; // all of the old CSS is in one file for now.
-@import "page";
-@import "download_archive";
 
 @import "helpers/clearfix";
 
+@import "modules/slick";
 @import "modules/ionicons/ionicons";
 
 @import "modules/input";
@@ -20,6 +19,7 @@
 @import "modules/nav-menu";
 @import "modules/nav-menu--primary";
 
+@import "modules/page";
 @import "modules/page-header";
 @import "modules/page-title";
 
@@ -31,7 +31,7 @@
 @import "modules/footer";
 @import "modules/footer-widget";
 
-@import "modules/slick";
+@import "modules/download_archive";
 
 @import "modules/download/header-info";
 @import "modules/download/title";

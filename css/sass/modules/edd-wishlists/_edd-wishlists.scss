@@ -17,7 +17,8 @@ body {
         }
 	}
 
-    .content-grid-download a.edd-wl-action.edd-wl-button {
+    .download-header__info a.edd-wl-action.edd-wl-button,
+    .edd_download a.edd-wl-action.edd-wl-button {
         display: none;
     }
 }
