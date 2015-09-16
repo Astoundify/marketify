@@ -1,13 +1,13 @@
 @import "mixins";
 
 @import "reset";
-@import "entypo";
-@import "bbpress";
 @import "legacy"; // all of the old CSS is in one file for now.
 @import "page";
 @import "download_archive";
 
 @import "helpers/clearfix";
+
+@import "modules/ionicons/ionicons";
 
 @import "modules/input";
 @import "modules/button";
