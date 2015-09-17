@@ -8,6 +8,7 @@
     display: inline-block;
     z-index: 10;
     position: relative;
+    margin: 0 auto;
 }
 
 .section-title {
@@ -19,6 +20,7 @@
     background: transparent;
     border-radius: 0;
     position: relative;
+    display: block;
 
     span {
         @extend .section-title__inner;

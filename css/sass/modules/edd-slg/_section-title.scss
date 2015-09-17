@@ -1,13 +1,11 @@
-// ridiculous
-#edd_checkout_form_wrap {
-    .edd_form fieldset > span {
+.entry-content .edd-slg-social-container {
+    > span {
         @extend .section-title;
 
         legend {
             @extend .section-title__inner;
-            display: block;
-            margin: 0 auto;
             width: auto;
+            margin: 0 auto;
         }
     }
 }

@@ -1,0 +1,22 @@
+.edd_form {
+    fieldset > span {
+        @extend .section-title;
+
+        legend {
+            @extend .section-title__inner;
+        }
+    }
+}
+
+/* ugh */
+#edd_login_form .edd-input,
+#edd_register_form .edd-input {
+    width: 100%;
+}
+
+#edd_profile_editor_form label,
+#edd_login_form label,
+#edd_register_form label {
+    display: block;
+    width: auto;
+}

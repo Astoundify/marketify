@@ -20,24 +20,49 @@ input[type=submit],
 
     // not ideal, but helps because we can't always control cascade
     &.button--size-small {
-        font-size: 12px;
-        padding: 6px 10px;
+        @extend .button--size-small;
     }
 
     &.button--size-large {
-        font-size: 18px;
-        padding: 14px 20px;
-        border-width: 3px;
+        @extend .button--size-large;
+    }
+
+    &.button--size-full {
+        @extend .button--size-full;
     }
 
     &.button--color-white {
-        color: #fff;
-        border-color: #fff;
-        background-color: transparent;
+        @extend .button--color-white;
+    }
+}
 
-        &:hover {
-            background-color: #fff;
-            border-color: #fff;
-        }
+// not ideal, but helps because we can't always control cascade
+.button--size-small {
+    font-size: 12px;
+    padding: 6px 10px;
+}
+
+.button--size-large {
+    font-size: 15px;
+    padding: 14px 20px;
+    border-width: 3px;
+}
+
+.button--size-full {
+    font-size: 15px;
+    padding: 14px 20px;
+    border-width: 3px;
+    display: block;
+    width: 100%;
+}
+
+.button--color-white {
+    color: #fff;
+    border-color: #fff;
+    background-color: transparent;
+
+    &:hover {
+        background-color: #fff;
+        border-color: #fff;
     }
 }
