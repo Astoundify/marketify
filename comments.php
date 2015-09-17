@@ -25,11 +25,7 @@ if ( post_password_required() || ! comments_open() )
 
 
 		<h2 class="comments-title section-title"><span>
-			<?php if ( class_exists( 'EDD_Reviews' ) && is_singular( 'download' ) ) : ?>
-				<?php $reviews = edd_reviews(); $reviews->reviews_title( $reviews->average_rating( false )); ?>
-			<?php else : ?>
-				<?php _e( 'Comments', 'marketify' ); ?>
-			<?php endif; ?>
+			<?php _e( 'Comments', 'marketify' ); ?>
 		</span></h2>
 
 		<?php if ( have_comments() ) : ?>

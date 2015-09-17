@@ -1,100 +1,83 @@
 <?php
-/**
- * Download Details
- *
- * @since Marketify 1.0
- */
+
 class Marketify_Widget_Download_Review_Details extends Marketify_Widget {
 
-	/**
-	 * Constructor
-	 */
-	public function __construct() {
-		$this->widget_cssclass    = 'marketify_widget_download_review_details';
-		$this->widget_description = __( 'Display average review information.', 'marketify' );
-		$this->widget_id          = 'marketify_widget_download_review_details';
-		$this->widget_name        = __( 'Marketify - Download Single: Review Details ', 'marketify' );
-		$this->settings           = array(
-			'title' => array(
-				'type'  => 'text',
-				'std'   => 'Review Details',
-				'label' => __( 'Title:', 'marketify' )
-			)
-		);
-		parent::__construct();
-	}
+    public function __construct() {
+        $this->widget_cssclass    = 'marketify_widget_download_review_details';
+        $this->widget_description = __( 'Display average review information.', 'marketify' );
+        $this->widget_id          = 'marketify_widget_download_review_details';
+        $this->widget_name        = __( 'Marketify - Download Single: Review Details ', 'marketify' );
+        $this->settings           = array(
+            'title' => array(
+                'type'  => 'text',
+                'std'   => 'Review Details',
+                'label' => __( 'Title:', 'marketify' )
+            )
+        );
+        parent::__construct();
+    }
 
-	/**
-	 * widget function.
-	 *
-	 * @see WP_Widget
-	 * @access public
-	 * @param array $args
-	 * @param array $instance
-	 * @return void
-	 */
-	function widget( $args, $instance ) {
-		if ( $this->get_cached_widget( $args ) )
-			return;
+    /**
+     * widget function.
+     *
+     * @see WP_Widget
+     * @access public
+     * @param array $args
+     * @param array $instance
+     * @return void
+     */
+    function widget( $args, $instance ) {
+        global $post;
 
-		global $post;
+        extract( $args );
 
-		ob_start();
+        $reviews = get_comments( apply_filters( 'edd_reviews_average_rating_query_args', array(
+            'post_id' => $post->ID
+        ) ) );
 
-		extract( $args );
+        $total_ratings = 0;
 
-		$reviews = get_comments( apply_filters( 'edd_reviews_average_rating_query_args', array(
-			'post_id' => $post->ID
-		) ) );
+        foreach ( $reviews as $review ) {
+            $rating = get_comment_meta( $review->comment_ID, 'edd_rating', true );
+            $total_ratings += $rating;
+        }
 
-		$total_ratings = 0;
+        $total = wp_count_comments( $post->ID )->total_comments;
 
-		foreach ( $reviews as $review ) {
-			$rating = get_comment_meta( $review->comment_ID, 'edd_rating', true );
-			$total_ratings += $rating;
-		}
+        if ( 0 == $total )
+            $total = 1;
 
-		$total = wp_count_comments( $post->ID )->total_comments;
+        $average = $total_ratings / $total;
 
-		if ( 0 == $total )
-			$total = 1;
+        $title   = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+        $reviews = edd_reviews();
 
-		$average = $total_ratings / $total;
+        echo $before_widget;
 
-		$title   = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
-		$reviews = edd_reviews();
+        if ( $title ) echo '<h1 class="section-title"><span>' . $title . '</span></h1>';
+        ?>
+            <div class="download-product-review-details">
+                <h1 class="download-single-widget-title"><?php _e( 'Buyer Ratings', 'marketify' ); ?></h1>
 
-		echo $before_widget;
+                <?php $rating = $reviews->average_rating( false ); ?>
+                <div class="download-ratings">
+                    <strong>
+                        <?php for ( $i = 1; $i <= $rating; $i++ ) : ?>
+                        <i class="icon-star"></i>
+                        <?php endfor; ?>
 
-		if ( $title ) echo '<h1 class="section-title"><span>' . $title . '</span></h1>';
-		?>
-			<div class="download-product-review-details">
-				<h1 class="download-single-widget-title"><?php _e( 'Buyer Ratings', 'marketify' ); ?></h1>
+                        <?php for( $i = 0; $i < ( 5 - $rating ); $i++ ) : ?>
+                        <i class="icon-star2"></i>
+                        <?php endfor; ?>
+                    </strong>
+                </div>
 
-				<?php $rating = $reviews->average_rating( false ); ?>
-				<div class="download-ratings">
-					<strong>
-						<?php for ( $i = 1; $i <= $rating; $i++ ) : ?>
-						<i class="icon-star"></i>
-						<?php endfor; ?>
+                <p><?php printf( __( '%s average based on %d reviews.', 'marketify' ), sprintf( "%0.2f", $average ), wp_count_comments( $post->ID )->total_comments ); ?></p>
 
-						<?php for( $i = 0; $i < ( 5 - $rating ); $i++ ) : ?>
-						<i class="icon-star2"></i>
-						<?php endfor; ?>
-					</strong>
-				</div>
+                <?php echo $reviews->maybe_show_review_breakdown(); ?>
+            </div>
+        <?php
+        echo $after_widget;
+    }
 
-				<p><?php printf( __( '%s average based on %d reviews.', 'marketify' ), sprintf( "%0.2f", $average ), wp_count_comments( $post->ID )->total_comments ); ?></p>
-
-				<?php echo $reviews->maybe_show_review_breakdown(); ?>
-			</div>
-		<?php
-		echo $after_widget;
-
-		$content = ob_get_clean();
-
-		echo $content;
-
-		$this->cache_widget( $args, $content );
-	}
 }

@@ -511,114 +511,11 @@
 	border: 1px solid #bdc3c7;
 }
 
-.download-info .edd_price,
-.download-info .star-rating {
+.download-info .edd_price {
 	margin: 0 10px;
 	display: inline-block;
 }
 
-.download-info .star-rating {
-	vertical-align: top;
-	margin-top: -2px;
-}
-
-.download-info .star-rating i {
-	font-size: 17px;
-	vertical-align: bottom;
-}
-
-.edd-cart-added-alert {
-	bottom: -30px;
-	margin-left: -100px;
-	left: 50%;
-	width: 200px;
-}
-
-.entry-content .edd-cart-added-alert {
-	bottom: -60px;
-}
-
-.download-image {
-	position: relative;
-}
-
-.download-image.flexslider {
-	overflow: hidden;
-}
-
-.download-image.flexslider .slides {
-	width: 90%;
-	margin: 0 auto;
-	padding: 0;
-	list-style: none;
-}
-
-.download-image .flex-direction-nav {
-	position: absolute;
-	top: 48%;
-	left: 5%;
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	width: 90%;
-	z-index: 10;
-}
-
-.download-image .flex-direction-nav li:first-child {
-	float: left;
-}
-
-.download-image .flex-direction-nav li:last-child {
-	float: right;
-}
-
-.download-image .flex-direction-nav a {
-	font-size: 28px;
-	color: #fff;
-}
-
-.download-image-grid-preview {
-	margin: 70px 0;
-}
-
-.download-image-grid-preview a,
-.download-image-grid-preview img {
-	display: block;
-	position: relative;
-	text-align: center;
-}
-
-.download-image-grid-preview .slides {
-	padding: 0;
-	list-style: none;
-}
-
-.download-image-grid-preview .slides li {
-	margin: 15px 0;
-	position: relative;
-}
-
-.download-image-grid-preview .slides li a:before {
-	width: 100%;
-	height: 100%;
-	content: ' ';
-	top: 0;
-	left: 0;
-	z-index: 10;
-	position: absolute;
-	opacity: 0;
-	visibility: hidden;
-
-	-webkit-transition: all 0.2s ease-in-out;
-	-moz-transition:    all 0.2s ease-in-out;
-	transition:         all 0.2s ease-in-out;
-}
-
-.download-image-grid-preview .slides li.active a:before,
-.download-image-grid-preview .slides li:hover a:before {
-	opacity: 1;
-	visibility: visible;
-}
 
 /* =Media
 ----------------------------------------------- */
@@ -771,10 +668,6 @@ object {
 
 .comment-list .children .comment-content {
 	margin-left: 100px;
-}
-
-.comment-list .comment_form_rating {
-	display: none;
 }
 
 .comment-metadata {
@@ -1394,8 +1287,7 @@ object {
 ----------------------------------------------- */
 
 .download-single-widget,
-.download-product-details,
-.download-product-review-details {
+.download-product-details {
 	border: 1px solid #bdc3c7;
 	margin: 0 0 45px;
 	padding: 25px;
@@ -1424,8 +1316,7 @@ object {
 }
 
 /** Product Details */
-.marketify_widget_download_details,
-.marketify_widget_download_review_details {
+.marketify_widget_download_details {
 	border: 0;
 	padding: 0;
 }
@@ -1479,59 +1370,6 @@ object {
 	display: block;
 }
 
-.download-product-details .download-author .author-joined,
-.download-product-details .download-purchases,
-.download-product-details .download-comments,
-.download-product-details .download-comments a,
-.download-product-details .download-ratings,
-.download-product-details .download-author-sales,
-.download-product-details .download-info {
-	font-size: 13px;
-	color: #82878e;
-	display: block;
-}
-
-.download-product-details .download-purchases,
-.download-product-details .download-comments,
-.download-product-details .download-ratings,
-.download-product-details .download-author-sales {
-	text-align: center;
-	padding: 30px 25px;
-	width: 49%;
-	float: left;
-}
-
-.download-product-details .download-comments.full,
-.download-product-details .download-ratings.full {
-	width: 100%;
-}
-
-.download-product-details .download-purchases {
-	border-right: 1px solid #bdc3c7
-}
-
-.download-product-details .download-comments a,
-.download-product-details .download-ratings a {
-	text-decoration: none;
-}
-
-.download-product-details .download-purchases strong,
-.download-product-details .download-comments strong,
-.download-product-details .download-ratings strong,
-.download-product-details .download-author-sales strong,
-.download-product-details .edd_price {
-	font: 700 21px/normal 'Montserrat', sans-serif;
-	color: #505965;
-	text-transform: uppercase;
-	display: block;
-	margin-bottom: 4px;
-}
-
-.download-product-details .download-ratings strong i {
-	font-size: 17px;
-	margin: 0 -2px;
-}
-
 .download-product-details.author-archive .author-link {
 	font-size: 14px;
 }
@@ -1563,10 +1401,6 @@ object {
 	margin-top: -30px;
 	margin-bottom: 40px;
 	text-align: center;
-
-	.download-info .star-rating {
-		display: none;
-	}
 }
 
 .product-details-pull .page-title {

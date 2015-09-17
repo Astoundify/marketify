@@ -104,28 +104,6 @@
 	}
 }
 
-.content-grid-download .entry-image .star-rating {
-	display: block;
-	width: 100%;
-
-	-webkit-backface-visibility: hidden;
-	-moz-backface-visibility:    hidden;
-	backface-visibility:         hidden;
-
-	-webkit-transition: all 0.3s;
-	-moz-transition:    all 0.3s;
-	transition:         all 0.3s;
-}
-
-.content-grid-download .entry-image .star-rating i {
-	color: #fff;
-}
-
-.content-grid-download .entry-image:hover .star-rating,
-.content-grid-download .entry-image.hover .star-rating {
-	top: 80%;
-}
-
 .content-grid-download__entry-header {
 	padding: 15px 20px;
 	background: #fff;
