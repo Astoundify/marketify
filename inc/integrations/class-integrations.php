@@ -31,10 +31,6 @@ class Marketify_Integrations {
                 function_exists( 'edd_rp_get_suggestions' ),
                 'Marketify_EDD_Recommended_Products'
             ),
-            // 'edd-wish-lists' => array(
-            //     class_exists( 'EDD_Wish_Lists' ),
-            //     'Marketify_EDD_Wish_Lists'
-            // ),
             'edd-cross-sell-upsell' => array(
                 defined( 'edd_csau_version' ),
                 'Marketify_EDD_Cross_Sell_UpSell'
