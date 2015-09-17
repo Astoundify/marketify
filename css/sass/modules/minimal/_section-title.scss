@@ -1,0 +1,20 @@
+.section-title--minimal {
+    &:after {
+        background: #fff;
+    }
+}
+
+.section-title--minimal__inner {
+    color: #fff;
+    border-color: #fff;
+}
+
+.minimal {
+    .section-title {
+        @extend .section-title--minimal;
+    }
+
+    .section-title__inner {
+        @extend .section-title--minimal__inner;
+    }
+}

@@ -11,6 +11,7 @@ class Marketify_Customizer_Output_Colors {
         add_action( 'marketify_output_customizer_css', array( $this, 'accent' ), 30 );
         add_action( 'marketify_output_customizer_css', array( $this, 'footer' ), 40 );
         add_action( 'marketify_output_customizer_css', array( $this, 'overlay' ), 40 );
+        add_action( 'marketify_output_customizer_css', array( $this, 'minimal' ), 50 );
     }
 
     public function page_header() {
@@ -20,9 +21,8 @@ class Marketify_Customizer_Output_Colors {
             'selectors' => array(
                 '.header-outer',
                 '.site-footer',
-                'body.minimal',
-                'body.custom-background.minimal',
-                '.minimal .entry-content .edd-slg-social-container span legend'
+                '.minimal',
+                '.custom-background.minimal',
             ),
             'declarations' => array(
                 'background-color' => $page_header_background
@@ -180,6 +180,63 @@ class Marketify_Customizer_Output_Colors {
             ),
             'declarations' => array(
                 'background-color' => 'rgba(' . $this->css->hex2rgb( $primary ) . ', .90)',
+            )
+        ) );
+    }
+
+    public function minimal() {
+        $page_header_background = marketify_theme_mod( 'color-page-header-background' );
+        $primary = marketify_theme_mod( 'color-primary' );
+        $accent = marketify_theme_mod( 'color-accent' );
+
+        $this->css->add( array(
+            'selectors' => array(
+                '.minimal',
+                '.custom-background.minimal',
+            ),
+            'declarations' => array(
+                'background-color' => $page_header_background
+            )
+        ) );
+
+        $this->css->add( array(
+            'selectors' => array(
+                '.minimal .section-title__inner',
+                '.minimal .edd_form fieldset > span legend',
+                '.minimal #edd_checkout_form_wrap .edd_form fieldset > span legend',
+                '.minimal .entry-content .edd-slg-social-container > span legend'
+            ),
+            'declarations' => array(
+                'background-color' => $page_header_background,
+                'color' => '#fff'
+            )
+        ) );
+
+        $this->css->add( array(
+            'selectors' => array(
+                // edd
+                '.minimal #edd_login_form input[type=submit]',
+                '.minimal #edd_register_form input[type=submit]',
+                '.minimal #edd-purchase-button.edd-submit.button'
+            ),
+            'declarations' => array(
+                'background-color' => $accent,
+                'border-color' => $accent,
+                'color' => '#fff'
+            )
+        ) );
+
+        $this->css->add( array(
+            'selectors' => array(
+                // edd
+                '.minimal #edd_login_form input[type=submit]:hover',
+                '.minimal #edd_register_form input[type=submit]:hover',
+                '.minimal #edd-purchase-button.button.edd-submit:hover',
+            ),
+            'declarations' => array(
+                'background-color' => $page_header_background,
+                'border-color' => $accent,
+                'color' => $accent
             )
         ) );
     }

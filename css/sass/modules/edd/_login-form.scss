@@ -1,3 +1,19 @@
 #edd_login_form input[type=submit] {
     @extend .button--size-full;
 }
+
+.edd-lost-password {
+    text-align: center;
+    a {
+        text-decoration: none;
+
+        &:before {
+            @extend .ion;
+            content: "\f142";
+            margin-right: 2px;
+            margin-top: -1px;
+            vertical-align: middle;
+            display: inline-block;
+        }
+    }
+}
