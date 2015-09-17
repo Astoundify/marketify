@@ -1,0 +1,25 @@
+.widget-detail {
+    border-bottom: 1px solid #bdc3c7;
+    position: relative;
+    clear: left;
+}
+
+.widget-detail--half {
+    width: 50%;
+    clear: none;
+    float: left;
+
+    &:after{
+        content: ' ';
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: #bdc3c7;
+        width: 1px;
+        height: 100%;
+    }
+
+    &.widget-detail--last:after {
+        display: none;
+    }
+}

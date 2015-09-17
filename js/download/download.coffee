@@ -1,36 +1,34 @@
 jQuery ($) ->
 
-  class Download
-  
-    constructor: ->
+  DownloadSliders =
+    init: ->
       @el = '.download-gallery'
       @elAsNav = '.download-gallery-navigation'
-  
-      @initTopSlider()
-      @initContentSlider()
-  
-    initTopSlider: =>
+
+      if ( $( '.page-header--download' ).find( $(@el) ).length > 0 )
+        @initTopSlider()
+      else
+        @initContentSlider()
+
+    initTopSlider: ->
       $(@el).slick
         adaptiveHeight: true
 
-    initContentSlider: =>
-      $(@elAsNav).slick
-        slidesToShow: 6
-        slidesToScroll: 1
-        asNavFor: @el
-        focusOnSelect: true 
-        dots: true
-        arrows: false
-        slide: 'div'
-
+    initContentSlider: ->
       $(@el).slick
         slidesToShow: 1
         slidesToScroll: 1
         arrows: false
         fade: true
         asNavFor: @elAsNav
-        adaptiveHeight: true
-  
+
+      $(@elAsNav).slick
+        slidesToShow: 6
+        slidesToScroll: 1
+        asNavFor: @el
+        dots: true
+        centerMode: true
+        focusOnSelect: true
 
   $(document).ready () ->
-    new Download
+    DownloadSliders.init()
