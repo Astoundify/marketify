@@ -24,11 +24,11 @@
 <div id="page" class="hfeed site">
 	<?php do_action( 'before' ); ?>
 	
-	<header id="masthead" class="site-header-minimal" role="banner">
+	<header id="masthead" class="site-header site-header--minimal" role="banner">
 		<?php $header_image = get_header_image(); ?>
 		<?php if ( ! empty( $header_image ) ) : ?>
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="custom-header"><img src="<?php echo esc_url( $header_image ); ?>" alt=""></a>
 		<?php endif; ?>
 				
-		<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+		<h1 class="site-title site-title--minimal"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 	</header><!-- #masthead -->
