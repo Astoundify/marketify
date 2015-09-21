@@ -1,5 +1,6 @@
 @import "widget--download-single";
 @import "widget--download-single-details";
+@import "widget--download-single-share";
 
 @import "widget-detail";
 
@@ -9,3 +10,11 @@
 @import "featured-popular";
 @import "features";
 @import "sorting";
+
+.widget-title {
+    @extend .item-title;
+}
+
+.widget-description {
+    @extend .item-meta;
+}

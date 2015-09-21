@@ -206,16 +206,8 @@
 .entry-content h3,
 .entry-content h4,
 .entry-content h5,
-.entry-content h6,
-.download-single-widget-title,
-.download-author a,
-.comment-reply-title,
-.entry-content .edd-slg-social-container legend,
-.page-template-page-templatesteam-php .byline,
-.fes_header {
-	font: 700 16px 'Montserrat', sans-serif;
-	letter-spacing: 0.10em;
-	text-transform: uppercase;
+.entry-content h6 {
+    @extend .item-title;
 	margin: 2em 0;
 }
 
@@ -1043,14 +1035,6 @@ object {
 
 .download-archive-widget.widget li {
 	margin: 0;
-}
-
-.download-archive-widget-title,
-.error-404 .widgettitle {
-	font: 700 16px 'Montserrat', sans-serif;
-	text-transform: uppercase;
-	color: #515a63;
-	margin: 0 0 18px;
 }
 
 /** RSS */
