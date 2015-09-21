@@ -27,28 +27,28 @@ class Marketify_EDD_Widgets {
         register_sidebar( array(
             'name'          => __( 'Shop Sidebar', 'marketify' ),
             'id'            => 'sidebar-download',
-            'before_widget' => '<aside id="%1$s" class="widget download-archive-widget %2$s">',
+            'before_widget' => '<aside id="%1$s" class="widget widget--download-archive %2$s">',
             'after_widget'  => '</aside>',
-            'before_title'  => '<h1 class="download-archive-widget-title">',
-            'after_title'   => '</h1>',
+            'before_title'  => '<h3 class="widget-title widget-title--download-archive">',
+            'after_title'   => '</h3>',
         ) );
 
         register_sidebar( array(
             'name'          => sprintf( __( '%s Sidebar', 'marketify' ), edd_get_label_singular() ),
             'id'            => 'sidebar-download-single',
-            'before_widget' => '<aside id="%1$s" class="widget download-single-widget %2$s">',
+            'before_widget' => '<aside id="%1$s" class="widget widget--download-single %2$s">',
             'after_widget'  => '</aside>',
-            'before_title'  => '<h1 class="download-single-widget-title">',
-            'after_title'   => '</h1>',
+            'before_title'  => '<h3 class="widget-title widget-title--download-single">',
+            'after_title'   => '</h3>',
         ) );
 
         register_sidebar( array(
             'name'          => sprintf( __( '%s Comments Sidebar', 'marketify' ), edd_get_label_singular() ),
             'id'            => 'sidebar-download-single-comments',
-            'before_widget' => '<aside id="%1$s" class="widget download-single-widget comments %2$s">',
+            'before_widget' => '<aside id="%1$s" class="widget widget--download-single widget--download-single-comments %2$s">',
             'after_widget'  => '</aside>',
-            'before_title'  => '<h1 class="download-single-widget-title">',
-            'after_title'   => '</h1>',
+            'before_title'  => '<h3 class="widget-title widget-title--download-single-comments">',
+            'after_title'   => '</h3>',
         ) );
     }
 

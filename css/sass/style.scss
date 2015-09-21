@@ -9,6 +9,7 @@
 @import "modules/ionicons/ionicons";
 
 /** repetable patterns -- sub modules will likely define their own */
+@import "modules/form";
 @import "modules/input";
 @import "modules/button";
 
@@ -25,6 +26,8 @@
 @import "modules/page-title";
 
 @import "modules/section-title";
+@import "modules/item-title";
+@import "modules/item-meta";
 
 /** global */
 @import "modules/site-content";

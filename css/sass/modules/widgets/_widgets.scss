@@ -1,6 +1,10 @@
+@import "widget--download-single";
+@import "widget--download-single-details";
+
 @import "widget-detail";
 
-/** still need to split out more */
+/** still need to split out more -- or better naming or something */
+@import "base";
 @import "feature_callout";
 @import "featured-popular";
 @import "features";

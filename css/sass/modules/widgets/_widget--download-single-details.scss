@@ -1,0 +1,28 @@
+.marketify-widget--download-single-details {
+    margin-top: 100px;
+    padding: 0;
+
+    .section-title {
+        margin-top: -100px;
+        margin-bottom: 55px;
+    }
+
+    .widget-detail .edd_price {
+        @extend .widget-detail__title;
+        font-weight: normal;
+        letter-spacing: 0;
+    }
+
+    .widget-detail .button {
+        margin: 0 auto;
+        display: block;
+    }
+
+    .widget-detail .edd_download_quantity_wrapper {
+        margin-top: 0;
+    }
+
+    .widget-detail .edd-wl-button {
+        display: none;
+    }
+}
