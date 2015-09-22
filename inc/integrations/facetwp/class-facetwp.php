@@ -11,6 +11,8 @@ class Marketify_FacetWP extends Marketify_Integration {
         add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 
         add_filter( 'facetwp_facets', array( $this, 'register_facets' ) );
+
+        add_filter( 'facetwp_sort_options', array( $this, 'sort_options' ), 10, 2 );
     }
 
     public function widgets_init() {
@@ -50,6 +52,48 @@ class Marketify_FacetWP extends Marketify_Integration {
         );
 
         return $facets;
+    }
+
+    public function sort_options( $options ) {
+        unset( $options[ 'distance' ] );
+
+        $options[ 'sales_desc' ] = array(
+            'label' => __( 'Sales (Most)', 'marketify' ),
+            'query_args' => array(
+                'meta_key' => '_edd_download_sales',
+                'orderby'  => 'meta_value_num',
+                'order'  => 'DESC'
+            )
+        );
+
+        $options[ 'sales_asc' ] = array(
+            'label' => __( 'Sales (Fewest)', 'marketify' ),
+            'query_args' => array(
+                'meta_key' => '_edd_download_sales',
+                'orderby'  => 'meta_value_num',
+                'order'  => 'ASC'
+            )
+        );
+
+        $options[ 'price_desc' ] = array(
+            'label' => __( 'Price (Highest)', 'marketify' ),
+            'query_args' => array(
+                'meta_key' => 'edd_price',
+                'orderby'  => 'meta_value_num',
+                'order'  => 'DESC'
+            )
+        );
+
+        $options[ 'price_asc' ] = array(
+            'label' => __( 'Price (Lowest)', 'marketify' ),
+            'query_args' => array(
+                'meta_key' => 'edd_price',
+                'orderby'  => 'meta_value_num',
+                'order'  => 'ASC'
+            )
+        );
+
+        return $options;
     }
 
 }
