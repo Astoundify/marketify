@@ -8,7 +8,10 @@
     }
 
     .button {
+        @extend .button--color-white;
         margin: 2.5em 15px;
+        font-size: 18px;
+        padding: 14px 24px;
     }
 
     p:last-of-type {

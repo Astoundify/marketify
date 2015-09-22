@@ -115,6 +115,7 @@ class Marketify_Customizer_Output_Colors {
         $this->css->add( array(
             'selectors' => array(
                 '.button.button--color-white:hover',
+                '.home .page-header .button:hover', // backwards compat
 
                 // edd
                 '.edd-submit.button.edd-add-to-cart.button--color-white:hover',
