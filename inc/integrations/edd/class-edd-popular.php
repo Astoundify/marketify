@@ -6,7 +6,7 @@ class Marketify_EDD_Popular {
         $this->slug = _x( 'popular', 'URL slug to determine category sorting', 'marketify' );
 
         add_action( 'marketify_downloads_before', array( $this, 'archive_section_title' ) );
-        add_filter( 'get_the_archive_title', array( $this, 'get_the_archive_title' ) );
+        add_filter( 'marketify_get_the_archive_title', array( $this, 'get_the_archive_title' ) );
 
         add_action( 'init', array( $this, 'endpoint' ) );
         add_filter( 'edd_download_category_args', array( $this, 'category_args' ) );
@@ -26,12 +26,12 @@ class Marketify_EDD_Popular {
     }
 
     public function is_popular_query() {
-        if ( ! is_tax( 'download_category' ) ) {
+        if ( ! is_tax( array( 'download_category', 'download_tag' ) ) ) {
             return false;
         }
 
         global $wp_query;
-        
+
         if ( ! isset( $wp_query->query_vars[ $this->slug ] ) ) {
             return false;
         }
@@ -65,7 +65,13 @@ class Marketify_EDD_Popular {
     }
 
     public function get_the_archive_title( $title ) { 
-        if ( $this->is_popular_query() ) {
+        if ( ! did_action( 'marketify_entry_before' ) || did_action( 'marketify_downloads_before' ) ) {
+            return $title;
+        }
+
+        if ( is_post_type_archive( 'download' ) ) {
+            $title = __( 'Popular', 'marketify' );
+        } else if ( is_tax( array( 'download_tag', 'download_category' ) ) ) {
             $title = sprintf( __( 'Popular in %s', 'marketify' ), single_term_title( '', false ) );
         }
 
