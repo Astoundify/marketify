@@ -28,6 +28,17 @@ class Marketify_Customizer_Output_Colors {
                 'background-color' => $page_header_background
             )
         ) );
+
+        // buttons
+        $this->css->add( array(
+            'selectors' => array(
+                '.page-header .button:hover',
+                '.page-header .button.button--color-white:hover'
+            ),
+            'declarations' => array(
+                'color' => $page_header_background
+            )
+        ) );
     }
 
     public function navigation() {
@@ -123,6 +134,8 @@ class Marketify_Customizer_Output_Colors {
             ),
             'declarations' => array(
                 'color' => $primary,
+                'background-color' => '#ffffff',
+                'border-color' => '#ffffff'
             )
         ) );
 
@@ -150,9 +163,10 @@ class Marketify_Customizer_Output_Colors {
 
         $this->css->add( array(
             'selectors' => array(
+                '.widget--home-taxonomy-stylized'
             ),
             'declarations' => array(
-                'border-color' => $accent
+                'background-color' => $accent
             )
         ) );
     }

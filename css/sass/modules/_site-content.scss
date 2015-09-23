@@ -2,3 +2,7 @@
 	margin-top: 6em;
 	margin-bottom: 6em;
 }
+
+.site-content--home {
+    margin-top: 0; /** this will come from the first widget */
+}

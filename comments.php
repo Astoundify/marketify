@@ -19,16 +19,15 @@ if ( post_password_required() || ! comments_open() )
 	return;
 ?>
 
-<div id="comments" class="comments-area row">
+    <div id="comments" class="comments-area <?php if ( ! is_singular( 'download' ) ) : ?>comments-area--singular <?php endif; ?>row">
 
-	<section class="<?php echo ! is_active_sidebar( 'sidebar-download-single-comments' ) || ! is_singular( 'download' ) ? 'col-xs-12' : 'col-sm-8 col-xs-12'; ?>">
+	<div class="<?php echo ! is_active_sidebar( 'sidebar-download-single-comments' ) || ! is_singular( 'download' ) ? 'col-xs-12' : 'col-sm-8 col-xs-12'; ?>">
 
+        <?php if ( have_comments() ) : ?>
+            <h2 class="comments-title section-title"><span>
+                <?php _e( 'Comments', 'marketify' ); ?>
+            </span></h2>
 
-		<h2 class="comments-title section-title"><span>
-			<?php _e( 'Comments', 'marketify' ); ?>
-		</span></h2>
-
-		<?php if ( have_comments() ) : ?>
 			<ol class="comment-list">
 				<?php
 					wp_list_comments( array(
