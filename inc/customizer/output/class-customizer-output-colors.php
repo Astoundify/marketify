@@ -219,7 +219,8 @@ class Marketify_Customizer_Output_Colors {
                 '.minimal .section-title__inner',
                 '.minimal .edd_form fieldset > span legend',
                 '.minimal #edd_checkout_form_wrap .edd_form fieldset > span legend',
-                '.minimal .entry-content .edd-slg-social-container > span legend'
+                '.minimal .entry-content .edd-slg-social-container > span legend',
+                '.minimal .fes-headers span'
             ),
             'declarations' => array(
                 'background-color' => $page_header_background,
@@ -232,7 +233,10 @@ class Marketify_Customizer_Output_Colors {
                 // edd
                 '.minimal #edd_login_form input[type=submit]',
                 '.minimal #edd_register_form input[type=submit]',
-                '.minimal #edd-purchase-button.edd-submit.button'
+                '.minimal #edd-purchase-button.edd-submit.button',
+
+                // fes
+                '.minimal .fes-submit .edd-submit.button',
             ),
             'declarations' => array(
                 'background-color' => $accent,
@@ -247,6 +251,9 @@ class Marketify_Customizer_Output_Colors {
                 '.minimal #edd_login_form input[type=submit]:hover',
                 '.minimal #edd_register_form input[type=submit]:hover',
                 '.minimal #edd-purchase-button.button.edd-submit:hover',
+
+                // fes
+                '.minimal .fes-submit .edd-submit.button:hover',
             ),
             'declarations' => array(
                 'background-color' => $page_header_background,

@@ -1,5 +1,6 @@
-.fes-headers {
+.entry-content .fes-headers {
     @extend .section-title;
+    margin-bottom: 3em;
 
     span {
         @extend .section-title__inner;
