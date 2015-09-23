@@ -14,7 +14,7 @@ class Marketify_EDD_Template_Download {
 
         // add_action( 'marketify_download_entry_meta_before_audio', array( $this, 'featured_audio' ) );
 
-        add_filter( 'post_class', array( $this, 'post_class' ) );
+        add_filter( 'post_class', array( $this, 'post_class' ), 10, 3 );
         add_filter( 'body_class', array( $this, 'body_class' ) );
     }
 

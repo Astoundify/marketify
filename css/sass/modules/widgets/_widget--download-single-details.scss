@@ -14,8 +14,22 @@
     }
 
     .widget-detail .button {
-        margin: 0 auto;
+        margin: 1em auto;
         display: block;
+        width: 80%;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:only-child {
+            margin: 0 auto;
+        }
+
     }
 
     .widget-detail .edd_download_quantity_wrapper {

@@ -18,7 +18,7 @@ class Marketify_EDD_Widgets {
         register_widget( 'Marketify_Widget_Download_Details' );
         register_widget( 'Marketify_Widget_Download_Share' );
 
-        if ( apply_filters( 'marketify_edd_product_details_widget', false ) ) {
+        if ( apply_filters( 'marketify_edd_product_details_widget', true ) ) {
             unregister_widget( 'edd_product_details_widget' );
         }
     }
