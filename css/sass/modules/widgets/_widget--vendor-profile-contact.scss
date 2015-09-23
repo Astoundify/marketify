@@ -1,0 +1,9 @@
+.widget--vendor-profile-contact {
+    .fes-headers {
+        display: none;
+    }
+
+    .edd-submit {
+        @extend .button--size-full;
+    }
+}

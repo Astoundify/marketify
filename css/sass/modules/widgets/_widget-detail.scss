@@ -53,6 +53,7 @@
 
     .author-link {
         @extend .item-title;
+        text-decoration: none;
         margin-top: 1em;
     }
 

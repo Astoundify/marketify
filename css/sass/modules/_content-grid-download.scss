@@ -8,7 +8,8 @@
 	@extend .no-backface;
 	margin-bottom: 30px;
 	
-	.edd_download_quantity_wrapper {
+	.edd_download_quantity_wrapper,
+    .edd-cart-ajax-alert {
 		display: none;
 	}
 }

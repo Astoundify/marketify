@@ -1,20 +1,21 @@
+// home
 @import "widget--home";
 @import "widget--home-taxonomy-stylized";
 
+// dwonload archive
 @import "widget--download-archive";
 
+// download single
 @import "widget--download-single";
 @import "widget--download-single-details";
 @import "widget--download-single-share";
 
-@import "widget-detail";
+// vendor
+@import "widget--vendor-profile";
+@import "widget--vendor-profile-contact";
 
-/** still need to split out more -- or better naming or something */
-@import "base";
-@import "feature_callout";
-@import "featured-popular";
-@import "features";
-@import "sorting";
+// patterns
+@import "widget-detail";
 
 .widget-title {
     @extend .item-title;
@@ -23,3 +24,9 @@
 .widget-description {
     @extend .item-meta;
 }
+
+/** still need to split out more -- or better naming or something */
+@import "feature_callout";
+@import "featured-popular";
+@import "features";
+@import "sorting";
