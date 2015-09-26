@@ -14,10 +14,6 @@ input[type=submit],
     border-radius: 0;
     height: auto;
 
-    -webkit-transition: all 0.2s;
-    -moz-transition:    all 0.2s;
-    transition:         all 0.2s;
-
     // not ideal, but helps because we can't always control cascade
     &.button--size-small {
         @extend .button--size-small;
