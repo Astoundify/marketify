@@ -111,8 +111,11 @@ class Marketify_Template_Page_Header {
 
     private function find_background_image( $args ) {
         $background_image = false;
+		$format_style_is_background = false;
 
-        $format_style_is_background = marketify()->get( 'edd' )->template->download->is_format_style( 'background' );
+		if ( marketify()->get( 'edd' ) ) {
+			$format_style_is_background = marketify()->get( 'edd' )->template->download->is_format_style( 'background' );
+		}
 
         if (
             is_page() ||
