@@ -12,7 +12,7 @@ class Marketify_EDD_Template_Download {
         add_action( 'marketify_download_info', array( $this, 'download_price' ), 5 );
         add_action( 'marketify_download_actions', array( $this, 'demo_link' ) );
 
-        // add_action( 'marketify_download_entry_meta_before_audio', array( $this, 'featured_audio' ) );
+        add_action( 'marketify_download_entry_meta_before_audio', array( $this, 'featured_audio' ) );
 
         add_filter( 'post_class', array( $this, 'post_class' ), 10, 3 );
         add_filter( 'body_class', array( $this, 'body_class' ) );
@@ -253,103 +253,36 @@ class Marketify_EDD_Template_Download {
     }
 
     public function featured_audio() {
-        global $post;
+		global $post;
 
-        $download_id = $post->ID;
-        $data = $this->get_audio();
+		$audio = $this->get_audio();
 
-        if ( ! isset( $data[ 'files' ][0] ) ) {
-            return;
-        }
+		// grid preview only needs one
+		if ( ! is_singular( 'download' ) ) {
+			$audio = array_splice( $audio, 0, 1 );
+		}
 
-        $this->audio_player( $download_id, $data );
-    }
-
-    public function audio_player( $download_id, $data ) {
-    ?>
-        <script type="text/javascript">
-            //<![CDATA[
-            jQuery(document).ready(function($){
-                new jPlayerPlaylist({
-                    jPlayer: "#jplayer_<?php echo $download_id; ?>",
-                    cssSelectorAncestor: "#jp_container_<?php echo $download_id; ?>"
-                }, <?php echo json_encode( $data[ 'files' ] ); ?>, {
-                    swfPath        : "<?php echo get_template_directory_uri(); ?>/js",
-                    supplied       : "<?php echo implode( ', ', $data[ 'exts' ] ); ?>",
-                    wmode          : "window",
-                    smoothPlayBar  : true,
-                    keyEnabled     : true
-                });
-            });
-            //]]>
-        </script>
-
-        <div id="jplayer_<?php echo $download_id; ?>" class="jp-jplayer"></div>
-
-        <div id="jp_container_<?php echo $download_id; ?>" class="jp-audio">
-            <div class="jp-type-playlist">
-                <div class="jp-playlist">
-                    <ul>
-                        <li></li>
-                    </ul>
-                </div>
-                <div class="jp-gui jp-interface">
-                    <ul class="jp-controls">
-                        <li><a href="javascript:;" class="jp-previous" tabindex="1"><i class="icon-previous"></i></a></li>
-                        <li><a href="javascript:;" class="jp-play" tabindex="1"><i class="icon-play"></i></a></li>
-                        <li><a href="javascript:;" class="jp-pause" tabindex="1"><i class="icon-pause"></i></a></li>
-                        <li><a href="javascript:;" class="jp-next" tabindex="1"><i class="icon-next"></i></a></li>
-                    </ul>
-                    <div class="jp-progress">
-                        <div class="jp-seek-bar">
-                            <div class="jp-play-bar"></div>
-                        </div>
-                    </div>
-                    <div class="jp-volume-bar">
-                        <div class="jp-volume-bar-value"></div>
-                    </div>
-                </div>
-                <div class="jp-no-solution"><?php _e( 'Error', 'marketify' ); ?></div>
-            </div>
-        </div>
-    <?php
+		echo wp_playlist_shortcode( array(
+			'id' => $post->ID,
+			'include' => $audio,
+			'images' => false
+		) );
     }
 
     private function get_audio() {
         global $post;
 
-        $download_id = $post->ID;
-        $_attachments = get_post_meta( $download_id, 'preview_files', true );
+        $attachments = get_post_meta( $post->ID, 'preview_files', true );
 
-        $audio       = array();
-        $exts        = array();
-        $attachments = array();
-
-        if ( $_attachments ) {
-            foreach ( $_attachments as $attachment ) {
-                $attachments[$attachment] = get_post( $attachment );
-            }
-        } else {
+        if ( ! $_attachments ) {
             $attachments = get_attached_media( 'audio', $download_id );
+
+			if ( ! empty( $attachments ) ) {
+				$attachments = wp_list_pluck( $attachments, 'ID' );
+			}
         }
 
-        foreach ( $attachments as $attachment ) {
-            $file = wp_get_attachment_url( $attachment->ID );
-            $info = wp_check_filetype( $file );
-
-            if ( ! in_array( $info[ 'ext' ], $exts ) )
-                $exts[] = $info[ 'ext' ];
-
-            $audio[] = array(
-                'title'          => get_the_title( $attachment->ID ),
-                $info[ 'ext' ]   => $file
-            );
-        }
-
-        return array(
-            'files' => $audio,
-            'exts'  => $exts
-        );
+		return $attachments;
     }
 
     public function featured_video() {
