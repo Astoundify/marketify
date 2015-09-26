@@ -17,3 +17,10 @@ input[type=submit].edd-submit {
         border-color: #fff;
 	}
 }
+
+.popup {
+  .edd-submit.button.edd-add-to-cart,
+  .edd-submit.button.edd_go_to_checkout {
+    @extend .button--size-large;
+  }
+}

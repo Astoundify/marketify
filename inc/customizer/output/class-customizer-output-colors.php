@@ -33,7 +33,8 @@ class Marketify_Customizer_Output_Colors {
         $this->css->add( array(
             'selectors' => array(
                 '.page-header .button:hover',
-                '.page-header .button.button--color-white:hover'
+				'.page-header .button.button--color-white:hover',
+				'.content-grid-download__actions .button:hover'
             ),
             'declarations' => array(
                 'color' => $page_header_background

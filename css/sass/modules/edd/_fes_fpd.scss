@@ -1,13 +1,14 @@
 
 .marketify_widget_fes_product_details {
 	.edd-fpd {
-		margin: 10px -10px -15px;
-		width: 110%;
+    margin: 0;
+		width: 100%;
 	}
 
 		@include bp(sm) {
 			.edd-fpd {
-				margin: 0 -10px -25px;
+        width: 110%;
+				margin: -25px -10px;
 			}
 
 			.edd-fpd tr:first-child th,

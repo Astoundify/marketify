@@ -25,13 +25,15 @@ class Marketify_EDD_Template_Purchase_Form {
         $label = edd_get_option( 'edd_purchase_limit_sold_out_label', 'Sold Out' );
         $sold_out = strpos( $form, $label );
 
-        if ( ! $variable || $sold_out != false ) {
+		$in_cart = edd_item_in_cart( $download_id );
+
+        if ( ! $variable || $sold_out != false || $in_cart ) {
             echo $form;
         } else {
             $button = ! empty( $edd_options[ 'add_to_cart_text' ] ) ? $edd_options[ 'add_to_cart_text' ] : __( 'Purchase', 'marketify' );
             $class = 'button buy-now popup-trigger';
 
-            if ( ! did_action( 'marketify_single_download_content_before' ) ) {
+            if ( is_singular( 'download' ) && ! did_action( 'marketify_single_download_content_before' ) ) {
                 $class .= ' button--color-white';
             }
 

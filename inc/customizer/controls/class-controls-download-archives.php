@@ -26,7 +26,7 @@ class Marketify_Customizer_Controls_Download_Archives extends Marketify_Customiz
 				'label' => __( 'Number of Columns', 'marketify' ),
 				'type' => 'select',
 				'choices' => array( 1 => 1, 2 => 2, 3 => 3, 4 => 4 ),
-				'description' => __( 'Can be overwritten by passing <code>columns</code> to the <code>[downloads]</code> shortcode', 'marketify' )
+				'description' => __( 'Can be overwritten by passing <code>columns</code> to the <code>[downloads]</code> shortcode. Max 4', 'marketify' )
 			),
 			'downloads-archives-popular' => array(
 				'label' => __( 'Display "Popular Items" above results', 'marketify' ),
@@ -43,6 +43,7 @@ class Marketify_Customizer_Controls_Download_Archives extends Marketify_Customiz
 			'downloads-archives-meta' => array(
 				'label' => __( 'Display Titles & Meta', 'marketify' ),
 				'type'    => 'radio',
+				'description' => __( '<strong>Always</strong> will display on featured and popular sliders.', 'marketify' ),
 				'choices' => array(
 					'auto' => __( 'Auto', 'marketify' ),
 					'always' => __( 'Always', 'marketify' ),
