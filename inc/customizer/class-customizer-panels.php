@@ -7,7 +7,6 @@ class Marketify_Customizer_Panels {
 
         add_action( 'customize_register', array( $this, 'register_panels' ), 9 );
         add_action( 'customize_register', array( $this, 'organize_appearance' ), 11 );
-        add_action( 'customize_register', array( $this, 'organize_general' ), 11 );
     }
 
     public function panel_list() {
@@ -100,16 +99,10 @@ class Marketify_Customizer_Panels {
     }
 
     public function organize_appearance( $wp_customize ) {
-        $wp_customize->get_section( 'colors' )->panel = 'title_tagline';
-        $wp_customize->get_section( 'background_image' )->panel = 'title_tagline';
-
-        return $wp_customize;
-    }
-
-    public function organize_general( $wp_customize ) {
-        $wp_customize->get_section( 'nav' )->panel = 'general';
-
-        $wp_customize->remove_control( 'blogdescription' );
+        $wp_customize->get_section( 'colors' )->panel = 'appearance';
+		$wp_customize->get_section( 'background_image' )->panel = 'appearance';
+		$wp_customize->get_section( 'title_tagline' )->panel = 'appearance';
+		$wp_customize->get_section( 'header_image' )->panel = 'appearance';
 
         return $wp_customize;
     }
