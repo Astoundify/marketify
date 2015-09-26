@@ -14,7 +14,20 @@ class Marketify_EDD_Template_Download {
 
         // add_action( 'marketify_download_entry_meta_before_audio', array( $this, 'featured_audio' ) );
 
+        add_filter( 'post_class', array( $this, 'post_class' ), 10, 3 );
         add_filter( 'body_class', array( $this, 'body_class' ) );
+    }
+
+    public function post_class( $classes, $class, $post_id ) {
+        if( ! $post_id || get_post_type( $post_id ) !== 'download' || is_admin() ) {
+            return $classes;
+        }
+
+        if ( 'on' == marketify_theme_mod( 'downloads-archives-truncate-title' ) ) {
+            $classes[] = 'edd-download--truncated-title';
+        }
+
+        return $classes;
     }
 
     public function body_class( $classes ) {

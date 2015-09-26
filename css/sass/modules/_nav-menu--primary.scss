@@ -10,16 +10,20 @@
 		text-align: right;
 	}
 
-	.nav-menu--primary li a {
-		color: #fff;
-		font: 700 13px/normal 'Montserrat', sans-serif;
-		text-transform: uppercase;
-		text-decoration: none;
-		text-shadow: none;
-		text-align: center;
-		display: inline-block;
-		padding: 10px 20px;
-	}
+	.nav-menu--primary li {
+        padding: 10px 20px;
+
+        a {
+            color: #fff;
+
+            font: 700 13px/normal 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            text-decoration: none;
+            text-shadow: none;
+            text-align: center;
+            display: inline-block;
+        }
+    }
 
 	.nav-menu--primary li li a {
 		text-align: left;

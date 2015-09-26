@@ -1,0 +1,33 @@
+.widget--home-taxonomy-stylized {
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+ul.taxonomy-stylized {
+    padding: 2em 0;
+
+    li {
+        text-align: center;
+        display: inline-block;
+    }
+
+    @include bp(sm) {
+        li {
+            width: 50%;
+        }
+    }
+
+    @include bp(md) {
+        li {
+            width: 25%;
+        }
+    }
+
+    a {
+        @extend .item-title;
+        color: #fff;
+        display: block;
+    }
+}
+

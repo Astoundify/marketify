@@ -6,7 +6,7 @@ class Marketify_Widget_FES_Vendor_Description extends Marketify_EDD_FES_Vendor_W
         $this->widget_cssclass    = 'marketify_widget_fes_vendor_description';
         $this->widget_description = __( 'Display the vendor description.', 'marketify' );
         $this->widget_id          = 'marketify_widget_fes_vendor_description';
-        $this->widget_name        = __( 'Marketify - Vendor: Description', 'marketify' );
+        $this->widget_name        = __( 'Marketify - Vendor: Biography', 'marketify' );
         $this->settings           = array(
             'desc' => array(
                 'type'  => 'description',
@@ -25,7 +25,7 @@ class Marketify_Widget_FES_Vendor_Description extends Marketify_EDD_FES_Vendor_W
 
         echo $args[ 'before_widget' ];
     ?>
-        <div class="download-author-bio">
+        <div class="widget-detail widget-detail--full download-author-bio">
             <?php echo esc_html( $description ); ?>
         </div>
     <?php

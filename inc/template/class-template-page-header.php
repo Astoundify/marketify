@@ -7,7 +7,7 @@ class Marketify_Template_Page_Header {
 
         add_filter( 'marketify_page_header', array( $this, 'tag_atts' ), 10, 2 );
         add_action( 'marketify_entry_before', array( $this, 'close_header_outer' ) );
-        
+
         add_action( 'marketify_entry_before', array( $this, 'archive_title' ), 5 );
         add_action( 'marketify_entry_before', array( $this, 'page_title' ), 5 );
         add_action( 'marketify_entry_before', array( $this, 'home_title' ), 5 );

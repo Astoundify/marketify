@@ -3,3 +3,4 @@ Thumbs.db
 /node_modules/
 /.sass-cache/
 npm-debug.log
+css/style.css

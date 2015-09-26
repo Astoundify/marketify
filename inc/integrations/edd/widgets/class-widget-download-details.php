@@ -3,10 +3,10 @@
 class Marketify_Widget_Download_Details extends Marketify_Widget {
 
     public function __construct() {
-        $this->widget_cssclass    = 'marketify_widget_download_details';
+        $this->widget_cssclass    = 'marketify-widget--download-single-details';
         $this->widget_description = __( 'Display information related to the current download', 'marketify' );
         $this->widget_id          = 'marketify_widget_download_details';
-        $this->widget_name        = sprintf( __( 'Marketify - %s Sidebar: About', 'marketify' ), edd_get_label_singular() );
+        $this->widget_name        = sprintf( __( 'Marketify - %1$s: About the %1$s', 'marketify' ), edd_get_label_singular() );
         $this->settings           = array(
             'title' => array(
                 'type'  => 'text',
@@ -32,8 +32,6 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
             return;
         }
 
-        $args[ 'widget_id' ] = $args[ 'widget_id' ] . '-' . $post->post_author;
-
         $title = apply_filters( 'widget_title', isset( $instance['title'] ) ? $instance[ 'title' ] : '', $instance, $this->id_base );
         $count = isset( $instance[ 'purchase-count' ] ) && 1 == $instance[ 'purchase-count' ] ? false : true;
 
@@ -42,38 +40,46 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
 
         echo $args[ 'before_widget' ];
 
-        if ( $title ) echo '<h1 class="section-title"><span>' . $title . '</span></h1>';
+        if ( $title ) {
+            $args[ 'before_title' ] = '<h3 class="section-title widget-title"><span>';
+            $args[ 'after_title' ]  = '</span></h3>';
+
+            echo $args[ 'before_title' ] . $title . $args[ 'after_title' ];
+        }
 
         do_action( 'marketify_product_details_widget_before', $instance );
     ?>
-        <?php do_action( 'marketify_product_details_before', $instance ); ?>
 
-        <div class="widget-detail widget-detail--full">
-            <?php do_action( 'marketify_download_author_before' ); ?>
+        <div class="widget-download-details">
+            <?php do_action( 'marketify_product_details_before', $instance ); ?>
 
-            <?php printf(  '<a class="author-link" href="%s" rel="author">%s</a>', $url, get_avatar( $user->ID, 130 ) ); ?>
-            <?php printf( '<a class="author-link" href="%s" rel="author">%s</a>', $url, $user->display_name ); ?>
+            <div class="widget-detail widget-detail--author">
+                <?php do_action( 'marketify_download_author_before' ); ?>
 
-            <span class="author-joined"><?php 
-                printf( 
-                    __( 'Author since: %s', 'marketify' ), 
-                    date_i18n( get_option( 'date_format' ), strtotime( $user->user_registered ) )
-                );
-            ?></span>
-            <?php do_action( 'marketify_download_author_after' ); ?>
+                <?php printf(  '<a class="author-avatar" href="%s" rel="author">%s</a>', $url, get_avatar( $user->ID, 130 ) ); ?>
+                <?php printf( '<a class="author-link" href="%s" rel="author">%s</a>', $url, $user->display_name ); ?>
+
+                <span class="widget-detail__info"><?php 
+                    printf( 
+                        __( 'Author since: %s', 'marketify' ), 
+                        date_i18n( get_option( 'date_format' ), strtotime( $user->user_registered ) )
+                    );
+                ?></span>
+                <?php do_action( 'marketify_download_author_after' ); ?>
+            </div>
+
+            <div class="widget-detail widget-detail--half">
+                <strong class="widget-detail__title"><?php echo edd_get_download_sales_stats( get_the_ID() ); ?></strong>
+                <span class="widget-detail__info"><?php echo _n( 'Purchase', 'Purchases', edd_get_download_sales_stats( get_the_ID() ), 'marketify' ); ?></span>
+            </div>
+
+            <div class="widget-detail widget-detail--half widget-detail--last">
+                <a href="#comments"><strong class="widget-detail__title"><?php echo get_comments_number(); ?></strong>
+                <span class="widget-detail__info"><?php echo _n( 'Comment', 'Comments', get_comments_number(), 'marketify' ); ?></a></span>
+            </div>
+
+            <?php do_action( 'marketify_product_details_after', $instance ); ?>
         </div>
-
-        <div class="widget-detail widget-detail--half">
-            <strong><?php echo edd_get_download_sales_stats( get_the_ID() ); ?></strong>
-            <?php echo _n( 'Purchases', 'Purchases', edd_get_download_sales_stats( get_the_ID() ), 'marketify' ); ?>
-        </div>
-
-        <div class="widget-detail widget-detail--half widget-detail--last">
-            <a href="#comments"><strong><?php echo get_comments_number(); ?></strong>
-            <?php echo _n( 'Comment', 'Comments', get_comments_number(), 'marketify' ); ?></a>
-        </div>
-
-        <?php do_action( 'marketify_product_details_after', $instance ); ?>
     <?php
 
         do_action( 'marketify_product_details_widget_after', $instance );

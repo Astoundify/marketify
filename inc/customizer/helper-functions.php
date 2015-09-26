@@ -14,7 +14,7 @@ function marketify_get_theme_mod_defaults() {
 
 		'downloads-archives-popular' => 'on',
 		'downloads-archives-excerpt' => '',
-		'downloads-archives-truncate-title' => '',
+		'downloads-archives-truncate-title' => 'on',
 		'downloads-archives-meta' => 'auto',
 		'downloads-archives-grid-height' => 520,
 		'downloads-archives-per-page' => 12,

@@ -1,22 +1,4 @@
-.nav-menu {
-	padding: 2em;
-	border-bottom: 1px solid #e9edf2;
-}
-
-.nav-menu ul,
-.nav-menu {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-.nav-menu ul ul {
-	padding-left: 1em;
-	border-left: 1px solid #e9edf2;
-}
-
 @include bp(md) {
-
 	.navigation-bar-toggle {
 		display: none;
 	}
@@ -28,13 +10,14 @@
 
 		// top level menu item
 		li {
+            margin: 0 5px;
+            cursor: pointer;
 			display: inline-block;
 			position: relative;
 
 			// top level link
 			a {
 				font-size: 100%;
-				padding: 18px 0;
 				display: inline-block;
 
 				&:hover {
@@ -43,6 +26,11 @@
 			}
 
 			&:hover {
+
+                &:not(.menu-item-has-children) {
+                    box-shadow: inset 0 0 0 3px #fff;
+                }
+
 				> ul,
 				> ul > ul {
 					display: block;
@@ -90,11 +78,13 @@
 			}
 
 			&.menu-item-has-children:after {
-				// @include ionicon;
-				font-size: 20px;
+				@include ionicon;
+                color: #fff;
+				font-size: 16px;
 				vertical-align: middle;
-				margin-left: 5px;
-				margin-top: -1px;
+                position: absolute;
+                top: 14px;
+                right: 2px;
 				content: "\f3d0";
 			}
 		}
@@ -125,6 +115,11 @@
 			li.menu-item-has-children:after {
 				display: none;
 			}
+
+            li {
+                padding: 0;
+                text-align: left;
+            }
 
 			// submenu link
 			a {

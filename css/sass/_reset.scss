@@ -78,8 +78,7 @@ body,
 button,
 input,
 select,
-textarea,
-.whistles {
+textarea {
 	color: #404040;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 15px;
@@ -310,14 +309,6 @@ input::-moz-focus-inner { /* Corrects inner padding and border displayed oddly i
 	padding: 0;
 }
 
-
-label {
-	font: 700 16px/normal 'Montserrat', sans-serif;
-	text-transform: uppercase;
-	letter-spacing: 0.10em;
-	margin-bottom: 10px;
-	display: block;
-}
 
 /* Links */
 a {

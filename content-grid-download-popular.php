@@ -10,9 +10,9 @@ if ( ! marketify()->get( 'edd' )->popular->show_popular() ) {
 }
 ?>
 
-<div class="marketify_widget_featured_popular popular">
+<div class="widget widget--home marketify-widget--featured-popular marketify_widget_featured_popular popular">
 
-	<h1 class="section-title"><span><?php printf( __( 'Popular in %s', 'marketify' ), single_term_title( '', false ) ); ?></span></h1>
+    <h3 class="section-title"><span><?php echo apply_filters( 'marketify_get_the_archive_title', get_the_archive_title() ); ?></span></h3>
 
 	<div class="featured-popular-tabs">
 		<div id="items-popular" class="inactive featured-popular-slick">

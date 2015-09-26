@@ -4,54 +4,54 @@
  */
 
 abstract class Marketify_Integration {
-	
-	public $includes = array();
 
-	public $directory;
+    public $includes = array();
 
-	public function __construct( $directory ) {
-		$this->directory = $directory;
+    public $directory;
 
-		$this->includes();
-		$this->start();
-		$this->internal_actions();
-	}
+    public function __construct( $directory ) {
+        $this->directory = $directory;
 
-	private function includes() {
-		if ( empty( $this->includes ) ) {
-			return;
-		}
+        $this->includes();
+        $this->start();
+        $this->internal_actions();
+    }
 
-		foreach ( $this->includes as $file ) {
-			require_once( trailingslashit( $this->directory ) . $file );
-		}
-	}
+    private function includes() {
+        if ( empty( $this->includes ) ) {
+            return;
+        }
 
-	public function start() {
-		if ( method_exists( $this, 'init' ) ) {
-			add_action( 'after_setup_theme', array( $this, 'init' ), 0 );
-		}
+        foreach ( $this->includes as $file ) {
+            require_once( trailingslashit( $this->directory ) . $file );
+        }
+    }
 
-		if ( method_exists( $this, 'setup_actions' ) ) {
-			add_action( 'after_setup_theme', array( $this, 'setup_actions' ), 0 );
-		}
-	}
+    public function start() {
+        if ( method_exists( $this, 'init' ) ) {
+            add_action( 'after_setup_theme', array( $this, 'init' ), 0 );
+        }
 
-	private function internal_actions() {
-		add_filter( 'body_class', array( $this, 'body_class' ) );
-	}
+        if ( method_exists( $this, 'setup_actions' ) ) {
+            add_action( 'after_setup_theme', array( $this, 'setup_actions' ), 0 );
+        }
+    }
 
-	public function body_class( $classes ) {
-		$classes[] = $this->get_slug();
+    private function internal_actions() {
+        add_filter( 'body_class', array( $this, 'body_class' ) );
+    }
 
-		return $classes;
-	}
+    public function body_class( $classes ) {
+        $classes[] = $this->get_slug();
 
-	private function get_slug() {
-		$pieces = explode( '/', $this->directory );
-		$slug = end( $pieces );
+        return $classes;
+    }
 
-		return $slug;
-	}
+    private function get_slug() {
+        $pieces = explode( '/', $this->directory );
+        $slug = end( $pieces );
+
+        return $slug;
+    }
 
 }

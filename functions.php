@@ -97,6 +97,9 @@ class Marketify {
             'default-color' => 'ffffff',
             'default-image' => '',
         ) ) );
+
+        add_image_size( 'medium', get_option( 'medium_size_w' ), get_option( 'medium_size_h' ), true );
+        add_image_size( 'large', get_option( 'large_size_w' ), get_option( 'large_size_h' ), true );
     }
 
 }

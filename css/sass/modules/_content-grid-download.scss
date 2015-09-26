@@ -8,7 +8,8 @@
 	@extend .no-backface;
 	margin-bottom: 30px;
 	
-	.edd_download_quantity_wrapper {
+	.edd_download_quantity_wrapper,
+    .edd-cart-ajax-alert {
 		display: none;
 	}
 }
@@ -115,7 +116,6 @@
 	.entry-title {
 		font: 400 16px/normal 'Source Sans Pro', serif;
 		text-transform: none;
-		letter-spacing: 0;
 		margin: 0;
 
 		&.truncated {
@@ -132,8 +132,9 @@
 }
 
 .content-grid-download .entry-excerpt {
-	margin-top: 1.5em;
 	font-size: 90%;
+    line-height: 90%;
+    margin: 1em 0 0.5em;
 }
 
 .content-grid-download .entry-meta {
@@ -162,4 +163,9 @@
 
 .content-grid-download .entry-meta .star-rating {
 	float: right;
+}
+
+.edd_download_inner {
+    padding: 0;
+    margin: 0;
 }

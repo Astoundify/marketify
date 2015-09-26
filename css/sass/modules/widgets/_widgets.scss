@@ -1,6 +1,31 @@
+// home
+@import "widget--home";
+@import "widget--home-taxonomy-stylized";
+
+// dwonload archive
+@import "widget--download-archive";
+
+// download single
+@import "widget--download-single";
+@import "widget--download-single-details";
+@import "widget--download-single-share";
+
+// vendor
+@import "widget--vendor-profile";
+@import "widget--vendor-profile-contact";
+
+// patterns
 @import "widget-detail";
 
-/** still need to split out more */
+.widget-title {
+    @extend .item-title;
+}
+
+.widget-description {
+    @extend .item-meta;
+}
+
+/** still need to split out more -- or better naming or something */
 @import "feature_callout";
 @import "featured-popular";
 @import "features";
