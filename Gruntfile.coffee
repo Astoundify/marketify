@@ -3,7 +3,7 @@ module.exports = () ->
   @initConfig
     watch:
       options:
-        livereload: true
+        livereload: 12345
       css:
         files: [
           'css/sass/*.scss'
