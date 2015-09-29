@@ -115,7 +115,10 @@ class Marketify_Customizer_Output_Colors {
                 '.edd-wl-button:hover',
                 'a.edd-wl-button:hover',
                 '.edd-wl-button.edd-wl-action:hover',
-                'a.edd-wl-button.edd-wl-action:hover'
+                'a.edd-wl-button.edd-wl-action:hover',
+
+                // edd fes
+                '.edd-fes-action:hover'
             ),
             'declarations' => array(
                 'color' => '#ffffff',

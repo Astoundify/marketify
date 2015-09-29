@@ -10,17 +10,24 @@ ul.taxonomy-stylized {
     li {
         text-align: center;
         display: inline-block;
+        width: 100%;
     }
 
     @include bp(sm) {
         li {
-            width: 50%;
+            width: 49.5%;
         }
     }
 
     @include bp(md) {
         li {
-            width: 25%;
+            width: 33%;
+        }
+    }
+
+    @include bp(lg){
+        li {
+            width: 24.5%;
         }
     }
 
