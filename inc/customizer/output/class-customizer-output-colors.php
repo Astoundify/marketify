@@ -23,6 +23,7 @@ class Marketify_Customizer_Output_Colors {
                 '.site-footer',
                 '.minimal',
                 '.custom-background.minimal',
+                '.wp-playlist .mejs-controls .mejs-time-rail .mejs-time-current'
             ),
             'declarations' => array(
                 'background-color' => $page_header_background
@@ -130,8 +131,8 @@ class Marketify_Customizer_Output_Colors {
                 '.button.button--color-white:hover',
 
                 // edd
-                '.edd-submit.button.edd-add-to-cart:hover',
-                '.edd-submit.button.edd_go_to_checkout:hover',
+                '.page-header .edd-submit.button.edd-add-to-cart:hover',
+                '.page-header .edd-submit.button.edd_go_to_checkout:hover',
                 '.content-grid-download__actions .button:hover',
                 '.content-grid-download__actions .edd-submit.button.edd-add-to-cart:hover',
                 '.content-grid-download__actions .edd-submit.button.edd_go_to_checkout:hover',
