@@ -38,19 +38,13 @@
 						<h2 class="site-description screen-reader-text"><?php bloginfo( 'description' ); ?></h2>
 					</div>
 
-					<div class="nav-menu nav-menu--primary">
-						<?php
-							wp_nav_menu( array(
-								'theme_location' => 'primary',
-								'container_class' => 'nav-menu-container'
-							) );
-						?>
-
-						<a href="#" class="navigation-bar-toggle">
-							<i class="ion-navicon-round"></i>
-							Menu
-						</a>
-					</div>
+                    <?php
+                        wp_nav_menu( array(
+                            'theme_location' => 'primary',
+                            'menu_class' => 'nav-menu nav-menu--primary',
+                            'container' => false
+                        ) );
+                    ?>
 
 				</div>
 
