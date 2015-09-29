@@ -1,10 +1,4 @@
 .entry-content .fes-submission-form {
-    td {
-        border: 0;
-        padding: 0;
-        vertical-align: middle;
-    }
-
     .fes-submit .button.edd-submit {
         @extend .button--size-full;
     }
@@ -18,13 +12,9 @@
         }
     }
 
-    .multiple {
-        td {
-            padding: 0 12px 12px 0;
-
-            &:last-child {
-                padding-right: 0;
-            }
+    td {
+        &:last-child {
+            padding-right: 0;
         }
     }
 }

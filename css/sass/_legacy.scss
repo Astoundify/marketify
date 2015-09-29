@@ -160,52 +160,13 @@ display: none;
 display: inline;
 }
 
-.page-content,
-.entry-content,
-.entry-summary {
-margin: 1em 0 0;
-}
-
-.single-post .entry-content,
-.page .entry-content,
-.error-404 .page-content {
-margin-top: 0;
-}
-
-.entry-content table,
-.comment-content table {
-    margin: 0 0 24px;
-    width: 100%;
-}
-
-.entry-content table caption,
-.comment-content table caption {
-margin: 24px 0;
-}
-
-.entry-content td,
-.comment-content td {
-border-top: 1px solid #ededed;
-padding: 6px 10px 6px 0;
-vertical-align: top;
-}
-
-.entry-content th,
-.comment-content th,
-.edd_download_title {
-font: 400 14px 'Montserrat', sans-serif;
-color: #bdc3c7;
-text-transform: uppercase;
-padding: 6px 10px 6px 0;
-}
-
 .entry-content h1,
 .entry-content h2,
 .entry-content h3,
 .entry-content h4,
 .entry-content h5,
 .entry-content h6 {
-@extend .item-title;
+    @extend .item-title;
 	margin: 2em 0;
 }
 
@@ -384,15 +345,6 @@ padding: 6px 10px 6px 0;
 	display: inline-block;
 	border-radius: 3px;
 }
-
-/* =Download
------------------------------------------------ */
-
-.single-download .site-content .jp-type-playlist {
-	border-radius: 5px;
-	border: 1px solid #bdc3c7;
-}
-
 
 /* =Media
 ----------------------------------------------- */
@@ -846,52 +798,6 @@ object {
 
 .download-archive-widget .search-field {
 	width: 80%;
-}
-
-/* Download Single Widgets
------------------------------------------------ */
-
-.download-single-widget-title {
-	margin: 0 0 15px;
-}
-
-.download-single-widget ol,
-.download-single-widget ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-.download-single-widget ol:last-child,
-.download-single-widget ul:last-child {
-	margin-bottom: 0;
-}
-
-.download-single-widget .widget-description {
-	font-size: 13px;
-	display: block;
-	margin: -10px 0 20px;
-}
-
-/** Cart */
-.widget .edd-cart {
-	border-top: 1px solid #bdc3c7;
-}
-
-.edd-cart .cart_item.empty {
-	margin-top: 25px;
-}
-
-.widget .edd-cart-item {
-	margin: 0;
-	padding: 20px 25px;
-	border-bottom: 1px solid #bdc3c7;
-	background: #fbfbfb;
-}
-
-.marketify_widget_download_share iframe:first-child {
-	width: 100% important;
-	display: block;
 }
 
 /* =Modals
