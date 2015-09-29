@@ -118,7 +118,7 @@ class Marketify_Template_Page_Header {
 		}
 
         if (
-            is_page() ||
+            is_singular( array( 'post', 'page' ) ) ||
             ( is_singular( 'download' ) && $format_style_is_background )
         ) {
             $background_image = wp_get_attachment_image_src( get_post_thumbnail_id(), $args[ 'size' ] );
