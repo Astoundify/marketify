@@ -4,14 +4,13 @@
 }
 
 @include bp(md) {
-	.nav-menu--primary {
-		display: table-cell;
-		vertical-align: middle;
-		text-align: right;
-	}
+    .nav-menu--primary {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: right;
+    }
 
-	.nav-menu--primary li {
-
+    .nav-menu--primary li {
         a {
             color: #fff;
 
@@ -25,7 +24,12 @@
         }
     }
 
-	.nav-menu--primary li li a {
-		text-align: left;
-	}
+    .nav-menu--primary li li a {
+        text-align: left;
+    }
+
+    .nav-menu--primary li li:hover:not(.menu-item-has-children):not(.page_item_has_children), 
+    ul.nav-menu--primary li li:hover:not(.menu-item-has-children):not(.page_item_has_children) {
+        box-shadow: none;
+    }
 }
