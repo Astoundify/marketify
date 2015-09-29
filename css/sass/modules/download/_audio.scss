@@ -1,3 +1,45 @@
-.site-content div.jp-audio {
-	width: 100%;
+.edd_download .wp-playlist {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.edd_download.content-grid-download {
+    .wp-playlist,
+    .mejs-controls,
+    .mejs-controls div {
+        width: 25px !important;
+        height: 25px !important;
+    }
+
+    .wp-playlist .mejs-container {
+        width: 24px !important;
+        height: 24px !important;
+    }
+
+    .wp-playlist {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+
+    .wp-playlist,
+    .wp-playlist .mejs-container {
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .wp-playlist-current-item {
+        display: none;
+    }
+
+    .wp-playlist,
+    .wp-playlist .mejs-container,
+    .mejs-controls {
+        background: #82878e;
+    }
+
+    .mejs-controls .mejs-button button {
+        margin: 5px;
+    }
 }

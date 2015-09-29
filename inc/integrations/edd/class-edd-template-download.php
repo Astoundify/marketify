@@ -265,7 +265,8 @@ class Marketify_EDD_Template_Download {
         echo wp_playlist_shortcode( array(
             'id' => $post->ID,
             'include' => $audio,
-            'images' => false
+            'images' => false,
+            'tracklist' => is_singular( 'download' )
         ) );
     }
 
