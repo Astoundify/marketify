@@ -5,7 +5,7 @@ class Marketify_EDD_Template_Download {
     public function __construct() {
         add_action( 'wp_head', array( $this, 'featured_area' ) );
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-        
+
         add_action( 'marketify_entry_before', array( $this, 'download_title' ), 5 );
         add_action( 'marketify_entry_before', array( $this, 'featured_area_header_actions' ), 5 );
 
@@ -253,20 +253,20 @@ class Marketify_EDD_Template_Download {
     }
 
     public function featured_audio() {
-		global $post;
+        global $post;
 
-		$audio = $this->get_audio();
+        $audio = $this->get_audio();
 
-		// grid preview only needs one
-		if ( ! is_singular( 'download' ) ) {
-			$audio = array_splice( $audio, 0, 1 );
-		}
+        // grid preview only needs one
+        if ( ! is_singular( 'download' ) ) {
+            $audio = array_splice( $audio, 0, 1 );
+        }
 
-		echo wp_playlist_shortcode( array(
-			'id' => $post->ID,
-			'include' => $audio,
-			'images' => false
-		) );
+        echo wp_playlist_shortcode( array(
+            'id' => $post->ID,
+            'include' => $audio,
+            'images' => false
+        ) );
     }
 
     private function get_audio() {
@@ -277,12 +277,12 @@ class Marketify_EDD_Template_Download {
         if ( ! $_attachments ) {
             $attachments = get_attached_media( 'audio', $download_id );
 
-			if ( ! empty( $attachments ) ) {
-				$attachments = wp_list_pluck( $attachments, 'ID' );
-			}
+            if ( ! empty( $attachments ) ) {
+                $attachments = wp_list_pluck( $attachments, 'ID' );
+            }
         }
 
-		return $attachments;
+        return $attachments;
     }
 
     public function featured_video() {

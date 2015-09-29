@@ -8,8 +8,10 @@ input[type=submit].edd-submit {
 
 
 // ludacris
-.edd-submit.button.edd-add-to-cart.button--color-white,
-.edd-submit.button.edd_go_to_checkout.button--color-white {
+.content-grid-download__actions .edd-submit.button.edd-add-to-cart:hover,
+.content-grid-download__actions .edd-submit.button.edd_go_to_checkout:hover,
+.edd-submit.button.edd-add-to-cart,
+.edd-submit.button.edd_go_to_checkout {
     @extend .button--color-white;
 
 	&:hover {

@@ -33,8 +33,9 @@ class Marketify_Customizer_Output_Colors {
         $this->css->add( array(
             'selectors' => array(
                 '.page-header .button:hover',
-				'.page-header .button.button--color-white:hover',
-				'.content-grid-download__actions .button:hover'
+                '.page-header .button.button--color-white:hover',
+                '.home .page-header .button:hover', // backwards compat
+                '.page-header .edd-submit.button.edd_go_to_checkout:hover' // when an item is in the cart
             ),
             'declarations' => array(
                 'color' => $page_header_background
@@ -127,11 +128,13 @@ class Marketify_Customizer_Output_Colors {
         $this->css->add( array(
             'selectors' => array(
                 '.button.button--color-white:hover',
-                '.home .page-header .button:hover', // backwards compat
 
                 // edd
-                '.edd-submit.button.edd-add-to-cart.button--color-white:hover',
-                '.edd-submit.button.edd_go_to_checkout.button--color-white:hover'
+                '.edd-submit.button.edd-add-to-cart:hover',
+                '.edd-submit.button.edd_go_to_checkout:hover',
+                '.content-grid-download__actions .button:hover',
+                '.content-grid-download__actions .edd-submit.button.edd-add-to-cart:hover',
+                '.content-grid-download__actions .edd-submit.button.edd_go_to_checkout:hover',
             ),
             'declarations' => array(
                 'color' => $primary,
