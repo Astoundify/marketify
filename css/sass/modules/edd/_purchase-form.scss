@@ -65,3 +65,20 @@ body .edd_download_purchase_form {
     display: none;
 }
 
+.single-download .page-header .edd_download_purchase_form {
+    display: inline-block;
+
+    .edd_purchase_tax_rate {
+        color: #fff;
+    }
+}
+
+.edd_purchase_tax_rate {
+    @extend .item-meta;
+    margin: 1em 0;
+    display: inline-block;
+}
+
+.edd-cart-added-alert {
+    display: none !important;
+}
