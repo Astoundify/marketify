@@ -1,8 +1,14 @@
 .widget {
+    a {
+        text-decoration: none;
+    }
+}
+
+.widget--blog {
     margin-bottom: 4em;
 }
 
-.widget-title {
+.widget-title--blog {
     @extend .section-title;
 
     span {
@@ -41,64 +47,17 @@
             margin-right: 0;
         }
     }
+
 }
 
-.widget li {
-	margin: 5px 0;
-}
-
-.edd-taxonomy-widget .children {
-	list-style: disc;
-	margin-left: 40px;
-
-	li a {
-		padding-left: 0 !important;
-		display: inline;
-
-		&:hover {
-			background: none !important;
-		}
-	}
-}
-
-.widget a {
-	text-decoration: none;
+.widget--blog li {
+    margin: 5px 0;
 }
 
 /* Make sure select elements fit in widgets */
-.widget select {
+.widget--blog select {
 	max-width: 100%;
 	min-width: 100%;
-}
-
-/* Cart */
-.widget .edd-cart-item .edd-cart-item-title {
-	display: block;
-}
-
-.widget .edd-cart-item .edd-cart-item-separator {
-	display: none;
-}
-
-.widget .edd-cart-item .edd-cart-item-price {
-	font: 400 16px 'Montserrat', sans-serif;
-	text-transform: uppercase;
-	margin-left: -4px;
-}
-
-.widget .cart_item.edd_subtotal {
-	font-weight: normal;
-	font-style: normal;
-	margin: 15px 0;
-}
-
-.widget .cart_item.edd_subtotal .subtotal {
-	font-weight: bold;
-}
-
-.widget .cart_item.edd_checkout a {
-	text-align: center;
-	display: block;
 }
 
 /** Related/Recent/ETC */
