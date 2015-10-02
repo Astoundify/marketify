@@ -4,9 +4,12 @@
 @import "legacy"; // all of the old CSS is in one file for now.
 
 @import "helpers/clearfix";
+@import "helpers/screen-reader";
+@import "helpers/align";
 
 @import "modules/slick";
 @import "modules/ionicons/ionicons";
+@import "modules/popup";
 
 /** repetable patterns -- sub modules will likely define their own */
 @import "modules/form";
@@ -52,6 +55,7 @@
 /** homepage */
 @import "modules/home/page-header";
 @import "modules/home/video";
+@import "modules/home/search";
 
 /** widgets */
 @import "modules/widgets/widgets";
