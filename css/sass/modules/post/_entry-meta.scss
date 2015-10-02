@@ -1,0 +1,41 @@
+.entry-meta.entry-meta--hentry {
+    margin: 1em 0;
+
+    span,
+    a {
+        color: #82878e;
+        text-decoration: none;
+    }
+
+    span {
+        @extend .item-meta;
+        position: relative;
+        vertical-align: baseline;
+        margin-right: 12px;
+    }
+
+    .byline {
+        margin: 0;
+    }
+
+    .entry-date:before,
+    .comments-link a:before,
+    .edit-link a:before {
+        @extend .ion;
+        font-size: 16px;
+        vertical-align: middle;
+        margin: -3px 5px 0 0;
+    }
+
+    .entry-date:before {
+        content: $ionicon-var-calendar;
+    }
+
+    .comments-link a:before {
+        content: $ionicon-var-chatbubble;
+    }
+
+    .edit-link a:before {
+        content: $ionicon-var-edit;
+    }
+}

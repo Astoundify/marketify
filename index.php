@@ -13,44 +13,34 @@
 
 get_header(); ?>
 
-	<header class="page-header">
-		<?php if ( is_search() ) : ?>
-			<h1 class="page-title"><?php printf( __( 'Search Results: %s', 'marketify' ), esc_attr( get_search_query() ) ); ?></h1>
-		<?php else : ?>
-			<h1 class="page-title"><?php echo get_option( 'page_for_posts' ) ? get_the_title( get_option( 'page_for_posts' ) ) : _x( 'Blog', 'blog page title', 'marketify' ); ?></h1>
-		<?php endif; ?>
-	</header><!-- .page-header -->
+    <?php do_action( 'marketify_entry_before' ); ?>
 
-	<?php do_action( 'marketify_entry_before' ); ?>
+    <div class="container">
+        <div class="site-content row">
 
-	<div class="container">
-		<div id="content" class="site-content row">
+            <div role="main" id="primary" class="col-md-<?php echo is_active_sidebar( 'sidebar-1' ) ? '8' : '12'; ?>">
 
-			<div id="primary" class="content-area col-md-<?php echo is_active_sidebar( 'sidebar-1' ) ? '8' : '12'; ?>">
-				<main id="main" class="site-main" role="main">
+                <?php if ( have_posts() ) : ?>
 
-				<?php if ( have_posts() ) : ?>
+                    <?php while ( have_posts() ) : the_post(); ?>
 
-					<?php while ( have_posts() ) : the_post(); ?>
+                        <?php get_template_part( 'content', get_post_format() ); ?>
 
-						<?php get_template_part( 'content', get_post_format() ); ?>
+                    <?php endwhile; ?>
 
-					<?php endwhile; ?>
+                    <?php do_action( 'marketify_loop_after' ); ?>
 
-					<?php do_action( 'marketify_loop_after' ); ?>
+                <?php else : ?>
 
-				<?php else : ?>
+                    <?php get_template_part( 'no-results', 'index' ); ?>
 
-					<?php get_template_part( 'no-results', 'index' ); ?>
+                <?php endif; ?>
 
-				<?php endif; ?>
+            </div><!-- #primary -->
 
-				</main><!-- #main -->
-			</div><!-- #primary -->
+            <?php get_sidebar(); ?>
 
-			<?php get_sidebar(); ?>
-			
-		</div>
-	</div>
-	
+        </div>
+    </div>
+
 <?php get_footer(); ?>

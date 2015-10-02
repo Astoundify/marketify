@@ -14,15 +14,15 @@ $more = 0;
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'row' ); ?>>
     <?php if ( has_post_thumbnail() && ! $is_home ) : ?>
     <div class="blog-post-thumbnail col-md-3 col-sm-4 col-xs-12">
-        <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_post_thumbnail( 'medium' ); ?></a>
+        <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_post_thumbnail( 'thumbnail' ); ?></a>
     </div>
     <?php endif; ?>
 
     <div class="<?php echo has_post_thumbnail() && ! $is_home ? 'col-md-9 col-sm-8 ' : ''; ?>col-xs-12">
-        <header class="entry-header">
-            <h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+        <header class="entry-header entry-header--hentry">
+            <h3 class="entry-title entry-title--hentry"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
 
-            <div class="entry-meta">
+            <div class="entry-meta entry-meta--hentry">
                 <?php
                     printf(
                         __( '<span class="byline">%1$s</span>', 'marketify' ),
@@ -35,15 +35,13 @@ $more = 0;
                     );
                 ?>
 
-                <span class="entry-date">
-                    <i class="icon-calendar"></i> <?php echo get_the_date(); ?>
-                </span>
+                <span class="entry-date"><?php echo get_the_date(); ?></span>
 
                 <?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
-                <span class="comments-link"><?php comments_popup_link( __( '<i class="icon-chat"></i> 0 Comments', 'marketify' ), __( '<i class="icon-chat"></i> 1 Comment', 'marketify' ), __( '<i class="icon-chat"></i> % Comments', 'marketify' ) ); ?></span>
+                <span class="comments-link"><?php comments_popup_link( __( '0 Comments', 'marketify' ), __( '1 Comment', 'marketify' ), __( '%s Comments', 'marketify' ) ); ?></span>
                 <?php endif; ?>
 
-                <?php edit_post_link( __( '<i class="icon-pencil"></i> Edit', 'marketify' ), '<span class="edit-link">', '</span>' ); ?>
+                <?php edit_post_link( __( 'Edit', 'marketify' ), '<span class="edit-link">', '</span>' ); ?>
             </div><!-- .entry-meta -->
         </header><!-- .entry-header -->
 
