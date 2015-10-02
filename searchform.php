@@ -19,7 +19,7 @@ if (
 ?>
 
 <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-	<button type="submit" class="search-submit"><i class="icon-search"></i></button>
+<button type="submit" class="search-submit"><span class="screen-reader-text"><?php _e( 'Submit', 'marketify' ); ?></span></button>
 	<label>
 		<span class="screen-reader-text"><?php _ex( 'Search for:', 'label', 'marketify' ); ?></span>
 		<input type="search" class="search-field" placeholder="<?php echo esc_attr__( 'Search', 'marketify' ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>" name="s" title="<?php echo esc_attr__( 'Search for:', 'marketify' ); ?>">

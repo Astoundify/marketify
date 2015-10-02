@@ -23,7 +23,8 @@ class Marketify_Customizer_Output_Colors {
                 '.site-footer',
                 '.minimal',
                 '.custom-background.minimal',
-                '.wp-playlist .mejs-controls .mejs-time-rail .mejs-time-current'
+                '.wp-playlist .mejs-controls .mejs-time-rail .mejs-time-current',
+                '.search-form .search-submit'
             ),
             'declarations' => array(
                 'background-color' => $page_header_background
