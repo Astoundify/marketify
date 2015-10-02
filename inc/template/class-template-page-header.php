@@ -10,6 +10,7 @@ class Marketify_Template_Page_Header {
 
         add_action( 'marketify_entry_before', array( $this, 'archive_title' ), 5 );
         add_action( 'marketify_entry_before', array( $this, 'page_title' ), 5 );
+        add_action( 'marketify_entry_before', array( $this, 'post_title' ), 6 );
         add_action( 'marketify_entry_before', array( $this, 'home_title' ), 5 );
     }
 
@@ -44,7 +45,7 @@ class Marketify_Template_Page_Header {
     }
 
     public function page_title() {
-        if ( ! is_singular() || is_singular( 'download' ) ) {
+        if ( ! is_singular( 'page' ) ) {
             return;
         }
 
@@ -64,6 +65,36 @@ class Marketify_Template_Page_Header {
         <div class="page-header container">
             <h1 class="page-title"><?php the_archive_title(); ?></h1>
     <?php
+    }
+
+    public function post_title() {
+        if ( ! is_singular( 'post' ) ) {
+            return;
+        }
+?>
+<div class="page-header container">
+    <div class="entry-author">
+        <?php
+            $social = marketify()->template->entry->social_profiles();
+            printf( '<div class="gravatar">%1$s %2$s</div>',
+                sprintf( '<div class="author-social">%1$s</div>', $social ),
+                get_avatar( get_the_author_meta( 'ID' ), 140 )
+            );
+        ?>
+        <?php
+            printf( '<span class="byline"><span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span></span>',
+                esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+                esc_attr( sprintf( __( 'View all posts by %s', 'marketify' ), get_the_author() ) ),
+                esc_html( get_the_author() )
+            );
+        ?>
+    </div>
+
+    <h1 class="page-title"><?php the_title(); ?></h1>
+
+    <div class="entry-date"><?php echo get_the_date(); ?></div>
+</div>
+<?php
     }
 
     public function tag_atts( $args ) {
