@@ -4,6 +4,19 @@ class Marketify_Template_Navigation {
 
     public function __construct() {
         add_action( 'after_setup_theme', array( $this, 'register_menus' ) );
+        add_filter( 'wp_nav_menu_items', array( $this, 'add_search_item' ), 11, 2 );
+    }
+
+    public function add_search_item( $items, $args ) {
+        if ( 'primary' != $args->theme_location ) {
+            return $items;
+        }
+
+        ob_start();
+
+        $link = sprintf( '<li class="nav-menu-search"><a href="#" class="js-toggle-search"><span class="screen-reader-text">%s</span></a></li>', __( 'Search', 'marketify' ) );
+
+        return $link . $items;
     }
 
     public function register_menus() {

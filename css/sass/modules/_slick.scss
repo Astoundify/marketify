@@ -28,15 +28,15 @@ $slick-opacity-not-active: 0.25 !default;
 .slick-next {
     position: absolute;
     display: block;
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
     line-height: 0px;
     font-size: 0px;
     cursor: pointer;
     background: transparent;
     color: transparent;
     top: 50%;
-    margin-top: -10px;
+    margin-top: -15px;
     padding: 0;
     border: none;
     outline: none;
@@ -47,12 +47,11 @@ $slick-opacity-not-active: 0.25 !default;
         &:before {
         }
     }
-    &.slick-disabled:before {
-    }
 }
 
 .slick-prev:before, .slick-next:before {
-    font-size: 20px;
+    @extend .ion;
+    font-size: 30px;
     line-height: 1;
     color: $slick-arrow-color;
     -webkit-font-smoothing: antialiased;
@@ -60,29 +59,29 @@ $slick-opacity-not-active: 0.25 !default;
 }
 
 .slick-prev {
-    left: -25px;
+    left: -35px;
     [dir="rtl"] & {
         left: auto;
-        right: -25px;
+        right: -35px;
     }
     &:before {
-        content: $slick-prev-character;
+        content: $ionicon-var-ios-arrow-back;
         [dir="rtl"] & {
-            content: $slick-next-character;
+            content: $ionicon-var-ios-arrow-forward;
         }
     }
 }
 
 .slick-next {
-    right: -25px;
+    right: -35px;
     [dir="rtl"] & {
-        left: -25px;
+        left: -35px;
         right: auto;
     }
     &:before {
-        content: $slick-next-character;
+        content: $ionicon-var-ios-arrow-forward;
         [dir="rtl"] & {
-            content: $slick-prev-character;
+            content: $ionicon-var-ios-arrow-back;
         }
     }
 }
