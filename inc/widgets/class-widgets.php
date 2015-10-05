@@ -52,9 +52,9 @@ class Marketify_Widgets {
             'name'          => __( 'Footer Left', 'marketify' ),
             'description'   => __( 'The left footer widget area', 'marketify' ),
             'id'            => 'footer-1',
-            'before_widget' => '<aside id="%1$s" class="widget widget--foter %2$s">',
+            'before_widget' => '<aside id="%1$s" class="%2$s">',
             'after_widget'  => '</aside>',
-            'before_title'  => '<h3 class="widget-title widget-title--footer">',
+            'before_title'  => '<h3 class="widget-title widget-title--site-footer">',
             'after_title'   => '</h3>',
         ) );
 
@@ -62,9 +62,9 @@ class Marketify_Widgets {
             'name'          => __( 'Footer Center', 'marketify' ),
             'description'   => __( 'The center footer widget area', 'marketify' ),
             'id'            => 'footer-2',
-            'before_widget' => '<aside id="%1$s" class="widget widget--footer %2$s">',
+            'before_widget' => '<aside id="%1$s" class="%2$s">',
             'after_widget'  => '</aside>',
-            'before_title'  => '<h3 class="widget-title widget-title--footer">',
+            'before_title'  => '<h3 class="widget-title widget-title--site-footer">',
             'after_title'   => '</h3>',
         ) );
 
@@ -72,9 +72,9 @@ class Marketify_Widgets {
             'name'          => __( 'Footer Right', 'marketify' ),
             'description'   => __( 'The right footer widget area', 'marketify' ),
             'id'            => 'footer-3',
-            'before_widget' => '<aside id="%1$s" class="widget widget--foter %2$s">',
+            'before_widget' => '<aside id="%1$s" class="%2$s">',
             'after_widget'  => '</aside>',
-            'before_title'  => '<h3 class="widget-title widget-title--footer">',
+            'before_title'  => '<h3 class="widget-title widget-title--site-footer">',
             'after_title'   => '</h3>',
         ) );
 

@@ -10,3 +10,26 @@
 .widget-title--site-footer {
     margin-bottom: 1em;
 }
+
+.widget.widget--site-footer {
+    li {
+        margin-bottom: 0.5em;
+    }
+
+    li:before {
+        display: none;
+    }
+
+    a:hover{
+        text-decoration: underline;
+    }
+
+    p {
+        line-height: 1.75;
+
+        &:last-child,
+        &:only-child {
+            margin-bottom: 0;
+        }
+    }
+}

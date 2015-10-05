@@ -7,14 +7,14 @@ class Marketify_Template_Footer {
         add_action( 'marketify_footer_site_info', array( $this, 'contact_address' ), 20 );
         add_action( 'marketify_footer_site_info', array( $this, 'site_info' ), 30 );
 
-        // add_action( 'marketify_footer_above', array( $this, 'footer_widget_areas' ) );
+        add_action( 'marketify_footer_above', array( $this, 'footer_widget_areas' ) );
     }
 
     public function footer_widget_areas() {
     ?>
         <div class="footer-widget-areas row">
         <?php for ( $i = 1; $i <= 3; $i++ ) : ?>
-            <div class="footer-widget-area footer-widget-area--<?php echo $i; ?> col-xs-12 col-sm-6 col-md-4">
+            <div class="widget widget--site-footer col-xs-12 col-sm-6 col-md-4">
                 <?php dynamic_sidebar( 'footer-' . $i ); ?>
             </div>
         <?php endfor; ?>
