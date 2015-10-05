@@ -6,7 +6,8 @@ class Marketify_EDD_Popular {
         $this->slug = _x( 'popular', 'URL slug to determine category sorting', 'marketify' );
 
         add_action( 'marketify_downloads_before', array( $this, 'archive_section_title' ) );
-        add_filter( 'marketify_get_the_archive_title', array( $this, 'get_the_archive_title' ) );
+        add_filter( 'marketify_get_the_archive_title', array( $this, 'marketify_get_the_archive_title' ) );
+        add_filter( 'get_the_archive_title', array( $this, 'get_the_archive_title' ) );
 
         add_action( 'init', array( $this, 'endpoint' ) );
         add_filter( 'edd_download_category_args', array( $this, 'category_args' ) );
@@ -64,14 +65,16 @@ class Marketify_EDD_Popular {
         add_rewrite_endpoint( $this->slug, EP_CATEGORIES );
     }
 
-    public function get_the_archive_title( $title ) { 
-        if ( ! did_action( 'marketify_entry_before' ) || did_action( 'marketify_downloads_before' ) ) {
-            return $title;
+    public function marketify_get_the_archive_title( $title ) { 
+        if ( is_tax( array( 'download_tag', 'download_category' ) ) ) {
+            $title = sprintf( __( 'Popular in %s', 'marketify' ), single_term_title( '', false ) );
         }
 
-        if ( is_post_type_archive( 'download' ) ) {
-            $title = __( 'Popular', 'marketify' );
-        } else if ( is_tax( array( 'download_tag', 'download_category' ) ) ) {
+        return $title;
+    }
+
+    public function get_the_archive_title( $title ) { 
+        if ( $this->is_popular_query() ) {
             $title = sprintf( __( 'Popular in %s', 'marketify' ), single_term_title( '', false ) );
         }
 
