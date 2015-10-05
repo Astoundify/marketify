@@ -3,7 +3,7 @@
 class Marketify_EDD_FES_Vendors {
 
     public function __construct() {
-        add_action( 'template_redirect', array( $this, 'vendor_archive' ) );
+        // add_action( 'template_redirect', array( $this, 'vendor_archive' ) );
 
         add_filter( 'fes_vendor_dashboard_menu', array( $this, 'dashboard_menu_icons' ) );
         add_filter( 'marketify_header_outer_image', array( $this, 'profile_cover_image' ), 1 );

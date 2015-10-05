@@ -12,8 +12,6 @@ class Marketify_Template_Navigation {
             return $items;
         }
 
-        ob_start();
-
         $link = sprintf( '<li class="nav-menu-search"><a href="#" class="js-toggle-search"><span class="screen-reader-text">%s</span></a></li>', __( 'Search', 'marketify' ) );
 
         return $link . $items;

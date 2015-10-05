@@ -18,9 +18,7 @@ class Marketify_Widget_FES_Vendor_Contact extends Marketify_EDD_FES_Vendor_Widge
 
     function widget( $args, $instance ) {
         echo $args[ 'before_widget' ];
-        echo '<div class="widget-detail widget-detail--full">';
         echo do_shortcode( '[fes_vendor_contact_form id="' . $this->vendor->obj->ID . '"]' );
-        echo '</div>';
         echo $args[ 'after_widget' ];
     }
 

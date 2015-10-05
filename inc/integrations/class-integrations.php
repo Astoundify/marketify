@@ -35,6 +35,10 @@ class Marketify_Integrations {
                 defined( 'edd_csau_version' ),
                 'Marketify_EDD_Cross_Sell_UpSell'
             ),
+            'edd-wish-lists' => array(
+                class_exists( 'EDD_Wish_Lists' ),
+                'Marketify_EDD_Wish_Lists'
+            ),
             'facetwp' => array(
                 class_exists( 'FacetWP' ),
                 'Marketify_FacetWP'
