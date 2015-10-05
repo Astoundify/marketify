@@ -22,8 +22,10 @@ class Marketify_Widget_FES_Vendor extends Marketify_EDD_FES_Vendor_Widget {
         $url = $this->vendor->url();
         $display_name = $this->vendor->display_name();
         $registered = $this->vendor->date_registered();
+
+        echo $args[ 'before_widget' ];
     ?>
-        <div class="download-author widget-detail widget-detail--full widget-detail--author">
+        <div class="download-author widget-detail--author">
             <?php printf(  '<a class="author-avatar" href="%s" rel="author">%s</a>', $url, get_avatar( $this->vendor->obj->D, 130 ) ); ?>
             <?php printf( '<a class="author-link" href="%s" rel="author">%s</a>', $url, $display_name ); ?>
 
@@ -36,7 +38,7 @@ class Marketify_Widget_FES_Vendor extends Marketify_EDD_FES_Vendor_Widget {
 
             <?php echo wpautop( do_shortcode( $instance[ 'extras' ] ) ); ?>
         </div>
-        <div class="widget-detail widget-detail--full">
+        <div class="widget-detail widget-detail--pull widget-detail--top">
             <strong class="widget-detail__title"><?php echo $this->vendor->downloads_count(); ?></strong>
             <span class="widget-detail__info"><?php echo _n( edd_get_label_singular(), edd_get_label_plural(), $this->vendor->downloads_count(), 'marketify' ); ?></span>
         </div>

@@ -18,9 +18,9 @@ class Marketify_EDD_FES_Widgets {
         register_sidebar( array(
             'name'          => __( 'Vendor Sidebar', 'marketify' ),
             'id'            => 'sidebar-vendor',
-            'before_widget' => '<aside id="%1$s" class="widget widget--vendor-profile %2$s">',
+            'before_widget' => '<aside id="%1$s" class="widget widget--vendor-profile widget-detail %2$s">',
             'after_widget'  => '</aside>',
-            'before_title'  => '<h3 class="vendor-widget-title">',
+            'before_title'  => '<h3 class="widget-title widget-title--vendor-profile">',
             'after_title'   => '</h3>',
         ) );
     }

@@ -11,40 +11,40 @@ get_header(); ?>
 
 	<?php do_action( 'marketify_entry_before' ); ?>
 
-	<div class="container">
-		<div id="content" class="site-content row">
+    <div class="container">
+        <div id="content" class="site-content row">
 
-			<div id="secondary" class="author-widget-area col-md-3 col-sm-5 col-xs-12" role="complementary">
-				<div class="vendor-widget-area">
-					<?php 
-						if ( ! dynamic_sidebar( 'sidebar-vendor' ) ) :
-							$args = array(				
-								'before_widget' => '<aside class="widget vendor-widget">',
-								'after_widget'  => '</aside>',
-								'before_title'  => '<h3 class="vendor-widget-title">',
-								'after_title'   => '</h3>',
-							);
+            <div id="secondary" class="author-widget-area col-md-3 col-sm-5 col-xs-12" role="complementary">
+                <div class="vendor-widget-area">
+                    <?php 
+                        if ( ! dynamic_sidebar( 'sidebar-vendor' ) ) :
+                            $args = array(				
+                                'before_widget' => '<aside class="widget widget--vendor-profile">',
+                                'after_widget'  => '</aside>',
+                                'before_title'  => '<h3 class="widget-title widget-title--vendor-profile">',
+                                'after_title'   => '</h3>',
+                            );
 
-							the_widget( 'Marketify_Widget_FES_Vendor', array( 'extras' => '' ), $args );
-							the_widget( 'Marketify_Widget_FES_Vendor_Description', array(), $args );
-						endif;
-					?>
-				</div>
-			</div><!-- #secondary -->
+                            the_widget( 'Marketify_Widget_FES_Vendor', array( 'extras' => '' ), $args );
+                            the_widget( 'Marketify_Widget_FES_Vendor_Description', array(), $args );
+                        endif;
+                    ?>
+                </div>
+            </div><!-- #secondary -->
 
-			<section id="primary" class="content-area col-md-9 col-sm-7 col-xs-12">
-				<main id="main" class="site-main" role="main">
+            <section id="primary" class="content-area col-md-9 col-sm-7 col-xs-12">
+                <main id="main" class="site-main" role="main">
 
-					<?php while ( have_posts() ) : the_post(); ?>
-					<div class="entry-content">
-						<?php the_content(); ?>
-					</div>
-					<?php endwhile; ?>
+                    <?php while ( have_posts() ) : the_post(); ?>
+                    <div class="entry-content">
+                        <?php the_content(); ?>
+                    </div>
+                    <?php endwhile; ?>
 
-				</main><!-- #main -->
-			</section><!-- #primary -->
+                </main><!-- #main -->
+            </section><!-- #primary -->
 
-		</div><!-- #content -->
-	</div>
+        </div><!-- #content -->
+    </div>
 
 <?php get_footer(); ?>
