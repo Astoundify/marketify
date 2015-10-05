@@ -1,0 +1,12 @@
+.widget--site-footer {
+    padding: 3em 2em;
+	border-right: 1px solid #bdc3c7;
+
+	&:last-child {
+		border-right: 0;
+	}
+}
+
+.widget-title--site-footer {
+    margin-bottom: 1em;
+}

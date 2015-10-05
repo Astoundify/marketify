@@ -14,7 +14,7 @@ class Marketify_Template_Footer {
     ?>
         <div class="footer-widget-areas row">
         <?php for ( $i = 1; $i <= 3; $i++ ) : ?>
-            <div class="footer-widget-area footer-widget-area--<?Php echo $i; ?> col-xs-12 col-sm-6 col-md-4">
+            <div class="footer-widget-area footer-widget-area--<?php echo $i; ?> col-xs-12 col-sm-6 col-md-4">
                 <?php dynamic_sidebar( 'footer-' . $i ); ?>
             </div>
         <?php endfor; ?>
@@ -23,8 +23,8 @@ class Marketify_Template_Footer {
     }
 
     private function has_social_menu() {
-        return marketify()->template->navigation->get_theme_menu( 'social' );
-    }	
+        return has_nav_menu( 'social' );
+    }
 
     public function social_menu() {
         if ( ! $this->has_social_menu() ) {
@@ -32,7 +32,7 @@ class Marketify_Template_Footer {
         }
     ?>
         <div class="<?php echo $this->get_column_class(); ?>">
-            <h1 class="footer-widget-title"><?php echo marketify()->template->navigation->get_theme_menu_name( 'social' ); ?></h1>
+            <h3 class="widget-title widget-title--site-footer"><?php echo marketify()->template->navigation->get_theme_menu_name( 'social' ); ?></h3>
             <?php
                 $social = wp_nav_menu( array(
                     'theme_location'  => 'social',
@@ -51,7 +51,7 @@ class Marketify_Template_Footer {
     }
 
     private function has_contact_address() {
-        return marketify_theme_mod( 'footer-contact-us-display' );
+        return ( 'on' == marketify_theme_mod( 'footer-contact-us-display' ) && '' != marketify_theme_mod( 'footer-contact-us-adddress' ) );
     }
 
     public function contact_address() {
@@ -60,9 +60,9 @@ class Marketify_Template_Footer {
         }
     ?>
         <div class="<?php echo $this->get_column_class(); ?>">
-            <h1 class="footer-widget-title"><?php _e( 'Contact Us', 'marketify' ); ?></h1>
+            <h3 class="widget-title widget-title--site-footer"><?php echo esc_attr( marketify_theme_mod( 'footer-contact-us-title' ) ); ?></h3>
 
-            <?php echo wpautop( marketify_theme_mod( 'footer', 'footer-contact-address' ) ); ?>
+            <?php echo marketify_theme_mod( 'footer-contact-us-address' ); ?>
         </div>
     <?php
     }
@@ -74,14 +74,14 @@ class Marketify_Template_Footer {
     public function site_info() {
     ?>
         <div class="<?php echo $this->get_column_class(); ?>">
-            <h1 class="site-title"><a href="<?php echo home_url(); ?>">
+            <h3 class="site-title site-title--footer"><a href="<?php echo home_url(); ?>">
                 <?php if ( marketify_theme_mod( 'footer-copyright-logo' ) ) : ?>
                     <img src="<?php echo marketify_theme_mod( 'footer-copyright-logo' ); ?>" />
                 <?php else : ?>
                     <?php bloginfo( 'name' ); ?>
                 <?php endif; ?>
-            </a></h1>
-            
+            </a></h3>
+
             <?php echo esc_attr( marketify_theme_mod( 'footer-copyright-text' ) ); ?>
         </div>
     <?php
@@ -106,7 +106,7 @@ class Marketify_Template_Footer {
     }
 
     private function get_column_class() {
-        return sprintf( 'col-xs-12 col-sm-6 col-md-%s', $this->get_column_span() );
+        return sprintf( 'widget--site-footer col-xs-12 col-sm-6 col-md-%s', $this->get_column_span() );
     }
 
 }

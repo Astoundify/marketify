@@ -20,11 +20,11 @@ class Marketify_Customizer_Output_Colors {
         $this->css->add( array(
             'selectors' => array(
                 '.header-outer',
-                '.site-footer',
+                '.site-footer--dark',
                 '.minimal',
                 '.custom-background.minimal',
                 '.wp-playlist .mejs-controls .mejs-time-rail .mejs-time-current',
-                '.search-form .search-submit'
+                '.search-form .search-submit',
             ),
             'declarations' => array(
                 'background-color' => $page_header_background
@@ -37,7 +37,8 @@ class Marketify_Customizer_Output_Colors {
                 '.page-header .button:hover',
                 '.page-header .button.button--color-white:hover',
                 '.home .page-header .button:hover', // backwards compat
-                '.page-header .edd-submit.button.edd_go_to_checkout:hover' // when an item is in the cart
+                '.page-header .edd-submit.button.edd_go_to_checkout:hover', // when an item is in the cart
+                '.site-footer--light .site-title--footer a'
             ),
             'declarations' => array(
                 'color' => $page_header_background

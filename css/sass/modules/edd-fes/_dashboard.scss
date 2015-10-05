@@ -82,4 +82,18 @@
         padding: 0;
         border: 0;
     }
+
+    .fes-comments-wrap {
+        margin-top: 2em;
+    }
+
+    #fes-view-comment a {
+        @extend .button;
+        @extend .button--size-small;
+    }
+
+    .fes-vendor-comment-respond-form .button {
+        margin-top: 10px;
+        margin-right: 10px;
+    }
 }
