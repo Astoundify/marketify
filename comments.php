@@ -52,7 +52,7 @@ if ( post_password_required() || ! comments_open() )
 				'comment_notes_after' => ''
 			) );
 		?>
-	</section>
+	</div>
 
 	<?php get_sidebar( 'single-download-comments' ); ?>
 

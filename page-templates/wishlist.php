@@ -35,7 +35,7 @@ get_header(); ?>
                             the_widget( 'Marketify_Widget_FES_Vendor_Description', array(), $args );
                         endif;
                     ?>
-                    <div class="download-author-sales">
+                    <div class="widget-detail">
                         <?php
                             $loves = get_user_option( 'li_user_loves', $author->ID );
 
@@ -44,9 +44,8 @@ get_header(); ?>
                             }
                         ?>
 
-                        <strong><?php echo count( $loves ); ?></strong>
-
-                        <?php echo _n( 'Love', 'Loves', count( $loves ), 'marketify' ); ?>
+                        <strong class="widget-detail__title"><?php echo count( $loves ); ?></strong>
+                        <span class="widget-detail__info"><?php echo _n( 'Love', 'Loves', count( $loves ), 'marketify' ); ?></span>
                     </div>
                 </div>
             </div><!-- #secondary -->
