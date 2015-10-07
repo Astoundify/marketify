@@ -35,27 +35,27 @@ class Marketify_Widget_Download_Archive_Sorting extends Marketify_Widget {
 
         <form action="" method="get" class="download-sorting">
             <label for="orderby">
-                <?php _e( 'Sort by:', 'marketify' ); ?>
-                <?php
-                    echo EDD()->html->select( array(
-                        'name' => 'm-orderby',
-                        'id' => 'm-orderby',
-                        'selected' => $orderby,
-                        'show_option_all' => false,
-                        'show_option_none' => false,
-                        'options' => marketify()->get( 'edd' )->sorting->options()
-                    ) );
-                ?>
+                <?php _e( 'Sort by', 'marketify' ); ?>
+            </label>
+            <?php
+                echo EDD()->html->select( array(
+                    'name' => 'm-orderby',
+                    'id' => 'm-orderby',
+                    'selected' => $orderby,
+                    'show_option_all' => false,
+                    'show_option_none' => false,
+                    'options' => marketify()->get( 'edd' )->sorting->options()
+                ) );
+            ?>
+
+            <label for="order-asc" class="download-sorting__dir download-sorting__dir--<?php echo checked( 'asc', $order, false ) ? 'active ': ''; ?>">
+                <?php _e( 'ASC', 'marketify' ); ?>
+                <input type="radio" name="m-order" id="order-asc" value="asc" <?php checked( 'asc', $order ); ?> />
             </label>
 
-            <label for="order-asc">
-                <input type="radio" name="m-order" id="order-asc" value="asc" <?php checked( 'asc', $order ); ?>><span
-                class="<?php echo checked( 'asc', $order, false ) ? 'active ': ''; ?>icon-arrow-up"></span>
-            </label>
-
-            <label for="order-desc">
-                <input type="radio" name="m-order" id="order-desc" value="desc" <?php checked( 'desc', $order );
-                ?>><span class="<?php echo checked( 'desc', $order, false ) ? 'active ': ''; ?>icon-arrow-down2"></span>
+            <label for="order-desc" class="download-sorting__dir download-sorting__dir--<?php echo checked( 'desc', $order, false ) ? 'active ': ''; ?>">
+                <?php _e( 'DESC', 'marketify' ); ?>
+                <input type="radio" name="m-order" id="order-desc" value="desc" <?php checked( 'desc', $order ); ?> />
             </label>
 
             <?php if ( is_search() ) : ?>

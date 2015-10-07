@@ -1,61 +1,49 @@
 .download-sorting {
-	overflow: hidden;
+    label[for="orderby"] {
+        position: relative;
+    }
+
+    label input[type="radio"] {
+        display: none;
+    }
+
+    #m_orderby {
+        display: inline-block;
+    }
 }
 
-.download-sorting select {
-	margin-left: 5px;
-	padding: 8px 30px 8px 12px;
-	width: auto;
-	min-width: 0;
-	border: 3px solid;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	text-indent: 0.01px;
-    text-overflow: '';
+.download-sorting__dir {
+    color: #bdc3c7;
+    font-weight: 400;
+    display: inline-block;
+    font-size: 13px;
+    margin-left: 8px;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:before {
+        @extend .ion;
+    }
 }
 
-.download-sorting label[for="orderby"] {
-	position: relative;
+.download-sorting__dir--active {
+    color: #404040;
+    font-weight: 700;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-	.download-sorting label[for="orderby"]:after {
-		font-size: 18px;
-		color: #BDC3C7;
-		content: '\e6ce';
-		display: block;
-		width: 15px;
-		height: 15px;
-		position: absolute;
-		right: 9px;
-		top: 13px;
-	}
+label[for="order-asc"]:before {
+    content: $ionicon-var-ios-arrow-up;
 }
 
-.download-sorting select:focus {
-	outline: 0;
+label[for="order-asc"]:after {
+    color: #555;
+    content: '/';
+    padding-left: 8px;
+    font-weight: 400;
 }
 
-.download-sorting label {
-	font-size: 15px;
-	font-family: 'Source Sans Pro';
-	font-weight: normal;
-	text-transform: none;
-	letter-spacing: 0;
-	float: left;
-}
-
-.download-sorting label input[type="radio"] {
-	display: none;
-}
-
-.download-sorting span {
-	font-size: 20px;
-	display: inline-block;
-	margin-top: 6px;
-	margin-left: 3px;
-
-	&.active:before {
-		color: #515a63;
-	}
+label[for="order-desc"]:before {
+    content: $ionicon-var-ios-arrow-down;
 }
