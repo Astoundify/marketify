@@ -29,12 +29,12 @@ get_header(); ?>
 
 						<div class="row">
 							<div class="col-md-6">
-								<?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
+								<?php the_widget( 'WP_Widget_Recent_Posts', array(), array( 'before_title' => '<h3 class="widget-title">', 'after_title' => '</h3>' ) ); ?>
 							</div>
 
 							<div class="col-md-6">
 								<div class="widget widget_categories">
-									<h2 class="widgettitle"><?php _e( 'Most Used Categories', 'marketify' ); ?></h2>
+									<h3 class="widget-title"><?php _e( 'Most Used Categories', 'marketify' ); ?></h3>
 									<ul>
 									<?php
 										wp_list_categories( array(

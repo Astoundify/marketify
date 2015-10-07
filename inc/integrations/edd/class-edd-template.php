@@ -6,7 +6,16 @@ class Marketify_EDD_Template {
 		$this->navigation = new Marketify_EDD_Template_Navigation();
 		$this->purchase_form = new Marketify_EDD_Template_Purchase_Form();
 		$this->download = new Marketify_EDD_Template_Download();
-	}
+
+        add_filter( 'edd_download_pagination_args', array( $this, 'pagination_args' ) );
+    }
+
+    public function pagination_args( $args ) {
+        $args[ 'prev_text' ] = __( 'Previous', 'marketify' );
+        $args[ 'next_text' ] = __( 'Next', 'marketify' );
+
+        return $args;
+    }
 
 	public function author_url( $user_id ) {
 		$fes = marketify()->get( 'edd-fes' );

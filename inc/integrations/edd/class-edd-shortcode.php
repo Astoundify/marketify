@@ -38,7 +38,13 @@ class Marketify_EDD_Shortcode {
     }
 
     public function grid_wrapper_class( $class, $atts ) {
-        return 'row download-grid-wrapper ' . $class;
+        $classes = array( 'row', 'download-grid-wrapper' );
+
+        if ( isset( $atts[ 'salvattore' ] ) && 'no' == $atts[ 'salvattore' ] ) {
+            $classes[] = 'has-slick';
+        }
+
+        return implode( ' ', $classes ) . ' ' . $class;
     }
 
     public function grid_wrapper_columns( $output, $atts ) {
