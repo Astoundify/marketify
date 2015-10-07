@@ -10,3 +10,21 @@
 .page-header .button {
     margin: 0 1em;
 }
+
+.page-header__entry-meta {
+    @extend .item-title;
+    font-size: 18px !important;
+    letter-spacing: 0.1em;
+    color: #fff;
+    text-shadow: rgba(0, 0, 0, 0.39) 0 2px 18px;
+    margin: 2em 0;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}

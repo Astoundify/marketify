@@ -30,6 +30,7 @@
           autoPlay: typeof marketifyFeaturedPopular !== "undefined" && marketifyFeaturedPopular !== null ? marketifyFeaturedPopular.autoPlay : void 0,
           autoPlaySpeed: parseInt(typeof marketifyFeaturedPopular !== "undefined" && marketifyFeaturedPopular !== null ? marketifyFeaturedPopular.autoPlaySpeed : void 0),
           slidesToShow: 3,
+          slidesToScroll: 3,
           arrows: false,
           dots: true,
           adaptiveHeight: true,

@@ -73,16 +73,18 @@ class Marketify_Template_Page_Header {
         }
 ?>
 <div class="page-header container">
-    <div class="entry-author">
+    <div class="user-bubble user-bubble--with-social">
         <?php
             $social = marketify()->template->entry->social_profiles();
-            printf( '<div class="gravatar">%1$s %2$s</div>',
-                sprintf( '<div class="author-social">%1$s</div>', $social ),
+            printf( '<div class="user-bubble__gravatar">%1$s %2$s</div>',
+                sprintf( '<div class="user-bubble__social-profiles">%1$s</div>', $social ),
                 get_avatar( get_the_author_meta( 'ID' ), 140 )
             );
         ?>
+    </div>
+    <div class="page-header__entry-meta page-header__entry-meta--author">
         <?php
-            printf( '<span class="byline"><span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span></span>',
+            printf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
                 esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
                 esc_attr( sprintf( __( 'View all posts by %s', 'marketify' ), get_the_author() ) ),
                 esc_html( get_the_author() )
@@ -92,7 +94,7 @@ class Marketify_Template_Page_Header {
 
     <h1 class="page-title"><?php the_title(); ?></h1>
 
-    <div class="entry-date"><?php echo get_the_date(); ?></div>
+    <div class="page-header__entry-meta page-header__entry-meta--date"><?php echo get_the_date(); ?></div>
 </div>
 <?php
     }

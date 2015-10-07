@@ -16,7 +16,7 @@ if ( ! marketify()->get( 'edd' )->popular->show_popular() ) {
 
 	<div class="featured-popular-tabs">
 		<div id="items-popular" class="inactive featured-popular-slick">
-			<?php echo do_shortcode( '[downloads number=6 flat=true orderby=sales]' ); ?>
+			<?php echo do_shortcode( '[downloads number=6 flat=true orderby=sales pagination=false]' ); ?>
 		</div>
 	</div>
 

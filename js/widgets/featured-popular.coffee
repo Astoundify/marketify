@@ -25,6 +25,7 @@ jQuery ($) ->
         autoPlay: marketifyFeaturedPopular?.autoPlay
         autoPlaySpeed: parseInt marketifyFeaturedPopular?.autoPlaySpeed
         slidesToShow: 3
+        slidesToScroll: 3
         arrows: false
         dots: true
         adaptiveHeight: true
