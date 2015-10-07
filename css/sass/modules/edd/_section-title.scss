@@ -1,11 +1,10 @@
 // ridiculous
 #edd_checkout_form_wrap {
-    .edd_form fieldset > span {
+    .edd_form fieldset > legend {
         @extend .section-title;
 
-        legend {
+        span {
             @extend .section-title__inner;
-            display: block;
             margin: 0 auto;
             width: auto;
         }

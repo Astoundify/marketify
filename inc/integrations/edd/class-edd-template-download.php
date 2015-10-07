@@ -210,6 +210,7 @@ class Marketify_EDD_Template_Download {
         $size = apply_filters( 'marketify_featured_standard_image_size', 'fullsize' );
 
         echo $before;
+
         if ( empty( $images ) && has_post_thumbnail( get_the_ID() ) ) {
             echo get_the_post_thumbnail( get_the_ID(), $size );
             echo $after;
