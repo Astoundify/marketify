@@ -73,7 +73,7 @@ class Marketify_Template_Page_Header {
         }
 ?>
 <div class="page-header container">
-    <div class="user-bubble user-bubble--with-social">
+    <div class="user-bubble user-bubble--blog user-bubble--with-social">
         <?php
             $social = marketify()->template->entry->social_profiles();
             printf( '<div class="user-bubble__gravatar">%1$s %2$s</div>',

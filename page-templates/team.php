@@ -40,24 +40,28 @@ get_header(); ?>
                     foreach ( $users as $user_id ) :
                 ?>
 
-                <div class="entry-author">
+                <div class="team-member">
+                    <div class="user-bubble user-bubble--team user-bubble--with-social">
+                        <?php
+                            $social = marketify()->template->entry->social_profiles( $user_id );
+                            printf( '<div class="user-bubble__gravatar">%1$s %2$s</div>',
+                                sprintf( '<div class="user-bubble__social-profiles">%1$s</div>', $social ),
+                                get_avatar( $user_id, 400 )
+                            );
+                        ?>
+                    </div>
+                    <div class="team-member__byline">
                     <?php
-                        // $social = marketify_entry_author_social( $user_id );
-                        $social = false;
-
-                        printf( '<div class="gravatar">%1$s %2$s</div>',
-                            sprintf( '<div class="author-social">%1$s</div>', $social ),
-                            get_avatar( $user_id, 400 )
-                        );
-                    ?>
-                    <?php
-                        printf( '<span class="byline"><span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span></span>',
+                        printf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
                             esc_url( get_author_posts_url( $user_id ) ),
                             esc_attr( sprintf( __( 'View all posts by %s', 'marketify' ), get_the_author_meta( 'display_name', $user_id ) ) ),
                             esc_html( get_the_author_meta( 'display_name', $user_id ) )
                         );
                     ?>
-                    <?php echo wpautop( get_the_author_meta( 'description', $user_id ) ); ?>
+                    </div>
+                    <div class="team-member__description">
+                        <?php echo wpautop( get_the_author_meta( 'description', $user_id ) ); ?>
+                    </div>
                 </div>
 
                 <?php endforeach; ?>

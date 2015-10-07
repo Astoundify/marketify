@@ -1,7 +1,14 @@
 .user-bubble {
-    width: 140px;
     margin: 0 auto 2em;
     position: relative;
+}
+
+.user-bubble--blog {
+    width: 140px;
+}
+
+.user-bubble--team {
+    width: auto;
 }
 
 .user-bubble--with-social {
@@ -65,5 +72,13 @@
         font-size: 20px;
         margin: 0 3px;
         display: inline-block;
+    }
+}
+
+.user-bubble--team .user-bubble__social-profiles {
+    margin-top: -20px;
+
+    a {
+        font-size: 30px;
     }
 }
