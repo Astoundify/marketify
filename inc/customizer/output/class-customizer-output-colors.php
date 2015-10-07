@@ -87,6 +87,7 @@ class Marketify_Customizer_Output_Colors {
                 '.edd-submit.button',
                 '.edd-submit.button:visited',
                 'input[type=submit].edd-submit',
+                '.current-cart .cart_item.edd_checkout a',
 
                 // edd wish lists
                 '.edd-wl-button',
@@ -113,6 +114,7 @@ class Marketify_Customizer_Output_Colors {
                 '.edd-submit:hover',
                 '.edd-submit.button:hover',
                 'input[type=submit].edd-submit:hover',
+                '.current-cart .cart_item.edd_checkout a:hover',
 
                 // edd wish lists
                 '.edd-wl-button:hover',

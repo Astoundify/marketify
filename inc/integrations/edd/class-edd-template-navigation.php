@@ -24,7 +24,16 @@ class Marketify_EDD_Template_Navigation {
 
         $widget = ob_get_clean();
 
-        $link = sprintf( '<li class="current-cart menu-item menu-item-has-children"><a href="%1$s"><span class="edd-cart-quantity">%2$d</span><a href="%1$s" class="edd-checkout-link">' . __( 'Checkout', 'marketify' ) . '</span></a><ul class="sub-menu nav-menu"><li class="widget">%3$s</li></ul></li>', get_permalink( edd_get_option( 'purchase_page' ) ), edd_get_cart_quantity(), $widget );
+        $link = sprintf( '
+            <li class="current-cart menu-item menu-item-has-children">
+                <a href="%1$s"><span class="edd-cart-quantity">%2$d</span></a>
+                <a href="%1$s" class="edd-checkout-link">' . __( 'Checkout', 'marketify' ) . '</span></a>
+                <ul class="sub-menu nav-menu"><li class="widget">%3$s</li></ul>
+            </li>', 
+            get_permalink( edd_get_option( 'purchase_page' ) ), 
+            edd_get_cart_quantity(), 
+            $widget 
+        );
 
         return $link . $items;
     }

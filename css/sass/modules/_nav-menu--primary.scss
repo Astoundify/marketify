@@ -99,7 +99,7 @@
         }
 
         .current-cart {
-            a:first-child {
+            > a:first-child {
                 display: inline-block;
 
                 &:before {
@@ -112,8 +112,12 @@
                 }
             }
 
-            a:last-of-type {
+            > a:last-of-type {
                 display: none;
+            }
+
+            ul.edd-cart {
+                display: block;
             }
         }
     }
