@@ -33,3 +33,17 @@
         }
     }
 }
+
+.site-footer--dark {
+    color: #fff;
+
+    .widget-title--site-footer,
+    p,
+    a {
+        color: #fff;
+    }
+
+    .widget--site-footer {
+        border-right: 0;
+    }
+}
