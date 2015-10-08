@@ -1,10 +1,13 @@
 jQuery ($) ->
   el = '.facetwp-template.edd_downloads_list'
 
+  $(document).on 'ready', ->
+    $(el).removeData( 'columns' ).removeAttr( 'data-columns' )
+
   $(document).on 'facetwp-loaded', ->
     $(el).find( $( '.edd_download.content-grid-download' ) ).attr( 'style', '' );
 
     grid = document.querySelector el
-    salvattore[ 'rescanMediaQueries' ](grid)
+    salvattore[ 'registerGrid' ](grid)
 
-    $( '.site-content' ).find( $( '#edd_download_pagination' ) ).remove();
+    $( '#edd_download_pagination' ).remove()
