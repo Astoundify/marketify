@@ -9,6 +9,8 @@ class Marketify_EDD_Shortcode {
         add_filter( 'edd_downloads_list_wrapper_class', array( $this, 'grid_wrapper_class' ), 10, 2 );
         add_filter( 'downloads_shortcode', array( $this, 'grid_wrapper_columns' ), 10, 2 );
         add_filter( 'excerpt_length', array( $this, 'grid_excerpt_length' ) );
+
+        add_filter( 'edd_download_pagination_args', array( $this, 'pagination_args' ), 10, 4 );
     }
 
     public function shortcode_atts( $out, $pairs, $atts ) {
@@ -23,6 +25,10 @@ class Marketify_EDD_Shortcode {
 
         if ( isset( $atts[ 'flat' ] ) && $atts[ 'flat' ] == true ) {
             $out[ 'salvattore' ] = 'no';
+        }
+
+        if ( isset( $atts[ 'hide_pagination' ] ) && $atts[ 'hide_pagination' ] == true ) {
+            $out[ 'hide_pagination' ] = true;
         }
 
         return $out;
@@ -63,5 +69,17 @@ class Marketify_EDD_Shortcode {
         }
 
         return $length;
+    }
+
+    public function pagination_args( $args, $atts, $downloads, $query ) {
+        // on non salvattore/sliders dont output pagination
+        if ( ( isset( $atts[ 'salvattore' ] ) && 'no' == $atts[ 'salvattore' ] ) || isset( $atts[ 'hide_pagination' ] ) ) {
+            $args[ 'total' ] = 0;
+        }
+
+        $args[ 'prev_text' ] = __( 'Previous', 'marketify' );
+        $args[ 'next_text' ] = __( 'Next', 'marketify' );
+
+        return $args;
     }
 }

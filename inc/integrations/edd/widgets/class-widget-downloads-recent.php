@@ -41,7 +41,7 @@ class Marketify_Widget_Recent_Downloads extends Marketify_Widget {
         if ( $title ) echo $args[ 'before_title' ] . $title . $args[ 'after_title' ];
         ?>
 
-        <?php echo do_shortcode( "[downloads columns={$columns} number={$number}]" ); ?>
+        <?php echo do_shortcode( "[downloads columns={$columns} number={$number} hide_pagination=true]" ); ?>
 
         <?php
         echo $args[ 'after_widget' ];

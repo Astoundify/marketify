@@ -117,15 +117,12 @@ Marketify.App = ( function($) {
 			$( '.individual-testimonial .avatar' ).wrap( '<div class="avatar-wrap"></div>' );
 
       function pagi() {
-        if ( ! $( '#edd_download_pagination' ).length ) {
-          return;
-        }
+        $( '.edd_downloads_list' ).each(function() {
+          var pagi = $(this).find( $( '#edd_download_pagination' ) );
 
-        var pagi = $( '#edd_download_pagination' ).clone();
+          pagi.insertAfter( '.edd_downloads_list' );
+        });
 
-        $( '#edd_download_pagination' ).remove();
-
-        pagi.insertAfter( '.edd_downloads_list' );
       }
 
       pagi();
