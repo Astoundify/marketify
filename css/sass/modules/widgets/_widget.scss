@@ -134,30 +134,30 @@
 /* Search widget */
 .search-form {
 	overflow: hidden;
-}
 
-.search-form .search-field {
-    @extend .item-title;
-	color: #fff;
-	padding: 10px;
-	background: #bdc3c7;
-	width: 87%;
-}
+    .search-field {
+        @extend .item-title;
+        color: #fff;
+        padding: 10px;
+        background: #bdc3c7;
+        width: 87%;
+    }
 
-.search-form .search-submit {
-	font-size: 21px;
-	color: #fff;
-	text-transform: uppercase;
-	text-align: center;
-	border: 0;
-	width: 13%;
-	float: right;
-	padding: 8px 0;
-    height: 41px;
+    .search-submit {
+        font-size: 21px;
+        color: #fff;
+        text-transform: uppercase;
+        text-align: center;
+        border: 0;
+        width: 13%;
+        float: right;
+        padding: 8px 0;
+        height: 41px;
 
-    &:before {
-        @extend .ion;
-        content: $ionicon-var-search;
+        &:before {
+            @extend .ion;
+            content: $ionicon-var-search;
+        }
     }
 }
 

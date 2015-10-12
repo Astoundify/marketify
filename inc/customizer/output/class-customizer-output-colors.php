@@ -23,8 +23,7 @@ class Marketify_Customizer_Output_Colors {
                 '.site-footer--dark',
                 '.minimal',
                 '.custom-background.minimal',
-                '.wp-playlist .mejs-controls .mejs-time-rail .mejs-time-current',
-                '.search-form .search-submit',
+                '.wp-playlist .mejs-controls .mejs-time-rail .mejs-time-current'
             ),
             'declarations' => array(
                 'background-color' => $page_header_background
@@ -172,7 +171,9 @@ class Marketify_Customizer_Output_Colors {
 
         $this->css->add( array(
             'selectors' => array(
-                '.widget--home-taxonomy-stylized'
+                '.widget--home-taxonomy-stylized',
+                '.search-submit',
+                '.search-submit:hover'
             ),
             'declarations' => array(
                 'background-color' => $accent

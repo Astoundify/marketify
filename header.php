@@ -20,23 +20,23 @@
 <body <?php body_class(); ?>>
 
 <div id="page" class="hfeed site">
-	
-	<div <?php echo apply_filters( 'marketify_page_header', '', array() ); ?>>
 
-		<header id="masthead" class="site-header" role="banner">
-			<div class="container">
+    <div <?php echo apply_filters( 'marketify_page_header', '', array() ); ?>>
 
-				<div class="site-header-inner">
+        <header id="masthead" class="site-header" role="banner">
+            <div class="container">
 
-					<div class="site-branding">
-						<?php $header_image = get_header_image(); ?>
-						<?php if ( ! empty( $header_image ) ) : ?>
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="custom-header"><img src="<?php echo esc_url( $header_image ); ?>" alt=""></a>
-						<?php endif; ?>
+                <div class="site-header-inner">
 
-						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-						<h2 class="site-description screen-reader-text"><?php bloginfo( 'description' ); ?></h2>
-					</div>
+                    <div class="site-branding">
+                        <?php $header_image = get_header_image(); ?>
+                        <?php if ( ! empty( $header_image ) ) : ?>
+                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="custom-header"><img src="<?php echo esc_url( $header_image ); ?>" alt=""></a>
+                        <?php endif; ?>
+
+                        <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+                        <h2 class="site-description screen-reader-text"><?php bloginfo( 'description' ); ?></h2>
+                    </div>
 
                     <?php
                         wp_nav_menu( array(
@@ -46,10 +46,12 @@
                         ) );
                     ?>
 
-				</div>
+                </div>
 
-			</div>
-		</header><!-- #masthead -->
+            </div>
+        </header><!-- #masthead -->
 
-		<?php locate_template( array( 'searchform-header.php' ), true ); ?>
-
+        <div class="search-form-overlay">
+            <?php locate_template( array( 'searchform-header.php' ), true ); ?>
+            <a href="#" class="header-search-toggle"><span><?php _e( 'Close', 'marketify' ); ?></span></a>
+        </div>

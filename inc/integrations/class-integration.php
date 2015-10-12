@@ -42,7 +42,7 @@ abstract class Marketify_Integration {
     }
 
     public function body_class( $classes ) {
-        $classes[] = $this->get_slug();
+        $classes[] = 'marketify-plugin-' . $this->get_slug();
 
         return $classes;
     }

@@ -37,10 +37,16 @@ class Marketify_Template_Page_Header {
             return;
         }
 
+        if ( is_page_template( 'page-templates/home-search.php' ) ) {
+?>
+<div class="page-header__search">
+    <?php locate_template( array( 'searchform-header.php' ), true, false ); ?>
+</div>
+<?php
+        }
+
         the_post();
-
         the_content();
-
         rewind_posts();
     }
 
