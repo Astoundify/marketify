@@ -43,6 +43,7 @@ module.exports = () ->
         files:
           'js/download/download.js': 'js/download/download.coffee'
           'js/widgets/featured-popular.js': 'js/widgets/featured-popular.coffee'
+          'js/widgets/testimonials.js': 'js/widgets/testimonials.coffee'
           'inc/integrations/facetwp/js/facetwp.js': 'inc/integrations/facetwp/js/facetwp.coffee'
 
     uglify:
@@ -55,6 +56,7 @@ module.exports = () ->
             'js/app/marketify.js'
             'js/download/download.js'
             'js/widgets/featured-popular.js'
+            'js/widgets/testimonials.js'
             'inc/integrations/facetwp/js/facetwp.js'
             '!js/vendor/salvattore.min.js'
           ]

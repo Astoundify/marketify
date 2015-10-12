@@ -2,11 +2,12 @@
 @import "checkout-discounts";
 
 #edd_checkout_form_wrap {
-    margin-top: 3em;
+    @extend .section;
 
     fieldset {
         border: 0;
         padding: 0;
+        @extend .section;
     }
 
     label {
