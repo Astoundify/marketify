@@ -38,6 +38,8 @@
                         <h2 class="site-description screen-reader-text"><?php bloginfo( 'description' ); ?></h2>
                     </div>
 
+                    <button class="js-toggle-nav-menu--primary nav-menu--primary-toggle"><span class="screen-reader-text"><?php _e( 'Menu', 'marketify' ); ?></span></button>
+
                     <?php
                         wp_nav_menu( array(
                             'theme_location' => 'primary',

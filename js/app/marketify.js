@@ -1,6 +1,13 @@
 var Marketify = {};
 
 Marketify.App = ( function($) {
+  function menuToggle() {
+		$( '.js-toggle-nav-menu--primary' ).click(function(e) {
+			e.preventDefault();
+
+			$( '.nav-menu--primary' ).toggleClass( 'active' );
+		});
+  }
 	function menuSearch() {
 		$( '.js-toggle-search' ).click(function(e) {
 			e.preventDefault();
@@ -53,6 +60,7 @@ Marketify.App = ( function($) {
 
 	return {
 		init : function() {
+      menuToggle();
 			menuSearch();
 			footerHeight();
 			soliloquySliders();
@@ -84,14 +92,7 @@ Marketify.App = ( function($) {
 				link.html(title).prepend( '<span></span' );
 			});
 
-			$( '.comment_form_rating .edd_reviews_rating_box' ).find('a').on('click', function (e) {
-				e.preventDefault();
-
-				$( '.comment_form_rating .edd_reviews_rating_box' ).find('a').removeClass( 'active' );
-
-				$( this ).addClass( 'active' );
-			});
-
+      // section title shims
       $( '.edd_form fieldset > span legend' ).unwrap();
 
 			$( '#bbpress-forums #bbp-user-wrapper h2.entry-title, #bbpress-forums fieldset.bbp-form legend, .fes-form h1, .fes-headers, .edd_form *:not(span) > legend' ).wrapInner( '<span></span>' );
@@ -100,6 +101,8 @@ Marketify.App = ( function($) {
 				$( '#edd-wl-modal-label' ).wrapInner( '<span></span>' );
 			});
 
+
+      // sorting widget
 			$( '.download-sorting input, .download-sorting select' ).change(function(){
 				$(this).closest( 'form' ).submit();
 			});
