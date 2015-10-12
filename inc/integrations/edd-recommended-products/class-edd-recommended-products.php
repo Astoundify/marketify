@@ -37,14 +37,14 @@ class Marketify_EDD_Recommended_Products extends Marketify_Integration {
             return;
         }
 
-        $suggestions = implode( ',', array_keys( $suggestion_data ) );
-        $number = edd_get_option( 'edd_rp_suggestions_count' );
+        $suggestions = array_keys( $suggestion_data );
+        $suggestions = array_splice( $suggestions, 0, edd_get_option( 'edd_rp_suggestions_count' ) );
     ?>
 
         <div class="edd-recommended-products">
             <h3 class="section-title recommended-products"><span><?php _e( 'Recommended Products', 'marketify' ); ?></span></h3>
 
-            <?php echo do_shortcode( "[downloads ids={$suggestions} number={$number}]" ); ?>
+            <?php echo do_shortcode( "[downloads ids={$suggestions}]" ); ?>
         </div>
     <?php
     }
