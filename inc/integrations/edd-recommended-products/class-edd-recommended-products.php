@@ -38,7 +38,8 @@ class Marketify_EDD_Recommended_Products extends Marketify_Integration {
         }
 
         $suggestions = array_keys( $suggestion_data );
-        $suggestions = array_splice( $suggestions, 0, edd_get_option( 'edd_rp_suggestions_count' ) );
+        $suggestions = array_splice( $suggestions, edd_get_option( 'edd_rp_suggestions_count' ) );
+        $suggestions = implode( ',', $suggestions );
     ?>
 
         <div class="edd-recommended-products">
