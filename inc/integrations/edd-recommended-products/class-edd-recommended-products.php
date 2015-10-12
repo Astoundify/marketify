@@ -9,7 +9,7 @@ class Marketify_EDD_Recommended_Products extends Marketify_Integration {
     public function setup_actions() {
         add_action( 'init', array( $this, 'remove_auto_output' ), 12 );
         add_action( 'marketify_single_download_after', array( $this, 'output' ) );
-    }	
+    }
 
     public function remove_auto_output() {
         remove_filter( 'edd_after_download_content', 'edd_rp_display_single', 10, 1 );
@@ -37,25 +37,14 @@ class Marketify_EDD_Recommended_Products extends Marketify_Integration {
             return;
         }
 
-        $suggestions = array_keys( $suggestion_data );
-
-        $suggested_downloads = new WP_Query( array(
-            'post__in'       => $suggestions,
-            'post_type'      => 'download',
-            'posts_per_page' => edd_get_option( 'edd_rp_suggestion_count' )
-        ) );
+        $suggestions = implode( ',', array_keys( $suggestion_data ) );
+        $number = edd_get_option( 'edd_rp_suggestions_count' );
     ?>
 
         <div class="edd-recommended-products">
             <h3 class="section-title recommended-products"><span><?php _e( 'Recommended Products', 'marketify' ); ?></span></h3>
 
-            <div class="row">
-                <?php while ( $suggested_downloads->have_posts() ) : $suggested_downloads->the_post(); ?>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <?php get_template_part( 'content-grid', 'download' ); ?>
-                </div>
-                <?php endwhile; ?>
-            </div>
+            <?php echo do_shortcode( "[downloads ids={$suggestions} number={$number}]" ); ?>
         </div>
     <?php
     }
