@@ -10,8 +10,9 @@ class Marketify_Template_Page_Header {
 
         add_action( 'marketify_entry_before', array( $this, 'archive_title' ), 5 );
         add_action( 'marketify_entry_before', array( $this, 'page_title' ), 5 );
-        add_action( 'marketify_entry_before', array( $this, 'post_title' ), 6 );
+        add_action( 'marketify_entry_before', array( $this, 'post_title' ), 5 );
         add_action( 'marketify_entry_before', array( $this, 'home_title' ), 5 );
+        add_action( 'marketify_entry_before', array( $this, 'blog_title' ), 5 );
     }
 
     public function get_the_archive_title( $title ) { 
@@ -34,8 +35,18 @@ class Marketify_Template_Page_Header {
         echo '</div></div>';
     }
 
+    public function blog_title() {
+        if ( ! is_home() ) {
+            return;
+        }
+?>
+<div class="page-header container">
+    <h1 class="page-title"><?php echo get_the_title( get_option( 'page_for_posts' ) ); ?></h1>
+<?php
+    }
+
     public function home_title() { 
-        if ( ! is_front_page() || is_home() ) {
+        if ( ! is_front_page() ) {
             return;
         }
 
@@ -103,7 +114,6 @@ class Marketify_Template_Page_Header {
     <h1 class="page-title"><?php the_title(); ?></h1>
 
     <div class="page-header__entry-meta page-header__entry-meta--date"><?php echo get_the_date(); ?></div>
-</div>
 <?php
     }
 
@@ -152,17 +162,24 @@ class Marketify_Template_Page_Header {
 
     private function find_background_image( $args ) {
         $background_image = false;
-		$format_style_is_background = false;
+        $format_style_is_background = false;
 
-		if ( marketify()->get( 'edd' ) ) {
-			$format_style_is_background = marketify()->get( 'edd' )->template->download->is_format_style( 'background' );
-		}
+        if ( marketify()->get( 'edd' ) ) {
+            $format_style_is_background = marketify()->get( 'edd' )->template->download->is_format_style( 'background' );
+        }
 
         if (
             is_singular( array( 'post', 'page' ) ) ||
+            is_home() || 
             ( is_singular( 'download' ) && $format_style_is_background )
         ) {
-            $background_image = wp_get_attachment_image_src( get_post_thumbnail_id(), $args[ 'size' ] );
+            $id = get_post_thumbnail_id();
+
+            if ( ! $id && is_home() ) {
+                $id = get_post_thumbnail_id( get_option( 'page_for_posts' ) );
+            }
+
+            $background_image = wp_get_attachment_image_src( $id, $args[ 'size' ] );
             $background_image = $background_image[0];
         }
 
