@@ -23,7 +23,7 @@ get_header(); ?>
                         ),
                         array(
                             'widget_id'     => 'widget_price_table_page',
-                            'before_widget' => '<aside id="%1$s" class="widget widget--home %2$s">',
+                            'before_widget' => '<aside class="widget">',
                             'after_widget'  => '</aside>',
                             'before_title'  => '<h3 class="widget-title--home"><span>',
                             'after_title'   => '</span></h3>',

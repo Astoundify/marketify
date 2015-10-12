@@ -21,4 +21,21 @@
     .wp-editor-container {
         border: 1px solid #ccc;
     }
+
+    .fes-el.taxonomy,
+    .fes-el.checkbox,
+    .fes-el.radio,
+    .fes-el.download_tag,
+    .fes-el.download_category {
+        .fes-fields label {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: normal;
+            text-transform: none;
+            margin-bottom: 3px;
+        }
+
+        .fes-fields input {
+            margin-right: 3px;
+        }
+    }
 }
