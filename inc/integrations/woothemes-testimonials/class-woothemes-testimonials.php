@@ -32,7 +32,7 @@ class Marketify_WooThemes_Testimonials extends Marketify_Integration {
     }
 
     public function template_individual( $template, $args ) {
-        return '<div id="quote-%%ID%%" class="%%CLASS%% individual-testimonial col-md-6 col-sm-12"><blockquote class="testimonials-text">%%TEXT%%</blockquote>%%AVATAR%% %%AUTHOR%%<div class="fix"></div></div>';
+        return '<div id="quote-%%ID%%" class="%%CLASS%% individual-testimonial"><blockquote class="testimonials-text">%%TEXT%%</blockquote>%%AVATAR%% %%AUTHOR%%<div class="fix"></div></div>';
     }
 
 }
