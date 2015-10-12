@@ -48,10 +48,15 @@
     overflow: visible;
 }
 
-.header-search-toggle {
-    font-size: 20px;
-    color: #fff !important;
+.js-toggle-search--close {
     position: absolute;
-    top: 6px;
+    top: 11px;
     right: -38px;
+    color: #fff;
+    font-size: 24px;
+
+    &:before {
+        @extend .ion;
+        content: $ionicon-var-close-round;
+    }
 }

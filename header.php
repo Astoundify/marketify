@@ -52,6 +52,5 @@
         </header><!-- #masthead -->
 
         <div class="search-form-overlay">
-            <?php locate_template( array( 'searchform-header.php' ), true ); ?>
-            <a href="#" class="header-search-toggle"><span><?php _e( 'Close', 'marketify' ); ?></span></a>
+            <?php locate_template( array( 'searchform-header.php' ), true, false ); ?>
         </div>

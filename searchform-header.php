@@ -12,4 +12,5 @@
     <input type="hidden" name="post_type" value="download" />
 
     <button type="submit" class="search-submit"><span class="screen-reader-text"><?php _e( 'Search', 'marketify' ); ?></span></button>
+    <a href="#" class="js-toggle-search js-toggle-search--close"><span class="screen-reader-text"><?php _e( 'Close', 'marketify' ); ?></span></a>
 </form>

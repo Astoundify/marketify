@@ -68,7 +68,7 @@
 
 .nav-menu--primary li.nav-menu-search {
     &:hover {
-        box-shadow: none;
+        box-shadow: none !important;
     }
 
     a {
@@ -86,7 +86,10 @@
 }
 
 @include bp(md) {
-    .home-search .nav-menu--primary li.nav-menu-search {
+    //  hide everything on inline search
+    .home-search .nav-menu--primary li.nav-menu-search,
+    // hide only search form otherwise
+    .nav-menu--primary li.nav-menu-search .search-form {
         display: none;
     }
 }

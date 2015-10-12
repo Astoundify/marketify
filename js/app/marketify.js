@@ -2,7 +2,7 @@ var Marketify = {};
 
 Marketify.App = ( function($) {
 	function menuSearch() {
-		$( '.header-search-icon, .header-search-toggle' ).click(function(e) {
+		$( '.js-toggle-search' ).click(function(e) {
 			e.preventDefault();
 
 			$( '.search-form-overlay' ).toggleClass( 'active' );
