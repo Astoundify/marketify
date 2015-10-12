@@ -24,11 +24,9 @@ jQuery ($) ->
 
       $(@elAsNav).slick
         slidesToShow: 6
-        slidesToScroll: 1
+        slidesToScroll: 6
         asNavFor: @el
         dots: true
-        centerMode: true
         focusOnSelect: true
 
-  $(document).ready () ->
-    DownloadSliders.init()
+  DownloadSliders.init()

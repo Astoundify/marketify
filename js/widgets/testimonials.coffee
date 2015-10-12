@@ -1,16 +1,13 @@
 jQuery ($) ->
 
-  class Testimonials
-
-    constructor: ->
+  Testimonials =
+    init: ->
       $list = $( '.testimonials-list' )
 
       if ! $list.length then return
 
       $list.each ->
         $inner = $(@).children().filter( ':first-child' )
-
-        console.log $inner
 
         if $inner.hasClass( 'company-testimonial' )
           $inner.parent().slick(
@@ -53,4 +50,4 @@ jQuery ($) ->
             ]
          )
 
-  new Testimonials()
+  Testimonials.init()

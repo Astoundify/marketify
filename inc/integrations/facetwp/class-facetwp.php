@@ -13,6 +13,13 @@ class Marketify_FacetWP extends Marketify_Integration {
         add_filter( 'facetwp_facets', array( $this, 'register_facets' ) );
 
         add_filter( 'facetwp_sort_options', array( $this, 'sort_options' ), 10, 2 );
+
+        add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+    }
+
+    public function enqueue_scripts() {
+        // should be able to get the url dynamically
+        wp_enqueue_script( 'marketify-facetwp', get_template_directory_uri() . '/inc/integrations/facetwp/js/facetwp.js', array( 'marketify' ) );
     }
 
     public function widgets_init() {

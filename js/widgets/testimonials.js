@@ -1,17 +1,16 @@
 (function() {
   jQuery(function($) {
     var Testimonials;
-    Testimonials = (function() {
-      function Testimonials() {
+    Testimonials = {
+      init: function() {
         var $list;
         $list = $('.testimonials-list');
         if (!$list.length) {
           return;
         }
-        $list.each(function() {
+        return $list.each(function() {
           var $inner;
           $inner = $(this).children().filter(':first-child');
-          console.log($inner);
           if ($inner.hasClass('company-testimonial')) {
             return $inner.parent().slick({
               slidesToShow: 5,
@@ -54,11 +53,8 @@
           }
         });
       }
-
-      return Testimonials;
-
-    })();
-    return new Testimonials();
+    };
+    return Testimonials.init();
   });
 
 }).call(this);

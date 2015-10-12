@@ -54,10 +54,8 @@ module.exports = () ->
           'js/marketify.min.js': [
             'js/vendor/*.js'
             'js/app/marketify.js'
-            'js/download/download.js'
             'js/widgets/featured-popular.js'
             'js/widgets/testimonials.js'
-            'inc/integrations/facetwp/js/facetwp.js'
             '!js/vendor/salvattore.min.js'
           ]
 

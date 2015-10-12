@@ -207,7 +207,7 @@ class Marketify_EDD_Template_Download {
         $before = '<div class="download-gallery">';
         $after  = '</div>';
 
-        $size = apply_filters( 'marketify_featured_standard_image_size', 'fullsize' );
+        $size = apply_filters( 'marketify_featured_standard_image_size', 'large' );
 
         echo $before;
 

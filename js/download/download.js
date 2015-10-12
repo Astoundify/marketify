@@ -26,17 +26,14 @@
         });
         return $(this.elAsNav).slick({
           slidesToShow: 6,
-          slidesToScroll: 1,
+          slidesToScroll: 6,
           asNavFor: this.el,
           dots: true,
-          centerMode: true,
           focusOnSelect: true
         });
       }
     };
-    return $(document).ready(function() {
-      return DownloadSliders.init();
-    });
+    return DownloadSliders.init();
   });
 
 }).call(this);
