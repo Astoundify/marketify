@@ -1,6 +1,10 @@
 .page-header {
     text-align: center;
-    padding: 2em /* 4em - 2em added by header above */ 0 6em;
+    padding: 1em 0 3em;
+
+    @include bp(md) {
+        padding: 2em /* 4em - 2em added by header above */ 0 6em;
+    }
 }
 
 .page-header--download {
