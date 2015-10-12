@@ -1,9 +1,3 @@
 .widget--home {
-    margin-top: 3em;
-    margin-bottom: 3em;
-
-    @include bp(md) {
-        margin-top: 6em;
-        margin-bottom: 6em;
-    }
+    @extend .section;
 }

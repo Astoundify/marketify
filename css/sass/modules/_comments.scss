@@ -2,6 +2,10 @@
     margin-top: 3em;
 }
 
+.comments-area {
+    @extend .section;
+}
+
 .comments-area--singular {
     margin-top: 6em;
 }
@@ -133,10 +137,6 @@
 }
 
 .bypostauthor {
-}
-
-.comment-form {
-	margin-bottom: 100px;
 }
 
 .comment-form input[type="text"],
