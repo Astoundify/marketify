@@ -66,7 +66,9 @@ class Marketify_EDD_Popular {
     }
 
     public function marketify_get_the_archive_title( $title ) { 
-        if ( is_tax( array( 'download_tag', 'download_category' ) ) ) {
+        if ( is_search() ) {
+            $title = sprintf( _x( 'Popular in "%s"', 'popular search results', 'marketify'), get_search_query() );
+        } else if ( is_tax( array( 'download_tag', 'download_category' ) ) ) {
             $title = sprintf( __( 'Popular in %s', 'marketify' ), single_term_title( '', false ) );
         } else if ( is_post_type_archive( 'download' ) )  {
             $title = sprintf( __( 'Popular %s', 'marketify' ), edd_get_label_plural() );

@@ -2,7 +2,7 @@
 	display: none;
 }
 
-.facetwp-pager {
+.facetwp-pager:not(:empty) {
 	margin: 3em auto 0;
 	text-align: center;
 

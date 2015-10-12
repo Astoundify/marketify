@@ -15,7 +15,9 @@ class Marketify_Template_Page_Header {
     }
 
     public function get_the_archive_title( $title ) { 
-        if ( is_post_type_archive( 'download' ) ) {
+        if ( is_search() ) {
+            $title = get_search_query();
+        } else if ( is_post_type_archive( 'download' ) ) {
             $title = edd_get_label_plural();
         } else if ( is_tax() ) {
             $title = single_term_title( '', false );
@@ -56,10 +58,10 @@ class Marketify_Template_Page_Header {
         }
 
         the_post();
-    ?>
-        <div class="page-header page-header--singular container">
-            <h1 class="page-title"><?php the_title(); ?></h1>
-    <?php
+?>
+<div class="page-header page-header--singular container">
+    <h1 class="page-title"><?php the_title(); ?></h1>
+<?php
         rewind_posts();
     }
 
@@ -67,10 +69,10 @@ class Marketify_Template_Page_Header {
         if ( ! is_archive() ) {
             return;
         }
-    ?>
-        <div class="page-header container">
-            <h1 class="page-title"><?php the_archive_title(); ?></h1>
-    <?php
+?>
+<div class="page-header container">
+    <h1 class="page-title"><?php the_archive_title(); ?></h1>
+<?php
     }
 
     public function post_title() {
@@ -95,7 +97,7 @@ class Marketify_Template_Page_Header {
                 esc_attr( sprintf( __( 'View all posts by %s', 'marketify' ), get_the_author() ) ),
                 esc_html( get_the_author() )
             );
-        ?>
+       ?>
     </div>
 
     <h1 class="page-title"><?php the_title(); ?></h1>

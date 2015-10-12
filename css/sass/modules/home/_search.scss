@@ -1,4 +1,10 @@
+.js-toggle-search {
+    display: none;
 
+    @include bp(md) {
+        display: inline-block;
+    }
+}
 
 .home-search .page-header .search-form .search-field,
 .search-form-overlay .search-form .search-field {
