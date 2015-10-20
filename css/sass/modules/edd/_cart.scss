@@ -67,8 +67,8 @@
     }
 
     ul.edd-cart {
-        margin: 0 0 -10px;
-        border-top: 1px solid #ccc;
+        margin: 0;
+        padding: 0;
         border-radius: 0;
 
         li,
@@ -83,6 +83,12 @@
 
         .cart_item.edd_checkout a {
             display: block;
+        }
+
+        .cart_item.empty {
+            padding-top: 0;
+            padding-bottom: 0;
+            border-bottom: 0;
         }
 
         li {

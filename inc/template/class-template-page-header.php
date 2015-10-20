@@ -41,12 +41,12 @@ class Marketify_Template_Page_Header {
         }
 ?>
 <div class="page-header container">
-    <h1 class="page-title"><?php echo get_the_title( get_option( 'page_for_posts' ) ); ?></h1>
+    <h1 class="page-title"><?php echo get_option( 'page_for_posts' ) ? get_the_title( get_option( 'page_for_posts' ) ) : __( 'Blog', 'marketify' ); ?></h1>
 <?php
     }
 
     public function home_title() { 
-        if ( ! is_front_page() ) {
+        if ( ! is_front_page() || is_home() ) {
             return;
         }
 
