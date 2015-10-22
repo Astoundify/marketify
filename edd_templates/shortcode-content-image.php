@@ -6,6 +6,8 @@
 global $post;
 ?>
 
+<?php do_action( 'marketify_download_content_image_before' ); ?>
+
 <div class="content-grid-download__entry-image">
 	<div class="content-grid-download__overlay">
 		<?php do_action( 'marketify_download_content_image_overlay_before' ); ?>
@@ -25,3 +27,5 @@ global $post;
 </div>
 
 <?php locate_template( array( 'modal-download-purchase.php' ), true, false ); ?>
+
+<?php do_action( 'marketify_download_content_image_after' ); ?>

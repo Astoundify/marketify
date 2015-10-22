@@ -9,10 +9,20 @@ class Marketify_Multiple_Post_Thumbnails extends Marketify_Integration {
     public function setup_actions() {
         add_action( 'after_setup_theme', array( $this, 'add_extra_thumbnail' ) );
 
-        add_filter( 'get_post_metadata', array( $this, 'get_post_thumbnail_id' ), 10, 4 );
+
+        add_action( 'marketify_download_content_image_before', array( $this, 'filter_id' ) );
+        add_action( 'marketify_download_content_image_after', array( $this, 'unfilter_id' ) );
 
         add_action( 'fes_add_field_to_common_form_element', array( $this, 'use_field_checkbox' ), 100, 4 );
         add_action( 'fes_submit_submission_form_bottom', array( $this, 'assign_image' ) );
+    }
+
+    public function filter_id() {
+        add_filter( 'get_post_metadata', array( $this, 'get_post_thumbnail_id' ), 10, 4 );
+    }
+
+    public function unfilter_id() {
+        remove_filter( 'get_post_metadata', array( $this, 'get_post_thumbnail_id' ), 10, 4 );
     }
 
     public function add_extra_thumbnail() {

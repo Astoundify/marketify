@@ -27,8 +27,3 @@ input[type=submit].edd-submit {
     @extend .button--size-large;
   }
 }
-
-.edd-fes-action {
-    @extend .button;
-    @extend .button--size-small;
-}
