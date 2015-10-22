@@ -45,8 +45,13 @@ class Marketify_EDD_Template_Download {
 
     public function download_price() {
         global $post;
-
-        edd_price( $post->ID );
+?>
+<span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+    <span itemprop="price" class="edd_price">'
+        <?php edd_price( $post->ID ); ?>
+    </span>
+</span>
+<?php
     }
 
     function demo_link( $download_id = null ) {
