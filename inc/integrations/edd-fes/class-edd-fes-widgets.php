@@ -11,7 +11,7 @@ class Marketify_EDD_FES_Widgets {
         register_widget( 'Marketify_Widget_FES_Vendor' );
         register_widget( 'Marketify_Widget_FES_Vendor_Description' );
         register_widget( 'Marketify_Widget_FES_Vendor_Contact' );
-        register_widget( 'Marketify_Widget_FES_Product_Details' );
+        // register_widget( 'Marketify_Widget_FES_Product_Details' );
     }
 
     public function register_sidebars() {

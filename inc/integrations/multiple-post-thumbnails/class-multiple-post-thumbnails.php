@@ -2,104 +2,108 @@
 
 class Marketify_Multiple_Post_Thumbnails extends Marketify_Integration {
 
-	public function __construct() {
-		parent::__construct( dirname( __FILE__ ) );
-	}
+    public function __construct() {
+        parent::__construct( dirname( __FILE__ ) );
+    }
 
-	public function setup_actions() {
-		add_action( 'after_setup_theme', array( $this, 'add_extra_thumbnail' ) );
+    public function setup_actions() {
+        add_action( 'after_setup_theme', array( $this, 'add_extra_thumbnail' ) );
 
-		add_filter( 'get_post_metadata', array( $this, 'get_post_thumbnail_id' ), 10, 4 );
+        add_filter( 'get_post_metadata', array( $this, 'get_post_thumbnail_id' ), 10, 4 );
 
-		add_action( 'fes_add_field_to_common_form_element', array( $this, 'use_field_checkbox' ), 100, 4 );
-		add_action( 'fes_submit_submission_form_bottom', array( $this, 'assign_image' ) );
-	}
+        add_action( 'fes_add_field_to_common_form_element', array( $this, 'use_field_checkbox' ), 100, 4 );
+        add_action( 'fes_submit_submission_form_bottom', array( $this, 'assign_image' ) );
+    }
 
-	public function add_extra_thumbnail() {
-		new MultiPostThumbnails(
-			array(
-				'label'     => __( 'Grid Image', 'marketify' ),
-				'id'        => 'grid-image',
-				'post_type' => 'download'
-			)
-		);
-	}
+    public function add_extra_thumbnail() {
+        new MultiPostThumbnails(
+            array(
+                'label'     => __( 'Grid Image', 'marketify' ),
+                'id'        => 'grid-image',
+                'post_type' => 'download'
+            )
+        );
+    }
 
-	public function get_post_thumbnail_id( $value, $object_id, $meta_key, $single ) {
-		if ( '_thumbnail_id' != $meta_key ) {
-			return $value;
-		}
+    public function get_post_thumbnail_id( $value, $object_id, $meta_key, $single ) {
+        if ( '_thumbnail_id' != $meta_key ) {
+            return $value;
+        }
 
-		if ( in_the_loop() && 'download' == get_post( $object_id )->post_type ) {
-			$value = $this->find_image_field( $object_id );
-		}
+        if ( in_the_loop() && 'download' == get_post( $object_id )->post_type ) {
+            $id = MultiPostThumbnails::get_post_thumbnail_id( 'download', 'grid-image', $object_id );
 
-		return $value;
-	}
+            if ( $id ) {
+                return $id;
+            }
+        }
 
-	public function use_field_checkbox( $tpl, $input_name, $id, $values ) {
-		if ( isset( $values[ 'input_type' ] ) && 'file_upload' != $values[ 'input_type' ] ) {
-			return;
-		}
+        return $value;
+    }
 
-		$field_name  = sprintf( $tpl, $input_name, $id, 'download-grid-image' );
-		$field_value = $values && isset( $values[ 'download-grid-image' ]) ? esc_attr( $values[ 'download-grid-image' ] ) : '';
-	?>
-		<div class="fes-form-rows">
-			<label><?php _e( 'Use as Grid Thumbnail', 'marketify' ); ?></label>
+    public function use_field_checkbox( $tpl, $input_name, $id, $values ) {
+        if ( isset( $values[ 'input_type' ] ) && 'file_upload' != $values[ 'input_type' ] ) {
+            return;
+        }
 
-			<div class="fes-form-sub-fields">
-				<label for="<?php esc_attr_e( $field_name ); ?>">
-					<input type="checkbox" data-type="label" id="<?php echo esc_attr( $field_name ); ?>" name="<?php echo esc_attr( $field_name ); ?>" value="1" class="smallipopInput" <?php checked( $field_value, 1 ); ?>>
-					<?php _e( 'Use this image as the grid thumbnail.', 'marketify' ); ?>
-				</label>
-			</div>
-		</div><!-- .fes-form-rows -->
-	<?php
-	}
+        $field_name  = sprintf( $tpl, $input_name, $id, 'download-grid-image' );
+        $field_value = $values && isset( $values[ 'download-grid-image' ]) ? esc_attr( $values[ 'download-grid-image' ] ) : '';
+    ?>
+        <div class="fes-form-rows">
+            <label><?php _e( 'Use as Grid Thumbnail', 'marketify' ); ?></label>
 
-	public function assign_image( $post_id ) {
-		$image = $this->find_image_field( $post_id );
+            <div class="fes-form-sub-fields">
+                <label for="<?php esc_attr_e( $field_name ); ?>">
+                    <input type="checkbox" data-type="label" id="<?php echo esc_attr( $field_name ); ?>" name="<?php echo esc_attr( $field_name ); ?>" value="1" class="smallipopInput" <?php checked( $field_value, 1 ); ?>>
+                    <?php _e( 'Use this image as the grid thumbnail.', 'marketify' ); ?>
+                </label>
+            </div>
+        </div><!-- .fes-form-rows -->
+    <?php
+    }
 
-		if ( ! $image ) {
-			return;
-		}
+    public function assign_image( $post_id ) {
+        $image = $this->find_image_field( $post_id );
 
-		MultiPostThumbnails::set_meta( $post_id, 'download', 'grid-image', $image );
-	}
+        if ( ! $image ) {
+            return;
+        }
 
-	private function find_image_field( $post_id ) {
-		$form_id = EDD_FES()->helper->get_option( 'fes-submission-form' );
+        MultiPostThumbnails::set_meta( $post_id, 'download', 'grid-image', $image );
+    }
 
-		if ( ! $form_id ) {
-			return;
-		}
+    private function find_image_field( $post_id ) {
+        $form_id = EDD_FES()->helper->get_option( 'fes-submission-form' );
 
-		$fields = get_post_meta( $form_id, 'fes-form', true );
-		$image = false;
+        if ( ! $form_id ) {
+            return;
+        }
 
-		if ( ! $fields ) {
-			return;
-		}
+        $fields = get_post_meta( $form_id, 'fes-form', true );
+        $image = false;
 
-		foreach ( $fields as $field ) {
-			if ( isset( $field[ 'download-grid-image' ] ) ) {
-				$image = $field;
-				break;
-			}
-		}
+        if ( ! $fields ) {
+            return;
+        }
 
-		if ( empty( $image ) ) {
-			return;
-		}
+        foreach ( $fields as $field ) {
+            if ( isset( $field[ 'download-grid-image' ] ) ) {
+                $image = $field;
+                break;
+            }
+        }
 
-		$image = get_post_meta( $post_id, $image[ 'name' ], true );
+        if ( ! $image ) {
+            return;
+        }
 
-		if ( $image && is_array( $image ) ) {
-			$image = current( $image );
-		}
+        $image = get_post_meta( $post_id, $image[ 'name' ], true );
 
-		return $image;
-	}
+        if ( $image && is_array( $image ) ) {
+            $image = current( $image );
+        }
+
+        return $image;
+    }
 
 }
