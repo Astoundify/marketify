@@ -276,8 +276,8 @@ class Marketify_EDD_Template_Download {
 
         $attachments = get_post_meta( $post->ID, 'preview_files', true );
 
-        if ( ! $_attachments ) {
-            $attachments = get_attached_media( 'audio', $download_id );
+        if ( ! $attachments ) {
+            $attachments = get_attached_media( 'audio', $post->ID );
 
             if ( ! empty( $attachments ) ) {
                 $attachments = wp_list_pluck( $attachments, 'ID' );

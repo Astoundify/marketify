@@ -65,6 +65,7 @@ class Marketify_Widget_FES_Product_Details extends Marketify_Widget {
         $names  = wp_list_pluck( $fields, 'name' );
 
         $options = array_combine( $names, $labels );
+        $options = array_filter( $options );
 
         return $options;
     }
@@ -167,7 +168,7 @@ class Marketify_Widget_FES_Product_Details extends Marketify_Widget {
 
             $value = make_clickable( $value );
 
-            $label = apply_filters( 'edd_fpd_label', $field[ 'label' ], $field );
+            $label = apply_filters( 'edd_fpd_label', isset( $field[ 'label' ] ) ? $field[ 'label' ] : '', $field );
             $value = apply_filters( 'edd_fpd_value', $value, $field );
 
             if ( empty( $value ) )

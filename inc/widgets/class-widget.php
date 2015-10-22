@@ -24,7 +24,7 @@ class Marketify_Widget extends WP_Widget {
             $this->widget_id = null;
         }
 
-        $this->WP_Widget( $this->widget_id, $this->widget_name, $widget_ops, $this->control_ops );
+        parent::__construct( $this->widget_id, $this->widget_name, $widget_ops, $this->control_ops );
 
         $this->settings = apply_filters( 'jobify_widget_settings', $this->settings );
         $this->settings = apply_filters( 'jobify_widget_settings_' . $this->widget_id, $this->settings );
@@ -155,14 +155,15 @@ class Marketify_Widget extends WP_Widget {
                 case 'multicheck' :
                     $value = maybe_unserialize( $value );
 
-                    if ( ! is_array( $value ) )
+                    if ( ! is_array( $value ) ) {
                         $value = array();
+                    }
                     ?>
                     <p><?php echo esc_attr( $setting[ 'label' ] ); ?></p>
                     <p>
                         <?php foreach ( $setting[ 'options' ] as $id => $label ) : ?>
                         <label for="<?php echo esc_attr( $id ); ?>">
-                            <input type="checkbox" id="<?php echo esc_attr( $id ); ?>" name="<?php echo $this->get_field_name( $key ); ?>[]" value="<?php echo esc_attr( $id ); ?>" <?php if ( in_array( $id, $value ) ) : ?>checked="checked"<?php endif; ?>/>
+                            <input type="checkbox" id="<?php echo esc_attr( $id ); ?>" name="<?php echo $this->get_field_name( $key ); ?>[]" value="<?php echo esc_attr( $id ); ?>" <?php checked( in_array( $id, $value ) ); ?>/>
                             <?php echo esc_attr( $label ); ?><br />
                         </label>
                         <?php endforeach; ?>
