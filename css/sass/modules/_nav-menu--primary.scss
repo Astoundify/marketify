@@ -3,7 +3,7 @@
     color: #fff;
     font-size: 24px;
     position: absolute;
-    right: -7px;
+    right: -3px;
     top: -6px;
     overflow: hidden;
 
@@ -20,7 +20,7 @@
 .nav-menu--primary {
     background: #fff;
     position: absolute;
-    padding: 15px 0;
+    padding: 20px;
     margin: 0;
     z-index: 100;
     right: 0;
@@ -30,6 +30,16 @@
     border-radius: 4px;
     box-shadow: rgba(0,0,0,.06) 0 0 0 3px;
     display: none;
+
+    > ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        > li {
+            @extend .item-title;
+        }
+    }
 
     &.active {
         display: block;
@@ -72,7 +82,8 @@
     }
 
     // sub level
-    ul li {
+    .sub-menu li,
+    .children li {
         @extend .item-meta;
         font-size: 16px !important;
         padding: 1px 0;
