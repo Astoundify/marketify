@@ -16,16 +16,6 @@ class Marketify_Widget_Download_Review_Details extends Marketify_Widget {
         );
         parent::__construct();
     }
-
-    /**
-     * widget function.
-     *
-     * @see WP_Widget
-     * @access public
-     * @param array $args
-     * @param array $instance
-     * @return void
-     */
     function widget( $args, $instance ) {
         global $post;
 
@@ -53,30 +43,7 @@ class Marketify_Widget_Download_Review_Details extends Marketify_Widget {
         $reviews = edd_reviews();
 
         echo $before_widget;
-
-        if ( $title ) echo '<h1 class="section-title"><span>' . $title . '</span></h1>';
-        ?>
-            <div class="download-product-review-details">
-                <h1 class="download-single-widget-title"><?php _e( 'Buyer Ratings', 'marketify' ); ?></h1>
-
-                <?php $rating = $reviews->average_rating( false ); ?>
-                <div class="download-ratings">
-                    <strong>
-                        <?php for ( $i = 1; $i <= $rating; $i++ ) : ?>
-                        <i class="icon-star"></i>
-                        <?php endfor; ?>
-
-                        <?php for( $i = 0; $i < ( 5 - $rating ); $i++ ) : ?>
-                        <i class="icon-star2"></i>
-                        <?php endfor; ?>
-                    </strong>
-                </div>
-
-                <p><?php printf( __( '%s average based on %d reviews.', 'marketify' ), sprintf( "%0.2f", $average ), wp_count_comments( $post->ID )->total_comments ); ?></p>
-
-                <?php echo $reviews->maybe_show_review_breakdown(); ?>
-            </div>
-        <?php
+        echo $reviews->maybe_show_review_breakdown();
         echo $after_widget;
     }
 
