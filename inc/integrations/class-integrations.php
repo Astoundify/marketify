@@ -63,6 +63,10 @@ class Marketify_Integrations {
                 class_exists( 'WooThemes_Testimonials' ),
                 'Marketify_WooThemes_Testimonials'
             ),
+            'soliloquy' => array(
+                function_exists( 'soliloquy' ),
+                'Marketify_Soliloquy'
+            ),
             'tgmpa' => array(
                 true,
                 'Marketify_TGMPA'

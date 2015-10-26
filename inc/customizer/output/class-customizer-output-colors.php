@@ -139,6 +139,9 @@ class Marketify_Customizer_Output_Colors {
                 '.content-grid-download__actions .button:hover',
                 '.content-grid-download__actions .edd-submit.button.edd-add-to-cart:hover',
                 '.content-grid-download__actions .edd-submit.button.edd_go_to_checkout:hover',
+
+                // soliloquy
+                'body .marketify_widget_slider_hero .soliloquy-container .soliloquy-caption-outer .button:hover'
             ),
             'declarations' => array(
                 'color' => $primary,
