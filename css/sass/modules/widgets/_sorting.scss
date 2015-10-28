@@ -13,7 +13,7 @@
 }
 
 .download-sorting__dir {
-    color: #bdc3c7;
+    // color: #bdc3c7;
     font-weight: 400;
     display: inline-block;
     font-size: 13px;
@@ -29,7 +29,6 @@
 }
 
 .download-sorting__dir--active {
-    color: #404040;
     font-weight: 700;
 }
 
@@ -38,7 +37,6 @@ label[for="order-asc"]:before {
 }
 
 label[for="order-asc"]:after {
-    color: #555;
     content: '/';
     padding-left: 8px;
     font-weight: 400;

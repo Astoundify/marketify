@@ -79,7 +79,6 @@ button,
 input,
 select,
 textarea {
-	color: #404040;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 15px;
 	line-height: 1.5;
@@ -246,7 +245,6 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"] {
 	font: 700 13px/normal 'Montserrat', sans-serif;
-	color: #515a63;
 	text-transform: uppercase;
 	text-decoration: none;
 	padding: 10px 20px;
@@ -260,24 +258,6 @@ html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
 	cursor: pointer;
-}
-
-button:hover,
-html input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
-
-}
-
-button:focus,
-html input[type="button"]:focus,
-input[type="reset"]:focus,
-input[type="submit"]:focus,
-button:active,
-html input[type="button"]:active,
-input[type="reset"]:active,
-input[type="submit"]:active {
-
 }
 
 input[type="checkbox"],
@@ -303,17 +283,4 @@ button::-moz-focus-inner,
 input::-moz-focus-inner { /* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
 	border: 0;
 	padding: 0;
-}
-
-
-/* Links */
-a {
-	color: #515a63;
-}
-
-
-a:hover,
-a:focus,
-a:active {
-	text-decoration: none;
 }

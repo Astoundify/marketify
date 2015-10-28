@@ -16,7 +16,6 @@
         &:after {
             @extend .ion;
             content: $ionicon-var-quote;
-            color: #bdc3c7;
         }
 
         &:before {
@@ -86,6 +85,5 @@
 .testimonials {
     .slick-next:before,
     .slick-prev:before {
-        color: #bdc3c7;
     }
 }
