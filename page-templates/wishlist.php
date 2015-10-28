@@ -25,9 +25,9 @@ get_header(); ?>
                     <?php 
                         if ( ! dynamic_sidebar( 'sidebar-vendor' ) ) :
                             $args = array(				
-                                'before_widget' => '<aside class="widget vendor-widget">',
+                                'before_widget' => '<aside class="widget widget--vendor-profile widget-detail">',
                                 'after_widget'  => '</aside>',
-                                'before_title'  => '<h3 class="vendor-widget-title">',
+                                'before_title'  => '<h3 class="widget-title widget-title--vendor-profile">',
                                 'after_title'   => '</h3>',
                             );
 
@@ -35,7 +35,7 @@ get_header(); ?>
                             the_widget( 'Marketify_Widget_FES_Vendor_Description', array(), $args );
                         endif;
                     ?>
-                    <div class="widget-detail">
+                    <aside class="widget widget--vendor-profile widget-detail">
                         <?php
                             $loves = get_user_option( 'li_user_loves', $author->ID );
 
@@ -46,7 +46,7 @@ get_header(); ?>
 
                         <strong class="widget-detail__title"><?php echo count( $loves ); ?></strong>
                         <span class="widget-detail__info"><?php echo _n( 'Love', 'Loves', count( $loves ), 'marketify' ); ?></span>
-                    </div>
+                    </aside>
                 </div>
             </div><!-- #secondary -->
 
