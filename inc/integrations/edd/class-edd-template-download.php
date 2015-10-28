@@ -47,7 +47,7 @@ class Marketify_EDD_Template_Download {
         global $post;
 ?>
 <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-    <span itemprop="price" class="edd_price">'
+    <span itemprop="price" class="edd_price">
         <?php edd_price( $post->ID ); ?>
     </span>
 </span>
