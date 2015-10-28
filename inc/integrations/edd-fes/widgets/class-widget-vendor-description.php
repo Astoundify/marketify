@@ -25,7 +25,7 @@ class Marketify_Widget_FES_Vendor_Description extends Marketify_EDD_FES_Vendor_W
 
         echo $args[ 'before_widget' ];
     ?>
-        <div class="widget-detail widget-detail--full download-author-bio">
+        <div class="download-author-bio">
             <?php echo esc_html( $description ); ?>
         </div>
     <?php

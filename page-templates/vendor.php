@@ -27,6 +27,7 @@ get_header(); ?>
 
                             the_widget( 'Marketify_Widget_FES_Vendor', array( 'extras' => '' ), $args );
                             the_widget( 'Marketify_Widget_FES_Vendor_Description', array(), $args );
+                            the_widget( 'Marketify_Widget_FES_Vendor_Contact', array(), wp_parse_args( array( 'before_widget' => '<aside class="widget widget--vendor-profile widget--vendor-profile-contact widget-detail">' ), $args ) );
                         endif;
                     ?>
                 </div>
