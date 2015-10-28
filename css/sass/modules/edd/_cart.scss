@@ -99,3 +99,11 @@
         }
     }
 }
+
+.edd_form fieldset>span.edd-cart-ajax {
+    margin-top: 1em;
+
+    &:after {
+        display: none;
+    }
+}

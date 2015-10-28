@@ -1,5 +1,9 @@
 == Changelog ==
 
+= 2.0.0: TBD =
+
+* New:
+
 = 1.2.5: January 20, 2015 =
 
 * New: Add Envato WordPress Toolkit to TMGPA
