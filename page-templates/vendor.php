@@ -19,7 +19,7 @@ get_header(); ?>
                     <?php 
                         if ( ! dynamic_sidebar( 'sidebar-vendor' ) ) :
                             $args = array(
-                                'before_widget' => '<aside class="widget widget--vendor-profile">',
+                                'before_widget' => '<aside class="widget widget--vendor-profile widget-detail">',
                                 'after_widget'  => '</aside>',
                                 'before_title'  => '<h3 class="widget-title widget-title--vendor-profile">',
                                 'after_title'   => '</h3>',

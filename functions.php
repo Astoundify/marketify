@@ -109,7 +109,7 @@ class Marketify {
 }
 
 function marketify() {
-	return Marketify::instance();
+    return Marketify::instance();
 }
 
 marketify();
