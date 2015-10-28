@@ -21,6 +21,7 @@ jQuery ($) ->
         arrows: false
         fade: true
         asNavFor: @elAsNav
+        adaptiveHeight: true
 
       $(@elAsNav).slick
         slidesToShow: 6

@@ -22,7 +22,8 @@
           slidesToScroll: 1,
           arrows: false,
           fade: true,
-          asNavFor: this.elAsNav
+          asNavFor: this.elAsNav,
+          adaptiveHeight: true
         });
         return $(this.elAsNav).slick({
           slidesToShow: 6,

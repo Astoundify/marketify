@@ -5,8 +5,9 @@
  * @package Marketify
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) )
+if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	return;
+}
 ?>
 	<div id="secondary" class="widget-area col-md-4 col-xs-12" role="complementary">
 		<?php do_action( 'before_sidebar' ); ?>
