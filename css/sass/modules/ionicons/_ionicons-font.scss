@@ -12,9 +12,10 @@
  font-style: normal;
 }
 
-@mixin ionicon {
+.ion {
   display: inline-block;
   font-family: $ionicons-font-family;
+  color: $body;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -26,9 +27,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.ion {
+@mixin ionicon {
   display: inline-block;
   font-family: $ionicons-font-family;
+  color: $body;
   speak: none;
   font-style: normal;
   font-weight: normal;
