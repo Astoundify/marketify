@@ -15,8 +15,9 @@
  * the visitor has not yet entered the password we will
  * return early without loading the comments.
  */
-if ( post_password_required() || ! comments_open() )
+if ( post_password_required() || ! comments_open() ) {
 	return;
+}
 ?>
 
     <div id="comments" class="comments-area <?php if ( ! is_singular( 'download' ) ) : ?>comments-area--singular <?php endif; ?>row">
