@@ -16,7 +16,7 @@ class Marketify_Setup {
                 'completed' => class_exists( 'Easy_Digital_Downloads' ),
                 'documentation' => array(
                     'Easy Digital Downloads' => 'http://marketify.astoundify.com/article/713-easy-digital-downloads',
-                    'Easy Digital Downloads - Marketplace Bundle' => 'https://easydigitaldownloads.com/downloads/marketplace-bundle/',
+                    'Easy Digital Downloads - Marketplace Bundle' => 'https://astoundify.com/go/marketplace-bundle/',
                     'Bulk Install' => 'http://marketify.astoundify.com/article/712-bulk-install-required-and-recommended-plugins-recommended'
                 )
             ),
