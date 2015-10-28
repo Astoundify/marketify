@@ -32,7 +32,6 @@ get_header(); ?>
                             );
 
                             the_widget( 'Marketify_Widget_FES_Vendor', array( 'extras' => '' ), $args );
-                            the_widget( 'Marketify_Widget_FES_Vendor_Description', array(), $args );
                         endif;
                     ?>
                     <aside class="widget widget--vendor-profile widget-detail">

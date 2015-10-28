@@ -18,7 +18,7 @@ class Marketify_Widget_Download_Archive_Sorting extends Marketify_Widget {
     }
 
     function widget( $args, $instance ) {
-        if ( is_page_template( 'page-templates/popular.php' ) ) {
+        if ( is_page_template( 'page-templates/popular.php' ) || marketify()->get( 'edd' )->popular->is_popular_query() ) {
             return;
         }
 

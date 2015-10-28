@@ -12,6 +12,16 @@ class Marketify_EDD_Popular {
         add_action( 'init', array( $this, 'endpoint' ) );
         add_filter( 'edd_download_category_args', array( $this, 'category_args' ) );
         add_action( 'template_redirect', array( $this, 'filter_query' ) );
+
+        add_filter( 'term_link', array( $this, 'term_link' ) );
+    }
+
+    public function term_link( $termlink ) {
+        if ( ! ( $this->is_popular_query() || is_page_template( 'page-templates/popular.php' ) ) ) {
+            return $termlink;
+        }
+
+        return esc_url( $termlink . trailingslashit( $this->slug ) );
     }
 
     public function show_popular() {
@@ -27,17 +37,13 @@ class Marketify_EDD_Popular {
     }
 
     public function is_popular_query() {
-        if ( ! is_tax( array( 'download_category', 'download_tag' ) ) ) {
-            return false;
-        }
-
         global $wp_query;
 
-        if ( ! isset( $wp_query->query_vars[ $this->slug ] ) ) {
-            return false;
+        if ( isset( $wp_query->query_vars[ $this->slug ] ) ) {
+            return true;
         }
 
-        return true;
+        return false;
     }
 
     public function filter_query() {
