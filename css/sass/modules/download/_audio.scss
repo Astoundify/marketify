@@ -1,10 +1,12 @@
 .single-download,
 .content-grid-download {
+    .mejs-controls .mejs-button button {
+        background-image: url(images/controls.svg);
+    }
+
     .wp-playlist .mejs-container,
     .mejs-container .mejs-controls {
-        background: #82878e;
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
+        background: #fff;
     }
 
     .wp-playlist {
@@ -20,7 +22,6 @@
 
 .single-download {
     .wp-playlist {
-        border-radius: 4px;
         margin: 3em auto;
 
         &:first-of-type {
@@ -37,14 +38,44 @@
     .wp-playlist-tracks {
         background: #fff;
         margin-top: 0;
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 4px;
     }
 
-    .content-area .wp-playlist-tracks {
-        border-color: #bdc3c7;
+    .content-area .wp-playlist-tracks,
+    .content-area .mejs-controls {
+        border-color: $accent;
         border-width: 0 1px 1px;
         border-style: solid;
+    }
+
+    .page-header .wp-playlist-tracks {
+        border-top: 1px solid #eee;
+    }
+
+    .mejs-container .mejs-controls {
+        border-width: 1px;
+        height: 32px;
+    }
+
+    .mejs-controls .mejs-time-rail .mejs-time-float {
+        border:  0;
+    }
+
+    .mejs-controls .mejs-time-rail .mejs-time-total, 
+    .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-total {
+        background-color: rgba(0, 0, 0, .08);
+    }
+
+    .mejs-controls .mejs-time-rail .mejs-time-current,
+    .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-current {
+        background-color: $body;
+    }
+
+    .mejs-container .mejs-controls .mejs-time {
+        color: $body;
+    }
+
+    .mejs-controls .mejs-time-rail .mejs-time-loaded {
+        background-color: rgba(0, 0, 0, .15);
     }
 
     .wp-playlist-item {
@@ -81,8 +112,8 @@
     .wp-playlist {
         display: inline-block;
         vertical-align: middle;
-        margin-right: 10px;
-        margin-top: 4px;
+        margin-right: 5px;
+        margin-top: 2px;
     }
 
     .wp-playlist,
