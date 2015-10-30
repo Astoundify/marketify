@@ -14,7 +14,7 @@ class Marketify_Template_Footer {
     ?>
         <div class="footer-widget-areas row">
         <?php for ( $i = 1; $i <= 3; $i++ ) : ?>
-            <div class="widget widget--site-footer col-xs-12 col-sm-6 col-md-4">
+            <div class="widget widget--site-footer col-xs-12 col-md-4">
                 <?php dynamic_sidebar( 'footer-' . $i ); ?>
             </div>
         <?php endfor; ?>
