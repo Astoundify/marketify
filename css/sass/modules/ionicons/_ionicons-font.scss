@@ -15,7 +15,6 @@
 .ion {
   display: inline-block;
   font-family: $ionicons-font-family;
-  color: $body;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -30,7 +29,6 @@
 @mixin ionicon {
   display: inline-block;
   font-family: $ionicons-font-family;
-  color: $body;
   speak: none;
   font-style: normal;
   font-weight: normal;
