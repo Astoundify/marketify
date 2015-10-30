@@ -244,7 +244,7 @@ class Marketify_EDD_Template_Download {
 
         $size = apply_filters( 'marketify_featured_standard_image_size_navigation', 'thumbnail' );
 
-        if ( empty( $images ) && has_post_thumbnail( get_the_ID() ) ) {
+        if ( count( $images ) == 1 || ( empty( $images ) && has_post_thumbnail( get_the_ID() ) ) ) {
             return;
         } 
 
