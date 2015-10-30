@@ -9,7 +9,7 @@
 
     .fes-vendor-menu {
         margin: 0 0 3em;
-        border-bottom: 3px solid #bdc3c7;
+        border-bottom: 3px solid $accent;
         background: none;
 
         ul {
@@ -23,12 +23,14 @@
             float: left;
 
             &.active a {
-                border-color: #bdc3c7;
+                color: $body;
+                border-color: $accent;
                 background: #fff;
             }
         }
 
         a {
+            color: $accent;
             font: 400 14px 'Montserrat', sans-serif;
             text-transform: uppercase;
             text-decoration: none;
@@ -73,6 +75,10 @@
 
             &.icon-logout:before {
                 content: $ionicon-var-log-out;
+            }
+
+            &.icon-graph:before {
+                content: $ionicon-var-social-usd;
             }
         }
     }
