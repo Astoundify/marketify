@@ -15,8 +15,8 @@ jQuery ($) ->
             slidesToScroll: 1
             arrows: true
             dots: false
-            variableWidth: true
-            centerMode: true
+            variableWidth: false
+            centerMode: false
             responsive: [
               {
                 breakpoint: 992,
