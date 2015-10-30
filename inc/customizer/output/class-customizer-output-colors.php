@@ -231,6 +231,7 @@ class Marketify_Customizer_Output_Colors {
             'selectors' => array(
                 '.minimal .section-title__inner',
                 '.minimal .edd_form fieldset > span legend',
+                '.minimal .edd_form fieldset legend span',
                 '.minimal #edd_checkout_form_wrap .edd_form fieldset > span legend',
                 '.minimal .entry-content .edd-slg-social-container > span legend',
                 '.minimal .fes-headers span'
