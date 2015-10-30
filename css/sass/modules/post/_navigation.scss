@@ -31,8 +31,7 @@
 
 .nav-previous .nav-title,
 .nav-next .nav-title {
-	font: 400 14px 'Montserrat', sans-serif;
-	text-transform: uppercase;
+    @include montserrat(400, 13px);
 	display: inline-block;
 	vertical-align: middle;
 	float: left;

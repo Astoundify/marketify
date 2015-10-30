@@ -97,9 +97,8 @@
 		transition:         all 0.25s;
 
 		span {
-			font: 400 13px 'Montserrat', sans-serif;
+            @include montserrat(400, 13px);
 			color: #fff;
-			text-transform: uppercase;
 			padding-bottom: 10px;
 			border-bottom: 2px solid #fff;
 		}
@@ -115,7 +114,8 @@
 	overflow: hidden;
 
 	.entry-title {
-		font: 400 16px/normal 'Source Sans Pro', serif;
+        font-size: 16px;
+        font-weight: 400;
 		text-transform: none;
 		margin: 0;
 

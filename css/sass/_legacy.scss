@@ -2,8 +2,7 @@
 
 .feature-title,
 .individual-testimonial .author span:first-child {
-	font: 700 16px 'Montserrat', sans-serif;
-	text-transform: uppercase;
+    @include montserrat(700, 16px);
 	margin-top: 1.25em;
 }
 
@@ -31,8 +30,7 @@
 
 .pricing-table-widget-description h2,
 .pricing-table-widget-description h3 {
-	font: 700 50px 'Montserrat', sans-serif;
-	text-transform: uppercase;
+    @include montserrat(700, 50px);
 	margin: 0;
 }
 

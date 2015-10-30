@@ -1,8 +1,5 @@
 .site-title {
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 700;
-	text-transform: uppercase;
-	font-size: 26px;
+    @include montserrat(700, 26px);
 	clear: none;
 }
 

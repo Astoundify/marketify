@@ -113,8 +113,7 @@
 
 .comment-author .fn,
 .comment-metadata .fn {
-	font: 400 10px 'Montserrat', sans-serif;
-	text-transform: uppercase;
+    @include montserrat(400, 10px);
 	margin-top: 8px;
 	display: block;
 	text-align: center;

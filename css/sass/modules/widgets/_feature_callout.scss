@@ -2,8 +2,7 @@
 	position: relative;
 
 	h2 {
-		font: 700 32px/normal 'Montserrat', sans-serif;
-		text-transform: uppercase;
+        @include montserrat(700, 32px);
 	}
 }
 

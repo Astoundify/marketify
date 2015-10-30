@@ -1,7 +1,8 @@
 @import "config/fonts";
 @import "config/colors";
 
-@import "mixins";
+@import "mixins/bp";
+@import "mixins/montserrat";
 
 @import "reset";
 @import "legacy"; // all of the old CSS is in one file for now.

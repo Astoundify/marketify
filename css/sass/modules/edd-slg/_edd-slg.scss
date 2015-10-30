@@ -24,9 +24,8 @@
 }
 
 .edd-slg-social-wrap .edd-slg-login-wrapper a {
-	font: 400 13px 'Montserrat', sans-serif;
+    @include montserrat(400, 13px);
 	color: #fff;
-	text-transform: uppercase;
 	padding: 13px 20px;
 	display: block;
 }

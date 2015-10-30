@@ -45,8 +45,7 @@
 		}
 
 	.edd-fpd th {
-		font: 700 14px/normal 'Montserrat', sans-serif;
-		text-transform: uppercase;
+        @include montserrat(700, 14px);
 		width: 100%;
 	}
 

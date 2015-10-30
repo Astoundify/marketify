@@ -80,7 +80,7 @@ input,
 select,
 textarea {
     color: $body;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: $source;
 	font-size: 15px;
 	line-height: 1.5;
 
@@ -245,8 +245,7 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	font: 700 13px/normal 'Montserrat', sans-serif;
-	text-transform: uppercase;
+    @include montserrat(700, 13px);
 	text-decoration: none;
 	padding: 10px 20px;
 	border: 2px solid transparent;

@@ -35,8 +35,7 @@
 
         a {
             color: $accent;
-            font: 400 14px 'Montserrat', sans-serif;
-            text-transform: uppercase;
+            @include montserrat(400, 14px);
             text-decoration: none;
             margin: 0 0 -3px;
             padding: 12px 17px;
