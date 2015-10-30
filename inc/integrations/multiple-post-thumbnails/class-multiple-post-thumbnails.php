@@ -63,7 +63,7 @@ class Marketify_Multiple_Post_Thumbnails extends Marketify_Integration {
             <label><?php _e( 'Use as Grid Thumbnail', 'marketify' ); ?></label>
 
             <div class="fes-form-sub-fields">
-                <label for="<?php esc_attr_e( $field_name ); ?>">
+                <label for="<?php esc_attr( $field_name ); ?>">
                     <input type="checkbox" data-type="label" id="<?php echo esc_attr( $field_name ); ?>" name="<?php echo esc_attr( $field_name ); ?>" value="1" class="smallipopInput" <?php checked( $field_value, 1 ); ?>>
                     <?php _e( 'Use this image as the grid thumbnail.', 'marketify' ); ?>
                 </label>

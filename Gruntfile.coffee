@@ -83,20 +83,47 @@ module.exports = () ->
           nonull: true
         ]
 
+    checktextdomain:
+      dist:
+        options:
+          text_domain: 'marketify'
+          keywords: [
+            '__:1,2d'
+            '_e:1,2d'
+            '_x:1,2c,3d'
+            'esc_html__:1,2d'
+            'esc_html_e:1,2d'
+            'esc_html_x:1,2c,3d'
+            'esc_attr__:1,2d'
+            'esc_attr_e:1,2d'
+            'esc_attr_x:1,2c,3d'
+            '_ex:1,2c,3d'
+            '_n:1,2,4d'
+            '_nx:1,2,4c,5d'
+            '_n_noop:1,2,3d'
+            '_nx_noop:1,2,3c,4d'
+          ]
+        files: [{
+          src: [ '**/*.php' ]
+          expand: true
+        }]
+
   @loadNpmTasks 'grunt-contrib-watch'
   @loadNpmTasks 'grunt-contrib-coffee'
   @loadNpmTasks 'grunt-contrib-uglify'
   @loadNpmTasks 'grunt-contrib-sass'
   @loadNpmTasks 'grunt-contrib-cssmin'
   @loadNpmTasks 'grunt-contrib-concat'
+  @loadNpmTasks 'grunt-contrib-concat'
   @loadNpmTasks 'grunt-wp-i18n'
   @loadNpmTasks 'grunt-exec'
   @loadNpmTasks 'grunt-potomo'
-  @loadNpmTasks 'grunt-newer'
+  @loadNpmTasks 'grunt-checktextdomain'
 
   @registerTask 'default', ['watch']
 
   @registerTask 'getTranslations', [ 'exec:tx_pull', 'potomo' ]
   @registerTask 'pushTranslation', [ 'makepot', 'exec:tx_push' ]
+  @registerTask 'checkTranslation', [ 'checktextdomain' ]
 
   @registerTask 'build', [ 'uglify', 'coffee', 'sass', 'cssmin', 'getTranslation', 'pushTranslation' ]

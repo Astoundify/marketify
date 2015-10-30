@@ -20,74 +20,74 @@ class Marketify_Widget_Feature_Callout extends Marketify_Widget {
             'text_align' => array(
                 'type'  => 'select',
                 'std'   => 'left',
-                'label' => __( 'Text Align:', 'listify' ),
+                'label' => __( 'Text Align:', 'marketify' ),
                 'options' => array(
-                    'left' => __( 'Left', 'listify' ),
-                    'right' => __( 'Right', 'listify' ),
-                    'center' => __( 'Center (cover only)', 'listify' )
+                    'left' => __( 'Left', 'marketify' ),
+                    'right' => __( 'Right', 'marketify' ),
+                    'center' => __( 'Center (cover only)', 'marketify' )
                 )
             ),
             'background' => array(
                 'type'  => 'select',
                 'std'   => 'pull',
-                'label' => __( 'Image Style:', 'listify' ),
+                'label' => __( 'Image Style:', 'marketify' ),
                 'options' => array(
-                    'cover' => __( 'Cover', 'listify' ),
-                    'pull'  => __( 'Pull Out', 'listify' )
+                    'cover' => __( 'Cover', 'marketify' ),
+                    'pull'  => __( 'Pull Out', 'marketify' )
                 )
             ),
             'background_position' => array(
                 'type'  => 'select',
                 'std'   => 'center center',
-                'label' => __( 'Image Position:', 'listify' ),
+                'label' => __( 'Image Position:', 'marketify' ),
                 'options' => array(
-                    'left top' => __( 'Left Top', 'listify' ),
-                    'left center' => __( 'Left Center', 'listify' ),
-                    'left bottom' => __( 'Left Bottom', 'listify' ),
-                    'right top' => __( 'Right Top', 'listify' ),
-                    'right center' => __( 'Right Center', 'listify' ),
-                    'right bottom' => __( 'Right Bottom', 'listify' ),
-                    'center top' => __( 'Center Top', 'listify' ),
-                    'center center' => __( 'Center Center', 'listify' ),
-                    'center bottom' => __( 'Center Bottom', 'listify' ),
-                    'center top' => __( 'Center Top', 'listify' )
+                    'left top' => __( 'Left Top', 'marketify' ),
+                    'left center' => __( 'Left Center', 'marketify' ),
+                    'left bottom' => __( 'Left Bottom', 'marketify' ),
+                    'right top' => __( 'Right Top', 'marketify' ),
+                    'right center' => __( 'Right Center', 'marketify' ),
+                    'right bottom' => __( 'Right Bottom', 'marketify' ),
+                    'center top' => __( 'Center Top', 'marketify' ),
+                    'center center' => __( 'Center Center', 'marketify' ),
+                    'center bottom' => __( 'Center Bottom', 'marketify' ),
+                    'center top' => __( 'Center Top', 'marketify' )
                 )
             ),
             'cover_overlay' => array(
                 'type' => 'checkbox',
                 'std'  => 1,
-                'label' => __( 'Use transparent overlay', 'listify' )
+                'label' => __( 'Use transparent overlay', 'marketify' )
             ),
             'margin' => array(
                 'type' => 'checkbox',
                 'std'  => 1,
-                'label' => __( 'Add standard spacing above/below widget', 'listify' )
+                'label' => __( 'Add standard spacing above/below widget', 'marketify' )
             ),
             'text_color' => array(
                 'type'  => 'colorpicker',
                 'std'   => '#515a63',
-                'label' => __( 'Text Color:', 'listify' )
+                'label' => __( 'Text Color:', 'marketify' )
             ),
             'background_color' => array(
                 'type'  => 'colorpicker',
                 'std'   => '#f9f9f9',
-                'label' => __( 'Background Color:', 'listify' )
+                'label' => __( 'Background Color:', 'marketify' )
             ),
             'title' => array(
                 'type'  => 'text',
                 'std'   => '',
-                'label' => __( 'Title:', 'listify' )
+                'label' => __( 'Title:', 'marketify' )
             ),
             'content' => array(
                 'type'  => 'textarea',
                 'std'   => '',
-                'label' => __( 'Content:', 'listify' ),
+                'label' => __( 'Content:', 'marketify' ),
                 'rows'  => 5
             ),
             'image' => array(
                 'type'  => 'image',
                 'std'   => '',
-                'label' => __( 'Image:', 'listify' )
+                'label' => __( 'Image:', 'marketify' )
             )
         );
 
