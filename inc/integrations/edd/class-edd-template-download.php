@@ -125,10 +125,11 @@ class Marketify_EDD_Template_Download {
             }
         } else {
             add_action( 'marketify_single_download_content_before_content', array( $this, 'featured_' . $format ), 5 );
-            add_action( 'marketify_single_download_content_before_content', array( $this, 'featured_standard_navigation' ), 7 );
+            add_action( 'marketify_single_download_content_before_content', array( $this, 'featured_'. $format . '_navigation' ), 7 );
 
             if ( 'standard' != $format && $this->is_format_style( 'inline' ) ) {
                 add_action( 'marketify_single_download_content_before_content', array( $this, 'featured_standard' ), 6 );
+                add_action( 'marketify_single_download_content_before_content', array( $this, 'featured_standard_navigation' ), 7 );
             }
         }
     }
