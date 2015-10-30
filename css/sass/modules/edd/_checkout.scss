@@ -1,13 +1,25 @@
 @import "checkout-cart";
 @import "checkout-discounts";
 
+#edd_checkout_cart_form,
 #edd_checkout_form_wrap {
-    @extend .section;
+    margin-top: 3em;
+    margin-bottom: 3em;
 
-    fieldset {
+    &:first-child {
+        margin-top: 0;
+    }
+
+    fieldset,
+    fieldset fieldset {
         border: 0;
         padding: 0;
-        @extend .section;
+        margin-top: 3em;
+        margin-bottom: 3em;
+    }
+
+    fieldset#edd_terms_agreement {
+        margin: 0 0 1em;
     }
 
     label {
@@ -18,3 +30,20 @@
       margin-bottom: 2em;
     }
 }
+
+#edd_checkout_form_wrap fieldset#edd_cc_fields {
+    border: 0;
+    background: none;
+}
+
+// meh
+#edd_checkout_form_wrap input[type="radio"] {
+    border-width: 6px;
+    border-style: solid;
+    border-color: $accent;
+
+    &:checked {
+        border-color: $body;
+    }
+}
+

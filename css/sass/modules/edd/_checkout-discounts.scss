@@ -1,7 +1,4 @@
-
-/**
- * Discounts
- */
-.edd-apply-discount {
+#edd_checkout_form_wrap .edd-cart-adjustment .edd-apply-discount {
 	margin-top: 1em;
+    @extend .button;
 }
