@@ -57,12 +57,6 @@ class Marketify_Template_Assets {
         $source_sans_pro = _x( 'on', 'Source Sans Pro font: on or off', 'marketify' );
 
         /* Translators: If there are characters in your language that are not
-         * supported by Roboto Slab, translate this to 'off'. Do not translate into your
-         * own language.
-         */
-        $roboto = _x( 'on', 'Roboto Slab font: on or off', 'marketify' );
-
-        /* Translators: If there are characters in your language that are not
          * supported by Montserrat, translate this to 'off'. Do not translate into your
          * own language.
          */
@@ -71,14 +65,13 @@ class Marketify_Template_Assets {
         if ( 'off' !== $source_sans_pro || 'off' !== $roboto || 'off' !== $montserrat ) {
             $font_families = array();
 
-            if ( 'off' !== $source_sans_pro )
+            if ( 'off' !== $source_sans_pro ) {
                 $font_families[] = apply_filters( 'marketify_font_source_sans', 'Source Sans Pro:300,400,700,300italic,400italic,700italic' );
+            }
 
-            if ( 'off' !== $roboto )
-                $font_families[] = apply_filters( 'marketify_font_roboto', 'Roboto Slab:300,400' );
-
-            if ( 'off' !== $montserrat )
+            if ( 'off' !== $montserrat ) {
                 $font_families[] = apply_filters( 'marketify_font_montserrat', 'Montserrat:400,700' );
+            }
 
             $query_args = array(
                 'family' => urlencode( implode( '|', apply_filters( 'marketify_font_families', $font_families ) ) ),
