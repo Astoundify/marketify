@@ -11,6 +11,9 @@ class Marketify_Template_Footer {
     }
 
     public function footer_widget_areas() {
+		if ( ! ( is_active_sidebar( 'footer-1' ) || is_active_sidebar( 'footer-2' ) || is_active_sidebar( 'footer-3 ' ) ) ) {
+			return;
+		}
     ?>
         <div class="footer-widget-areas row">
         <?php for ( $i = 1; $i <= 3; $i++ ) : ?>

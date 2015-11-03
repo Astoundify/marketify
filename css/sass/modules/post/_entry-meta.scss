@@ -17,6 +17,11 @@
         margin: 0;
     }
 
+    .byline img {
+      margin-left: 0;
+      margin-right: 4px;
+    }
+
     .entry-date:before,
     .comments-link a:before,
     .edit-link a:before {
@@ -37,4 +42,5 @@
     .edit-link a:before {
         content: $ionicon-var-edit;
     }
+
 }
