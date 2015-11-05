@@ -132,6 +132,7 @@ class Marketify_Setup {
         <div id="poststuff" class="wrap marketify-steps" style="margin: 25px 40px 0 20px">
             <?php $this->steps(); ?>
         </div>
+        <script>!function(e,o,n){window.HSCW=o,window.HS=n,n.beacon=n.beacon||{};var t=n.beacon;t.userConfig={},t.readyQueue=[],t.config=function(e){this.userConfig=e},t.ready=function(e){this.readyQueue.push(e)},o.config={modal: true, docs:{enabled:!0,baseUrl:"//astoundify-marketify.helpscoutdocs.com/"},contact:{enabled:!1,formId:"b68bfa79-83ce-11e5-8846-0e599dc12a51"}};var r=e.getElementsByTagName("script")[0],c=e.createElement("script");c.type="text/javascript",c.async=!0,c.src="https://djtflbt20bdde.cloudfront.net/",r.parentNode.insertBefore(c,r)}(document,window.HSCW||{},window.HS||{});</script>
     <?php  
     }
     public function welcome() {
@@ -144,9 +145,17 @@ class Marketify_Setup {
     public function links() {
     ?>
         <p class="helpful-links">
-            <a href="http://marketify.astoundify.com" class="button button-primary"><?php _e( 'Documentation', 'marketify' ); ?></a>&nbsp;
+            <a href="http://marketify.astoundify.com" class="button button-primary js-trigger-documentation"><?php _e( 'Search Documentation', 'marketify' ); ?></a>&nbsp;
             <a href="http://support.astoundify.com" class="button button-secondary"><?php _e( 'Submit a Support Ticket', 'marketify' ); ?></a>&nbsp;
         </p>
+        <script>
+            jQuery(document).ready(function($) {
+                $('.js-trigger-documentation').click(function(e) {
+                    e.preventDefault();
+                    HS.beacon.open();
+                });
+            });
+        </script>
     <?php
     }
     public function steps() {
