@@ -5,17 +5,19 @@
  * @package Marketify
  */
 
+/** @todo: get this out */
 $type = 'post';
 
 if (
-	is_post_type_archive( 'download' ) ||
-	is_singular( 'download' ) ||
-	is_tax( array( 'download_tag', 'download_category' ) ) ||
-	is_page_template( 'page-templates/home-search.php' ) ||
-	is_page_template( 'page-templates/shop.php' ) ||
-	is_front_page()
-)
-	$type = 'download';
+    is_post_type_archive( 'download' ) ||
+    is_singular( 'download' ) ||
+    is_tax( array( 'download_tag', 'download_category' ) ) ||
+    is_page_template( 'page-templates/home-search.php' ) ||
+    is_page_template( 'page-templates/shop.php' ) ||
+    is_front_page()
+) {
+    $type = 'download';
+}
 ?>
 
 <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">

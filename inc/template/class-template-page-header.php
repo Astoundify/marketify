@@ -3,32 +3,15 @@
 class Marketify_Template_Page_Header {
 
     public function __construct() {
-        add_filter( 'get_the_archive_title', array( $this, 'get_the_archive_title' ) );
-
         add_filter( 'marketify_page_header', array( $this, 'tag_atts' ), 10, 2 );
         add_action( 'marketify_entry_before', array( $this, 'close_header_outer' ) );
 
+        add_filter( 'get_the_archive_title', array( $this, 'get_the_archive_title' ) );
         add_action( 'marketify_entry_before', array( $this, 'archive_title' ), 5 );
         add_action( 'marketify_entry_before', array( $this, 'page_title' ), 5 );
         add_action( 'marketify_entry_before', array( $this, 'post_title' ), 5 );
         add_action( 'marketify_entry_before', array( $this, 'home_title' ), 5 );
         add_action( 'marketify_entry_before', array( $this, 'blog_title' ), 5 );
-    }
-
-    public function get_the_archive_title( $title ) { 
-        if ( is_search() ) {
-            $title = get_search_query();
-        } else if ( is_post_type_archive( 'download' ) ) {
-            $title = edd_get_label_plural();
-        } else if ( is_tax() ) {
-            $title = single_term_title( '', false );
-
-            if ( did_action( 'marketify_downloads_before' ) ) {
-                $title = sprintf( __( 'All %s', 'marketify' ), $title );
-            }
-        }
-
-        return $title;
     }
 
     public function close_header_outer() {
@@ -84,6 +67,22 @@ class Marketify_Template_Page_Header {
 <div class="page-header container">
     <h1 class="page-title"><?php the_archive_title(); ?></h1>
 <?php
+    }
+
+    public function get_the_archive_title( $title ) { 
+        if ( is_search() ) {
+            $title = get_search_query();
+        } else if ( is_post_type_archive( 'download' ) ) {
+            $title = edd_get_label_plural();
+        } else if ( is_tax() ) {
+            $title = single_term_title( '', false );
+
+            if ( did_action( 'marketify_downloads_before' ) ) {
+                $title = sprintf( __( 'All %s', 'marketify' ), $title );
+            }
+        }
+
+        return $title;
     }
 
     public function post_title() {
