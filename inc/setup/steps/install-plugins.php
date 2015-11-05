@@ -8,7 +8,7 @@
 </ul>
 
 <p><a href="<?php echo get_template_directory_uri(); ?>/inc/setup/images/setup-plugins.gif">
-    <img src="<?php echo get_template_directory_uri(); ?>/inc/setup/images/setup-content.gif" width="430" alt="" />
+    <img src="<?php echo get_template_directory_uri(); ?>/inc/setup/images/setup-plugins.gif" width="430" alt="" />
 </a></p>
 
 <p><a href="<?php echo admin_url( 'themes.php?page=tgmpa-install-plugins' ); ?>" class="button button-primary button-large">Install Plugins</a></p>
