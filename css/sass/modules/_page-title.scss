@@ -1,10 +1,7 @@
 .page-title {
-    font-weight: 700;
-    font-size: 26px;
-    font-family: $montserrat;
-    text-transform: uppercase;
+    @include montserrat(700, 26px);
     color: #fff;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     text-shadow: rgba(0, 0, 0, 0.39) 0 2px 18px;
     max-width: 80%;
     margin: 0 auto;
@@ -14,6 +11,6 @@
     }
 
     @include bp(lg) {
-        font-size: 38px;
+        font-size: 36px;
     }
 }
