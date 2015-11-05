@@ -1,15 +1,19 @@
 <?php
 class Marketify_Setup {
+
     public function __construct() {
         if ( ! is_admin() ) {
             return;
         }
+
         add_action( 'after_setup_theme', array( $this, 'init' ), 0 );
     }
+
     public function init() {
         $menus = get_theme_mod( 'nav_menu_locations' );
         $this->theme = marketify()->activation->theme;
         $has_downloads = new WP_Query( array( 'post_type' => 'downloads', 'fields' => 'ids', 'posts_per_page' => 1 ) );
+
         $this->steps = array(
             'install-plugins' => array(
                 'title' => __( 'Install Required &amp; Recommended Plugins', 'marketify' ),
@@ -70,22 +74,44 @@ class Marketify_Setup {
                     'Translations' => 'http://marketify.astoundify.com/category/720-translations'
                 )
             ),
-            'support-us' => array(
-                'title' => __( 'Get Involved', 'marketify' ),
-                'completed' => 'na',
+        );
+
+        if ( marketify()->get( 'edd' ) ) { 
+            $this->steps[ 'setup-edd' ] = array(
+                'title' => 'Setup Easy Digital Downloads',
+                'completed' => edd_get_option( 'purchase_page' ),
                 'documentation' => array(
-                    'Leave a Positive Review' => 'https://astoundify.com/go/rate-theme/',
-                    'Contribute Your Translation' => 'https://astoundify.com/go/translate-marketify/'
                 )
+            );
+        }
+
+        if ( marketify()->get( 'edd-fes' ) ) { 
+            $this->steps[ 'setup-fes' ] = array(
+                'title' => 'Setup Frontend Submissions',
+                'completed' => 0 == EDD_FES()->helper->get_option( 'fes-use-css' ),
+                'documentation' => array(
+                )
+            );
+        }
+
+        $this->steps[ 'support-us' ] = array(
+            'title' => __( 'Get Involved', 'marketify' ),
+            'completed' => 'na',
+            'documentation' => array(
+                'Leave a Positive Review' => 'https://astoundify.com/go/rate-theme/',
+                'Contribute Your Translation' => 'https://astoundify.com/go/translate-marketify/'
             )
         );
+
         add_action( 'admin_menu', array( $this, 'add_page' ), 100 );
         add_action( 'admin_menu', array( $this, 'add_meta_boxes' ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'admin_css' ) );
     }
+
     public function add_page() {
         add_submenu_page( 'themes.php', __( 'Marketify Setup', 'marketify' ), __( 'Setup Guide', 'marketify' ), 'manage_options', 'marketify-setup', array( $this, 'output' ) );
     }
+
     public function admin_css() {
         $screen = get_current_screen();
         if ( 'appearance_page_marketify-setup' != $screen->id ) {
@@ -93,12 +119,14 @@ class Marketify_Setup {
         }
         wp_enqueue_style( 'marketify-setup', get_template_directory_uri() . '/inc/setup/style.css' );
     }
+
     public function add_meta_boxes() {
         foreach ( $this->steps as $step => $info ) {
             $info = array_merge( array( 'step' => $step ), $info );
             add_meta_box( $step , $info[ 'title' ], array( $this, 'step_box' ), 'marketify_setup_steps', 'normal', 'high', $info );
         }
     }
+
     public function step_box( $object, $metabox ) {
         $args = $metabox[ 'args' ];
     ?>
@@ -122,6 +150,7 @@ class Marketify_Setup {
         </p>
     <?php
     }
+
     public function output() {
     ?>
         <div class="wrap about-wrap marketify-setup">
@@ -135,6 +164,7 @@ class Marketify_Setup {
         <script>!function(e,o,n){window.HSCW=o,window.HS=n,n.beacon=n.beacon||{};var t=n.beacon;t.userConfig={},t.readyQueue=[],t.config=function(e){this.userConfig=e},t.ready=function(e){this.readyQueue.push(e)},o.config={modal: true, docs:{enabled:!0,baseUrl:"//astoundify-marketify.helpscoutdocs.com/"},contact:{enabled:!1,formId:"b68bfa79-83ce-11e5-8846-0e599dc12a51"}};var r=e.getElementsByTagName("script")[0],c=e.createElement("script");c.type="text/javascript",c.async=!0,c.src="https://djtflbt20bdde.cloudfront.net/",r.parentNode.insertBefore(c,r)}(document,window.HSCW||{},window.HS||{});</script>
     <?php  
     }
+
     public function welcome() {
     ?>
         <h1><?php printf( __( 'Welcome to %s %s', 'marketify' ), $this->theme->Name, $this->theme->Version ); ?></h1>
@@ -142,6 +172,7 @@ class Marketify_Setup {
         <div class="marketify-badge"><img src="<?php echo get_template_directory_uri(); ?>/inc/setup/images/banner.jpg" width="140" alt="" /></div>
     <?php
     }
+
     public function links() {
     ?>
         <p class="helpful-links">
@@ -158,6 +189,7 @@ class Marketify_Setup {
         </script>
     <?php
     }
+
     public function steps() {
         do_accordion_sections( 'marketify_setup_steps', 'normal', null );
     }

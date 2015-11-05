@@ -43,6 +43,14 @@
 	content: "\f155";
 }
 
+.setup-edd .accordion-section-title:before {
+    content: "\f316";
+}
+
+.setup-fes .accordion-section-title:before {
+    content: "\f513";
+}
+
 .is-completed,
 .not-completed {
 	color: green;
