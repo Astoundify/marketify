@@ -41,15 +41,15 @@
                     <button class="js-toggle-nav-menu--primary nav-menu--primary-toggle"><span class="screen-reader-text"><?php _e( 'Menu', 'marketify' ); ?></span></button>
 
                     <?php
-						$args = array(
-							'theme_location' => 'primary'
-						);
+                        $args = array(
+                            'theme_location' => 'primary'
+                        );
 
-						if ( has_nav_menu( 'primary' ) ) {
-							$args[ 'container_class' ] = 'nav-menu nav-menu--primary';
-						} else {
-							$args[ 'menu_class' ] = 'nav-menu nav-menu--primary';
-						}
+                        if ( has_nav_menu( 'primary' ) ) {
+                            $args[ 'container_class' ] = 'nav-menu nav-menu--primary';
+                        } else {
+                            $args[ 'menu_class' ] = 'nav-menu nav-menu--primary';
+                        }
 
                         wp_nav_menu( $args );
                     ?>
