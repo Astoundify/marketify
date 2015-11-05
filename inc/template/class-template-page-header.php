@@ -12,6 +12,7 @@ class Marketify_Template_Page_Header {
         add_action( 'marketify_entry_before', array( $this, 'post_title' ), 5 );
         add_action( 'marketify_entry_before', array( $this, 'home_title' ), 5 );
         add_action( 'marketify_entry_before', array( $this, 'blog_title' ), 5 );
+        add_action( 'marketify_entry_before', array( $this, 'not_found_title' ), 5 );
     }
 
     public function close_header_outer() {
@@ -113,6 +114,16 @@ class Marketify_Template_Page_Header {
     <h2 class="page-title"><?php the_title(); ?></h2>
 
     <div class="page-header__entry-meta page-header__entry-meta--date"><?php echo get_the_date(); ?></div>
+<?php
+    }
+
+    public function not_found_title() {
+        if ( ! is_404() ) {
+            return;
+        }
+?>
+<div class="page-header page-header--singular container">
+    <h2 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'marketify' ); ?></h2>
 <?php
     }
 
