@@ -100,3 +100,7 @@
 	list-style-position: inside;
 	margin-left: 15px;
 }
+
+.marketify-steps p.alignleft:first-of-type {
+    margin: 0 1.5em 1.5em 0;
+}
