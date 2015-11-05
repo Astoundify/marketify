@@ -12,7 +12,7 @@ class Marketify_Setup {
     public function init() {
         $menus = get_theme_mod( 'nav_menu_locations' );
         $this->theme = marketify()->activation->theme;
-        $has_downloads = new WP_Query( array( 'post_type' => 'downloads', 'fields' => 'ids', 'posts_per_page' => 1 ) );
+        $has_downloads = new WP_Query( array( 'post_type' => 'download', 'fields' => 'ids', 'posts_per_page' => 1 ) );
 
         $this->steps = array();
 

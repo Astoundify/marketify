@@ -2,7 +2,7 @@
     overflow: hidden;
 }
 
-@include bp(sm) {
+@include bp(md) {
     #page {
         overflow: auto;
     }
