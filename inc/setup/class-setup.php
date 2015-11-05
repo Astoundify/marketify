@@ -79,8 +79,11 @@ class Marketify_Setup {
         if ( marketify()->get( 'edd' ) ) { 
             $this->steps[ 'setup-edd' ] = array(
                 'title' => 'Setup Easy Digital Downloads',
-                'completed' => edd_get_option( 'purchase_page' ),
+                'completed' => true == get_option( 'edd_settings' ),
                 'documentation' => array(
+                    'Documentation' => 'http://docs.easydigitaldownloads.com/',
+                    'Shortcodes' => 'http://docs.easydigitaldownloads.com/article/218-short-codes-overview',
+                    'FAQs' => 'http://docs.easydigitaldownloads.com/collection/171-faqs'
                 )
             );
         }
@@ -90,6 +93,10 @@ class Marketify_Setup {
                 'title' => 'Setup Frontend Submissions',
                 'completed' => 0 == EDD_FES()->helper->get_option( 'fes-use-css' ),
                 'documentation' => array(
+                    'Documentation' => 'http://docs.easydigitaldownloads.com/category/330-frontend-submissions',
+                    'Setup' => 'http://docs.easydigitaldownloads.com/article/337-frontend-submissions-basic-setup',
+                    'Shortcodes' => 'http://docs.easydigitaldownloads.com/article/333-frontend-submissions-short-codes',
+                    'FAQs' => 'http://docs.easydigitaldownloads.com/article/331-frontend-submissions-frequently-asked-questions'
                 )
             );
         }

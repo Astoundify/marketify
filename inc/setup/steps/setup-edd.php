@@ -5,3 +5,5 @@
 <li><a href="<?php echo admin_url( 'edit.php?post_type=download&page=edd-settings' ); ?>">Configure your Easy Digital Downloads settings</a></li>
 <li><a href="<?php echo admin_url( 'post-new.php?post_type=download' ); ?>">Add your first download</a></li>
 </ol>
+
+<p></p>
