@@ -40,7 +40,7 @@ if ( post_password_required() || ! comments_open() ) {
 
             <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
             <nav id="comment-nav-below" class="comment-navigation" role="navigation">
-                <h1 class="screen-reader-text"><?php _e( 'Comment navigation', 'marketify' ); ?></h1>
+                <h4 class="screen-reader-text"><?php _e( 'Comment navigation', 'marketify' ); ?></h4>
                 <div class="nav-previous"><?php previous_comments_link( '<i class="icon-arrow-left4"></i> <span class="nav-title">' . __( 'Older Comments', 'marketify' ) . '</span>' ); ?></div>
                 <div class="nav-next"><?php next_comments_link( '<span class="nav-title">' . __( 'Newer Comments', 'marketify' ) . '</span> <i class="icon-arrow-right4"></i>' ); ?></div>
             </nav><!-- #comment-nav-below -->

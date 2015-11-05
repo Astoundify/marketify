@@ -24,7 +24,7 @@ class Marketify_Template_Page_Header {
         }
 ?>
 <div class="page-header container">
-    <h1 class="page-title"><?php echo get_option( 'page_for_posts' ) ? get_the_title( get_option( 'page_for_posts' ) ) : __( 'Blog', 'marketify' ); ?></h1>
+    <h2 class="page-title"><?php echo get_option( 'page_for_posts' ) ? get_the_title( get_option( 'page_for_posts' ) ) : __( 'Blog', 'marketify' ); ?></h2>
 <?php
     }
 
@@ -54,7 +54,7 @@ class Marketify_Template_Page_Header {
         the_post();
 ?>
 <div class="page-header page-header--singular container">
-    <h1 class="page-title"><?php the_title(); ?></h1>
+    <h2 class="page-title"><?php the_title(); ?></h2>
 <?php
         rewind_posts();
     }
@@ -65,7 +65,7 @@ class Marketify_Template_Page_Header {
         }
 ?>
 <div class="page-header container">
-    <h1 class="page-title"><?php the_archive_title(); ?></h1>
+    <h2 class="page-title"><?php the_archive_title(); ?></h2>
 <?php
     }
 
@@ -110,7 +110,7 @@ class Marketify_Template_Page_Header {
        ?>
     </div>
 
-    <h1 class="page-title"><?php the_title(); ?></h1>
+    <h2 class="page-title"><?php the_title(); ?></h2>
 
     <div class="page-header__entry-meta page-header__entry-meta--date"><?php echo get_the_date(); ?></div>
 <?php
