@@ -14,66 +14,35 @@ class Marketify_Setup {
         $this->theme = marketify()->activation->theme;
         $has_downloads = new WP_Query( array( 'post_type' => 'downloads', 'fields' => 'ids', 'posts_per_page' => 1 ) );
 
-        $this->steps = array(
-            'install-plugins' => array(
-                'title' => __( 'Install Required &amp; Recommended Plugins', 'marketify' ),
-                'completed' => class_exists( 'Easy_Digital_Downloads' ),
-                'documentation' => array(
-                    'Easy Digital Downloads' => 'http://marketify.astoundify.com/article/713-easy-digital-downloads',
-                    'Easy Digital Downloads - Marketplace Bundle' => 'https://astoundify.com/go/marketplace-bundle/',
-                    'Bulk Install' => 'http://marketify.astoundify.com/article/712-bulk-install-required-and-recommended-plugins-recommended'
-                )
-            ),
-            'import-content' => array(
-                'title' => __( 'Import Demo Content', 'marketify' ),
-                'completed' => $has_downloads->have_posts(),
-                'documentation' => array(
-                    'Install Demo Content' => 'http://marketify.astoundify.com/article/789-installing-demo-content',
-                    'Importing Content (Codex)' => 'http://codex.wordpress.org/Importing_Content',
-                    'WordPress Importer' => 'https://wordpress.org/plugins/wordpress-importer/'
-                )
-            ),
-            'import-widgets' => array(
-                'title' => __( 'Import Widgets', 'marketify' ),
-                'completed' => is_active_sidebar( 'home-1' ),
-                'documentation' => array(
-                    'Widget Areas' => 'http://marketify.astoundify.com/category/692-widget-areas',
-                    'Widgets' => 'http://marketify.astoundify.com/category/585-widgets' 
-                )
-            ),
-            'setup-menus' => array(
-                'title' => __( 'Setup Menus', 'marketify' ),
-                'completed' => isset( $menus[ 'primary' ] ),
-                'documentation' => array(
-                    'Primary Menu' => 'http://marketify.astoundify.com/article/700-manage-the-primary-menu',
-                    'Show/Hide Items' => 'http://marketify.astoundify.com/article/702-show-hide-links-depending-on-the-user',
-                )
-            ),
-            'setup-homepage' => array(
-                'title' => __( 'Setup Static Homepage', 'marketify' ),
-                'completed' => (bool) get_option( 'page_on_front', false ),
-                'documentation' => array(
-                    'Create Your Homepage' => 'http://marketify.astoundify.com/article/581-creating-your-homepage',
-                    'Reading Settings (codex)' => 'http://codex.wordpress.org/Settings_Reading_Screen'
-                )
-            ),
-            'setup-widgets' => array(
-                'title' => __( 'Setup Widgets', 'marketify' ),
-                'completed' => is_active_sidebar( 'widget-area-front-page' ),
-                'documentation' => array(
-                    'Widget Areas' => 'http://marketify.astoundify.com/category/692-widget-areas',
-                    'Widgets' => 'http://marketify.astoundify.com/category/585-widgets' 
-                )
-            ),
-            'customize-theme' => array(
-                'title' => __( 'Customize', 'marketify' ),
-                'completed' => get_option( 'theme_mods_marketify' ),
-                'documentation' => array(
-                    'Appearance' => 'http://marketify.astoundify.com/collection/463-customization',
-                    'Child Themes' => 'http://marketify.astoundify.com/category/719-child-themes',
-                    'Translations' => 'http://marketify.astoundify.com/category/720-translations'
-                )
-            ),
+        $this->steps = array();
+
+        $this->steps[ 'install-plugins' ] = array(
+            'title' => __( 'Install Required &amp; Recommended Plugins', 'marketify' ),
+            'completed' => class_exists( 'Easy_Digital_Downloads' ),
+            'documentation' => array(
+                'Easy Digital Downloads' => 'http://marketify.astoundify.com/article/713-easy-digital-downloads',
+                'Easy Digital Downloads - Marketplace Bundle' => 'https://astoundify.com/go/marketplace-bundle/',
+                'Bulk Install' => 'http://marketify.astoundify.com/article/712-bulk-install-required-and-recommended-plugins-recommended'
+            )
+        );
+
+        $this->steps[ 'import-content' ] = array(
+            'title' => __( 'Import Demo Content', 'marketify' ),
+            'completed' => $has_downloads->have_posts(),
+            'documentation' => array(
+                'Install Demo Content' => 'http://marketify.astoundify.com/article/789-installing-demo-content',
+                'Importing Content (Codex)' => 'http://codex.wordpress.org/Importing_Content',
+                'WordPress Importer' => 'https://wordpress.org/plugins/wordpress-importer/'
+            )
+        );
+
+        $this->steps[ 'import-widgets' ] = array(
+            'title' => __( 'Import Widgets', 'marketify' ),
+            'completed' => is_active_sidebar( 'home-1' ),
+            'documentation' => array(
+                'Widget Areas' => 'http://marketify.astoundify.com/category/692-widget-areas',
+                'Widgets' => 'http://marketify.astoundify.com/category/585-widgets' 
+            )
         );
 
         if ( marketify()->get( 'edd' ) ) { 
@@ -100,6 +69,43 @@ class Marketify_Setup {
                 )
             );
         }
+
+        $this->steps[ 'setup-menus' ] = array(
+            'title' => __( 'Setup Menus', 'marketify' ),
+            'completed' => isset( $menus[ 'primary' ] ),
+            'documentation' => array(
+                'Primary Menu' => 'http://marketify.astoundify.com/article/700-manage-the-primary-menu',
+                'Show/Hide Items' => 'http://marketify.astoundify.com/article/702-show-hide-links-depending-on-the-user',
+            )
+        );
+
+        $this->steps[ 'setup-homepage' ] = array(
+            'title' => __( 'Setup Static Homepage', 'marketify' ),
+            'completed' => (bool) get_option( 'page_on_front', false ),
+            'documentation' => array(
+                'Create Your Homepage' => 'http://marketify.astoundify.com/article/581-creating-your-homepage',
+                'Reading Settings (codex)' => 'http://codex.wordpress.org/Settings_Reading_Screen'
+            )
+        );
+
+        $this->steps[ 'setup-widgets' ] = array(
+            'title' => __( 'Setup Widgets', 'marketify' ),
+            'completed' => is_active_sidebar( 'widget-area-front-page' ),
+            'documentation' => array(
+                'Widget Areas' => 'http://marketify.astoundify.com/category/692-widget-areas',
+                'Widgets' => 'http://marketify.astoundify.com/category/585-widgets' 
+            )
+        );
+
+        $this->steps[ 'customize-theme' ] = array(
+            'title' => __( 'Customize', 'marketify' ),
+            'completed' => get_option( 'theme_mods_marketify' ),
+            'documentation' => array(
+                'Appearance' => 'http://marketify.astoundify.com/collection/463-customization',
+                'Child Themes' => 'http://marketify.astoundify.com/category/719-child-themes',
+                'Translations' => 'http://marketify.astoundify.com/category/720-translations'
+            )
+        );
 
         $this->steps[ 'support-us' ] = array(
             'title' => __( 'Get Involved', 'marketify' ),
