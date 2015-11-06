@@ -26,7 +26,7 @@ class Marketify_Customizer_Output_Colors {
                 '.wp-playlist .mejs-controls .mejs-time-rail .mejs-time-current'
             ),
             'declarations' => array(
-                'background-color' => $page_header_background
+                'background-color' => esc_attr( $page_header_background )
             )
         ) );
 
@@ -40,7 +40,7 @@ class Marketify_Customizer_Output_Colors {
                 '.site-footer--light .site-title--footer a'
             ),
             'declarations' => array(
-                'color' => $page_header_background
+                'color' => esc_attr( $page_header_background )
             )
         ) );
     }
@@ -53,7 +53,7 @@ class Marketify_Customizer_Output_Colors {
                 '.nav-menu--primary li li a'
             ),
             'declarations' => array(
-                'color' => $primary
+                'color' => esc_attr( $primary )
             )
         ) );
     }
@@ -66,11 +66,11 @@ class Marketify_Customizer_Output_Colors {
                 '.featured-popular-switcher span:hover'
             ),
             'declarations' => array(
-                'border-color' => $primary,
-                'color' => $primary
+                'border-color' => esc_attr( $primary ),
+                'color' => esc_attr( $primary )
             )
         ) );
-        
+
         // Buttons
         $this->css->add( array(
             'selectors' => array(
@@ -95,8 +95,8 @@ class Marketify_Customizer_Output_Colors {
                 'a.edd-wl-button.edd-wl-action'
             ),
             'declarations' => array(
-                'color' => $primary,
-                'border-color' => $primary,
+                'color' => esc_attr( $primary ),
+                'border-color' => esc_attr( $primary ),
                 'background' => '#ffffff'
             )
         ) );
@@ -123,8 +123,8 @@ class Marketify_Customizer_Output_Colors {
             ),
             'declarations' => array(
                 'color' => '#ffffff',
-                'background-color' => $primary,
-                'border-color' => $primary
+                'background-color' => esc_attr( $primary ),
+                'border-color' => esc_attr( $primary )
             )
         ) );
 
@@ -144,7 +144,7 @@ class Marketify_Customizer_Output_Colors {
                 'body .marketify_widget_slider_hero .soliloquy-container .soliloquy-caption-outer .button:hover'
             ),
             'declarations' => array(
-                'color' => $primary,
+                'color' => esc_attr( $primary ),
                 'background-color' => '#ffffff',
                 'border-color' => '#ffffff'
             )
@@ -160,7 +160,7 @@ class Marketify_Customizer_Output_Colors {
             'selectors' => array(
             ),
             'declarations' => array(
-                'color' => $accent
+                'color' => esc_attr( $accent )
             )
         ) );
 
@@ -168,7 +168,7 @@ class Marketify_Customizer_Output_Colors {
             'selectors' => array(
             ),
             'declarations' => array(
-                'border-color' => $accent
+                'border-color' => esc_attr( $accent )
             )
         ) );
 
@@ -179,12 +179,9 @@ class Marketify_Customizer_Output_Colors {
                 '.search-submit:hover'
             ),
             'declarations' => array(
-                'background-color' => $accent
+                'background-color' => esc_attr( $accent )
             )
         ) );
-    }
-
-    public function footer() {
     }
 
     public function overlay() {
@@ -223,7 +220,7 @@ class Marketify_Customizer_Output_Colors {
                 '.custom-background.minimal',
             ),
             'declarations' => array(
-                'background-color' => $page_header_background
+                'background-color' => esc_attr( $page_header_background )
             )
         ) );
 
@@ -237,7 +234,7 @@ class Marketify_Customizer_Output_Colors {
                 '.minimal .fes-headers span'
             ),
             'declarations' => array(
-                'background-color' => $page_header_background,
+                'background-color' => esc_attr( $page_header_background ),
                 'color' => '#fff'
             )
         ) );
@@ -253,8 +250,8 @@ class Marketify_Customizer_Output_Colors {
                 '.minimal .fes-submit .edd-submit.button',
             ),
             'declarations' => array(
-                'background-color' => $accent,
-                'border-color' => $accent,
+                'background-color' => esc_attr( $accent ),
+                'border-color' => esc_attr( $accent ),
                 'color' => '#fff'
             )
         ) );
@@ -270,9 +267,9 @@ class Marketify_Customizer_Output_Colors {
                 '.minimal .fes-submit .edd-submit.button:hover',
             ),
             'declarations' => array(
-                'background-color' => $page_header_background,
-                'border-color' => $accent,
-                'color' => $accent
+                'background-color' => esc_attr( $page_header_background ),
+                'border-color' => esc_attr( $accent ),
+                'color' => esc_attr( $accent )
             )
         ) );
     }

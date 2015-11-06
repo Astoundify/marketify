@@ -88,7 +88,7 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
     }
 
     function inline_extra_details() {
-        if ( 'top' == marketify_theme_mod( 'download-feature-area' ) ) {
+        if ( 'top' == esc_attr( marketify_theme_mod( 'download-feature-area' ) ) ) {
             return;
         }
     ?>

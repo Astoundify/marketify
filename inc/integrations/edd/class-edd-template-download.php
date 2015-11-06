@@ -23,7 +23,7 @@ class Marketify_EDD_Template_Download {
             return $classes;
         }
 
-        if ( 'on' == marketify_theme_mod( 'downloads-archives-truncate-title' ) ) {
+        if ( 'on' == esc_attr( marketify_theme_mod( 'downloads-archives-truncate-title' ) ) ) {
             $classes[] = 'edd-download--truncated-title';
         }
 
@@ -32,7 +32,7 @@ class Marketify_EDD_Template_Download {
 
     public function body_class( $classes ) {
         $format = $this->get_post_format();
-        $setting = marketify_theme_mod( "download-{$format}-feature-area" );
+        $setting = esc_attr( marketify_theme_mod( "download-{$format}-feature-area" ) );
 
         $classes[] = 'feature-location-' . $setting;
 
@@ -159,7 +159,7 @@ class Marketify_EDD_Template_Download {
         }
 
         $format = $this->get_post_format();
-        $setting = marketify_theme_mod( "download-{$format}-feature-area" );
+        $setting = esc_attr( marketify_theme_mod( "download-{$format}-feature-area" ) );
 
         if ( in_array( $setting, $location ) ) {
             return true;
@@ -174,7 +174,7 @@ class Marketify_EDD_Template_Download {
         }
 
         $format = $this->get_post_format();
-        $setting = marketify_theme_mod( "download-{$format}-feature-image" );
+        $setting = esc_attr( marketify_theme_mod( "download-{$format}-feature-image" ) );
 
         if ( in_array( $setting, $style ) ) {
             return true;

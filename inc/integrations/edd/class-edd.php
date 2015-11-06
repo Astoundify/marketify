@@ -49,7 +49,7 @@ class Marketify_EDD extends Marketify_Integration {
     }
 
     public function update_slug() {
-        if ( 'on' != marketify_theme_mod( 'download-label-generate' ) ) {
+        if ( 'on' != esc_attr( marketify_theme_mod( 'download-label-generate' ) ) ) {
             return;
         }
 

@@ -20,7 +20,7 @@ get_header(); ?>
 
                 <?php do_action( 'marketify_downloads_before' ); ?>
 
-                <?php echo do_shortcode( sprintf( '[downloads number="%s"]', marketify_theme_mod( 'downloads-archives-per-page' ) ) ); ?>
+                <?php echo do_shortcode( sprintf( '[downloads number="%s"]', absint( marketify_theme_mod( 'downloads-archives-per-page' ) ) ) ); ?>
 
                 <?php do_action( 'marketify_downloads_after' ); ?>
 

@@ -8,7 +8,7 @@
  */
 ?>
 
-    <footer id="colophon" class="site-footer site-footer--<?php echo marketify_theme_mod( 'footer-style' ); ?>" role="contentinfo">
+    <footer id="colophon" class="site-footer site-footer--<?php echo esc_attr( marketify_theme_mod( 'footer-style' ) ); ?>" role="contentinfo">
         <div class="container">
             <?php do_action( 'marketify_footer_above' ); ?>
 

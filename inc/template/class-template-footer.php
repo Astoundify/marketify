@@ -54,7 +54,7 @@ class Marketify_Template_Footer {
     }
 
     private function has_contact_address() {
-        return ( 'on' == marketify_theme_mod( 'footer-contact-us-display' ) && '' != marketify_theme_mod( 'footer-contact-us-adddress' ) );
+        return ( 'on' == esc_attr( marketify_theme_mod( 'footer-contact-us-display' ) ) && '' != esc_attr( marketify_theme_mod( 'footer-contact-us-adddress' ) ) );
     }
 
     public function contact_address() {
@@ -65,21 +65,21 @@ class Marketify_Template_Footer {
         <div class="<?php echo $this->get_column_class(); ?>">
             <h3 class="widget-title widget-title--site-footer"><?php echo esc_attr( marketify_theme_mod( 'footer-contact-us-title' ) ); ?></h3>
 
-            <?php echo marketify_theme_mod( 'footer-contact-us-address' ); ?>
+            <?php echo esc_attr( marketify_theme_mod( 'footer-contact-us-address' ) ); ?>
         </div>
     <?php
     }
 
     public function has_site_info() {
-        return marketify_theme_mod( 'footer-copyright-display' ); 
+        return esc_attr( marketify_theme_mod( 'footer-copyright-display' ) );
     }
 
     public function site_info() {
     ?>
         <div class="<?php echo $this->get_column_class(); ?>">
             <h3 class="site-title site-title--footer"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                <?php if ( marketify_theme_mod( 'footer-copyright-logo' ) ) : ?>
-                    <img src="<?php echo marketify_theme_mod( 'footer-copyright-logo' ); ?>" />
+                <?php if ( esc_attr( marketify_theme_mod( 'footer-copyright-logo' ) ) ) : ?>
+                    <img src="<?php echo esc_attr( marketify_theme_mod( 'footer-copyright-logo' ) ); ?>" />
                 <?php else : ?>
                     <?php bloginfo( 'name' ); ?>
                 <?php endif; ?>
