@@ -26,7 +26,7 @@ class Marketify_Customizer_Controls_Footer_Copyright extends Marketify_Customize
             ),
             'footer-copyright-text' => array(
                 'label' => __( 'Copyright', 'marketify' ),
-                'type' => 'Marketify_Customize_Textarea_Control',
+                'type' => 'textarea',
             ),
         );
 

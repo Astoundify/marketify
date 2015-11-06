@@ -27,7 +27,6 @@ class Marketify_Customizer {
     }
 
     public function custom_controls() {
-        include_once( dirname( __FILE__) . '/control/class-control-textarea.php' );
         include_once( dirname( __FILE__) . '/control/class-control-multicheck.php' );
     }
 

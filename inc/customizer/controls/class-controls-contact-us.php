@@ -26,7 +26,7 @@ class Marketify_Customizer_Controls_Footer_Contact_Us extends Marketify_Customiz
             ),
             'footer-contact-us-adddress' => array(
                 'label' => __( 'Contact Address/Information', 'marketify' ),
-                'type'  => 'Marketify_Customize_Textarea_Control'
+                'type'  => 'textrea'
             ),
         );
 
