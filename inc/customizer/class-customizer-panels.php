@@ -10,25 +10,29 @@ class Marketify_Customizer_Panels {
     }
 
     public function panel_list() {
-        $this->panels = apply_filters( 'marketify_customizer_panels', array(
-            'general' => array(
-                'title' => __( 'General', 'marketify' ),
-                'sections' => array(
+        $this->panels = array();
+
+        $this->panels[ 'general' ] = array(
+            'title' => __( 'General', 'marketify' ),
+            'sections' => array(
+            )
+        );
+
+        $this->panels[ 'appearance' ] = array(
+            'title' => __( 'Appearance', 'marketify' ),
+            'sections' => array(
+                'colors' => array(
+                    'title' => __( 'Colors', 'marketify' ),
+                ),
+                'footer' => array(
+                    'title' => __( 'Footer', 'marketify' ),
+                    'priority' => 100
                 )
-            ),
-            'appearance' => array(
-                'title' => __( 'Appearance', 'marketify' ),
-                'sections' => array(
-                    'colors' => array(
-                        'title' => __( 'Colors', 'marketify' ),
-                    ),
-                    'footer' => array(
-                        'title' => __( 'Footer', 'marketify' ),
-                        'priority' => 100
-                    )
-                )
-            ),
-            'downloads' => array(
+            )
+        );
+
+        if ( marketify()->get( 'edd' ) ) {
+            $this->panels[ 'downloads' ] = array(
                 'title' => edd_get_label_plural(),
                 'sections' => array(
                     'downloads-behavior' => array(
@@ -47,21 +51,22 @@ class Marketify_Customizer_Panels {
                         'title' => sprintf( __( 'Video %s', 'marketify' ), edd_get_label_singular() )
                     )
                 )
-            ),
-            'footer' => array(
-                'title' => __( 'Footer', 'marketify' ),
-                'sections' => array(
-                    'contact-us' => array(
-                        'title' => __( 'Contact Us', 'marketify' ),
-                    ),
-                    'copyright' => array(
-                        'title' => __( 'Copyright', 'marketify' ),
-                    )
-                )
-            ),
-        ) );
+            );
+        }
 
-        return $this->panels;
+        $this->panels[ 'footer' ] = array(
+            'title' => __( 'Footer', 'marketify' ),
+            'sections' => array(
+                'contact-us' => array(
+                    'title' => __( 'Contact Us', 'marketify' ),
+                ),
+                'copyright' => array(
+                    'title' => __( 'Copyright', 'marketify' ),
+                )
+            )
+        );
+
+        return apply_filters( 'marketify_customizer_panels', $this->panels );
     }
 
     public function register_panels( $wp_customize ) {
