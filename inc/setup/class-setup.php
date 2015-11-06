@@ -122,7 +122,7 @@ class Marketify_Setup {
     }
 
     public function add_page() {
-        add_submenu_page( 'themes.php', __( 'Marketify Setup', 'marketify' ), __( 'Setup Guide', 'marketify' ), 'manage_options', 'marketify-setup', array( $this, 'output' ) );
+        add_theme_page( __( 'Marketify Setup', 'marketify' ), __( 'Setup Guide', 'marketify' ), 'manage_options', 'marketify-setup', array( $this, 'output' ) );
     }
 
     public function admin_css() {

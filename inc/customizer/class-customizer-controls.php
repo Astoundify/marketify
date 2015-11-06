@@ -2,45 +2,44 @@
 
 class Marketify_Customizer_Controls {
 
-	public $section;
+    public $section;
 
-	public function __construct() {	
-		if ( ! isset( $this->priority ) ) {
-			$this->priority = new Marketify_Customizer_Priority();
-		}
-	}
-	
-	public function set_controls( $wp_customize ) {
-		$this->controls = apply_filters( 'marketify_pre_controls_' . $this->section, $this->controls,
-		$this->section, $wp_customize );
+    public function __construct() {	
+        if ( ! isset( $this->priority ) ) {
+            $this->priority = new Marketify_Customizer_Priority();
+        }
+    }
 
-		foreach ( $this->controls as $key => $control ) {
-			$defaults = array(
-				'priority' => $this->priority->next(),
-				'type' => 'text',
-				'section' => $this->section
-			);
+    public function set_controls( $wp_customize ) {
+        $this->controls = apply_filters( 'marketify_pre_controls_' . $this->section, $this->controls,
+        $this->section, $wp_customize );
 
-			$control = wp_parse_args( $control, $defaults );
+        foreach ( $this->controls as $key => $control ) {
+            $defaults = array(
+                'priority' => $this->priority->next(),
+                'type' => 'text',
+                'section' => $this->section
+            );
 
-			$wp_customize->add_setting( $key, array(
-				'default' => marketify_theme_mod( $key )
-			) );
+            $control = wp_parse_args( $control, $defaults );
 
-			if ( class_exists( $control[ 'type' ] ) ) { 
-				$type = $control[ 'type' ];
+            $wp_customize->add_setting( $key, array(
+                'default' => marketify_theme_mod( $key )
+            ) );
 
-				unset( $control[ 'type' ] );
+            if ( class_exists( $control[ 'type' ] ) ) { 
+                $type = $control[ 'type' ];
 
-				$wp_customize->add_control( new $type(
-					$wp_customize,
-					$key,
-					$control
-				) );
-			} else {
-				$wp_customize->add_control( $key, $control );
-			}
-		}	
-	}
+                unset( $control[ 'type' ] );
+
+                $wp_customize->add_control( new $type(
+                    $wp_customize,
+                    $key,
+                    $control
+                ) );
+            } else {
+                $wp_customize->add_control( $key, $control );
+            }
+        }
+    }
 }
-
