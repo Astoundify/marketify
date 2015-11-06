@@ -24,13 +24,15 @@ class Marketify_Widget_Download_Archive_Sorting extends Marketify_Widget {
 
         extract( $args );
 
-        $title   = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
-        $order   = get_query_var( 'm-order' ) ? strtolower( get_query_var( 'm-order' ) ) : 'desc';
+        $title = apply_filters( 'widget_title', isset( $instance['title'] ) ? $instance[ 'title' ] : '', $instance, $this->id_base );
+        $order = get_query_var( 'm-order' ) ? strtolower( get_query_var( 'm-order' ) ) : 'desc';
         $orderby = get_query_var( 'm-orderby' ) ? get_query_var( 'm-orderby' ) : 'post_date';
 
         echo $before_widget;
 
-        if ( $title ) echo $before_title . $title . $after_title;
+        if ( $title ) {
+            echo $before_title . esc_attr( $title ) . $after_title;
+        }
         ?>
 
         <form action="" method="get" class="download-sorting">

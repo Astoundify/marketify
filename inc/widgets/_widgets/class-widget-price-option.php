@@ -34,8 +34,8 @@ class Marketify_Widget_Price_Option extends Marketify_Widget {
     function widget( $args, $instance ) {
         extract( $args );
 
-        $color       = $instance[ 'color' ];
-        $description = $instance[ 'description' ];
+        $color       = isset( $instance[ 'color' ] ) ? $instance[ 'color' ] : marketify_theme_mod( 'color-page-header-background' );
+        $description = isset( $instance[ 'description' ] ) ? $instance[ 'description' ] : '';
 
         echo $before_widget;
         ?>

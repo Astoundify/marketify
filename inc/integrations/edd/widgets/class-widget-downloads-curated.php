@@ -33,17 +33,17 @@ class Marketify_Widget_Curated_Downloads extends Marketify_Widget {
 
         extract( $args );
 
-        $title        = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+        $title = apply_filters( 'widget_title', isset( $instance['title'] ) ? $instance[ 'title' ] : '', $instance, $this->id_base );
 
         $ids          = isset ( $instance[ 'ids' ] ) ? $instance[ 'ids' ] : array();
-        $ids          = implode( ',', array_map( 'trim', explode( ',', $instance[ 'ids' ] ) ) );
+        $ids          = implode( ',', array_map( 'trim', explode( ',', $ids ) ) );
 
         $columns      = isset ( $instance[ 'columns' ] ) ? absint( $instance[ 'columns' ] ) : 3;
 
         echo $before_widget;
 
-        if ( $title ) { 
-            echo $before_title . $title . $after_title;
+        if ( $title ) {
+            echo $before_title . esc_attr( $title ) . $after_title;
         }
 
         echo do_shortcode( "[downloads columns={$columns} ids={$ids}]" );

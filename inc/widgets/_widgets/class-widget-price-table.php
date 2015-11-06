@@ -25,13 +25,15 @@ class Marketify_Widget_Price_Table extends Marketify_Widget {
     function widget( $args, $instance ) {
         extract( $args );
 
-        $title        = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+        $title = apply_filters( 'widget_title', isset( $instance['title'] ) ? $instance[ 'title' ] : '', $instance, $this->id_base );
         $the_sidebars = wp_get_sidebars_widgets();
         $widget_count = count( $the_sidebars[ 'widget-area-price-options' ] );
 
         echo $before_widget;
 
-        if ( $title ) echo $before_title . $title . $after_title;
+        if ( $title ) {
+            echo $before_title . esc_attr( $title ) . $after_title;
+        }
         ?>
 
         <div class="pricing-table-widget-<?php echo $widget_count; ?> row">

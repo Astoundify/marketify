@@ -27,12 +27,14 @@ class Marketify_Widget_Download_Share extends Marketify_Widget {
 
         extract( $args );
 
-        $title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+        $title = apply_filters( 'widget_title', isset( $instance['title'] ) ? $instance[ 'title' ] : '', $instance, $this->id_base );
         $description = isset ( $instance[ 'description' ] ) ? esc_attr( $instance[ 'description' ] ) : null;
 
         echo $before_widget;
 
-        if ( $title ) echo $before_title . $title . $after_title;
+        if ( $title ) {
+            echo $before_title . esc_attr( $title ) . $after_title;
+        }
 
         if ( $description ) {
             echo '<span class="widget-description">' . $description . '</span>';

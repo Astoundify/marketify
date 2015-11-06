@@ -39,7 +39,7 @@ class Marketify_Widget_Recent_Posts extends Marketify_Widget {
 
         extract( $args );
 
-        $title        = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+        $title = apply_filters( 'widget_title', isset( $instance['title'] ) ? $instance[ 'title' ] : '', $instance, $this->id_base );
         $number       = isset ( $instance[ 'number' ] ) ? absint( $instance[ 'number' ] ) : 8;
         $style        = isset ( $instance[ 'style' ] ) ? $instance[ 'style' ] : 'classic';
 
@@ -62,8 +62,8 @@ class Marketify_Widget_Recent_Posts extends Marketify_Widget {
 
         echo $before_widget;
 
-        if ( $title ) { 
-            echo $before_title . $title . $after_title;
+        if ( $title ) {
+            echo $before_title . esc_attr( $title ) . $after_title;
         }
 ?>
         <div class="row widget--blog-posts <?php echo 'grid' == $style ? 'widget--blog-posts-grid' : 'widget--blog-posts-list' ?>" data-columns>

@@ -32,13 +32,15 @@ class Marketify_Widget_Recent_Downloads extends Marketify_Widget {
     }
 
     function widget( $args, $instance ) {
-        $title        = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
-        $number       = isset ( $instance[ 'number' ] ) ? absint( $instance[ 'number' ] ) : 8;
-        $columns      = isset ( $instance[ 'columns' ] ) ? absint( $instance[ 'columns' ] ) : 3;
+        $title = apply_filters( 'widget_title', isset( $instance['title'] ) ? $instance[ 'title' ] : '', $instance, $this->id_base );
+        $number = isset ( $instance[ 'number' ] ) ? absint( $instance[ 'number' ] ) : 8;
+        $columns = isset ( $instance[ 'columns' ] ) ? absint( $instance[ 'columns' ] ) : 3;
 
         echo $args[ 'before_widget' ];
 
-        if ( $title ) echo $args[ 'before_title' ] . $title . $args[ 'after_title' ];
+        if ( $title ) {
+            echo $before_title . esc_attr( $title ) . $after_title;
+        }
         ?>
 
         <?php echo do_shortcode( "[downloads columns={$columns} number={$number} hide_pagination=true]" ); ?>
