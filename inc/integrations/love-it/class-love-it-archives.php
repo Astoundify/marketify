@@ -30,19 +30,19 @@ class Marketify_Love_It_Archives {
         $page = marketify()->template->page_templates->find_page( 'page-templates/wishlist.php' );
 
         if ( ! $page ) {
-            return home_url();
+            return esc_url( home_url( '/' ) );
         }
 
         $page = get_post( $page[0] );
 
         if ( $wp_rewrite->permalink_structure == '' ) {
-            $vendor_url = add_query_arg( array( 'page_id' => $page->ID, 'author_wishlist' => $author->user_nicename ), home_url() );
+            $vendor_url = add_query_arg( array( 'page_id' => $page->ID, 'author_wishlist' => $author->user_nicename ), home_url( '/' ) );
         } else {
             $vendor_url = get_permalink( $page->ID );
             $vendor_url = trailingslashit( $vendor_url ) . trailingslashit( $author->user_nicename );
         }
 
-        return $vendor_url;
+        return esc_url( $vendor_url );
     }
 
     public function query_vars( $query_vars ) {

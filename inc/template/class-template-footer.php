@@ -77,7 +77,7 @@ class Marketify_Template_Footer {
     public function site_info() {
     ?>
         <div class="<?php echo $this->get_column_class(); ?>">
-            <h3 class="site-title site-title--footer"><a href="<?php echo home_url(); ?>">
+            <h3 class="site-title site-title--footer"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">
                 <?php if ( marketify_theme_mod( 'footer-copyright-logo' ) ) : ?>
                     <img src="<?php echo marketify_theme_mod( 'footer-copyright-logo' ); ?>" />
                 <?php else : ?>
