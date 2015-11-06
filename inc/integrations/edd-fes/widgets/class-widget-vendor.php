@@ -19,7 +19,7 @@ class Marketify_Widget_FES_Vendor extends Marketify_EDD_FES_Vendor_Widget {
     }
 
     function widget( $args, $instance ) {
-        $url = $this->vendor->url();
+        $url = esc_url( $this->vendor->url() );
         $display_name = $this->vendor->display_name();
         $registered = $this->vendor->date_registered();
 

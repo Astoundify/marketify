@@ -36,7 +36,7 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
         $count = isset( $instance[ 'purchase-count' ] ) && 1 == $instance[ 'purchase-count' ] ? false : true;
 
         $user = new WP_User( $post->post_author );
-        $url = marketify()->get( 'edd' )->template->author_url( $user->ID );
+        $url = esc_url( marketify()->get( 'edd' )->template->author_url( $user->ID ) );
 
         echo $args[ 'before_widget' ];
 

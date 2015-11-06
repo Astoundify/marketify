@@ -30,7 +30,7 @@ class Marketify_EDD_Template_Navigation {
                 <a href="%1$s" class="edd-checkout-link">' . __( 'Checkout', 'marketify' ) . '</span></a>
                 <ul class="sub-menu nav-menu"><li class="widget">%3$s</li></ul>
             </li>', 
-            get_permalink( edd_get_option( 'purchase_page' ) ), 
+            esc_url( get_permalink( edd_get_option( 'purchase_page' ) ) ),
             edd_get_cart_quantity(), 
             $widget 
         );

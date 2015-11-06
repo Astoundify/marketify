@@ -22,7 +22,7 @@ class Marketify_EDD_FES_Vendors {
             $fes = marketify()->get( 'edd-fes' );
             $vendor = $fes->vendor();
 
-            wp_redirect( $vendor->url( get_current_user_id() ) );
+            wp_redirect( esc_url( $vendor->url( get_current_user_id() ) ) );
             exit();
         }
     }

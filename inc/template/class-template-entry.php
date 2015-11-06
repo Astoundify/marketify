@@ -23,7 +23,7 @@ class Marketify_Template_Entry {
                 continue;
             }
 
-            $social[ $key ] = sprintf( '<a href="%1$s" target="_blank"><i class="ion-social-%2$s"></i></a>', $field, $key );
+            $social[ $key ] = sprintf( '<a href="%1$s" target="_blank"><i class="ion-social-%2$s"></i></a>', esc_url( $field ), $key );
         }
 
         $social = implode( ' ', $social );
