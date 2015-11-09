@@ -44,8 +44,15 @@ class Marketify_EDD extends Marketify_Integration {
 
     public function setup_actions() {
         add_action( 'after_setup_theme', array( $this, 'theme_support' ) );
-        add_filter( 'edd_default_downloads_name', array( marketify()->strings, 'get_labels' ) );
+        add_filter( 'edd_default_downloads_name', array( $this, 'get_labels' ) );
         add_action( 'init', array( $this, 'update_slug' ), -1 );
+    }
+
+    public function get_labels() {
+        return array(
+            'singular' => esc_attr( marketify_theme_mod( 'download-label-singular' ) ),
+            'plural' => esc_attr( marketify_theme_mod( 'download-label-plural' ) )
+        );
     }
 
     public function update_slug() {
@@ -53,7 +60,7 @@ class Marketify_EDD extends Marketify_Integration {
             return;
         }
 
-        $labels = marketify()->strings->get_labels();
+        $labels = $this->get_labels();
 
         define( 'EDD_SLUG', strtolower( $labels[ 'plural' ] ) );
     }
