@@ -42,5 +42,13 @@
     .edit-link a:before {
         content: $ionicon-var-edit;
     }
+}
 
+.entry-meta--footer {
+    .edit-link,
+    .entry-tags,
+    .entry-categories {
+        display: block;
+        margin-bottom: 0.5em;
+    }
 }

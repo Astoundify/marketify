@@ -15,9 +15,9 @@
             ) );
         ?>
 
-        <div class="entry-meta entry-meta--hentry">
+        <div class="entry-meta entry-meta--hentry entry-meta--footer">
             <?php the_tags( '<span class="entry-tags">', ', ', '</span>' ); ?>
-
+            <span class="entry-categories"><?php the_category( ', ' ); ?></span>
             <?php edit_post_link( __( 'Edit', 'marketify' ), '<span class="edit-link">', '</span>' ); ?>
         </div><!-- .entry-meta -->
     </div><!-- .entry-content -->
