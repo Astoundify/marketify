@@ -12,11 +12,9 @@ class Marketify_Template_Navigation {
             return $items;
         }
 
-        ob_start();
-
-        locate_template( array( 'searchform-header.php' ), true, false );
-
-        $searchform = ob_get_clean();
+        add_filter( 'get_search_form', array( marketify()->template->header, 'search_form' ) );
+        $searchform = get_search_form( false );
+        remove_filter( 'get_search_form', array( marketify()->template->header, 'search_form' ) );
 
         $link = sprintf( '<li class="nav-menu-search"><a href="#" class="js-toggle-search"><span class="screen-reader-text">%s</span></a>%s</li>', __( 'Search', 'marketify' ), $searchform );
 

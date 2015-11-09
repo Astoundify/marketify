@@ -60,5 +60,9 @@
         </header><!-- #masthead -->
 
         <div class="search-form-overlay">
-            <?php locate_template( array( 'searchform-header.php' ), true, false ); ?>
+            <?php
+                add_filter( 'get_search_form', array( marketify()->template->header, 'search_form' ) );
+                get_search_form();
+                remove_filter( 'get_search_form', array( marketify()->template->header, 'search_form' ) );
+            ?>
         </div>

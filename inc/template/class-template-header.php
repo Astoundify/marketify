@@ -26,4 +26,12 @@ class Marketify_Template_Header {
         ) );
     }
 
+    public function search_form() {
+        ob_start();
+
+        locate_template( array( 'searchform-header.php' ), true, false );
+
+        return ob_get_clean();
+    }
+
 }

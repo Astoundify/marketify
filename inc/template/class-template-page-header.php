@@ -38,7 +38,11 @@ class Marketify_Template_Page_Header {
         if ( is_page_template( 'page-templates/home-search.php' ) ) {
 ?>
 <div class="page-header__search">
-    <?php locate_template( array( 'searchform-header.php' ), true, false ); ?>
+<?php
+    add_filter( 'get_search_form', array( marketify()->template->header, 'search_form' ) );
+    get_search_form();
+    remove_filter( 'get_search_form', array( marketify()->template->header, 'search_form' ) );
+?>
 </div>
 <?php
         }
