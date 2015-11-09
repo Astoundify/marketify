@@ -20,7 +20,6 @@ class Marketify {
     public $activation;
     public $setup;
 
-    public $strings;
     public $integrations;
     public $widgets;
 
@@ -52,7 +51,6 @@ class Marketify {
 
             'setup/class-setup.php',
 
-            'class-strings.php',
             'class-helpers.php',
 
             'integrations/class-integration.php',
@@ -77,7 +75,6 @@ class Marketify {
         $this->activation = new Marketify_Activation();
         $this->setup = new Marketify_Setup();
 
-        $this->strings = new Marketify_Strings();
         $this->integrations = new Marketify_Integrations();
         $this->widgets = new Marketify_Widgets();
 
