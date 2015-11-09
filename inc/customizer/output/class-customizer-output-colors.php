@@ -9,7 +9,6 @@ class Marketify_Customizer_Output_Colors {
         add_action( 'marketify_output_customizer_css', array( $this, 'navigation' ), 20 );
         add_action( 'marketify_output_customizer_css', array( $this, 'primary' ), 30 );
         add_action( 'marketify_output_customizer_css', array( $this, 'accent' ), 30 );
-        add_action( 'marketify_output_customizer_css', array( $this, 'footer' ), 40 );
         add_action( 'marketify_output_customizer_css', array( $this, 'overlay' ), 40 );
         add_action( 'marketify_output_customizer_css', array( $this, 'minimal' ), 50 );
     }
