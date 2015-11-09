@@ -1,3 +1,12 @@
+=== Marketify Fifteen ===
+Contributors: Astoundify
+Requires at least: WordPress 4.3
+Tested up to: WordPress 4.3.1
+Version: 2.0.0
+License: GPLv3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Tags: white, two-columns, one-column, right-sidebar, left-sidebar, fluid-layout, custom-background, custom-header, theme-options, full-width-template, featured-images, flexible-header, custom-menu, translation-ready
+
 == Copyright ==
 
 Marketify Theme, Copyright 2014-2015 Astoundify -
@@ -40,10 +49,6 @@ Source: https://github.com/driftyco/ionicons
 
 = 2.0.0: TBD =
 
-* New: Individual control over standard, audio, and video download format layouts.
-* Fix:
-* Tweak:
-*
 
 = 1.2.5: January 20, 2015 =
 
