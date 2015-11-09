@@ -1,3 +1,41 @@
+== Copyright ==
+
+Marketify Theme, Copyright 2014-2015 Astoundify -
+Marketify is distributed under the terms of the GNU GPL.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+The Marketify theme bundles the following third-party resources:
+
+Bootstrap v3.0.3
+Copyright 2013 Twitter, Inc
+Licensed under the Apache License v2.0
+http://www.apache.org/licenses/LICENSE-2.0
+
+Slick.js v1.5.7, Copyright 2015 Ken Wheeler
+Licenses: MIT/GPL2
+Source: https://github.com/kenwheeler/slick/
+
+salvattore.js Copyright (c) 2013-2015 Rolando Murillo and Giorgio Leveroni
+License: MIT/GPL2
+Source: https://github.com/rnmp/salvattore/
+
+Magnific-Popup Copyright (c) 2014-2015 Dmitry Semenov, http://dimsemenov.com
+Licenses: MIT
+Source: https://github.com/dimsemenov/Magnific-Popup
+
+Ionicons icon font, Copyright (c) 2014 Drifty (http://drifty.com/)
+License: MIT
+Source: https://github.com/driftyco/ionicons
+
 == Changelog ==
 
 = 2.0.0: TBD =
