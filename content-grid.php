@@ -13,7 +13,7 @@ global $post;
 
             <div class="content-grid-download__actions">
                 <a href="<?php the_permalink(); ?>" rel="bookmark" class="button"><?php _e( 'Read More', 'marketify' ); ?></a>
-                <strong class="item-price"><span><?php comments_number( __( '0 Comments', 'marketify' ), __( '1 Comment', 'marketify' ), __( '%s Comments', 'marketify' ) ); ?></span></strong>
+                <strong class="item-price"><span><?php comments_number( __( '0 Comments', 'marketify' ), __( '1 Comment', 'marketify' ), __( '% Comments', 'marketify' ) ); ?></span></strong>
             </div>
         </div>
 

@@ -38,7 +38,7 @@ $more = 0;
                 <span class="entry-date"><?php echo get_the_date(); ?></span>
 
                 <?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
-                <span class="comments-link"><?php comments_popup_link( __( '0 Comments', 'marketify' ), __( '1 Comment', 'marketify' ), __( '%s Comments', 'marketify' ) ); ?></span>
+                <span class="comments-link"><?php comments_popup_link( __( '0 Comments', 'marketify' ), __( '1 Comment', 'marketify' ), __( '% Comments', 'marketify' ) ); ?></span>
                 <?php endif; ?>
 
                 <?php edit_post_link( __( 'Edit', 'marketify' ), '<span class="edit-link">', '</span>' ); ?>
