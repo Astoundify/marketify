@@ -2,9 +2,9 @@
 
 class Marketify_Template_Entry {
 
-	public function __construct() {
-		apply_filters( 'marketify_entry_author_social', array( $this, 'author_social' ) );
-	}
+    public function __construct() {
+        apply_filters( 'marketify_entry_author_social', array( $this, 'author_social' ) );
+    }
 
     /**
      * Any custom social profiles that are added should take a full URL.

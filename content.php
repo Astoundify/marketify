@@ -35,7 +35,7 @@ $more = 0;
                     );
                 ?>
 
-                <span class="entry-date"><?php echo get_the_date(); ?></span>
+                <span class="entry-date"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php echo get_the_date(); ?></a></span>
 
                 <?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
                 <span class="comments-link"><?php comments_popup_link( __( '0 Comments', 'marketify' ), __( '1 Comment', 'marketify' ), __( '% Comments', 'marketify' ) ); ?></span>
