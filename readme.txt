@@ -49,6 +49,34 @@ Source: https://github.com/driftyco/ionicons
 
 = 2.0.0: TBD =
 
+Version 2.0.0 of Marketify is a total rewrite of the theme. Please do not update directly on your production server.
+You should always test the update on a staging server first.
+
+Please thoroughly review: http://marketify.astoundify.com/article/888-upgrading-to-marketify-2-0-0
+
+This update brings both functionality and visual changes. Marketify has been refocused on being a digital marketplace
+with extraneous functionalities being deprecated or removed.
+
+* New: Setup Guide to help you get going within minutes.
+* New: Style updates including an updated primary menu with a more flexible responsive menu.
+       Updated Icon pack to Ionicons which includes hundreds of new icons. http://ionicons.com/
+       More consistent and flexible styling throughout the theme.
+* New: Individually control the featured areas of standard, audio, and video downloads.
+* New: Full support for FacetWP.
+* New: Share your downloads, posts, and pages with Jetpack: http://marketify.astoundify.com/article/787-download-single-share
+* New: Choose with image upload to use as the grid image automatically in your submission form.
+* New: Three separate footer column widget areas.
+* New: Widgetized vendor sidebar for Frontend Submissions.
+* New: Full Frontend Submissions 2.3+ support.
+* New: Ability to adjust /download/ slug permalinks based on customized labels.
+* New: Use WordPress' core audio player to improve speed and reduce assets.
+* New: Rewrite of all responsive modules.
+* Fix: Hundreds of stabilility improvements and hardenings. Reviewed by ThemeReview.co
+* Deprecated: Frontend Submissions Product Details. Replaced with http://marketify.astoundify.com/article/889-download-single-meta
+* Deprecated: Soliloquy Slider support. Replaced with http://marketify.astoundify.com/article/777-home-feature-callout
+* Deprecated: Custom bbPress styles.
+* Deprecated: Custom user contact methods.
+* Removed: Projects by WooThemes Support
 
 = 1.2.5: January 20, 2015 =
 
