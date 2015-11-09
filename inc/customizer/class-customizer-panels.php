@@ -66,7 +66,7 @@ class Marketify_Customizer_Panels {
             )
         );
 
-        return apply_filters( 'marketify_customizer_panels', $this->panels );
+        return $this->panels;
     }
 
     public function register_panels( $wp_customize ) {
