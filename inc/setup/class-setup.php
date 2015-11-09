@@ -180,7 +180,7 @@ class Marketify_Setup {
 
     public function welcome() {
     ?>
-        <h1><?php printf( __( 'Welcome to %s %s', 'marketify' ), $this->theme->Name, $this->theme->Version ); ?></h1>
+        <h1><?php printf( __( 'Welcome to %s', 'marketify' ), esc_attr( $this->theme->Name . ' ' . $this->theme->Version ) ); ?></h1>
         <p class="about-text"><?php printf( __( 'Creating a digital marketplace has never been easier with Marketify&mdash;Use the steps below to start setting up your new website. If you have more questions please <a href="%s">review the documentation</a>.', 'marketify' ), 'http://marketify.astoundify.com' ); ?></p>
         <div class="marketify-badge"><img src="<?php echo get_template_directory_uri(); ?>/inc/setup/images/banner.jpg" width="140" alt="" /></div>
     <?php
