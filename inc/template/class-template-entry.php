@@ -6,24 +6,31 @@ class Marketify_Template_Entry {
 		apply_filters( 'marketify_entry_author_social', array( $this, 'author_social' ) );
 	}
 
+    /**
+     * Any custom social profiles that are added should take a full URL.
+     */
     public function social_profiles( $user_id = null ) {
         global $post;
 
-        $methods = _wp_get_user_contactmethods();
+        $methods = wp_get_user_contact_methods();
         $social  = array();
 
         if ( ! $user_id ) {
-            $user_id = get_the_author_meta( 'ID', $post->ID );
+            $user_id = get_the_author_meta( 'ID', $post->post_author );
         }
 
         foreach ( $methods as $key => $method ) {
-            $field = get_the_author_meta( $key, $user_id );
+            $url = get_the_author_meta( $key, $user_id );
 
-            if ( ! $field ) {
+            if ( ! $url ) {
                 continue;
             }
 
-            $social[ $key ] = sprintf( '<a href="%1$s" target="_blank"><i class="ion-social-%2$s"></i></a>', esc_url( $field ), $key );
+            if ( false === filter_var( $url, FILTER_VALIDATE_URL ) ) {
+                $url = apply_filters( 'marketify_contact_method_' . $key . '_url', '' );
+            }
+
+            $social[ $key ] = sprintf( '<a href="%1$s" target="_blank"><i class="ion-social-%2$s"></i></a>', esc_url( $url ), esc_attr( $key ) );
         }
 
         $social = implode( ' ', $social );
