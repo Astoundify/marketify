@@ -53,3 +53,11 @@
         line-height: 1.75;
     }
 }
+
+.page-title,
+.entry-content,
+.entry-summary,
+.comment-content,
+.widget {
+    word-break: break-word;
+}
