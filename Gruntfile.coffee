@@ -67,7 +67,7 @@ module.exports = () ->
     exec:
       txpull:
         cmd: 'tx pull -a --minimum-perc=75'
-      txpush_s:
+      txpush:
         cmd: 'tx push -s'
 
     potomo:
@@ -122,8 +122,8 @@ module.exports = () ->
 
   @registerTask 'default', ['watch']
 
-  @registerTask 'getTranslations', [ 'exec:tx_pull', 'potomo' ]
-  @registerTask 'pushTranslation', [ 'makepot', 'exec:tx_push' ]
+  @registerTask 'getTranslations', [ 'exec:txpull', 'potomo' ]
+  @registerTask 'pushTranslation', [ 'makepot', 'exec:txpush' ]
   @registerTask 'checkTranslation', [ 'checktextdomain' ]
 
-  @registerTask 'build', [ 'uglify', 'coffee', 'sass', 'cssmin', 'getTranslation', 'pushTranslation' ]
+  @registerTask 'build', [ 'uglify', 'coffee', 'sass', 'cssmin', 'getTranslations', 'pushTranslation' ]

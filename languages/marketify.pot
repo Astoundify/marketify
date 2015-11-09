@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Marketify 2.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2015-10-12 19:57:38+00:00\n"
+"POT-Creation-Date: 2015-11-09 16:56:06+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,47 +13,43 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.4.9\n"
 
-#: 404.php:11
-msgid "Oops! That page can&rsquo;t be found."
-msgstr ""
-
-#: 404.php:24
+#: 404.php:20
 msgid ""
 "It looks like nothing was found at this location. Maybe try one of the "
 "links below or a search?"
 msgstr ""
 
-#: 404.php:37
+#: 404.php:31
 msgid "Most Used Categories"
 msgstr ""
 
 #: bbpress/form-search.php:15 inc/template/class-template-navigation.php:21
-#: searchform-header.php:11 searchform-header.php:14 searchform.php:25
+#: searchform-header.php:11 searchform-header.php:14 searchform.php:27
 msgid "Search"
 msgstr ""
 
-#: bbpress/form-search.php:15 searchform-header.php:11 searchform.php:25
+#: bbpress/form-search.php:15 searchform-header.php:11 searchform.php:27
 msgid "Search for:"
 msgstr ""
 
-#: comments.php:28
+#: comments.php:29
 msgid "Comments"
 msgstr ""
 
-#: comments.php:42
+#: comments.php:43
 msgid "Comment navigation"
 msgstr ""
 
-#: comments.php:43
+#: comments.php:44
 msgid "Older Comments"
 msgstr ""
 
-#: comments.php:44
+#: comments.php:45
 msgid "Newer Comments"
 msgstr ""
 
 #: content-author.php:26 content.php:31
-#: inc/template/class-template-page-header.php:97 page-templates/team.php:57
+#: inc/template/class-template-page-header.php:109 page-templates/team.php:57
 msgid "View all posts by %s"
 msgstr ""
 
@@ -70,7 +66,7 @@ msgid "1 Comment"
 msgstr ""
 
 #: content-grid.php:16 content.php:41
-msgid "%s Comments"
+msgid "% Comments"
 msgstr ""
 
 #: content-page.php:14 content-single-download.php:23 content-single.php:13
@@ -90,11 +86,11 @@ msgstr ""
 msgid "<span class=\"byline\">%1$s</span>"
 msgstr ""
 
-#: edd_templates/shortcode-content-image.php:16
+#: edd_templates/shortcode-content-image.php:18
 msgid "Details"
 msgstr ""
 
-#: edd_templates/shortcode-content-image.php:18
+#: edd_templates/shortcode-content-image.php:20
 msgid "Item Price: %s"
 msgstr ""
 
@@ -102,48 +98,48 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
-#: inc/customizer/class-customizer-panels.php:15
+#: inc/customizer/class-customizer-panels.php:16
 msgid "General"
 msgstr ""
 
-#: inc/customizer/class-customizer-panels.php:20
+#: inc/customizer/class-customizer-panels.php:22
 msgid "Appearance"
 msgstr ""
 
-#: inc/customizer/class-customizer-panels.php:23
+#: inc/customizer/class-customizer-panels.php:25
 msgid "Colors"
 msgstr ""
 
-#: inc/customizer/class-customizer-panels.php:26
-#: inc/customizer/class-customizer-panels.php:52
+#: inc/customizer/class-customizer-panels.php:28
+#: inc/customizer/class-customizer-panels.php:58
 msgid "Footer"
 msgstr ""
 
-#: inc/customizer/class-customizer-panels.php:35
+#: inc/customizer/class-customizer-panels.php:39
 msgid "Labels & Behavior"
 msgstr ""
 
-#: inc/customizer/class-customizer-panels.php:38
+#: inc/customizer/class-customizer-panels.php:42
 msgid "Shop"
 msgstr ""
 
-#: inc/customizer/class-customizer-panels.php:41
+#: inc/customizer/class-customizer-panels.php:45
 msgid "Standard %s"
 msgstr ""
 
-#: inc/customizer/class-customizer-panels.php:44
+#: inc/customizer/class-customizer-panels.php:48
 msgid "Audio %s"
 msgstr ""
 
-#: inc/customizer/class-customizer-panels.php:47
+#: inc/customizer/class-customizer-panels.php:51
 msgid "Video %s"
 msgstr ""
 
-#: inc/customizer/class-customizer-panels.php:55
+#: inc/customizer/class-customizer-panels.php:61
 msgid "Contact Us"
 msgstr ""
 
-#: inc/customizer/class-customizer-panels.php:58
+#: inc/customizer/class-customizer-panels.php:64
 #: inc/customizer/controls/class-controls-copyright.php:28
 msgid "Copyright"
 msgstr ""
@@ -328,12 +324,12 @@ msgstr ""
 msgid "%s Demo URL"
 msgstr ""
 
-#: inc/integrations/edd/class-edd-popular.php:72
-#: inc/integrations/edd/class-edd-popular.php:82
+#: inc/integrations/edd/class-edd-popular.php:78
+#: inc/integrations/edd/class-edd-popular.php:88
 msgid "Popular in %s"
 msgstr ""
 
-#: inc/integrations/edd/class-edd-popular.php:74
+#: inc/integrations/edd/class-edd-popular.php:80
 msgid "Popular %s"
 msgstr ""
 
@@ -359,7 +355,7 @@ msgstr ""
 msgid "Sales"
 msgstr ""
 
-#: inc/integrations/edd/class-edd-template-download.php:70
+#: inc/integrations/edd/class-edd-template-download.php:75
 msgid "Demo"
 msgstr ""
 
@@ -405,15 +401,15 @@ msgstr ""
 msgid "Title:"
 msgstr ""
 
-#: inc/integrations/edd/widgets/class-widget-download-archive-sorting.php:38
+#: inc/integrations/edd/widgets/class-widget-download-archive-sorting.php:40
 msgid "Sort by"
 msgstr ""
 
-#: inc/integrations/edd/widgets/class-widget-download-archive-sorting.php:52
+#: inc/integrations/edd/widgets/class-widget-download-archive-sorting.php:54
 msgid "ASC"
 msgstr ""
 
-#: inc/integrations/edd/widgets/class-widget-download-archive-sorting.php:57
+#: inc/integrations/edd/widgets/class-widget-download-archive-sorting.php:59
 msgid "DESC"
 msgstr ""
 
@@ -556,10 +552,6 @@ msgstr ""
 msgid "Marketify - %1$s: %1$s Meta"
 msgstr ""
 
-#: inc/integrations/edd-fes/widgets/class-widget-product-details.php:18
-msgid "Fields to Output:"
-msgstr ""
-
 #: inc/integrations/edd-fes/widgets/class-widget-vendor-contact.php:7
 msgid "Display the vendor contact form."
 msgstr ""
@@ -610,31 +602,23 @@ msgstr ""
 msgid "Marketify - Download Single: Review Details "
 msgstr ""
 
-#: inc/integrations/edd-product-reviews/widgets/class-widget-download-review-details.php:60
-msgid "Buyer Ratings"
-msgstr ""
-
-#: inc/integrations/edd-product-reviews/widgets/class-widget-download-review-details.php:75
-msgid "%s average based on %d reviews."
-msgstr ""
-
-#: inc/integrations/edd-recommended-products/class-edd-recommended-products.php:50
+#: inc/integrations/edd-recommended-products/class-edd-recommended-products.php:46
 msgid "Recommended Products"
 msgstr ""
 
-#: inc/integrations/facetwp/class-facetwp.php:61
+#: inc/integrations/facetwp/class-facetwp.php:68
 msgid "Sales (Most)"
 msgstr ""
 
-#: inc/integrations/facetwp/class-facetwp.php:70
+#: inc/integrations/facetwp/class-facetwp.php:77
 msgid "Sales (Fewest)"
 msgstr ""
 
-#: inc/integrations/facetwp/class-facetwp.php:79
+#: inc/integrations/facetwp/class-facetwp.php:86
 msgid "Price (Highest)"
 msgstr ""
 
-#: inc/integrations/facetwp/class-facetwp.php:88
+#: inc/integrations/facetwp/class-facetwp.php:95
 msgid "Price (Lowest)"
 msgstr ""
 
@@ -642,27 +626,27 @@ msgstr ""
 msgid "%s's Likes"
 msgstr ""
 
-#: inc/integrations/multiple-post-thumbnails/class-multiple-post-thumbnails.php:21
+#: inc/integrations/multiple-post-thumbnails/class-multiple-post-thumbnails.php:31
 msgid "Grid Image"
 msgstr ""
 
-#: inc/integrations/multiple-post-thumbnails/class-multiple-post-thumbnails.php:49
+#: inc/integrations/multiple-post-thumbnails/class-multiple-post-thumbnails.php:63
 msgid "Use as Grid Thumbnail"
 msgstr ""
 
-#: inc/integrations/multiple-post-thumbnails/class-multiple-post-thumbnails.php:54
+#: inc/integrations/multiple-post-thumbnails/class-multiple-post-thumbnails.php:68
 msgid "Use this image as the grid thumbnail."
 msgstr ""
 
-#: inc/integrations/soliloquy-slider/widgets/class-widget-slider-soliloquy.php:14
+#: inc/integrations/soliloquy/widgets/class-widget-slider-soliloquy.php:7
 msgid "Display \"Hero\" Soliloquy slider."
 msgstr ""
 
-#: inc/integrations/soliloquy-slider/widgets/class-widget-slider-soliloquy.php:16
+#: inc/integrations/soliloquy/widgets/class-widget-slider-soliloquy.php:9
 msgid "Marketify - Home: Soliloquy Slider"
 msgstr ""
 
-#: inc/integrations/soliloquy-slider/widgets/class-widget-slider-soliloquy.php:20
+#: inc/integrations/soliloquy/widgets/class-widget-slider-soliloquy.php:13
 msgid "Slider:"
 msgstr ""
 
@@ -671,6 +655,7 @@ msgid "Install Required Plugins"
 msgstr ""
 
 #: inc/integrations/tgmpa/class-tgm-plugin-activation.php:334
+#: inc/setup/steps/install-plugins.php:14
 msgid "Install Plugins"
 msgstr ""
 
@@ -1048,7 +1033,7 @@ msgstr ""
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/setup/class-setup.php:21
+#: inc/setup/class-setup.php:20
 msgid "Install Required &amp; Recommended Plugins"
 msgstr ""
 
@@ -1060,64 +1045,217 @@ msgstr ""
 msgid "Import Widgets"
 msgstr ""
 
-#: inc/setup/class-setup.php:48
+#: inc/setup/class-setup.php:74
 msgid "Setup Menus"
 msgstr ""
 
-#: inc/setup/class-setup.php:57
+#: inc/setup/class-setup.php:83
 msgid "Setup Static Homepage"
 msgstr ""
 
-#: inc/setup/class-setup.php:65
+#: inc/setup/class-setup.php:92
 msgid "Setup Widgets"
 msgstr ""
 
-#: inc/setup/class-setup.php:73
+#: inc/setup/class-setup.php:101
 msgid "Customize"
 msgstr ""
 
-#: inc/setup/class-setup.php:82
+#: inc/setup/class-setup.php:111
 msgid "Get Involved"
 msgstr ""
 
-#: inc/setup/class-setup.php:97
+#: inc/setup/class-setup.php:125
 msgid "Marketify Setup"
 msgstr ""
 
-#: inc/setup/class-setup.php:97
+#: inc/setup/class-setup.php:125
 msgid "Setup Guide"
 msgstr ""
 
-#: inc/setup/class-setup.php:121
+#: inc/setup/class-setup.php:147
 msgid "Completed!"
 msgstr ""
 
-#: inc/setup/class-setup.php:123
+#: inc/setup/class-setup.php:149
 msgid "Incomplete"
 msgstr ""
 
-#: inc/setup/class-setup.php:130
+#: inc/setup/class-setup.php:156
 msgid "You can read more and watch helpful video tutorials below:"
 msgstr ""
 
-#: inc/setup/class-setup.php:156
-msgid "Welcome to %s %s"
+#: inc/setup/class-setup.php:183
+msgid "Welcome to %s"
 msgstr ""
 
-#: inc/setup/class-setup.php:157
+#: inc/setup/class-setup.php:184
 msgid ""
 "Creating a digital marketplace has never been easier with "
-"Marketify&mdash;Use the steps below to finish setting up your new website. "
+"Marketify&mdash;Use the steps below to start setting up your new website. "
 "If you have more questions please <a href=\"%s\">review the "
 "documentation</a>."
 msgstr ""
 
-#: inc/setup/class-setup.php:165
-msgid "Documentation"
+#: inc/setup/class-setup.php:192
+msgid "Search Documentation"
 msgstr ""
 
-#: inc/setup/class-setup.php:166
+#: inc/setup/class-setup.php:193
 msgid "Submit a Support Ticket"
+msgstr ""
+
+#: inc/setup/steps/import-content.php:5
+msgid ""
+"Installing the demo content is not required to use this theme. It is simply "
+"meant to provide a way to get a feel for the theme without having to "
+"manually set up all of your own content. <strong>If you choose not to "
+"import the demo content you need to make sure you manually create all "
+"necessary page templates for your website.</strong>"
+msgstr ""
+
+#: inc/setup/steps/import-content.php:7
+msgid ""
+"The Marketify theme package includes multiple demo content .XML files. This "
+"is what you will upload to the WordPress importer. Depending on the plugins "
+"you have activated or the intended use of your website you may not need to "
+"upload all the .XML files."
+msgstr ""
+
+#: inc/setup/steps/import-content.php:9
+msgid "Begin Importing Content"
+msgstr ""
+
+#: inc/setup/steps/import-widgets.php:5
+msgid ""
+"Importing the demo widgets is not required to use this theme. It simply "
+"allows you to quickly match the same settings found on our theme demo. If "
+"you do not import the widgets you can manually manage your widgets just "
+"like a standard WordPress widget area."
+msgstr ""
+
+#: inc/setup/steps/import-widgets.php:7
+msgid "Begin Importing Widgets"
+msgstr ""
+
+#: inc/setup/steps/install-plugins.php:5
+msgid ""
+"Before you can use Marketify you must first install Easy Digital Downloads "
+"at minimum. You can read about <a "
+"href=\"http://marketify.astoundify.com/article/711-why-does-this-theme-"
+"require-plugins-to-function\">why this theme requires plugins</a> in our "
+"documentation."
+msgstr ""
+
+#: inc/setup/steps/install-plugins.php:7
+msgid "Note:"
+msgstr ""
+
+#: inc/setup/steps/install-plugins.php:9
+msgid ""
+"Only free plugins/add-ons can be installed automatically. You will need to "
+"install any premium plugins/add-ons separately."
+msgstr ""
+
+#: inc/setup/steps/install-plugins.php:10
+msgid ""
+"It is recommended you install and activate any additional plugins you plan "
+"on using before importing any XML content."
+msgstr ""
+
+#: inc/setup/steps/install-plugins.php:11
+msgid ""
+"Once your plugins are installed and content is imported please review all "
+"plugin settings pages to make sure everything has been properly set up."
+msgstr ""
+
+#: inc/setup/steps/setup-edd.php:1
+msgid ""
+"When Easy Digital Downloads is activated it will automatically create pages "
+"for your store. You need to do a few things to complete this setup:"
+msgstr ""
+
+#: inc/setup/steps/setup-edd.php:4
+msgid "Add the Easy Digital Downloads pages to your Menu"
+msgstr ""
+
+#: inc/setup/steps/setup-edd.php:5
+msgid "Configure your Easy Digital Downloads settings"
+msgstr ""
+
+#: inc/setup/steps/setup-edd.php:6
+msgid "Add your first download"
+msgstr ""
+
+#: inc/setup/steps/setup-fes.php:1
+msgid ""
+"When Easy Digital Downloads - Frontend Submissions is activated it will "
+"automatically create pages for your store. You need to do a few things to "
+"complete this setup:"
+msgstr ""
+
+#: inc/setup/steps/setup-fes.php:4
+msgid "Add the Frontend Submissions pages to your Menu"
+msgstr ""
+
+#: inc/setup/steps/setup-fes.php:5
+msgid "Turn off the Frontend Submission&#39;s CSS"
+msgstr ""
+
+#: inc/setup/steps/setup-fes.php:6
+msgid "Configure your Submission form"
+msgstr ""
+
+#: inc/setup/steps/setup-fes.php:7
+msgid "Configure your Registration form"
+msgstr ""
+
+#: inc/setup/steps/setup-fes.php:8
+msgid "Configure your Profile form"
+msgstr ""
+
+#: inc/setup/steps/setup-homepage.php:5
+msgid ""
+"In order to display custom widgets on your homepage you must first assign "
+"your static page in the WordPress settings. You can also set which page "
+"will display your blog posts."
+msgstr ""
+
+#: inc/setup/steps/setup-homepage.php:7
+msgid "Reading Settings"
+msgstr ""
+
+#: inc/setup/steps/setup-menus.php:5
+msgid ""
+"Make sure you create and assign your menus to the menu locations found in "
+"the theme."
+msgstr ""
+
+#: inc/setup/steps/setup-menus.php:7
+msgid ""
+"<strong>Missing items in your menu?</strong> Make sure you have added pages "
+"that are automatically generated by Easy Digital Downloads and any "
+"applicable plugins."
+msgstr ""
+
+#: inc/setup/steps/setup-menus.php:9
+msgid "Manage Menus"
+msgstr ""
+
+#: inc/setup/steps/setup-widgets.php:1
+msgid ""
+"Manage your widgets to control what displays on your homepage, listing "
+"pages, standard pages, and more."
+msgstr ""
+
+#: inc/setup/steps/setup-widgets.php:3
+msgid "Manage Widgets"
+msgstr ""
+
+#: inc/setup/steps/support-us.php:1
+msgid ""
+"Help improve Marketify by submitting a rating and helping to translate the "
+"theme to as many languages as possible!"
 msgstr ""
 
 #: inc/template/class-template-comments.php:23
@@ -1136,8 +1274,16 @@ msgstr ""
 msgid "Footer Social"
 msgstr ""
 
-#: inc/template/class-template-page-header.php:26
+#: inc/template/class-template-page-header.php:29
+msgid "Blog"
+msgstr ""
+
+#: inc/template/class-template-page-header.php:83
 msgid "All %s"
+msgstr ""
+
+#: inc/template/class-template-page-header.php:127
+msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
 #: inc/widgets/_widgets/class-widget-blog-posts.php:7
@@ -1302,7 +1448,7 @@ msgstr ""
 msgid "Slider Shortcode"
 msgstr ""
 
-#: inc/widgets/class-widget.php:230
+#: inc/widgets/class-widget.php:231
 msgid "Choose Image"
 msgstr ""
 
@@ -1368,7 +1514,7 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: page-templates/wishlist.php:48
+#: page-templates/wishlist.php:47
 msgid "Love"
 msgid_plural "Loves"
 msgstr[0] ""
@@ -1378,7 +1524,7 @@ msgstr[1] ""
 msgid "Close"
 msgstr ""
 
-#: searchform.php:22
+#: searchform.php:24
 msgid "Submit"
 msgstr ""
 
@@ -1446,7 +1592,7 @@ msgstr ""
 msgid "Account: Loves"
 msgstr ""
 
-#: bbpress/form-search.php:14 searchform-header.php:10 searchform.php:24
+#: bbpress/form-search.php:14 searchform-header.php:10 searchform.php:26
 msgctxt "label"
 msgid "Search for:"
 msgstr ""
@@ -1456,7 +1602,7 @@ msgctxt "URL slug to determine category sorting"
 msgid "popular"
 msgstr ""
 
-#: inc/integrations/edd/class-edd-popular.php:70
+#: inc/integrations/edd/class-edd-popular.php:76
 msgctxt "popular search results"
 msgid "Popular in \"%s\""
 msgstr ""
@@ -1514,15 +1660,6 @@ msgid "on"
 msgstr ""
 
 #: inc/template/class-template-assets.php:63
-#. Translators: If there are characters in your language that are not
-#. * supported by Roboto Slab, translate this to 'off'. Do not
-#. translate into your
-#. * own language.
-msgctxt "Roboto Slab font: on or off"
-msgid "on"
-msgstr ""
-
-#: inc/template/class-template-assets.php:69
 #. Translators: If there are characters in your language that are not
 #. * supported by Montserrat, translate this to 'off'. Do not
 #. translate into your
