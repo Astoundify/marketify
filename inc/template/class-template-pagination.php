@@ -7,23 +7,10 @@ class Marketify_Template_Pagination {
     }
 
     public function output() {
-        global $wp_query;
-
-        $big = 999999999;
-
-        $links = paginate_links( array(
-            'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-            'format' => '?paged=%#%',
-            'current' => max( 1, get_query_var('paged') ),
-            'total' => $wp_query->max_num_pages,
+        the_posts_pagination( array(
             'prev_text' => __( 'Previous', 'marketify' ),
             'next_text' => __( 'Next', 'marketify' )
         ) );
-    ?>
-        <div class="paginate-links container">
-            <?php echo $links; ?>
-        </div>
-    <?php
     }
 
 }
