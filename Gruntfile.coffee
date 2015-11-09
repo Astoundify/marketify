@@ -29,7 +29,7 @@ module.exports = () ->
     concat:
       initial:
         files:
-          'css/style.css': [ 'css/vendor/*.css', 'css/style.css']
+          'css/style.css': [ 'css/vendor/**/*.css', 'js/vendor/**/*.css', 'css/style.css']
       header:
         files:
           'style.css': [ 'css/_theme.css', 'css/style.min.css' ]
@@ -52,11 +52,11 @@ module.exports = () ->
           sourceMap: true
         files:
           'js/marketify.min.js': [
-            'js/vendor/*.js'
+            'js/vendor/**/*.js'
             'js/app/marketify.js'
             'js/widgets/featured-popular.js'
             'js/widgets/testimonials.js'
-            '!js/vendor/salvattore.min.js'
+            '!js/vendor/salvattore/*.js'
           ]
 
     makepot:

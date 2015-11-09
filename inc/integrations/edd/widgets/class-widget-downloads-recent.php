@@ -39,7 +39,7 @@ class Marketify_Widget_Recent_Downloads extends Marketify_Widget {
         echo $args[ 'before_widget' ];
 
         if ( $title ) {
-            echo $before_title . esc_attr( $title ) . $after_title;
+            echo $args[ 'before_title' ] . esc_attr( $title ) . $args[ 'after_title' ];
         }
         ?>
 
