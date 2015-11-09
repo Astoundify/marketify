@@ -30,8 +30,8 @@
     border-top: 1px solid #eee;
 }
 
-.content-area,
-.page-header {
+.single-download .content-area,
+.single-download .page-header {
     .wp-playlist {
         margin: 3em auto;
 
@@ -91,7 +91,7 @@
     }
 }
 
-.content-area {
+.single-download .content-area {
     .wp-playlist-tracks,
     .mejs-controls {
         border-color: $accent;
