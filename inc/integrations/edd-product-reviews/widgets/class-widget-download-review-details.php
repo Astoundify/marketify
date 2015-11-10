@@ -43,7 +43,7 @@ class Marketify_Widget_Download_Review_Details extends Marketify_Widget {
         $reviews = edd_reviews();
 
         echo $before_widget;
-        echo $reviews->maybe_show_review_breakdown();
+        echo $reviews->review_breakdown();
         echo $after_widget;
     }
 

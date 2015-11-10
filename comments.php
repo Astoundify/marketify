@@ -26,7 +26,7 @@ if ( post_password_required() || ! ( comments_open() || get_comments_number() ) 
 
         <?php if ( have_comments() ) : ?>
             <h2 class="comments-title section-title"><span>
-                <?php _e( 'Comments', 'marketify' ); ?>
+                <?php echo marketify()->get( 'edd-product-reviews' ) ? __( 'Reviews', 'marketify' ) : __( 'Comments', 'marketify' ); ?>
             </span></h2>
 
             <ol class="comment-list">
