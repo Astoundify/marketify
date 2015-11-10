@@ -13,6 +13,10 @@ input[type=submit],
     border-radius: 0;
     height: auto;
 
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+
     @include bp(md) {
         padding: 10px 20px;
     }

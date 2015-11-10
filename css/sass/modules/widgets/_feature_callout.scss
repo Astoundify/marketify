@@ -40,6 +40,11 @@
 		position: relative;
 		z-index: 2;
 	}
+
+    .button {
+        @extend .button--size-large;
+        @extend .button--color-white;
+    }
 }
 
 .feature-callout.text-right {
