@@ -1,5 +1,6 @@
 .entry-content >,
-.entry-summary > {
+.entry-summary >,
+.entry-content div[itemprop=description] > {
     h1,
     h2,
     h3,
