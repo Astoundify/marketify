@@ -18,15 +18,18 @@ class Marketify_Customizer_Controls_Footer_Contact_Us extends Marketify_Customiz
         $this->controls = array(
             'footer-contact-us-display' => array(
                 'label' => __( 'Display "Contact Us" Section', 'marketify' ),
-                'type'    => 'checkbox'
+                'type' => 'checkbox',
+                'sanitize_callback' => 'esc_attr'
             ),
             'footer-contact-us-title' => array(
                 'label' => __( 'Title', 'marketify' ),
-                'type'    => 'text'
+                'type' => 'text',
+                'sanitize_callbackk' => 'esc_attr'
             ),
             'footer-contact-us-address' => array(
                 'label' => __( 'Contact Address/Information', 'marketify' ),
-                'type'  => 'textrea'
+                'type' => 'textarea',
+                'sanitize_callback' => 'wp_kses_post'
             ),
         );
 

@@ -65,7 +65,7 @@ class Marketify_Template_Footer {
         <div class="<?php echo $this->get_column_class(); ?>">
             <h3 class="widget-title widget-title--site-footer"><?php echo esc_attr( marketify_theme_mod( 'footer-contact-us-title' ) ); ?></h3>
 
-            <?php echo esc_attr( marketify_theme_mod( 'footer-contact-us-address' ) ); ?>
+            <?php echo wp_kses_post( marketify_theme_mod( 'footer-contact-us-address' ) ); ?>
         </div>
     <?php
     }
@@ -85,7 +85,7 @@ class Marketify_Template_Footer {
                 <?php endif; ?>
             </a></h3>
 
-            <?php echo esc_attr( marketify_theme_mod( 'footer-copyright-text' ) ); ?>
+            <?php echo wp_kses_post( marketify_theme_mod( 'footer-copyright-text' ) ); ?>
         </div>
     <?php
     }

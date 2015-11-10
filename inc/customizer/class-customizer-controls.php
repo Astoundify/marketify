@@ -21,7 +21,8 @@ class Marketify_Customizer_Controls {
             $control = wp_parse_args( $control, $defaults );
 
             $wp_customize->add_setting( $key, array(
-                'default' => marketify_theme_mod( $key )
+                'default' => marketify_theme_mod( $key ),
+                'sanitize_callback' => isset( $control[ 'sanitize_callback' ] ) ? $control[ 'sanitize_callback' ] : null
             ) );
 
             if ( class_exists( $control[ 'type' ] ) ) { 

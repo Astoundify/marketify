@@ -18,15 +18,18 @@ class Marketify_Customizer_Controls_Footer_Copyright extends Marketify_Customize
         $this->controls = array(
             'footer-copyright-display' => array(
                 'label' => __( 'Display "Copyright" Section', 'marketify' ),
-                'type'    => 'checkbox'
+                'type' => 'checkbox',
+                'sanitize_callback' => 'esc_attr'
             ),
             'footer-copyright-logo' => array(
                 'label' => __( 'Logo', 'marketify' ),
-                'type'    => 'WP_Customize_Image_Control'
+                'type' => 'WP_Customize_Image_Control',
+                'sanitize_callback' => 'esc_url'
             ),
             'footer-copyright-text' => array(
                 'label' => __( 'Copyright', 'marketify' ),
                 'type' => 'textarea',
+                'sanitize_callback' => 'wp_kses_post'
             ),
         );
 
