@@ -47,3 +47,10 @@
     }
 }
 
+.edd_terms_links {
+    @extend .button;
+}
+
+#edd_show_terms {
+    margin-bottom: 0.5em;
+}
