@@ -20,38 +20,27 @@ class Marketify_Template_Header {
     }
 
     public function frontend_style() {
-        $header_text_color = get_header_textcolor();
+	$header_text_color = get_header_textcolor();
 ?>
     <style type="text/css">
-<?php
-    // Has the text been hidden?
-    if ( 'blank' == $header_text_color ) :
-?>
+    <?php
+        // Has the text been hidden?
+        if ( 'blank' == $header_text_color ) :
+    ?>
         .site-branding .site-title,
         .site-branding .site-description,
         .site-header-minimal .site-title,
         .site-header-minimal .site-description {
-            position: absolute;
-            clip: rect(1px, 1px, 1px, 1px);
+            display: none;
         }
-<?php
-    $header_text_color = 'fff';
-    // If the user has set a custom color for the text use that
-    endif;
-?>
+    <?php
+        endif;
+    ?>
     .site-title a,
-    .site-description,
-    .nav-menu--primary li > a,
-    .nav-menu.nav-menu--primary li.menu-item-has-children:after,
-    .nav-menu.nav-menu--primary li.page_item_has_children:after {
+    .site-description {
         color: #<?php echo $header_text_color; ?>;
     }
-
-    .nav-menu--primary li:hover:not(.menu-item-has-children):not(.page_item_has_children) {
-        box-shadow: 0 0 0 3px #<?php echo $header_text_color; ?>;
-    }
-}
-</style>
+    </style>
 <?php
     }
 

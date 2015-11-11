@@ -1,17 +1,17 @@
 .site-title {
     @include montserrat(700, 26px);
-	clear: none;
+    margin: 0;
+    clear: none;
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
 }
 
 .site-title a {
 	color: #fff;
 	text-decoration: none;
-}
 
-.site-title a:hover {
-	color: #fff;
-}
-
-.site-branding .custom-header img {
-	display: block;
+    &:hover {
+        color: #fff;
+    }
 }
