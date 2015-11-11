@@ -21,4 +21,13 @@ body {
     .edd_download a.edd-wl-action.edd-wl-button {
         display: none;
     }
+
+    .wl-row {
+        .edd_price,
+        .edd_price_range_low,
+        .edd_price_range_high {
+            font-family: $source;
+            font-size: 15px;
+        }
+    }
 }

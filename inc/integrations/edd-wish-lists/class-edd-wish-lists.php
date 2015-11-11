@@ -7,13 +7,16 @@ class Marketify_EDD_Wish_Lists extends Marketify_Integration {
     }
 
     public function setup_actions() {
-        add_action( 'init', array( $this, 'relocate' ) );
         add_filter( 'facetwp_is_main_query', array( $this, 'facetwp_is_main_query' ), 10, 2 );
+        add_action( 'marketify_product_details_after', array( $this, 'add_button' ), 20 );
     }
 
-    public function relocate() {
-        remove_action( 'edd_purchase_link_top', 'edd_wl_load_wish_list_link' );
-        add_action( 'marketify_single_download_content_after', 'edd_wl_load_wish_list_link' );
+    public function add_button() {
+?>
+<div class="widget-detail">
+    <?php echo edd_wl_load_wish_list_link(); ?>
+</div>
+<?php
     }
 
     public function facetwp_is_main_query( $is_main_query, $query ) {
