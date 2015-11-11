@@ -14,6 +14,8 @@ class Marketify_Multiple_Post_Thumbnails extends Marketify_Integration {
 
         add_action( 'fes_add_field_to_common_form_element', array( $this, 'use_field_checkbox' ), 100, 4 );
         add_action( 'fes_submit_submission_form_bottom', array( $this, 'assign_image' ) );
+
+        add_filter( 'marketify_download_get_featured_images', array( $this, 'remove_from_featured' ), 10, 2 );
     }
 
     public function filter_id() {
@@ -48,6 +50,16 @@ class Marketify_Multiple_Post_Thumbnails extends Marketify_Integration {
         }
 
         return $value;
+    }
+
+    public function remove_from_featured( $images, $post ) {
+        $id = MultiPostThumbnails::get_post_thumbnail_id( 'download', 'grid-image', $post->ID );
+
+        if ( isset( $images[ $id] ) ) {
+            unset( $images[ $id ] );
+        }
+
+        return $images;
     }
 
     public function use_field_checkbox( $tpl, $input_name, $id, $values ) {

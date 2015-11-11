@@ -98,7 +98,7 @@ class Marketify_EDD_Template_Download {
                 $images[] = get_post( $image );
             }
         } else {
-            $images = get_attached_media( 'image', $post );
+            $images = apply_filters( 'marketify_download_get_featured_images', get_attached_media( 'image', $post ), $post );
         }
 
         return $images;
@@ -126,9 +126,9 @@ class Marketify_EDD_Template_Download {
         } else {
             add_action( 'marketify_single_download_content_before_content', array( $this, 'featured_' . $format ), 5 );
 
-			if ( method_exists( $this, 'featured_' . $format . '_navigation' ) ) {
-				add_action( 'marketify_single_download_content_before_content', array( $this, 'featured_'. $format . '_navigation' ), 7 );
-			}
+            if ( method_exists( $this, 'featured_' . $format . '_navigation' ) ) {
+                add_action( 'marketify_single_download_content_before_content', array( $this, 'featured_'. $format . '_navigation' ), 7 );
+            }
 
             if ( 'standard' != $format && $this->is_format_style( 'inline' ) ) {
                 add_action( 'marketify_single_download_content_before_content', array( $this, 'featured_standard' ), 6 );
