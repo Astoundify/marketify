@@ -9,7 +9,6 @@ class Marketify_Multiple_Post_Thumbnails extends Marketify_Integration {
     public function setup_actions() {
         add_action( 'after_setup_theme', array( $this, 'add_extra_thumbnail' ) );
 
-
         add_action( 'marketify_download_content_image_before', array( $this, 'filter_id' ) );
         add_action( 'marketify_download_content_image_after', array( $this, 'unfilter_id' ) );
 
@@ -40,7 +39,7 @@ class Marketify_Multiple_Post_Thumbnails extends Marketify_Integration {
             return $value;
         }
 
-        if ( in_the_loop() && 'download' == get_post( $object_id )->post_type ) {
+        if ( 'download' == get_post( $object_id )->post_type ) {
             $id = MultiPostThumbnails::get_post_thumbnail_id( 'download', 'grid-image', $object_id );
 
             if ( $id ) {
