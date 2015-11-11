@@ -20,9 +20,20 @@ class Marketify_Widget_Download_Share extends Marketify_Widget {
             )
         );
         parent::__construct();
+
+        add_action( 'wp_head', array( $this, 'loop_start' ) );
     }
 
-    function widget( $args, $instance ) {
+    public function loop_start() {
+        remove_filter( 'the_content', 'sharing_display', 19 );
+        remove_filter( 'the_excerpt', 'sharing_display', 19 );
+
+        if ( class_exists( 'Jetpack_Likes' ) ) {
+            remove_filter( 'the_content', array( Jetpack_Likes::init(), 'post_likes' ), 30, 1 );
+        }
+    }
+
+    public function widget( $args, $instance ) {
         global $post;
 
         extract( $args );
