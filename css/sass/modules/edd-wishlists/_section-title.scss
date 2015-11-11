@@ -6,6 +6,7 @@
 
 #edd-wl-modal .modal-header h2 {
     @extend .section-title__inner;
+    letter-spacing: 0;
 
     + p {
         display: none;

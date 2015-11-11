@@ -26,6 +26,11 @@
 	.modal-backdrop.in {
 		opacity: 0.70;
 	}
+
+    input[type="radio"] {
+        padding: 3px;
+        margin: -4px 10px 0 0;
+    }
 }
 
 // dont show on variable price popup
