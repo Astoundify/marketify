@@ -60,6 +60,8 @@ class Marketify {
             'widgets/class-widget.php',
 
             'template/class-template.php',
+
+            'deprecated.php'
         );
 
         foreach ( $this->files as $file ) {
