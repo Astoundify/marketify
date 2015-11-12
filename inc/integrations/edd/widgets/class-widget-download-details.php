@@ -6,7 +6,7 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
         $this->widget_cssclass    = 'marketify-widget--download-single-details';
         $this->widget_description = __( 'Display information related to the current download', 'marketify' );
         $this->widget_id          = 'marketify_widget_download_details';
-        $this->widget_name        = sprintf( __( 'Marketify - %1$s: About the %1$s', 'marketify' ), edd_get_label_singular() );
+        $this->widget_name        = sprintf( __( 'Marketify - %1$s: About', 'marketify' ), edd_get_label_singular() );
         $this->settings           = array(
             'title' => array(
                 'type'  => 'text',

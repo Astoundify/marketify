@@ -6,7 +6,7 @@ class Marketify_Widget_Download_Review_Details extends Marketify_Widget {
         $this->widget_cssclass    = 'marketify_widget_download_review_details';
         $this->widget_description = __( 'Display average review information.', 'marketify' );
         $this->widget_id          = 'marketify_widget_download_review_details';
-        $this->widget_name        = __( 'Marketify - Download Single: Review Details ', 'marketify' );
+        $this->widget_name        = sprintf( __( 'Marketify - %1$s: Review Details', 'marketify' ), edd_get_label_singular() );
         $this->settings           = array(
             'title' => array(
                 'type'  => 'text',
