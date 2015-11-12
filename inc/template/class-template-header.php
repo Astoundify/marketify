@@ -29,8 +29,7 @@ class Marketify_Template_Header {
     ?>
         .site-branding .site-title,
         .site-branding .site-description,
-        .site-header-minimal .site-title,
-        .site-header-minimal .site-description {
+        .site-title--minimal {
             display: none;
         }
     <?php
