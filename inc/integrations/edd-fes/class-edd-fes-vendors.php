@@ -63,14 +63,14 @@ class Marketify_EDD_FES_Vendors {
         return $menu;
     }
 
-    public function marketify_header_outer_image_fes( $background ) {
+    public function profile_cover_image( $background ) {
         global $wp_query;
 
         if ( ! is_page_template( 'page-templates/vendor.php' ) ) {
             return $background;
         }
 
-        $vendor = isset( $wp_query->query_vars[ 'vendor' ] ) ? $wp_query->query_vars[ 'vendor' ] : null;
+        $vendor = fes_get_vendor();
 
         if ( ! $vendor ) {
             return $background;
