@@ -19,8 +19,15 @@
 
     a.edd-wl-close {
         color: #fff;
-        top: -28px;
-        right: -22px;
+        top: 10px;
+        right: 10px;
+        color: $accent;
+
+        @include bp(sm) {
+            color: #fff;
+            top: -28px;
+            right: -22px;
+        }
     }
 
 	.modal-backdrop.in {
