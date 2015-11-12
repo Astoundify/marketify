@@ -5,3 +5,11 @@
 		margin-bottom: 0;
 	}
 }
+
+.blog-post-thumbnail {
+    display: none;
+
+    @include bp(sm) {
+        display: block;
+    }
+}
