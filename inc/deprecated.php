@@ -16,3 +16,11 @@ function marketify_edd_fes_author_url( $id ) {
 
     return $vendor->url();
 }
+
+function marketify_content_nav() {
+    marketify()->template->pagination->output();
+}
+
+function marketify_get_theme_menu( $theme_location ) {
+    return marketify()->template->navigation->get_theme_menu( $theme_location );
+}
