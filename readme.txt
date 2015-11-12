@@ -71,7 +71,7 @@ with extraneous functionalities being deprecated or removed.
 * New: Ability to adjust /download/ slug permalinks based on customized labels.
 * New: Use WordPress' core audio player to improve speed and reduce assets.
 * New: Rewrite of all responsive modules.
-* Fix: Hundreds of stabilility improvements and hardenings. Reviewed by ThemeReview.co
+* Fix: Hundreds of stability improvements and code hardening. Reviewed by ThemeReview.co
 * Deprecated: Frontend Submissions Product Details. Replaced with http://marketify.astoundify.com/article/889-download-single-meta
 * Deprecated: Soliloquy Slider support. Replaced with http://marketify.astoundify.com/article/777-home-feature-callout
 * Deprecated: Custom bbPress styles.
