@@ -1,4 +1,4 @@
-=== Marketify Fifteen ===
+=== Marketify ===
 Contributors: Astoundify
 Requires at least: WordPress 4.3
 Tested up to: WordPress 4.3.1
