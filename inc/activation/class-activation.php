@@ -9,13 +9,13 @@ class Marketify_Activation {
             $this->theme = wp_get_theme();
         }
 
-        // $this->version = get_option( 'marketify_version', 0 );
-        //
-        // if ( version_compare( $this->version, $this->theme->Version, '<' ) ) {
-        //     $version = str_replace( '.', '', $this->theme->Version );
-        //
-        //     $this->upgrade( $version );
-        // }
+        $this->version = get_option( 'marketify_version', 0 );
+
+        if ( version_compare( $this->version, $this->theme->Version, '<' ) ) {
+            $version = str_replace( '.', '', $this->theme->Version );
+
+            $this->upgrade( $version );
+        }
 
         add_action( 'after_switch_theme', array( $this, 'after_switch_theme' ), 10 );
     }
