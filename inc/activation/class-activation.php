@@ -9,13 +9,13 @@ class Marketify_Activation {
             $this->theme = wp_get_theme();
         }
 
-        $this->version = get_option( 'marketify_version', 0 );
-
-        if ( version_compare( $this->version, $this->theme->Version, '<' ) ) {
-            $version = str_replace( '.', '', $this->theme->Version );
-
-            $this->upgrade( $version );
-        }
+        // $this->version = get_option( 'marketify_version', 0 );
+        //
+        // if ( version_compare( $this->version, $this->theme->Version, '<' ) ) {
+        //     $version = str_replace( '.', '', $this->theme->Version );
+        //
+        //     $this->upgrade( $version );
+        // }
 
         add_action( 'after_switch_theme', array( $this, 'after_switch_theme' ), 10 );
     }
@@ -31,8 +31,6 @@ class Marketify_Activation {
     }
 
     public function after_switch_theme( $theme ) {
-        $this->flush_rules();
-
         // If it's set just update version can cut out
         if ( get_option( 'marketify_version' ) ) {
             $this->set_version();
@@ -40,7 +38,6 @@ class Marketify_Activation {
             return;
         }
 
-        $this->set_version();
         $this->redirect();
     }
 
@@ -48,12 +45,8 @@ class Marketify_Activation {
         update_option( 'marketify_version', $this->theme->version );
     }
 
-    public function flush_rules() {
-        flush_rewrite_rules();
-    }
-
     public function redirect() {
-        unset( $_GET[ 'action' ] );
+        $this->set_version();
 
         wp_safe_redirect( admin_url( 'themes.php?page=marketify-setup' ) );
 
@@ -62,6 +55,10 @@ class Marketify_Activation {
 
     private function _upgrade_200() {
         $theme_mods = get_theme_mods();
+
+        if ( ! $theme_mods ) {
+            return;
+        }
 
         foreach ( $theme_mods as $mod => $value ) {
             switch ($mod) {
