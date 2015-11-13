@@ -6,7 +6,7 @@ class Marketify_EDD_FES_Vendors {
         // add_action( 'template_redirect', array( $this, 'vendor_archive' ) );
 
         add_filter( 'fes_vendor_dashboard_menu', array( $this, 'dashboard_menu_icons' ) );
-        add_filter( 'marketify_header_outer_image', array( $this, 'profile_cover_image' ), 1 );
+        add_filter( 'marketify_page_header_image', array( $this, 'profile_cover_image' ), 1 );
 
         add_action( 'marketify_download_entry_meta', array( $this, 'byline' ) );
 
@@ -66,6 +66,8 @@ class Marketify_EDD_FES_Vendors {
     public function profile_cover_image( $background ) {
         global $wp_query;
 
+        echo 'wat';
+
         if ( ! is_page_template( 'page-templates/vendor.php' ) ) {
             return $background;
         }
@@ -76,15 +78,11 @@ class Marketify_EDD_FES_Vendors {
             return $background;
         }
 
-        $vendor = new WP_User( $vendor );
-
-        $image = get_user_meta( $vendor->ID, 'cover_image', true );
-        $image = wp_get_attachment_image_src( $image, 'fullsize' );
+        $image = get_user_meta( $vendor->data->ID, 'cover_image', true );
+        $image = wp_get_attachment_image_src( $image[0], 'fullsize' );
 
         if ( is_array( $image ) ) {
-            add_filter( 'marketify_needs_a_background', '__true' );
-
-            return $image;
+            return $image[0];
         }
 
         return $background;
