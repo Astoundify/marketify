@@ -16,8 +16,8 @@ get_header(); ?>
                 $args = array(
                     'before_widget' => '<aside class="widget widget--home container">',
                     'after_widget'  => '</aside>',
-                    'before_title'  => '<h3 class="widget-title--home"><span>',
-                    'after_title'   => '</span></h3>',
+                    'before_title'  => '<h3 class="widget-title widget-title--home section-title"><span>',
+                    'after_title'   => '</span></h3>'
                 );
 
                 the_widget( 'Marketify_Widget_Recent_Downloads', array( 'title' => 'Recent Downloads' ), $args );

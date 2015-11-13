@@ -66,8 +66,6 @@ class Marketify_EDD_FES_Vendors {
     public function profile_cover_image( $background ) {
         global $wp_query;
 
-        echo 'wat';
-
         if ( ! is_page_template( 'page-templates/vendor.php' ) ) {
             return $background;
         }
