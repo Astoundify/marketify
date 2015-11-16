@@ -137,9 +137,10 @@
 
     .search-field {
         @extend .item-title;
+        font-size: 15px;
         color: #fff;
         padding: 10px;
-        background: #bdc3c7;
+        background: $accent;
         width: 87%;
     }
 
