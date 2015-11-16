@@ -9,7 +9,7 @@ class Marketify_Activation {
             $this->theme = wp_get_theme();
         }
 
-        $this->version = get_option( 'marketify_version', 0 );
+        $this->version = get_option( 'marketify_version', '2.0.0' );
 
         if ( version_compare( $this->version, $this->theme->Version, '<' ) ) {
             $version = str_replace( '.', '', $this->theme->Version );
@@ -26,8 +26,6 @@ class Marketify_Activation {
         if ( method_exists( $this, $upgrade ) ) {
             $this->$upgrade();
         }
-
-        $this->set_version();
     }
 
     public function after_switch_theme( $theme ) {
