@@ -49,7 +49,7 @@
 }
 
 .comment.depth-1 .comment-content {
-	margin-left: 140px;
+	margin-left: 120px;
 
     &:after,
     &:before {
@@ -73,7 +73,7 @@
 }
 
 .comment-list .children {
-	margin: 25px 0 0 140px;
+	margin: 25px 0 0 120px;
 	padding: 0;
 	list-style: none;
 }
@@ -115,6 +115,7 @@
 .comment-author .fn,
 .comment-metadata .fn {
     @include montserrat(400, 10px);
+    font-style: normal;
 	margin-top: 8px;
 	display: block;
 	text-align: center;

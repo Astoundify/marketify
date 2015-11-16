@@ -14,14 +14,12 @@ class Marketify_Template_Comments {
                     <div class="comment-author vcard">
                         <?php if ( 0 != $args['avatar_size'] ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
 
-                        <?php if ( $depth == 1 ) : ?>
-                            <?php printf( '<cite class="fn">%s</cite>', get_comment_author_link() ); ?>
+                        <?php printf( '<cite class="fn">%s</cite>', get_comment_author_link() ); ?>
 
-                            <?php
-                                if ( get_option( 'comment_registration' ) && edd_has_user_purchased( $comment->user_id, $post->ID ) ) :
-                            ?>
-                                <a class="button purchased"><?php _e( 'Purchased', 'marketify' ); ?></a>
-                            <?php endif; ?>
+                        <?php
+                            if ( get_option( 'comment_registration' ) && edd_has_user_purchased( $comment->user_id, $post->ID ) ) :
+                        ?>
+                            <a class="button purchased"><?php _e( 'Purchased', 'marketify' ); ?></a>
                         <?php endif; ?>
                     </div><!-- .comment-author -->
                 </footer><!-- .comment-meta -->
