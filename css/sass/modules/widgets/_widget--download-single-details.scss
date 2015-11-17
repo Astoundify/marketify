@@ -7,8 +7,12 @@
     }
 
     .section-title {
-        margin-top: -100px;
+        margin-top: -160px;
         margin-bottom: 55px;
+
+        @include bp(md) {
+            margin-top: -100px;
+        }
     }
 
     .widget-detail .edd_price {
@@ -45,7 +49,8 @@
     }
 
     // just in case, as it will show when in cart
-    .widget-detail .edd_download_purchase_form .edd_price_options {
+    .widget-detail .edd_download_purchase_form .edd_price_options,
+    .widget-detail .edd_download_purchase_form .edd-wl-button {
         display: none;
     }
 
