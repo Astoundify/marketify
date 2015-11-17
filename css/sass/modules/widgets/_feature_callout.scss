@@ -107,7 +107,7 @@
 
 	h2 {
 		font-size: 30px;
-		margin: 0 0 20px;
+		margin: 0;
 	}
 
 	p {
@@ -149,18 +149,20 @@
         .callout-feature-content {
             padding-top: 8em;
             padding-bottom: 8em;
+
+            p {
+                font-size: 18px;
+            }
         }
 
 		.callout-feature-content h2 {
 			font-size: 36px;
-			margin-bottom: 30px;
 		}
 	}
 
 	@include bp(lg) {
 		.callout-feature-content h2 {
 			font-size: 58px;
-			margin-bottom: 40px;
 		}
 
 		.feature-callout.text-left .callout-feature-content {
@@ -176,7 +178,6 @@
 			padding-left: 3em;
 
 			h2 {
-				margin-bottom: 0;
 				font-size: 40px;
 			}
 		}
