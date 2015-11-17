@@ -57,37 +57,3 @@
 .pricing-table-widget-description li {
 	margin: 4px 0;
 }
-
-/* Download Archive Widgets
------------------------------------------------ */
-
-.download-archive-widget-area {
-	position: relative;
-	margin-bottom: 100px;
-}
-
-.download-archive-widget {
-	padding-bottom: 40px;
-	padding-left: 15px;
-}
-
-.download-archive-widget.widget li {
-	margin: 0;
-}
-
-/** RSS */
-.download-archive-widget .rsswidget {
-	padding: 0;
-}
-
-.download-archive-widget .widget_rss li {
-	margin-right: 0;
-}
-
-.download-archive-widget .search-submit {
-	width: 20%;
-}
-
-.download-archive-widget .search-field {
-	width: 80%;
-}

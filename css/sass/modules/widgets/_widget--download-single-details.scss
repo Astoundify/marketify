@@ -1,6 +1,10 @@
 .marketify-widget--download-single-details {
-    margin-top: 100px;
+    margin-top: 160px;
     padding: 0;
+
+    @include bp(md) {
+        margin-top: 100px;
+    }
 
     .section-title {
         margin-top: -100px;
@@ -30,6 +34,10 @@
             margin: 0 auto;
         }
 
+    }
+
+    .edd_download_purchase_form:only-of-type .button {
+        margin: 0 auto;
     }
 
     .widget-detail .edd_download_quantity_wrapper {

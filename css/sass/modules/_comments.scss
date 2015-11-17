@@ -2,6 +2,19 @@
     margin-top: 3em;
 }
 
+.comment-form input[type=text],
+.comment-form input[type=email] {
+    width: 100%;
+
+    @include bp(sm) {
+        width: 50%;
+    }
+}
+
+.comment-form input[type=submit] {
+    @extend .button--style-mobile;
+}
+
 .comments-area {
     @extend .section;
 }
@@ -136,11 +149,6 @@
 }
 
 .bypostauthor {
-}
-
-.comment-form input[type="text"],
-.comment-form input[type="password"] {
-	width: 50%;
 }
 
 .comment-reply-title small {

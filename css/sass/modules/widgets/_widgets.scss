@@ -33,6 +33,15 @@
     @extend .item-meta;
 }
 
+.widget-area {
+    @extend .section;
+
+    @include bp(md) {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
 /** still need to split out more -- or better naming or something */
 @import "feature_callout";
 @import "featured-popular";
