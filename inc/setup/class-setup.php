@@ -88,13 +88,20 @@ class Marketify_Setup {
             )
         );
 
+        $docs = array(
+            'Widget Areas' => 'http://marketify.astoundify.com/category/692-widget-areas',
+            'Widgets' => 'http://marketify.astoundify.com/category/585-widgets' 
+        );
+
+        if ( marketify()->get( 'woothemes-testimonials' ) ) {
+            $docs[ 'Companies We&#39;ve Helped' ]  = 'http://marketify.astoundify.com/article/842-home-companies-weve-helped';
+            $docs[ 'Individual Testimonials' ]  = 'http://marketify.astoundify.com/article/843-home-individual-testimonials';
+        }
+
         $this->steps[ 'setup-widgets' ] = array(
             'title' => __( 'Setup Widgets', 'marketify' ),
             'completed' => is_active_sidebar( 'widget-area-front-page' ),
-            'documentation' => array(
-                'Widget Areas' => 'http://marketify.astoundify.com/category/692-widget-areas',
-                'Widgets' => 'http://marketify.astoundify.com/category/585-widgets' 
-            )
+            'documentation' => $docs
         );
 
         $this->steps[ 'customize-theme' ] = array(
