@@ -1,4 +1,13 @@
 .home .page-header {
+    @include bp(lg) {
+        padding-top: 6em;
+        padding-bottom: 10em;
+
+        .page-title {
+            font-size: 48px;
+        }
+    }
+
     p {
         color: #fff;
         text-align: center;
@@ -35,6 +44,11 @@
 
             @include bp(md) {
                 margin-bottom: -6em;
+            }
+
+            @include bp(lg) {
+                margin-top: 8em;
+                margin-bottom: -10em;
             }
         }
     }
