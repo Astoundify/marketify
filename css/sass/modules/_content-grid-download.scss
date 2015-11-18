@@ -120,7 +120,6 @@
 		margin: 0;
 
 		&.truncated {
-			height: 20px;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
@@ -141,6 +140,10 @@
 .content-grid-download .entry-meta {
 	font-size: 13px;
     margin-top: 0.5em;
+
+    &:empty {
+        display: none;
+    }
 }
 
 .content-grid-download .entry-meta a {
