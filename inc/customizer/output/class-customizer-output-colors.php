@@ -177,8 +177,6 @@ class Marketify_Customizer_Output_Colors {
         $this->css->add( array(
             'selectors' => array(
                 '.widget--home-taxonomy-stylized',
-                '.search-submit',
-                '.search-submit:hover'
             ),
             'declarations' => array(
                 'background-color' => esc_attr( $accent )
