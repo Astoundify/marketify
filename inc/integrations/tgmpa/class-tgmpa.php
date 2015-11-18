@@ -43,6 +43,11 @@ class Marketify_TGMPA {
                 'required'  => false
             ),
             array(
+                'name'      => 'Multiple Post Thumbnails',
+                'slug'      => 'multiple-post-thumbnails',
+                'required'  => false
+            ),
+            array(
                 'name'      => 'Nav Menu Roles',
                 'slug'      => 'nav-menu-roles',
                 'required'  => false,
