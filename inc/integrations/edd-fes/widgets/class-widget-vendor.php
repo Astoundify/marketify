@@ -8,11 +8,9 @@ class Marketify_Widget_FES_Vendor extends Marketify_EDD_FES_Vendor_Widget {
         $this->widget_id          = 'marketify_widget_fes_vendor';
         $this->widget_name        = __( 'Marketify - Vendor: Name + Avatar', 'marketify' );
         $this->settings           = array(
-            'extras' => array(
-                'type'  => 'textarea',
-                'std'   => '',
-                'label' => __( 'Additional Information:', 'marketify' ),
-                'description' => __( 'Use the [marketify-vendor key=""] shortcode to provide additional information about the vendor.', 'marketify' )
+            'desc' => array(
+                'type'  => 'description',
+                'std'   => __( 'This widget has no options', 'marketify' )
             ),
         );
         parent::__construct();

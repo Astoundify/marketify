@@ -56,7 +56,7 @@
 		background-position: center left;
 	}
 
-	.button{
+	.button:not(:only-child) {
 		margin: 0 0 0 15px;
 	}
 }
@@ -166,7 +166,7 @@
 		}
 
 		.feature-callout.text-left .callout-feature-content {
-			padding-right: 3em;
+			padding-right: 5em;
 
 			h2 {
 				margin-bottom: 0;
@@ -175,7 +175,7 @@
 		}
 
 		.feature-callout.text-right .callout-feature-content {
-			padding-left: 3em;
+			padding-left: 5em;
 
 			h2 {
 				font-size: 40px;
