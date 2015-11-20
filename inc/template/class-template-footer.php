@@ -54,7 +54,7 @@ class Marketify_Template_Footer {
     }
 
     private function has_contact_address() {
-        return ( 'on' == esc_attr( marketify_theme_mod( 'footer-contact-us-display' ) ) && '' != esc_attr( marketify_theme_mod( 'footer-contact-us-adddress' ) ) );
+        return 'on' == esc_attr( marketify_theme_mod( 'footer-contact-us-display' ) );
     }
 
     public function contact_address() {

@@ -52,6 +52,9 @@ class Marketify_Activation {
     }
 
     private function _upgrade_200() {
+        update_option( 'medium_size_w', 740 );
+        update_option( 'medium_size_h', 600 );
+
         $theme_mods = get_theme_mods();
 
         if ( ! $theme_mods ) {
