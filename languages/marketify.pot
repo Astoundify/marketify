@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Marketify 2.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2015-11-13 20:38:40+00:00\n"
+"POT-Creation-Date: 2015-11-20 18:55:26+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -52,11 +52,6 @@ msgstr ""
 msgid "Newer Comments"
 msgstr ""
 
-#: content-author.php:26 content.php:31
-#: inc/template/class-template-page-header.php:113 page-templates/team.php:57
-msgid "View all posts by %s"
-msgstr ""
-
 #: content-grid.php:15
 msgid "Read More"
 msgstr ""
@@ -82,12 +77,17 @@ msgid "About the %s"
 msgstr ""
 
 #: content-single.php:21 content.php:44
-#: inc/template/class-template-comments.php:53
+#: inc/template/class-template-comments.php:51
 msgid "Edit"
 msgstr ""
 
 #: content.php:28
 msgid "<span class=\"byline\">%1$s</span>"
+msgstr ""
+
+#: content.php:31 inc/template/class-template-page-header.php:114
+#: page-templates/team.php:57
+msgid "View all posts by %s"
 msgstr ""
 
 #: edd_templates/shortcode-content-image.php:18
@@ -428,7 +428,7 @@ msgid "Hide purchase count"
 msgstr ""
 
 #: inc/integrations/edd/widgets/class-widget-download-details.php:64
-#: inc/integrations/edd-fes/widgets/class-widget-vendor.php:34
+#: inc/integrations/edd-fes/widgets/class-widget-vendor.php:32
 msgid "Author since: %s"
 msgstr ""
 
@@ -575,6 +575,7 @@ msgid "Marketify - Vendor: Biography"
 msgstr ""
 
 #: inc/integrations/edd-fes/widgets/class-widget-vendor-description.php:13
+#: inc/integrations/edd-fes/widgets/class-widget-vendor.php:13
 msgid "This widget has no options"
 msgstr ""
 
@@ -584,16 +585,6 @@ msgstr ""
 
 #: inc/integrations/edd-fes/widgets/class-widget-vendor.php:9
 msgid "Marketify - Vendor: Name + Avatar"
-msgstr ""
-
-#: inc/integrations/edd-fes/widgets/class-widget-vendor.php:14
-msgid "Additional Information:"
-msgstr ""
-
-#: inc/integrations/edd-fes/widgets/class-widget-vendor.php:15
-msgid ""
-"Use the [marketify-vendor key=\"\"] shortcode to provide additional "
-"information about the vendor."
 msgstr ""
 
 #: inc/integrations/edd-product-reviews/widgets/class-widget-download-review-details.php:7
@@ -1055,43 +1046,43 @@ msgstr ""
 msgid "Setup Static Homepage"
 msgstr ""
 
-#: inc/setup/class-setup.php:92
+#: inc/setup/class-setup.php:102
 msgid "Setup Widgets"
 msgstr ""
 
-#: inc/setup/class-setup.php:101
+#: inc/setup/class-setup.php:108
 msgid "Customize"
 msgstr ""
 
-#: inc/setup/class-setup.php:111
+#: inc/setup/class-setup.php:118
 msgid "Get Involved"
 msgstr ""
 
-#: inc/setup/class-setup.php:125
+#: inc/setup/class-setup.php:132
 msgid "Marketify Setup"
 msgstr ""
 
-#: inc/setup/class-setup.php:125
+#: inc/setup/class-setup.php:132
 msgid "Setup Guide"
 msgstr ""
 
-#: inc/setup/class-setup.php:147
+#: inc/setup/class-setup.php:154
 msgid "Completed!"
 msgstr ""
 
-#: inc/setup/class-setup.php:149
+#: inc/setup/class-setup.php:156
 msgid "Incomplete"
 msgstr ""
 
-#: inc/setup/class-setup.php:156
+#: inc/setup/class-setup.php:163
 msgid "You can read more and watch helpful video tutorials below:"
 msgstr ""
 
-#: inc/setup/class-setup.php:183
+#: inc/setup/class-setup.php:190
 msgid "Welcome to %s"
 msgstr ""
 
-#: inc/setup/class-setup.php:184
+#: inc/setup/class-setup.php:191
 msgid ""
 "Creating a digital marketplace has never been easier with "
 "Marketify&mdash;Use the steps below to start setting up your new website. "
@@ -1099,11 +1090,11 @@ msgid ""
 "documentation</a>."
 msgstr ""
 
-#: inc/setup/class-setup.php:192
+#: inc/setup/class-setup.php:199
 msgid "Search Documentation"
 msgstr ""
 
-#: inc/setup/class-setup.php:193
+#: inc/setup/class-setup.php:200
 msgid "Submit a Support Ticket"
 msgstr ""
 
@@ -1250,7 +1241,16 @@ msgid ""
 "pages, standard pages, and more."
 msgstr ""
 
-#: inc/setup/steps/setup-widgets.php:3
+#: inc/setup/steps/setup-widgets.php:4
+msgid ""
+"<strong>Note:</strong> Please make sure you have selected the relevant "
+"\"Customer Testimonials\" category for the <em>What People Are Saying</em> "
+"widget, and \"Companies We&#39;ve Helped\" category for the <em>Companies "
+"We&#39;ve Helped</em> widget. These settings can not be imported "
+"automatically."
+msgstr ""
+
+#: inc/setup/steps/setup-widgets.php:7
 msgid "Manage Widgets"
 msgstr ""
 
@@ -1260,11 +1260,11 @@ msgid ""
 "theme to as many languages as possible!"
 msgstr ""
 
-#: inc/template/class-template-comments.php:23
+#: inc/template/class-template-comments.php:22
 msgid "Purchased"
 msgstr ""
 
-#: inc/template/class-template-comments.php:57
+#: inc/template/class-template-comments.php:55
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
@@ -1284,7 +1284,7 @@ msgstr ""
 msgid "All %s"
 msgstr ""
 
-#: inc/template/class-template-page-header.php:131
+#: inc/template/class-template-page-header.php:132
 msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
@@ -1670,7 +1670,7 @@ msgctxt "Montserrat font: on or off"
 msgid "on"
 msgstr ""
 
-#: inc/template/class-template-comments.php:39
+#: inc/template/class-template-comments.php:37
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
 msgstr ""

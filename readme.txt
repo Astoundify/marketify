@@ -47,7 +47,7 @@ Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
 
-= 2.0.0: TBD =
+= 2.0.0: November 20, 2015 =
 
 Version 2.0.0 of Marketify is a total rewrite of the theme. Please do not update directly on your production server.
 You should always test the update on a staging server first.
