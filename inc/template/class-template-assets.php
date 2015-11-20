@@ -14,8 +14,8 @@ class Marketify_Template_Assets {
             wp_enqueue_script( 'comment-reply' );
         }
 
-        wp_enqueue_script( 'marketify', get_template_directory_uri() . '/js/marketify.min.js', array( 'jquery' ), '20140908', true );
-        wp_enqueue_script( 'salvattore', get_template_directory_uri() . '/js/vendor/salvattore/salvattore.min.js', array( 'marketify' ), '', true );
+        wp_enqueue_script( 'marketify', get_template_directory_uri() . '/js/marketify.min.js', array( 'jquery' ), '20151120', true );
+        wp_enqueue_script( 'salvattore', get_template_directory_uri() . '/js/vendor/salvattore/salvattore.min.js', array( 'marketify' ), '20151120', true );
     }
 
     public function enqueue_styles() {
@@ -24,10 +24,10 @@ class Marketify_Template_Assets {
         $fonts_url = $this->google_fonts_url();
 
         if ( ! empty( $fonts_url ) ) {
-            wp_enqueue_style( 'marketify-fonts', esc_url_raw( $fonts_url ), array(), null );
+            wp_enqueue_style( 'marketify-fonts', esc_url_raw( $fonts_url ), array(), '20151120' );
         }
 
-        wp_enqueue_style( 'marketify-base', get_template_directory_uri() . '/style.css' );
+        wp_enqueue_style( 'marketify-base', get_template_directory_uri() . '/style.css', array(), '20151121' );
 
         $customizer_css = new Marketify_Customizer_CSS();
         $customizer_css->output();
