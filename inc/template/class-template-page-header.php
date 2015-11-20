@@ -95,13 +95,14 @@ class Marketify_Template_Page_Header {
         if ( ! is_singular( 'post' ) ) {
             return;
         }
+
+        $social = marketify()->template->entry->social_profiles();
 ?>
 <div class="page-header container">
-    <div class="user-bubble user-bubble--blog user-bubble--with-social">
+    <div class="user-bubble user-bubble--blog <?php if ( ! empty( $social ) ) : ?>user-bubble--with-social<?php endif; ?>">
         <?php
-            $social = marketify()->template->entry->social_profiles();
             printf( '<div class="user-bubble__gravatar">%1$s %2$s</div>',
-                sprintf( '<div class="user-bubble__social-profiles">%1$s</div>', $social ),
+                ! empty( $social ) ? sprintf( '<div class="user-bubble__social-profiles">%1$s</div>', $social ) : '',
                 get_avatar( get_the_author_meta( 'ID' ), 140 )
             );
         ?>

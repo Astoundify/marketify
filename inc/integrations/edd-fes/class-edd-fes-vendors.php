@@ -77,6 +77,11 @@ class Marketify_EDD_FES_Vendors {
         }
 
         $image = get_user_meta( $vendor->data->ID, 'cover_image', true );
+
+        if ( ! $image ) {
+            return $background;
+        }
+
         $image = wp_get_attachment_image_src( $image[0], 'fullsize' );
 
         if ( is_array( $image ) ) {
