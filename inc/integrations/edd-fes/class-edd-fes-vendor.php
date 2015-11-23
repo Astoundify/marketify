@@ -44,7 +44,7 @@ class Marketify_EDD_FES_Vendor {
     }
 
     public function date_registered() {
-        return date_i18n( 'Y', strtotime( $this->obj->user_registered ) );
+        return date_i18n( get_option( 'date_format' ), strtotime( $this->obj->user_registered ) );
     }
 
     public function downloads_count( $user_id = false, $post_type = 'download' ) {

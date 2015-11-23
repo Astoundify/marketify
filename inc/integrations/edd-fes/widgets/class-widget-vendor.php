@@ -29,8 +29,8 @@ class Marketify_Widget_FES_Vendor extends Marketify_EDD_FES_Vendor_Widget {
 
             <span class="widget-detail__info"><?php 
                 printf( 
-                    __( 'Author since: %s', 'marketify' ), 
-                    date_i18n( get_option( 'date_format' ), $registered )
+                    __( 'Author since: %s', 'marketify' ),
+                    $registered
                 );
             ?></span>
 
