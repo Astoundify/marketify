@@ -16,14 +16,10 @@ class Marketify_EDD_FES_Vendor {
     }
 
     private function find() {
-        $author = false;
+        $author = fes_get_vendor();
 
-        if ( ! $author || is_admin() ) {
+        if ( ! $author ) {
             $author = wp_get_current_user();
-        }
-
-        if ( ! $author && is_user_logged_in() ) {
-            $author = fes_get_vendor();
         }
 
         return $author;

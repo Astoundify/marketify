@@ -1,6 +1,6 @@
 <?php
 
-class Marketify_Widget_FES_Vendor_Description extends Marketify_EDD_FES_Vendor_Widget {
+class Marketify_Widget_FES_Vendor_Description extends Marketify_Widget {
 
     public function __construct() {
         $this->widget_cssclass    = 'marketify_widget_fes_vendor_description';
@@ -17,7 +17,8 @@ class Marketify_Widget_FES_Vendor_Description extends Marketify_EDD_FES_Vendor_W
     }
 
     function widget( $args, $instance ) {
-        $description = $this->vendor->obj->description;
+        $vendor = new Marketify_EDD_FES_Vendor( fes_get_vendor() );
+        $description = $vendor->obj->description;
 
         if ( '' == $description ) {
             return;

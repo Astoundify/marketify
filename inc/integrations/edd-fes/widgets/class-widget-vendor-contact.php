@@ -1,6 +1,6 @@
 <?php
 
-class Marketify_Widget_FES_Vendor_Contact extends Marketify_EDD_FES_Vendor_Widget {
+class Marketify_Widget_FES_Vendor_Contact extends Marketify_Widget {
 
     public function __construct() {
         $this->widget_cssclass    = 'widget--vendor-profile-contact marketify_widget_fes_vendor_contact';
@@ -17,8 +17,9 @@ class Marketify_Widget_FES_Vendor_Contact extends Marketify_EDD_FES_Vendor_Widge
     }
 
     function widget( $args, $instance ) {
+        $vendor = new Marketify_EDD_FES_Vendor( fes_get_vendor() );
         echo $args[ 'before_widget' ];
-        echo do_shortcode( '[fes_vendor_contact_form id="' . $this->vendor->obj->ID . '"]' );
+        echo do_shortcode( '[fes_vendor_contact_form id="' . $vendor->ID . '"]' );
         echo $args[ 'after_widget' ];
     }
 

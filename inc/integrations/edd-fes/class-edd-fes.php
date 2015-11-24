@@ -4,7 +4,6 @@ class Marketify_EDD_FES extends Marketify_Integration {
 
     public function __construct() {
         $this->includes = array(
-            'class-edd-fes-vendor-widget.php',
             'class-edd-fes-vendors.php',
             'class-edd-fes-vendor.php',
             'class-edd-fes-widgets.php',
