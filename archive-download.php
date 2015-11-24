@@ -16,7 +16,7 @@ get_header(); ?>
         <?php get_template_part( 'content-grid-download', 'popular' ); ?>
 
         <div class="marketify-archive-download row">
-            <div role="main" class="content-area col-xs-12 <?php echo is_active_sidebar( 'sidebar-download' ) ? 'col-sm-7 col-md-9' : ''; ?>">
+            <div role="main" class="content-area col-xs-12 <?php echo is_active_sidebar( 'sidebar-download' ) ? 'col-md-8' : ''; ?>">
 
                 <?php do_action( 'marketify_downloads_before' ); ?>
 
