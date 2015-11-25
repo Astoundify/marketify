@@ -8,6 +8,10 @@ class Marketify_Widget_Download_Archive_Sorting extends Marketify_Widget {
         $this->widget_id          = 'marketify_widget_download_archive_sorting';
         $this->widget_name        = __( 'Marketify - Shop: Download Sorting', 'marketify' );
         $this->settings           = array(
+            'sidebar-download' => array(
+                'type' => 'widget-area',
+                'std' => __( 'Shop', 'marketify' )
+            ),
             'title' => array(
                 'type'  => 'text',
                 'std'   => '',

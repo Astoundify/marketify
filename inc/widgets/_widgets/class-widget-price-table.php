@@ -8,6 +8,10 @@ class Marketify_Widget_Price_Table extends Marketify_Widget {
         $this->widget_id          = 'marketify_widget_price_table';
         $this->widget_name        = __( 'Marketify - Home: Price Table', 'marketify' );
         $this->settings           = array(
+            'home-1' => array(
+                'type' => 'widget-area',
+                'std' => __( 'Home', 'marketify' )
+            ),
             'title' => array(
                 'type'  => 'text',
                 'std'   => 'Pricing Options',

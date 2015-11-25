@@ -8,6 +8,10 @@ class Marketify_Widget_Recent_Downloads extends Marketify_Widget {
         $this->widget_id          = 'marketify_widget_recent_downloads';
         $this->widget_name        = sprintf( __( 'Marketify - Home: Recent %s', 'marketify' ), edd_get_label_plural() );
         $this->settings           = array(
+            'home-1' => array(
+                'type' => 'widget-area',
+                'std' => __( 'Home', 'marketify' )
+            ),
             'title' => array(
                 'type'  => 'text',
                 'std'   => 'Recent',

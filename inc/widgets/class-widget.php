@@ -32,6 +32,19 @@ class Marketify_Widget extends WP_Widget {
         add_action( 'save_post', array( $this, 'flush_widget_cache' ) );
         add_action( 'deleted_post', array( $this, 'flush_widget_cache' ) );
         add_action( 'switch_theme', array( $this, 'flush_widget_cache' ) );
+        add_action( 'admin_print_styles', array( $this, 'admin_print_styles' ) );
+    }
+
+    public function admin_print_styles() {
+?>
+<style>
+.marketify-widget-usage { display: block; color: #a00; }
+#sidebar-download-single .marketify-widget-usage.sidebar-download-single { display: none; }
+#sidebar-download .marketify-widget-usage.sidebar-download { display: none; }
+#sidebar-vendor .marketify-widget-usage.sidebar-vendor { display: none; }
+#home-1 .marketify-widget-usage.home-1 { display: none; }
+</style>
+<?php
     }
 
     /**
@@ -129,6 +142,11 @@ class Marketify_Widget extends WP_Widget {
             $value = isset( $instance[ $key ] ) ? $instance[ $key ] : $setting[ 'std' ];
 
             switch ( $setting[ 'type' ] ) {
+                case 'widget-area' :
+                ?>
+                    <p class="marketify-widget-usage <?php echo $key; ?>"><em><?php printf( __( 'Only for use in the <strong>%s</strong> widget area.', 'marketify' ), $setting[ 'std' ] ); ?></em></p>
+                <?php
+                break;
                 case 'description' :
                     ?>
                     <p class="description"><?php echo $value; ?></p>

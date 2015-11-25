@@ -8,6 +8,10 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
         $this->widget_id          = 'marketify_widget_download_details';
         $this->widget_name        = sprintf( __( 'Marketify - %1$s: About', 'marketify' ), edd_get_label_singular() );
         $this->settings           = array(
+            'sidebar-download-single' => array(
+                'type' => 'widget-area',
+                'std'  => sprintf( __( '%s Sidebar', 'marketify' ), edd_get_label_singular() )
+            ),
             'title' => array(
                 'type'  => 'text',
                 'std'   => 'Product Details',

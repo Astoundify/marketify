@@ -8,6 +8,10 @@ class Marketify_Widget_Recent_Posts extends Marketify_Widget {
         $this->widget_id          = 'marketify_widget_recent_posts';
         $this->widget_name        = __( 'Marketify - Home: Recent Posts', 'marketify' );
         $this->settings           = array(
+            'home-1' => array(
+                'type' => 'widget-area',
+                'std' => __( 'Home', 'marketify' )
+            ),
             'title' => array(
                 'type'  => 'text',
                 'std'   => 'Recent Posts',

@@ -8,6 +8,10 @@ class Marketify_Widget_FES_Vendor_Description extends Marketify_Widget {
         $this->widget_id          = 'marketify_widget_fes_vendor_description';
         $this->widget_name        = __( 'Marketify - Vendor: Biography', 'marketify' );
         $this->settings           = array(
+            'sidebar-vendor' => array(
+                'type' => 'widget-area',
+                'std'  => __( 'Vendor Sidebar', 'marketify' )
+            ),
             'desc' => array(
                 'type'  => 'description',
                 'std'   => __( 'This widget has no options', 'marketify' )

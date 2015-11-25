@@ -15,6 +15,10 @@ class Marketify_Widget_Taxonomy_Stylized extends Marketify_Widget {
         $this->widget_id          = 'marketify_widget_taxonomy_stylized';
         $this->widget_name        = __( 'Marketify - Home: Taxonomy', 'marketify' );
         $this->settings           = array(
+            'home-1' => array(
+                'type' => 'widget-area',
+                'std' => __( 'Home', 'marketify' )
+            ),
             'taxonomy' => array(
                 'type'  => 'select',
                 'std'   => 'category',

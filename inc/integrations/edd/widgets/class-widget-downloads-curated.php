@@ -8,6 +8,10 @@ class Marketify_Widget_Curated_Downloads extends Marketify_Widget {
         $this->widget_id          = 'marketify_widget_curated_downloads';
         $this->widget_name        = sprintf( __( 'Marketify - Home: Curated %s', 'marketify' ), edd_get_label_plural() );
         $this->settings           = array(
+            'home-1' => array(
+                'type' => 'widget-area',
+                'std' => __( 'Home', 'marketify' )
+            ),
             'title' => array(
                 'type'  => 'text',
                 'std'   => edd_get_label_plural(),
