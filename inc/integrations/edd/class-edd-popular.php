@@ -33,6 +33,10 @@ class Marketify_EDD_Popular {
             return false;
         }
 
+        if ( get_query_var( 'm-order' ) ) {
+            return false;
+        }
+
         return true;
     }
 
