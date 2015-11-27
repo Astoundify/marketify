@@ -80,7 +80,7 @@ class Marketify_EDD_Popular {
             $title = sprintf( _x( 'Popular in "%s"', 'popular search results', 'marketify'), get_search_query() );
         } else if ( is_tax( array( 'download_tag', 'download_category' ) ) ) {
             $title = sprintf( __( 'Popular in %s', 'marketify' ), single_term_title( '', false ) );
-        } else if ( is_post_type_archive( 'download' ) )  {
+        } else if ( is_post_type_archive( 'download' ) || is_page_template( 'page-templates/shop.php' ) )  {
             $title = sprintf( __( 'Popular %s', 'marketify' ), edd_get_label_plural() );
         }
 
@@ -90,6 +90,8 @@ class Marketify_EDD_Popular {
     public function get_the_archive_title( $title ) { 
         if ( $this->is_popular_query() ) {
             $title = sprintf( __( 'Popular in %s', 'marketify' ), single_term_title( '', false ) );
+        } else if ( is_page_template( 'page-templates/shop.php' ) ) {
+            $title = edd_get_label_plural();
         }
 
         return $title;
