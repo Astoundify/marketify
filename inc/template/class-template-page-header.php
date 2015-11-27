@@ -96,6 +96,8 @@ class Marketify_Template_Page_Header {
             return;
         }
 
+        global $post;
+
         $social = marketify()->template->entry->social_profiles();
 ?>
 <div class="page-header container">
@@ -103,14 +105,14 @@ class Marketify_Template_Page_Header {
         <?php
             printf( '<div class="user-bubble__gravatar">%1$s %2$s</div>',
                 ! empty( $social ) ? sprintf( '<div class="user-bubble__social-profiles">%1$s</div>', $social ) : '',
-                get_avatar( get_the_author_meta( 'ID' ), 140 )
+                get_avatar( $post->post_author, 140 )
             );
         ?>
     </div>
     <div class="page-header__entry-meta page-header__entry-meta--author">
         <?php
             printf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
-                esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+                esc_url( get_author_posts_url( $post->post_author ) ),
                 esc_attr( sprintf( __( 'View all posts by %s', 'marketify' ), get_the_author() ) ),
                 esc_html( get_the_author() )
             );
