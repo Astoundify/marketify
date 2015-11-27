@@ -47,6 +47,15 @@ Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
 
+= 2.1.0: November 27, 2015 =
+
+* New: Helpful notices when a widget is placed in the wrong widget area.
+* New: Update for future Frontend Submissions submission form compatibility.
+* New: Hide "Popular in X" automatically when sorting results.
+* Fix: Correct "Author Since" date on Vendor Profile pages.
+* Fix: Blog avatar showing the correct user.
+* Fix: Love It heart icon.
+
 = 2.0.0: November 20, 2015 =
 
 Version 2.0.0 of Marketify is a total rewrite of the theme. Please do not update directly on your production server.
