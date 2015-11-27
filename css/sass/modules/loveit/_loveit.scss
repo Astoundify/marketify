@@ -10,8 +10,9 @@
 
 .love-it-wrapper .love-it:before,
 .love-it-wrapper .loved:before {
+    @extend .ion;
 	font-size: 16px;
-	content: '\e61a';
+	content: $ionicon-var-ios-heart-outline;
 	visibility: visible;
 	margin: 6px 6px 0 0;
 	font-size: 18px;
@@ -20,7 +21,7 @@
 }
 
 .love-it-wrapper .loved:before {
-	content: '\e619';
+	content: $ionicon-var-ios-heart;
 }
 
 .love-it-wrapper {
