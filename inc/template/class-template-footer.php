@@ -54,7 +54,7 @@ class Marketify_Template_Footer {
     }
 
     private function has_contact_address() {
-        return 'on' == esc_attr( marketify_theme_mod( 'footer-contact-us-display' ) );
+        return marketify_theme_mod( 'footer-contact-us-display' );
     }
 
     public function contact_address() {
@@ -71,7 +71,7 @@ class Marketify_Template_Footer {
     }
 
     public function has_site_info() {
-        return esc_attr( marketify_theme_mod( 'footer-copyright-display' ) );
+        return marketify_theme_mod( 'footer-copyright-display' );
     }
 
     public function site_info() {
