@@ -23,7 +23,7 @@ class Marketify_EDD_FES extends Marketify_Integration {
     }
 
     public function setup_actions() {
-        add_action( 'wp_enqueue_scripts', array( $this, 'dequeue_styles' ), 11 );
+        add_action( 'wp_enqueue_scripts', array( $this, 'dequeue_styles' )  );
         add_action( 'wp_head', array( $this, 'recaptcha_style' ) );
     }
 
