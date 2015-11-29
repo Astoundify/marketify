@@ -18,8 +18,7 @@ class Marketify_FacetWP extends Marketify_Integration {
     }
 
     public function enqueue_scripts() {
-        // should be able to get the url dynamically
-        wp_enqueue_script( 'marketify-facetwp', get_template_directory_uri() . '/inc/integrations/facetwp/js/facetwp.js', array( 'marketify' ) );
+        wp_enqueue_script( 'marketify-facetwp', $this->get_url() . 'js/facetwp.js', array( 'marketify' ) );
     }
 
     public function widgets_init() {
