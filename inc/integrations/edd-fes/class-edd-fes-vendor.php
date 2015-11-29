@@ -5,7 +5,7 @@ class Marketify_EDD_FES_Vendor {
     public $obj;
 
     public function __construct( $author = false ) {
-        if ( ! $author ) { 
+        if ( ! $author ) {
             $author = $this->find();
         } elseif ( is_numeric( $author ) ) {
             $author = new WP_User( $author );
@@ -26,7 +26,7 @@ class Marketify_EDD_FES_Vendor {
     }
 
     public function url() {
-        return esc_url( trailingslashit( FES_Vendors::get_vendor_store_url( $this->obj->ID ) ) );
+        return esc_url( EDD_FES()->vendors->get_vendor_store_url( $this->obj->ID ) );
     }
 
     public function display_name() {
