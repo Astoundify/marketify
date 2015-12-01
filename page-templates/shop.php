@@ -13,6 +13,8 @@ get_header(); ?>
 
     <div id="content" class="site-content container">
 
+        <?php do_action( 'marketify_shop_before' ); ?>
+
         <?php get_template_part( 'content-grid-download', 'popular' ); ?>
 
         <div class="marketify-archive-download row">
@@ -36,6 +38,8 @@ get_header(); ?>
 
             <?php get_sidebar( 'archive-download' ); ?>
         </div>
+
+        <?php do_action( 'marketify_shop_after' ); ?>
 
     </div>
 
