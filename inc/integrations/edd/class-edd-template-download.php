@@ -272,9 +272,13 @@ class Marketify_EDD_Template_Download {
             $audio = array_splice( $audio, 0, 1 );
         }
 
+        if ( empty( $audio ) ) {
+            return;
+        }
+
         echo wp_playlist_shortcode( array(
             'id' => $post->ID,
-            'include' => $audio,
+            'ids' => $audio,
             'images' => false,
             'tracklist' => is_singular( 'download' )
         ) );
