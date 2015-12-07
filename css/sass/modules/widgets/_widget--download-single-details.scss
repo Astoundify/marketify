@@ -40,11 +40,16 @@
 
     }
 
-    .edd_download_purchase_form:only-of-type .button {
+    .edd_download_purchase_form {
+        margin-bottom: 0;
+    }
+
+    .edd_download_purchase_form:only-child .button {
         margin: 0 auto;
     }
 
-    .widget-detail .edd_download_quantity_wrapper {
+    .widget-detail .edd_download_quantity_wrapper,
+    .edd_download_purchase_form .edd_go_to_checkout {
         margin-top: 0;
     }
 
