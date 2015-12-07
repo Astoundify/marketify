@@ -109,6 +109,8 @@ class Marketify_Customizer_Panels {
 		$wp_customize->get_section( 'title_tagline' )->panel = 'appearance';
 		$wp_customize->get_section( 'header_image' )->panel = 'appearance';
 
+		$wp_customize->get_section( 'header_image' )->title = __( 'Site Logo', 'marketify' );
+
         return $wp_customize;
     }
 
