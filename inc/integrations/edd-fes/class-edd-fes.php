@@ -35,13 +35,13 @@ class Marketify_EDD_FES extends Marketify_Integration {
         if ( ! EDD_FES()->helper->get_option( 'fes-recaptcha-public-key' ) ) {
             return;
         }
-    ?>
-        <script type="text/javascript">
-            var RecaptchaOptions = {
-                theme : 'clean',
-            };
-        </script>
-    <?php
+?>
+<script type="text/javascript">
+    var RecaptchaOptions = {
+        theme : 'clean'
+    };
+</script>
+<?php
     }
 
     function dequeue_styles() {
