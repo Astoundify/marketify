@@ -27,7 +27,7 @@ jQuery ($) ->
               {
                 breakpoint: 500,
                 settings: {
-                  slidesToShow: 1,
+                  slidesToShow: 1
                 }
               }
             ]
@@ -45,6 +45,7 @@ jQuery ($) ->
                 breakpoint: 500,
                 settings: {
                   slidesToShow: 1,
+                  slidesToScroll: 1,
                 }
               }
             ]

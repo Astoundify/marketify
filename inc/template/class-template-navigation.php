@@ -18,7 +18,11 @@ class Marketify_Template_Navigation {
 
         $link = sprintf( '<li class="nav-menu-search"><a href="#" class="js-toggle-search"><span class="screen-reader-text">%s</span></a>%s</li>', __( 'Search', 'marketify' ), $searchform );
 
-        return $link . $items;
+        if ( apply_filters( 'marketify_nav_menu_search_icon_left', true ) ) {
+            return $link . $items;
+        } else {
+            return $items . $link;
+        }
     }
 
     public function register_menus() {

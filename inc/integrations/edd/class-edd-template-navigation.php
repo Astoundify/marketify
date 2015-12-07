@@ -35,7 +35,11 @@ class Marketify_EDD_Template_Navigation {
             $widget 
         );
 
-        return $link . $items;
+        if ( apply_filters( 'marketify_nav_menu_cart_icon_left', true ) ) {
+            return $link . $items;
+        } else {
+            return $items . $link;
+        }
     }
 
 }

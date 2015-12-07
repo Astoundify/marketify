@@ -58,6 +58,11 @@
     margin: 2.5em auto;
     max-width: 80%;
 
+    .search-form {
+        overflow: visible;
+        position: relative;
+    }
+
     label {
         display: inline-block;
     }

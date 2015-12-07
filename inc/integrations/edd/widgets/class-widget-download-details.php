@@ -72,10 +72,12 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
                 <?php do_action( 'marketify_download_author_after' ); ?>
             </div>
 
+            <?php if ( $count ) : ?>
             <div class="widget-detail widget-detail--half">
                 <strong class="widget-detail__title"><?php echo edd_get_download_sales_stats( get_the_ID() ); ?></strong>
                 <span class="widget-detail__info"><?php echo _n( 'Purchase', 'Purchases', edd_get_download_sales_stats( get_the_ID() ), 'marketify' ); ?></span>
             </div>
+            <?php endif; ?>
 
             <div class="widget-detail widget-detail--half widget-detail--last">
                 <a href="#comments"><strong class="widget-detail__title"><?php echo get_comments_number(); ?></strong>
