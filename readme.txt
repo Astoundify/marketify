@@ -2,7 +2,7 @@
 Contributors: Astoundify
 Requires at least: WordPress 4.3
 Tested up to: WordPress 4.3.1
-Version: 2.0.0
+Version: 2.2.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: white, two-columns, one-column, right-sidebar, left-sidebar, fluid-layout, custom-background, custom-header, theme-options, full-width-template, featured-images, flexible-header, custom-menu, translation-ready
@@ -46,6 +46,17 @@ License: MIT
 Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
+
+= 2.2.0: December 9, 2015 =
+
+* New: Filters for custom meneu icons: `marketify_nav_menu_cart_icon_left` and `marketify_nav_menu_search_icon_left`
+* New: Use a popup gallery for navigating images on a standard download.
+* Fix: Respect widget settings for hiding purchase count.
+* Fix: Recaptcha size on vendor contact form (FES).
+* Fix: Single download details button spacing.
+* Fix: Use "Site Logo" string instead of "Header Image".
+* Fix: Search form overlay on single download pages.
+* Fix: Scroll only one slide on individual testimonials when only one is showing.
 
 = 2.1.0: November 27, 2015 =
 
