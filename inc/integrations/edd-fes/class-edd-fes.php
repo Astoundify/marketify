@@ -23,28 +23,23 @@ class Marketify_EDD_FES extends Marketify_Integration {
     }
 
     public function setup_actions() {
-        add_action( 'wp_enqueue_scripts', array( $this, 'dequeue_styles' )  );
-        add_action( 'wp_head', array( $this, 'recaptcha_style' ) );
+        add_action( 'wp_enqueue_scripts', array( $this, 'dequeue_styles' ), 20 );
+        add_filter( 'fes_render_recaptcha_field_frontend_size', array( $this, 'fes_render_recaptcha_field_frontend_size' ) );
     }
 
     public function vendor( $author = false ) {
         return new Marketify_EDD_FES_Vendor( $author );
     }
 
-    function recaptcha_style() {
-        if ( ! EDD_FES()->helper->get_option( 'fes-recaptcha-public-key' ) ) {
-            return;
+    public function fes_render_recaptcha_field_frontend_size( $size ) {
+        if ( is_page_template( 'page-templates/vendor.php' ) ) {
+            return 'compact';
         }
-?>
-<script type="text/javascript">
-    var RecaptchaOptions = {
-        theme : 'clean'
-    };
-</script>
-<?php
+
+        return $size;
     }
 
-    function dequeue_styles() {
+    public function dequeue_styles() {
         wp_dequeue_style( 'fes-css' );
     }
 
