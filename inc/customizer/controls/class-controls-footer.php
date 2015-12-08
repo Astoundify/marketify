@@ -17,13 +17,14 @@ class Marketify_Customizer_Controls_Footer extends Marketify_Customizer_Controls
     public function add_controls( $wp_customize ) {
         $this->controls = array(
             'footer-style' => array(
-                'label' => __( 'Display Style', 'marketify' ),
+                'label' => __( 'Background', 'marketify' ),
                 'type'    => 'select',
                 'choices' => array(
-                    'light' => __( 'Light', 'marketify' ),
-                    'dark'  => __( 'Dark', 'marketify' )
+                    'light' => __( 'Transparent', 'marketify' ),
+                    'dark'  => __( 'Color', 'marketify' )
                 ),
-                'sanitize_callback' => 'esc_attr'
+                'sanitize_callback' => 'esc_attr',
+                'description' => __( 'Set a color in "Appearance &rarr; Colors"', 'marketify' )
             ),
         );
 

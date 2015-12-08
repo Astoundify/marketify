@@ -11,6 +11,7 @@ class Marketify_Customizer_Output_Colors {
         add_action( 'marketify_output_customizer_css', array( $this, 'accent' ), 30 );
         add_action( 'marketify_output_customizer_css', array( $this, 'overlay' ), 40 );
         add_action( 'marketify_output_customizer_css', array( $this, 'minimal' ), 50 );
+        add_action( 'marketify_output_customizer_css', array( $this, 'footer' ), 50 );
     }
 
     public function page_header() {
@@ -19,7 +20,6 @@ class Marketify_Customizer_Output_Colors {
         $this->css->add( array(
             'selectors' => array(
                 '.header-outer',
-                '.site-footer--dark',
                 '.minimal',
                 '.custom-background.minimal',
                 '.wp-playlist .mejs-controls .mejs-time-rail .mejs-time-current'
@@ -273,6 +273,20 @@ class Marketify_Customizer_Output_Colors {
             )
         ) );
     }
+
+    public function footer() {
+        $footer = marketify_theme_mod( 'color-footer-dark-background' );
+
+        $this->css->add( array(
+            'selectors' => array(
+                '.site-footer.site-footer--dark'
+            ),
+            'declarations' => array(
+                'background-color' => esc_attr( $footer )
+            )
+        ) );
+    }
+
 
 }
 

@@ -4,6 +4,7 @@ function marketify_get_theme_mod_defaults() {
     $mods = array(
         // Colors
         'color-page-header-background' => '#515a63',
+        'color-footer-dark-background' => '#515a63',
         'color-primary' => '#515a63',
         'color-accent' => '#50ca8b',
 

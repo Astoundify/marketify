@@ -31,6 +31,11 @@ class Marketify_Customizer_Controls_Colors extends Marketify_Customizer_Controls
                 'type' => 'WP_Customize_Color_Control',
                 'sanitize' => 'sanitize_hex_color'
             ),
+            'color-footer-dark-background' => array(
+                'label' => __( 'Footer Background Color', 'marketify' ),
+                'type' => 'WP_Customize_Color_Control',
+                'sanitize' => 'sanitize_hex_color'
+            ),
         );
 
         return $this->controls;
