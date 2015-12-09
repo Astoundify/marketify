@@ -49,7 +49,7 @@ Source: https://github.com/driftyco/ionicons
 
 = 2.2.0: December 9, 2015 =
 
-* New: Filters for custom meneu icons: `marketify_nav_menu_cart_icon_left` and `marketify_nav_menu_search_icon_left`
+* New: Filters for custom menu icons: `marketify_nav_menu_cart_icon_left` and `marketify_nav_menu_search_icon_left`
 * New: Use a popup gallery for navigating images on a standard download.
 * Fix: Respect widget settings for hiding purchase count.
 * Fix: Recaptcha size on vendor contact form (FES).

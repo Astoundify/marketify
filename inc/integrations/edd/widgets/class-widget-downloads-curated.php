@@ -50,7 +50,7 @@ class Marketify_Widget_Curated_Downloads extends Marketify_Widget {
             echo $before_title . esc_attr( $title ) . $after_title;
         }
 
-        echo do_shortcode( "[downloads columns={$columns} ids={$ids}]" );
+        echo do_shortcode( "[downloads columns={$columns} ids={$ids} orderby=post__in]" );
 
         echo $after_widget;
     }
