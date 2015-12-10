@@ -47,6 +47,10 @@ Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
 
+= 2.2.1: December 10, 2015 =
+
+* Fix: Build script created invalid style.css file.
+
 = 2.2.0: December 9, 2015 =
 
 * New: Filters for custom menu icons: `marketify_nav_menu_cart_icon_left` and `marketify_nav_menu_search_icon_left`
