@@ -126,4 +126,4 @@ module.exports = () ->
   @registerTask 'pushTranslation', [ 'makepot', 'exec:txpush' ]
   @registerTask 'checkTranslation', [ 'checktextdomain' ]
 
-  @registerTask 'build', [ 'uglify', 'coffee', 'sass', 'cssmin', 'concat', 'getTranslations', 'pushTranslation' ]
+  @registerTask 'build', [ 'uglify', 'coffee', 'sass', 'concat:initial', 'cssmin', 'concat:header', 'getTranslations', 'pushTranslation' ]
