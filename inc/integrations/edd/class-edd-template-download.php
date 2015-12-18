@@ -87,7 +87,7 @@ class Marketify_EDD_Template_Download {
         echo apply_filters( 'marketify_demo_link', sprintf( '<a href="%s" class="%s" target="_blank">%s</a>', esc_url( $demo ), $class, $label ) );
     }
 
-    private function get_featured_images() {
+    public function get_featured_images() {
         global $post;
 
         $images  = array();
@@ -98,10 +98,10 @@ class Marketify_EDD_Template_Download {
                 $images[] = get_post( $image );
             }
         } else {
-            $images = apply_filters( 'marketify_download_get_featured_images', get_attached_media( 'image', $post ), $post );
+            $images = get_attached_media( 'image', $post->ID );
         }
 
-        return $images;
+        return apply_filters( 'marketify_download_get_featured_images', $images, $post );
     }
 
     public function featured_area() {
