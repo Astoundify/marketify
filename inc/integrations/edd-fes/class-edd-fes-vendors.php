@@ -36,12 +36,16 @@ class Marketify_EDD_FES_Vendors {
     }
 
     public function dashboard_menu_icons( $menu ) {
+        $menu[ 'home' ][ 'icon' ] = 'house';
+
+        if ( EDD_FES()->vendors->vendor_can_view_orders() ) {
+            $menu[ 'orders' ][ 'icon' ] = 'ticket';
+        }
+
         if ( EDD_FES()->integrations->is_commissions_active() ) {
             $menu[ 'earnings' ][ 'icon' ] = 'graph';
         }
 
-        $menu[ 'home' ][ 'icon' ] = 'house';
-        $menu[ 'orders' ][ 'icon' ] = 'ticket';
         $menu[ 'logout' ][ 'icon' ] = 'logout';
 
         return $menu;
