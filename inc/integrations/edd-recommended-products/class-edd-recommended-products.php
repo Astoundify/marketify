@@ -9,6 +9,7 @@ class Marketify_EDD_Recommended_Products extends Marketify_Integration {
     public function setup_actions() {
         add_action( 'init', array( $this, 'remove_auto_output' ), 12 );
         add_action( 'marketify_single_download_after', array( $this, 'output' ) );
+        add_action( 'edd_after_checkout_cart', array( $this, 'output' ) );
     }
 
     public function remove_auto_output() {
