@@ -68,3 +68,31 @@
 	-moz-transform:    scale(0.25);
 	transform:         scale(0.25);
 }
+
+button.mfp-arrow {
+    &:before {
+        @extend .ion;
+        content: $ionicon-var-ios-arrow-forward;
+        font-size: 40px;
+        color: #fff;
+        border: 0;
+    }
+
+    &:after {
+        display: none;
+    }
+
+    &:hover {
+        background-color: transparent;
+    }
+
+    &:focus {
+        outline: 0;
+    }
+
+    &.mfp-arrow-left {
+        &:before {
+            content: $ionicon-var-ios-arrow-back;
+        }
+    }
+}
