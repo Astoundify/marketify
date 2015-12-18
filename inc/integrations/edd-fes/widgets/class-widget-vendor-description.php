@@ -33,6 +33,8 @@ class Marketify_Widget_FES_Vendor_Description extends Marketify_Widget {
         <div class="download-author-bio">
             <?php echo esc_html( $description ); ?>
         </div>
+
+        <?php do_action( 'marketify_vendor_profile_after_bio', $vendor ); ?>
     <?php
         echo $args[ 'after_widget' ];
     }

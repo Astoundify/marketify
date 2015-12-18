@@ -30,6 +30,8 @@ class Marketify_Widget_FES_Vendor extends Marketify_Widget {
         echo $args[ 'before_widget' ];
     ?>
         <div class="download-author widget-detail--author">
+            <?php do_action( 'marketify_vendor_profile_before', $vendor ); ?>
+
             <?php printf(  '<a class="author-avatar" href="%s" rel="author">%s</a>', esc_url( $url ), get_avatar( $vendor->ID, 130 ) ); ?>
             <?php printf( '<a class="author-link" href="%s" rel="author">%s</a>', esc_url( $url ), $display_name ); ?>
 
@@ -40,7 +42,7 @@ class Marketify_Widget_FES_Vendor extends Marketify_Widget {
                 );
             ?></span>
 
-            <?php echo wpautop( do_shortcode( $instance[ 'extras' ] ) ); ?>
+            <?php do_action( 'marketify_vendor_profile_after', $vendor ); ?>
         </div>
         <div class="widget-detail widget-detail--pull widget-detail--top">
             <strong class="widget-detail__title"><?php echo $vendor->downloads_count(); ?></strong>
