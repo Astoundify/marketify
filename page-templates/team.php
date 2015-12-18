@@ -38,12 +38,12 @@ get_header(); ?>
                     }
 
                     foreach ( $users as $user_id ) :
+                        $social = marketify()->template->entry->social_profiles( $user_id );
                 ?>
 
                 <div class="team-member">
-                    <div class="user-bubble user-bubble--team user-bubble--with-social">
+                    <div class="user-bubble user-bubble--team <?php if ( ! empty( $social ) ) : ?>user-bubble--with-social<?php endif; ?>">
                         <?php
-                            $social = marketify()->template->entry->social_profiles( $user_id );
                             printf( '<div class="user-bubble__gravatar">%1$s %2$s</div>',
                                 sprintf( '<div class="user-bubble__social-profiles">%1$s</div>', $social ),
                                 get_avatar( $user_id, 400 )
