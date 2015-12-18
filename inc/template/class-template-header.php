@@ -46,11 +46,23 @@ class Marketify_Template_Header {
     public function navigation_color() {
         $this->css->add( array(
             'selectors' => array(
-                '.main-navigation a'
+                '.nav-menu--primary li a',
+                '.nav-menu--primary.nav-menu li:after'
             ),
             'declarations' => array(
                 'color' => '#' . get_header_textcolor()
-            )
+            ),
+            'media' => 'screen and (min-width: 992px)'
+        ) );
+
+        $this->css->add( array(
+            'selectors' => array(
+                '.nav-menu li:hover:not(.menu-item-has-children):not(.page_item_has_children)'
+            ),
+            'declarations' => array(
+                'box-shadow' => '0 0 0 3px #' . get_header_textcolor()
+            ),
+            'media' => 'screen and (min-width: 992px)'
         ) );
     }
 

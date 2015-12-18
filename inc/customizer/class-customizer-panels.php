@@ -110,6 +110,7 @@ class Marketify_Customizer_Panels {
 		$wp_customize->get_section( 'header_image' )->panel = 'appearance';
 
 		$wp_customize->get_section( 'header_image' )->title = __( 'Site Logo', 'marketify' );
+        $wp_customize->get_control( 'header_textcolor' )->label = __( 'Header & Navigation Text Color', 'marketify' );
 
         return $wp_customize;
     }
