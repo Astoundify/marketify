@@ -79,7 +79,7 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
             </div>
             <?php endif; ?>
 
-            <div class="widget-detail widget-detail--half widget-detail--last">
+            <div class="widget-detail <?php if ( $count ) : ?>widget-detail--half widget-detail--last<?php endif; ?>">
                 <a href="#comments"><strong class="widget-detail__title"><?php echo get_comments_number(); ?></strong>
                 <span class="widget-detail__info"><?php echo _n( 'Comment', 'Comments', get_comments_number(), 'marketify' ); ?></a></span>
             </div>
