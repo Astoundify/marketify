@@ -1,12 +1,15 @@
 .section-title--minimal {
     &:after {
-        background: #fff;
+        display: none;
     }
 }
 
 .section-title--minimal__inner {
+    font-size: 20px;
+    letter-spacing: 1px;
     color: #fff;
-    border-color: #fff;
+    border: 0 !important;
+    background-color: transparent !important;
 }
 
 .minimal {
