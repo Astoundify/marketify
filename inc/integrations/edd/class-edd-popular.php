@@ -37,6 +37,10 @@ class Marketify_EDD_Popular {
             return false;
         }
 
+        if ( is_page_template( 'page-templates/popular.php' ) ) {
+            return false;
+        }
+
         return true;
     }
 
