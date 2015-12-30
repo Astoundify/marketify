@@ -96,33 +96,18 @@ class Marketify_Template_Page_Header {
             return;
         }
 
-        global $post;
+        the_post();
 
         $social = marketify()->template->entry->social_profiles();
 ?>
-<div class="page-header container">
-    <div class="user-bubble user-bubble--blog <?php if ( ! empty( $social ) ) : ?>user-bubble--with-social<?php endif; ?>">
-        <?php
-            printf( '<div class="user-bubble__gravatar">%1$s %2$s</div>',
-                ! empty( $social ) ? sprintf( '<div class="user-bubble__social-profiles">%1$s</div>', $social ) : '',
-                get_avatar( $post->post_author, 140 )
-            );
-        ?>
-    </div>
-    <div class="page-header__entry-meta page-header__entry-meta--author">
-        <?php
-            printf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
-                esc_url( get_author_posts_url( $post->post_author ) ),
-                esc_attr( sprintf( __( 'View all posts by %s', 'marketify' ), get_the_author() ) ),
-                esc_html( get_the_author() )
-            );
-       ?>
-    </div>
-
+<div class="page-header page-header--single container">
     <h2 class="page-title"><?php the_title(); ?></h2>
 
-    <div class="page-header__entry-meta page-header__entry-meta--date"><?php echo get_the_date(); ?></div>
+    <div class="page-header__entry-meta page-header__entry-meta--date entry-meta entry-meta--hentry">
+        <?php get_template_part( 'content', 'entry-meta' ); ?>
+    </div>
 <?php
+    rewind_posts();
     }
 
     public function not_found_title() {
