@@ -21,7 +21,7 @@
 
 <div id="page" class="hfeed site">
 
-    <div <?php echo apply_filters( 'marketify_page_header', '', array() ); ?>>
+    <div <?php echo apply_filters( 'marketify_page_header', array() ); ?>>
 
         <header id="masthead" class="site-header" role="banner">
             <div class="container">

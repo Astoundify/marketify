@@ -25,6 +25,8 @@ class Marketify {
 
     public $template;
 
+    public $page_settings;
+
     public static function instance() {
         if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Marketify ) ) {
             self::$instance = new self;
@@ -61,6 +63,8 @@ class Marketify {
 
             'template/class-template.php',
 
+            'pages/class-page-settings.php',
+
             'deprecated.php'
         );
 
@@ -81,6 +85,8 @@ class Marketify {
         $this->widgets = new Marketify_Widgets();
 
         $this->template = new Marketify_Template();
+
+        $this->page_settings = new Marketify_Page_Settings();
 
         add_action( 'after_setup_theme', array( $this, 'setup_theme' ) );
     }

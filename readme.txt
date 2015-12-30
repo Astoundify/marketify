@@ -37,9 +37,13 @@ salvattore.js Copyright (c) 2013-2015 Rolando Murillo and Giorgio Leveroni
 License: MIT/GPL2
 Source: https://github.com/rnmp/salvattore/
 
-Magnific-Popup Copyright (c) 2014-2015 Dmitry Semenov, http://dimsemenov.com
+Magnific-Popup Copyright (c) 2014-2015 Dmitry Semenov (http://dimsemenov.com)
 Licenses: MIT
 Source: https://github.com/dimsemenov/Magnific-Popup
+
+vide 0.4.1 Copyright (c) 2015 Ilya Makarov
+Licenses: MIT
+Source: https://github.com/VodkaBears/Vide
 
 Ionicons icon font, Copyright (c) 2014 Drifty (http://drifty.com/)
 License: MIT

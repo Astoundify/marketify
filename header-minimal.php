@@ -17,7 +17,7 @@
 
     <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?> <?php echo apply_filters( 'marketify_page_header', '' ); ?>>
+<body <?php body_class(); ?> <?php echo apply_filters( 'marketify_page_header' ); ?>>
 
 <div id="page" class="hfeed site">
     <?php do_action( 'before' ); ?>

@@ -42,6 +42,8 @@ module.exports = () ->
       dist:
         files:
           'js/download/download.js': 'js/download/download.coffee'
+          'js/page-header-video/page-header-video-admin.js': 'js/page-header-video/page-header-video-admin.coffee'
+          'js/page-header-video/page-header-video.js': 'js/page-header-video/page-header-video.coffee'
           'js/widgets/featured-popular.js': 'js/widgets/featured-popular.coffee'
           'js/widgets/testimonials.js': 'js/widgets/testimonials.coffee'
           'inc/integrations/facetwp/js/facetwp.js': 'inc/integrations/facetwp/js/facetwp.coffee'
@@ -56,6 +58,7 @@ module.exports = () ->
             'js/app/marketify.js'
             'js/widgets/featured-popular.js'
             'js/widgets/testimonials.js'
+            'js/page-header-video/page-header-video.js'
             '!js/vendor/salvattore/*.js'
           ]
 

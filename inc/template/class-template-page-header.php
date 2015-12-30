@@ -3,8 +3,9 @@
 class Marketify_Template_Page_Header {
 
     public function __construct() {
-        add_filter( 'marketify_page_header', array( $this, 'tag_atts' ), 10, 2 );
-        add_action( 'marketify_entry_before', array( $this, 'close_header_outer' ) );
+        add_filter( 'marketify_page_header', array( $this, 'tag_atts' ) );
+        add_action( 'marketify_entry_before', array( $this, 'close_div' ), 10 ); // close the .page-header div opened in each callback
+        add_action( 'marketify_entry_before', array( $this, 'close_div' ), 20 ); // close the .header-outer div opened in header.php
 
         add_filter( 'get_the_archive_title', array( $this, 'get_the_archive_title' ) );
 
@@ -16,8 +17,8 @@ class Marketify_Template_Page_Header {
         add_action( 'marketify_entry_before', array( $this, 'not_found_title' ), 5 );
     }
 
-    public function close_header_outer() {
-        echo '</div></div>';
+    public function close_div() {
+        echo '</div>';
     }
 
     public function blog_title() {
@@ -120,11 +121,15 @@ class Marketify_Template_Page_Header {
 <?php
     }
 
-    public function tag_atts( $args ) {
+    /**
+     * Add the HTML attributes to the wrapper div around the header elements
+     */
+    public function tag_atts( $args = array() ) {
         $defaults = apply_filters( 'marketify_page_header_defaults', array(
-            'classes' => 'header-outer',
+            'class' => array( 'header-outer' ),
             'object_ids' => false,
-            'size' => 'large'
+            'size' => 'large',
+            'style' => array()
         ) );
 
         $args = wp_parse_args( $args, $defaults );
@@ -133,34 +138,45 @@ class Marketify_Template_Page_Header {
         $output = '';
 
         foreach ( $atts as $attribute => $properties ) {
-            $output .= sprintf( '%s="%s"', $attribute, trim( $properties ) );
+            $output .= sprintf( '%s="%s"', $attribute, implode( ' ', $properties ) );
         }
 
         return $output;
     }
 
     private function build_tag_atts( $args ) {
-        $atts = array(
-            'class' => $args[ 'classes' ],
-            'style' => ''
-        );
+        $args = $this->add_background_image( $args );
+        $args = $this->add_background_video( $args );
 
-        $atts = $this->add_background_image( $atts, $args );
+        $allowed = apply_filters( 'marketify_page_header_allowed_atts', array( 'class', 'style' ) );
+        $atts = apply_filters( 'marketify_page_header_atts', $args );
+
+        $atts = array_intersect_key( $atts, array_flip( $allowed ) );
 
         return $atts;
     }
 
-    private function add_background_image( $atts, $args ) {
+    private function add_background_image( $args ) {
         $background_image = $this->find_background_image( $args );
 
         if ( $background_image ) {
-            $atts[ 'style' ] .= ' background-image:url(' . $background_image . ');';
-            $atts[ 'class' ] .= ' has-image';
+            $args[ 'style' ][] = 'background-image:url(' . $background_image . ');';
+            $args[ 'class' ][] = 'has-image';
         } else {
-            $atts[ 'class' ] .= ' no-image';
+            $args[ 'class' ][] = 'no-image';
         }
 
-        return $atts;
+        return $args;
+    }
+
+    private function add_background_video( $args ) {
+        $video = true;
+
+        if ( $video ) {
+            $args[ 'class' ][] = 'has-video';
+        }
+
+        return $args;
     }
 
     private function find_background_image( $args ) {
