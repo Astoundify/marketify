@@ -58,12 +58,41 @@ Marketify.App = ( function($) {
 		}
 	}
 
+  function initVideos() {
+    var video = $( '.header-outer .wp-video video' ).get(0);
+
+    if ( typeof video === 'undefined' ) {
+      return;
+    }
+
+    var vide = $( '.header-outer .wp-video' ).vide();
+
+    vide.resize();
+
+    function adjustHeight() {
+      if ( $(window).width() < 768 ) {
+        $( video ).hide();
+      } else {
+        $( video ).show();
+      }
+    }
+
+    adjustHeight();
+
+    $(window).resize(function() {
+      adjustHeight();
+    });
+
+    return;
+  }
+
 	return {
 		init : function() {
       menuToggle();
 			menuSearch();
 			footerHeight();
 			soliloquySliders();
+      initVideos();
 
 			$(window).resize(function() {
 				footerHeight();
@@ -149,6 +178,7 @@ Marketify.App = ( function($) {
 				removalDelay : 250
 			} ) );
 		},
+
 	}
 } )(jQuery);
 

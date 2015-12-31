@@ -4,6 +4,7 @@ class Marketify_Page_Settings {
 
     public function __construct() {
         add_action( 'init', array( $this, 'register_meta' ) );
+        add_action( 'save_post', array( $this, 'save_post' ) );
     }
 
     public function register_meta() {

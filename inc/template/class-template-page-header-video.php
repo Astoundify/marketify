@@ -42,7 +42,7 @@ class Marketify_Template_Page_Header_Video {
     }
 
     public function add_meta_box() {
-        add_meta_box( 'marketify-settings', __( 'Video Header', 'marketify' ), array( $this, 'meta_box_settings' ), 'page', 'side' );
+        add_meta_box( 'marketify-settings', __( 'Video Header URL', 'marketify' ), array( $this, 'meta_box_settings' ), 'page', 'normal' );
     }
 
     public function save_meta_box( $post ) {
@@ -52,12 +52,11 @@ class Marketify_Template_Page_Header_Video {
     }
 
     public function meta_box_settings() {
-        $video_shortcode = $this->get_video_shortcode();
+        $video_url = $this->get_video_url();
 ?>
 
-<p class="hide-if-no-js">
-    <a title="<?php esc_attr_e( 'Set video header', 'marketify' ); ?>" href="<?php echo esc_url( admin_url( '' ) ); ?>" id="set-video-header"><?php _e( 'Set video header', 'marketify' ); ?></a>
-    <input type="text" name="video_shortcode" value="<?php echo esc_attr( $video_shortcode ); ?>" />
+<p>
+    <input type="text" name="video_url" value="<?php echo esc_url( $video_url ); ?>" class="widefat" style="width: 100%;" />
 </p>
 
 <?php
@@ -68,23 +67,29 @@ class Marketify_Template_Page_Header_Video {
             return;
         }
 
-        the_post();
-
         add_filter( 'wp_video_shortcode_library', '__return_false' );
 
-        the_content();
+        echo $this->get_video_shortcode();
 
         remove_filter( 'wp_video_shortcode_library', '__return_false' );
-
-        rewind_posts();
     }
 
-    public function get_video_shortcode( $post = false ) {
+    public function get_video_shortcode() {
+        return wp_video_shortcode( apply_filters( 'marketify_page_header_video_shortcode', array(
+            'src' => $this->get_video_url(),
+            'controls' => false,
+            'autoplay' => true,
+            'loop' => true,
+            'preload' => 'auto',
+        ) ) );
+    }
+
+    public function get_video_url( $post = false ) {
         if ( ! $post ) {
             $post = get_post();
         }
 
-        return $post->video_shortcode;
+        return $post->video_url;
     }
 
 }
