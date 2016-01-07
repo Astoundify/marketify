@@ -1,14 +1,14 @@
-# Copyright (C) 2015 Astoundify
+# Copyright (C) 2016 Astoundify
 # This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
-"Project-Id-Version: Marketify 2.2.1\n"
+"Project-Id-Version: Marketify 2.3.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2015-12-10 15:26:48+00:00\n"
+"POT-Creation-Date: 2016-01-07 21:56:36+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.4.9\n"
@@ -52,20 +52,33 @@ msgstr ""
 msgid "Newer Comments"
 msgstr ""
 
-#: content-grid.php:15
-msgid "Read More"
+#: content-entry-meta.php:9
+msgid "<span class=\"byline\">%1$s</span>"
 msgstr ""
 
-#: content-grid.php:16 content.php:41
+#: content-entry-meta.php:12 page-templates/team.php:57
+msgid "View all posts by %s"
+msgstr ""
+
+#: content-entry-meta.php:22 content-grid.php:16
 msgid "0 Comments"
 msgstr ""
 
-#: content-grid.php:16 content.php:41
+#: content-entry-meta.php:22 content-grid.php:16
 msgid "1 Comment"
 msgstr ""
 
-#: content-grid.php:16 content.php:41
+#: content-entry-meta.php:22 content-grid.php:16
 msgid "% Comments"
+msgstr ""
+
+#: content-entry-meta.php:25 content-single.php:21
+#: inc/template/class-template-comments.php:51
+msgid "Edit"
+msgstr ""
+
+#: content-grid.php:15
+msgid "Read More"
 msgstr ""
 
 #: content-page.php:14 content-single-download.php:23 content-single.php:13
@@ -74,20 +87,6 @@ msgstr ""
 
 #: content-single-download.php:10
 msgid "About the %s"
-msgstr ""
-
-#: content-single.php:21 content.php:44
-#: inc/template/class-template-comments.php:51
-msgid "Edit"
-msgstr ""
-
-#: content.php:28
-msgid "<span class=\"byline\">%1$s</span>"
-msgstr ""
-
-#: content.php:31 inc/template/class-template-page-header.php:116
-#: page-templates/team.php:57
-msgid "View all posts by %s"
 msgstr ""
 
 #: edd_templates/shortcode-content-image.php:18
@@ -151,6 +150,10 @@ msgstr ""
 
 #: inc/customizer/class-customizer-panels.php:112
 msgid "Site Logo"
+msgstr ""
+
+#: inc/customizer/class-customizer-panels.php:113
+msgid "Header & Navigation Text Color"
 msgstr ""
 
 #: inc/customizer/controls/class-controls-colors.php:20
@@ -345,12 +348,12 @@ msgstr ""
 msgid "%s Demo URL"
 msgstr ""
 
-#: inc/integrations/edd/class-edd-popular.php:82
-#: inc/integrations/edd/class-edd-popular.php:92
+#: inc/integrations/edd/class-edd-popular.php:86
+#: inc/integrations/edd/class-edd-popular.php:96
 msgid "Popular in %s"
 msgstr ""
 
-#: inc/integrations/edd/class-edd-popular.php:84
+#: inc/integrations/edd/class-edd-popular.php:88
 msgid "Popular %s"
 msgstr ""
 
@@ -450,7 +453,7 @@ msgid "Hide purchase count"
 msgstr ""
 
 #: inc/integrations/edd/widgets/class-widget-download-details.php:68
-#: inc/integrations/edd-fes/widgets/class-widget-vendor.php:38
+#: inc/integrations/edd-fes/widgets/class-widget-vendor.php:40
 msgid "Author since: %s"
 msgstr ""
 
@@ -620,7 +623,7 @@ msgstr ""
 msgid "Marketify - %1$s: Review Details"
 msgstr ""
 
-#: inc/integrations/edd-recommended-products/class-edd-recommended-products.php:46
+#: inc/integrations/edd-recommended-products/class-edd-recommended-products.php:47
 msgid "Recommended Products"
 msgstr ""
 
@@ -1301,15 +1304,19 @@ msgstr ""
 msgid "Footer Social"
 msgstr ""
 
-#: inc/template/class-template-page-header.php:29
+#: inc/template/class-template-page-header-video.php:45
+msgid "Video Header URL"
+msgstr ""
+
+#: inc/template/class-template-page-header.php:30
 msgid "Blog"
 msgstr ""
 
-#: inc/template/class-template-page-header.php:87
+#: inc/template/class-template-page-header.php:88
 msgid "All %s"
 msgstr ""
 
-#: inc/template/class-template-page-header.php:134
+#: inc/template/class-template-page-header.php:120
 msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
@@ -1633,7 +1640,7 @@ msgctxt "URL slug to determine category sorting"
 msgid "popular"
 msgstr ""
 
-#: inc/integrations/edd/class-edd-popular.php:80
+#: inc/integrations/edd/class-edd-popular.php:84
 msgctxt "popular search results"
 msgid "Popular in \"%s\""
 msgstr ""

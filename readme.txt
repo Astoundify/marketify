@@ -2,7 +2,7 @@
 Contributors: Astoundify
 Requires at least: WordPress 4.3
 Tested up to: WordPress 4.3.1
-Version: 2.2.0
+Version: 2.3.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: white, two-columns, one-column, right-sidebar, left-sidebar, fluid-layout, custom-background, custom-header, theme-options, full-width-template, featured-images, flexible-header, custom-menu, translation-ready
@@ -50,6 +50,17 @@ License: MIT
 Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
+
+= 2.3.0: January 7, 2015 =
+
+* New: Featured Image backgrounds on Minimal page template.
+* New: Blog layout and style updates.
+* Fix: Download widths in Easy Digital Downloads 2.5+
+* Fix: Hide (x) close in page header.
+* Fix: Check for menu tasks being registered when setting FES icons.
+* Fix: Use a full width row when purchase count is hidden in the product details.
+* Fix: Hide hover when team images have no social accounts.
+* Fix: Gallery image navigation styles.
 
 = 2.2.1: December 10, 2015 =
 
