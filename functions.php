@@ -86,7 +86,7 @@ class Marketify {
 
         $this->template = new Marketify_Template();
 
-        $this->page_settings = new Marketify_Page_Settings();
+        // $this->page_settings = new Marketify_Page_Settings();
 
         add_action( 'after_setup_theme', array( $this, 'setup_theme' ) );
     }

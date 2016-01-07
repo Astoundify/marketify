@@ -32,7 +32,7 @@ class Marketify_Template {
         $this->navigation = new Marketify_Template_Navigation();
         $this->header = new Marketify_Template_Header();
         $this->page_header = new Marketify_Template_Page_Header();
-        $this->page_header_video = new Marketify_Template_Page_Header_Video();
+        // $this->page_header_video = new Marketify_Template_Page_Header_Video();
         $this->entry = new Marketify_Template_Entry();
         $this->comments = new Marketify_Template_Comments();
         $this->pagination = new Marketify_Template_Pagination();
