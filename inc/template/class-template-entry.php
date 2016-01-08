@@ -30,7 +30,9 @@ class Marketify_Template_Entry {
                 $url = apply_filters( 'marketify_contact_method_' . $key . '_url', '' );
             }
 
-            $social[ $key ] = sprintf( '<a href="%1$s" target="_blank"><i class="ion-social-%2$s"></i></a>', esc_url( $url ), esc_attr( $key ) );
+            if ( '' != $url ) {
+                $social[ $key ] = sprintf( '<a href="%1$s" target="_blank"><i class="ion-social-%2$s"></i></a>', esc_url( $url ), esc_attr( $key ) );
+            }
         }
 
         $social = implode( ' ', $social );
