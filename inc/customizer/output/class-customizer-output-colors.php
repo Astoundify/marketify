@@ -267,7 +267,7 @@ class Marketify_Customizer_Output_Colors {
                 '.minimal .fes-submit .edd-submit.button:hover',
             ),
             'declarations' => array(
-                'background-color' => esc_attr( $page_header_background ),
+                'background-color' => 'transparent',
                 'border-color' => esc_attr( $accent ),
                 'color' => esc_attr( $accent )
             )
