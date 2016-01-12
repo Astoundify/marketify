@@ -55,7 +55,7 @@ abstract class Marketify_Integration {
     }
 
     public function get_url() {
-        return trailingslashit( get_template_directory_uri() . 'inc/integrations/' . $this->get_slug() );
+        return trailingslashit( get_template_directory_uri() . '/inc/integrations/' . $this->get_slug() );
     }
 
 }
