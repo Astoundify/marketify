@@ -34,6 +34,7 @@
           arrows: false,
           dots: true,
           adaptiveHeight: true,
+          rtl: marketifyFeaturedPopular.isRTL,
           responsive: [
             {
               breakpoint: 992,
