@@ -18,8 +18,7 @@ class Marketify_Customizer_Controls_Footer_Copyright extends Marketify_Customize
         $this->controls = array(
             'footer-copyright-display' => array(
                 'label' => __( 'Display "Copyright" Section', 'marketify' ),
-                'type' => 'checkbox',
-                'sanitize_callback' => 'esc_attr'
+                'type' => 'checkbox'
             ),
             'footer-copyright-logo' => array(
                 'label' => __( 'Logo', 'marketify' ),

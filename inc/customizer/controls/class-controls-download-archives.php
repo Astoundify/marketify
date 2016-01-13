@@ -31,18 +31,15 @@ class Marketify_Customizer_Controls_Download_Archives extends Marketify_Customiz
             ),
             'downloads-archives-popular' => array(
                 'label' => __( 'Display "Popular Items" above results', 'marketify' ),
-                'type' => 'checkbox',
-                'sanitize_callback' => 'esc_attr'
+                'type' => 'checkbox'
             ),
             'downloads-archives-excerpt' => array(
                 'label' => __( 'Display excerpt below title', 'marketify' ),
-                'type' => 'checkbox',
-                'sanitize_callback' => 'esc_attr'
+                'type' => 'checkbox'
             ),
             'downloads-archives-truncate-title' => array(
                 'label' => __( 'Truncate item titles', 'marketify' ),
-                'type' => 'checkbox',
-                'sanitize_callback' => 'esc_attr'
+                'type' => 'checkbox'
             ),
             'downloads-archives-meta' => array(
                 'label' => __( 'Display Titles & Meta', 'marketify' ),
