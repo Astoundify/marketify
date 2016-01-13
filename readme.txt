@@ -2,7 +2,7 @@
 Contributors: Astoundify
 Requires at least: WordPress 4.3
 Tested up to: WordPress 4.3.1
-Version: 2.3.0
+Version: 2.3.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: white, two-columns, one-column, right-sidebar, left-sidebar, fluid-layout, custom-background, custom-header, theme-options, full-width-template, featured-images, flexible-header, custom-menu, translation-ready
@@ -50,6 +50,16 @@ License: MIT
 Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
+
+= 2.3.1: January 13, 2015 =
+
+* Fix: Error on minimal page template when no featured image is enabled.
+* Fix: Correct URL on loading assetes in integrations.
+* Fix: Invalid HTML in archive-download.php template file.
+* Fix: Remove invalid sanitize_callback on customizer checkboxes.
+* Fix: Placeholder color in Chrome and Safari.
+* Fix: Featured & Popular slider positioning when using RTL.
+* Fix: Gravity Forms styles.
 
 = 2.3.0: January 7, 2015 =
 

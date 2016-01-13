@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
-"Project-Id-Version: Marketify 2.3.0\n"
+"Project-Id-Version: Marketify 2.3.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2016-01-08 15:39:35+00:00\n"
+"POT-Creation-Date: 2016-01-13 16:15:28+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -144,7 +144,7 @@ msgid "Contact Us"
 msgstr ""
 
 #: inc/customizer/class-customizer-panels.php:64
-#: inc/customizer/controls/class-controls-copyright.php:30
+#: inc/customizer/controls/class-controls-copyright.php:29
 msgid "Copyright"
 msgstr ""
 
@@ -189,7 +189,7 @@ msgstr ""
 msgid "Display \"Copyright\" Section"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-copyright.php:25
+#: inc/customizer/controls/class-controls-copyright.php:24
 msgid "Logo"
 msgstr ""
 
@@ -217,31 +217,31 @@ msgstr ""
 msgid "Display \"Popular Items\" above results"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-download-archives.php:38
+#: inc/customizer/controls/class-controls-download-archives.php:37
 msgid "Display excerpt below title"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-download-archives.php:43
+#: inc/customizer/controls/class-controls-download-archives.php:41
 msgid "Truncate item titles"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-download-archives.php:48
+#: inc/customizer/controls/class-controls-download-archives.php:45
 msgid "Display Titles & Meta"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-download-archives.php:50
+#: inc/customizer/controls/class-controls-download-archives.php:47
 msgid "<strong>Always</strong> will display on featured and popular sliders."
 msgstr ""
 
-#: inc/customizer/controls/class-controls-download-archives.php:52
+#: inc/customizer/controls/class-controls-download-archives.php:49
 msgid "Auto"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-download-archives.php:53
+#: inc/customizer/controls/class-controls-download-archives.php:50
 msgid "Always"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-download-archives.php:54
+#: inc/customizer/controls/class-controls-download-archives.php:51
 msgid "Never"
 msgstr ""
 
