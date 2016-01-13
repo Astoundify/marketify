@@ -56,3 +56,20 @@ input[type="radio"] {
         outline: 0;
     }
 }
+
+::-webkit-input-placeholder {
+    color: gray;
+}
+
+::-moz-placeholder {
+   color: gray;
+   opacity: 1;
+}
+
+:-ms-input-placeholder {
+   color: gray;
+}
+
+:placeholder-shown { 
+  color: gray;
+}
