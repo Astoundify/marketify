@@ -83,9 +83,9 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
 
         <script>
             var marketifyFeaturedPopular = {
-                'autoPlay': '<?php echo $auto; ?>',
-                'autoPlaySpeed': <?php echo $speed; ?>,
-                'isRTL': <?php echo is_rtl() ? 'true' : 'false'; ?>
+                autoPlay: <?php echo $auto; ?>,
+                autoPlaySpeed: <?php echo $speed; ?>,
+                isRTL: <?php echo is_rtl() ? 'true' : 'false'; ?>
             }
         </script>
 

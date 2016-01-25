@@ -14,6 +14,9 @@
       FeaturedPopular.prototype.initSwitcher = function() {
         $('.featured-popular-tabs > div:first-child').addClass('active');
         $('.featured-popular-tabs > div:last-child').addClass('inactive');
+        if (typeof marketifyFeaturedPopular !== "undefined" && marketifyFeaturedPopular !== null ? marketifyFeaturedPopular.autoPlay : void 0) {
+          $('.featured-popular-slick .edd_downloads_list').slick('slickPlay');
+        }
         return $('.featured-popular-switcher span').click(function(e) {
           e.preventDefault();
           $('.featured-popular-tabs > div').removeClass('active').addClass('inactive');
@@ -27,7 +30,7 @@
           return;
         }
         return $('.featured-popular-slick .edd_downloads_list').slick({
-          autoPlay: typeof marketifyFeaturedPopular !== "undefined" && marketifyFeaturedPopular !== null ? marketifyFeaturedPopular.autoPlay : void 0,
+          autoPlay: Boolean(typeof marketifyFeaturedPopular !== "undefined" && marketifyFeaturedPopular !== null ? marketifyFeaturedPopular.autoPlay : void 0),
           autoPlaySpeed: parseInt(typeof marketifyFeaturedPopular !== "undefined" && marketifyFeaturedPopular !== null ? marketifyFeaturedPopular.autoPlaySpeed : void 0),
           slidesToShow: 3,
           slidesToScroll: 3,

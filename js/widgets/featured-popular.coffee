@@ -10,6 +10,9 @@ jQuery ($) ->
       $( '.featured-popular-tabs > div:first-child' ).addClass( 'active' )
       $( '.featured-popular-tabs > div:last-child' ).addClass( 'inactive' )
 
+      if marketifyFeaturedPopular?.autoPlay
+        $( '.featured-popular-slick .edd_downloads_list' ).slick 'slickPlay'
+
       $( '.featured-popular-switcher span' ).click (e) ->
         e.preventDefault();
 
@@ -22,7 +25,7 @@ jQuery ($) ->
       if ! $( '.featured-popular-slick .edd_downloads_list' ).length then return
 
       $( '.featured-popular-slick .edd_downloads_list' ).slick(
-        autoPlay: marketifyFeaturedPopular?.autoPlay
+        autoPlay: Boolean marketifyFeaturedPopular?.autoPlay
         autoPlaySpeed: parseInt marketifyFeaturedPopular?.autoPlaySpeed
         slidesToShow: 3
         slidesToScroll: 3
