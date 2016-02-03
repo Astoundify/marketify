@@ -1,3 +1,17 @@
+.featured-popular-switcher {
+	&:after {
+		display: none;
+	}
+}
+
+@include bp(sm) {
+	.featured-popular-switcher {
+		&:after {
+			display: block;
+		}
+	}
+}
+
 .featured-popular-tabs {
     margin-top: 5em;
 
@@ -8,7 +22,17 @@
 
 .featured-popular-switcher span {
     cursor: pointer;
-    margin: 0 10px;
+    margin: 0 0 1em;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+@include bp(sm) {
+	.featured-popular-switcher span {
+		margin: 0 10px;
+	}
 }
 
 .featured-popular-tabs > div {
