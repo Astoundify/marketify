@@ -8,7 +8,7 @@ class Marketify_Widget_Featured_Popular_Downloads extends Marketify_Widget {
         $this->widget_cssclass    = 'marketify_widget_featured_popular';
         $this->widget_description = sprintf( __( 'Display featured and popular %s in sliding grid.', 'marketify' ), edd_get_label_plural() );
         $this->widget_id          = 'marketify_widget_featured_popular';
-        $this->widget_name        = sprintf( __( 'Marketify - Home:  Featured &amp; Popular %s', 'marketify' ), edd_get_label_plural() );
+        $this->widget_name        = sprintf( __( 'Marketify - Page:  Featured &amp; Popular %s', 'marketify' ), edd_get_label_plural() );
         $this->settings           = array(
             'popular-title' => array(
                 'type'  => 'text',

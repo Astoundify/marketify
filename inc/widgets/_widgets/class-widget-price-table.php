@@ -6,7 +6,7 @@ class Marketify_Widget_Price_Table extends Marketify_Widget {
         $this->widget_cssclass    = 'marketify_widget_price_table';
         $this->widget_description = __( 'Output the price table (based on the "Price Table" widget area)', 'marketify' );
         $this->widget_id          = 'marketify_widget_price_table';
-        $this->widget_name        = __( 'Marketify - Home: Price Table', 'marketify' );
+        $this->widget_name        = __( 'Marketify - Page: Price Table', 'marketify' );
         $this->settings           = array(
             'home-1' => array(
                 'type' => 'widget-area',

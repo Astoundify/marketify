@@ -6,11 +6,11 @@ class Marketify_Widget_Recent_Downloads extends Marketify_Widget {
         $this->widget_cssclass    = 'marketify_widget_recent_downloads';
         $this->widget_description = sprintf( __( 'Display recent %s in a grid.', 'marketify' ), edd_get_label_plural() );
         $this->widget_id          = 'marketify_widget_recent_downloads';
-        $this->widget_name        = sprintf( __( 'Marketify - Home: Recent %s', 'marketify' ), edd_get_label_plural() );
+        $this->widget_name        = sprintf( __( 'Marketify - Page: Recent %s', 'marketify' ), edd_get_label_plural() );
         $this->settings           = array(
-            'home-1' => array(
+            'home-1 widgetized' => array(
                 'type' => 'widget-area',
-                'std' => __( 'Home', 'marketify' )
+                'std' => __( 'Widgetized Page or Home', 'marketify' )
             ),
             'title' => array(
                 'type'  => 'text',

@@ -43,6 +43,7 @@ class Marketify_Widget extends WP_Widget {
 #sidebar-download .marketify-widget-usage.sidebar-download { display: none; }
 #sidebar-vendor .marketify-widget-usage.sidebar-vendor { display: none; }
 #home-1 .marketify-widget-usage.home-1 { display: none; }
+div[id^="widget-area-page"] .marketify-widget-usage.widgetized { display: none; }
 </style>
 <?php
     }

@@ -26,6 +26,7 @@ class Marketify {
     public $template;
 
     public $page_settings;
+	public $widgetized_pages;
 
     public static function instance() {
         if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Marketify ) ) {
@@ -64,6 +65,7 @@ class Marketify {
             'template/class-template.php',
 
             'pages/class-page-settings.php',
+            'pages/class-widgetized-page.php',
 
             'deprecated.php'
         );
@@ -85,6 +87,8 @@ class Marketify {
         $this->widgets = new Marketify_Widgets();
 
         $this->template = new Marketify_Template();
+
+		$this->widgetized_pages = new Marketify_Widgetized_Pages();
 
         // $this->page_settings = new Marketify_Page_Settings();
 

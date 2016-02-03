@@ -6,7 +6,7 @@ class Marketify_Widget_Slider extends Marketify_Widget {
         $this->widget_cssclass    = 'marketify_widget_slider';
         $this->widget_description = __( 'Display any slider that supports shortcodes.', 'marketify' );
         $this->widget_id          = 'marketify_widget_slider';
-        $this->widget_name        = __( 'Marketify - Home: Slider', 'marketify' );
+        $this->widget_name        = __( 'Marketify - Page: Slider', 'marketify' );
         $this->settings           = array(
             'shortcode' => array(
                 'type'  => 'text',

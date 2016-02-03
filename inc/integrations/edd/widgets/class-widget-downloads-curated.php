@@ -6,7 +6,7 @@ class Marketify_Widget_Curated_Downloads extends Marketify_Widget {
         $this->widget_cssclass    = 'marketify_widget_curated_downloads';
         $this->widget_description = sprintf( __( 'Display curated %s in a grid.', 'marketify' ), edd_get_label_plural() );
         $this->widget_id          = 'marketify_widget_curated_downloads';
-        $this->widget_name        = sprintf( __( 'Marketify - Home: Curated %s', 'marketify' ), edd_get_label_plural() );
+        $this->widget_name        = sprintf( __( 'Marketify - Page: Curated %s', 'marketify' ), edd_get_label_plural() );
         $this->settings           = array(
             'home-1' => array(
                 'type' => 'widget-area',

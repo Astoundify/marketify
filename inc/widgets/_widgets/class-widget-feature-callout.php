@@ -12,7 +12,7 @@ class Marketify_Widget_Feature_Callout extends Marketify_Widget {
     public function __construct() {
         $this->widget_description = __( 'Display a full-width "feature" callout', 'marketify' );
         $this->widget_id          = 'marketify_widget_feature_callout';
-        $this->widget_name        = __( 'Marketify - Home: Feature Callout', 'marketify' );
+        $this->widget_name        = __( 'Marketify - Page: Feature Callout', 'marketify' );
         $this->control_ops        = array(
             'width' => 400
         );
