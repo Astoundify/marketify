@@ -51,6 +51,16 @@ Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
 
+= 2.4.0: February 5, 2016 = 
+
+* New: Widgetized Pages. See: 
+* New: Show blog author on "Recent Blog Posts" widget in "Grid" format.
+* Fix: Single blog post byline above mobile menu.
+* Fix: Featured Image Background full height on minimal page template.
+* Fix: Better support for EDD Wishlists and EDD Favorites.
+* Fix: Popular Downloads slider on archive/search pages.
+* Fix: Hide comment count when comments are closed.
+
 = 2.3.1: January 13, 2015 =
 
 * Fix: Error on minimal page template when no featured image is enabled.
