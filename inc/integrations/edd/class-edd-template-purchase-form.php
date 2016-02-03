@@ -18,7 +18,7 @@ class Marketify_EDD_Template_Purchase_Form {
         }
 
         $variable = edd_has_variable_prices( $download_id );
-        $form = edd_get_purchase_link( array( 'download_id' => $download_id, 'price' => false ) );
+        $form = edd_get_purchase_link( array( 'download_id' => $download_id ) );
 
         // ghetto check for sold out
         $label = edd_get_option( 'edd_purchase_limit_sold_out_label', 'Sold Out' );
@@ -33,6 +33,9 @@ class Marketify_EDD_Template_Purchase_Form {
             $class = 'button buy-now popup-trigger';
 
             printf( '<a href="#buy-now-%s" class="%s">%s</a>', $post->ID, $class, $button );
+
+			// ouput the form here so things like wishlists can find something
+			echo $form;
         }
     }
 
