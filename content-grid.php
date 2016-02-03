@@ -24,11 +24,11 @@ global $post;
         <h1 class="entry-title <?php if ( 'on' == esc_attr( marketify_theme_mod( 'downloads-archives-truncate-title' ) ) ) : ?> entry-title--truncated<?php endif; ?>"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 
         <div class="entry-meta">
-            <?php do_action( 'marketify_download_entry_meta_before_' . get_post_format() ); ?>
+            <?php do_action( 'marketify_entry_meta_before_' . get_post_format() ); ?>
 
-            <?php do_action( 'marketify_download_entry_meta' ); ?>
+            <?php do_action( 'marketify_entry_meta' ); ?>
 
-            <?php do_action( 'marketify_download_entry_meta_after_' . get_post_format() ); ?>
+            <?php do_action( 'marketify_entry_meta_after_' . get_post_format() ); ?>
         </div>
     </header><!-- .entry-header -->
 </article><!-- #post-## -->

@@ -4,6 +4,24 @@ class Marketify_Template_Entry {
 
     public function __construct() {
         apply_filters( 'marketify_entry_author_social', array( $this, 'author_social' ) );
+        add_action( 'marketify_entry_meta', array( $this, 'byline' ) );
+    }
+
+	/**
+	 * Add a blog byline to grid blog items.
+	 *
+	 * @since 2.4.0
+	 */
+    public function byline() {	
+        printf(
+            __( '<span class="byline"> by %1$s</span>', 'marketify' ),
+            sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s %4$s</a></span>',
+                get_author_posts_url( get_the_author_meta( 'ID' ) ),
+                esc_attr( sprintf( __( 'View all posts by %s', 'marketify' ), get_the_author_meta( 'display_name' ) ) ),
+                esc_html( get_the_author_meta( 'display_name' ) ),
+                get_avatar( get_the_author_meta( 'ID' ), 50, apply_filters( 'marketify_default_avatar', null ) )
+            )
+        );
     }
 
     /**
