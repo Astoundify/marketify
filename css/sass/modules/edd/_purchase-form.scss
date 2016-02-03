@@ -27,6 +27,11 @@ body .edd_download_purchase_form {
 .edd_download_purchase_form .edd_price_options {
     text-align: left;
 
+	ul {
+		margin: 0;
+		list-style: none;
+	}
+
     li {
         label {
             font-family: $source;

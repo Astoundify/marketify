@@ -73,7 +73,7 @@ class Marketify_Widget_Download_Details extends Marketify_Widget {
             </div>
 
             <?php if ( $count ) : ?>
-            <div class="widget-detail widget-detail--half">
+			<div class="widget-detail<?php if ( comments_open() ) : ?> widget-detail--half<?php endif; ?>">
                 <strong class="widget-detail__title"><?php echo edd_get_download_sales_stats( get_the_ID() ); ?></strong>
                 <span class="widget-detail__info"><?php echo _n( 'Purchase', 'Purchases', edd_get_download_sales_stats( get_the_ID() ), 'marketify' ); ?></span>
             </div>

@@ -86,6 +86,37 @@ Marketify.App = ( function($) {
     return;
   }
 
+	function initPurchaseForms() {
+		$( '.edd_download_purchase_form' ).each(function() {
+			$form = $(this);
+
+			// die if no variable
+			if ( ! $form.find( '.edd_price_options' ) ) {
+				return;
+			}
+
+			$form.find( '.edd-add-to-cart' ).on( 'click', function(e) {
+				e.preventDefault();
+
+				Marketify.App.popup({
+					items : {
+						src : '#marketify-price-options-popup',
+						fixedContentPos: false,
+						fixedBgPos: false,
+						overflowY: 'scroll'
+					},
+					callbacks: {
+						beforeOpen: function() {
+							$clone = $form.clone();
+							$( '#marketify-price-options' ).html( $clone );
+						}
+					}
+				});
+			});
+		});
+
+	}
+
 	return {
 		init : function() {
       menuToggle();
@@ -93,6 +124,7 @@ Marketify.App = ( function($) {
 			footerHeight();
 			soliloquySliders();
       initVideos();
+			initPurchaseForms();
 
 			$(window).resize(function() {
 				footerHeight();

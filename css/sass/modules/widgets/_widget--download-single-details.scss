@@ -53,11 +53,10 @@
         margin-top: 0;
     }
 
-    // just in case, as it will show when in cart
-    .widget-detail .edd_download_purchase_form .edd_price_options,
-    .widget-detail .edd_download_purchase_form .edd-wl-button {
-        display: none;
-    }
+	.widget-detail .edd_download_purchase_form .edd-wl-button,
+	.widget-detail .edd_download_purchase_form .edd_price_options {
+		display: none;
+	}
 
     .edd_purchase_tax_rate {
         display: block;
