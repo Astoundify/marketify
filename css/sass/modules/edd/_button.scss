@@ -6,6 +6,10 @@ input[type=submit].edd-submit {
     @extend .button;
 }
 
+.buy-now ~ .edd_download_purchase_form {
+	display: none;
+}
+
 
 // ludacris
 .content-grid-download__actions .edd-submit.button,
