@@ -17,10 +17,15 @@
 .single-post .header-outer.has-image {
     position: relative;
 
-    > * {
+    .page-header,
+	.site-header {
         position: relative;
         z-index: 1;
     }
+
+	.site-header {
+		z-index: 2;
+	}
 
     &:after {
         position: absolute;
