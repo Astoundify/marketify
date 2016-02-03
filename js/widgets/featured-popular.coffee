@@ -32,7 +32,7 @@ jQuery ($) ->
         arrows: false
         dots: true
         adaptiveHeight: true
-        rtl: marketifyFeaturedPopular.isRTL
+        rtl: marketifyFeaturedPopular?.isRTL
         responsive: [
           {
             breakpoint: 992,

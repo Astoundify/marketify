@@ -37,7 +37,7 @@
           arrows: false,
           dots: true,
           adaptiveHeight: true,
-          rtl: marketifyFeaturedPopular.isRTL,
+          rtl: typeof marketifyFeaturedPopular !== "undefined" && marketifyFeaturedPopular !== null ? marketifyFeaturedPopular.isRTL : void 0,
           responsive: [
             {
               breakpoint: 992,
