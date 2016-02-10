@@ -53,7 +53,7 @@ Source: https://github.com/driftyco/ionicons
 
 = 2.4.0: February 5, 2016 = 
 
-* New: Widgetized Pages. See: 
+* New: Widgetized Pages. See: http://marketify.astoundify.com/article/934-page-widgetized
 * New: Show blog author on "Recent Blog Posts" widget in "Grid" format.
 * Fix: Single blog post byline above mobile menu.
 * Fix: Featured Image Background full height on minimal page template.
