@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
-"Project-Id-Version: Marketify 2.3.1\n"
+"Project-Id-Version: Marketify 2.4.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2016-01-14 13:56:24+00:00\n"
+"POT-Creation-Date: 2016-02-10 20:46:24+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -56,7 +56,8 @@ msgstr ""
 msgid "<span class=\"byline\">%1$s</span>"
 msgstr ""
 
-#: content-entry-meta.php:12 page-templates/team.php:57
+#: content-entry-meta.php:12 inc/template/class-template-entry.php:20
+#: page-templates/team.php:57
 msgid "View all posts by %s"
 msgstr ""
 
@@ -332,7 +333,6 @@ msgstr ""
 #: inc/integrations/bbpress/class-bbpress.php:14
 #: inc/integrations/edd/widgets/class-widget-downloads-curated.php:13
 #: inc/integrations/edd/widgets/class-widget-downloads-featured-popular.php:54
-#: inc/integrations/edd/widgets/class-widget-downloads-recent.php:13
 #: inc/integrations/edd/widgets/class-widget-downloads-taxonomy-stylized.php:20
 #: inc/widgets/_widgets/class-widget-blog-posts.php:13
 #: inc/widgets/_widgets/class-widget-price-table.php:13
@@ -457,7 +457,7 @@ msgstr ""
 msgid "Author since: %s"
 msgstr ""
 
-#: inc/integrations/edd/widgets/class-widget-download-details.php:84
+#: inc/integrations/edd/widgets/class-widget-download-details.php:85
 msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] ""
@@ -481,7 +481,7 @@ msgid "Display curated %s in a grid."
 msgstr ""
 
 #: inc/integrations/edd/widgets/class-widget-downloads-curated.php:9
-msgid "Marketify - Home: Curated %s"
+msgid "Marketify - Page: Curated %s"
 msgstr ""
 
 #: inc/integrations/edd/widgets/class-widget-downloads-curated.php:23
@@ -498,7 +498,7 @@ msgid "Display featured and popular %s in sliding grid."
 msgstr ""
 
 #: inc/integrations/edd/widgets/class-widget-downloads-featured-popular.php:11
-msgid "Marketify - Home:  Featured &amp; Popular %s"
+msgid "Marketify - Page:  Featured &amp; Popular %s"
 msgstr ""
 
 #: inc/integrations/edd/widgets/class-widget-downloads-featured-popular.php:16
@@ -536,7 +536,11 @@ msgid "Display recent %s in a grid."
 msgstr ""
 
 #: inc/integrations/edd/widgets/class-widget-downloads-recent.php:9
-msgid "Marketify - Home: Recent %s"
+msgid "Marketify - Page: Recent %s"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-downloads-recent.php:13
+msgid "Widgetized Page or Home"
 msgstr ""
 
 #: inc/integrations/edd/widgets/class-widget-downloads-taxonomy-stylized.php:14
@@ -560,6 +564,7 @@ msgid "Tag"
 msgstr ""
 
 #: inc/integrations/edd-fes/class-edd-fes-vendors.php:28
+#: inc/template/class-template-entry.php:17
 msgid "<span class=\"byline\"> by %1$s</span>"
 msgstr ""
 
@@ -664,7 +669,7 @@ msgid "Display \"Hero\" Soliloquy slider."
 msgstr ""
 
 #: inc/integrations/soliloquy/widgets/class-widget-slider-soliloquy.php:9
-msgid "Marketify - Home: Soliloquy Slider"
+msgid "Marketify - Page: Soliloquy Slider"
 msgstr ""
 
 #: inc/integrations/soliloquy/widgets/class-widget-slider-soliloquy.php:13
@@ -1054,6 +1059,14 @@ msgstr ""
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
+#: inc/pages/class-widgetized-page.php:23
+msgid "Widgetized Page: %s"
+msgstr ""
+
+#: inc/pages/class-widgetized-page.php:24
+msgid "Widgets that appear on the \"%s\" page."
+msgstr ""
+
 #: inc/setup/class-setup.php:20
 msgid "Install Required &amp; Recommended Plugins"
 msgstr ""
@@ -1325,7 +1338,7 @@ msgid "Display recent blog posts."
 msgstr ""
 
 #: inc/widgets/_widgets/class-widget-blog-posts.php:9
-msgid "Marketify - Home: Recent Posts"
+msgid "Marketify - Page: Recent Posts"
 msgstr ""
 
 #: inc/widgets/_widgets/class-widget-blog-posts.php:32
@@ -1345,7 +1358,7 @@ msgid "Display a full-width \"feature\" callout"
 msgstr ""
 
 #: inc/widgets/_widgets/class-widget-feature-callout.php:15
-msgid "Marketify - Home: Feature Callout"
+msgid "Marketify - Page: Feature Callout"
 msgstr ""
 
 #: inc/widgets/_widgets/class-widget-feature-callout.php:23
@@ -1447,7 +1460,7 @@ msgid "Create a price option for the pricing table."
 msgstr ""
 
 #: inc/widgets/_widgets/class-widget-price-option.php:9
-msgid "Marketify - Home: Price Option"
+msgid "Marketify - Page: Price Option"
 msgstr ""
 
 #: inc/widgets/_widgets/class-widget-price-option.php:24
@@ -1461,7 +1474,7 @@ msgid "Output the price table (based on the \"Price Table\" widget area)"
 msgstr ""
 
 #: inc/widgets/_widgets/class-widget-price-table.php:9
-msgid "Marketify - Home: Price Table"
+msgid "Marketify - Page: Price Table"
 msgstr ""
 
 #: inc/widgets/_widgets/class-widget-price-table.php:22
@@ -1475,18 +1488,18 @@ msgid "Display any slider that supports shortcodes."
 msgstr ""
 
 #: inc/widgets/_widgets/class-widget-slider.php:9
-msgid "Marketify - Home: Slider"
+msgid "Marketify - Page: Slider"
 msgstr ""
 
 #: inc/widgets/_widgets/class-widget-slider.php:14
 msgid "Slider Shortcode"
 msgstr ""
 
-#: inc/widgets/class-widget.php:147
+#: inc/widgets/class-widget.php:148
 msgid "Only for use in the <strong>%s</strong> widget area."
 msgstr ""
 
-#: inc/widgets/class-widget.php:249
+#: inc/widgets/class-widget.php:250
 msgid "Choose Image"
 msgstr ""
 
@@ -1620,6 +1633,10 @@ msgstr ""
 
 #. Template Name of the plugin/theme
 msgid "Page: Meet the Team"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Page: Widgetized"
 msgstr ""
 
 #. Template Name of the plugin/theme

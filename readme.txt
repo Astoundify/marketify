@@ -1,8 +1,8 @@
 === Marketify ===
 Contributors: Astoundify
 Requires at least: WordPress 4.3
-Tested up to: WordPress 4.3.1
-Version: 2.3.1
+Tested up to: WordPress 4.4.2
+Version: 2.4.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: white, two-columns, one-column, right-sidebar, left-sidebar, fluid-layout, custom-background, custom-header, theme-options, full-width-template, featured-images, flexible-header, custom-menu, translation-ready
