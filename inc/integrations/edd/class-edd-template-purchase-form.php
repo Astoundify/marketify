@@ -18,7 +18,7 @@ class Marketify_EDD_Template_Purchase_Form {
         }
 
         $variable = edd_has_variable_prices( $download_id );
-        $form = edd_get_purchase_link( array( 'download_id' => $download_id ) );
+        $form = edd_get_purchase_link( array( 'download_id' => $download_id, 'price' => false ) );
 
         // ghetto check for sold out
         $label = edd_get_option( 'edd_purchase_limit_sold_out_label', 'Sold Out' );
@@ -26,7 +26,7 @@ class Marketify_EDD_Template_Purchase_Form {
 
         $in_cart = edd_item_in_cart( $download_id );
 
-        if ( ! $variable || $sold_out != false || ( $in_cart && is_singular( 'download' ) ) ) {
+        if ( ! $variable || $sold_out != false || ( $in_cart ) ) {
             echo $form;
         } else {
             $button = ! empty( $edd_options[ 'add_to_cart_text' ] ) ? $edd_options[ 'add_to_cart_text' ] : __( 'Purchase', 'marketify' );
