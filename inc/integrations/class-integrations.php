@@ -70,6 +70,10 @@ class Marketify_Integrations {
             'tgmpa' => array(
                 true,
                 'Marketify_TGMPA'
+            ),
+            'sidekick' => array(
+                defined( 'SK_API' ),
+                'Marketify_Sidekick'
             )
         );
 
