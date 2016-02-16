@@ -2,7 +2,7 @@
 Contributors: Astoundify
 Requires at least: WordPress 4.3
 Tested up to: WordPress 4.4.2
-Version: 2.4.0
+Version: 2.5.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: white, two-columns, one-column, right-sidebar, left-sidebar, fluid-layout, custom-background, custom-header, theme-options, full-width-template, featured-images, flexible-header, custom-menu, translation-ready
@@ -56,6 +56,7 @@ Source: https://github.com/driftyco/ionicons
 * New: Add Sidekick support. https://wordpress.org/plugins/sidekick/
 * Fix: Author archive width when no sidebar is used.
 * Fix: When using variable prices ensure the Buy Now modal displays correctly.
+* Fix: Include Featured Callout demo images in the theme images directory.
 
 = 2.4.0: February 5, 2016 = 
 
