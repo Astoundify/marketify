@@ -51,6 +51,10 @@ Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
 
+= 2.4.1: February 16, 2016 =
+
+* Fix: When using variable prices ensure the Buy Now modal displays correctly.
+
 = 2.4.0: February 5, 2016 = 
 
 * New: Widgetized Pages. See: http://marketify.astoundify.com/article/934-page-widgetized
