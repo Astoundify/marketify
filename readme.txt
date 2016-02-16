@@ -51,8 +51,10 @@ Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
 
-= 2.4.1: February 16, 2016 =
+= 2.5.0: February 16, 2016 =
 
+* New: Add Sidekick support. https://wordpress.org/plugins/sidekick/
+* Fix: Author archive width when no sidebar is used.
 * Fix: When using variable prices ensure the Buy Now modal displays correctly.
 
 = 2.4.0: February 5, 2016 = 
