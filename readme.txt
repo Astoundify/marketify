@@ -53,8 +53,7 @@ Source: https://github.com/driftyco/ionicons
 
 = 2.5.0: February 16, 2016 =
 
-* New: Add Sidekick support. https://wordpress.org/plugins/sidekick/
-* Fix: Author archive width when no sidebar is used.
+* New: Author archive width when no sidebar is used matches blog.
 * Fix: When using variable prices ensure the Buy Now modal displays correctly.
 * Fix: Include Featured Callout demo images in the theme images directory.
 
