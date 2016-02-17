@@ -194,7 +194,7 @@ class Marketify_Template_Page_Header {
         ) {
             $id = get_post_thumbnail_id();
 
-            if ( ! $id && is_home() ) {
+            if ( is_home() ) {
                 $id = get_post_thumbnail_id( get_option( 'page_for_posts' ) );
             }
 
