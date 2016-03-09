@@ -63,7 +63,10 @@
 		}
 	}
 
-	.widget-detail .edd_download_purchase_form .edd-wl-button {
+	// these should not be here
+	.widget-detail .buy-now ~ .edd_download_purchase_form,
+	.widget-detail .edd-wl-button ~ .edd_purchase_submit_wrapper,
+	.widget-detail .edd_download_purchase_form ~ .edd-wl-button {
 		margin-top: 1em;
 	}
 

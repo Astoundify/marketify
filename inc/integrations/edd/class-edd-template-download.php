@@ -359,8 +359,6 @@ class Marketify_EDD_Template_Download {
         }
 
         echo '<div class="download-video">' . $output . '</div>';
-
-		rewind_posts();
     }
 
 }
