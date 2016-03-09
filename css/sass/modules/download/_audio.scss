@@ -32,7 +32,8 @@
 
 .single-download .content-area,
 .single-download .page-header {
-    .wp-playlist {
+    .wp-playlist,
+	iframe {
         margin: 3em auto;
 
         &:first-of-type {
@@ -44,7 +45,6 @@
         background: #fff;
         margin-top: 0;
     }
-
 
     .mejs-container .mejs-controls {
         border-width: 1px;

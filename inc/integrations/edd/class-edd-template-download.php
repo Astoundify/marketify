@@ -262,52 +262,87 @@ class Marketify_EDD_Template_Download {
         echo $after;
     }
 
+	/**
+	 * Output featured audio.
+	 *
+	 * Depending on the found audio it will be oEmbedded or create a
+	 * WordPress playlist from the found tracks.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @return mixed
+	 */
     public function featured_audio() {
-        global $post;
+        $audio = $this->_get_audio();
 
-        $audio = $this->get_audio();
+		// if we are using a URL try to embed it (only on single download)
+		if ( ! is_array( $audio ) && is_singular( 'download' ) ) {
+			$audio = wp_oembed_get( $audio );
+		} elseif ( $audio ) {
+			// grid preview only needs one
+			if ( ! is_singular( 'download' ) ) {
+				$audio = array_splice( $audio, 0, 1 );
+			}
 
-        // grid preview only needs one
-        if ( ! is_singular( 'download' ) ) {
-            $audio = array_splice( $audio, 0, 1 );
-        }
+			if ( ! empty( $audio ) ) {
+				$audio = wp_playlist_shortcode( array(
+					'id' => get_post()->ID,
+					'ids' => $audio,
+					'images' => false,
+					'tracklist' => is_singular( 'download' )
+				) );
+			}
+		}
 
-        if ( empty( $audio ) ) {
-            return;
-        }
+		$audio = apply_filters( 'marketify_get_featured_audio', $audio );
 
-        echo wp_playlist_shortcode( array(
-            'id' => $post->ID,
-            'ids' => $audio,
-            'images' => false,
-            'tracklist' => is_singular( 'download' )
-        ) );
+		if ( $audio ) {
+			echo '<div class="download-audio">' . $audio . '</div>';
+		}
     }
 
-    private function get_audio() {
-        global $post;
+	/**
+	 * Find audio for a download. Searches a few places:
+	 *
+	 * 1. `preview_files` FES File Uplaod Field (playlist)
+	 * 2. `audio` FES URL Field (oEmbed)
+	 * 3. Attached audio files (playlist)
+	 *
+	 * @since 2.0.0
+	 *
+	 * @return mixed $audio
+	 */
+    private function _get_audio() {
+		$audio = false;
 
-        $attachments = get_post_meta( $post->ID, 'preview_files', true );
+		// check to see if the FES file upload field exists
+        $audio = get_post()->preview_files;
 
-        if ( ! $attachments ) {
-            $attachments = get_attached_media( 'audio', $post->ID );
+		// check to see if the FES URL field exists
+		if ( ! $audio ) {
+			$field = apply_filters( 'marketify_audio_field', 'audio' );
+			$audio = get_post()->$field;
+		}
+
+		// query attached media
+        if ( ! $audio ) {
+            $audio = get_attached_media( 'audio', get_post()->ID );
 
             if ( ! empty( $attachments ) ) {
-                $attachments = wp_list_pluck( $attachments, 'ID' );
+                $audio = wp_list_pluck( $attachments, 'ID' );
             }
         }
 
-        return $attachments;
+        return $audio;
     }
 
     public function featured_video() {
-        global $post;
-
         $field = apply_filters( 'marketify_video_field', 'video' );
-        $video = get_post_meta( $post->ID, $field, true );
+        $video = get_post()->$field;
 
-        if ( ! $video )
+        if ( ! $video ) {
             return;
+		}
 
         if ( is_array( $video ) ) {
             $video = current( $video );
@@ -324,6 +359,8 @@ class Marketify_EDD_Template_Download {
         }
 
         echo '<div class="download-video">' . $output . '</div>';
+
+		rewind_posts();
     }
 
 }
