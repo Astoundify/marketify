@@ -51,6 +51,14 @@ Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
 
+= 2.6.0: March 16, 2016 =
+
+* New: Add oEmbed support for Audio downloads. Create a URL field with the `audio` meta key and add a URL.
+* New: EDD Product Badges styling support.
+* Fix: Wish List Purchase/Checkout button spacing.
+* Fix: Be sure WordPress core playlists continue to function after sorting with FacetWP.
+* Fix: Password repeat field in Frontend Submsissions profile form.
+
 = 2.5.0: February 16, 2016 =
 
 * New: Author archive width when no sidebar is used matches blog.
