@@ -319,17 +319,17 @@ class Marketify_EDD_Template_Download {
         $audio = get_post()->preview_files;
 
 		// check to see if the FES URL field exists
-		if ( ! $audio ) {
+		if ( ! $audio || '' == $audio ) {
 			$field = apply_filters( 'marketify_audio_field', 'audio' );
 			$audio = get_post()->$field;
 		}
 
 		// query attached media
-        if ( ! $audio ) {
+        if ( ! $audio || '' == $audio ) {
             $audio = get_attached_media( 'audio', get_post()->ID );
 
-            if ( ! empty( $attachments ) ) {
-                $audio = wp_list_pluck( $attachments, 'ID' );
+            if ( ! empty( $audio ) ) {
+                $audio = wp_list_pluck( $audio, 'ID' );
             }
         }
 

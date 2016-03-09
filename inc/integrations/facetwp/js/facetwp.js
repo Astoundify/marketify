@@ -8,6 +8,11 @@
     return $(document).on('facetwp-loaded', function() {
       var grid;
       $(el).find($('.edd_download.content-grid-download')).attr('style', '');
+      $('.wp-playlist').each(function() {
+        return new WPPlaylistView({
+          el: this
+        });
+      });
       grid = document.querySelector(el);
       salvattore['registerGrid'](grid);
       return $('#edd_download_pagination').remove();
