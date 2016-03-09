@@ -7,8 +7,9 @@ jQuery ($) ->
   $(document).on 'facetwp-loaded', ->
     $(el).find( $( '.edd_download.content-grid-download' ) ).attr( 'style', '' );
 
-    $( '.wp-playlist' ).each ->
-      new WPPlaylistView { el: @ }
+    if ( typeof WPPlaylistView == 'function' )
+      $( '.wp-playlist' ).each ->
+        new WPPlaylistView { el: @ }
 
     grid = document.querySelector el
     salvattore[ 'registerGrid' ](grid)

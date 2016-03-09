@@ -22,15 +22,7 @@ get_header(); ?>
 
                 <?php do_action( 'marketify_downloads_before' ); ?>
 
-                <?php while ( have_posts() ) : the_post(); ?>
-
-                    <?php if ( ! has_shortcode( get_the_content(), 'downloads' ) ) : ?>
-                        <?php echo do_shortcode( sprintf( '[downloads number="%s"]', absint( marketify_theme_mod( 'downloads-archives-per-page' ) ) ) ); ?>
-                    <?php else : ?>
-                        <?php the_content(); ?>
-                    <?php endif; ?>
-
-                <?php endwhile; ?>
+				<?php do_action( 'marketify_downloads' ); ?>
 
                 <?php do_action( 'marketify_downloads_after' ); ?>
 
