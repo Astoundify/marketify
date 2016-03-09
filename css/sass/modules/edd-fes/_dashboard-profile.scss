@@ -11,4 +11,12 @@
         display: block;
         cursor: pointer;
     }
+
+	.fes-el.password .fes-fields ~ .fes-label {
+		margin-top: 1em;
+
+		br {
+			display: none;
+		}
+	}
 }
