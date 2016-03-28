@@ -51,7 +51,7 @@ Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
 
-= 2.6.0: March 16, 2016 =
+= 2.6.0: March 28, 2016 =
 
 * New: Add oEmbed support for Audio downloads. Create a URL field with the `audio` meta key and add a URL.
 * New: EDD Product Badges styling support.
