@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Account: Vendor Profile
+ * Template Name: Page: Vendor Profile
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
