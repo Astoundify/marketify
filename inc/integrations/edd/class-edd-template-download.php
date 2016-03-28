@@ -276,7 +276,7 @@ class Marketify_EDD_Template_Download {
         $audio = $this->_get_audio();
 
 		// if we are using a URL try to embed it (only on single download)
-		if ( ! is_array( $audio ) && is_singular( 'download' ) ) {
+		if ( ! is_array( $audio ) && is_singular( 'download' ) && ! did_action( 'marketify_single_download_content_after' ) ) {
 			$audio = wp_oembed_get( $audio );
 		} elseif ( $audio ) {
 			// grid preview only needs one
