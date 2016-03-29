@@ -28,7 +28,9 @@ class Marketify_EDD_Shortcode {
 
 		// if the current page has its own shortcode use that instead
 		if ( is_singular( 'page' ) && has_shortcode( get_the_content(), 'downloads' ) ) {
+			the_post();
 			the_content();
+			rewind_posts();
 		} else {
 			echo do_shortcode( sprintf( '[downloads number="%s"]', $per_page ) );
 		}

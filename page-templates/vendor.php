@@ -17,11 +17,11 @@ get_header(); ?>
             <section id="primary" class="content-area col-md-9 col-sm-7 col-xs-12">
                 <main id="main" class="site-main" role="main">
 
-                    <?php while ( have_posts() ) : the_post(); ?>
-                    <div class="entry-content">
-                        <?php the_content(); ?>
-                    </div>
-                    <?php endwhile; ?>
+					<?php do_action( 'marketify_downloads_before' ); ?>
+
+					<?php do_action( 'marketify_downloads' ); ?>
+
+					<?php do_action( 'marketify_downloads_after' ); ?>
 
                 </main><!-- #main -->
             </section><!-- #primary -->
