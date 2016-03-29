@@ -123,6 +123,8 @@ class Marketify_Setup {
             )
         );
 
+		$this->steps = apply_filters( 'marketify_setup_steps', $this->steps );
+
         add_action( 'admin_menu', array( $this, 'add_page' ), 100 );
         add_action( 'admin_menu', array( $this, 'add_meta_boxes' ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'admin_css' ) );
@@ -151,14 +153,17 @@ class Marketify_Setup {
         $args = $metabox[ 'args' ];
     ?>
         <?php if ( $args[ 'completed' ] === true ) { ?>
-            <div class="is-completed"><?php _e( 'Completed!', 'marketify' ); ?></div>
+            <div class="section-title is-completed"><?php _e( 'Completed!', 'marketify' ); ?></div>
         <?php } elseif ( $args[ 'completed' ] === false || $args[ 'completed' ] == '' ) { ?>
-            <div class="not-completed"><?php _e( 'Incomplete', 'marketify' ); ?></div>
+            <div class="section-title not-completed"><?php _e( 'Incomplete', 'marketify' ); ?></div>
         <?php } ?>
 
-        <?php include ( get_template_directory() . '/inc/setup/steps/' . $args[ 'step' ] . '.php' ); ?>
+		<?php 
+			$step_file = apply_filters( 'marketify_setup_step_' . $args[ 'step' ] . '_file', get_template_directory() . '/inc/setup/steps/' . $args[ 'step' ] . '.php' );
+			include( $step_file );
+		?>
 
-        <?php if ( 'Get Involved' != $args[ 'title' ] ) : ?> 
+        <?php if ( 'Get Involved' != $args[ 'title' ] && ! empty( $args[ 'documentation' ] ) ) : ?> 
             <hr />
             <p><?php _e( 'You can read more and watch helpful video tutorials below:', 'marketify' ); ?></p>
         <?php endif; ?>
