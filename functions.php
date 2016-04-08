@@ -18,7 +18,6 @@ class Marketify {
     public $customizer;
 
     public $activation;
-    public $setup;
 
     public $integrations;
     public $widgets;
@@ -81,7 +80,6 @@ class Marketify {
         $this->customizer = new Marketify_Customizer();
 
         $this->activation = new Marketify_Activation();
-        $this->setup = new Marketify_Setup();
 
         $this->integrations = new Marketify_Integrations();
         $this->widgets = new Marketify_Widgets();

@@ -1,0 +1,307 @@
+<?php
+if ( ! class_exists( 'Astoundify_Setup_Guide' ) ) :
+/**
+ * Setup guide.
+ *
+ * @since 1.0.0
+ */
+class Astoundify_Setup_Guide {
+
+	/**
+	 * @var array
+	 * @since 1.0.0
+	 */
+	public static $args = array();
+
+	/**
+	 * @var array
+	 * @since 1.0.0
+	 */
+	public static $steps = array();
+
+	/**
+	 * The strings used for any output in the drop-ins.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 *
+	 * @var array
+	 */
+	public static $strings = array();
+
+	/**
+	 * The current theme.
+	 *
+	 * @var object
+	 * @since 1.0.0
+	 */
+	public static $current_theme;
+
+	/**
+	 * The child theme (if available).
+	 *
+	 * @var object
+	 * @since 1.0.0
+	 */
+	public static $current_child_theme;
+
+	/**
+	 * Retrieves the directory name of the current theme, without the trailing slash.
+	 *
+	 * @var object
+	 * @since 1.0.0
+	 */
+	public static $template;
+
+	/**
+	 * Start things up (only in the admin).
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
+    public static function init( $args = array() ) {
+        if ( ! is_admin() ) {
+            return;
+        }
+
+		$defaults = array(
+			'steps' => array(),
+			'strings' => array(),
+			'steps_dir' => get_template_directory() . '/inc/setup/steps',
+			'stylesheet_uri' => get_template_directory_uri() . '/inc/setup/setup-guide/style.css',
+		);
+
+		self::$args = wp_parse_args( $args, $defaults );
+
+		// set strings
+		self::set_strings( $args[ 'strings' ] );
+
+		// if the current theme is a child theme find the parent
+		self::$current_child_theme = wp_get_theme();
+
+		if ( false !== self::$current_child_theme->parent() ) {
+			self::$current_theme = wp_get_theme( self::$current_child_theme->get_template() );
+		} else {
+			self::$current_theme = wp_get_theme();
+		}
+
+		// for easy access
+		self::$template = self::$current_theme->get_template();
+
+		self::setup_actions();
+	}
+
+	/**
+	 * Actions
+	 * 
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 * @codeCoverageIgnore
+	 */
+	public static function setup_actions() {
+        add_action( 'admin_menu', array( __CLASS__, 'add_admin_page' ), 100 );
+        add_action( 'admin_menu', array( __CLASS__, 'add_meta_boxes' ) );
+        add_action( 'admin_enqueue_scripts', array( __CLASS__, 'admin_css' ) );
+
+		// fill in some page defaults
+		add_action( 'astoundify_setup_guide_intro', array( __CLASS__, 'output_page_intro_title' ), 5 );
+    }
+
+	/**
+	 * Set the strings to be used inside the other drop in files.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return self::$strings
+	 */
+	public static function set_strings( $strings = array() ) {
+		$defaults = array(
+			'page-title' => 'Setup %s',
+			'menu-title' => 'Setup Guide',
+			'intro-title' => 'Welcome to %s',
+			'step-complete' => 'Completed',
+			'step-incomplete' => 'Not Complete'
+		);
+
+		$strings = wp_parse_args( $strings, $defaults );
+
+		self::$strings = $strings;
+	}
+
+	/**
+	 * Get strings.
+	 *
+	 * Set the defaults if none are available.
+	 *
+	 * @since 1.0.0
+	 * @return self::$strings
+	 */
+	public static function get_strings() {
+		if ( empty( self::$strings ) ) {
+			self::set_strings();
+		}
+
+		return self::$strings;
+	}
+
+	/**
+	 * Get a string.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $string
+	 * @return string
+	 */
+	public static function get_string( $string ) {
+		$strings = self::get_strings();
+
+		if ( isset( $strings[ $string ] ) ) {
+			return $strings[ $string ];
+		}
+
+		return '';
+	}
+
+	public static function get_steps() {
+		if ( isset( self::$steps ) && ! empty( self::$steps ) ) {
+			return self::$steps;
+		}
+
+		self::$steps = self::$args[ 'steps' ];
+
+		return apply_filters( self::$template . '_setup_guide_steps', self::$steps );
+	}
+
+	/**
+	 * Add the theme submenu page.
+	 * 
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 * @codeCoverageIgnore
+	 */
+    public static function add_admin_page() {
+		add_theme_page( 
+			sprintf( self::get_string( 'page-title' ), self::$current_theme->get( 'Name' ) ), 
+			self::get_string( 'menu-title' ),
+			'manage_options', 
+			self::$template . '-setup',
+			array( __CLASS__, 'output_admin_page' ) 
+		);
+    }
+
+	/**
+	 * Enqueue setup guide CSS.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
+    public static function admin_css() {
+        $screen = get_current_screen();
+
+        if ( 'appearance_page_' . self::$template . '-setup' != $screen->id ) {
+            return;
+        }
+
+        wp_enqueue_style( self::$template . '-setup', self::$args[ 'stylesheet_uri' ] );
+    }
+
+	/**
+	 * Add a metabox to the page for each step.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
+    public static function add_meta_boxes() {
+        foreach ( self::get_steps() as $step => $info ) {
+            $info = array_merge( array( 'step' => $step ), $info );
+
+			add_meta_box( 
+				$step, 
+				$info[ 'title' ], 
+				array( __CLASS__, 'step_box' ), 
+				self::$current_theme . '_setup_steps', 
+				'normal', 
+				'high', 
+				$info 
+			);
+        }
+    }
+
+	/**
+	 * Output the step content.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
+    public static function step_box( $object, $metabox ) {
+        $args = $metabox[ 'args' ];
+
+		if ( $args[ 'completed' ] ) {
+			echo '<div class="step-complete">' . self::get_string( 'step-complete' ) . '</div>';
+		} else {
+			echo '<div class="step-incomplete">' . self::get_string( 'step-incomplete' ) . '</div>';
+		}
+
+		$step_file = apply_filters( 
+			self::$template . '_setup_step_' . $args[ 'step' ] . '_file', 
+			trailingslashit( self::$args[ 'steps_dir' ] ) . $args[ 'step' ] . '.php'
+		);
+
+		if ( file_exists( $step_file ) ) {
+			include( $step_file );
+		}
+    }
+
+	/**
+	 * Output the admin page.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
+    public static function output_admin_page() {
+?>
+		<?php do_action( 'astoundify_setup_guide_before', self ); ?>
+
+		<div class="wrap about-wrap setup-guide-steps">
+			<?php do_action( 'astoundify_setup_guide_intro', self ); ?>
+        </div>
+
+        <div id="poststuff" class="wrap setup-guide-steps" style="margin: 25px 40px 0 20px">
+            <?php self::steps(); ?>
+        </div>
+
+		<?php do_action( 'astoundify_setup_guide_after', self ); ?>
+<?php  
+    }
+
+	/**
+	 * Run the steps.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
+    public static function steps() {
+        do_accordion_sections( self::$template . '_setup_steps', 'normal', null );
+    }
+
+	/**
+	 * Add the page title to the intro.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
+	public static function output_page_intro_title() {
+        echo '<h1>' . sprintf( self::get_string( 'intro-title' ), esc_attr( self::$current_theme->get( 'Name' ) . ' ' . self::$current_theme->get( 'Version' ) ) ) . '</h1>';
+	}
+
+}
+endif;

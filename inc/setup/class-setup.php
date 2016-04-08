@@ -1,221 +1,209 @@
 <?php
+/**
+ * Setup Marketify.
+ *
+ * @see https://github.com/astoundify/setup-guide
+ * @see https://github.com/astoundify/content-importer
+ * @see https://github.com/astoundify/themeforest-updater
+ */
 class Marketify_Setup {
 
-    public function __construct() {
-        if ( ! is_admin() ) {
-            return;
-        }
+	/**
+	 * Start things up.
+	 *
+	 * @since 2.7.0
+	 *
+	 * @return void
+	 */
+	public static function init() {
+		self::includes();
 
-        add_action( 'after_setup_theme', array( $this, 'init' ), 0 );
-    }
+		self::theme_updater();
+		self::content_importer();
+		self::setup_guide();
+	}
 
-    public function init() {
-        $menus = get_theme_mod( 'nav_menu_locations' );
-        $this->theme = marketify()->activation->theme;
-        $has_downloads = new WP_Query( array( 'post_type' => 'download', 'fields' => 'ids', 'posts_per_page' => 1 ) );
+	public static function includes() {
+		include_once( dirname( __FILE__ ) . '/_setup-guide/class-astoundify-setup-guide.php' );
+		include_once( dirname( __FILE__ ) . '/_importer/class-astoundify-content-importer.php' );
+		include_once( dirname( __FILE__ ) . '/_updater/class-astoundify-themeforest-updater.php' );
+	}
 
-        $this->steps = array();
+	/**
+	 * Create the setup guide.
+	 *
+	 * @since 2.7.0
+	 *
+	 * @return void
+	 */
+	public function setup_guide() {
+		add_action( 'astoundify_setup_guide_intro', array( __CLASS__, '_setup_guide_intro' ) );
 
-        $this->steps[ 'install-plugins' ] = array(
-            'title' => __( 'Install Required &amp; Recommended Plugins', 'marketify' ),
-            'completed' => class_exists( 'Easy_Digital_Downloads' ),
-            'documentation' => array(
-                'Easy Digital Downloads' => 'http://marketify.astoundify.com/article/713-easy-digital-downloads',
-                'Easy Digital Downloads - Marketplace Bundle' => 'https://astoundify.com/go/marketplace-bundle/',
-                'Bulk Install' => 'http://marketify.astoundify.com/article/712-bulk-install-required-and-recommended-plugins-recommended'
-            )
-        );
+		$steps = include_once( dirname( __FILE__ ) . '/setup-guide-steps/_step-list.php' );
 
-        $this->steps[ 'import-content' ] = array(
-            'title' => __( 'Import Demo Content', 'marketify' ),
-            'completed' => $has_downloads->have_posts(),
-            'documentation' => array(
-                'Install Demo Content' => 'http://marketify.astoundify.com/article/789-installing-demo-content',
-                'Importing Content (Codex)' => 'http://codex.wordpress.org/Importing_Content',
-                'WordPress Importer' => 'https://wordpress.org/plugins/wordpress-importer/'
-            )
-        );
+		Astoundify_Setup_Guide::init( array(
+			'steps' => $steps,
+			'steps_dir' => get_template_directory() . '/inc/setup/setup-guide-steps',
+			'strings' => array(
+				'page-title' => __( 'Setup %s', 'marketify' ),
+				'menu-title' => __( 'Setup Guide', 'marketify' ),
+				'intro-title' => __( 'Welcome to %s', 'marketify' ),
+				'step-complete' => __( 'Completed', 'marketify' ),
+				'step-incomplete' => __( 'Not Complete', 'marketify' )
+			),
+			'stylesheet_uri' => get_template_directory_uri() . '/inc/setup/_setup-guide/style.css',
+		) );
+	}
 
-        $this->steps[ 'import-widgets' ] = array(
-            'title' => __( 'Import Widgets', 'marketify' ),
-            'completed' => is_active_sidebar( 'home-1' ),
-            'documentation' => array(
-                'Widget Areas' => 'http://marketify.astoundify.com/category/692-widget-areas',
-                'Widgets' => 'http://marketify.astoundify.com/category/585-widgets' 
-            )
-        );
+	/**
+	 * The introduction text for the setup guide page.
+	 *
+	 * @since 2.7.0
+	 *
+	 * @return void
+	 */
+	public static function _setup_guide_intro() {
+?>
+<p class="about-text"><?php printf( __( 'Creating a digital marketplace has never been easier with Marketify&mdash;Use the steps below to start setting up your new website. If you have more questions please <a href="%s">review the documentation</a>.', 'marketify' ), 'http://marketify.astoundify.com' ); ?></p>
 
-        if ( marketify()->get( 'edd' ) ) { 
-            $this->steps[ 'setup-edd' ] = array(
-                'title' => 'Setup Easy Digital Downloads',
-                'completed' => true == get_option( 'edd_settings' ),
-                'documentation' => array(
-                    'Documentation' => 'http://docs.easydigitaldownloads.com/',
-                    'Shortcodes' => 'http://docs.easydigitaldownloads.com/article/218-short-codes-overview',
-                    'FAQs' => 'http://docs.easydigitaldownloads.com/collection/171-faqs'
-                )
-            );
-        }
+<div class="setup-guide-theme-badge"><img src="<?php echo get_template_directory_uri(); ?>/inc/setup/images/banner.jpg" width="140" alt="" /></div>
 
-        if ( marketify()->get( 'edd-fes' ) ) { 
-            $this->steps[ 'setup-fes' ] = array(
-                'title' => 'Setup Frontend Submissions',
-                'completed' => 0 == EDD_FES()->helper->get_option( 'fes-use-css' ),
-                'documentation' => array(
-                    'Documentation' => 'http://docs.easydigitaldownloads.com/category/330-frontend-submissions',
-                    'Setup' => 'http://docs.easydigitaldownloads.com/article/337-frontend-submissions-basic-setup',
-                    'Shortcodes' => 'http://docs.easydigitaldownloads.com/article/333-frontend-submissions-short-codes',
-                    'FAQs' => 'http://docs.easydigitaldownloads.com/article/331-frontend-submissions-frequently-asked-questions'
-                )
-            );
-        }
+ <p class="helpful-links">
+	<a href="http://marketify.astoundify.com" class="button button-primary js-trigger-documentation"><?php _e( 'Search Documentation', 'marketify' ); ?></a>&nbsp;
+	<a href="https://astoundify.com/go/astoundify-support/" class="button button-secondary"><?php _e( 'Submit a Support Ticket', 'marketify' ); ?></a>&nbsp;
+</p>
+<script>
+	jQuery(document).ready(function($) {
+		$('.js-trigger-documentation').click(function(e) {
+			e.preventDefault();
+			HS.beacon.open();
+		});
+	});
+</script>
+<script>!function(e,o,n){window.HSCW=o,window.HS=n,n.beacon=n.beacon||{};var t=n.beacon;t.userConfig={},t.readyQueue=[],t.config=function(e){this.userConfig=e},t.ready=function(e){this.readyQueue.push(e)},o.config={modal: true, docs:{enabled:!0,baseUrl:"//astoundify-marketify.helpscoutdocs.com/"},contact:{enabled:!1,formId:"b68bfa79-83ce-11e5-8846-0e599dc12a51"}};var r=e.getElementsByTagName("script")[0],c=e.createElement("script");c.type="text/javascript",c.async=!0,c.src="https://djtflbt20bdde.cloudfront.net/",r.parentNode.insertBefore(c,r)}(document,window.HSCW||{},window.HS||{});</script>
+<?php
+	}
 
-        $this->steps[ 'setup-menus' ] = array(
-            'title' => __( 'Setup Menus', 'marketify' ),
-            'completed' => isset( $menus[ 'primary' ] ),
-            'documentation' => array(
-                'Primary Menu' => 'http://marketify.astoundify.com/article/700-manage-the-primary-menu',
-                'Show/Hide Items' => 'http://marketify.astoundify.com/article/702-show-hide-links-depending-on-the-user',
-            )
-        );
+	/**
+	 * Create the theme updater.
+	 *
+	 * @since 2.7.0
+	 *
+	 * @return void
+	 */
+	public function theme_updater() {
+		// start the updater
+		$updater = Astoundify_ThemeForest_Updater::instance();
+		$updater::set_strings( array(
+			'cheating' => __( 'Cheating?', 'marketify' ),
+			'no-token' => __( 'An API token is required.', 'marketify' ),
+			'api-error' => __( 'API error.', 'marketify' ),
+			'api-connected' => __( 'Connected', 'marketify' ),
+			'api-disconnected' => __( 'Disconnected', 'marketify' )
+		) );
 
-        $this->steps[ 'setup-homepage' ] = array(
-            'title' => __( 'Setup Static Homepage', 'marketify' ),
-            'completed' => (bool) get_option( 'page_on_front', false ),
-            'documentation' => array(
-                'Create Your Homepage' => 'http://marketify.astoundify.com/article/581-creating-your-homepage',
-                'Reading Settings (codex)' => 'http://codex.wordpress.org/Settings_Reading_Screen'
-            )
-        );
+		// set a filter for the token
+		add_filter( 'astoundify_themeforest_updater', array( $this, '_theme_updater_get_token' ) );
 
-        $docs = array(
-            'Widget Areas' => 'http://marketify.astoundify.com/category/692-widget-areas',
-            'Widgets' => 'http://marketify.astoundify.com/category/585-widgets' 
-        );
+		// init the api so it has a token value
+		Astoundify_Envato_Market_API::instance();
 
-        if ( marketify()->get( 'woothemes-testimonials' ) ) {
-            $docs[ 'Companies We&#39;ve Helped' ]  = 'http://marketify.astoundify.com/article/842-home-companies-weve-helped';
-            $docs[ 'Individual Testimonials' ]  = 'http://marketify.astoundify.com/article/843-home-individual-testimonials';
-        }
+		// ajax callback
+		add_action( 'wp_ajax_marketify_set_token', array( __CLASS__, '_theme_updater_set_token' ) );
+	}
 
-        $this->steps[ 'setup-widgets' ] = array(
-            'title' => __( 'Setup Widgets', 'marketify' ),
-            'completed' => is_active_sidebar( 'widget-area-front-page' ),
-            'documentation' => $docs
-        );
+	/**
+	 * Filter the Theme Updater token.
+	 *
+	 * @since 2.7.0
+	 *
+	 * @return string
+	 */
+	public static function _theme_updater_get_token() {
+		return get_option( 'marketify_themeforest_updater_token', null );
+	}
 
-        $this->steps[ 'customize-theme' ] = array(
-            'title' => __( 'Customize', 'marketify' ),
-            'completed' => get_option( 'theme_mods_marketify' ),
-            'documentation' => array(
-                'Appearance' => 'http://marketify.astoundify.com/collection/463-customization',
-                'Child Themes' => 'http://marketify.astoundify.com/category/719-child-themes',
-                'Translations' => 'http://marketify.astoundify.com/category/720-translations'
-            )
-        );
+	/**
+	 * AJAX response when a token is set in the Setup Guide.
+	 *
+	 * @since 2.7.0
+	 *
+	 * @return void
+	 */
+	public function _theme_updater_set_token() {
+		check_ajax_referer( 'marketify-add-token', 'security' );
 
-        $this->steps[ 'support-us' ] = array(
-            'title' => __( 'Get Involved', 'marketify' ),
-            'completed' => 'na',
-            'documentation' => array(
-                'Leave a Positive Review' => 'https://astoundify.com/go/rate-theme/',
-                'Contribute Your Translation' => 'https://astoundify.com/go/translate-marketify/'
-            )
-        );
+		$token = isset( $_POST[ 'token' ] ) ? esc_attr( $_POST[ 'token' ] ) : false;
 
-		$this->steps = apply_filters( 'marketify_setup_steps', $this->steps );
+		if ( ! $token ) {
+			wp_send_json_error();
+		}
 
-        add_action( 'admin_menu', array( $this, 'add_page' ), 100 );
-        add_action( 'admin_menu', array( $this, 'add_meta_boxes' ) );
-        add_action( 'admin_enqueue_scripts', array( $this, 'admin_css' ) );
-    }
+		$api = Astoundify_Envato_Market_API::instance();
 
-    public function add_page() {
-        add_theme_page( __( 'Marketify Setup', 'marketify' ), __( 'Setup Guide', 'marketify' ), 'manage_options', 'marketify-setup', array( $this, 'output' ) );
-    }
+		update_option( 'marketify_themeforest_updater_token', $token );
 
-    public function admin_css() {
-        $screen = get_current_screen();
-        if ( 'appearance_page_marketify-setup' != $screen->id ) {
-            return;
-        }
-        wp_enqueue_style( 'marketify-setup', get_template_directory_uri() . '/inc/setup/style.css' );
-    }
+		// hotswap the token
+		$api->token = $token;
 
-    public function add_meta_boxes() {
-        foreach ( $this->steps as $step => $info ) {
-            $info = array_merge( array( 'step' => $step ), $info );
-            add_meta_box( $step , $info[ 'title' ], array( $this, 'step_box' ), 'marketify_setup_steps', 'normal', 'high', $info );
-        }
-    }
+		wp_send_json_success( array(
+			'token' => $token,
+			'can_request' => $api->can_make_request_with_token(),
+			'request_label' => $api->connection_status_label()
+		) );
 
-    public function step_box( $object, $metabox ) {
-        $args = $metabox[ 'args' ];
-    ?>
-        <?php if ( $args[ 'completed' ] === true ) { ?>
-            <div class="section-title is-completed"><?php _e( 'Completed!', 'marketify' ); ?></div>
-        <?php } elseif ( $args[ 'completed' ] === false || $args[ 'completed' ] == '' ) { ?>
-            <div class="section-title not-completed"><?php _e( 'Incomplete', 'marketify' ); ?></div>
-        <?php } ?>
+		exit();
+	}
 
-		<?php 
-			$step_file = apply_filters( 'marketify_setup_step_' . $args[ 'step' ] . '_file', get_template_directory() . '/inc/setup/steps/' . $args[ 'step' ] . '.php' );
-			include( $step_file );
-		?>
+	/**
+	 * Create the content importer.
+	 *
+	 * @since 2.7.0
+	 *
+	 * @return void
+	 */
+	public function content_importer() {
+		Astoundify_Content_Importer::instance();
 
-        <?php if ( 'Get Involved' != $args[ 'title' ] && ! empty( $args[ 'documentation' ] ) ) : ?> 
-            <hr />
-            <p><?php _e( 'You can read more and watch helpful video tutorials below:', 'marketify' ); ?></p>
-        <?php endif; ?>
+		// ajax callback
+		add_action( 'wp_ajax_marketify_oneclick_setup', array( __CLASS__, '_content_importer_import' ) );
+	}
+	
+	/**
+	 * AJAX response when content is imported in the setup guide.
+	 *
+	 * @since 2.7.0
+	 *
+	 * @return void
+	 */
+	public function _content_importer_import() {
+		check_ajax_referer( 'marketify-oneclick-setup', 'security' );
 
-        <p>
-            <?php foreach ( $args[ 'documentation' ] as $title => $url ) { ?>
-            <a href="<?php echo esc_url( $url ); ?>" class="button button-secondary"><?php echo esc_attr( $title ); ?></a>&nbsp;
-            <?php } ?>
-        </p>
-    <?php
-    }
+		// the files to use
+		$files = isset( $_POST[ 'files' ] ) ? $_POST[ 'files' ] : false;
 
-    public function output() {
-    ?>
-        <div class="wrap about-wrap marketify-setup">
-            <?php $this->welcome(); ?>
-            <?php $this->links(); ?>
-        </div>
+		// the import key
+		$import_key = isset( $_POST[ 'import_key' ] ) ? esc_attr( $_POST[ 'import_key' ] ) : false;
 
-        <div id="poststuff" class="wrap marketify-steps" style="margin: 25px 40px 0 20px">
-            <?php $this->steps(); ?>
-        </div>
-        <script>!function(e,o,n){window.HSCW=o,window.HS=n,n.beacon=n.beacon||{};var t=n.beacon;t.userConfig={},t.readyQueue=[],t.config=function(e){this.userConfig=e},t.ready=function(e){this.readyQueue.push(e)},o.config={modal: true, docs:{enabled:!0,baseUrl:"//astoundify-marketify.helpscoutdocs.com/"},contact:{enabled:!1,formId:"b68bfa79-83ce-11e5-8846-0e599dc12a51"}};var r=e.getElementsByTagName("script")[0],c=e.createElement("script");c.type="text/javascript",c.async=!0,c.src="https://djtflbt20bdde.cloudfront.net/",r.parentNode.insertBefore(c,r)}(document,window.HSCW||{},window.HS||{});</script>
-    <?php  
-    }
+		// what are we doing
+		$process_action = isset( $_POST[ 'process_action' ] ) ? esc_attr( $_POST[ 'process_action' ] ) : false;
 
-    public function welcome() {
-    ?>
-        <h1><?php printf( __( 'Welcome to %s', 'marketify' ), esc_attr( $this->theme->Name . ' ' . $this->theme->Version ) ); ?></h1>
-        <p class="about-text"><?php printf( __( 'Creating a digital marketplace has never been easier with Marketify&mdash;Use the steps below to start setting up your new website. If you have more questions please <a href="%s">review the documentation</a>.', 'marketify' ), 'http://marketify.astoundify.com' ); ?></p>
-        <div class="marketify-badge"><img src="<?php echo get_template_directory_uri(); ?>/inc/setup/images/banner.jpg" width="140" alt="" /></div>
-    <?php
-    }
+		if ( ! $files || ! $import_key || ! $process_action ) {
+			wp_send_json_error();
+		}
 
-    public function links() {
-    ?>
-        <p class="helpful-links">
-            <a href="http://marketify.astoundify.com" class="button button-primary js-trigger-documentation"><?php _e( 'Search Documentation', 'marketify' ); ?></a>&nbsp;
-            <a href="http://support.astoundify.com" class="button button-secondary"><?php _e( 'Submit a Support Ticket', 'marketify' ); ?></a>&nbsp;
-        </p>
-        <script>
-            jQuery(document).ready(function($) {
-                $('.js-trigger-documentation').click(function(e) {
-                    e.preventDefault();
-                    HS.beacon.open();
-                });
-            });
-        </script>
-    <?php
-    }
+		Astoundify_Importer_Manager::enqueue( $files );
 
-    public function steps() {
-        do_accordion_sections( 'marketify_setup_steps', 'normal', null );
-    }
+		$process = Astoundify_Importer_Manager::process( $process_action, $import_key );
+
+		if ( $process ) {
+			return wp_send_json_success();
+		}
+
+		return wp_send_json_error();
+		exit();
+	}
+	
 }
+
+Marketify_Setup::init();
