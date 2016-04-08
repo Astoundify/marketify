@@ -1,0 +1,17 @@
+{
+	"new-jobs": {
+		"post_title": "New Jobs in the Workplace",
+		"post_content": "There are a lot of new jobs.",
+		"featured_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/50px-A_small_cup_of_coffee.JPG",
+		"terms": {
+			"category": [ "updates" ]
+		},
+		"meta": {
+			"external_url": "http://test.com",
+			"download_urls": {
+				"item-1": "http://test.com/1.jpg",
+				"item-2": "http://test.com/2.jpg"
+			}
+		}
+	}
+}

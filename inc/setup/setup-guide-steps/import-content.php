@@ -29,7 +29,11 @@ $to_import = array(
 	),
 	'plugins' => array(
 		'label' => __( 'Plugin Content' ),
-		'files' => $plugin_files
+		'files' => $plugin_files,
+		'plugins' => array(
+			'Easy Digital Downloads' => class_exists( 'Easy_Digital_Downloads' ),
+			'Frontend Submissions' => class_exists( 'EDD_Front_End_Submissions' )
+		)
 	)
 );
 ?>
@@ -59,6 +63,25 @@ $to_import = array(
 
 				<div class="spinner"></div>
 			</label>
+
+			<?php if ( 'plugins' == $import_key ) : ?>
+			<div class="plugins-to-import">
+				<p><?php _e( 'Please review your active plugins before importing content. Only active plugins can have content imported.', 'marketify' ); ?></p>
+
+				<ul>
+				<?php foreach ( $import[ 'plugins' ] as $label => $is_importing ) : ?>
+				<li>
+					<strong><?php echo $label; ?></strong> &mdash; 
+					<?php if ( $is_importing ) : ?>
+						<span class="active"><?php _e( 'Active', 'marketify' ); ?></span>
+					<?php else : ?>
+						<span class="inactive"><?php _e( 'Inactive', 'marketify' ); ?></span>
+					<?php endif; ?>
+				</li>
+				<?php endforeach; ?>
+				</ul>
+			</div>
+			<?php endif; ?>
 		</li>
 		<?php endforeach; ?>
 
@@ -76,6 +99,12 @@ $to_import = array(
 
 		$form.on( 'submit', function(e) {
 			return false;
+		});
+
+		$( 'input[value=plugins]' ).on( 'change', function(e) {
+			var checked = $(this).attr( 'checked' );
+
+			$( '.plugins-to-import' ).toggle( checked );
 		});
 
 		$form.find( 'input[type=submit]' ).on( 'click', function(e) {
@@ -158,10 +187,12 @@ $to_import = array(
 	list-style: none;
 }
 
+.active,
 .previously-imported {
 	color: green;
 }
 
+.inactive,
 .failed {
 	color: red;
 }

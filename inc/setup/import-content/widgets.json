@@ -1,0 +1,19 @@
+{
+	"text": {
+		"sidebar": "sidebar-1",
+		"id_base": "text",
+		"title": "Text Widget",
+		"text": "This is a text widget."
+	},
+	"text-1": {
+		"sidebar": "home-1",
+		"id_base": "text",
+		"title": "Text Widget",
+		"text": "This is a text widget."
+	},
+	"rss": {
+		"sidebar": "sidebar-1",
+		"id_base": "rss",
+		"title": "RSS Widget"
+	}
+}

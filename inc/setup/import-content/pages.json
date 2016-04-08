@@ -1,0 +1,26 @@
+{
+	"home": {
+		"post_title": "Home",
+		"post_content": "Static homepage.",
+		"comment_status": "closed"
+	},
+	"blog": {
+		"post_title": "Blog",
+		"comment_status": "closed"
+	},
+	"about": {
+		"post_title": "About",
+		"post_content": "We have a great team here.",
+		"comment_status": "closed",
+		"featured_image": "https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG",
+		"show_in_menu": { 
+			"primary" : {
+				"menu-item-position": 1,
+				"menu-item-type": "post_type"
+			}
+		},
+		"meta": {
+			"hero_style": "video"
+		}
+	}
+}

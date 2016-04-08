@@ -1,0 +1,8 @@
+{
+	"pages": {
+		"myaccount": {
+			"post_title": "My Account",
+			"post_content": "[woocommerce_my_account]"
+		}
+	}
+}
