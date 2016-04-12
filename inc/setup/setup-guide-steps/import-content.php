@@ -3,7 +3,7 @@
  */
 
 $plugin_files = array(
-	get_template_directory() . '/inc/setup/import-content/{style}/plugin-easy_digital_downloads.json'
+	get_template_directory() . '/inc/setup/import-content/{style}/plugin_easy_digital_downloads.json'
 );
 
 $to_import = array(

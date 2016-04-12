@@ -182,21 +182,8 @@ class Astoundify_Importer_Manager {
 		// get the type
 		$import_type = $parts[0];
 
-		/** this is where it gets weird */
-	
 		$import_type = explode( '_', $import_type );
 		$import_type = implode( '_', array_map( 'ucfirst', $import_type ) );
-
-		// clean up plugin
-		if ( false !== strpos( $import_type, 'Plugin' ) ) {
-			$plugin_name = explode( '-', $import_type );
-			$plugin_cases = $plugin_name[1];
-
-			$plugin_cases = explode( '_', $plugin_cases );
-			$plugin_cases = implode( '_', array_map( 'ucfirst', $plugin_cases ) );
-
-			$import_type = 'Plugin_' . $plugin_cases;
-		}
 
 		$classname = 'Astoundify_Import_' . $import_type;
 
