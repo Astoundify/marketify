@@ -267,17 +267,17 @@ class Astoundify_Setup_Guide {
 	 */
     public static function output_admin_page() {
 ?>
-		<?php do_action( 'astoundify_setup_guide_before', self ); ?>
+		<?php do_action( 'astoundify_setup_guide_before', __CLASS__ ); ?>
 
 		<div class="wrap about-wrap setup-guide-steps">
-			<?php do_action( 'astoundify_setup_guide_intro', self ); ?>
+			<?php do_action( 'astoundify_setup_guide_intro', __CLASS__ ); ?>
         </div>
 
         <div id="poststuff" class="wrap setup-guide-steps" style="margin: 25px 40px 0 20px">
             <?php self::steps(); ?>
         </div>
 
-		<?php do_action( 'astoundify_setup_guide_after', self ); ?>
+		<?php do_action( 'astoundify_setup_guide_after', __CLASS__ ); ?>
 <?php  
     }
 

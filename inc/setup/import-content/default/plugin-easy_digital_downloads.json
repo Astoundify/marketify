@@ -1,0 +1,259 @@
+{
+	"terms": {
+		"download_category": {
+			"audio": "Audio",
+			"bootstrap": "Bootstrap",
+			"drupal": "Drupal",
+			"fonts": "Fonts",
+			"ghost": "Ghost",
+			"graphics": "Graphics",
+			"html": "HTML",
+			"joomla": "Joomla",
+			"misc": "Misc",
+			"templates": "Templates",
+			"textures": "Textures",
+			"tumblr": "Tumblr",
+			"video": "Video",
+			"wordpress": "WordPress"
+	},
+	"pages": {
+		"purchase": {
+			"post_title": "Checkout",
+			"post_content": "[download_checkout]"
+		},
+		"success": {
+			"post_title": "Purchase Confirmation",
+			"post_content": "[edd_receipt]"
+		},
+		"failure": {
+			"post_title": "Transaction Failed",
+			"post_content": "Your transaction failed, please try again or contact site support."
+		},
+		"purchase_history": {
+			"post_title": "Purchase History",
+			"post_content": "[purchase_history]"
+		}
+	},
+	"downloads": {
+
+		"photoshop-actions-bundle": {
+			"post_title": "190 Photoshop Actions Bundle",
+			"featured_image": "https://unsplash.it/740/600.jpg?random",
+			"prices": {
+				"Get the bundle of 190 Photoshop actions": "10.00",
+				"Get an extra 200 Photoshop actions": "25.00"
+			},
+			"terms": {
+				"download_category": [ "bootstrap", "drupal", "ghost", "html", "joomla", "misc", "tumblr", "wordpress" ]
+			},
+			"meta": {
+				"date_created": "9 Jul, 2013",
+				"license": "GPL",
+				"file_types": "PHP, PNG, All Files",
+				"file_size": "1.82 MB",
+				"documentation": "Well Documented"
+			}
+		},
+
+		"campaignify-wordpress-theme": {
+			"post_title": "Campaignify WordPress Theme",
+			"featured_image": "https://unsplash.it/740/600.jpg?random",
+			"prices": {
+				"Campaignify WordPress Theme": "75.00",
+				"Campaignify Theme + PSD Files": "125.00"
+			},
+			"terms": {
+				"download_category": [ "bootstrap", "drupal", "ghost", "html", "joomla", "misc", "tumblr", "wordpress" ]
+			},
+			"meta": {
+				"date_created": "9 Jul, 2013",
+				"license": "GPL",
+				"file_types": "PHP, PNG, All Files",
+				"file_size": "1.82 MB",
+				"documentation": "Well Documented",
+				"demo": "http://demo.astoundify.com/campaignify"
+			}
+		},
+
+		"in-the-city-at-night": {
+			"post_title": "In the City at Night Movie",
+			"post_format": "video",
+			"featured_image": "https://unsplash.it/740/600.jpg?random",
+			"prices": {
+				"HD 720p Version": "10.00",
+				"HD 1080p Version": "20.00"
+			},
+			"terms": {
+				"download_category": [ "video" ],
+				"download_tag": [ "city", "night" ]
+			},
+			"meta": {
+				"date_created": "4 Nov, 2016",
+				"license": "Creative Commons",
+				"file_types": "MOV",
+				"file_size": "74 MB",
+				"documentation": "Well Documented",
+				"video": "http://vimeo.com/23237102"
+			}
+		},
+
+		"50-royalty-free-backgrounds": {
+			"post_title": "50+ Royalty Free Backgrounds",
+			"post_format": "video",
+			"featured_image": "https://unsplash.it/740/600.jpg?random",
+			"media": [ "https://unsplash.it/740/600.jpg?random", "https://unsplash.it/740/600.jpg?random", "https://unsplash.it/740/600.jpg?random", "https://unsplash.it/740/600.jpg?random" ],
+			"prices": {
+				"HD 720p Version": "10.00",
+				"HD 1080p Version": "20.00"
+			},
+			"terms": {
+				"download_category": [ "bootstrap", "drupal", "ghost", "html", "joomla", "misc", "tumblr", "wordpress" ]
+			},
+			"meta": {
+				"date_created": "4 Nov, 2016",
+				"license": "Creative Commons",
+				"file_types": "MOV",
+				"file_size": "74 MB",
+				"documentation": "Well Documented"
+			}
+		},
+
+		"20-high-res-textures": {
+			"post_title": "20 High Res Textures",
+			"featured_image": "https://unsplash.it/740/600.jpg?random",
+			"prices": {
+				"20 High Res Textures": "9.00",
+				"20 High Res Textures + Extra Bonus": "12.00"
+			},
+			"terms": {
+				"download_category": [ "bootstrap", "drupal", "ghost", "html", "joomla", "misc", "tumblr", "wordpress" ]
+			},
+			"meta": {
+				"date_created": "9 Jul, 2013",
+				"license": "GPL",
+				"file_types": "PHP, PNG, All Files",
+				"file_size": "1.82 MB",
+				"documentation": "Well Documented"
+			}
+		},
+
+		"10-ipad-and-iphone-mockups": {
+			"post_title": "10+ iPad and iPhone Mockups",
+			"featured_image": "https://unsplash.it/740/600.jpg?random",
+			"prices": {
+				"Low Resolution Version": "9.00",
+				"High Resolution Version": "12.00"
+			},
+			"terms": {
+				"download_category": [ "bootstrap", "drupal", "ghost", "html", "joomla", "misc", "tumblr", "wordpress" ]
+			},
+			"meta": {
+				"date_created": "9 Jul, 2013",
+				"license": "GPL",
+				"file_types": "PHP, PNG, All Files",
+				"file_size": "1.82 MB",
+				"documentation": "Well Documented"
+			}
+		},
+
+		"jobify-theme": {
+			"post_title": "Jobify WordPress Theme",
+			"featured_image": "https://unsplash.it/740/600.jpg?random",
+			"media": [ "https://unsplash.it/740/600.jpg?random", "https://unsplash.it/740/600.jpg?random", "https://unsplash.it/740/600.jpg?random", "https://unsplash.it/740/600.jpg?random" ],
+			"prices": {
+				"Jobify WordPress Theme": "60.00",
+				"Jobify WordPress Theme & PSD File": "90.00"
+			},
+			"terms": {
+				"download_category": [ "bootstrap", "drupal", "ghost", "html", "joomla", "misc", "tumblr", "wordpress" ],
+				"download_tag": [ "themes" ]
+			},
+			"meta": {
+				"date_created": "9 Jul, 2013",
+				"license": "GPL",
+				"file_types": "PHP, PNG, All Files",
+				"file_size": "1.82 MB",
+				"documentation": "Well Documented"
+			}
+		},
+
+		"50-music-icons": {
+			"post_title": "50+ Music Icons",
+			"featured_image": "https://unsplash.it/740/600.jpg?random",
+			"media": [ "https://unsplash.it/740/600.jpg?random", "https://unsplash.it/740/600.jpg?random" ],
+			"price": "4.00",
+			"terms": {
+				"download_category": [ "bootstrap", "drupal", "ghost", "html", "joomla", "misc", "tumblr", "wordpress" ]
+			},
+			"meta": {
+				"date_created": "9 Jul, 2013",
+				"license": "GPL",
+				"file_types": "PHP, PNG, All Files",
+				"file_size": "1.82 MB"
+			}
+		},
+
+		"up-lifting-audio-pack": {
+			"post_title": "Up Lifting Audio Pack",
+			"post_format": "audio",
+			"featured_image": "https://unsplash.it/740/600.jpg?random",
+			"media": [ "https://demo.astoundify.com/marketify/wp-content/uploads/sites/21/edd/2013/12/Freedom1.mp3" ],
+			"prices": {
+				"Wav Audio Files Version": "9.00",
+				"Flac Audio Files Version": "9.00"
+			},
+			"terms": {
+				"download_category": [ "bootstrap", "drupal", "ghost", "html", "joomla", "misc", "tumblr", "wordpress" ]
+			},
+			"meta": {
+				"date_created": "9 Jul, 2013",
+				"license": "GPL",
+				"file_types": "PHP, PNG, All Files",
+				"file_size": "1.82 MB"
+			}
+		},
+
+		"marketify-coffee-shop": {
+			"post_title": "Marketift Coffee Shop",
+			"post_format": "video",
+			"featured_image": "https://unsplash.it/740/600.jpg?random",
+			"prices": {
+				"HD 720p Version": "10.00",
+				"HD 1080p Version": "20.00"
+			},
+			"terms": {
+				"download_category": [ "video" ],
+				"download_tag": [ "coffee", "shop" ]
+			},
+			"meta": {
+				"date_created": "4 Nov, 2016",
+				"license": "Creative Commons",
+				"file_types": "MOV",
+				"file_size": "74 MB",
+				"documentation": "Well Documented",
+				"video": "http://vimeo.com/85272487"
+			}
+		},
+
+		"endless-posibilities": {
+			"post_title": "Endless Possibilities",
+			"post_format": "audio",
+			"featured_image": "https://unsplash.it/740/600.jpg?random",
+			"media": [ "https://demo.astoundify.com/marketify/wp-content/uploads/sites/21/edd/2013/12/Freedom1.mp3" ],
+			"prices": {
+				"Wav Audio Files Version": "9.00",
+				"Flac Audio Files Version": "12.00"
+			},
+			"terms": {
+				"download_category": [ "bootstrap", "drupal", "ghost", "html", "joomla", "misc", "tumblr", "wordpress" ]
+			},
+			"meta": {
+				"date_created": "9 Jul, 2013",
+				"license": "GPL",
+				"file_types": ".WAV",
+				"file_size": "1.82 MB"
+			}
+		}
+
+	}
+}

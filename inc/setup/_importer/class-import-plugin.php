@@ -39,8 +39,13 @@ class Astoundify_Import_Plugin extends Astoundify_Importer {
 		foreach ( $this->get_data() as $import_type => $import_data ) {
 			$classname = 'Astoundify_Import_' . ucfirst( $import_type );
 
-			$this->importers[ $import_type ] = new $classname();
-			$this->importers[ $import_type ]->data = $import_data;
+			if ( class_exists( $classname ) ) {
+				$this->importers[ $import_type ] = new $classname();
+				$this->importers[ $import_type ]->data = $import_data;
+			// create a fake importer with the data so it can be accessed elsewhere
+			} else {
+				$this->importers[ $import_type ] = $import_data;
+			}
 		}
 	}
 
@@ -49,8 +54,13 @@ class Astoundify_Import_Plugin extends Astoundify_Importer {
 			return;
 		}
 
-		foreach ( $this->importers as $importer ) {
-			$importer->process_data( $process_action );
+		foreach ( $this->importers as $import_type => $importer ) {
+			if ( method_exists( $importer, 'process_data' ) ) {
+				$importer->process_data( $process_action );
+			} else {
+				// a ghettto way to let random things fire if the import type is "fake"
+				do_action( "astoundify_import_content_{$process_action}_{$import_type}", $importer );
+			}
 		}
 	}
 

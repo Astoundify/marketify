@@ -36,7 +36,7 @@ class Marketify_Setup {
 	 *
 	 * @return void
 	 */
-	public function setup_guide() {
+	public static function setup_guide() {
 		add_action( 'astoundify_setup_guide_intro', array( __CLASS__, '_setup_guide_intro' ) );
 
 		$steps = include_once( dirname( __FILE__ ) . '/setup-guide-steps/_step-list.php' );
@@ -91,7 +91,7 @@ class Marketify_Setup {
 	 *
 	 * @return void
 	 */
-	public function theme_updater() {
+	public static function theme_updater() {
 		// start the updater
 		$updater = Astoundify_ThemeForest_Updater::instance();
 		$updater::set_strings( array(
@@ -103,7 +103,7 @@ class Marketify_Setup {
 		) );
 
 		// set a filter for the token
-		add_filter( 'astoundify_themeforest_updater', array( $this, '_theme_updater_get_token' ) );
+		add_filter( 'astoundify_themeforest_updater', array( __CLASS__, '_theme_updater_get_token' ) );
 
 		// init the api so it has a token value
 		Astoundify_Envato_Market_API::instance();
@@ -130,7 +130,7 @@ class Marketify_Setup {
 	 *
 	 * @return void
 	 */
-	public function _theme_updater_set_token() {
+	public static function _theme_updater_set_token() {
 		check_ajax_referer( 'marketify-add-token', 'security' );
 
 		$token = isset( $_POST[ 'token' ] ) ? esc_attr( $_POST[ 'token' ] ) : false;
@@ -162,7 +162,7 @@ class Marketify_Setup {
 	 *
 	 * @return void
 	 */
-	public function content_importer() {
+	public static function content_importer() {
 		Astoundify_Content_Importer::instance();
 
 		// ajax callback
@@ -176,8 +176,11 @@ class Marketify_Setup {
 	 *
 	 * @return void
 	 */
-	public function _content_importer_import() {
+	public static function _content_importer_import() {
 		check_ajax_referer( 'marketify-oneclick-setup', 'security' );
+
+		// the style to use
+		$style = isset( $_POST[ 'style' ] ) ? $_POST[ 'style' ] : false;
 
 		// the files to use
 		$files = isset( $_POST[ 'files' ] ) ? $_POST[ 'files' ] : false;
@@ -188,12 +191,16 @@ class Marketify_Setup {
 		// what are we doing
 		$process_action = isset( $_POST[ 'process_action' ] ) ? esc_attr( $_POST[ 'process_action' ] ) : false;
 
-		if ( ! $files || ! $import_key || ! $process_action ) {
+		if ( ! $files || ! $import_key || ! $process_action || ! $style ) {
 			wp_send_json_error();
 		}
 
-		Astoundify_Importer_Manager::enqueue( $files );
+		// update directory path
+		foreach ( $files as $key => $file ) {
+			$files[ $key ] = str_replace( '{style}', $style, $file );
+		}
 
+		Astoundify_Importer_Manager::enqueue( $files );
 		$process = Astoundify_Importer_Manager::process( $process_action, $import_key );
 
 		if ( $process ) {
@@ -201,6 +208,7 @@ class Marketify_Setup {
 		}
 
 		return wp_send_json_error();
+
 		exit();
 	}
 	

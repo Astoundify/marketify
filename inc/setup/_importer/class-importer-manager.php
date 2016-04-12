@@ -182,32 +182,23 @@ class Astoundify_Importer_Manager {
 		// get the type
 		$import_type = $parts[0];
 
+		/** this is where it gets weird */
+	
+		$import_type = explode( '_', $import_type );
+		$import_type = implode( '_', array_map( 'ucfirst', $import_type ) );
+
 		// clean up plugin
-		if ( false !== strpos( $import_type, 'plugin' ) ) {
+		if ( false !== strpos( $import_type, 'Plugin' ) ) {
 			$plugin_name = explode( '-', $import_type );
-			$plugin_cases = false;
+			$plugin_cases = $plugin_name[1];
 
-			// cases on plugin names
-			switch( $plugin_name[1] ) {
-				case 'woocommerce' :
-					$plugin_cases = 'WooCommerce';
-					break;
-				case 'wp_job_manager' :
-					$plugin_cases = 'WP_Job_Manager';
-					break;
-				case 'easy_digital_downloads' :
-					$plugin_cases = 'Easy_Digital_Downloads';
-					break;
-			}
+			$plugin_cases = explode( '_', $plugin_cases );
+			$plugin_cases = implode( '_', array_map( 'ucfirst', $plugin_cases ) );
 
-			$import_type = 'plugin';
-
-			if ( $plugin_cases ) {
-				$import_type = $import_type . '_' . $plugin_cases;
-			}
+			$import_type = 'Plugin_' . $plugin_cases;
 		}
 
-		$classname = 'Astoundify_Import_' . ucfirst( $import_type );
+		$classname = 'Astoundify_Import_' . $import_type;
 
 		return $classname;
 	}

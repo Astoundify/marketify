@@ -80,22 +80,18 @@ class Astoundify_Importer {
 	 * @return object $data
 	 */
 	public function get_data() {
-		// return if we have gotten it already
+		// return if we have gotten it already or it has been set directly
 		if ( isset( $this->data ) && ! empty( $this->data ) ) {
 			return $this->data;
 		}
 
-		if ( ! file_exists( $this->get_file() ) ) {
-			return false;
+		if ( $this->get_file() && file_exists( $this->get_file() ) ) {
+			$file = file_get_contents( $this->get_file() );
+
+			if ( '' != $file ) {
+				$this->data = json_decode( $file, true );
+			}
 		}
-
-		$file = file_get_contents( $this->get_file() );
-
-		if ( '' == $file ) {
-			return false;
-		}
-
-		$this->data = json_decode( $file, true );
 
 		return $this->data;
 	}
@@ -156,6 +152,8 @@ class Astoundify_Importer {
 			'item_type' => $this->type ,
 			'import_data' => $this->get_data()
 		) );
+
+		return true;
 	}
 
 	/**
@@ -223,38 +221,72 @@ class Astoundify_Importer {
 	 *
 	 * @param string $file URL to an asset to upload.
 	 * @param int $post_id The post ID to attach the media to.
-	 * @return (int|WP_Error) The post ID on success. The value 0 or WP_Error on failure.
+	 * @param bool $force_image Allow placeholder URLs to be used that often do not expose file types.
+	 * @return (int|false) The post ID on success.
 	 */
-	public function upload_media( $file, $post_id ) {
+	public function upload_attachment( $file, $post_id, $force_image = true ) {
 		// jic
 		require_once( ABSPATH . 'wp-admin/includes/media.php' );
 		require_once( ABSPATH . 'wp-admin/includes/file.php' );
 		require_once( ABSPATH . 'wp-admin/includes/image.php' );
+		
+		$temp_file = download_url( $file, 2 );
 
-		// Set variables for storage, fix file filename for query strings.
-		preg_match( '/[^\?]+\.(jpe?g|jpe|gif|png)\b/i', $file, $matches );
-
-		$file_array = array();
-		$file_array['name'] = basename( $matches[0] );
-
-		// Download file to temp location.
-		$file_array['tmp_name'] = download_url( $file );
-
-		// If error storing temporarily, return the error.
-		if ( is_wp_error( $file_array['tmp_name'] ) ) {
-			return $file_array['tmp_name'];
+		if ( is_wp_error( $temp_file ) ) {
+			return false;
 		}
 
-		// Do the validation and storage stuff.
-		$id = media_handle_sideload( $file_array, $post_id, $desc = false );
+		$file_array = array(
+			'name' => basename( $file ),
+			'tmp_name' => $temp_file,
+			'error' => 0,
+			'size' => filesize( $temp_file ),
+		);
 
-		// If error storing permanently, unlink.
-		if ( is_wp_error( $id ) ) {
-			@unlink( $file_array['tmp_name'] );
-			return $id;
+		$overrides = array(
+			'test_form' => false,
+			'test_size' => true,
+			'test_upload' => true,
+		);
+
+		if ( $force_image ) {
+			$file_array[ 'type' ] = 'image/png';
+			$overrides[ 'test_type' ] = false;
 		}
 
-		return $id;
+		$file = wp_handle_sideload( $file_array, $overrides );
+
+		if ( ! empty( $file[ 'error' ] ) ) {
+			@unlink( $file[ 'tmp_name' ] );
+
+			return false;
+		} else {
+			$url = str_replace( 'random', '', $file[ 'url' ] );
+			$type = $file[ 'type' ];
+			$file = $file[ 'file' ];
+			$title = preg_replace( '/\.[^.]+$/', '', basename( $file ) );
+			$content = '';
+
+			if ( ! $type && $force_image ) {
+				$type = $file_array[ 'type' ];
+			}
+
+			$attachment = array(
+				'post_mime_type' => $type,
+				'guid' => $url,
+				'post_parent' => $post_id,
+				'post_title' => $title,
+				'post_content' => $content,
+			);
+
+			$id = wp_insert_attachment( $attachment, $file, $post_id );
+
+			if ( ! is_wp_error( $id ) ) {
+				return $id;
+			}
+		}
+
+		return false;
 	}
 
 }

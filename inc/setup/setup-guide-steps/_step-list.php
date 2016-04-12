@@ -22,7 +22,7 @@ $steps[ 'install-plugins' ] = array(
 );
 
 $steps[ 'import-content' ] = array(
-	'title' => __( '1-Click Content Import', 'marketify' ),
+	'title' => __( 'Demo Content Setup', 'marketify' ),
 	'completed' => 
 		Astoundify_Importer_Manager::has_previously_imported( 'nav_menus' ) &&
 		Astoundify_Importer_Manager::has_previously_imported( 'posts_pages' ) &&

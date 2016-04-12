@@ -110,16 +110,18 @@ class Astoundify_Content_Importer {
 		include_once( dirname( __FILE__ ) . '/class-import-object.php' );
 		include_once( dirname( __FILE__ ) . '/class-import-posts.php' );
 		include_once( dirname( __FILE__ ) . '/class-import-pages.php' );
+		include_once( dirname( __FILE__ ) . '/class-import-downloads.php' );
 
 		// special things
 		include_once( dirname( __FILE__ ) . '/class-import-nav_menus.php' );
 		include_once( dirname( __FILE__ ) . '/class-import-terms.php' );
 		include_once( dirname( __FILE__ ) . '/class-import-widgets.php' );
+		include_once( dirname( __FILE__ ) . '/class-import-theme-mods.php' );
 
 		// plugins
 		include_once( dirname( __FILE__ ) . '/class-import-plugin.php' );
-		include_once( dirname( __FILE__ ) . '/class-import-plugin-woocommerce.php' );
-		include_once( dirname( __FILE__ ) . '/class-import-plugin-easy-digital-downloads.php' );
+		include_once( dirname( __FILE__ ) . '/plugins/class-import-plugin-woocommerce.php' );
+		include_once( dirname( __FILE__ ) . '/plugins/class-import-plugin-easy-digital-downloads.php' );
 	}
 
 }

@@ -10,17 +10,12 @@
 	},
 	"about": {
 		"post_title": "About",
-		"post_content": "We have a great team here.",
-		"comment_status": "closed",
-		"featured_image": "https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG",
+		"featured_image": "https://unsplash.it/740/600.jpg?random",
 		"show_in_menu": { 
 			"primary" : {
 				"menu-item-position": 1,
 				"menu-item-type": "post_type"
 			}
-		},
-		"meta": {
-			"hero_style": "video"
 		}
 	}
 }

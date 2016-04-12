@@ -3,28 +3,28 @@
  */
 
 $plugin_files = array(
-	get_template_directory() . '/inc/setup/import-content/plugin-easy_digital_downloads.json'
+	get_template_directory() . '/inc/setup/import-content/{style}/plugin-easy_digital_downloads.json'
 );
 
 $to_import = array(
 	'nav_menus' => array(
 		'label' => __( 'Navigation Menus' ),
 		'files' => array(
-			get_template_directory() . '/inc/setup/import-content/nav_menus.json'
+			get_template_directory() . '/inc/setup/import-content/{style}/nav_menus.json'
 		)
 	),
 	'posts_pages' => array(
 		'label' => __( 'Posts and Pages' ),
 		'files' => array(
-			get_template_directory() . '/inc/setup/import-content/terms.json',
-			get_template_directory() . '/inc/setup/import-content/posts.json',
-			get_template_directory() . '/inc/setup/import-content/pages.json'
+			get_template_directory() . '/inc/setup/{style}/import-content/terms.json',
+			get_template_directory() . '/inc/setup/{style}/import-content/posts.json',
+			get_template_directory() . '/inc/setup/{style}/import-content/pages.json'
 		)
 	),
 	'widgets' => array(
 		'label' => __( 'Widgets' ),
 		'files' => array(
-			get_template_directory() . '/inc/setup/import-content/widgets.json',
+			get_template_directory() . '/inc/setup/{style}/import-content/widgets.json',
 		)
 	),
 	'plugins' => array(
@@ -38,9 +38,16 @@ $to_import = array(
 );
 ?>
 
-<p><?php _e( 'Choose the items below to import. Please note <strong>importing will replace existing content</strong>. Plugin content can only import items for active plugins.', 'marketify' ); ?></p>
-
 <form id="marketify-oneclick-setup" action="" method="">
+
+	<p>
+		<strong><label for="demo_content"><?php _e( 'Demo Style', 'marketify' ); ?>:</label></strong>
+		<select name="demo_content" id="demo_content">
+			<option value="default">Default</option>
+		</select>
+	</p>
+
+	<p><strong><?php _e( 'Items to Import', 'marketify' ); ?>:</strong></p>
 
 	<ul class="import-list" style="list-style: none;">
 
@@ -101,10 +108,12 @@ $to_import = array(
 			return false;
 		});
 
+		$( '.plugins-to-import' ).toggle( $( 'input[value=plugins]' ).is( ':checked' ) );
+
 		$( 'input[value=plugins]' ).on( 'change', function(e) {
 			var checked = $(this).attr( 'checked' );
 
-			$( '.plugins-to-import' ).toggle( checked );
+			$( '.plugins-to-import' ).toggle( 'checked' == checked );
 		});
 
 		$form.find( 'input[type=submit]' ).on( 'click', function(e) {
@@ -127,6 +136,9 @@ $to_import = array(
 
 			var dfd = $.Deferred().resolve();
 
+			// style to use
+			var style = $( 'select[name=demo_content]' ).val();
+
 			// loop through each selected item
 			$.each( $to_process, function(key, item) {
 				// wait until the previous item is completed
@@ -148,6 +160,7 @@ $to_import = array(
 					// add our current data
 					args.files = files;
 					args.import_key = import_key;
+					args.style = style;
 
 					return $.post( ajaxurl, args, function(response) {
 						$spinner.removeClass( 'is-active' );

@@ -1,0 +1,16 @@
+{
+	"shop-search": {
+		"sidebar": "download",
+		"id_base": "search"
+	},
+	"shop-sorting": {
+		"sidebar": "download",
+		"id_base": "marketify_widget_download_archive_sorting",
+	},
+	"shop-tax": {
+		"sidebar": "download",
+		"id_base": "edd_categories_tags_widget",
+		"title": "Categories",
+		"taxonomy": "category"
+	}
+}

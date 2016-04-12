@@ -49,6 +49,10 @@ class Astoundify_Import_Nav_Menus extends Astoundify_Importer {
 	 * @return int|WP_Error Menu ID on success, WP_Error object on failure.
 	 */
 	public function process( $process_args ) {
+		if ( ! isset( $process_args[ 'item_data' ] ) ) {
+			return new WP_Error( 'no-menu-name', 'No menu name was set' );
+		}
+
 		$item = wp_create_nav_menu( $process_args[ 'item_data' ] );
 
 		return $item;
