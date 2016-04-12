@@ -16,15 +16,15 @@ $to_import = array(
 	'posts_pages' => array(
 		'label' => __( 'Posts and Pages' ),
 		'files' => array(
-			get_template_directory() . '/inc/setup/{style}/import-content/terms.json',
-			get_template_directory() . '/inc/setup/{style}/import-content/posts.json',
-			get_template_directory() . '/inc/setup/{style}/import-content/pages.json'
+			get_template_directory() . '/inc/setup/import-content/{style}/terms.json',
+			get_template_directory() . '/inc/setup/import-content/{style}/posts.json',
+			get_template_directory() . '/inc/setup/import-content/{style}/pages.json'
 		)
 	),
 	'widgets' => array(
 		'label' => __( 'Widgets' ),
 		'files' => array(
-			get_template_directory() . '/inc/setup/{style}/import-content/widgets.json',
+			get_template_directory() . '/inc/setup/import-content/{style}/widgets.json',
 		)
 	),
 	'plugins' => array(
