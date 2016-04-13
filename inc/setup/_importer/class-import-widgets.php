@@ -45,9 +45,6 @@ class Astoundify_Import_Widgets extends Astoundify_Importer {
 	 * @codeCoverageIgnore
 	 */
 	public function setup_actions() {
-		// clear existing widgets in a sidebar
-		add_action( 'astoundify_import_content_before_process_type_widget', array( $this, 'clear_sidebars' ) );
-		add_action( 'astoundify_import_content_before_reset_type_widget', array( $this, 'clear_sidebars' ) );
 	}
 
 	/**
@@ -84,7 +81,7 @@ class Astoundify_Import_Widgets extends Astoundify_Importer {
 		$id_base = $process_args[ 'item_data' ][ 'id_base' ];
 		$sidebar_widgets = get_option( 'sidebars_widgets' );
 
-		$single_widget_instances = get_option( 'widget_' . $widget_data[ 'id_base' ], array() );
+		$single_widget_instances = get_option( 'widget_' . $id_base, array() );
 		$single_widget_instances = ! empty( $single_widget_instances ) ? $single_widget_instances : array( '_multiwidget' => 1 );
 
 		// remove sidebar from args, this is not a setting
@@ -124,10 +121,9 @@ class Astoundify_Import_Widgets extends Astoundify_Importer {
 	/**
 	 * Reset an individual item.
 	 *
-	 * Nothing needs to be done here because all widgets are cleared via
-	 * `astoundify_import_content_before_reset_type_widget`
-	 *
-	 * @see self::clear_sidebars()
+	 * This isnt really that great because we dont have the widget instance ID.
+	 * So if there are multiple of the same widget in a single sidebar the first
+	 * one we encounter will be removed.
 	 *
 	 * @since 1.0.0
 	 *
@@ -136,17 +132,41 @@ class Astoundify_Import_Widgets extends Astoundify_Importer {
 	 * @return void
 	 */
 	public function reset( $process_args = false ) {
-		return get_option( 'sidebar_widgets', array() );
-	}
+		$id_base = $process_args[ 'item_data' ][ 'id_base' ];
 
-	/**
-	 * Clear existing widgets from existing sidebars.
-	 *
-	 * @param array $args Import item context.
-	 * @return void
-	 */
-	public function clear_sidebars( $args ) {
-		return update_option( 'sidebars_widgets', array() );
+		// get list of widget settings
+		$single_widget_instances = get_option( 'widget_' . $id_base, array() );
+
+		$sidebar_instance_key = false;
+		$multi_instance_name = '';
+		
+		// get the sidebar widgets
+		$sidebars_widgets = get_option( 'sidebars_widgets' );
+		$sidebars_widgets = $sidebars_widgets[ $process_args[ 'item_data' ][ 'sidebar' ] ];
+
+		// remove the first item we encounter and keep the key
+		foreach ( $single_widget_instances as $key => $instance ) {
+			if ( ! is_numeric( $key ) ) {
+				continue;
+			}
+
+			$sidebar_instance_key = $key;
+			unset( $single_widget_instances[ $key ] );
+			continue;
+		}
+
+		// update list of widget settings
+		update_option( 'widget_' . $id_base, $single_widget_instances );
+
+		// if we found a key remove it from the sidebar list
+		if ( $sidebar_instance_key ) {
+			$multi_instance_name = $id_base . '-' . $sidebar_instance_key;
+
+			if ( ( $key = array_search( $multi_instance_name, $sidebars_widgets ) ) !== false ) {
+				unset( $sidebars_widgets[ $key ] );
+				update_option( 'sidebars_widgets', $sidebars_widgets );
+			}
+		}
 	}
 
 	/**

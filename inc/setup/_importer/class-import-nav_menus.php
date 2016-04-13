@@ -76,7 +76,7 @@ class Astoundify_Import_Nav_Menus extends Astoundify_Importer {
 	 * The $item_id of the imported item represents the menu location.
 	 *
 	 * @param array $args Import item context.
-	 * @return void
+	 * @return null|WP_Error null on success.
 	 */
 	public function set_menu_location( $args ) {
 		// get existing locations
@@ -87,7 +87,7 @@ class Astoundify_Import_Nav_Menus extends Astoundify_Importer {
 		$menu_id = $args[ 'processed_item' ];
 
 		if ( is_wp_error( $menu_id ) ) {
-			return;
+			return $menu_id;
 		}
 
 		// set
@@ -95,6 +95,8 @@ class Astoundify_Import_Nav_Menus extends Astoundify_Importer {
 
 		// update
 		set_theme_mod( 'nav_menu_locations', $locations );
+
+		return null;
 	}
 
 }

@@ -93,6 +93,12 @@ class Astoundify_Import_Object extends Astoundify_Importer {
 
 		if ( $object ) {
 			$result = wp_delete_post( $object->ID, true );
+
+			$attachments = get_children( array( 'post_parent' => $object->ID, 'post_type' => 'attachment' ) );
+
+			foreach ( $attachments as $attachment ){
+				wp_delete_post( $attachment->ID, true );
+			}
 		}
 
 		return $result;
@@ -247,14 +253,20 @@ class Astoundify_Import_Object extends Astoundify_Importer {
 
 			$object_type = '';
 
+			if ( ! isset( $menu_item_data[ 'menu-item-type' ] ) ) {
+				$menu_item_data[ 'menu-item-type' ] = 'post_type';
+			}
+
 			if ( 'post_type' == $menu_item_data[ 'menu-item-type' ] ) {
 				$object_type = $args[ 'processed_item' ]->post_type;
 			}
 
+			$title = isset( $menu_item_data[ 'menu-item-title' ] ) ? $menu_item_data[ 'menu-item-title' ] : $args[ 'processed_item' ]->post_title;
+
 			$menu_item_data = wp_parse_args( $menu_item_data, array(
 				'menu-item-object-id' => $args[ 'processed_item' ]->ID,
 				'menu-item-object' => $object_type,
-				'menu-item-title' => $args[ 'processed_item' ]->post_title,
+				'menu-item-title' => $title,
 				'menu-item-status' => 'publish'
 			) );
 

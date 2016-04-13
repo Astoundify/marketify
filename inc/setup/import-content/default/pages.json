@@ -1,21 +1,49 @@
 {
 	"home": {
-		"post_title": "Home",
-		"post_content": "Static homepage.",
-		"comment_status": "closed"
+		"post_title": "Your Beautiful Handcrafted Marketplace",
+		"featured_image": "https://unsplash.it/1240/600?random",
+		"post_content": "",
+		"comment_status": "closed",
+		"show_in_menu": {
+			"primary": {
+				"menu-item-position": 1,
+				"menu-item-title": "Home"
+			}
+		}
 	},
 	"blog": {
 		"post_title": "Blog",
-		"comment_status": "closed"
-	},
-	"about": {
-		"post_title": "About",
-		"featured_image": "https://unsplash.it/740/600.jpg?random",
-		"show_in_menu": { 
-			"primary" : {
-				"menu-item-position": 1,
-				"menu-item-type": "post_type"
+		"post_content": "",
+		"featured_image": "https://unsplash.it/1240/600?random",
+		"comment_status": "closed",
+		"show_in_menu": {
+			"primary": {
+				"menu-item-position": 2
 			}
+		}
+	},
+	"meet-the-team": {
+		"post_title": "Meet the Team",
+		"post_content": "",
+		"comment_status": "closed",
+		"meta": {
+			"_wp_page_template": "page-templates/team.php"
+		}
+	},
+	"popular-items": {
+		"post_title": "Popular Items",
+		"post_content": "",
+		"comment_status": "closed",
+		"meta": {
+			"_wp_page_template": "page-templates/popular.php"
+		}
+	},
+	"pricing": {
+		"post_title": "Pricing",
+		"post_content": "",
+		"comment_status": "closed",
+		"meta": {
+			"_wp_page_template": "page-templates/pricing.php"
 		}
 	}
 }

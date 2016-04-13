@@ -217,14 +217,16 @@ class Astoundify_Importer {
 	/**
 	 * Handle media upload.
 	 *
+	 * If the file URL does not have an extension assume its from an image
+	 * placeholder service.
+	 *
 	 * @since 1.0.0
 	 *
 	 * @param string $file URL to an asset to upload.
 	 * @param int $post_id The post ID to attach the media to.
-	 * @param bool $force_image Allow placeholder URLs to be used that often do not expose file types.
 	 * @return (int|false) The post ID on success.
 	 */
-	public function upload_attachment( $file, $post_id, $force_image = true ) {
+	public function upload_attachment( $file, $post_id ) {
 		// jic
 		require_once( ABSPATH . 'wp-admin/includes/media.php' );
 		require_once( ABSPATH . 'wp-admin/includes/file.php' );
@@ -236,8 +238,11 @@ class Astoundify_Importer {
 			return false;
 		}
 
+		$path = parse_url( $file, PHP_URL_PATH );
+		$ext = pathinfo( $path, PATHINFO_EXTENSION );
+
 		$file_array = array(
-			'name' => basename( $file ),
+			'name' => '' == $ext ? 'demo-image.png' : basename( $file ),
 			'tmp_name' => $temp_file,
 			'error' => 0,
 			'size' => filesize( $temp_file ),
@@ -249,7 +254,7 @@ class Astoundify_Importer {
 			'test_upload' => true,
 		);
 
-		if ( $force_image ) {
+		if ( '' == $ext ) {
 			$file_array[ 'type' ] = 'image/png';
 			$overrides[ 'test_type' ] = false;
 		}
@@ -261,13 +266,13 @@ class Astoundify_Importer {
 
 			return false;
 		} else {
-			$url = str_replace( 'random', '', $file[ 'url' ] );
+			$url = $file[ 'url' ];
 			$type = $file[ 'type' ];
 			$file = $file[ 'file' ];
 			$title = preg_replace( '/\.[^.]+$/', '', basename( $file ) );
 			$content = '';
 
-			if ( ! $type && $force_image ) {
+			if ( ! $type && '' == $ext ) {
 				$type = $file_array[ 'type' ];
 			}
 
@@ -282,6 +287,9 @@ class Astoundify_Importer {
 			$id = wp_insert_attachment( $attachment, $file, $post_id );
 
 			if ( ! is_wp_error( $id ) ) {
+				$generated = wp_generate_attachment_metadata( $id, $file );
+				$data = wp_update_attachment_metadata( $id, $generated );
+
 				return $id;
 			}
 		}

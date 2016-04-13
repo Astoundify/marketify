@@ -20,7 +20,12 @@
 	"pages": {
 		"purchase": {
 			"post_title": "Checkout",
-			"post_content": "[download_checkout]"
+			"post_content": "[download_checkout]",
+			"show_in_menu": {
+				"primary": {
+					"menu-item-position": 3
+				}
+			}
 		},
 		"success": {
 			"post_title": "Purchase Confirmation",
@@ -33,13 +38,31 @@
 		"purchase_history": {
 			"post_title": "Purchase History",
 			"post_content": "[purchase_history]"
+		},
+		"login": {
+			"post_title": "Login",
+			"post_content": "[edd_login]",
+			"show_in_menu": {
+				"primary": {
+					"menu-item-position": 4
+				}
+			}
+		},
+		"register": {
+			"post_title": "Register",
+			"post_content": "[edd_register]",
+			"show_in_menu": {
+				"primary": {
+					"menu-item-position": 5
+				}
+			}
 		}
 	},
 	"downloads": {
 
 		"photoshop-actions-bundle": {
 			"post_title": "190 Photoshop Actions Bundle",
-			"featured_image": "https://unsplash.it/740/600.jpg?random",
+			"featured_image": "https://unsplash.it/740/600?random",
 			"prices": {
 				"Get the bundle of 190 Photoshop actions": "10.00",
 				"Get an extra 200 Photoshop actions": "25.00"
@@ -58,7 +81,7 @@
 
 		"campaignify-wordpress-theme": {
 			"post_title": "Campaignify WordPress Theme",
-			"featured_image": "https://unsplash.it/740/600.jpg?random",
+			"featured_image": "https://unsplash.it/740/600?random",
 			"prices": {
 				"Campaignify WordPress Theme": "75.00",
 				"Campaignify Theme + PSD Files": "125.00"
@@ -79,7 +102,7 @@
 		"in-the-city-at-night": {
 			"post_title": "In the City at Night Movie",
 			"post_format": "video",
-			"featured_image": "https://unsplash.it/740/600.jpg?random",
+			"featured_image": "https://unsplash.it/740/600?random",
 			"prices": {
 				"HD 720p Version": "10.00",
 				"HD 1080p Version": "20.00"
@@ -101,8 +124,8 @@
 		"50-royalty-free-backgrounds": {
 			"post_title": "50+ Royalty Free Backgrounds",
 			"post_format": "video",
-			"featured_image": "https://unsplash.it/740/600.jpg?random",
-			"media": [ "https://unsplash.it/740/600.jpg?random", "https://unsplash.it/740/600.jpg?random", "https://unsplash.it/740/600.jpg?random", "https://unsplash.it/740/600.jpg?random" ],
+			"featured_image": "https://unsplash.it/740/600?random",
+			"media": [ "https://unsplash.it/740/600?random", "https://unsplash.it/740/600?random", "https://unsplash.it/740/600?random", "https://unsplash.it/740/600?random" ],
 			"prices": {
 				"HD 720p Version": "10.00",
 				"HD 1080p Version": "20.00"
@@ -121,7 +144,7 @@
 
 		"20-high-res-textures": {
 			"post_title": "20 High Res Textures",
-			"featured_image": "https://unsplash.it/740/600.jpg?random",
+			"featured_image": "https://unsplash.it/740/600?random",
 			"prices": {
 				"20 High Res Textures": "9.00",
 				"20 High Res Textures + Extra Bonus": "12.00"
@@ -140,7 +163,7 @@
 
 		"10-ipad-and-iphone-mockups": {
 			"post_title": "10+ iPad and iPhone Mockups",
-			"featured_image": "https://unsplash.it/740/600.jpg?random",
+			"featured_image": "https://unsplash.it/740/600?random",
 			"prices": {
 				"Low Resolution Version": "9.00",
 				"High Resolution Version": "12.00"
@@ -159,8 +182,8 @@
 
 		"jobify-theme": {
 			"post_title": "Jobify WordPress Theme",
-			"featured_image": "https://unsplash.it/740/600.jpg?random",
-			"media": [ "https://unsplash.it/740/600.jpg?random", "https://unsplash.it/740/600.jpg?random", "https://unsplash.it/740/600.jpg?random", "https://unsplash.it/740/600.jpg?random" ],
+			"featured_image": "https://unsplash.it/740/600?random",
+			"media": [ "https://unsplash.it/740/600?random", "https://unsplash.it/740/600?random", "https://unsplash.it/740/600?random", "https://unsplash.it/740/600?random" ],
 			"prices": {
 				"Jobify WordPress Theme": "60.00",
 				"Jobify WordPress Theme & PSD File": "90.00"
@@ -180,8 +203,8 @@
 
 		"50-music-icons": {
 			"post_title": "50+ Music Icons",
-			"featured_image": "https://unsplash.it/740/600.jpg?random",
-			"media": [ "https://unsplash.it/740/600.jpg?random", "https://unsplash.it/740/600.jpg?random" ],
+			"featured_image": "https://unsplash.it/740/600?random",
+			"media": [ "https://unsplash.it/740/600?random", "https://unsplash.it/740/600?random" ],
 			"price": "4.00",
 			"terms": {
 				"download_category": [ "bootstrap", "drupal", "ghost", "html", "joomla", "misc", "tumblr", "wordpress" ]
@@ -197,7 +220,7 @@
 		"up-lifting-audio-pack": {
 			"post_title": "Up Lifting Audio Pack",
 			"post_format": "audio",
-			"featured_image": "https://unsplash.it/740/600.jpg?random",
+			"featured_image": "https://unsplash.it/740/600?random",
 			"media": [ "https://demo.astoundify.com/marketify/wp-content/uploads/sites/21/edd/2013/12/Freedom1.mp3" ],
 			"prices": {
 				"Wav Audio Files Version": "9.00",
@@ -217,7 +240,7 @@
 		"marketify-coffee-shop": {
 			"post_title": "Marketift Coffee Shop",
 			"post_format": "video",
-			"featured_image": "https://unsplash.it/740/600.jpg?random",
+			"featured_image": "https://unsplash.it/740/600?random",
 			"prices": {
 				"HD 720p Version": "10.00",
 				"HD 1080p Version": "20.00"
@@ -239,7 +262,7 @@
 		"endless-posibilities": {
 			"post_title": "Endless Possibilities",
 			"post_format": "audio",
-			"featured_image": "https://unsplash.it/740/600.jpg?random",
+			"featured_image": "https://unsplash.it/740/600?random",
 			"media": [ "https://demo.astoundify.com/marketify/wp-content/uploads/sites/21/edd/2013/12/Freedom1.mp3" ],
 			"prices": {
 				"Wav Audio Files Version": "9.00",
@@ -270,8 +293,15 @@
 		"shop-tax": {
 			"sidebar": "sidebar-download",
 			"id_base": "edd_categories_tags_widget",
+
 			"title": "Categories",
-			"taxonomy": "category"
+			"taxonomy": "download_category"
+		},
+		"download-about": {
+			"sidebar": "sidebar-download-single",
+			"id_base": "marketify_widget_download_details",
+
+			"title": "Product Details"
 		}
 	}
 

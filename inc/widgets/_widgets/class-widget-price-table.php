@@ -31,6 +31,11 @@ class Marketify_Widget_Price_Table extends Marketify_Widget {
 
         $title = apply_filters( 'widget_title', isset( $instance['title'] ) ? $instance[ 'title' ] : '', $instance, $this->id_base );
         $the_sidebars = wp_get_sidebars_widgets();
+
+		if ( ! isset( $the_sidebars[ 'widget-area-price-options' ] ) ) {
+			return _e( 'Add price options in "Appearance > Widgets"', 'marketify' );
+		}
+
         $widget_count = count( $the_sidebars[ 'widget-area-price-options' ] );
 
         echo $before_widget;

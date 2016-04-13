@@ -143,6 +143,8 @@ $to_import = array(
 			$.each( $to_process, function(key, item) {
 				// wait until the previous item is completed
 				dfd = dfd.then(function() {
+					$(item).attr( 'disabled', 'disabled' );
+
 					// waiting
 					var $spinner = $(item).siblings( '.spinner' )
 					$spinner.addClass( 'is-active' );
@@ -164,15 +166,18 @@ $to_import = array(
 
 					return $.post( ajaxurl, args, function(response) {
 						$spinner.removeClass( 'is-active' );
+						$(item).attr( 'disabled', false );
 
 						if ( 'process' == process_action ) {
 							if ( response.success ) {
+								$(item).attr( 'checked', false );
 								$label.addClass( 'previously-imported' );
 							} else {
 								$label.addClass( 'failed' );
 							}
 						} else {
 							if ( response.success ) {
+								$(item).attr( 'checked', false );
 								$label.removeClass( 'previously-imported' );
 								$label.children( '.previously-imported' ).hide();
 							} else {
