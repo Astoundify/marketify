@@ -1,4 +1,8 @@
 {
+	"edd_settings": {
+		"checkout_color": "inherit"
+	},
+
 	"terms": {
 		"download_category": {
 			"audio": "Audio",
@@ -17,49 +21,62 @@
 			"wordpress": "WordPress"
 		}
 	},
+
 	"pages": {
 		"purchase": {
 			"post_title": "Checkout",
 			"post_content": "[download_checkout]",
+			"meta": {
+				"_wp_page_template": "page-templates/single-column.php"
+			},
 			"show_in_menu": {
-				"primary": {
-					"menu-item-position": 3
-				}
+				"Primary": {}
 			}
 		},
 		"success": {
 			"post_title": "Purchase Confirmation",
-			"post_content": "[edd_receipt]"
+			"post_content": "[edd_receipt]",
+			"meta": {
+				"_wp_page_template": "page-templates/single-column.php"
+			}
 		},
 		"failure": {
 			"post_title": "Transaction Failed",
-			"post_content": "Your transaction failed, please try again or contact site support."
+			"post_content": "Your transaction failed, please try again or contact site support.",
+			"meta": {
+				"_wp_page_template": "page-templates/single-column.php"
+			}
 		},
 		"purchase_history": {
 			"post_title": "Purchase History",
-			"post_content": "[purchase_history]"
+			"post_content": "[purchase_history]",
+			"meta": {
+				"_wp_page_template": "page-templates/single-column.php"
+			}
 		},
 		"login": {
 			"post_title": "Login",
 			"post_content": "[edd_login]",
+			"meta": {
+				"_wp_page_template": "page-templates/minimal.php"
+			},
 			"show_in_menu": {
-				"primary": {
-					"menu-item-position": 4
-				}
+				"Primary": {}
 			}
 		},
 		"register": {
 			"post_title": "Register",
 			"post_content": "[edd_register]",
+			"meta": {
+				"_wp_page_template": "page-templates/minimal.php"
+			},
 			"show_in_menu": {
-				"primary": {
-					"menu-item-position": 5
-				}
+				"Primary": {}
 			}
 		}
 	},
-	"downloads": {
 
+	"downloads": {
 		"photoshop-actions-bundle": {
 			"post_title": "190 Photoshop Actions Bundle",
 			"featured_image": "https://unsplash.it/740/600?random",
@@ -278,10 +295,94 @@
 				"file_size": "1.82 MB"
 			}
 		}
-
 	},
 
 	"widgets": {
+		"featured-popular": {
+			"sidebar": "home-1",
+			"id_base": "marketify_widget_featured_popular",
+			
+			"featured-title": "Featured",
+			"popular-title": "Popular",
+			"number": 8,
+			"speed": 7000
+		},
+		"recent-downloads": {
+			"sidebar": "home-1",
+			"id_base": "marketify_widget_recent_downloads",
+
+			"number": 8,
+			"columns": 4
+		},
+		"feature-callout": {
+			"sidebar": "home-1",
+			"id_base": "marketify_widget_feature_callout",
+
+			"text_align": "center",
+			"background": "cover",
+			"background_position": "center center",
+			"cover_overlay": 1,
+			"text_color": "#ffffff",
+			"background_color": "#ffffff",
+			"title": "Power to the Designer",
+			"image": "https://unsplash.it/740/600",
+			"content": "Most of our authors make this their full-time gig selling digital files on our marketplace, and some just do it as a hobby in their spare time, you can decide what you want to do, but we think you should join our marketplace and start earning those large commission cheques and follow your passion and stop working for the man. Become an author today!<a class='button' href='http://themeforest.net/item/marketplace-wordpress-theme-marketify/6570786?ref=Astoundify'>Become an Author</a>"
+		},
+		"features": {
+			"sidebar": "home-1",
+			"id_base": "woothemes_features",
+
+			"title": "",
+			"limit": 6,
+			"size": 44
+		},
+		"price-table": {
+			"sidebar": "home-1",
+			"id_base": "marketify_widget_price_table",
+
+			"title": "Honest Pricing. No Surprises"
+		},
+		"testimonials": {
+			"sidebar": "home-1",
+			"id_base": "woothemes_testimonials",
+
+			"title": "What People Are Saying",
+			"limit": 4,
+			"per_row": 0,
+			"size": 70,
+			"display_author": 1,
+			"dispay_avatar": 1,
+			"display_url": 0,
+			"category": 0
+		},
+		"companies": {
+			"sidebar": "home-1",
+			"id_base": "woothemes_testimonials",
+
+			"title": "Companies We've Helped",
+			"limit": 8,
+			"per_row": 0,
+			"size": 200,
+			"display_author": 0,
+			"dispay_avatar": 1,
+			"display_url": 0,
+			"category": 0
+		},
+		"feature-callout-1": {
+			"sidebar": "home-1",
+			"id_base": "marketify_widget_feature_callout",
+
+			"text_align": "center",
+			"background": "cover",
+			"background_position": "center center",
+			"cover_overlay": 1,
+			"text_color": "#ffffff",
+			"background_color": "#ffffff",
+			"title": "Start Your Marketplace",
+			"image": "https://unsplash.it/740/600",
+			"content": "This is the time to buy this awesome theme. You would be crazy not to! <a class='button' href='http://themeforest.net/item/marketplace-wordpress-theme-marketify/6570786?ref=Astoundify'>Become an Author</a>"
+		},
+
 		"shop-search": {
 			"sidebar": "sidebar-download",
 			"id_base": "search"
@@ -297,11 +398,56 @@
 			"title": "Categories",
 			"taxonomy": "download_category"
 		},
+
 		"download-about": {
 			"sidebar": "sidebar-download-single",
 			"id_base": "marketify_widget_download_details",
 
 			"title": "Product Details"
+		},
+
+
+		"footer-pages": {
+			"sidebar": "footer-1",
+			"id_base": "pages",
+
+			"title": "Sitemap"
+		},
+		"footer-blog": {
+			"sidebar": "footer-2",
+			"id_base": "recent-posts",
+
+			"title": "From the Blog"
+		},
+		"footer-blog": {
+			"sidebar": "footer-3",
+			"id_base": "text",
+
+			"title": "About Marketify",
+			"text": "Marketing and selling physical or digital goods has never been easier with Marketify — the easiest marketplace eCommerce theme available. Beautiful product grids to show off your amazing products. Designed to sell physical goods, files, photos, audio, and video. Specifically crafted to be as flexible and versatile as possible."
+		}
+	},
+
+	"nav_menu_items": {
+		"audio" : {
+			"menu": "Primary",
+			"menu_item_data": {
+				"menu-item-type": "taxonomy",
+				"menu-item-object-title": "Audio",
+				"menu-item-title": "Audio",
+				"menu-item-object": "download_category",
+				"menu-item-parent-title": "Popular Items"
+			}
+		},
+		"video" : {
+			"menu": "Primary",
+			"menu_item_data": {
+				"menu-item-type": "taxonomy",
+				"menu-item-object-title": "Video",
+				"menu-item-title": "Video",
+				"menu-item-object": "download_category",
+				"menu-item-parent-title": "Popular Items"
+			}
 		}
 	}
 

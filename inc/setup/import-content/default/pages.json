@@ -1,33 +1,12 @@
 {
 	"home": {
 		"post_title": "Your Beautiful Handcrafted Marketplace",
+		"post_content": "<a class='button' href='#'>Shop Now</a> <a class='button' href='#'>Start Selling</a>",
 		"featured_image": "https://unsplash.it/1240/600?random",
-		"post_content": "",
-		"comment_status": "closed",
-		"show_in_menu": {
-			"primary": {
-				"menu-item-position": 1,
-				"menu-item-title": "Home"
-			}
-		}
-	},
-	"blog": {
-		"post_title": "Blog",
-		"post_content": "",
-		"featured_image": "https://unsplash.it/1240/600?random",
-		"comment_status": "closed",
-		"show_in_menu": {
-			"primary": {
-				"menu-item-position": 2
-			}
-		}
-	},
-	"meet-the-team": {
-		"post_title": "Meet the Team",
 		"post_content": "",
 		"comment_status": "closed",
 		"meta": {
-			"_wp_page_template": "page-templates/team.php"
+			"_wp_page_template": "page-templates/home.php"
 		}
 	},
 	"popular-items": {
@@ -36,6 +15,33 @@
 		"comment_status": "closed",
 		"meta": {
 			"_wp_page_template": "page-templates/popular.php"
+		},
+		"show_in_menu": {
+			"Primary": {}
+		}
+	},
+	"meet-the-team": {
+		"post_title": "Meet the Team",
+		"post_content": "",
+		"comment_status": "closed",
+		"show_in_menu": {
+			"Primary": {
+				"menu-item-parent-title": "Marketify Pages"
+			}
+		},
+		"meta": {
+			"_wp_page_template": "page-templates/team.php"
+		}
+	},
+	"blog": {
+		"post_title": "Blog",
+		"post_content": "",
+		"featured_image": "https://unsplash.it/1240/600?random",
+		"comment_status": "closed",
+		"show_in_menu": {
+			"Primary": {
+				"menu-item-parent-title": "Marketify Pages"
+			}
 		}
 	},
 	"pricing": {
@@ -44,6 +50,21 @@
 		"comment_status": "closed",
 		"meta": {
 			"_wp_page_template": "page-templates/pricing.php"
+		},
+		"show_in_menu": {
+			"Primary": {
+				"menu-item-parent-title": "Marketify Pages"
+			}
+		}
+	},
+	"tos": {
+		"post_title": "Terms of Service",
+		"post_content": "",
+		"comment_status": "closed",
+		"show_in_menu": {
+			"Primary": {
+				"menu-item-parent-title": "Marketify Pages"
+			}
 		}
 	}
 }

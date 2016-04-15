@@ -10,7 +10,8 @@ $to_import = array(
 	'nav_menus' => array(
 		'label' => __( 'Navigation Menus' ),
 		'files' => array(
-			get_template_directory() . '/inc/setup/import-content/{style}/nav_menus.json'
+			get_template_directory() . '/inc/setup/import-content/{style}/nav_menus.json',
+			get_template_directory() . '/inc/setup/import-content/{style}/nav_menu_items.json'
 		)
 	),
 	'posts_pages' => array(

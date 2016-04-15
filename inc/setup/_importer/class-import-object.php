@@ -243,35 +243,22 @@ class Astoundify_Import_Object extends Astoundify_Importer {
 			return;
 		}
 
-		foreach ( $menus as $menu_slug => $menu_item_data ) {
-			// get the previously imported menu location (navs have to be imported first)
-			$imported_menu = wp_get_nav_menu_object( $menu_slug );
+		$nav_menu_items_importer = new Astoundify_Import_Nav_Menu_Items();
 
-			if ( ! $imported_menu ) {
-				continue;
-			}
+		foreach ( $menus as $menu_name => $menu_item_data ) {
+			$menu_item_data[ 'menu-item-title' ] = $args[ 'processed_item' ]->post_title;
+			$menu_item_data[ 'menu-item-object-id' ] = $args[ 'processed_item' ]->ID;
+			$menu_item_data[ 'menu-item-object' ] = $args[ 'processed_item' ]->post_type;
+			$menu_item_data[ 'menu-item-type' ] = 'post_type';
 
-			$object_type = '';
+			$process_args = array(
+				'item_data' => array(
+					'menu' => $menu_name,
+					'menu_item_data' => $menu_item_data
+				)
+			);
 
-			if ( ! isset( $menu_item_data[ 'menu-item-type' ] ) ) {
-				$menu_item_data[ 'menu-item-type' ] = 'post_type';
-			}
-
-			if ( 'post_type' == $menu_item_data[ 'menu-item-type' ] ) {
-				$object_type = $args[ 'processed_item' ]->post_type;
-			}
-
-			$title = isset( $menu_item_data[ 'menu-item-title' ] ) ? $menu_item_data[ 'menu-item-title' ] : $args[ 'processed_item' ]->post_title;
-
-			$menu_item_data = wp_parse_args( $menu_item_data, array(
-				'menu-item-object-id' => $args[ 'processed_item' ]->ID,
-				'menu-item-object' => $object_type,
-				'menu-item-title' => $title,
-				'menu-item-status' => 'publish'
-			) );
-
-			// set the menu item
-			wp_update_nav_menu_item( $imported_menu->term_id, 0, $menu_item_data );
+			$nav_menu_items_importer->process( $process_args );
 		}
 	}
 

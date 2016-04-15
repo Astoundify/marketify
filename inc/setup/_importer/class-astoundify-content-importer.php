@@ -114,6 +114,7 @@ class Astoundify_Content_Importer {
 
 		// special things
 		include_once( dirname( __FILE__ ) . '/class-import-nav_menus.php' );
+		include_once( dirname( __FILE__ ) . '/class-import-nav_menu_items.php' );
 		include_once( dirname( __FILE__ ) . '/class-import-terms.php' );
 		include_once( dirname( __FILE__ ) . '/class-import-widgets.php' );
 		include_once( dirname( __FILE__ ) . '/class-import-theme-mods.php' );

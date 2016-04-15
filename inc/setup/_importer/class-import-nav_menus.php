@@ -11,6 +11,8 @@
  *   "primary": "Primary Navigation"
  * }
  *
+ * Where the key is the menu location name and the value is the menu name.
+ *
  * @since 1.0.0
  */
 class Astoundify_Import_Nav_Menus extends Astoundify_Importer {
@@ -46,16 +48,25 @@ class Astoundify_Import_Nav_Menus extends Astoundify_Importer {
 	 * Process an individual item.
 	 *
 	 * @param array $process_args Import item context.
-	 * @return int|WP_Error Menu ID on success, WP_Error object on failure.
+	 * @return object|WP_Error Menu object on success, WP_Error object on failure.
 	 */
 	public function process( $process_args ) {
 		if ( ! isset( $process_args[ 'item_data' ] ) ) {
 			return new WP_Error( 'no-menu-name', 'No menu name was set' );
 		}
 
-		$item = wp_create_nav_menu( $process_args[ 'item_data' ] );
+		$result = wp_create_nav_menu( $process_args[ 'item_data' ] );
 
-		return $item;
+		if ( ! is_wp_error( $result ) ) {
+			$result = wp_get_nav_menu_object( $result );
+
+			// wp_get_nav_menu_object() does not return a WP_Error
+			if ( ! $result ) {
+				$result = new WP_Error( 'cant-get-menu', 'Cannot get created menu' );
+			}
+		}
+
+		return $result;
 	}
 
 	/**
@@ -65,9 +76,14 @@ class Astoundify_Import_Nav_Menus extends Astoundify_Importer {
 	 * @return int|WP_Error Menu ID on success, WP_Error object on failure.
 	 */
 	public function reset( $process_args ) {
-		$item = wp_delete_nav_menu( $process_args[ 'item_data' ] );
+		$result = wp_delete_nav_menu( $process_args[ 'item_data' ] );
 
-		return $item;
+		// wp_delete_nav_menu() can return false
+		if ( ! $result ) {
+			$result = new WP_Error( 'menu-not-deleted', 'Menu not deleted' );
+		}
+
+		return $result;
 	}
 
 	/**
@@ -84,14 +100,14 @@ class Astoundify_Import_Nav_Menus extends Astoundify_Importer {
 
 		// get desired location and menu to assign
 		$menu_location = $args[ 'item_id' ];
-		$menu_id = $args[ 'processed_item' ];
+		$menu = $args[ 'processed_item' ];
 
-		if ( is_wp_error( $menu_id ) ) {
-			return $menu_id;
+		if ( is_wp_error( $menu ) ) {
+			return $menu;
 		}
 
 		// set
-		$locations[ $menu_location ] = $menu_id;
+		$locations[ $menu_location ] = $menu->term_id;
 
 		// update
 		set_theme_mod( 'nav_menu_locations', $locations );
