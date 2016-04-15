@@ -59,7 +59,6 @@
 	},
 	"tos": {
 		"post_title": "Terms of Service",
-		"post_content": "",
 		"comment_status": "closed",
 		"show_in_menu": {
 			"Primary": {

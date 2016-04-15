@@ -2,14 +2,34 @@
 /**
  */
 
-$plugin_files = array(
-	get_template_directory() . '/inc/setup/import-content/{style}/plugin_easy_digital_downloads.json'
+$plugins = array(
+	'edd' => array(
+		'label' => 'Easy Digital Downloads',
+		'condition' => class_exists( 'Easy_Digital_Downloads' ),
+		'file' => get_template_directory() . '/inc/setup/import-content/{style}/plugin_easy_digital_downloads.json'
+	),
+	// 'fes' => array(
+	// 	'label' => 'Frontend Submissions',
+	// 	'condition' => class_exists( 'EDD_Front_End_Submissions' ),
+	// 	'file' => get_template_directory() . '/inc/setup/import-content/{style}/plugin_frontend_submissions.json'
+	// ),
+	// 'features' => array(
+	// 	'label' => 'Features by WooThemes',
+	// 	'condition' => class_exists( 'WooThemes_Features' ),
+	// 	'file' => get_template_directory() . '/inc/setup/import-content/{style}/plugin_woothemes_features.json'
+	// ),
+	// 'testimonials' => array(
+	// 	'label' => 'Testimonials by WooThemes',
+	// 	'condition' => class_exists( 'WooThemes_Testimonials' ),
+	// 	'file' => get_template_directory() . '/inc/setup/import-content/{style}/plugin_woothemes_testimonials.json'
+	// )
 );
 
 $to_import = array(
 	'nav_menus' => array(
-		'label' => __( 'Navigation Menus' ),
+		'label' => __( 'Theme Settings' ),
 		'files' => array(
+			get_template_directory() . '/inc/setup/import-content/{style}/theme_mods.json',
 			get_template_directory() . '/inc/setup/import-content/{style}/nav_menus.json',
 			get_template_directory() . '/inc/setup/import-content/{style}/nav_menu_items.json'
 		)
@@ -30,16 +50,15 @@ $to_import = array(
 	),
 	'plugins' => array(
 		'label' => __( 'Plugin Content' ),
-		'files' => $plugin_files,
-		'plugins' => array(
-			'Easy Digital Downloads' => class_exists( 'Easy_Digital_Downloads' ),
-			'Frontend Submissions' => class_exists( 'EDD_Front_End_Submissions' )
-		)
+		'files' => wp_list_pluck( $plugins, 'file' ),
+		'plugins' => $plugins
 	)
 );
 ?>
 
 <form id="marketify-oneclick-setup" action="" method="">
+
+	<p><?php _e( 'Please do not navigate away from this page while content is importing.', 'marketify' ); ?></p>
 
 	<p>
 		<strong><label for="demo_content"><?php _e( 'Demo Style', 'marketify' ); ?>:</label></strong>
@@ -77,10 +96,10 @@ $to_import = array(
 				<p><?php _e( 'Please review your active plugins before importing content. Only active plugins can have content imported.', 'marketify' ); ?></p>
 
 				<ul>
-				<?php foreach ( $import[ 'plugins' ] as $label => $is_importing ) : ?>
+				<?php foreach ( $import[ 'plugins' ] as $key => $plugin ) : ?>
 				<li>
-					<strong><?php echo $label; ?></strong> &mdash; 
-					<?php if ( $is_importing ) : ?>
+					<strong><?php echo esc_attr( $plugin[ 'label' ] ); ?></strong> &mdash; 
+					<?php if ( $plugin[ 'condition' ] ) : ?>
 						<span class="active"><?php _e( 'Active', 'marketify' ); ?></span>
 					<?php else : ?>
 						<span class="inactive"><?php _e( 'Inactive', 'marketify' ); ?></span>

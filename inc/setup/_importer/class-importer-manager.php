@@ -118,7 +118,12 @@ class Astoundify_Importer_Manager {
 		foreach ( $files as $file ) {
 			$classname = self::get_import_class( $file );
 
-			self::$queue[] = new $classname( $file );
+			if ( class_exists( $classname ) ) {
+				self::$queue[] = new $classname( $file );
+			} else {
+				// default to a generic plugin
+				self::$queue[] = new Astoundify_Import_Plugin( $file );
+			}
 		}
 	}
 
