@@ -203,11 +203,7 @@ class Marketify_Setup {
 		Astoundify_Importer_Manager::enqueue( $files );
 		$process = Astoundify_Importer_Manager::process( $process_action, $import_key );
 
-		if ( $process ) {
-			return wp_send_json_success();
-		}
-
-		return wp_send_json_error();
+		return $process ? wp_send_json_success() : wp_send_json_error();
 
 		exit();
 	}

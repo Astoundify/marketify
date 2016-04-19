@@ -91,7 +91,7 @@ class Astoundify_Import_Object extends Astoundify_Importer {
 
 		$result = false;
 
-		if ( $object ) {
+		if ( $object != null ) {
 			$result = wp_delete_post( $object->ID, true );
 
 			$attachments = get_children( array( 'post_parent' => $object->ID, 'post_type' => 'attachment' ) );

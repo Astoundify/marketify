@@ -8,11 +8,11 @@ $plugins = array(
 		'condition' => class_exists( 'Easy_Digital_Downloads' ),
 		'file' => get_template_directory() . '/inc/setup/import-content/{style}/plugin_easy_digital_downloads.json'
 	),
-	// 'fes' => array(
-	// 	'label' => 'Frontend Submissions',
-	// 	'condition' => class_exists( 'EDD_Front_End_Submissions' ),
-	// 	'file' => get_template_directory() . '/inc/setup/import-content/{style}/plugin_frontend_submissions.json'
-	// ),
+	'fes' => array(
+		'label' => 'Frontend Submissions',
+		'condition' => class_exists( 'EDD_Front_End_Submissions' ),
+		'file' => get_template_directory() . '/inc/setup/import-content/{style}/plugin_frontend_submissions.json'
+	),
 	// 'features' => array(
 	// 	'label' => 'Features by WooThemes',
 	// 	'condition' => class_exists( 'WooThemes_Features' ),
@@ -61,13 +61,19 @@ $to_import = array(
 	<p><?php _e( 'Please do not navigate away from this page while content is importing.', 'marketify' ); ?></p>
 
 	<p>
-		<strong><label for="demo_content"><?php _e( 'Demo Style', 'marketify' ); ?>:</label></strong>
-		<select name="demo_content" id="demo_content">
-			<option value="default">Default</option>
-		</select>
+		<strong><?php _e( 'Demo Style', 'marketify' ); ?></strong>
 	</p>
 
-	<p><strong><?php _e( 'Items to Import', 'marketify' ); ?>:</strong></p>
+	<div class="demo-style-selector">
+		<p>
+			<label for="default">
+				<input type="radio" value="default" name="demo_style" id="default" checked="checked">
+				<?php _e( 'Default', 'marketify' ); ?>
+			</label>
+		</p>
+	</div>
+
+	<p><strong><?php _e( 'Import Summary', 'marketify' ); ?>:</strong></p>
 
 	<ul class="import-list" style="list-style: none;">
 
@@ -76,7 +82,7 @@ $to_import = array(
 			<label for="<?php echo esc_attr( $import_key ); ?>">
 				<input 
 					type="checkbox" 
-					name="to_import[]" 
+					name="to_import" 
 					id="<?php echo esc_attr( $import_key ); ?>"
 					value="<?php echo esc_attr( $import_key ); ?>" 
 					data-files="<?php echo implode( ',', $import[ 'files' ] ); ?>" 
@@ -92,24 +98,24 @@ $to_import = array(
 			</label>
 
 			<?php if ( 'plugins' == $import_key ) : ?>
-			<div class="plugins-to-import">
-				<p><?php _e( 'Please review your active plugins before importing content. Only active plugins can have content imported.', 'marketify' ); ?></p>
+				<div class="plugins-to-import">
+					<p><?php _e( 'Please review your active plugins before importing content. Only active plugins can have content imported.', 'marketify' ); ?></p>
 
-				<ul>
-				<?php foreach ( $import[ 'plugins' ] as $key => $plugin ) : ?>
-				<li>
-					<strong><?php echo esc_attr( $plugin[ 'label' ] ); ?></strong> &mdash; 
-					<?php if ( $plugin[ 'condition' ] ) : ?>
-						<span class="active"><?php _e( 'Active', 'marketify' ); ?></span>
-					<?php else : ?>
-						<span class="inactive"><?php _e( 'Inactive', 'marketify' ); ?></span>
-					<?php endif; ?>
-				</li>
-				<?php endforeach; ?>
-				</ul>
-			</div>
-			<?php endif; ?>
-		</li>
+					<ul>
+					<?php foreach ( $import[ 'plugins' ] as $key => $plugin ) : ?>
+					<li>
+						<strong><?php echo esc_attr( $plugin[ 'label' ] ); ?></strong> &mdash; 
+						<?php if ( $plugin[ 'condition' ] ) : ?>
+							<span class="active"><?php _e( 'Active', 'marketify' ); ?></span>
+						<?php else : ?>
+							<span class="inactive"><?php _e( 'Inactive', 'marketify' ); ?></span>
+						<?php endif; ?>
+					</li>
+					<?php endforeach; ?>
+					</ul>
+				</div>
+				<?php endif; ?>
+			</li>
 		<?php endforeach; ?>
 
 	</ul>
@@ -152,12 +158,12 @@ $to_import = array(
 			};
 
 			// find the items to perform the action on 
-			var $to_process = $form.find( 'input:checked' );
+			var $to_process = $form.find( 'input[name=to_import]:checked' );
 
 			var dfd = $.Deferred().resolve();
 
 			// style to use
-			var style = $( 'select[name=demo_content]' ).val();
+			var style = $( 'input[name=demo_style]:checked' ).val();
 
 			// loop through each selected item
 			$.each( $to_process, function(key, item) {
@@ -184,27 +190,37 @@ $to_import = array(
 					args.import_key = import_key;
 					args.style = style;
 
-					return $.post( ajaxurl, args, function(response) {
-						$spinner.removeClass( 'is-active' );
-						$(item).attr( 'disabled', false );
+					return $.ajax({
+						type: 'POST',
+						url: ajaxurl, 
+						data: args, 
+						dataType: 'json',
+						success: function(response) {
+							$spinner.removeClass( 'is-active' );
+							$(item).attr( 'disabled', false );
 
-						if ( 'process' == process_action ) {
-							if ( response.success ) {
-								$(item).attr( 'checked', false );
-								$label.addClass( 'previously-imported' );
+							if ( 'process' == process_action ) {
+								if ( response.success ) {
+									$(item).attr( 'checked', false );
+									$label.addClass( 'previously-imported' );
+								} else {
+									$label.addClass( 'failed' );
+								}
 							} else {
-								$label.addClass( 'failed' );
+								if ( response.success ) {
+									$(item).attr( 'checked', false );
+									$label.removeClass( 'previously-imported' );
+									$label.children( '.previously-imported' ).hide();
+								} else {
+									$label.addClass( 'failed' );
+								}
 							}
-						} else {
-							if ( response.success ) {
-								$(item).attr( 'checked', false );
-								$label.removeClass( 'previously-imported' );
-								$label.children( '.previously-imported' ).hide();
-							} else {
-								$label.addClass( 'failed' );
-							}
+						},
+						error: function(response) {
+							$spinner.removeClass( 'is-active' );
+							$(item).attr( 'disabled', false );
 						}
-					}, 'json' );
+					});
 				});
 			});
 		});

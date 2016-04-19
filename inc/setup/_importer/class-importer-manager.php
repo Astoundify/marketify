@@ -90,7 +90,9 @@ class Astoundify_Importer_Manager {
 		// populate if this is called directly
 		self::get_import_history();
 
-		unset( self::$history[ $import_key ] );
+		if ( isset( self::$history[ $import_key ] ) ) {
+			unset( self::$history[ $import_key ] );
+		}
 
 		update_option( 'astoundify_content_importer_history', self::$history );
 	}
@@ -173,7 +175,7 @@ class Astoundify_Importer_Manager {
 	 * Example:
 	 *
 	 * `importer/data/posts.json` to Astoundify_Import_Posts
-	 * `importer/data/plugin-woocommerce.json` to Astoundify_Import_Plugin
+	 * `importer/data/plugin-woocommerce.json` to Astoundify_Import_Plugin_WooCommerce
 	 *
 	 * @since 1.0.0
 	 *

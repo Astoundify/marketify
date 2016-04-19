@@ -6,7 +6,7 @@
  *
  * @since 1.0.0
  */
-class Astoundify_Import_Plugin_Frontend_Submissions extends Astoundify_Import_Plugin_Easy_Digital_Downloads {
+class Astoundify_Import_Plugin_Frontend_Submissions extends Astoundify_Import_Plugin {
 
 	/**
 	 * Start importer. Set the type, file, and init the rest.
@@ -64,6 +64,46 @@ class Astoundify_Import_Plugin_Frontend_Submissions extends Astoundify_Import_Pl
 	 */
 	public function delete_page_option( $args ) {
 		edd_delete_option( "fes-{$args[ 'item_id' ]}-page" );
+	}
+
+	/**
+	 * Add multiple generic settings.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $args Import type context.
+	 * @return void
+	 */
+	public function add_options( $args ) {
+		if ( ! is_array( $args ) ) {
+			return new WP_Error( 'no-settings', 'No settings to process' );
+		}
+
+		foreach ( $args as $key => $value ) {
+			edd_update_option( $key, $value );
+		}
+
+		return true;
+	}
+
+	/**
+	 * Reset multiple generic settings.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $args Import type context.
+	 * @return void
+	 */
+	public function delete_options( $args ) {
+		if ( ! is_array( $args ) ) {
+			return new WP_Error( 'no-settings', 'No settings to process' );
+		}
+
+		foreach ( $args as $key => $value ) {
+			edd_delete_option( $key, $value );
+		}
+
+		return true;
 	}
 
 }

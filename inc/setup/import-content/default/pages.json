@@ -9,17 +9,6 @@
 			"_wp_page_template": "page-templates/home.php"
 		}
 	},
-	"popular-items": {
-		"post_title": "Popular Items",
-		"post_content": "",
-		"comment_status": "closed",
-		"meta": {
-			"_wp_page_template": "page-templates/popular.php"
-		},
-		"show_in_menu": {
-			"Primary": {}
-		}
-	},
 	"meet-the-team": {
 		"post_title": "Meet the Team",
 		"post_content": "",
