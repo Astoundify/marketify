@@ -16,7 +16,7 @@ class Astoundify_Import_Plugin_Easy_Digital_Downloads extends Astoundify_Import_
 	 * @param string $file The path to the .json file to import.
 	 * @return void
 	 */
-	public function __construct( $file ) {
+	public function __construct( $file = false ) {
 		$this->file = $file;
 
 		parent::__construct();

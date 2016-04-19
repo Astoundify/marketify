@@ -123,6 +123,7 @@ class Astoundify_Content_Importer {
 		include_once( dirname( __FILE__ ) . '/class-import-plugin.php' );
 		include_once( dirname( __FILE__ ) . '/plugins/class-import-plugin-woocommerce.php' );
 		include_once( dirname( __FILE__ ) . '/plugins/class-import-plugin-easy-digital-downloads.php' );
+		include_once( dirname( __FILE__ ) . '/plugins/class-import-plugin-frontend-submissions.php' );
 	}
 
 }

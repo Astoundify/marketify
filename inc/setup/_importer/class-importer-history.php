@@ -46,9 +46,22 @@ class Astoundify_Importer_History {
 	public static function instance() {
 		if ( is_null( self::$instance ) ) {
 			self::$instance = new self();
+			self::setup_actions();
 		}
 
 		return self::$instance;
+	}
+
+	/**
+	 * Add any pre/post actions to processing.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 * @codeCoverageIgnore
+	 */
+	public function setup_actions() {
+		add_action( 'astoundify_import_content_after_process', array( __CLASS__, 'save' ) );
 	}
 
 	/**
@@ -60,14 +73,47 @@ class Astoundify_Importer_History {
 	 * @param array $data
 	 * @return void
 	 */
-	public static function add( $item_id, $data ) {
+	public static function process( $item_id, $data ) {
 		$type = $data[ 'item_type' ];
 
 		if ( ! isset( self::$imported[ $type ] ) ) {
 			self::$imported[ $type ] = array();
 		}	
 
-		self::$imported[ $type ][ $item_id ] = $data;
+		if ( ! isset( self::$imported[ $type ][ $item_id ] ) ) {
+			self::$imported[ $type ][ $item_id ] = $data;
+		}
+	}
+
+	/**
+	 * Remove an item from the history.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $item_id The reference to the item to get.
+	 * @param array $args
+	 * @return object
+	 */
+	public static function reset( $item_id, $args = array() ) {
+		$defaults = array(
+			'item_type' => 'post'
+		);
+
+		$args = wp_parse_args( $args, $defaults );
+
+		if ( ! isset( self::$imported[ $args[ 'item_type' ] ] ) ) {
+			return false;
+		}
+
+		$type = self::$imported[ $args[ 'item_type' ] ];
+
+		if ( isset( self::$imported[ $args[ 'item_type' ] ][ $item_id ] ) ) {
+			unset( self::$imported[ $args[ 'item_type' ] ][ $item_id ] );
+
+			return true;
+		}
+
+		return false;
 	}
 
 	/**
@@ -87,13 +133,40 @@ class Astoundify_Importer_History {
 
 		$args = wp_parse_args( $args, $defaults );
 
-		$type = self::$imported[ $args[ 'item_type' ] ];
+		$type = $args[ 'item_type' ];
 
-		if ( $args[ 'field' ] ) {
-			return $type[ $item_id ][ $args[ 'field' ] ];
+		// see if any of the type have been imported
+		if ( ! isset( self::$imported[ $type ] ) ) {
+			return false;
 		}
 
-		return $type[ $item_id ];
+		// see if the item has been imported
+		if ( ! isset( self::$imported[ $type ][ $item_id ] ) ) {
+			return false;
+		}
+
+		// get the single item
+		$item = self::$imported[ $type ][ $item_id ];
+
+		if ( $args[ 'field' ] ) {
+			return $item[ $args[ 'field' ] ];
+		}
+
+		return $item;
+	}
+
+	/**
+	 * Persist the import history. Processed items will be added to the list and
+	 * reset items will be removed. This can be used to quickly reference if an item
+	 * was imported at any time in the past. If so, it will be skipped and not 
+	 * attempted to import again.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
+	public static function save() {
+		update_option( 'astoundify_import_history', self::$imported );
 	}
 
 	/**

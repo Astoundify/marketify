@@ -122,6 +122,9 @@ class Astoundify_Importer {
 		) );
 
 		foreach ( $this->get_data() as $item_id => $item ) {
+			// only process items that have not been previously imported
+			$processed = Astoundify_Importer_History::get( $item_id, array( 'item_type' => $this->type ) );
+
 			// context for actions
 			$args = array( 
 				'item_id' => $item_id,
@@ -129,22 +132,23 @@ class Astoundify_Importer {
 				'item_type' => $this->type
 			);
 
-			// fire some actions before item processing
-			$this->process_item_actions( 'before', $process_action, $args );
+			if ( ! ( $processed && 'process' == $process_action ) ) {
+				// fire some actions before item processing
+				$this->process_item_actions( 'before', $process_action, $args );
 
-			// process
-			$processed = $this->$process_action( $args );
+				$processed = $this->$process_action( $args );
 
-			// add the processed item to context
-			$args = array_merge( array( 
-				'processed_item' => $processed,
-			), $args );
+				// add the processed item to context
+				$args = array_merge( array( 
+					'processed_item' => $processed,
+				), $args );
 
-			// add item to history
-			Astoundify_Importer_History::add( $item_id, $args );
+				// fire some actions after item processing
+				$this->process_item_actions( 'after', $process_action, $args );
+			}
 
-			// fire some actions after item processing
-			$this->process_item_actions( 'after', $process_action, $args );
+			// manage history
+			Astoundify_Importer_History::$process_action( $item_id, $args );
 		}
 
 		// fire some actions after processing
@@ -242,7 +246,7 @@ class Astoundify_Importer {
 		$ext = pathinfo( $path, PATHINFO_EXTENSION );
 
 		$file_array = array(
-			'name' => '' == $ext ? 'demo-image.png' : basename( $file ),
+			'name' => '' === $ext ? 'demo-image.png' : basename( $file ),
 			'tmp_name' => $temp_file,
 			'error' => 0,
 			'size' => filesize( $temp_file ),

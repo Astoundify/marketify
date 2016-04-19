@@ -36,6 +36,10 @@ class Astoundify_Import_Plugin extends Astoundify_Importer {
 	 * @since 1.0.0
 	 */
 	public function setup_importers() {
+		if ( empty( $this->get_data() ) ) {
+			return false;
+		}
+
 		foreach ( $this->get_data() as $import_type => $import_data ) {
 			$classname = 'Astoundify_Import_' . ucfirst( $import_type );
 
@@ -47,6 +51,20 @@ class Astoundify_Import_Plugin extends Astoundify_Importer {
 				$this->importers[ $import_type ] = $import_data;
 			}
 		}
+
+		return $this->importers;
+	}
+
+	/**
+	 * Get a specific importer instance that is in this plugin import group.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $import_type
+	 * @return object
+	 */
+	public function get_importer( $import_type ) {
+		return isset( $this->importers[ $import_type ] ) ? $this->importers[ $import_type ] : false;
 	}
 
 	public function process_data( $process_action = 'process' ) {
