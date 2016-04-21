@@ -22,8 +22,7 @@ class Marketify_EDD extends Marketify_Integration {
 
             'widgets/class-widget-download-archive-sorting.php',
 
-            'widgets/class-widget-download-details.php',
-            'widgets/class-widget-download-share.php'
+            'widgets/class-widget-download-details.php'
         );
 
         parent::__construct( dirname( __FILE__) );
