@@ -11,6 +11,7 @@ class Marketify_Template_Page_Header {
 
         add_action( 'marketify_entry_before', array( $this, 'archive_title' ), 5 );
         add_action( 'marketify_entry_before', array( $this, 'page_title' ), 5 );
+        add_action( 'marketify_entry_before', array( $this, 'attachment_title' ), 5 );
         add_action( 'marketify_entry_before', array( $this, 'post_title' ), 5 );
         add_action( 'marketify_entry_before', array( $this, 'home_title' ), 5 );
         add_action( 'marketify_entry_before', array( $this, 'blog_title' ), 5 );
@@ -62,6 +63,31 @@ class Marketify_Template_Page_Header {
 ?>
 <div class="page-header page-header--singular container">
     <h2 class="page-title"><?php the_title(); ?></h2>
+<?php
+        rewind_posts();
+    }
+
+	/**
+	 * Page title for attachments.
+	 *
+	 * @since 2.7.0
+	 *
+	 * @return void
+	 */
+    public function attachment_title() {
+        if ( ! is_attachment() ) {
+            return;
+        }
+
+        the_post();
+
+		$post = get_post();
+?>
+<div class="page-header page-header--singular container">
+    <h2 class="page-title"><a href="<?php echo esc_url( get_permalink( $post->post_parent ) ); ?>" title="<?php echo esc_attr( sprintf( __( 'Return to %s', 'marketify' ), strip_tags( get_the_title( $post->post_parent ) ) ) ); ?>" rel="gallery"><?php
+		/* translators: %s - title of parent post */
+		printf( __( '<span class="meta-nav">&larr;</span> %s', 'marketify' ), get_the_title( $post->post_parent ) );
+	?></a></h2>
 <?php
         rewind_posts();
     }
