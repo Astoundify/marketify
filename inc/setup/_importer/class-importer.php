@@ -117,19 +117,19 @@ class Astoundify_Importer {
 
 		// fire some actions before processing
 		$this->process_actions( 'before', $process_action, array( 
-			'item_type' => $this->type ,
+			'item_type' => $this->get_type(),
 			'import_data' => $this->get_data()
 		) );
 
 		foreach ( $this->get_data() as $item_id => $item ) {
 			// only process items that have not been previously imported
-			$processed = Astoundify_Importer_History::get( $item_id, array( 'item_type' => $this->type ) );
+			$processed = Astoundify_Importer_History::get( $item_id, array( 'item_type' => $this->get_type() ) );
 
 			// context for actions
 			$args = array( 
 				'item_id' => $item_id,
 				'item_data' => $item, 
-				'item_type' => $this->type
+				'item_type' => $this->get_type()
 			);
 
 			if ( ! ( $processed && 'process' == $process_action ) ) {
@@ -153,7 +153,7 @@ class Astoundify_Importer {
 
 		// fire some actions after processing
 		$this->process_actions( 'after', $process_action, array(
-			'item_type' => $this->type ,
+			'item_type' => $this->get_type(),
 			'import_data' => $this->get_data()
 		) );
 

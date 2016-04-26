@@ -8,7 +8,7 @@
  *
  * @since 1.0.0
  */
-class Astoundify_Import_Object extends Astoundify_Importer {
+class Astoundify_Import_Objects extends Astoundify_Importer {
 
 	/**
 	 * Start importer.
@@ -18,6 +18,10 @@ class Astoundify_Import_Object extends Astoundify_Importer {
 	 * @return void
 	 */
 	public function __construct() {
+		if ( ! $this->get_type() ) {
+			$this->type = 'object';
+		}
+
 		$this->init();
 	}
 
@@ -57,8 +61,14 @@ class Astoundify_Import_Object extends Astoundify_Importer {
 			return $result;
 		}
 
+		$post_type = $process_args[ 'item_type' ];
+
+		if ( isset( $process_args[ 'item_data' ][ 'post_type' ] ) ) {
+			$post_type = $process_args[ 'item_data' ][ 'post_type' ];
+		}
+
 		$defaults = array(
-			'post_type' => $process_args[ 'item_type' ],
+			'post_type' => $post_type,
 			'post_status' => 'publish',
 			'post_title' => $process_args[ 'item_id' ],
 			'post_name' => $process_args[ 'item_id' ],

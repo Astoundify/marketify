@@ -142,14 +142,7 @@ class Astoundify_Import_Widgets extends Astoundify_Importer {
 		
 		// get the sidebar widgets
 		$sidebars_widgets = get_option( 'sidebars_widgets' );
-
-		if ( isset( $sidebars_widgets[ $process_args[ 'item_data' ][ 'sidebar' ] ] ) ) {
-			$sidebars_widgets = $sidebars_widgets[ $process_args[ 'item_data' ][ 'sidebar' ] ];
-		}
-
-		if ( empty( $sidebar_widgets ) ) {
-			return true;
-		}
+		$sidebar_widgets = $sidebars_widgets[ $process_args[ 'item_data' ][ 'sidebar' ] ];
 
 		// remove the first item we encounter and keep the key
 		foreach ( $single_widget_instances as $key => $instance ) {
@@ -159,7 +152,7 @@ class Astoundify_Import_Widgets extends Astoundify_Importer {
 
 			$sidebar_instance_key = $key;
 			unset( $single_widget_instances[ $key ] );
-			continue;
+			break;
 		}
 
 		// update list of widget settings
@@ -169,8 +162,10 @@ class Astoundify_Import_Widgets extends Astoundify_Importer {
 		if ( $sidebar_instance_key ) {
 			$multi_instance_name = $id_base . '-' . $sidebar_instance_key;
 
-			if ( ( $key = array_search( $multi_instance_name, $sidebars_widgets ) ) !== false ) {
-				unset( $sidebars_widgets[ $key ] );
+			if ( ( $key = array_search( $multi_instance_name, $sidebar_widgets ) ) !== false ) {
+				unset( $sidebar_widgets[ $key ] );
+
+				$sidebars_widgets[ $process_args[ 'item_data' ][ 'sidebar' ] ] = $sidebar_widgets;
 				update_option( 'sidebars_widgets', $sidebars_widgets );
 			}
 		}

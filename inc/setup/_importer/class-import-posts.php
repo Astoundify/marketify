@@ -6,7 +6,7 @@
  *
  * @since 1.0.0
  */
-class Astoundify_Import_Posts extends Astoundify_Import_Object {
+class Astoundify_Import_Posts extends Astoundify_Import_Objects {
 
 	/**
 	 * Start importer. Set the type, file, and init the rest.
