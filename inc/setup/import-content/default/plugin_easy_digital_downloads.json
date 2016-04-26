@@ -24,24 +24,28 @@
 
 	"pages": {
 		"popular-items": {
-			"post_title": "Popular Items",
+			"post_title": "Popular Downloads",
 			"post_content": "",
 			"comment_status": "closed",
 			"meta": {
 				"_wp_page_template": "page-templates/popular.php"
 			},
 			"show_in_menu": {
-				"Primary": {}
+				"Primary": {
+					"menu-item-title": "Popular Items"
+				}
 			}
 		},
 		"purchase": {
-			"post_title": "Checkout",
+			"post_title": "Cart & Checkout",
 			"post_content": "[download_checkout]",
 			"meta": {
 				"_wp_page_template": "page-templates/single-column.php"
 			},
 			"show_in_menu": {
-				"Primary": {}
+				"Primary": {
+					"menu-item-title": "Checkout"
+				}
 			}
 		},
 		"success": {
@@ -49,6 +53,11 @@
 			"post_content": "[edd_receipt]",
 			"meta": {
 				"_wp_page_template": "page-templates/single-column.php"
+			},
+			"show_in_menu": {
+				"Primary": {
+					"menu-item-parent-title": "Checkout"
+				}
 			}
 		},
 		"failure": {
@@ -140,20 +149,6 @@
 			"image": "https://unsplash.it/740/600",
 			"content": "Most of our authors make this their full-time gig selling digital files on our marketplace, and some just do it as a hobby in their spare time, you can decide what you want to do, but we think you should join our marketplace and start earning those large commission cheques and follow your passion and stop working for the man. Become an author today!<a class='button' href='http://themeforest.net/item/marketplace-wordpress-theme-marketify/6570786?ref=Astoundify'>Become an Author</a>"
 		},
-		"features": {
-			"sidebar": "home-1",
-			"id_base": "woothemes_features",
-
-			"title": "",
-			"limit": 6,
-			"size": 44
-		},
-		"price-table": {
-			"sidebar": "home-1",
-			"id_base": "marketify_widget_price_table",
-
-			"title": "Honest Pricing. No Surprises"
-		},
 		"testimonials": {
 			"sidebar": "home-1",
 			"id_base": "woothemes_testimonials",
@@ -179,6 +174,12 @@
 			"dispay_avatar": 1,
 			"display_url": 0,
 			"category": 0
+		},
+		"price-table": {
+			"sidebar": "home-1",
+			"id_base": "marketify_widget_price_table",
+
+			"title": "Honest Pricing. No Surprises"
 		},
 		"feature-callout-1": {
 			"sidebar": "home-1",

@@ -43,6 +43,8 @@ class Astoundify_Import_Plugin extends Astoundify_Importer {
 		foreach ( $this->get_data() as $import_type => $import_data ) {
 			$classname = 'Astoundify_Import_' . ucfirst( $import_type );
 
+			print_r( $import_data );
+
 			if ( class_exists( $classname ) ) {
 				$this->importers[ $import_type ] = new $classname();
 				$this->importers[ $import_type ]->data = $import_data;

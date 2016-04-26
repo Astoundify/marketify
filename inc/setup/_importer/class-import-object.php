@@ -246,7 +246,13 @@ class Astoundify_Import_Object extends Astoundify_Importer {
 		$nav_menu_items_importer = new Astoundify_Import_Nav_Menu_Items();
 
 		foreach ( $menus as $menu_name => $menu_item_data ) {
-			$menu_item_data[ 'menu-item-title' ] = $args[ 'processed_item' ]->post_title;
+			if ( isset( $args[ 'item_data' ][ 'show_in_menu' ][ $menu_name ][ 'menu-item-title' ] ) ) {
+				$title = $args[ 'item_data' ][ 'show_in_menu' ][ $menu_name ][ 'menu-item-title' ];
+			} else {
+				$title = $args[ 'processed_item' ]->post_title;
+			}
+
+			$menu_item_data[ 'menu-item-title' ] = $title;
 			$menu_item_data[ 'menu-item-object-id' ] = $args[ 'processed_item' ]->ID;
 			$menu_item_data[ 'menu-item-object' ] = $args[ 'processed_item' ]->post_type;
 			$menu_item_data[ 'menu-item-type' ] = 'post_type';

@@ -142,7 +142,14 @@ class Astoundify_Import_Widgets extends Astoundify_Importer {
 		
 		// get the sidebar widgets
 		$sidebars_widgets = get_option( 'sidebars_widgets' );
-		$sidebars_widgets = $sidebars_widgets[ $process_args[ 'item_data' ][ 'sidebar' ] ];
+
+		if ( isset( $sidebars_widgets[ $process_args[ 'item_data' ][ 'sidebar' ] ] ) ) {
+			$sidebars_widgets = $sidebars_widgets[ $process_args[ 'item_data' ][ 'sidebar' ] ];
+		}
+
+		if ( empty( $sidebar_widgets ) ) {
+			return true;
+		}
 
 		// remove the first item we encounter and keep the key
 		foreach ( $single_widget_instances as $key => $instance ) {

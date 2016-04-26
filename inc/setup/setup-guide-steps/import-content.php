@@ -13,17 +13,25 @@ $plugins = array(
 		'condition' => class_exists( 'EDD_Front_End_Submissions' ),
 		'file' => get_template_directory() . '/inc/setup/import-content/{style}/plugin_frontend_submissions.json'
 	),
-	// 'features' => array(
-	// 	'label' => 'Features by WooThemes',
-	// 	'condition' => class_exists( 'WooThemes_Features' ),
-	// 	'file' => get_template_directory() . '/inc/setup/import-content/{style}/plugin_woothemes_features.json'
-	// ),
+	'features' => array(
+		'label' => 'Features by WooThemes',
+		'condition' => class_exists( 'WooThemes_Features' ),
+		'file' => get_template_directory() . '/inc/setup/import-content/{style}/plugin_woothemes_features.json'
+	),
 	// 'testimonials' => array(
 	// 	'label' => 'Testimonials by WooThemes',
 	// 	'condition' => class_exists( 'WooThemes_Testimonials' ),
 	// 	'file' => get_template_directory() . '/inc/setup/import-content/{style}/plugin_woothemes_testimonials.json'
 	// )
 );
+
+$plugin_files = array();
+
+foreach ( $plugins as $plugin ) {
+	if ( $plugin[ 'condition' ] ) {
+		$plugin_files[] = $plugin[ 'file' ];
+	}
+}
 
 $to_import = array(
 	'nav_menus' => array(
@@ -50,7 +58,7 @@ $to_import = array(
 	),
 	'plugins' => array(
 		'label' => __( 'Plugin Content' ),
-		'files' => wp_list_pluck( $plugins, 'file' ),
+		'files' => $plugin_files,
 		'plugins' => $plugins
 	)
 );
