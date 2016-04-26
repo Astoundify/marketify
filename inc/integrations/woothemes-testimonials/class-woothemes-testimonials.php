@@ -18,6 +18,10 @@ class Marketify_WooThemes_Testimonials extends Marketify_Integration {
         $options = get_option( $widget[ 'classname' ] );
         $options = $options[ $widget[ 'params' ][0][ 'number' ] ];
 
+		if ( ! isset( $options[ 'display_avatar' ] ) ) {
+			return $widget;
+		}
+
         if ( 1 == $options[ 'display_avatar' ] && null == $options[ 'display_author' ] ) {
             add_filter( 'woothemes_testimonials_item_template', array( $this, 'template_company' ), 10, 2 );
         } else {

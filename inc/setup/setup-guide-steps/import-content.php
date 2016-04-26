@@ -18,11 +18,11 @@ $plugins = array(
 		'condition' => class_exists( 'WooThemes_Features' ),
 		'file' => get_template_directory() . '/inc/setup/import-content/{style}/plugin_woothemes_features.json'
 	),
-	// 'testimonials' => array(
-	// 	'label' => 'Testimonials by WooThemes',
-	// 	'condition' => class_exists( 'WooThemes_Testimonials' ),
-	// 	'file' => get_template_directory() . '/inc/setup/import-content/{style}/plugin_woothemes_testimonials.json'
-	// )
+	'testimonials' => array(
+		'label' => 'Testimonials by WooThemes',
+		'condition' => class_exists( 'WooThemes_Testimonials' ),
+		'file' => get_template_directory() . '/inc/setup/import-content/{style}/plugin_woothemes_testimonials.json'
+	)
 );
 
 $plugin_files = array();

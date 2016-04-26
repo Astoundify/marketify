@@ -1,0 +1,55 @@
+{
+	"terms": {
+		"testimonial-category": {
+			"customer-testimonials": "Customer Testimonials",
+			"companies-weve-helped": "Companies We’ve Helped"
+		}
+	},
+	"objects": {
+		"_type": "testimonial",
+		"testimonial-individual": {
+			"post_title": "Spencer Joe",
+			"post_type": "testimonial",
+			"post_content": "You can count on Astoundify to come up with themes that both surprise and excite. The designs are always unique, compelling, and above all else, highly usable.",
+			"terms": {
+				"testimonial-category": [ "customer-testimonials" ]
+			}
+		},
+		"testimonial-company": {
+			"post_title": "Astoundify",
+			"post_type": "testimonial",
+			"post_content": "",
+			"terms": {
+				"testimonial-category": [ "companies-weve-helped" ]
+			}
+		}
+	},
+	"widgets": {
+		"widget-testimonials": {
+			"sidebar": "home-1",
+			"id_base": "woothemes_testimonials",
+
+			"title": "What People Are Saying",
+			"limit": 4,
+			"per_row": 0,
+			"size": 70,
+			"display_author": true,
+			"dispay_avatar": true,
+			"display_url": false,
+			"category": "customer-testimonials"
+		},
+		"widget-companies": {
+			"sidebar": "home-1",
+			"id_base": "woothemes_testimonials",
+
+			"title": "Companies We've Helped",
+			"limit": 8,
+			"per_row": 0,
+			"size": 200,
+			"display_author": false,
+			"dispay_avatar": true,
+			"display_url": false,
+			"category": "companies-weve-helped"
+		}
+	}
+}

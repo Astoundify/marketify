@@ -10,6 +10,7 @@
 		}
 	},
 	"objects": {
+		"_type": "feature",
 		"analytics": {
 			"post_title": "Analytics",
 			"post_type": "feature",

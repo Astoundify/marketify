@@ -149,32 +149,6 @@
 			"image": "https://unsplash.it/740/600",
 			"content": "Most of our authors make this their full-time gig selling digital files on our marketplace, and some just do it as a hobby in their spare time, you can decide what you want to do, but we think you should join our marketplace and start earning those large commission cheques and follow your passion and stop working for the man. Become an author today!<a class='button' href='http://themeforest.net/item/marketplace-wordpress-theme-marketify/6570786?ref=Astoundify'>Become an Author</a>"
 		},
-		"testimonials": {
-			"sidebar": "home-1",
-			"id_base": "woothemes_testimonials",
-
-			"title": "What People Are Saying",
-			"limit": 4,
-			"per_row": 0,
-			"size": 70,
-			"display_author": 1,
-			"dispay_avatar": 1,
-			"display_url": 0,
-			"category": 0
-		},
-		"companies": {
-			"sidebar": "home-1",
-			"id_base": "woothemes_testimonials",
-
-			"title": "Companies We've Helped",
-			"limit": 8,
-			"per_row": 0,
-			"size": 200,
-			"display_author": 0,
-			"dispay_avatar": 1,
-			"display_url": 0,
-			"category": 0
-		},
 		"price-table": {
 			"sidebar": "home-1",
 			"id_base": "marketify_widget_price_table",

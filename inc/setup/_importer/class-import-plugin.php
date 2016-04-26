@@ -23,8 +23,12 @@ class Astoundify_Import_Plugin extends Astoundify_Importer {
 	 *
 	 * @return void
 	 */
-	public function __construct() {
+	public function __construct( $file = false ) {
 		$this->type = 'plugin';
+
+		if ( $file ) {
+			$this->file = $file;
+		}
 
 		$this->setup_importers();
 		$this->init();
@@ -45,9 +49,17 @@ class Astoundify_Import_Plugin extends Astoundify_Importer {
 
 			if ( class_exists( $classname ) ) {
 				$this->importers[ $import_type ] = new $classname();
+				
+				// set the object type
+				if ( 'objects' == $import_type ) {
+					$this->importers[ $import_type ]->type = $import_data[ '_type' ];
+					$this->importers[ $import_type ]->setup_object_actions();
+					unset( $import_data[ '_type' ] );
+				}
+
 				$this->importers[ $import_type ]->data = $import_data;
-			// create a fake importer with the data so it can be accessed elsewhere
 			} else {
+				// create a fake importer with the data so it can be accessed elsewhere
 				$this->importers[ $import_type ] = $import_data;
 			}
 		}
