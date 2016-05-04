@@ -26,6 +26,11 @@
 	vertical-align: middle;
 }
 
+.astoundify-setup-green {
+	color: green;
+}
+
+.astoundify-setup-red,
 .step-incomplete {
 	color: red;
 }
