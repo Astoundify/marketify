@@ -57,7 +57,7 @@ class Marketify_Setup {
 	 * @param string $output
 	 * @return string $output
 	 */
-	public function uct_functions_php( $output ) {
+	public static function uct_functions_php( $output ) {
 		$output = str_replace( "'child_enqueue_styles' );", "'child_enqueue_styles', 210 );", $output );
 
 		return $output;
@@ -71,7 +71,7 @@ class Marketify_Setup {
 	 * @param array $screen_ids
 	 * @return array $screen_ids
 	 */
-	public function uct_admin_notices_screen_id( $screen_ids ) {
+	public static function uct_admin_notices_screen_id( $screen_ids ) {
 		return array( 'appearance_page_marketify-setup' );
 	}
 
