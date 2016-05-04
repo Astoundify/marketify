@@ -311,7 +311,12 @@ class Astoundify_Envato_Market_API {
 	 * @return boolean
 	 */
 	public function can_make_request_with_token() {
-		return $this->item( '9602611' ) ? true : false;
+		if ( false === ( $can = get_transient( 'atu_can_make_request' ) ) ) {
+			$can = $this->item( '9602611' ) ? true : false;
+			set_transient( 'atu_can_make_request', $can, HOUR_IN_SECONDS );
+		}
+
+		return $can;
 	}
 
 	/**
