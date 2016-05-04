@@ -52,7 +52,7 @@ class Marketify_Widgetized_Pages {
 				$pages = $query->posts;
 			}
 
-			set_transient( $this->transient, $pages, HOUR_IN_SECONDS * 24 );
+			set_transient( $this->transient, $pages );
 		}
 
 		return $pages;
