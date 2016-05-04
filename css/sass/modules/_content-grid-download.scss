@@ -7,7 +7,6 @@
 .content-grid-download {
 	@extend .no-backface;
 	margin-bottom: 30px;
-	max-width: 30%;
 	
 	.edd_download_quantity_wrapper,
     .edd-cart-ajax-alert,
@@ -16,7 +15,11 @@
 	}
 }
 
-div[class^="col-"] .content-grid-download {
+div[data-columns].edd_downloads_list .content-grid-download {
+	max-width: 30%;
+}
+
+.edd_downloads_list div[class^="col-"] .content-grid-download {
 	max-width: 100%;
 }
 
