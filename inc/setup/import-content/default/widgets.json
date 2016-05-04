@@ -1,2 +1,23 @@
 {
+	"price-option-1": {
+		"sidebar": "widget-area-price-options",
+		"id_base": "marketify_widget_price_option",
+
+		"color": "#515a63",
+		"description": "<h3>Marketplace Items</h3><h2>4,000</h2><ul><li>Dev & Freelancer Friendly</li><li>Unlimited Domain Use</li><li>Free Theme Updates</li><li>Support Forum Access</li><li>Help Documents</li><li>Installation Video</li><li>Non-recurring Payment</li></ul>"
+	},
+	"price-option-2": {
+		"sidebar": "widget-area-price-options",
+		"id_base": "marketify_widget_price_option",
+
+		"color": "#515a63",
+		"description": "<h3>Most Popular</h3><h2><sup>$</sup>49</h2><h3>Regular Licence</h3><ul><li>Unlimited Access</li><li>Unlimited Bandwidth</li><li>Unlimited Storage</li><li>Unlimited Contributors</li><li>Developer Platform</li><li>Mobile Website</li><li>Custom Domain FREE</li><li>24/7 Customer Support</li></ul>"
+	},
+	"price-option-3": {
+		"sidebar": "widget-area-price-options",
+		"id_base": "marketify_widget_price_option",
+
+		"color": "#515a63",
+		"description": "<h2><sup>$</sup>149</h2><h3>Developer Licence</h3><ul><li>Unlimited Access</li><li>Unlimited Domain Use</li><li>Free Theme Updates</li><li>Support Forum Access</li><li>Help Documents</li><li>Installation Video</li><li>Non-recurring Payment</li></ul>"
+	}
 }
