@@ -167,7 +167,7 @@ Marketify.App = ( function($) {
 				$(this).closest( 'form' ).submit();
 			});
 
-			$( '.entry-image' ).bind( 'touchstart', function(e) {
+			$( '.content-grid-download__entry-image' ).bind( 'ontouchstart', function(e) {
 				$(this).toggleClass( 'hover' );
 			});
 
