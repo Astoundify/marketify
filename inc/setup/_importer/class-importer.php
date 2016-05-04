@@ -245,6 +245,10 @@ class Astoundify_Importer {
 		$path = parse_url( $file, PHP_URL_PATH );
 		$ext = pathinfo( $path, PATHINFO_EXTENSION );
 
+		if ( ! $path ) {
+			return false;
+		}
+
 		$file_array = array(
 			'name' => '' === $ext ? 'demo-image.png' : basename( $file ),
 			'tmp_name' => $temp_file,

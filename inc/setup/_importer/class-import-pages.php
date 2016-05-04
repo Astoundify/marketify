@@ -33,8 +33,6 @@ class Astoundify_Import_Pages extends Astoundify_Import_Objects {
 		$this->type = 'page';
 		$this->file = $file;
 
-		$this->setup_object_actions();
-
 		parent::__construct();
 	}
 

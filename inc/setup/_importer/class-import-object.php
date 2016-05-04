@@ -22,6 +22,7 @@ class Astoundify_Import_Objects extends Astoundify_Importer {
 			$this->type = 'object';
 		}
 
+		$this->setup_object_actions();
 		$this->init();
 	}
 
@@ -31,15 +32,17 @@ class Astoundify_Import_Objects extends Astoundify_Importer {
 	 * @since 1.0.0
 	 *
 	 * @return void
-	 * @codeCoverageIgnore
 	 */
 	public function setup_object_actions() {
-		add_action( 'astoundify_import_content_after_process_item_type_' . $this->type, array( $this, 'set_post_format' ) );
-		add_action( 'astoundify_import_content_after_process_item_type_' . $this->type, array( $this, 'set_featured_image' ) );
-		add_action( 'astoundify_import_content_after_process_item_type_' . $this->type, array( $this, 'add_post_meta' ) );
-		add_action( 'astoundify_import_content_after_process_item_type_' . $this->type, array( $this, 'add_post_terms' ) );
-		add_action( 'astoundify_import_content_after_process_item_type_' . $this->type, array( $this, 'add_media' ) );
-		add_action( 'astoundify_import_content_after_process_item_type_' . $this->type, array( $this, 'set_menu_item' ) );
+		$actions = array( 'set_post_format', 'set_featured_image', 'add_post_meta', 'add_post_terms', 'add_media', 'set_menu_item' );
+
+		foreach ( $actions as $action ) {
+			$tag = 'astoundify_import_content_after_process_item_type_' . $this->get_type();
+
+			if ( ! has_action( $tag, array( $this, $action ) ) ) {
+				add_action( $tag, array( $this, $action ) );
+			}
+		}
 	}
 
 	/**
@@ -162,7 +165,9 @@ class Astoundify_Import_Objects extends Astoundify_Importer {
 		$post_id = $args[ 'processed_item' ]->ID;
 		$thumbnail_id = $this->upload_attachment( $args[ 'item_data' ][ 'featured_image' ], $post_id );
 
-		set_post_thumbnail( $post_id, $thumbnail_id );
+		if ( $thumbnail_id ) {
+			set_post_thumbnail( $post_id, $thumbnail_id );
+		}
 	}
 
 	/**
@@ -256,10 +261,18 @@ class Astoundify_Import_Objects extends Astoundify_Importer {
 		$nav_menu_items_importer = new Astoundify_Import_Nav_Menu_Items();
 
 		foreach ( $menus as $menu_name => $menu_item_data ) {
+			$menu_items = wp_get_nav_menu_items( $menu_name, array( 'post_status' => 'publish,draft' ) );
+			$titles = wp_list_pluck( $menu_items, 'title' );
+
 			if ( isset( $args[ 'item_data' ][ 'show_in_menu' ][ $menu_name ][ 'menu-item-title' ] ) ) {
 				$title = $args[ 'item_data' ][ 'show_in_menu' ][ $menu_name ][ 'menu-item-title' ];
 			} else {
 				$title = $args[ 'processed_item' ]->post_title;
+			}
+
+			// skip duplicate items as a lazy way to fix a much larger problem...
+			if ( in_array( $title, $titles ) ) {
+				continue;
 			}
 
 			$menu_item_data[ 'menu-item-title' ] = $title;

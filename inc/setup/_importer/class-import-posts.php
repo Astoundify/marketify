@@ -20,8 +20,6 @@ class Astoundify_Import_Posts extends Astoundify_Import_Objects {
 		$this->type = 'post';
 		$this->file = $file;
 
-		$this->setup_object_actions();
-
 		parent::__construct();
 	}
 

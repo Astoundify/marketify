@@ -20,8 +20,6 @@ class Astoundify_Import_Downloads extends Astoundify_Import_Objects {
 		$this->type = 'download';
 		$this->file = $file;
 
-		$this->setup_object_actions();
-
 		parent::__construct();
 	}
 
