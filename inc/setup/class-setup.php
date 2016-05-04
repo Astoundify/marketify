@@ -16,6 +16,13 @@ class Marketify_Setup {
 	 * @return void
 	 */
 	public static function init() {
+		if ( ! is_admin() ) {
+			return;
+		}
+
+		// UCT self inits so we need to be early
+		self::child_theme();
+
 		self::includes();
 
 		self::theme_updater();
@@ -27,6 +34,45 @@ class Marketify_Setup {
 		include_once( dirname( __FILE__ ) . '/_setup-guide/class-astoundify-setup-guide.php' );
 		include_once( dirname( __FILE__ ) . '/_importer/class-astoundify-content-importer.php' );
 		include_once( dirname( __FILE__ ) . '/_updater/class-astoundify-themeforest-updater.php' );
+		include_once( dirname( __FILE__ ) . '/_child_theme/use-child-theme.php' );
+	}
+
+	/**
+	 * Create a child theme.
+	 *
+	 * @since 2.7.0
+	 *
+	 * @return void
+	 */
+	public static function child_theme() {
+		add_filter( 'uct_functions_php', array( __CLASS__, 'uct_functions_php' ) );
+		add_filter( 'uct_admin_notices_screen_id', array( __CLASS__, 'uct_admin_notices_screen_id' ) );
+	}
+
+	/**
+	 * Filter the child theme's functions.php contents.
+	 *
+	 * @since 2.7.0
+	 *
+	 * @param string $output
+	 * @return string $output
+	 */
+	public function uct_functions_php( $output ) {
+		$output = str_replace( "'child_enqueue_styles' );", "'child_enqueue_styles', 210 );", $output );
+
+		return $output;
+	}
+
+	/**
+	 * Filter the child theme's notice output
+	 *
+	 * @since 2.7.0
+	 *
+	 * @param array $screen_ids
+	 * @return array $screen_ids
+	 */
+	public function uct_admin_notices_screen_id( $screen_ids ) {
+		return array( 'appearance_page_marketify-setup' );
 	}
 
 	/**

@@ -8,6 +8,11 @@
 /** Create the steps */
 $steps = array();
 
+$steps[ 'child-theme' ] = array(
+	'title' => __( 'Enable Child Theme', 'marketify' ),
+	'completed' => wp_get_theme()->parent()
+);
+
 $steps[ 'theme-updater' ] = array(
 	'title' => __( 'Enable Automatic Updates', 'marketify' ),
 	'completed' => get_option( 'marketify_themeforest_updater_token', null )
