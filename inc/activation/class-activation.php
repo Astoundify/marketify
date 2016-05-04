@@ -41,7 +41,10 @@ class Marketify_Activation {
         update_option( 'medium_size_h', 600 );
 
 		// dont let EDD create pages
-		update_option( 'edd_settings', array( 'purchase_page' => 0 ) );
+		$edd_settings = get_option( 'edd_settings', array() );
+		$edd_settings[ 'purchase_page' ] = 0;
+
+		update_option( 'edd_settings', $edd_settings );
 
         $this->redirect();
     }
