@@ -68,6 +68,7 @@ $to_import = array(
 
 	<p><?php _e( 'Please do not navigate away from this page while content is importing.', 'marketify' ); ?></p>
 
+	<div style="display: none; ">
 	<p>
 		<strong><?php _e( 'Demo Style', 'marketify' ); ?></strong>
 	</p>
@@ -79,6 +80,7 @@ $to_import = array(
 				<?php _e( 'Default', 'marketify' ); ?>
 			</label>
 		</p>
+	</div>
 	</div>
 
 	<p><strong><?php _e( 'Import Summary', 'marketify' ); ?>:</strong></p>
