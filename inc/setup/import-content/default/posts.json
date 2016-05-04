@@ -1,6 +1,79 @@
 {
-	"new-jobs": {
-		"post_title": "New Jobs in the Workplace",
-		"post_content": "There are a lot of new jobs."
+	"change-your-life": {
+		"post_title": "How to Change Your Life: A User’s Guide",
+		"featured_image": "https://unsplash.it/740/600?random",
+		"terms": {
+			"category": [ "code", "learn-to-code" ]
+		}
+	},
+	"methods-for-designers": {
+		"post_title": "The 38 Best Methods of Successful Designers",
+		"featured_image": "https://unsplash.it/740/600?random",
+		"terms": {
+			"category": [ "design", "make-a-website" ]
+		}
+	},
+	"a-simple-change-in-mindset-changes-everything": {
+		"post_title": "A Simple Change in Mindset Changes Everything",
+		"featured_image": "https://unsplash.it/740/600?random",
+		"terms": {
+			"category": [ "code", "make-a-website" ]
+		}
+	},
+	"how-we-scaled-up-social-media": {
+		"post_title": "How We Scaled Up Social Media",
+		"featured_image": "https://unsplash.it/740/600?random",
+		"terms": {
+			"category": [ "business", "featured-articles" ]
+		}
+	},
+	"the-habits-of-happiness": {
+		"post_title": "The Habits of Happiness",
+		"featured_image": "https://unsplash.it/740/600?random",
+		"terms": {
+			"category": [ "business", "featured-articles", "learn-to-code", "web-industry" ]
+		}
+	},
+	"the-key-habits-of-organization": {
+		"post_title": "The Key Habits of Organization",
+		"featured_image": "https://unsplash.it/740/600?random",
+		"terms": {
+			"category": [ "business", "featured-articles" ]
+		}
+	},
+	"creating-your-habit-environment": {
+		"post_title": "Creating Your Habit Environment",
+		"featured_image": "https://unsplash.it/740/600?random",
+		"terms": {
+			"category": [ "code", "business", "featured-articles" ]
+		}
+	},
+	"8-creativity-lessons-from-the-pros": {
+		"post_title": "8 Creativity Lessons From The Pros",
+		"featured_image": "https://unsplash.it/740/600?random",
+		"terms": {
+			"category": [ "code", "business", "featured-articles" ]
+		}
+	},
+	"when-you-run-out-of-ideas-get-creative": {
+		"post_title": "When You Run Out of Ideas Get Creative",
+		"featured_image": "https://unsplash.it/740/600?random",
+		"terms": {
+			"category": [ "code", "business", "featured-articles" ]
+		}
+	},
+	"how-marketify-could-be-more-awesome": {
+		"post_title": "How Marketify Could Be More Awesome",
+		"featured_image": "https://unsplash.it/740/600?random",
+		"terms": {
+			"category": [ "code", "business", "featured-articles" ]
+		}
+	},
+	"working-with-remote-teams-tips": {
+		"post_title": "Working With Remote Teams Tips",
+		"featured_image": "https://unsplash.it/740/600?random",
+		"terms": {
+			"category": [ "code", "business", "featured-articles" ]
+		}
 	}
 }
