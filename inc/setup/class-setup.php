@@ -142,6 +142,7 @@ class Marketify_Setup {
 		$api = Astoundify_Envato_Market_API::instance();
 
 		update_option( 'marketify_themeforest_updater_token', $token );
+		delete_transient( 'atu_can_make_request' );
 
 		// hotswap the token
 		$api->token = $token;
