@@ -391,28 +391,8 @@
 			"id_base": "marketify_widget_download_details",
 
 			"title": "Product Details"
-		},
-
-
-		"footer-pages": {
-			"sidebar": "footer-1",
-			"id_base": "pages",
-
-			"title": "Sitemap"
-		},
-		"footer-blog": {
-			"sidebar": "footer-2",
-			"id_base": "recent-posts",
-
-			"title": "From the Blog"
-		},
-		"footer-blog": {
-			"sidebar": "footer-3",
-			"id_base": "text",
-
-			"title": "About Marketify",
-			"text": "Marketing and selling physical or digital goods has never been easier with Marketify — the easiest marketplace eCommerce theme available. Beautiful product grids to show off your amazing products. Designed to sell physical goods, files, photos, audio, and video. Specifically crafted to be as flexible and versatile as possible."
 		}
+
 	},
 
 	"nav_menu_items": {
