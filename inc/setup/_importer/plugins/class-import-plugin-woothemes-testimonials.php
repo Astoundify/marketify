@@ -71,7 +71,7 @@ class Astoundify_Import_Plugin_WooThemes_Testimonials extends Astoundify_Import_
 			}
 		}	
 
-		update_option( 'widget_' . $args[ 'item_data' ][ 'id_base' ], $widget_settings );
+		update_option( 'widget_' . $args[ 'item_data' ][ 'id_base' ], $widget_settings, true );
 	}
 
 }
