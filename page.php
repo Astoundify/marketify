@@ -17,7 +17,7 @@ get_header(); ?>
     <div class="container">
         <div id="content" class="site-content row">
 
-            <div role="main" class="content-area col-md-<?php echo is_active_sidebar( 'sidebar-1' ) ? '8' : '12'; ?> col-xs-12">
+            <div role="main" class="col-md-<?php echo is_active_sidebar( 'sidebar-1' ) ? '8' : '12'; ?> col-xs-12">
 
                 <?php if ( have_posts() ) : ?>
 
