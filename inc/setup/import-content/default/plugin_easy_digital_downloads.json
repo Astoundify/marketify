@@ -81,7 +81,9 @@
 				"_wp_page_template": "page-templates/minimal.php"
 			},
 			"show_in_menu": {
-				"Primary": {}
+				"Primary": {
+					"menu-item-position": 90
+				}
 			}
 		},
 		"register": {
@@ -91,7 +93,9 @@
 				"_wp_page_template": "page-templates/minimal.php"
 			},
 			"show_in_menu": {
-				"Primary": {}
+				"Primary": {
+					"menu-item-position": 95
+				}
 			}
 		}
 	},
@@ -113,7 +117,8 @@
 				"license": "GPL",
 				"file_types": "PHP, PNG, All Files",
 				"file_size": "1.82 MB",
-				"documentation": "Well Documented"
+				"documentation": "Well Documented",
+				"edd_feature_download": true
 			}
 		},
 
@@ -133,7 +138,8 @@
 				"file_types": "PHP, PNG, All Files",
 				"file_size": "1.82 MB",
 				"documentation": "Well Documented",
-				"demo": "http://demo.astoundify.com/campaignify"
+				"demo": "http://demo.astoundify.com/campaignify",
+				"edd_feature_download": true
 			}
 		},
 
@@ -155,7 +161,8 @@
 				"file_types": "MOV",
 				"file_size": "74 MB",
 				"documentation": "Well Documented",
-				"video": "http://vimeo.com/23237102"
+				"video": "http://vimeo.com/23237102",
+				"edd_feature_download": true
 			}
 		},
 
@@ -258,7 +265,7 @@
 		"up-lifting-audio-pack": {
 			"post_title": "Up Lifting Audio Pack",
 			"post_format": "audio",
-			"featured_image": "https://unsplash.it/740/600?random",
+			"featured_image": "https://unsplash.it/1240/600?random",
 			"media": [ "https://demo.astoundify.com/marketify/wp-content/uploads/sites/21/edd/2013/12/Freedom1.mp3" ],
 			"prices": {
 				"Wav Audio Files Version": "9.00",
@@ -276,9 +283,9 @@
 		},
 
 		"marketify-coffee-shop": {
-			"post_title": "Marketift Coffee Shop",
+			"post_title": "Marketifty Coffee Shop",
 			"post_format": "video",
-			"featured_image": "https://unsplash.it/740/600?random",
+			"featured_image": "https://unsplash.it/1240/600?random",
 			"prices": {
 				"HD 720p Version": "10.00",
 				"HD 1080p Version": "20.00"
@@ -347,7 +354,7 @@
 			"background_color": "#ffffff",
 			"title": "Power to the Designer",
 			"image": "https://unsplash.it/740/600",
-			"content": "Most of our authors make this their full-time gig selling digital files on our marketplace, and some just do it as a hobby in their spare time, you can decide what you want to do, but we think you should join our marketplace and start earning those large commission cheques and follow your passion and stop working for the man. Become an author today!<a class='button' href='http://themeforest.net/item/marketplace-wordpress-theme-marketify/6570786?ref=Astoundify'>Become an Author</a>"
+			"content": "Most of our authors make this their full-time gig selling digital files on our marketplace, and some just do it as a hobby in their spare time, you can decide what you want to do, but we think you should join our marketplace and start earning those large commission cheques and follow your passion and stop working for the man. Become an author today!<br /><br /><a class='button' href='http://themeforest.net/item/marketplace-wordpress-theme-marketify/6570786?ref=Astoundify'>Become an Author</a>"
 		},
 		"price-table": {
 			"sidebar": "home-1",
@@ -367,7 +374,7 @@
 			"background_color": "#ffffff",
 			"title": "Start Your Marketplace",
 			"image": "https://unsplash.it/740/600",
-			"content": "This is the time to buy this awesome theme. You would be crazy not to! <a class='button' href='http://themeforest.net/item/marketplace-wordpress-theme-marketify/6570786?ref=Astoundify'>Become an Author</a>"
+			"content": "This is the time to buy this awesome theme. You would be crazy not to! <br /><br /><a class='button' href='http://themeforest.net/item/marketplace-wordpress-theme-marketify/6570786?ref=Astoundify'>Become an Author</a>"
 		},
 
 		"shop-search": {
@@ -412,6 +419,66 @@
 				"menu-item-type": "taxonomy",
 				"menu-item-object-title": "Video",
 				"menu-item-title": "Video",
+				"menu-item-object": "download_category",
+				"menu-item-parent-title": "Popular Items"
+			}
+		},
+		"wordpress" : {
+			"menu": "Primary",
+			"menu_item_data": {
+				"menu-item-type": "taxonomy",
+				"menu-item-object-title": "WordPress",
+				"menu-item-title": "WordPress",
+				"menu-item-object": "download_category",
+				"menu-item-parent-title": "Popular Items"
+			}
+		},
+		"drupal" : {
+			"menu": "Primary",
+			"menu_item_data": {
+				"menu-item-type": "taxonomy",
+				"menu-item-object-title": "Drupal",
+				"menu-item-title": "Drupal",
+				"menu-item-object": "download_category",
+				"menu-item-parent-title": "Popular Items"
+			}
+		},
+		"tumblr" : {
+			"menu": "Primary",
+			"menu_item_data": {
+				"menu-item-type": "taxonomy",
+				"menu-item-object-title": "Tumblr",
+				"menu-item-title": "Tumblr",
+				"menu-item-object": "download_category",
+				"menu-item-parent-title": "Popular Items"
+			}
+		},
+		"joomla" : {
+			"menu": "Primary",
+			"menu_item_data": {
+				"menu-item-type": "taxonomy",
+				"menu-item-object-title": "Joomla",
+				"menu-item-title": "Joomla",
+				"menu-item-object": "download_category",
+				"menu-item-parent-title": "Popular Items"
+			}
+		},
+		"ghost" : {
+			"menu": "Primary",
+			"menu_item_data": {
+				"menu-item-type": "taxonomy",
+				"menu-item-object-title": "Ghost",
+				"menu-item-title": "Ghost",
+				"menu-item-object": "download_category",
+				"menu-item-parent-title": "Popular Items"
+			}
+		},
+		"html" : {
+			"menu": "Primary",
+			"menu_item_data": {
+				"menu-item-type": "taxonomy",
+				"menu-item-object-title": "HTML",
+				"menu-item-title": "HTML",
 				"menu-item-object": "download_category",
 				"menu-item-parent-title": "Popular Items"
 			}

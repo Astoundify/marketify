@@ -11,7 +11,7 @@
 		"dennis-ross": {
 			"post_title": "Dennis Ross",
 			"post_type": "testimonial",
-			"featured_image": "https://dl.dropboxusercontent.com/u/1657501/Screenshots/marketify-import-images/face-four.png",
+			"featured_image": "https://dl.dropboxusercontent.com/u/1657501/Screenshots/marketify-import-images/face-four.jpg",
 			"post_content": "You can count on Astoundify to come up with themes that both surprise and excite. The designs are always unique, compelling, and above all else, highly usable.",
 			"terms": {
 				"testimonial-category": [ "customer-testimonials" ]
@@ -20,7 +20,7 @@
 		"sarah-white": {
 			"post_title": "Sarah White",
 			"post_type": "testimonial",
-			"featured_image": "https://dl.dropboxusercontent.com/u/1657501/Screenshots/marketify-import-images/face-two.png",
+			"featured_image": "https://dl.dropboxusercontent.com/u/1657501/Screenshots/marketify-import-images/face-two.jpg",
 			"post_content": "This is the best support I've received. Three times I needed help – and all times it came quickly, in a very professional and easy to understand way. You are amazing!",
 			"terms": {
 				"testimonial-category": [ "customer-testimonials" ]
@@ -29,7 +29,7 @@
 		"dennis-cooper": {
 			"post_title": "Dennis Cooper",
 			"post_type": "testimonial",
-			"featured_image": "https://dl.dropboxusercontent.com/u/1657501/Screenshots/marketify-import-images/face-three.png",
+			"featured_image": "https://dl.dropboxusercontent.com/u/1657501/Screenshots/marketify-import-images/face-three.jpg",
 			"post_content": "Minimalism at its best. Totally clean code, very clear and simple to modify or tweak, totally a good buy without second guessing. Keep up the great work guys!",
 			"terms": {
 				"testimonial-category": [ "customer-testimonials" ]
@@ -38,7 +38,7 @@
 		"michael-bolton": {
 			"post_title": "Michael Bolton",
 			"post_type": "testimonial",
-			"featured_image": "https://dl.dropboxusercontent.com/u/1657501/Screenshots/marketify-import-images/face-one.png",
+			"featured_image": "https://dl.dropboxusercontent.com/u/1657501/Screenshots/marketify-import-images/face-one.jpg",
 			"post_content": "This is the first theme I've purchased from you but it most certainly won't be the last. Just wanted to stop by give you 5 stars and say thanks!",
 			"terms": {
 				"testimonial-category": [ "customer-testimonials" ]
@@ -48,7 +48,7 @@
 		"testimonial-company-1": {
 			"post_title": "Your Logo",
 			"post_type": "testimonial",
-			"featured_image": "https://dl.dropboxusercontent.com/u/1657501/Screenshots/marketify-import-images/your-logo.png",
+			"featured_image": "https://dl.dropboxusercontent.com/u/1657501/Screenshots/marketify-import-images/you-logo.png",
 			"post_content": "",
 			"terms": {
 				"testimonial-category": [ "companies-weve-helped" ]
@@ -57,7 +57,7 @@
 		"testimonial-company-2": {
 			"post_title": "Your Logo",
 			"post_type": "testimonial",
-			"featured_image": "https://dl.dropboxusercontent.com/u/1657501/Screenshots/marketify-import-images/your-logo.png",
+			"featured_image": "https://dl.dropboxusercontent.com/u/1657501/Screenshots/marketify-import-images/you-logo.png",
 			"post_content": "",
 			"terms": {
 				"testimonial-category": [ "companies-weve-helped" ]
@@ -66,7 +66,7 @@
 		"testimonial-company-3": {
 			"post_title": "Your Logo",
 			"post_type": "testimonial",
-			"featured_image": "https://dl.dropboxusercontent.com/u/1657501/Screenshots/marketify-import-images/your-logo.png",
+			"featured_image": "https://dl.dropboxusercontent.com/u/1657501/Screenshots/marketify-import-images/you-logo.png",
 			"post_content": "",
 			"terms": {
 				"testimonial-category": [ "companies-weve-helped" ]
@@ -75,7 +75,16 @@
 		"testimonial-company-4": {
 			"post_title": "Your Logo",
 			"post_type": "testimonial",
-			"featured_image": "https://dl.dropboxusercontent.com/u/1657501/Screenshots/marketify-import-images/your-logo.png",
+			"featured_image": "https://dl.dropboxusercontent.com/u/1657501/Screenshots/marketify-import-images/you-logo.png",
+			"post_content": "",
+			"terms": {
+				"testimonial-category": [ "companies-weve-helped" ]
+			}
+		},
+		"testimonial-company-5": {
+			"post_title": "Your Logo",
+			"post_type": "testimonial",
+			"featured_image": "https://dl.dropboxusercontent.com/u/1657501/Screenshots/marketify-import-images/you-logo.png",
 			"post_content": "",
 			"terms": {
 				"testimonial-category": [ "companies-weve-helped" ]
@@ -92,10 +101,13 @@
 			"limit": 4,
 			"per_row": 0,
 			"size": 70,
-			"display_author": true,
-			"dispay_avatar": true,
-			"display_url": false,
-			"category": "customer-testimonials"
+			"display_author": 1,
+			"display_avatar": 1,
+			"display_url": 0,
+			"category": "customer-testimonials",
+			"specific_id": 0,
+			"orderby": "menu_order",
+			"order": "DESC"
 		},
 		"widget-companies": {
 			"sidebar": "home-1",
@@ -105,10 +117,13 @@
 			"limit": 8,
 			"per_row": 0,
 			"size": 200,
-			"display_author": false,
-			"dispay_avatar": true,
-			"display_url": false,
-			"category": "companies-weve-helped"
+			"display_author": 0,
+			"display_avatar": 1,
+			"display_url": 0,
+			"category": "companies-weve-helped",
+			"specific_id": 0,
+			"orderby": "menu_order",
+			"order": "DESC"
 		}
 	}
 }

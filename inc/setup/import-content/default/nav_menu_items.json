@@ -12,7 +12,8 @@
 		"menu_item_data": {
 			"menu-item-title": "Sign Out",
 			"menu-item-type": "custom",
-			"menu-item-url": "/?wp-login.php?action=logout"
+			"menu-item-url": "/?wp-login.php?action=logout",
+			"menu-item-position": 100
 		}
 	},
 
