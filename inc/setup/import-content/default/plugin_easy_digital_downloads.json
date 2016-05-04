@@ -339,6 +339,7 @@
 			"sidebar": "home-1",
 			"id_base": "marketify_widget_recent_downloads",
 
+			"title": "Recent Downloads",
 			"number": 8,
 			"columns": 4
 		},
