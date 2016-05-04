@@ -7,12 +7,17 @@
 .content-grid-download {
 	@extend .no-backface;
 	margin-bottom: 30px;
+	max-width: 30%;
 	
 	.edd_download_quantity_wrapper,
     .edd-cart-ajax-alert,
     .edd_purchase_tax_rate {
 		display: none;
 	}
+}
+
+div[class^="col-"] .content-grid-download {
+	max-width: 100%;
 }
 
 .content-grid-download__entry-image {
