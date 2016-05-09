@@ -186,7 +186,7 @@ class Astoundify_Setup_Guide {
 		add_theme_page( 
 			sprintf( self::get_string( 'page-title' ), self::$current_theme->get( 'Name' ) ), 
 			self::get_string( 'menu-title' ),
-			'manage_options', 
+			'edit_themes', 
 			self::$template . '-setup',
 			array( __CLASS__, 'output_admin_page' ) 
 		);
@@ -206,6 +206,7 @@ class Astoundify_Setup_Guide {
             return;
         }
 
+		add_thickbox();
         wp_enqueue_style( self::$template . '-setup', self::$args[ 'stylesheet_uri' ] );
     }
 
