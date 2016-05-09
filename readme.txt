@@ -51,6 +51,15 @@ Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
 
+= 2.7.0 =
+
+* New: Automatic theme updates via ThemeForest.
+* New: Automatic child theme creation while maintaining customizer settings.
+* New: Content importer in Setup Guide.
+* Fix: Touch events for download grids on mobile devices.
+* Fix: Avoid large download sizes before columns are formed.
+* Fix: Mobile checkout/cart experience improvements.
+
 = 2.6.0: March 28, 2016 =
 
 * New: Add oEmbed support for Audio downloads. Create a URL field with the `audio` meta key and add a URL.
