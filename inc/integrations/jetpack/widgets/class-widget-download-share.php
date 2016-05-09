@@ -6,7 +6,7 @@ class Marketify_Widget_Download_Share extends Marketify_Widget {
         $this->widget_cssclass    = 'marketify-widget--download-single-share';
         $this->widget_description = __( 'Display sharing options for this product.', 'marketify' );
         $this->widget_id          = 'marketify_widget_download_share';
-        $this->widget_name        = sprintf( __( 'Marketify - %s Sidebar: Sharing', 'marketify' ), edd_get_label_singular() );
+        $this->widget_name        = sprintf( __( 'Marketify - %s Sidebar: Sharing', 'marketify' ), function_exists( 'edd_get_label_singular' ) ? edd_get_label_singular() : __( 'Download', 'marketify' ) );
         $this->settings           = array(
             'sidebar-download-single' => array(
                 'type' => 'widget-area',
