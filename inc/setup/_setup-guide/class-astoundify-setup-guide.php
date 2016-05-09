@@ -225,7 +225,7 @@ class Astoundify_Setup_Guide {
 				$step, 
 				$info[ 'title' ], 
 				array( __CLASS__, 'step_box' ), 
-				self::$current_theme . '_setup_steps', 
+				self::$template . '_setup_steps', 
 				'normal', 
 				'high', 
 				$info 
@@ -290,7 +290,7 @@ class Astoundify_Setup_Guide {
 	 * @return void
 	 */
     public static function steps() {
-        do_accordion_sections( self::$current_theme . '_setup_steps', 'normal', null );
+        do_accordion_sections( self::$template . '_setup_steps', 'normal', null );
     }
 
 	/**
