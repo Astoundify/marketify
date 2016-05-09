@@ -101,7 +101,7 @@ class Astoundify_Setup_Guide {
 	 * @codeCoverageIgnore
 	 */
 	public static function setup_actions() {
-        add_action( 'admin_menu', array( __CLASS__, 'add_admin_page' ), 100 );
+        add_action( 'admin_menu', array( __CLASS__, 'add_admin_page' ) );
         add_action( 'admin_menu', array( __CLASS__, 'add_meta_boxes' ) );
         add_action( 'admin_enqueue_scripts', array( __CLASS__, 'admin_css' ) );
 
