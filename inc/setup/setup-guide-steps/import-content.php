@@ -23,10 +23,10 @@
 	<div id="import-summary" style="display: none;">
 		<p><strong id="import-status"><?php _e( 'Importing...', 'marketify' ); ?></strong></p>
 
-		<?php foreach ( Marketify_Setup::$content_importer_strings[ 'type_labels' ] as $key => $label ) : ?>
+		<?php foreach ( Marketify_Setup::$content_importer_strings[ 'type_labels' ] as $key => $labels ) : ?>
 		<p class="import-type import-type-<?php echo esc_attr( $key ); ?>">
 			<span class="dashicons import-type-<?php echo esc_attr( $key ); ?>"></span>&nbsp;
-			<strong class="process-type"><?php echo esc_attr( $label ); ?>:</strong>
+			<strong class="process-type"><?php echo esc_attr( $labels[1] ); ?>:</strong>
 			<span class="process-count">
 				<span id="<?php echo esc_attr( $key ); ?>-processed">0</span> / <span id="<?php echo esc_attr( $key ); ?>-total">0</span>
 			</span>
@@ -75,6 +75,14 @@
 #plugins-to-import li {
 	list-style: none;
 	margin-left: 0;
+}
+
+.dashicons.import-type-setting:before {
+	content: '\f108';
+}
+
+.dashicons.import-type-theme-mod:before {
+	content: '\f100';
 }
 
 .dashicons.import-type-theme-mod:before {

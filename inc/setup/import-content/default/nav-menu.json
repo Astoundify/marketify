@@ -1,0 +1,9 @@
+[
+	{
+		"id": "nav-menu-primary",
+		"type": "nav-menu",
+		"data": {
+			"menu_name": "Primary"
+		}
+	}
+]

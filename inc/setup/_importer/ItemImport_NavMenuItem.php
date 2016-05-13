@@ -33,6 +33,10 @@ class Astoundify_ItemImport_NavMenuItem extends Astoundify_AbstractItemImport im
 	 * @return object|WP_Error Menu item object on success, WP_Error object on failure.
 	 */
 	public function import() {
+		if ( $this->get_previous_import() ) {
+			return $this->get_previously_imported_error();
+		}
+
 		$menu = wp_get_nav_menu_object( $this->get_menu_name() );
 
 		if ( ! $menu ) {
@@ -59,15 +63,10 @@ class Astoundify_ItemImport_NavMenuItem extends Astoundify_AbstractItemImport im
 	 * @return object|WP_Error Object containing post data on success, WP_Error object on failure.
 	 */
 	public function reset() {
-		global $wpdb;
-
-		$error = $this->get_default_error();
-		$menu_item_data = $this->item[ 'data' ];
-
-		$menu_item = $wpdb->get_row( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = '%s' AND post_type = 'nav_menu_item'", $menu_item_data[ 'menu-item-title' ] ) );
+		$menu_item = $this->get_previous_import();
 
 		if ( ! $menu_item ) {
-			return $this->get_default_error();
+			return $this->get_not_found_error();
 		}
 
 		$result = wp_delete_post( $menu_item->ID );
@@ -77,6 +76,31 @@ class Astoundify_ItemImport_NavMenuItem extends Astoundify_AbstractItemImport im
 		}
 
 		return $result;
+	}
+
+	/**
+	 * Retrieve a previously imported item
+	 *
+	 * @since 1.0.0
+	 * @uses $wpdb
+	 * @return mixed Menu item ID if found or false.
+	 */
+	public function get_previous_import() {
+		global $wpdb;
+
+		$menu_item_data = $this->item[ 'data' ];
+
+		if ( ! isset( $menu_item_data[ 'menu-item-title' ] ) ) {
+			return false;
+		}
+
+		$menu_item = $wpdb->get_row( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = '%s' AND post_type = 'nav_menu_item'", $menu_item_data[ 'menu-item-title' ] ) );
+
+		if ( null == $menu_item ) {
+			return false;
+		}
+
+		return $menu_item;
 	}
 
 	private function _decorate_menu_item_data( $menu_item_data ) {

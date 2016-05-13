@@ -36,6 +36,10 @@ class Astoundify_ItemImport_Term extends Astoundify_AbstractItemImport implement
 	 * @return (WP_Term|WP_Error) WP_Term on success. WP_Error on failure.
 	 */
 	public function import() {
+		if ( $this->get_previous_import() ) {
+			return $this->get_previously_imported_error();
+		}
+
 		$taxonomy = $this->get_taxonomy();
 
 		if ( ! $taxonomy ) {
@@ -58,32 +62,44 @@ class Astoundify_ItemImport_Term extends Astoundify_AbstractItemImport implement
 	 * @return (true|WP_Error) True on success, WP_Erorr on failure
 	 */
 	public function reset() {
-		$taxonomy = $this->get_taxonomy();
-
-		if ( ! $taxonomy ) {
-			return $this->get_default_error();
-		}
-
-		global $wpdb;
-
-		if ( ! isset( $this->item[ 'data' ][ 'name' ] ) ) {
-			return $this->get_default_error();
-		}
-
-		$term_name = $this->item[ 'data' ][ 'name' ];
-		$term = get_term_by( 'name', $term_name, $taxonomy );
+		$term = $this->get_previous_import();
 
 		if ( ! $term ) {
-			return $this->get_default_error();
+			return $this->get_not_found_error();
 		}
 
-		$result = wp_delete_term( $term->term_id, $taxonomy );
+		$result = wp_delete_term( $term->term_id, $this->get_taxonomy() );
 
 		if ( is_wp_error( $result ) || ! $result || 0 == $result ) {
 			return $this->get_default_error();
 		}
 
 		return $result;
+	}
+
+	/**
+	 * Retrieve a previously imported item
+	 *
+	 * @since 1.0.0
+	 * @uses $wpdb
+	 * @return mixed Array if term is found or false
+	 */
+	public function get_previous_import() {
+		$taxonomy = $this->get_taxonomy();
+
+		if ( ! $taxonomy ) {
+			return false;
+		}
+
+		if ( ! isset( $this->item[ 'data' ][ 'name' ] ) ) {
+			return false;
+		}
+
+		$term_name = $this->item[ 'data' ][ 'name' ];
+
+		$term = get_term_by( 'name', $term_name, $taxonomy );
+
+		return $term;
 	}
 
 }

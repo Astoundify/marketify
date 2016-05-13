@@ -31,12 +31,25 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 		);
 
 		foreach ( $actions as $action ) {
-			$tag = 'astoundify_import_content_after_import_item_type_' . $this->get_type();
+			$tag = 'astoundify_import_content_after_import_item_type_object';
 
 			if ( ! has_action( $tag, array( $this, $action ) ) ) {
 				add_action( $tag, array( $this, $action ) );
 			}
 		}
+
+		// remove attachments
+		add_action( 
+			'astoundify_import_content_after_reset_item_type_object',
+			array( $this, 'delete_attachments' ) 
+		);
+
+		// actually delete the post
+		add_action( 
+			'astoundify_import_content_after_reset_item_type_object',
+			array( $this, 'delete_post' ),
+			99
+		);
 
 		// set homepage and blog
 		add_action( 
@@ -57,6 +70,10 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 	 * @return (WP_Post|WP_Error)
 	 */
 	public function import() {
+		if ( $this->get_previous_import() ) {
+			return $this->get_previously_imported_error();
+		}
+
 		$defaults = array(
 			'post_type' => 'object' == $this->get_type() ? 'post' : $this->item[ 'data' ][ 'post_type' ],
 			'post_status' => 'publish',
@@ -80,11 +97,32 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 	/**
 	 * Reset a single item
 	 *
-	 * @since 1.0.0
+	 * This actually does not reset anything as it will destroy and 
+	 * relationships with parent or child items. Instead we actually reset
+	 * in a post processing action that fires at the very end.
 	 *
+	 * @since 1.0.0
+	 * @see delete_post()
 	 * @return WP_Error|WP_Post
 	 */
 	public function reset() {
+		$object = $this->get_previous_import();
+
+		if ( ! $object ) {
+			return $this->get_not_found_error();
+		}
+
+		return get_post( $object->ID );
+	}
+
+	/**
+	 * Retrieve a previously imported item
+	 *
+	 * @since 1.0.0
+	 * @uses $wpdb
+	 * @return mixed Object ID if found or false.
+	 */
+	public function get_previous_import() {
 		global $wpdb;
 
 		if ( ! isset( $this->item[ 'data' ] ) || ! isset( $this->item[ 'data' ][ 'post_type' ] ) ) {
@@ -97,8 +135,29 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 			$this->item[ 'data' ][ 'post_type' ]
 		) );
 
-		if ( ! $object ) {
-			return $this->get_default_error();
+		if ( null == $object ) {
+			return false;
+		}
+
+		return $object;
+	}
+
+	/**
+	 * Delete the object.
+	 *
+	 * This happens at the very end so we have access to the full object
+	 * and no related objects are altered. If this is deleted first all
+	 * children (including attachments) get orphaned and cannot be accessed.
+	 *
+	 * @since 1.0.0
+	 * @return true|WP_Error
+	 */
+	public function delete_post() {
+		// only work with a valid processed object
+		$object = $this->get_processed_item();
+
+		if ( is_wp_error( $object ) ) {
+			return $this->get_not_found_error();
 		}
 
 		$result = wp_delete_post( $object->ID, true );
@@ -108,6 +167,45 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 		}
 
 		return $result;
+	}
+
+	/**
+	 * When an object is reset all attachments should be removed as well.
+	 *
+	 * @since 1.0.0
+	 * @return true|WP_Error True if attachments are removed.
+	 */
+	public function delete_attachments() {
+		global $wpdb;
+
+		$error = new WP_Error( 
+			'delete-attachments', 
+			sprintf( 'Attachments for %s not deleted', $this->get_id() )
+		);
+
+		$attachments = $wpdb->get_results( $wpdb->prepare( 
+			"SELECT ID FROM $wpdb->posts WHERE post_type = 'attachment' AND post_parent = '%s'", 
+			$this->get_processed_item()->ID
+		) );
+
+		// this isn't really an error
+		if ( empty( $attachments ) ) {
+			return true;
+		}
+
+		$passed = true;
+
+		foreach ( $attachments as $attachment ) {
+			if ( false === wp_delete_attachment( $attachment->ID, true ) ) {
+				$passed = false;
+			}
+		}
+
+		if ( $passed ) {
+			return true;
+		}
+
+		return $error;
 	}
 
 	/**

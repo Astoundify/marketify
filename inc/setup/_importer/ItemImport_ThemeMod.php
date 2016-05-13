@@ -46,6 +46,10 @@ class Astoundify_ItemImport_ThemeMod extends Astoundify_AbstractItemImport imple
 	 * @return bool True on success
 	 */
 	public function import() {
+		if ( $this->get_previous_import() ) {
+			return $this->get_previously_imported_error();
+		}
+
 		$key = $this->get_key();
 		$value = $this->get_value();
 
@@ -53,12 +57,10 @@ class Astoundify_ItemImport_ThemeMod extends Astoundify_AbstractItemImport imple
 			return $this->get_default_error();
 		}
 
-		$result = $this->get_default_error();
-
 		set_theme_mod( $key, $value );
 
-		if ( get_theme_mod( $key ) ) {
-			$result = get_theme_mod( $key );
+		if ( '' == ( $result = get_theme_mod( $key ) ) ) {
+			return $this->get_default_error();
 		}
 
 		return $result;
@@ -71,6 +73,12 @@ class Astoundify_ItemImport_ThemeMod extends Astoundify_AbstractItemImport imple
 	 * @return bool True on success
 	 */
 	public function reset() {
+		$mod = $this->get_previous_import();
+
+		if ( ! $mod ) {
+			return $this->get_not_found_error();
+		}
+
 		$key = $this->get_key();
 		$value = $this->get_value();
 
@@ -89,4 +97,20 @@ class Astoundify_ItemImport_ThemeMod extends Astoundify_AbstractItemImport imple
 		return $result;
 	}
 
+	/**
+	 * Retrieve a previously imported item
+	 *
+	 * @since 1.0.0
+	 * @uses $wpdb
+	 * @return Theme mod if true, or false
+	 */
+	public function get_previous_import() {
+		$mod = get_theme_mod( $this->get_key() );
+
+		if ( '' == $mod ) {
+			return false;
+		}
+
+		return $mod;
+	}
 }

@@ -176,4 +176,17 @@ class Astoundify_ItemImport_Widget extends Astoundify_AbstractItemImport impleme
 		return $result;
 	}
 
+	/**
+	 * Retrieve a previously imported item
+	 *
+	 * We can't on widgets.
+	 *
+	 * @since 1.0.0
+	 * @uses $wpdb
+	 * @return false
+	 */
+	public function get_previous_import() {
+		return false;
+	}
+
 }

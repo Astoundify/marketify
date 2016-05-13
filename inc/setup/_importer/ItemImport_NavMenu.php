@@ -34,6 +34,10 @@ class Astoundify_ItemImport_NavMenu extends Astoundify_AbstractItemImport implem
 	 * @return WP_Term|WP_Error WP_Term menu object on success, WP_Error on failure.
 	 */
 	public function import() {
+		if ( $this->get_previous_import() ) {
+			return $this->get_previously_imported_error();
+		}
+
 		if ( false == ( $menu_name = $this->get_menu_name() ) ) {
 			return $this->get_default_error();
 		}
@@ -59,7 +63,13 @@ class Astoundify_ItemImport_NavMenu extends Astoundify_AbstractItemImport implem
 	 * @return int|WP_Error Menu ID on success, WP_Error on failure
 	 */
 	public function reset() {
-		$result = wp_delete_nav_menu( $this->get_menu_name() );
+		$menu = $this->get_previous_import();
+
+		if ( ! $menu ) {
+			return $this->get_not_found_error();
+		}
+
+		$result = wp_delete_nav_menu( $menu );
 
 		// wp_delete_nav_menu() can return false instead of WP_Error
 		if ( ! $result ) {
@@ -67,6 +77,19 @@ class Astoundify_ItemImport_NavMenu extends Astoundify_AbstractItemImport implem
 		}
 
 		return $result;
+	}
+
+	/**
+	 * Retrieve a previously imported item
+	 *
+	 * @since 1.0.0
+	 * @uses $wpdb
+	 * @return mixed Menu object if found or false.
+	 */
+	public function get_previous_import() {
+		$menu = wp_get_nav_menu_object( $this->get_menu_name() );
+
+		return $menu;
 	}
 
 }

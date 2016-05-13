@@ -68,12 +68,13 @@ class Astoundify_ContentImporter {
 	public static function set_strings( $strings = array() ) {
 		$defaults = array(
 			'type_labels' => array(
-				'theme-mod' => __( 'Theme Setting' ),
-				'nav-menu' => __( 'Navigation Menu' ),
-				'nav-menu-item' => __( 'Navigation Menu Item' ),
-				'term' => __( 'Term' ),
-				'object' => __( 'Object' ),
-				'widget' => __( 'Widget' )
+				'setting' => array( __( 'Setting' ), __( 'Settings' ) ),
+				'theme-mod' => array( __( 'Theme Customization' ), __( 'Theme Customizations' ) ),
+				'nav-menu' => array( __( 'Navigation Menu' ), __( 'Navigation Menus' ) ),
+				'term' => array( __( 'Term' ), __( 'Terms' ) ),
+				'object' => array( __( 'Object' ), __( 'Objects' ) ),
+				'nav-menu-item' => array( __( 'Navigation Menu Item' ), __( 'Navigation Menu Items' ) ),
+				'widget' => array( __( 'Widget' ), __( 'Widgets' ) )
 			),
 			'import' => array(
 				'complete' => __( 'Import Complete!' ),
@@ -131,6 +132,7 @@ class Astoundify_ContentImporter {
 		include_once( dirname( __FILE__ ) . '/ItemImport_NavMenuItem.php' );
 		include_once( dirname( __FILE__ ) . '/ItemImport_Term.php' );
 		include_once( dirname( __FILE__ ) . '/ItemImport_ThemeMod.php' );
+		include_once( dirname( __FILE__ ) . '/ItemImport_Setting.php' );
 		include_once( dirname( __FILE__ ) . '/ItemImport_Widget.php' );
 
 		include_once( dirname( __FILE__ ) . '/PluginInterface.php' );

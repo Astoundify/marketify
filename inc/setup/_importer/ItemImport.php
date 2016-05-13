@@ -154,11 +154,11 @@ abstract class Astoundify_AbstractItemImport {
 		$strings = Astoundify_ContentImporter::get_strings();
 		$labels = $strings[ 'type_labels' ];
 
-		return esc_attr( $labels[ $this->get_type() ] );
+		return esc_attr( $labels[ $this->get_type() ][0] );
 	}
 
 	/**
-	 * Generate a WP_Error instance for the current item
+	 * Generate a WP_Error instance for the current item when a generic error occurs
 	 *
 	 * @since 1.0.0
 	 * @return WP_Error
@@ -166,7 +166,48 @@ abstract class Astoundify_AbstractItemImport {
 	public function get_default_error() {
 		return new WP_Error(
 			sprintf( '%s-%s-failed', $this->get_type(), $this->get_action() ),
-			sprintf( '<strong>%1$s</strong> %2$s was unable to %3$s.', $this->get_type_label(), $this->get_id(), $this->get_action() )
+			sprintf( 
+				'<strong>%1$s</strong> <code>%2$s</code> was unable to %3$s.', 
+				$this->get_type_label(), 
+				$this->get_id(), 
+				$this->get_action() 
+			)
+		);
+	}
+
+	/**
+	 * Generate a WP_Error instance for the current item when an item is already imported
+	 *
+	 * @since 1.0.0
+	 * @return WP_Error
+	 */
+	public function get_previously_imported_error() {
+		return new WP_Error(
+			sprintf( '%s-%s-failed', $this->get_type(), $this->get_action() ),
+			sprintf( 
+				'<strong>%1$s</strong> <code>%2$s</code> was unable to %3$s. <strong>Duplicate detected.</strong>', 
+				$this->get_type_label(), 
+				$this->get_id(), 
+				$this->get_action() 
+			)
+		);
+	}
+
+	/**
+	 * Generate a WP_Error instance for the current item when a generic error occurs
+	 *
+	 * @since 1.0.0
+	 * @return WP_Error
+	 */
+	public function get_not_found_error() {
+		return new WP_Error(
+			sprintf( '%s-%s-failed', $this->get_type(), $this->get_action() ),
+			sprintf( 
+				'<strong>%1$s</strong> <code>%2$s</code> was unable to %3$s. <strong>Item not found.</strong>', 
+				$this->get_type_label(), 
+				$this->get_id(), 
+				$this->get_action() 
+			)
 		);
 	}
 
@@ -185,7 +226,9 @@ abstract class Astoundify_AbstractItemImport {
 	 * @param string $action The action to take
 	 * @return mixed
 	 */
-	public function iterate( $action ) {
+	public function iterate( $action = 'import' ) {
+		$this->set_action( $action );
+
 		// allow things to happen before
 		$this->iterate_actions( 'before' );
 

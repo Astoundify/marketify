@@ -14,6 +14,7 @@ abstract class Astoundify_AbstractImporter implements Astoundify_SortableInterfa
 	 * @var array
 	 */
 	public $item_groups = array( 
+		'setting' => array(),
 		'theme-mod' => array(),
 		'nav-menu' => array(),
 		'term' => array(),

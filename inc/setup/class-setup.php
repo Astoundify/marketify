@@ -214,12 +214,13 @@ class Marketify_Setup {
 	public static function content_importer() {
 		self::$content_importer_strings = array(
 			'type_labels' => array(
-				'theme-mod' => __( 'Theme Setting' ),
-				'nav-menu' => __( 'Navigation Menu' ),
-				'nav-menu-item' => __( 'Navigation Menu Item' ),
-				'term' => __( 'Term' ),
-				'object' => __( 'Object' ),
-				'widget' => __( 'Widget' )
+				'setting' => array( __( 'Setting' ), __( 'Settings' ) ),
+				'theme-mod' => array( __( 'Theme Customization' ), __( 'Theme Customizations' ) ),
+				'nav-menu' => array( __( 'Navigation Menu' ), __( 'Navigation Menus' ) ),
+				'term' => array( __( 'Term' ), __( 'Terms' ) ),
+				'object' => array( __( 'Object' ), __( 'Objects' ) ),
+				'nav-menu-item' => array( __( 'Navigation Menu Item' ), __( 'Navigation Menu Items' ) ),
+				'widget' => array( __( 'Widget' ), __( 'Widgets' ) )
 			),
 			'import' => array(
 				'complete' => __( 'Import Complete!' ),
@@ -273,23 +274,12 @@ class Marketify_Setup {
 		}
 
 		// remove any inactive plugins
-		$plugins = self::get_importable_plugins();
 		$files = glob( get_template_directory() . '/inc/setup/import-content/' . $style . '/*.json' );
+		$files = self::get_importable_files( $files );
 
-		foreach ( $files as $key => $path ) {
-			$file = basename( $path );
+		print_r( $files );
 
-			if ( false === strpos( $file, 'plugin' ) ) {
-				continue;
-			}
-
-			$file = str_replace( '.json', '', $file );
-			$name = str_replace( 'plugin_', '', $file );
-
-			if ( in_array( $name, array_keys( $plugins ) ) && ! $plugins[ $name ][ 'condition' ] ) {
-				unset( $files[ $key ] );
-			}
-		}
+		return;
 
 		$importer = Astoundify_ImporterFactory::create( $files );
 
@@ -308,21 +298,63 @@ class Marketify_Setup {
 		exit();
 	}
 
+	/**
+	 * Cant properly use array_filter in PHP < 5.3
+	 *
+	 * @since 1.0.0
+	 * @return array $plugins
+	 */
+	public static function get_active_plugins() {
+		$plugins = self::get_importable_plugins();
+
+		foreach ( $plugins as $k => $plugin ) {
+			if ( false == $plugin[ 'condition' ] ) {
+				unset( $plugins[ $k ] );
+			}
+		}
+
+		$plugins = array_keys( $plugins );
+
+		return $plugins;
+	}
+
+	/**
+	 * Can't properly use array_filter in PHP < 5.3
+	 *
+	 * @since 1.0.0
+	 * @return array $files
+	 */
+	public function get_importable_files( $files ) {
+		$plugins = self::get_active_plugins();
+
+		foreach ( $files as $k => $v ) {
+			if ( false == strpos( $v, 'plugin' ) ) {
+				continue;
+			}
+
+			if ( ! Astoundify_Utils::strposa( $v, $plugins ) ) {
+				unset( $files[ $k ] );
+			}
+		}
+
+		return $files;
+	}
+
 	public static function get_importable_plugins() {
 		return array(
-			'easy_digital_downloads' => array(
+			'easy-digital-downloads' => array(
 				'label' => 'Easy Digital Downloads',
 				'condition' => class_exists( 'Easy_Digital_Downloads' ),
 			),
-			'frontend_submissions' => array(
+			'frontend-submissions' => array(
 				'label' => 'Frontend Submissions',
 				'condition' => class_exists( 'EDD_Front_End_Submissions' ),
 			),
-			'woothemes_features' => array(
+			'woothemes-features' => array(
 				'label' => 'Features by WooThemes',
 				'condition' => class_exists( 'WooThemes_Features' ),
 			),
-			'woothemes_testimonials' => array(
+			'woothemes-testimonials' => array(
 				'label' => 'Testimonials by WooThemes',
 				'condition' => class_exists( 'WooThemes_Testimonials' ),
 			)

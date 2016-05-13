@@ -121,5 +121,26 @@ class Astoundify_Utils {
 
 		return $body[ 'text_out' ];
 	}
+
+	/**
+	 * strpos for arrays
+	 *
+	 * @since 1.0.0
+	 * @param string $haystack
+	 * @param array $needs
+	 */
+	public static function strposa( $haystack, $needles ) {
+		if ( ! is_array( $needles ) ) {
+			$needles = array( $needlese );
+		}
+
+		foreach ( $needles as $query ) {
+			if ( false !== strpos( $haystack, $query ) ) {
+				return true;
+			}
+
+			return false;
+		}
+	}
 	
 }

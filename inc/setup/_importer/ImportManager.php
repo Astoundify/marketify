@@ -7,11 +7,20 @@
 class Astoundify_ImportManager {
 
 	public static function init() {
-		add_action( 'wp_ajax_astoundify_importer_stage', array( __CLASS__, 'stage' ) );
+		add_action( 'wp_ajax_astoundify_importer_stage', array( __CLASS__, 'ajax_stage_import' ) );
 		add_action( 'wp_ajax_astoundify_importer_iterate_item', array( __CLASS__, 'ajax_iterate_item' ) );
 	}
 
-	public static function stage() {
+	/**
+	 * AJAX Stage an import from a group of files.
+	 *
+	 * Sort and group import items and provide relevant information that
+	 * can be used to construct a UI.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public static function ajax_stage_import() {
 		$files = array_map( 'esc_url', $_POST[ 'files' ] );
 
 		$importer = Astoundify_ImporterFactory::create( $files );
@@ -29,6 +38,12 @@ class Astoundify_ImportManager {
 		}
 	}
 
+	/**
+	 * AJAX iterate a single item.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
 	public static function ajax_iterate_item() {
 		if ( ! current_user_can( 'import' ) ) {
 			wp_send_json_error( 'You do not have permission to import.' );
@@ -48,8 +63,7 @@ class Astoundify_ImportManager {
 			wp_send_json_error( 'Invalid import type.' );
 		}
 
-		$item->set_action( $iterate_action );
-		$item = $item->iterate();
+		$item = $item->iterate( $iterate_action );
 
 		if ( ! $item ) {
 			wp_send_json_error( 'Item failed to import.' );
