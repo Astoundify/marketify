@@ -10,5 +10,53 @@
 			"menu-item-object": "download_category",
 			"menu-item-parent-title": "Popular Items"
 		}
+	},
+	{
+		"id": "nav-menu-item-video",
+		"type": "nav-menu-item",
+		"data": {
+			"menu_name": "Primary",
+			"menu-item-type": "taxonomy",
+			"menu-item-object-title": "Video",
+			"menu-item-title": "Video",
+			"menu-item-object": "download_category",
+			"menu-item-parent-title": "Popular Items"
+		}
+	},
+	{
+		"id": "nav-menu-item-wordpress",
+		"type": "nav-menu-item",
+		"data": {
+			"menu_name": "Primary",
+			"menu-item-type": "taxonomy",
+			"menu-item-object-title": "WordPress",
+			"menu-item-title": "WordPress",
+			"menu-item-object": "download_category",
+			"menu-item-parent-title": "Popular Items"
+		}
+	},
+	{
+		"id": "nav-menu-item-tumblr",
+		"type": "nav-menu-item",
+		"data": {
+			"menu_name": "Primary",
+			"menu-item-type": "taxonomy",
+			"menu-item-object-title": "Tumblr",
+			"menu-item-title": "Tumblr",
+			"menu-item-object": "download_category",
+			"menu-item-parent-title": "Popular Items"
+		}
+	},
+	{
+		"id": "nav-menu-item-drupal",
+		"type": "nav-menu-item",
+		"data": {
+			"menu_name": "Primary",
+			"menu-item-type": "taxonomy",
+			"menu-item-object-title": "Drupal",
+			"menu-item-title": "Drupal",
+			"menu-item-object": "download_category",
+			"menu-item-parent-title": "Popular Items"
+		}
 	}
 ]
