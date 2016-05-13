@@ -67,6 +67,20 @@ class Astoundify_ContentImporter {
 	 */
 	public static function set_strings( $strings = array() ) {
 		$defaults = array(
+			'type_labels' => array(
+				'theme-mod' => __( 'Theme Setting' ),
+				'nav-menu' => __( 'Navigation Menu' ),
+				'nav-menu-item' => __( 'Navigation Menu Item' ),
+				'term' => __( 'Term' ),
+				'object' => __( 'Object' ),
+				'widget' => __( 'Widget' )
+			),
+			'import' => array(
+				'complete' => __( 'Import Complete!' ),
+			),
+			'reset' => array(
+				'complete' => __( 'Reset Complete' )
+			)
 		);
 
 		$strings = wp_parse_args( $strings, $defaults );

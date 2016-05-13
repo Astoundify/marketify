@@ -66,8 +66,12 @@ class Astoundify_ItemImport_Term extends Astoundify_AbstractItemImport implement
 
 		global $wpdb;
 
-		$term_slug = $this->item[ 'id' ];
-		$term = $wpdb->get_row( $wpdb->prepare( "SELECT term_id FROM $wpdb->terms WHERE `slug` = '%s'", $term_slug ) );
+		if ( ! isset( $this->item[ 'data' ][ 'name' ] ) ) {
+			return $this->get_default_error();
+		}
+
+		$term_name = $this->item[ 'data' ][ 'name' ];
+		$term = get_term_by( 'name', $term_name, $taxonomy );
 
 		if ( ! $term ) {
 			return $this->get_default_error();

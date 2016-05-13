@@ -23,7 +23,8 @@ jQuery(document).ready(function($) {
 			dataType: 'json',
 			success: function(response) {
 				if ( response.success ) {
-					$( '.plugins-to-import, .import-summary' ).toggle();
+					$( '#plugins-to-import' ).hide();
+					$( '#import-summary' ).show();
 
 					groups = response.data.groups;
 					
@@ -43,12 +44,15 @@ jQuery(document).ready(function($) {
 	}
 
 	function runImport( groups, iterate_action ) {
+		var $errors = $( '#import-errors' ).html( '' );
 		var groupPromises = [];
 
 		_.each(groups, function(items, type) {
 			var itemPromises = [];
 			var $spinner = $( '#' + type + '-spinner' );
+			var $processed = $( '#' + type + '-processed' );
 
+			$processed.text(0);
 			$spinner.addClass( 'is-active' );
 
 			var group = new $.Deferred();
@@ -66,10 +70,13 @@ jQuery(document).ready(function($) {
 					data: args,
 					dataType: 'json',
 					success: function(response) {
-						var $processed = $( '#' + type + '-processed' );
 						var processed_count = parseInt( $processed.text() );
 
 						$processed.text( processed_count + 1);
+
+						if ( response.success == false ) {
+							$errors.append( '<li>' + response.data + '</li>' );
+						}
 					}
 				});
 
@@ -85,7 +92,7 @@ jQuery(document).ready(function($) {
 		});
 
 		$.when.apply(null, groupPromises).done(function() {
-			$( '#import-status' ).css( 'color', 'green' ).text( 'Import Complete!' );
+			$( '#import-status' ).css( 'color', 'green' ).text( astoundifySetupGuideImportContent.i18n[ iterate_action ].complete );
 		});
 
 	}

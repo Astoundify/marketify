@@ -3,6 +3,7 @@
 		"id": "category-business",
 		"type": "term",
 		"data": {
+			"taxonomy": "category",
 			"name": "Business"
 		}
 	},
@@ -10,6 +11,7 @@
 		"id": "category-news",
 		"type": "term",
 		"data": {
+			"taxonomy": "category",
 			"name": "News"
 		}
 	},
@@ -17,6 +19,7 @@
 		"id": "category-updates",
 		"type": "term",
 		"data": {
+			"taxonomy": "category",
 			"name": "Updates"
 		}
 	}

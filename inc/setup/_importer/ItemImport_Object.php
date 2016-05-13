@@ -87,10 +87,14 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 	public function reset() {
 		global $wpdb;
 
+		if ( ! isset( $this->item[ 'data' ] ) || ! isset( $this->item[ 'data' ][ 'post_type' ] ) ) {
+			$this->item[ 'data' ][ 'post_type' ] = 'post';
+		}
+
 		$object = $wpdb->get_row( $wpdb->prepare( 
 			"SELECT ID FROM $wpdb->posts WHERE post_name = '%s' AND post_type = '%s'", 
 			$this->get_id(),
-			$this->get_type()
+			$this->item[ 'data' ][ 'post_type' ]
 		) );
 
 		if ( ! $object ) {

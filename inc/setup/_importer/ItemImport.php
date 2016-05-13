@@ -135,13 +135,26 @@ abstract class Astoundify_AbstractItemImport {
 	}
 
 	/**
-	 * Get the ID of the current item.
+	 * Get the type of the current item.
 	 *
 	 * @since 1.0.0
 	 * @return mixed
 	 */
 	public function get_type() {
 		return isset( $this->item[ 'type' ] ) ? esc_attr( $this->item[ 'type' ] ) : false;
+	}
+
+	/**
+	 * Get the type label of the current item.
+	 *
+	 * @since 1.0.0
+	 * @return mixed
+	 */
+	public function get_type_label() {
+		$strings = Astoundify_ContentImporter::get_strings();
+		$labels = $strings[ 'type_labels' ];
+
+		return esc_attr( $labels[ $this->get_type() ] );
 	}
 
 	/**
@@ -153,7 +166,7 @@ abstract class Astoundify_AbstractItemImport {
 	public function get_default_error() {
 		return new WP_Error(
 			sprintf( '%s-%s-failed', $this->get_type(), $this->get_action() ),
-			sprintf( '%s was unable to %s.', $this->get_id(), $this->get_action() )
+			sprintf( '<strong>%1$s</strong> %2$s was unable to %3$s.', $this->get_type_label(), $this->get_id(), $this->get_action() )
 		);
 	}
 

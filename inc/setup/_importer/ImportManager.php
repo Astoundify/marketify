@@ -31,13 +31,23 @@ class Astoundify_ImportManager {
 
 	public static function ajax_iterate_item() {
 		if ( ! current_user_can( 'import' ) ) {
-			wp_die( '-1' );
+			wp_send_json_error( 'You do not have permission to import.' );
 		}
 
-		$iterate_action = $_POST[ 'iterate_action' ];
+		$iterate_action = esc_attr( $_POST[ 'iterate_action' ] );
+
+		if ( ! in_array( $iterate_action, array( 'import', 'reset' ) ) ) {
+			wp_send_json_error( 'Invalid operation.' );
+		}
+
 		$item = $_POST[ 'item' ];
 
 		$item = Astoundify_ItemImportFactory::create( $item );
+
+		if ( is_wp_error( $item ) ) {
+			wp_send_json_error( 'Invalid import type.' );
+		}
+
 		$item->set_action( $iterate_action );
 		$item = $item->iterate();
 
@@ -45,10 +55,10 @@ class Astoundify_ImportManager {
 			wp_send_json_error( 'Item failed to import.' );
 		}
 
-		if ( ! is_wp_error( $item ) ) {
+		if ( ! is_wp_error( $item->get_processed_item() ) ) {
 			wp_send_json_success( array( 'item' => $item ) );
 		} else {
-			wp_send_json_error( $item->get_error_message() );
+			wp_send_json_error( $item->get_processed_item()->get_error_message() );
 		}
 	}
 

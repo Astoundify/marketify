@@ -8,6 +8,8 @@
  */
 class Marketify_Setup {
 
+	public static $content_importer_strings;
+
 	/**
 	 * Start things up.
 	 *
@@ -210,7 +212,25 @@ class Marketify_Setup {
 	 * @return void
 	 */
 	public static function content_importer() {
+		self::$content_importer_strings = array(
+			'type_labels' => array(
+				'theme-mod' => __( 'Theme Setting' ),
+				'nav-menu' => __( 'Navigation Menu' ),
+				'nav-menu-item' => __( 'Navigation Menu Item' ),
+				'term' => __( 'Term' ),
+				'object' => __( 'Object' ),
+				'widget' => __( 'Widget' )
+			),
+			'import' => array(
+				'complete' => __( 'Import Complete!' ),
+			),
+			'reset' => array(
+				'complete' => __( 'Reset Complete!' )
+			)
+		);
+
 		Astoundify_ContentImporter::instance();
+		Astoundify_ContentImporter::set_strings( self::$content_importer_strings );
 
 		add_action( 'astoundify_setup_guide_scripts', array( __CLASS__, '_content_importer_scripts' ) );
 
@@ -230,7 +250,8 @@ class Marketify_Setup {
 		wp_localize_script( 'astoundify-setup-import-content', 'astoundifySetupGuideImportContent', array(
 			'nonces' => array(
 				'stage' => wp_create_nonce( 'setup-guide-stage-import' )
-			)
+			),
+			'i18n' => self::$content_importer_strings
 		) );
 	}
 	
