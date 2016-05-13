@@ -277,10 +277,6 @@ class Marketify_Setup {
 		$files = glob( get_template_directory() . '/inc/setup/import-content/' . $style . '/*.json' );
 		$files = self::get_importable_files( $files );
 
-		print_r( $files );
-
-		return;
-
 		$importer = Astoundify_ImporterFactory::create( $files );
 
 		if ( ! is_wp_error( $importer ) ) {

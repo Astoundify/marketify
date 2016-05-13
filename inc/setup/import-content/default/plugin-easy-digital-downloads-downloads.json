@@ -1,1 +1,11 @@
-[]
+[
+
+	{
+		"id": "edd_settings",
+		"type": "setting",
+		"data": { 
+			"checkout_color": "inherit" 
+		}
+	}
+
+]

@@ -5,5 +5,12 @@
 		"data": {
 			"menu_name": "Primary"
 		}
+	},
+	{
+		"id": "nav-menu-social",
+		"type": "nav-menu",
+		"data": {
+			"menu_name": "Social Footer"
+		}
 	}
 ]

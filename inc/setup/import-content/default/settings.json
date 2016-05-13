@@ -1,9 +1,2 @@
 [
-	{
-		"id": "edd_options",
-		"type": "setting",
-		"data": {
-			"checkout_color": "inherit"
-		}
-	}
 ]

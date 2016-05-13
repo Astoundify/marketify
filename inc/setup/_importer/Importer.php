@@ -107,7 +107,7 @@ abstract class Astoundify_AbstractImporter implements Astoundify_SortableInterfa
 
 		// sort by priority
 		foreach ( $this->item_groups as $type => $items ) {
-			uasort( $items, array( $this, 'sort_by_priority' ) );
+			usort( $items, array( $this, 'sort_by_priority' ) );
 
 			$this->item_groups[ $type ] = $items;
 		}
@@ -134,11 +134,19 @@ abstract class Astoundify_AbstractImporter implements Astoundify_SortableInterfa
 	 * @return int Sort order
 	 */
 	public function sort_by_priority( $a, $b ) {
-		if ( $a == $b ) {
+		if ( ! isset( $a[ 'priority' ] ) ) {
+			$a[ 'priority' ] = 10;
+		}
+
+		if ( ! isset( $b[ 'priority' ] ) ) {
+			$b[ 'priority' ] = 10;
+		}
+
+		if ( $a[ 'priority' ] == $b[ 'priority' ] ) {
 			return 0;
 		}
 
-		return ( $a < $b ) ? -1 : 1;
+		return ( $a[ 'priority' ] < $b[ 'priority' ] ) ? -1 : 1;
 	}
 
 }

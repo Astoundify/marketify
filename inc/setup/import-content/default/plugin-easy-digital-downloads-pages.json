@@ -1,0 +1,118 @@
+[
+	{
+		"id": "popular-items",
+		"type": "object",
+		"data": {
+			"post_type": "page",
+			"post_title": "Popular Downloads",
+			"post_content": "",
+			"comment_status": "closed",
+			"meta": {
+				"_wp_page_template": "page-templates/popular.php"
+			},
+			"menus": {
+				"Primary": {
+					"menu-item-title": "Popular Items"
+				}
+			}
+		}
+	},
+	{
+		"id": "purchase",
+		"type": "object",
+		"data": {
+			"post_type": "page",
+			"post_title": "Checkout",
+			"post_content": "[download_checkout]",
+			"comment_status": "closed",
+			"meta": {
+				"_wp_page_template": "page-templates/single-column.php"
+			},
+			"menus": {
+				"Primary": {
+					"menu-item-title": "Checkout"
+				}
+			}
+		}
+	},
+	{
+		"id": "success",
+		"type": "object",
+		"data": {
+			"post_type": "page",
+			"post_title": "Purchase Confirmation",
+			"post_content": "[edd_receipt]",
+			"comment_status": "closed",
+			"meta": {
+				"_wp_page_template": "page-templates/single-column.php"
+			},
+			"menus": {
+				"Primary": {
+					"menu-item-parent-title": "Checkout"
+				}
+			}
+		}
+	},
+	{
+		"id": "failure",
+		"type": "object",
+		"data": {
+			"post_type": "page",
+			"post_title": "Transaction Failure",
+			"post_content": "Your transaction failed, please try again.",
+			"comment_status": "closed",
+			"meta": {
+				"_wp_page_template": "page-templates/single-column.php"
+			}
+		}
+	},
+	{
+		"id": "purchase_history",
+		"type": "object",
+		"data": {
+			"post_type": "page",
+			"post_title": "Purchase History",
+			"post_content": "[purchase_history]",
+			"comment_status": "closed",
+			"meta": {
+				"_wp_page_template": "page-templates/single-column.php"
+			}
+		}
+	},
+	{
+		"id": "login",
+		"type": "object",
+		"data": {
+			"post_type": "page",
+			"post_title": "Login",
+			"post_content": "[edd_login]",
+			"comment_status": "closed",
+			"meta": {
+				"_wp_page_template": "page-templates/minimal.php"
+			},
+			"menus": {
+				"Primary": {
+					"menu-item-position": 90
+				}
+			}
+		}
+	},
+	{
+		"id": "register",
+		"type": "object",
+		"data": {
+			"post_type": "page",
+			"post_title": "Checkout",
+			"post_content": "[edd_register]",
+			"comment_status": "closed",
+			"meta": {
+				"_wp_page_template": "page-templates/minimal.php"
+			},
+			"menus": {
+				"Primary": {
+					"menu-item-position": 100
+				}
+			}
+		}
+	}
+]
