@@ -1,11 +1,23 @@
-{
-	"category": {
-		"business": "Business",
-		"code": "Code",
-		"design": "Design",
-		"featured-articles": "Featured Articles",
-		"learn-to-colde": "Learn to Code",
-		"make-a-website": "Make a Website",
-		"web-industry": "Web Industry"
+[
+	{
+		"id": "category-business",
+		"type": "term",
+		"data": {
+			"name": "Business"
+		}
+	},
+	{
+		"id": "category-news",
+		"type": "term",
+		"data": {
+			"name": "News"
+		}
+	},
+	{
+		"id": "category-updates",
+		"type": "term",
+		"data": {
+			"name": "Updates"
+		}
 	}
-}
+]

@@ -1,9 +1,9 @@
 <?php
-if ( ! class_exists( 'Astoundify_Content_Importer' ) ) :
+if ( ! class_exists( 'Astoundify_ContentImporter' ) ) :
 /**
  * @package Astoundify_Content_Importer
  */
-class Astoundify_Content_Importer {
+class Astoundify_ContentImporter {
 
 	/**
 	 * The single class instance.
@@ -99,32 +99,30 @@ class Astoundify_Content_Importer {
 	 * @codeCoverageIgnore
 	 */
 	public static function includes() {
-		// process
-		include_once( dirname( __FILE__ ) . '/class-importer-history.php' );
-		include_once( dirname( __FILE__ ) . '/class-importer-manager.php' );
+		include_once( dirname( __FILE__ ) . '/SortableInterface.php' );
+		include_once( dirname( __FILE__ ) . '/Utils.php' );
 
-		// base
-		include_once( dirname( __FILE__ ) . '/class-importer.php' );
+		include_once( dirname( __FILE__ ) . '/ImportManager.php' );
 
-		// custom post types
-		include_once( dirname( __FILE__ ) . '/class-import-object.php' );
-		include_once( dirname( __FILE__ ) . '/class-import-posts.php' );
-		include_once( dirname( __FILE__ ) . '/class-import-pages.php' );
-		include_once( dirname( __FILE__ ) . '/class-import-downloads.php' );
+		include_once( dirname( __FILE__ ) . '/ImporterInterface.php' );
+		include_once( dirname( __FILE__ ) . '/ImporterFactory.php' );
+		include_once( dirname( __FILE__ ) . '/Importer.php' );
+		include_once( dirname( __FILE__ ) . '/JSONImporter.php' );
 
-		// special things
-		include_once( dirname( __FILE__ ) . '/class-import-nav_menus.php' );
-		include_once( dirname( __FILE__ ) . '/class-import-nav_menu_items.php' );
-		include_once( dirname( __FILE__ ) . '/class-import-terms.php' );
-		include_once( dirname( __FILE__ ) . '/class-import-widgets.php' );
-		include_once( dirname( __FILE__ ) . '/class-import-theme-mods.php' );
+		include_once( dirname( __FILE__ ) . '/ItemImportInterface.php' );
+		include_once( dirname( __FILE__ ) . '/ItemImportFactory.php' );
+		include_once( dirname( __FILE__ ) . '/ItemImport.php' );
+		include_once( dirname( __FILE__ ) . '/ItemImport_Object.php' );
+		include_once( dirname( __FILE__ ) . '/ItemImport_NavMenu.php' );
+		include_once( dirname( __FILE__ ) . '/ItemImport_NavMenuItem.php' );
+		include_once( dirname( __FILE__ ) . '/ItemImport_Term.php' );
+		include_once( dirname( __FILE__ ) . '/ItemImport_ThemeMod.php' );
+		include_once( dirname( __FILE__ ) . '/ItemImport_Widget.php' );
 
-		// plugins
-		include_once( dirname( __FILE__ ) . '/class-import-plugin.php' );
-		include_once( dirname( __FILE__ ) . '/plugins/class-import-plugin-woocommerce.php' );
-		include_once( dirname( __FILE__ ) . '/plugins/class-import-plugin-easy-digital-downloads.php' );
-		include_once( dirname( __FILE__ ) . '/plugins/class-import-plugin-frontend-submissions.php' );
-		include_once( dirname( __FILE__ ) . '/plugins/class-import-plugin-woothemes-testimonials.php' );
+		include_once( dirname( __FILE__ ) . '/PluginInterface.php' );
+		include_once( dirname( __FILE__ ) . '/Plugin_WooThemesTestimonials.php' );
+		include_once( dirname( __FILE__ ) . '/Plugin_EasyDigitalDownloads.php' );
+		include_once( dirname( __FILE__ ) . '/Plugin_FrontendSubmissions.php' );
 	}
 
 }

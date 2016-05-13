@@ -8,6 +8,11 @@
 /** Create the steps */
 $steps = array();
 
+$steps[ 'import-content' ] = array(
+	'title' => __( 'Import Content', 'marketify' ),
+	'completed' => false
+);
+
 $steps[ 'child-theme' ] = array(
 	'title' => __( 'Enable Child Theme', 'marketify' ),
 	'completed' => wp_get_theme()->parent()
@@ -21,15 +26,6 @@ $steps[ 'theme-updater' ] = array(
 $steps[ 'install-plugins' ] = array(
 	'title' => __( 'Install Plugins', 'marketify' ),
 	'completed' => class_exists( 'Easy_Digital_Downloads' )
-);
-
-$steps[ 'import-content' ] = array(
-	'title' => __( 'Import Content', 'marketify' ),
-	'completed' => 
-		Astoundify_Importer_Manager::has_previously_imported( 'nav_menus' ) &&
-		Astoundify_Importer_Manager::has_previously_imported( 'posts_pages' ) &&
-		Astoundify_Importer_Manager::has_previously_imported( 'widgets' ) &&
-		Astoundify_Importer_Manager::has_previously_imported( 'plugins' )
 );
 
 $steps[ 'customize-theme' ] = array(

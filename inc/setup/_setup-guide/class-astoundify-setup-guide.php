@@ -103,7 +103,7 @@ class Astoundify_Setup_Guide {
 	public static function setup_actions() {
         add_action( 'admin_menu', array( __CLASS__, 'add_admin_page' ) );
         add_action( 'admin_menu', array( __CLASS__, 'add_meta_boxes' ) );
-        add_action( 'admin_enqueue_scripts', array( __CLASS__, 'admin_css' ) );
+        add_action( 'admin_enqueue_scripts', array( __CLASS__, 'admin_scripts' ) );
 
 		// fill in some page defaults
 		add_action( 'astoundify_setup_guide_intro', array( __CLASS__, 'output_page_intro_title' ), 5 );
@@ -199,7 +199,7 @@ class Astoundify_Setup_Guide {
 	 *
 	 * @return void
 	 */
-    public static function admin_css() {
+    public static function admin_scripts() {
         $screen = get_current_screen();
 
         if ( 'appearance_page_' . self::$template . '-setup' != $screen->id ) {
@@ -208,6 +208,10 @@ class Astoundify_Setup_Guide {
 
 		add_thickbox();
         wp_enqueue_style( self::$template . '-setup', self::$args[ 'stylesheet_uri' ] );
+
+		wp_enqueue_script( 'underscore' );
+
+		do_action( 'astoundify_setup_guide_scripts' );
     }
 
 	/**

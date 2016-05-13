@@ -1,101 +1,89 @@
 <?php
 /**
- * Nav Menu Item importer.
+ * Import an navigation menu item
  *
- * @see Astoundify_Importer
- * @see `tests/data/nav_menus_items.json`
+ * @uses Astoundify_AbstractItemImport
+ * @implements Astoundify_ItemImportInterface
  *
  * @since 1.0.0
  */
-class Astoundify_Import_Nav_Menu_Items extends Astoundify_Importer {
+class Astoundify_ItemImport_NavMenuItem extends Astoundify_AbstractItemImport implements Astoundify_ItemImportInterface {
 
-	/**
-	 * Start importer. Set the type, file, and init the rest.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @param string $file The path to the .json file to import.
-	 * @return void
-	 */
-	public function __construct( $file = false ) {
-		$this->type = 'nav_menu_item';
-		$this->file = $file;
-
-		$this->init();
+	public function __construct( $item ) {
+		parent::__construct( $item );
 	}
 
 	/**
-	 * Add any pre/post actions to processing.
+	 * Get the name of the menu to deal with
 	 *
 	 * @since 1.0.0
-	 *
-	 * @return void
-	 * @codeCoverageIgnore
+	 * @return bool|string The menu name if set, or false.
 	 */
-	public function setup_actions() {}
-
-	/**
-	 * Process an individual item.
-	 *
-	 * @param array $process_args Import item context.
-	 * @return int|WP_Error Menu item ID object on success, WP_Error object on failure.
-	 */
-	public function process( $process_args ) {
-		// verify data before continuing
-		if ( ! isset( $process_args[ 'item_data' ] ) ) {
-			return new WP_Error( 'no-menu-item-data', 'No menu item data was set.' );
+	private function get_menu_name() {
+		if ( isset( $this->item[ 'data' ][ 'menu_name' ] ) ) {
+			return esc_attr( $this->item[ 'data' ][ 'menu_name' ] );
 		}
 
-		$menu = wp_get_nav_menu_object( $process_args[ 'item_data' ][ 'menu' ] );
+		return false;
+	}
+
+	/**
+	 * Import a single item
+	 *
+	 * @return object|WP_Error Menu item object on success, WP_Error object on failure.
+	 */
+	public function import() {
+		$menu = wp_get_nav_menu_object( $this->get_menu_name() );
 
 		if ( ! $menu ) {
-			return new WP_Error( 'menu-does-not-exist', 'The menu does not exist.' );
+			return $this->get_default_error();
 		}
 
 		// fill in any missing data
-		$menu_item_data = $process_args[ 'item_data' ][ 'menu_item_data' ];
+		$menu_item_data = $this->item[ 'data' ];
 		$menu_item_data = $this->_decorate_menu_item_data( $menu_item_data );
 
 		// create a menu item
 		$result = wp_update_nav_menu_item( $menu->term_id, 0, $menu_item_data );
 
+		if ( ! is_wp_error( $result ) ) {
+			$result = wp_setup_nav_menu_item( get_post( $result ) );
+		}
+
 		return $result;
 	}
 
 	/**
-	 * Reset an individual item.
+	 * Reset a single object
 	 *
-	 * Only items cereated with a set `menu-item-title` can be removed.
-	 *
-	 * @param array $process_args Import item context.
 	 * @return object|WP_Error Object containing post data on success, WP_Error object on failure.
 	 */
-	public function reset( $process_args ) {
-		// verify data before continuing
-		if ( ! isset( $process_args[ 'item_data' ] ) ) {
-			return new WP_Error( 'no-menu-item-data', 'No menu item data was set.' );
-		}
-
+	public function reset() {
 		global $wpdb;
 
-		$menu_item_data = $process_args[ 'item_data' ][ 'menu_item_data' ];
+		$error = $this->get_default_error();
+		$menu_item_data = $this->item[ 'data' ];
 
-		if ( ! isset( $menu_item_data[ 'menu-item-title' ] ) ) {
-			return new WP_Error( 'no-menu-title', 'Only menu items with custom titles can be removed.' );
+		$menu_item = $wpdb->get_row( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = '%s' AND post_type = 'nav_menu_item'", $menu_item_data[ 'menu-item-title' ] ) );
+
+		if ( ! $menu_item ) {
+			return $this->get_default_error();
 		}
 
-		$result = $wpdb->get_row( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = '%s' AND post_type = 'nav_menu_item'", $menu_item_data[ 'menu-item-title' ] ) );
+		$result = wp_delete_post( $menu_item->ID );
 
-		if ( $result ) {
-			$result = wp_delete_post( $result->ID );
-		} else {
-			$result = new WP_Error( 'not-deleted', 'Menu item not deleted' );
+		if ( ! $result ) {
+			return $this->get_default_error();
 		}
 
 		return $result;
 	}
 
 	private function _decorate_menu_item_data( $menu_item_data ) {
+		// remove the menu name
+		unset( $menu_item_data[ 'menu_name' ] );
+
+		// set the status
 		$menu_item_data[ 'menu-item-status' ] = 'publish';
 
 		/**

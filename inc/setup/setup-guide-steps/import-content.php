@@ -1,247 +1,106 @@
 <?php
 /**
  */
-
-$plugins = array(
-	'edd' => array(
-		'label' => 'Easy Digital Downloads',
-		'condition' => class_exists( 'Easy_Digital_Downloads' ),
-		'file' => get_template_directory() . '/inc/setup/import-content/{style}/plugin_easy_digital_downloads.json'
-	),
-	'fes' => array(
-		'label' => 'Frontend Submissions',
-		'condition' => class_exists( 'EDD_Front_End_Submissions' ),
-		'file' => get_template_directory() . '/inc/setup/import-content/{style}/plugin_frontend_submissions.json'
-	),
-	'features' => array(
-		'label' => 'Features by WooThemes',
-		'condition' => class_exists( 'WooThemes_Features' ),
-		'file' => get_template_directory() . '/inc/setup/import-content/{style}/plugin_woothemes_features.json'
-	),
-	'testimonials' => array(
-		'label' => 'Testimonials by WooThemes',
-		'condition' => class_exists( 'WooThemes_Testimonials' ),
-		'file' => get_template_directory() . '/inc/setup/import-content/{style}/plugin_woothemes_testimonials.json'
-	)
-);
-
-$plugin_files = array();
-
-foreach ( $plugins as $plugin ) {
-	if ( $plugin[ 'condition' ] ) {
-		$plugin_files[] = $plugin[ 'file' ];
-	}
-}
-
-$to_import = array(
-	'nav_menus' => array(
-		'label' => __( 'Theme Settings' ),
-		'files' => array(
-			get_template_directory() . '/inc/setup/import-content/{style}/theme_mods.json',
-			get_template_directory() . '/inc/setup/import-content/{style}/nav_menus.json',
-			get_template_directory() . '/inc/setup/import-content/{style}/nav_menu_items.json'
-		)
-	),
-	'posts_pages' => array(
-		'label' => __( 'Posts and Pages' ),
-		'files' => array(
-			get_template_directory() . '/inc/setup/import-content/{style}/terms.json',
-			get_template_directory() . '/inc/setup/import-content/{style}/posts.json',
-			get_template_directory() . '/inc/setup/import-content/{style}/pages.json'
-		)
-	),
-	'widgets' => array(
-		'label' => __( 'Widgets' ),
-		'files' => array(
-			get_template_directory() . '/inc/setup/import-content/{style}/widgets.json',
-		)
-	),
-	'plugins' => array(
-		'label' => __( 'Plugin Content' ),
-		'files' => $plugin_files,
-		'plugins' => $plugins
-	)
-);
 ?>
 
 <form id="marketify-oneclick-setup" action="" method="">
 
-	<p><?php _e( 'Please do not navigate away from this page while content is importing.', 'marketify' ); ?></p>
-
-	<div style="display: none; ">
 	<p>
-		<strong><?php _e( 'Demo Style', 'marketify' ); ?></strong>
+		<strong><?php _e( 'Content Pack:', 'marketify' ); ?></strong>
 	</p>
 
-	<div class="demo-style-selector">
-		<p>
-			<label for="default">
-				<input type="radio" value="default" name="demo_style" id="default" checked="checked">
-				<?php _e( 'Default', 'marketify' ); ?>
-			</label>
+	<p>
+		<label for="default">
+			<input type="radio" value="default" name="demo_style" id="default" checked="checked">
+			<?php _e( 'Default', 'marketify' ); ?>
+		</label><br />
+		<label for="audio">
+			<input type="radio" value="audio" name="demo_style" id="audio">
+			<?php _e( 'Audio Marketplace', 'marketify' ); ?>
+		</label>
+	</p>
+
+	<div class="import-summary" style="display: none;">
+		<p><strong id="import-status"><?php _e( 'Importing...', 'marketify' ); ?></strong></p>
+
+		<p class="import-type import-type-theme-mod">
+			<span class="dashicons dashicons-admin-appearance"></span>&nbsp;
+			<strong class="process-type">Theme Settings:</strong>
+			<span class="process-count">
+				<span id="theme-mod-processed">0</span> / <span id="theme-mod-total">0</span>
+			</span>
+			<span id="theme-mod-spinner" class="spinner"></span>
+		</p>
+		<p class="import-type import-type-nav-menu">
+			<span class="dashicons dashicons-menu"></span>&nbsp;
+			<strong class="process-type">Navigation Menus:</strong>
+			<span class="process-count">
+				<span id="nav-menu-processed">0</span> / <span id="nav-menu-total">0</span>
+			</span>
+			<span id="nav-menu-spinner" class="spinner"></span>
+		</p>
+		<p class="import-type import-type-term">
+			<span class="dashicons dashicons-tag"></span>&nbsp;
+			<strong class="process-type">Terms:</strong>
+			<span class="process-count">
+				<span id="term-processed">0</span> / <span id="term-total">0</span>
+			</span>
+			<span id="term-spinner" class="spinner"></span>
+		</p>
+		<p class="import-type import-type-object">
+			<span class="dashicons dashicons-admin-post"></span>&nbsp;
+			<strong class="process-type">Objects:</strong>
+			<span class="process-count">
+				<span id="object-processed">0</span> / <span id="object-total">0</span>
+			</span>
+			<span id="object-spinner" class="spinner"></span>
+		</p>
+		<p class="import-type import-type-nav-menu-item">
+			<span class="dashicons dashicons-editor-ul"></span>&nbsp;
+			<strong class="process-type">Menu Items:</strong>
+			<span class="process-count">
+				<span id="nav-menu-item-processed">0</span> / <span id="nav-menu-item-total">0</span>
+			</span>
+			<span id="nav-menu-item-spinner" class="spinner"></span>
+		</p>
+		<p class="import-type import-type-widget">
+			<span class="dashicons dashicons-welcome-widgets-menus"></span>&nbsp;
+			<strong class="process-type">Widgets:</strong>
+			<span class="process-count">
+				<span id="widget-processed">0</span> / <span id="widget-total">0</span>
+			</span>
+			<span id="widget-spinner" class="spinner"></span>
 		</p>
 	</div>
+
+	<div class="plugins-to-import">
+		<p><?php _e( 'Marketify can import content for recommend plugins, but only if they are active. Please review the list of plugins below and activate any plugins you would like the content imported for.', 'marketify' ); ?></p>
+
+		<ul>
+		<?php foreach ( Marketify_Setup::get_importable_plugins() as $key => $plugin ) : ?>
+		<li>
+			<?php if ( $plugin[ 'condition' ] ) : ?>
+				<span class="active"><span class="dashicons dashicons-yes"></span></span>
+			<?php else : ?>
+				<span class="inactive"><span class="dashicons dashicons-no"></span></span>
+			<?php endif; ?>
+			<?php echo esc_attr( $plugin[ 'label' ] ); ?>
+		</li>
+		<?php endforeach; ?>
+		</ul>
 	</div>
 
-	<p><strong><?php _e( 'Import Summary', 'marketify' ); ?>:</strong></p>
-
-	<ul class="import-list" style="list-style: none;">
-
-		<?php foreach ( $to_import as $import_key => $import ) : ?>
-		<li>
-			<label for="<?php echo esc_attr( $import_key ); ?>">
-				<input 
-					type="checkbox" 
-					name="to_import" 
-					id="<?php echo esc_attr( $import_key ); ?>"
-					value="<?php echo esc_attr( $import_key ); ?>" 
-					data-files="<?php echo implode( ',', $import[ 'files' ] ); ?>" 
-					<?php checked( false, Astoundify_Importer_Manager::has_previously_imported( $import_key ) ); ?> 
-				/>
-				<?php echo esc_attr( $import[ 'label' ] ); ?>
-
-				<?php if ( Astoundify_Importer_Manager::has_previously_imported( $import_key ) ) : ?>
-					&nbsp;<em class="previously-imported"><small><?php _e( 'Previously Imported' ); ?></small></em>
-				<?php endif; ?>
-
-				<div class="spinner"></div>
-			</label>
-
-			<?php if ( 'plugins' == $import_key ) : ?>
-				<div class="plugins-to-import">
-					<p><?php _e( 'Please review your active plugins before importing content. Only active plugins can have content imported.', 'marketify' ); ?></p>
-
-					<ul>
-					<?php foreach ( $import[ 'plugins' ] as $key => $plugin ) : ?>
-					<li>
-						<strong><?php echo esc_attr( $plugin[ 'label' ] ); ?></strong> &mdash; 
-						<?php if ( $plugin[ 'condition' ] ) : ?>
-							<span class="active"><?php _e( 'Active', 'marketify' ); ?></span>
-						<?php else : ?>
-							<span class="inactive"><?php _e( 'Inactive', 'marketify' ); ?></span>
-						<?php endif; ?>
-					</li>
-					<?php endforeach; ?>
-					</ul>
-				</div>
-				<?php endif; ?>
-			</li>
-		<?php endforeach; ?>
-
-	</ul>
-
-	<?php submit_button( __( 'Import Selected', 'marketify' ), 'primary', 'process', false ); ?>
+	<?php submit_button( __( 'Import Content', 'marketify' ), 'primary', 'import', false ); ?>
 	&nbsp;
-	<?php submit_button( __( 'Reset Selected', 'marketify' ), 'secondary', 'reset', false ); ?>
+	<?php submit_button( __( 'Reset Content', 'marketify' ), 'secondary', 'reset', false ); ?>
 
 </form>
-
-<script>
-	jQuery(document).ready(function($) {
-		$form = $( '#marketify-oneclick-setup' );
-
-		$form.on( 'submit', function(e) {
-			return false;
-		});
-
-		$( '.plugins-to-import' ).toggle( $( 'input[value=plugins]' ).is( ':checked' ) );
-
-		$( 'input[value=plugins]' ).on( 'change', function(e) {
-			var checked = $(this).attr( 'checked' );
-
-			$( '.plugins-to-import' ).toggle( 'checked' == checked );
-		});
-
-		$form.find( 'input[type=submit]' ).on( 'click', function(e) {
-			e.preventDefault();
-
-			var $button = $(this);
-
-			// what process action are we taking?
-			var process_action = $button.attr( 'name' );
-
-			// set some basic args
-			var args = {
-				action: 'marketify_oneclick_setup',
-				process_action: process_action,
-				security: '<?php echo wp_create_nonce( 'marketify-oneclick-setup' ); ?>'
-			};
-
-			// find the items to perform the action on 
-			var $to_process = $form.find( 'input[name=to_import]:checked' );
-
-			var dfd = $.Deferred().resolve();
-
-			// style to use
-			var style = $( 'input[name=demo_style]:checked' ).val();
-
-			// loop through each selected item
-			$.each( $to_process, function(key, item) {
-				// wait until the previous item is completed
-				dfd = dfd.then(function() {
-					$(item).attr( 'disabled', 'disabled' );
-
-					// waiting
-					var $spinner = $(item).siblings( '.spinner' )
-					$spinner.addClass( 'is-active' );
-
-					// files to process
-					var files = $(item).data( 'files' );
-					files = files.split( ',' );
-
-					// import_key of current item
-					var import_key = $(item).val();
-
-					// label for manip
-					var $label = $(item).parent( 'label' );
-
-					// add our current data
-					args.files = files;
-					args.import_key = import_key;
-					args.style = style;
-
-					return $.ajax({
-						type: 'POST',
-						url: ajaxurl, 
-						data: args, 
-						dataType: 'json',
-						success: function(response) {
-							$spinner.removeClass( 'is-active' );
-							$(item).attr( 'disabled', false );
-
-							if ( 'process' == process_action ) {
-								if ( response.success ) {
-									$(item).attr( 'checked', false );
-									$label.addClass( 'previously-imported' );
-								} else {
-									$label.addClass( 'failed' );
-								}
-							} else {
-								if ( response.success ) {
-									$(item).attr( 'checked', false );
-									$label.removeClass( 'previously-imported' );
-									$label.children( '.previously-imported' ).hide();
-								} else {
-									$label.addClass( 'failed' );
-								}
-							}
-						},
-						error: function(response) {
-							$spinner.removeClass( 'is-active' );
-							$(item).attr( 'disabled', false );
-						}
-					});
-				});
-			});
-		});
-	});
-</script>
 
 <style>
 #marketify-oneclick-setup .spinner {
     float: none;
     display: inline-block;
-    margin-top: -2px;
+    margin-top: -5px;
     vertical-align: middle;
 }
 

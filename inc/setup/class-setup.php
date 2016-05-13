@@ -32,7 +32,7 @@ class Marketify_Setup {
 
 	public static function includes() {
 		include_once( dirname( __FILE__ ) . '/_setup-guide/class-astoundify-setup-guide.php' );
-		include_once( dirname( __FILE__ ) . '/_importer/class-astoundify-content-importer.php' );
+		include_once( dirname( __FILE__ ) . '/_importer/ContentImporter.php' );
 		include_once( dirname( __FILE__ ) . '/_updater/class-astoundify-themeforest-updater.php' );
 		include_once( dirname( __FILE__ ) . '/_child_theme/use-child-theme.php' );
 	}
@@ -112,7 +112,7 @@ class Marketify_Setup {
 ?>
 <p class="about-text"><?php printf( __( 'Creating a digital marketplace has never been easier with Marketify&mdash;Use the steps below to start setting up your new website. If you have more questions please <a href="%s">review the documentation</a>.', 'marketify' ), 'http://marketify.astoundify.com' ); ?></p>
 
-<div class="setup-guide-theme-badge"><img src="<?php echo get_template_directory_uri(); ?>/inc/setup/images/banner.jpg" width="140" alt="" /></div>
+<div class="setup-guide-theme-badge"><img src="<?php echo get_template_directory_uri(); ?>/inc/setup/assets/images/banner.jpg" width="140" alt="" /></div>
 
  <p class="helpful-links">
 	<a href="http://marketify.astoundify.com" class="button button-primary js-trigger-documentation"><?php _e( 'Search Documentation', 'marketify' ); ?></a>&nbsp;
@@ -210,10 +210,28 @@ class Marketify_Setup {
 	 * @return void
 	 */
 	public static function content_importer() {
-		Astoundify_Content_Importer::instance();
+		Astoundify_ContentImporter::instance();
+
+		add_action( 'astoundify_setup_guide_scripts', array( __CLASS__, '_content_importer_scripts' ) );
 
 		// ajax callback
-		add_action( 'wp_ajax_marketify_oneclick_setup', array( __CLASS__, '_content_importer_import' ) );
+		add_action( 'wp_ajax_astoundify_setup_guide_stage_import', array( __CLASS__, '_content_importer_stage' ) );
+	}
+
+	/**
+	 * Add scripts for importing content
+	 *
+	 * @since 2.7.0
+	 * @return void
+	 */
+	public static function _content_importer_scripts() {
+		wp_enqueue_script( 'astoundify-setup-import-content', get_template_directory_uri() . '/inc/setup/assets/js/import-content.js' , array( 'jquery', 'underscore' ), '', true );
+
+		wp_localize_script( 'astoundify-setup-import-content', 'astoundifySetupGuideImportContent', array(
+			'nonces' => array(
+				'stage' => wp_create_nonce( 'setup-guide-stage-import' )
+			)
+		) );
 	}
 	
 	/**
@@ -223,36 +241,71 @@ class Marketify_Setup {
 	 *
 	 * @return void
 	 */
-	public static function _content_importer_import() {
-		check_ajax_referer( 'marketify-oneclick-setup', 'security' );
+	public static function _content_importer_stage() {
+		check_ajax_referer( 'setup-guide-stage-import', 'security' );
 
 		// the style to use
 		$style = isset( $_POST[ 'style' ] ) ? $_POST[ 'style' ] : false;
 
-		// the files to use
-		$files = isset( $_POST[ 'files' ] ) ? $_POST[ 'files' ] : false;
-
-		// the import key
-		$import_key = isset( $_POST[ 'import_key' ] ) ? esc_attr( $_POST[ 'import_key' ] ) : false;
-
-		// what are we doing
-		$process_action = isset( $_POST[ 'process_action' ] ) ? esc_attr( $_POST[ 'process_action' ] ) : false;
-
-		if ( ! $files || ! $import_key || ! $process_action || ! $style ) {
+		if ( ! $style ) {
 			wp_send_json_error();
 		}
 
-		// update directory path
-		foreach ( $files as $key => $file ) {
-			$files[ $key ] = str_replace( '{style}', $style, $file );
+		// remove any inactive plugins
+		$plugins = self::get_importable_plugins();
+		$files = glob( get_template_directory() . '/inc/setup/import-content/' . $style . '/*.json' );
+
+		foreach ( $files as $key => $path ) {
+			$file = basename( $path );
+
+			if ( false === strpos( $file, 'plugin' ) ) {
+				continue;
+			}
+
+			$file = str_replace( '.json', '', $file );
+			$name = str_replace( 'plugin_', '', $file );
+
+			if ( in_array( $name, array_keys( $plugins ) ) && ! $plugins[ $name ][ 'condition' ] ) {
+				unset( $files[ $key ] );
+			}
 		}
 
-		Astoundify_Importer_Manager::enqueue( $files );
-		$process = Astoundify_Importer_Manager::process( $process_action, $import_key );
+		$importer = Astoundify_ImporterFactory::create( $files );
 
-		return $process ? wp_send_json_success() : wp_send_json_error();
+		if ( ! is_wp_error( $importer ) ) {
+			$importer->stage();
+
+			wp_send_json_success( array(
+				'total' => count( $importer->get_items() ),
+				'groups' => $importer->item_groups,
+				'items' => $importer->get_items(),
+			) );
+		} else {
+			wp_send_json_error();
+		}
 
 		exit();
+	}
+
+	public static function get_importable_plugins() {
+		return array(
+			'easy_digital_downloads' => array(
+				'label' => 'Easy Digital Downloads',
+				'condition' => class_exists( 'Easy_Digital_Downloads' ),
+			),
+			'frontend_submissions' => array(
+				'label' => 'Frontend Submissions',
+				'condition' => class_exists( 'EDD_Front_End_Submissions' ),
+			),
+			'woothemes_features' => array(
+				'label' => 'Features by WooThemes',
+				'condition' => class_exists( 'WooThemes_Features' ),
+			),
+			'woothemes_testimonials' => array(
+				'label' => 'Testimonials by WooThemes',
+				'condition' => class_exists( 'WooThemes_Testimonials' ),
+			)
+		);
 	}
 	
 }
