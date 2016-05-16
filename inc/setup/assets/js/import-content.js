@@ -62,31 +62,36 @@ jQuery(document).ready(function($) {
 			$spinner.addClass( 'is-active' );
 
 			var group = new $.Deferred();
+			var ditem = new $.Deferred().resolve();
 
 			_.each(items, function(item) {
-				args = {
-					action: 'astoundify_importer_iterate_item',
-					iterate_action: iterate_action,
-					item: item
-				}
-
-				var request = $.ajax({
-					type: 'POST',
-					url: ajaxurl,
-					data: args,
-					dataType: 'json',
-					success: function(response) {
-						var processed_count = parseInt( $processed.text() );
-
-						$processed.text( processed_count + 1);
-
-						if ( response.success == false ) {
-							$errors.append( '<li>' + response.data + '</li>' );
-						}
+				ditem = ditem.then(function() {
+					args = {
+						action: 'astoundify_importer_iterate_item',
+						iterate_action: iterate_action,
+						item: item
 					}
-				});
 
-				itemPromises.push(request);
+					var request = $.ajax({
+						type: 'POST',
+						url: ajaxurl,
+						data: args,
+						dataType: 'json',
+						success: function(response) {
+							var processed_count = parseInt( $processed.text() );
+
+							$processed.text( processed_count + 1);
+
+							if ( response.success == false ) {
+								$errors.append( '<li>' + response.data + '</li>' );
+							}
+						}
+					});
+
+					itemPromises.push(request);
+
+					return request;
+				});
 			});
 
 			$.when.apply(null, itemPromises).done(function() {
