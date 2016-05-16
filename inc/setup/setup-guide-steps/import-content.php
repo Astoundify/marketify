@@ -21,7 +21,7 @@
 	</p>
 
 	<div id="import-summary" style="display: none;">
-		<p><strong id="import-status"><?php _e( 'Importing...', 'marketify' ); ?></strong></p>
+		<p><strong id="import-status"><?php _e( 'Summary:', 'marketify' ); ?></strong></p>
 
 		<?php foreach ( Marketify_Setup::$content_importer_strings[ 'type_labels' ] as $key => $labels ) : ?>
 		<p id="import-type-<?php echo esc_attr( $key ); ?>" class="import-type">

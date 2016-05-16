@@ -68,7 +68,7 @@ jQuery(document).ready(function($) {
 					item: item
 				}
 
-				return $.ajax({
+				var request = $.ajax({
 					type: 'POST',
 					url: ajaxurl,
 					data: args,
@@ -87,18 +87,14 @@ jQuery(document).ready(function($) {
 						}
 					}
 				});
+
+				return request;
 			});
 		});
-
-
-		// $.when.apply(null, groupPromises).done(function() {
-		// 	$( '#import-status' ).css( 'color', 'green' ).text( astoundifySetupGuideImportContent.i18n[ iterate_action ].complete );
-		// });
-    //
 	}
 
-		function typeElement( type, element ) {
-			return $( '#' + type + '-' + element );
-		}
+	function typeElement( type, element ) {
+		return $( '#' + type + '-' + element );
+	}
 });
 

@@ -217,9 +217,9 @@ class Marketify_Setup {
 				'setting' => array( __( 'Setting' ), __( 'Settings' ) ),
 				'theme-mod' => array( __( 'Theme Customization' ), __( 'Theme Customizations' ) ),
 				'nav-menu' => array( __( 'Navigation Menu' ), __( 'Navigation Menus' ) ),
-				'nav-menu-item' => array( __( 'Navigation Menu Item' ), __( 'Navigation Menu Items' ) ),
 				'term' => array( __( 'Term' ), __( 'Terms' ) ),
 				'object' => array( __( 'Object' ), __( 'Objects' ) ),
+				'nav-menu-item' => array( __( 'Navigation Menu Item' ), __( 'Navigation Menu Items' ) ),
 				'widget' => array( __( 'Widget' ), __( 'Widgets' ) )
 			),
 			'import' => array(
