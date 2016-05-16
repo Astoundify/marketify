@@ -23,6 +23,7 @@
 		"data": {
 			"post_type": "page",
 			"post_title": "Cart",
+			"post_name": "checkout",
 			"post_content": "[download_checkout]",
 			"comment_status": "closed",
 			"meta": {
@@ -102,7 +103,7 @@
 		"type": "object",
 		"data": {
 			"post_type": "page",
-			"post_title": "Checkout",
+			"post_title": "Register",
 			"post_content": "[edd_register]",
 			"comment_status": "closed",
 			"meta": {
