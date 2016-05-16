@@ -58,5 +58,17 @@
 			"menu-item-object": "download_category",
 			"menu-item-parent-title": "Popular Items"
 		}
+	},
+	{
+		"id": "nav-menu-item-html",
+		"type": "nav-menu-item",
+		"data": {
+			"menu_name": "Primary",
+			"menu-item-type": "taxonomy",
+			"menu-item-object-title": "HTML",
+			"menu-item-title": "HTML",
+			"menu-item-object": "download_category",
+			"menu-item-parent-title": "Popular Items"
+		}
 	}
 ]

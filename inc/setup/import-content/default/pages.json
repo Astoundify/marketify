@@ -1,0 +1,89 @@
+[
+	{
+		"id": "home",
+		"type": "object",
+		"priority": 0,
+		"data": {
+			"post_type": "page",
+			"post_title": "Your Beautiful Handcrafted Marketplace",
+			"post_content": "<a class='button' href='#'>Shop Now</a> <a class='button' href='#'>Start Selling</a>",
+			"featured_image": "https://unsplash.it/1540/800?random&image=180",
+			"comment_status": "closed",
+			"meta": {
+				"_wp_page_template": "page-templates/home.php"
+			},
+			"menus": {
+				"Primary": {
+					"menu-item-title": "Marketify Pages",
+					"menu-item-position": 0
+				}
+			}
+		}
+	},
+	{
+		"id": "blog",
+		"type": "object",
+		"data": {
+			"post_type": "page",
+			"post_title": "Blog",
+			"post_content": "",
+			"featured_image": "https://unsplash.it/1240/600?random&blur",
+			"comment_status": "closed",
+			"menus": {
+				"Primary": {
+					"menu-item-parent-title": "Marketify Pages"
+				}
+			}
+		}
+	},
+	{
+		"id": "page-meet-the-team",
+		"type": "object",
+		"data": {
+			"post_type": "page",
+			"post_title": "Meet the Team",
+			"post_content": "",
+			"comment_status": "closed",
+			"menus": {
+				"Primary": {
+					"menu-item-parent-title": "Marketify Pages"
+				}
+			},
+			"meta": {
+				"_wp_page_template": "page-templates/team.php"
+			}
+		}
+	},
+	{
+		"id": "page-pricing",
+		"type": "object",
+		"data": {
+			"post_type": "page",
+			"post_title": "Pricing",
+			"post_content": "",
+			"comment_status": "closed",
+			"menus": {
+				"Primary": {
+					"menu-item-parent-title": "Marketify Pages"
+				}
+			},
+			"meta": {
+				"_wp_page_template": "page-templates/pricing.php"
+			}
+		}
+	},
+	{
+		"id": "page-tos",
+		"type": "object",
+		"data": {
+			"post_type": "page",
+			"post_title": "Terms of Service",
+			"comment_status": "closed",
+			"menus": {
+				"Primary": {
+					"menu-item-parent-title": "Marketify Pages"
+				}
+			}
+		}
+	}
+]

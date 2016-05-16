@@ -3,14 +3,16 @@
 		"id": "nav-menu-primary",
 		"type": "nav-menu",
 		"data": {
-			"menu_name": "Primary"
+			"name": "Primary",
+			"location": "primary"
 		}
 	},
 	{
 		"id": "nav-menu-social",
 		"type": "nav-menu",
 		"data": {
-			"menu_name": "Social Footer"
+			"name": "Social",
+			"location": "social"
 		}
 	}
 ]
