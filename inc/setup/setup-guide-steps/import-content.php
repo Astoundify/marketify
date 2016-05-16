@@ -5,6 +5,8 @@
 
 <form id="marketify-oneclick-setup" action="" method="">
 
+	<div style="display: none;">
+
 	<p>
 		<strong><?php _e( 'Content Pack:', 'marketify' ); ?></strong>
 	</p>
@@ -19,6 +21,9 @@
 			<?php _e( 'Audio Marketplace', 'marketify' ); ?>
 		</label>
 	</p>
+
+	</div>
+
 
 	<div id="import-summary" style="display: none;">
 		<p><strong id="import-status"><?php _e( 'Summary:', 'marketify' ); ?></strong></p>
