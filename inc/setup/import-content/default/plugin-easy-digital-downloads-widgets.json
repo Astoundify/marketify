@@ -7,12 +7,10 @@
 		"data": {
 			"sidebar": "home-1",
 			"widget": "marketify_widget_featured_popular",
-			"data": {
-				"featured-title": "Featured",
-				"popular-title": "Popular",
-				"number": 8,
-				"speed": 7000
-			}
+			"featured-title": "Featured",
+			"popular-title": "Popular",
+			"number": 8,
+			"speed": 7000
 		}
 	},
 	{
@@ -22,11 +20,9 @@
 		"data": {
 			"sidebar": "home-1",
 			"widget": "marketify_widget_recent_downloads",
-			"data": {
-				"title": "Recent Downloads",
-				"number": 8,
-				"columns": 4
-			}
+			"title": "Recent Downloads",
+			"number": 8,
+			"columns": 4
 		}
 	},
 	{
@@ -36,17 +32,15 @@
 		"data": {
 			"sidebar": "home-1",
 			"widget": "marketify_widget_feature_callout",
-			"data": {
-				"text_align": "center",
-				"background": "cover",
-				"background_position": "center center",
-				"cover_overlay": 1,
-				"text_color": "#ffffff",
-				"background_color": "#ffffff",
-				"title": "Power to the Designer",
-				"image": "https://unsplash.it/740/600",
-				"content": "Most of our authors make this their full-time gig selling digital files on our marketplace, and some just do it as a hobby in their spare time, you can decide what you want to do, but we think you should join our marketplace and start earning those large commission cheques and follow your passion and stop working for the man. Become an author today!<br /><br /><a class='button' href='http://themeforest.net/item/marketplace-wordpress-theme-marketify/6570786?ref=Astoundify'>Become an Author</a>"
-			}
+			"text_align": "center",
+			"background": "cover",
+			"background_position": "center center",
+			"cover_overlay": 1,
+			"text_color": "#ffffff",
+			"background_color": "#ffffff",
+			"title": "Power to the Designer",
+			"image": "https://unsplash.it/740/600",
+			"content": "Most of our authors make this their full-time gig selling digital files on our marketplace, and some just do it as a hobby in their spare time, you can decide what you want to do, but we think you should join our marketplace and start earning those large commission cheques and follow your passion and stop working for the man. Become an author today!<br /><br /><a class='button' href='http://themeforest.net/item/marketplace-wordpress-theme-marketify/6570786?ref=Astoundify'>Become an Author</a>"
 		}
 	},
 	{
@@ -56,9 +50,7 @@
 		"data": {
 			"sidebar": "home-1",
 			"widget": "marketify_widget_price_table",
-			"data": {
-				"title": "Honest Pricing. No Surprises"
-			}
+			"title": "Honest Pricing. No Surprises"
 		}
 	},
 	{
@@ -68,17 +60,15 @@
 		"data": {
 			"sidebar": "home-1",
 			"widget": "marketify_widget_feature_callout",
-			"data": {
-				"text_align": "center",
-				"background": "cover",
-				"background_position": "center center",
-				"cover_overlay": 1,
-				"text_color": "#ffffff",
-				"background_color": "#ffffff",
-				"title": "Start Your Marketplace",
-				"image": "https://unsplash.it/740/600",
-				"content": "This is the time to buy this awesome theme. You would be crazy not to! <br /><br /><a class='button' href='http://themeforest.net/item/marketplace-wordpress-theme-marketify/6570786?ref=Astoundify'>Become an Author</a>"
-			}
+			"text_align": "center",
+			"background": "cover",
+			"background_position": "center center",
+			"cover_overlay": 1,
+			"text_color": "#ffffff",
+			"background_color": "#ffffff",
+			"title": "Start Your Marketplace",
+			"image": "https://unsplash.it/740/600",
+			"content": "This is the time to buy this awesome theme. You would be crazy not to! <br /><br /><a class='button' href='http://themeforest.net/item/marketplace-wordpress-theme-marketify/6570786?ref=Astoundify'>Become an Author</a>"
 		}
 	},
 
@@ -89,9 +79,7 @@
 		"data": {
 			"sidebar": "sidebar-download",
 			"widget": "search",
-			"data": {
-				"title": ""
-			}
+			"title": ""
 		}
 	},
 	{
@@ -101,9 +89,7 @@
 		"data": {
 			"sidebar": "sidebar-download",
 			"widget": "marketify_widget_download_archive_sorting",
-			"data": {
-				"title": ""
-			}
+			"title": ""
 		}
 	},
 	{
@@ -113,9 +99,7 @@
 		"data": {
 			"sidebar": "sidebar-download",
 			"widget": "edd_categories_tags_widget",
-			"data": {
-				"title": ""
-			}
+			"title": ""
 		}
 	},
 
@@ -126,9 +110,7 @@
 		"data": {
 			"sidebar": "sidebar-download-single",
 			"widget": "marketify_widget_download_details",
-			"data": {
-				"title": "Product Details"
-			}
+			"title": "Product Details"
 		}
 	}
 

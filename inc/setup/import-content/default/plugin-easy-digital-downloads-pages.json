@@ -20,6 +20,7 @@
 	{
 		"id": "purchase",
 		"type": "object",
+		"priority": 30,
 		"data": {
 			"post_type": "page",
 			"post_title": "Cart",
@@ -39,6 +40,7 @@
 	{
 		"id": "success",
 		"type": "object",
+		"priority": 40,
 		"data": {
 			"post_type": "page",
 			"post_title": "Purchase Confirmation",
