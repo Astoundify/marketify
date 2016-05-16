@@ -266,6 +266,10 @@ class Marketify_Setup {
 	public static function _content_importer_stage() {
 		check_ajax_referer( 'setup-guide-stage-import', 'security' );
 
+		if ( ! current_user_can( 'import' ) ) {
+			wp_send_json_error( 'You do not have permission to import.' );
+		}
+
 		// the style to use
 		$style = isset( $_POST[ 'style' ] ) ? $_POST[ 'style' ] : false;
 

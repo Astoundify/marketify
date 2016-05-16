@@ -22,7 +22,7 @@
 		"type": "object",
 		"data": {
 			"post_type": "page",
-			"post_title": "Checkout",
+			"post_title": "Cart",
 			"post_content": "[download_checkout]",
 			"comment_status": "closed",
 			"meta": {

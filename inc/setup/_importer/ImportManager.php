@@ -7,35 +7,7 @@
 class Astoundify_ImportManager {
 
 	public static function init() {
-		add_action( 'wp_ajax_astoundify_importer_stage', array( __CLASS__, 'ajax_stage_import' ) );
 		add_action( 'wp_ajax_astoundify_importer_iterate_item', array( __CLASS__, 'ajax_iterate_item' ) );
-	}
-
-	/**
-	 * AJAX Stage an import from a group of files.
-	 *
-	 * Sort and group import items and provide relevant information that
-	 * can be used to construct a UI.
-	 *
-	 * @since 1.0.0
-	 * @return void
-	 */
-	public static function ajax_stage_import() {
-		$files = array_map( 'esc_url', $_POST[ 'files' ] );
-
-		$importer = Astoundify_ImporterFactory::create( $files );
-
-		if ( ! is_wp_error( $importer ) ) {
-			$importer->stage();
-
-			wp_send_json_success( array(
-				'total' => count( $importer->get_items() ),
-				'groups' => $importer->item_groups,
-				'items' => $importer->get_items(),
-			) );
-		} else {
-			wp_send_json_error();
-		}
 	}
 
 	/**
