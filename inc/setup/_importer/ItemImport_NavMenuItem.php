@@ -60,22 +60,12 @@ class Astoundify_ItemImport_NavMenuItem extends Astoundify_AbstractItemImport im
 	/**
 	 * Reset a single object
 	 *
-	 * @return object|WP_Error Object containing post data on success, WP_Error object on failure.
+	 * Navigation menus are always reset first and will delete all menu items.
+	 *
+	 * @return true
 	 */
 	public function reset() {
-		$menu_item = $this->get_previous_import();
-
-		if ( ! $menu_item ) {
-			return $this->get_not_found_error();
-		}
-
-		$result = wp_delete_post( $menu_item->ID );
-
-		if ( ! $result ) {
-			return $this->get_default_error();
-		}
-
-		return $result;
+		return true;
 	}
 
 	/**

@@ -14,14 +14,42 @@ class Astoundify_ItemImport_NavMenu extends Astoundify_AbstractItemImport implem
 	}
 
 	/**
+	 * Add any pre/post actions to processing.
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function setup_actions() {
+		// set location
+		add_action( 
+			'astoundify_import_content_after_import_item_type_nav-menu',
+			array( $this, 'set_menu_location' ) 
+		);
+	}
+
+	/**
 	 * Get the name of the menu to deal with
 	 *
 	 * @since 1.0.0
 	 * @return bool|string The menu name if set, or false.
 	 */
 	private function get_menu_name() {
-		if ( isset( $this->item[ 'data' ][ 'menu_name' ] ) ) {
-			return esc_attr( $this->item[ 'data' ][ 'menu_name' ] );
+		if ( isset( $this->item[ 'data' ][ 'name' ] ) ) {
+			return esc_attr( $this->item[ 'data' ][ 'name' ] );
+		}
+
+		return false;
+	}
+
+	/**
+	 * Get the location the menu is assigned to
+	 *
+	 * @since 1.0.0
+	 * @return bool|string The menu name if set, or false.
+	 */
+	private function get_menu_location() {
+		if ( isset( $this->item[ 'data' ][ 'location' ] ) ) {
+			return esc_attr( $this->item[ 'data' ][ 'location' ] );
 		}
 
 		return false;
@@ -90,6 +118,41 @@ class Astoundify_ItemImport_NavMenu extends Astoundify_AbstractItemImport implem
 		$menu = wp_get_nav_menu_object( $this->get_menu_name() );
 
 		return $menu;
+	}
+
+	/**
+	 * Set the location of the created menu.
+	 *
+	 * @since 1.0.0
+	 * @return true|WP_Error True if the location was set
+	 */
+	public function set_menu_location() {
+		$error = new WP_Error( 
+			'set-menu-location', 
+			sprintf( 'Menu location %s was not set.', $this->get_id() )
+		);
+
+		// only work with a valid processed object
+		$menu = $this->get_processed_item();
+
+		if ( is_wp_error( $menu ) ) {
+			return $error;
+		}
+
+		if ( false == ( $menu_location = $this->get_menu_location() ) ) {
+			return $error;
+		}
+	
+		$locations = get_theme_mod( 'nav_menu_locations' );
+		$locations[ $menu_location ] = $menu->term_id;
+
+		set_theme_mod( 'nav_menu_locations', $locations );
+
+		if ( has_nav_menu( $menu_location ) ) {
+			return true;
+		}
+
+		return $error;
 	}
 
 }

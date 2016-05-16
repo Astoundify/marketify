@@ -58,9 +58,9 @@ class Astoundify_ItemImport_Setting extends Astoundify_AbstractItemImport implem
 
 		// handle settings saved in an array
 		// get existing options array and add our new value
-		if ( is_array( $value ) ) {
+		if ( false != ( $index = $this->get_option_index() ) ) {
 			$options = get_option( $this->get_key() );
-			$options[ $this->get_option_index() ] = current( $value );
+			$options[ $index ] = current( $value );
 
 			$value = $options;
 		}
@@ -115,9 +115,9 @@ class Astoundify_ItemImport_Setting extends Astoundify_AbstractItemImport implem
 			return $this->get_default_error();
 		}
 
-		if ( $this->get_option_index() ) {
+		if ( false != ( $index = $this->get_option_index() ) ) {
 			$options = get_option( $this->get_key() );
-			unset( $options[ $this->get_option_index() ] );
+			unset( $options[ $index ] );
 
 			$value = $options;
 
