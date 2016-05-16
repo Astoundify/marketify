@@ -74,10 +74,16 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 			return $this->get_previously_imported_error();
 		}
 
+		$post_name = $this->item[ 'id' ];
+
+		if ( isset( $this->item[ 'data' ][ 'post_name' ] ) ) {
+			$post_name = $this->item[ 'data' ][ 'post_name' ];
+		}
+
 		$defaults = array(
 			'post_type' => 'object' == $this->get_type() ? 'post' : $this->item[ 'data' ][ 'post_type' ],
 			'post_status' => 'publish',
-			'post_name' => $this->item[ 'id' ],
+			'post_name' => $post_name,
 			'post_content' => Astoundify_Utils::get_lipsum_content()
 		);
 
@@ -129,9 +135,15 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 			$this->item[ 'data' ][ 'post_type' ] = 'post';
 		}
 
+		$post_name = $this->item[ 'id' ];
+
+		if ( isset( $this->item[ 'data' ][ 'post_name' ] ) ) {
+			$post_name = $this->item[ 'data' ][ 'post_name' ];
+		}
+
 		$object = $wpdb->get_row( $wpdb->prepare( 
 			"SELECT ID FROM $wpdb->posts WHERE post_name = '%s' AND post_type = '%s'", 
-			$this->get_id(),
+			$post_name,
 			$this->item[ 'data' ][ 'post_type' ]
 		) );
 

@@ -63,10 +63,9 @@ class Astoundify_ItemImport_Widget extends Astoundify_AbstractItemImport impleme
 			return $this->get_default_error();
 		}
 
-		$sidebar_widgets = get_option( 'sidebars_widgets' );
+		$sidebar_widgets = get_option( 'sidebars_widgets', array() );
 
-		$single_widget_instances = get_option( 'widget_' . $widget_id_base, array() );
-		$single_widget_instances = ! empty( $single_widget_instances ) ? $single_widget_instances : array( '_multiwidget' => 1 );
+		$single_widget_instances = get_option( 'widget_' . $widget_id_base, array( '_multiwidget' => 1 ) );
 
 		// save initial data
 		$old_data = $this->item[ 'data' ];
@@ -96,9 +95,10 @@ class Astoundify_ItemImport_Widget extends Astoundify_AbstractItemImport impleme
 			$single_widget_instances['_multiwidget'] = $multiwidget;
 		}
 
-		// Update option with new widget
+		// Update the widget_{x} option that contains settings for each intance
 		update_option( 'widget_' . $widget_id_base, $single_widget_instances );
 
+		// Update the option that contains an index of each widget for each sidebar
 		$sidebars_widgets = get_option( 'sidebars_widgets', array() );
 		$new_instance_id = $widget_id_base . '-' . $new_instance_id_number;
 		$sidebars_widgets[ $sidebar_id ][] = $new_instance_id;

@@ -27,9 +27,10 @@ jQuery(document).ready(function($) {
 					$( '#import-summary' ).show();
 
 					groups = response.data.groups;
+					items = response.data.items;
 					
 					stageImport( groups );
-					runImport( groups, $button.attr( 'name' ) );
+					runImport( items, $button.attr( 'name' ) );
 				} else {
 					console.log( 'Unable to stage files.' );
 				}
@@ -44,68 +45,60 @@ jQuery(document).ready(function($) {
 			if ( 0 == total ) {
 				$( '#import-type-' + type ).hide();
 			} else {
-				$( '#' + type + '-total' ).text( total );
+				typeElement( type, 'spinner' ).addClass( 'is-active' );
+				typeElement( type, 'processed' ).text(0);
+				typeElement( type, 'total' ).text(total);
 			}
 		});
 	}
 
-	function runImport( groups, iterate_action ) {
+	function runImport( items, iterate_action ) {
 		var $errors = $( '#import-errors' ).html( '' );
-		var groupPromises = [];
+		var dfd = $.Deferred().resolve();
 
-		_.each(groups, function(items, type) {
-			var itemPromises = [];
-			var $spinner = $( '#' + type + '-spinner' );
-			var $processed = $( '#' + type + '-processed' );
+		_.each(items, function(item) {
+			dfd = dfd.then(function() {
+				var type = item.type;
+				var $processed = typeElement( type, 'processed' );
+				var $total = typeElement( type, 'total' );
 
-			$processed.text(0);
-			$spinner.addClass( 'is-active' );
+				args = {
+					action: 'astoundify_importer_iterate_item',
+					iterate_action: iterate_action,
+					item: item
+				}
 
-			var group = new $.Deferred();
-			var ditem = new $.Deferred().resolve();
+				return $.ajax({
+					type: 'POST',
+					url: ajaxurl,
+					data: args,
+					dataType: 'json',
+					success: function(response) {
+						var processed_count = parseInt( $processed.text() );
 
-			_.each(items, function(item) {
-				ditem = ditem.then(function() {
-					args = {
-						action: 'astoundify_importer_iterate_item',
-						iterate_action: iterate_action,
-						item: item
-					}
+						$processed.text( processed_count + 1);
 
-					var request = $.ajax({
-						type: 'POST',
-						url: ajaxurl,
-						data: args,
-						dataType: 'json',
-						success: function(response) {
-							var processed_count = parseInt( $processed.text() );
-
-							$processed.text( processed_count + 1);
-
-							if ( response.success == false ) {
-								$errors.append( '<li>' + response.data + '</li>' );
-							}
+						if ( response.success == false ) {
+							$errors.append( '<li>' + response.data + '</li>' );
 						}
-					});
 
-					itemPromises.push(request);
-
-					return request;
+						if ( $processed.text() == $total.text() ) {
+							typeElement( type, 'spinner' ).removeClass( 'is-active' );
+						}
+					}
 				});
 			});
-
-			$.when.apply(null, itemPromises).done(function() {
-				$spinner.removeClass( 'is-active' );
-				group.resolve();
-			});
-
-			groupPromises.push(group);
 		});
 
-		$.when.apply(null, groupPromises).done(function() {
-			$( '#import-status' ).css( 'color', 'green' ).text( astoundifySetupGuideImportContent.i18n[ iterate_action ].complete );
-		});
 
+		// $.when.apply(null, groupPromises).done(function() {
+		// 	$( '#import-status' ).css( 'color', 'green' ).text( astoundifySetupGuideImportContent.i18n[ iterate_action ].complete );
+		// });
+    //
 	}
+
+		function typeElement( type, element ) {
+			return $( '#' + type + '-' + element );
+		}
 });
 
