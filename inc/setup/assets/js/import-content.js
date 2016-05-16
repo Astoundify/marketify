@@ -39,7 +39,13 @@ jQuery(document).ready(function($) {
 
 	function stageImport( groups ) {
 		_.each( groups, function(items, type) {
-			$( '#' + type + '-total' ).text( items.length );
+			var total = items.length;
+
+			if ( 0 == total ) {
+				$( '#import-type-' + type ).hide();
+			} else {
+				$( '#' + type + '-total' ).text( total );
+			}
 		});
 	}
 

@@ -24,7 +24,7 @@
 		<p><strong id="import-status"><?php _e( 'Importing...', 'marketify' ); ?></strong></p>
 
 		<?php foreach ( Marketify_Setup::$content_importer_strings[ 'type_labels' ] as $key => $labels ) : ?>
-		<p class="import-type import-type-<?php echo esc_attr( $key ); ?>">
+		<p id="import-type-<?php echo esc_attr( $key ); ?>" class="import-type">
 			<span class="dashicons import-type-<?php echo esc_attr( $key ); ?>"></span>&nbsp;
 			<strong class="process-type"><?php echo esc_attr( $labels[1] ); ?>:</strong>
 			<span class="process-count">
