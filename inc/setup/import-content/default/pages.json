@@ -7,7 +7,7 @@
 			"post_type": "page",
 			"post_title": "Your Beautiful Handcrafted Marketplace",
 			"post_content": "<a class='button' href='#'>Shop Now</a> <a class='button' href='#'>Start Selling</a>",
-			"featured_image": "https://unsplash.it/1540/800?random&image=180",
+			"featured_image": "https://unsplash.it/1540/800?image=180",
 			"comment_status": "closed",
 			"meta": {
 				"_wp_page_template": "page-templates/home.php"
