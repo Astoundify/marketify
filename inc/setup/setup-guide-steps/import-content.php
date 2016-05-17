@@ -45,7 +45,7 @@
 	<ul id="import-errors"></ul>
 
 	<div id="plugins-to-import">
-		<p><?php _e( 'Marketify can import content for recommend plugins, but only if they are active. Please review the list of plugins below and activate any plugins you would like the content imported for.', 'marketify' ); ?></p>
+		<p><?php _e( 'Marketify can import content for recommended plugins, but only if they are active. Please review the list of plugins below and activate any plugins you would like the content imported for.', 'marketify' ); ?></p>
 
 		<ul>
 		<?php foreach ( Marketify_Setup::get_importable_plugins() as $key => $plugin ) : ?>
