@@ -81,6 +81,12 @@ class Astoundify_ContentImporter {
 			),
 			'reset' => array(
 				'complete' => __( 'Reset Complete' )
+			),
+			'errors' => array(
+				'process_action' => __( 'Invalid process action.' ),
+				'process_type' => __( 'Invalid process type.' ),
+				'iterate' => __( 'Iteration process failed.' ),
+				'cap_check_fail' => __( 'You do not have permission to manage content.' )
 			)
 		);
 

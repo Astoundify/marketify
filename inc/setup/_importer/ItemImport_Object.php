@@ -74,16 +74,10 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 			return $this->get_previously_imported_error();
 		}
 
-		$post_name = $this->item[ 'id' ];
-
-		if ( isset( $this->item[ 'data' ][ 'post_name' ] ) ) {
-			$post_name = $this->item[ 'data' ][ 'post_name' ];
-		}
-
 		$defaults = array(
 			'post_type' => 'object' == $this->get_type() ? 'post' : $this->item[ 'data' ][ 'post_type' ],
 			'post_status' => 'publish',
-			'post_name' => $post_name,
+			'post_name' => $this->get_id(),
 			'post_content' => Astoundify_Utils::get_lipsum_content()
 		);
 

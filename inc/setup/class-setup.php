@@ -214,19 +214,25 @@ class Marketify_Setup {
 	public static function content_importer() {
 		self::$content_importer_strings = array(
 			'type_labels' => array(
-				'setting' => array( __( 'Setting' ), __( 'Settings' ) ),
-				'theme-mod' => array( __( 'Theme Customization' ), __( 'Theme Customizations' ) ),
-				'nav-menu' => array( __( 'Navigation Menu' ), __( 'Navigation Menus' ) ),
-				'term' => array( __( 'Term' ), __( 'Terms' ) ),
-				'object' => array( __( 'Object' ), __( 'Objects' ) ),
-				'nav-menu-item' => array( __( 'Navigation Menu Item' ), __( 'Navigation Menu Items' ) ),
-				'widget' => array( __( 'Widget' ), __( 'Widgets' ) )
+				'setting' => array( __( 'Setting', 'marketify' ), __( 'Settings', 'marketify' ) ),
+				'theme-mod' => array( __( 'Theme Customization', 'marketify' ), __( 'Theme Customizations', 'marketify' ) ),
+				'nav-menu' => array( __( 'Navigation Menu', 'marketify' ), __( 'Navigation Menus', 'marketify' ) ),
+				'term' => array( __( 'Term', 'marketify' ), __( 'Terms', 'marketify' ) ),
+				'object' => array( __( 'Object', 'marketify' ), __( 'Objects', 'marketify' ) ),
+				'nav-menu-item' => array( __( 'Navigation Menu Item', 'marketify' ), __( 'Navigation Menu Items', 'marketify' ) ),
+				'widget' => array( __( 'Widget', 'marketify' ), __( 'Widgets', 'marketify' ) )
 			),
 			'import' => array(
-				'complete' => __( 'Import Complete!' ),
+				'complete' => __( 'Import Complete!', 'marketify' ),
 			),
 			'reset' => array(
-				'complete' => __( 'Reset Complete!' )
+				'complete' => __( 'Reset Complete!', 'marketify' )
+			),
+			'errors' => array(
+				'process_action' => __( 'Invalid process action.', 'marketify' ),
+				'process_type' => __( 'Invalid process type.', 'marketify' ),
+				'iterate' => __( 'Iteration process failed.', 'marketify' ),
+				'cap_check_fail' => __( 'You do not have permission to manage content.', 'marketify' )
 			)
 		);
 

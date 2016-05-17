@@ -74,7 +74,7 @@ class Astoundify_ItemImport_Widget extends Astoundify_AbstractItemImport impleme
 		unset( $this->item[ 'data' ][ 'sidebar' ] );
 		unset( $this->item[ 'data' ][ 'widget' ] );
 
-		$single_widget_instances[] = wp_unslash( $this->item[ 'data' ] );
+		$single_widget_instances[] = $this->item[ 'data' ];
 
 		// restore all data
 		$this->item[ 'data' ] = $old_data;

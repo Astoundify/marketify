@@ -17,28 +17,29 @@ class Astoundify_ImportManager {
 	 * @return void
 	 */
 	public static function ajax_iterate_item() {
+		$strings = Astoundify_ContentImporter::get_strings();
+
 		if ( ! current_user_can( 'import' ) ) {
-			wp_send_json_error( 'You do not have permission to import.' );
+			wp_send_json_error( $strings[ 'errors' ][ 'cap_check_fail' ] );
 		}
 
 		$iterate_action = esc_attr( $_POST[ 'iterate_action' ] );
 
 		if ( ! in_array( $iterate_action, array( 'import', 'reset' ) ) ) {
-			wp_send_json_error( 'Invalid operation.' );
+			wp_send_json_error( $strings[ 'errors' ][ 'process_action' ] );
 		}
 
-		$item = $_POST[ 'item' ];
-
+		$item = wp_unslash( $_POST[ 'item' ] );
 		$item = Astoundify_ItemImportFactory::create( $item );
 
 		if ( is_wp_error( $item ) ) {
-			wp_send_json_error( 'Invalid import type.' );
+			wp_send_json_error( $strings[ 'errors' ][ 'process_type' ] );
 		}
 
 		$item = $item->iterate( $iterate_action );
 
 		if ( ! $item ) {
-			wp_send_json_error( 'Item failed to import.' );
+			wp_send_json_error( $strings[ 'errors' ][ 'iterate' ] );
 		}
 
 		if ( ! is_wp_error( $item->get_processed_item() ) ) {

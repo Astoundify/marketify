@@ -138,8 +138,6 @@ class Astoundify_Utils {
 			if ( false !== strpos( $haystack, $query ) ) {
 				return true;
 			}
-
-			return false;
 		}
 	}
 	
