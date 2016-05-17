@@ -186,7 +186,7 @@ class Astoundify_Setup_Guide {
 		add_theme_page( 
 			sprintf( self::get_string( 'page-title' ), self::$current_theme->get( 'Name' ) ), 
 			self::get_string( 'menu-title' ),
-			'edit_themes', 
+			'edit_theme_options', 
 			self::$template . '-setup',
 			array( __CLASS__, 'output_admin_page' ) 
 		);
