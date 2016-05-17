@@ -24,7 +24,7 @@ class Astoundify_Plugin_EasyDigitalDownloads implements Astoundify_PluginInterfa
 	 */
 	public static function setup_actions() {
 		add_action( 
-			'astoundify_import_content_after_impot_item_type_download',
+			'astoundify_import_content_after_import_item_type_object',
 			array( __CLASS__, 'set_download_pricing' ) 
 		);
 		
@@ -52,10 +52,10 @@ class Astoundify_Plugin_EasyDigitalDownloads implements Astoundify_PluginInterfa
 	 * @since 1.0.0
 	 * @return true|WP_Error True if the format can be set.
 	 */
-	public function add_pricing( $ItemImport ) {
+	public static function set_download_pricing( $ItemImport ) {
 		$error = new WP_Error( 
 			'set-pricing', 
-			sprintf( 'Pricing for %s was not set', $this->get_id() )
+			sprintf( 'Pricing for %s was not set', $ItemImport->get_id() )
 		);
 
 		// only work with a valid processed object
@@ -67,8 +67,6 @@ class Astoundify_Plugin_EasyDigitalDownloads implements Astoundify_PluginInterfa
 
 		$download_id = $object->ID;
 		$item_data = $ItemImport->item[ 'data' ];
-
-		$prices = isset( $item_data[ 'prices' ] ) ? $item_data[ 'prices' ] : false;
 
 		// single price
 		if ( isset( $item_data[ 'price' ] ) ) {

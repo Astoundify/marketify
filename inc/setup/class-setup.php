@@ -182,11 +182,6 @@ class Marketify_Setup {
 		check_ajax_referer( 'marketify-add-token', 'security' );
 
 		$token = isset( $_POST[ 'token' ] ) ? esc_attr( $_POST[ 'token' ] ) : false;
-
-		if ( ! $token ) {
-			wp_send_json_error();
-		}
-
 		$api = Astoundify_Envato_Market_API::instance();
 
 		update_option( 'marketify_themeforest_updater_token', $token );
@@ -275,8 +270,6 @@ class Marketify_Setup {
 		if ( ! current_user_can( 'import' ) ) {
 			wp_send_json_error( __( 'You do not have permission to import content.', 'marketify' ) );
 		}
-
-		add_option( 'marketify_content_imported', true );
 
 		// the style to use
 		$style = isset( $_POST[ 'style' ] ) ? $_POST[ 'style' ] : false;

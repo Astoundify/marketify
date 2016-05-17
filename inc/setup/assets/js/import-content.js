@@ -55,6 +55,9 @@ jQuery(document).ready(function($) {
 	function runImport( items, iterate_action ) {
 		var $errors = $( '#import-errors' ).html( '' );
 		var dfd = $.Deferred().resolve();
+		var total_processed_count = 0;
+		var total_to_process = items.length;
+		var $stepTitle = $( '#step-status-import-content' );
 
 		_.each(items, function(item) {
 			dfd = dfd.then(function() {
@@ -74,16 +77,32 @@ jQuery(document).ready(function($) {
 					data: args,
 					dataType: 'json',
 					success: function(response) {
-						var processed_count = parseInt( $processed.text() );
+						/**
+						 * These should be hooked in instead
+						 */
 
-						$processed.text( processed_count + 1);
-
+						// log error
 						if ( response.success == false ) {
 							$errors.append( '<li>' + response.data + '</li>' );
 						}
 
+						// update group info
+						var processed_count = parseInt( $processed.text() );
+						$processed.text( processed_count + 1);
+
 						if ( $processed.text() == $total.text() ) {
 							typeElement( type, 'spinner' ).removeClass( 'is-active' );
+						}
+
+						// update action buttons and step title
+						total_processed_count = total_processed_count + 1;
+
+						if ( total_processed_count == total_to_process ) {
+							if ( 'import' == iterate_action ) {
+								$stepTitle.text( $stepTitle.data( 'string-complete' ) ).removeClass( 'step-incomplete' ).addClass( 'step-complete' );
+							} else {
+								$stepTitle.text( $stepTitle.data( 'string-incomplete' ) ).removeClass( 'step-complete' ).addClass( 'step-incomplete' );
+							}
 						}
 					}
 				});

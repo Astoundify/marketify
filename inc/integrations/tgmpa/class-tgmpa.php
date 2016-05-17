@@ -10,13 +10,6 @@ class Marketify_TGMPA {
 
     public function register_plugins() {
         $plugins = array(
-            array( 
-                'name'      => 'Envato WordPress Toolkit',
-                'slug'      => 'envato-wordpress-toolkit',
-                'source'    => 'https://github.com/envato/envato-wordpress-toolkit/archive/master.zip',
-                'external_url' => 'https://github.com/envato/envato-wordpress-toolkit',
-                'required'  => false
-            ),
             array(
                 'name'      => 'Easy Digital Downloads',
                 'slug'      => 'easy-digital-downloads',

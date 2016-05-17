@@ -8,14 +8,18 @@
 /** Create the steps */
 $steps = array();
 
-$steps[ 'child-theme' ] = array(
-	'title' => __( 'Enable Child Theme', 'marketify' ),
-	'completed' => wp_get_theme()->parent()
-);
+if ( ! wp_get_theme()->parent() ) {
+	$steps[ 'child-theme' ] = array(
+		'title' => __( 'Enable Child Theme', 'marketify' ),
+		'completed' => wp_get_theme()->parent()
+	);
+}
+
+$api = Astoundify_Envato_Market_API::instance();
 
 $steps[ 'theme-updater' ] = array(
 	'title' => __( 'Enable Automatic Updates', 'marketify' ),
-	'completed' => get_option( 'marketify_themeforest_updater_token', null )
+	'completed' => $api->can_make_request_with_token()
 );
 
 $steps[ 'install-plugins' ] = array(
@@ -26,7 +30,7 @@ $steps[ 'install-plugins' ] = array(
 if ( current_user_can( 'import' ) ) {
 	$steps[ 'import-content' ] = array(
 		'title' => __( 'Import Content', 'marketify' ),
-		'completed' => get_option( 'marketify_content_imported' )
+		'completed' => get_option( 'page_for_posts' )
 	);
 }
 

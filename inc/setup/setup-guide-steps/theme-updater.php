@@ -15,7 +15,7 @@ $api = Astoundify_Envato_Market_API::instance();
 	<p>
 		<strong><label for="token"><?php _e( 'Personal Token:', 'marketify' ); ?></label></strong><br />
 		<input name="token" value="<?php echo esc_attr( get_option( 'marketify_themeforest_updater_token', false ) ); ?>" name="token" style="width: 80%;" />
-		<?php submit_button( __( 'Save Token', 'marketify' ), 'secondary', 'submit', false ); ?>
+		<?php submit_button( __( 'Save Token', 'marketify' ), 'primary', 'submit', false ); ?>
 		<?php wp_nonce_field( 'marketify-add-token' ); ?>
 	</p>
 	<div class="spinner"></div>
@@ -36,6 +36,7 @@ $api = Astoundify_Envato_Market_API::instance();
 				security: '<?php echo wp_create_nonce( 'marketify-add-token' ); ?>'
 			};
 
+			$stepTitle = $( '#step-status-theme-updater' );
 			$spinner = $( '#theme-updater .spinner' );
 			$spinner.addClass( 'is-active' );
 
@@ -45,22 +46,18 @@ $api = Astoundify_Envato_Market_API::instance();
 				data: args, 
 				dataType: 'json',
 				success: function(response) {
-					if ( response.success ) {
-						$step = $( '#theme-updater .section-title' );
-						$status = $( '#theme-updater .api-connection strong' );
+					$status = $( '#theme-updater .api-connection strong' );
 
-						if ( response.data.can_request ) {
-							$step.removeClass( 'astoundify-setup-red' ).addClass( 'astoundify-setup-green' );
-							$status.removeClass( 'astoundify-setup-red' ).addClass( 'astoundify-setup-green' );
-						} else {
-							$step.removeClass( 'astoundify-setup-green' ).addClass( 'astoundify-setup-red' );
-							$status.removeClass( 'astoundify-setup-green' ).addClass( 'astoundify-setup-red' );
-						}
-
-						$step.text( response.data.request_label );
-						$status.text( response.data.request_label );
-						$spinner.removeClass( 'is-active' );
+					if ( response.data.can_request ) {
+						$stepTitle.text( $stepTitle.data( 'string-complete' ) ).removeClass( 'step-incomplete' ).addClass( 'step-complete' );
+						$status.removeClass( 'astoundify-setup-red' ).addClass( 'astoundify-setup-green' );
+					} else {
+						$stepTitle.text( $stepTitle.data( 'string-incomplete' ) ).removeClass( 'step-complete' ).addClass( 'step-incomplete' );
+						$status.removeClass( 'astoundify-setup-green' ).addClass( 'astoundify-setup-red' );
 					}
+
+					$status.text( response.data.request_label );
+					$spinner.removeClass( 'is-active' );
 				}
 			});
 		});

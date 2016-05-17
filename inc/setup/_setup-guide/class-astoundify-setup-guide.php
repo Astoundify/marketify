@@ -247,11 +247,14 @@ class Astoundify_Setup_Guide {
     public static function step_box( $object, $metabox ) {
         $args = $metabox[ 'args' ];
 
-		if ( $args[ 'completed' ] ) {
-			echo '<div class="step-complete">' . self::get_string( 'step-complete' ) . '</div>';
-		} else {
-			echo '<div class="step-incomplete">' . self::get_string( 'step-incomplete' ) . '</div>';
-		}
+		printf(
+			'<div id="%s" class="%s" data-string-complete="%s" data-string-incomplete="%s">%s</div>',
+			'step-status-' . esc_attr( $args[ 'step' ] ),
+			'step-status step-' . ( $args[ 'completed' ] ? 'complete' : 'incomplete' ),
+			self::get_string( 'step-complete' ),
+			self::get_string( 'step-incomplete' ),
+			$args[ 'completed' ] ? self::get_string( 'step-complete' ) : self::get_string( 'step-incomplete' )
+		);
 
 		$step_file = apply_filters( 
 			self::$template . '_setup_step_' . $args[ 'step' ] . '_file', 

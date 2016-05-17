@@ -66,6 +66,7 @@ if ( ! class_exists( 'Use_Child_Theme' ) && is_admin() ) {
                 $(document).on('click', '.uct-activate', function() {
                     $.post(ajaxurl, { action: 'uct_activate' }, function(response) {
                         $('.uct-notice p').html(response);
+						$(document).trigger( 'uct_activated', response );
                     });
                 });
 
@@ -126,7 +127,7 @@ if ( ! class_exists( 'Use_Child_Theme' ) && is_admin() ) {
                 update_option( 'theme_mods_' . $this->child_slug, $parent_settings );
             }
 
-            wp_die( esc_html__( 'All done!', 'use-child-theme' ) );
+			wp_send_json_success( esc_html__( 'All done!', 'use-child-theme' ) );
         }
 
 
