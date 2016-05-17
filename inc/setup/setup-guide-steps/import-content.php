@@ -26,6 +26,8 @@
 
 
 	<div id="import-summary" style="display: none;">
+		<p><?php _e( 'Please do not navigate away from this page.', 'marketify' ); ?></p>
+
 		<p><strong id="import-status"><?php _e( 'Summary:', 'marketify' ); ?></strong></p>
 
 		<?php foreach ( Marketify_Setup::$content_importer_strings[ 'type_labels' ] as $key => $labels ) : ?>

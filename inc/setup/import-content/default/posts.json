@@ -4,7 +4,120 @@
 		"type": "object",
 		"data": {
 			"post_title": "How to Change Your Life: A User’s Guide",
-			"featured_image": "https://unsplash.it/100/100/?random"
+			"featured_image": "https://unsplash.it/740/600?random",
+			"terms": {
+				"category": [ "code", "learn-to-code" ]
+			}
+		}
+	},
+	{
+		"id": "methods-for-designers",
+		"type": "object",
+		"data": {
+			"post_title": "The 38 Best Methods of Successful Designers",
+			"featured_image": "https://unsplash.it/740/600?random",
+			"terms": {
+				"category": [ "design", "make-a-website" ]
+			}
+		}
+	},
+	{
+		"id": "a-simple-change-in-mindset-changes-everything",
+		"type": "object",
+		"data": {
+			"post_title": "A Simple Change in Mindset Changes Everything",
+			"featured_image": "https://unsplash.it/740/600?random",
+			"terms": {
+				"category": [ "code", "make-a-website" ]
+			}
+		}
+	},
+	{
+		"id": "how-we-scaled-up-social-media",
+		"type": "object",
+		"data": {
+			"post_title": "How We Scaled Up Social Media",
+			"featured_image": "https://unsplash.it/740/600?random",
+			"terms": {
+				"category": [ "business", "featured-articles" ]
+			}
+		}
+	},
+	{
+		"id": "the-habits-of-happiness",
+		"type": "object",
+		"data": {
+			"post_title": "The Habits of Happiness",
+			"featured_image": "https://unsplash.it/740/600?random",
+			"terms": {
+				"category": [ "business", "featured-articles", "learn-to-code", "web-industry" ]
+			}
+		}
+	},
+	{
+		"id": "the-key-habits-of-organization",
+		"type": "object",
+		"data": {
+			"post_title": "The Key Habits of Organization",
+			"featured_image": "https://unsplash.it/740/600?random",
+			"terms": {
+				"category": [ "business", "featured-articles" ]
+			}
+		}
+	},
+	{
+		"id": "creating-your-habit-environment",
+		"type": "object",
+		"data": {
+			"post_title": "Creating Your Habit Environment",
+			"featured_image": "https://unsplash.it/740/600?random",
+			"terms": {
+				"category": [ "code", "business", "featured-articles" ]
+			}
+		}
+	},
+	{
+		"id": "8-creativity-lessons-from-the-pros",
+		"type": "object",
+		"data": {
+			"post_title": "8 Creativity Lessons From The Pros",
+			"featured_image": "https://unsplash.it/740/600?random",
+			"terms": {
+				"category": [ "code", "business", "featured-articles" ]
+			}
+		}
+	},
+	{
+		"id": "when-you-run-out-of-ideas-get-creative",
+		"type": "object",
+		"data": {
+			"post_title": "When You Run Out of Ideas Get Creative",
+			"featured_image": "https://unsplash.it/740/600?random",
+			"terms": {
+				"category": [ "code", "business", "featured-articles" ]
+			}
+		}
+	},
+	{
+		"id": "how-marketify-could-be-more-awesome",
+		"type": "object",
+		"data": {
+			"post_title": "How Marketify Could Be More Awesome",
+			"featured_image": "https://unsplash.it/740/600?random",
+			"terms": {
+				"category": [ "code", "business", "featured-articles" ]
+			}
+		}
+	},
+	{
+		"id": "working-with-remote-teams-tips",
+		"type": "object",
+		"data": {
+			"post_title": "Working With Remote Teams Tips",
+			"featured_image": "https://unsplash.it/740/600?random",
+			"terms": {
+				"category": [ "code", "business", "featured-articles" ]
+			}
 		}
 	}
 ]

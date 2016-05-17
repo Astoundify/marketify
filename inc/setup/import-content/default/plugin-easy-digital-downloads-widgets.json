@@ -1,5 +1,4 @@
 [
-
 	{
 		"id": "widget-featured-popular",
 		"type": "widget",
@@ -46,7 +45,7 @@
 	{
 		"id": "widget-price-table",
 		"type": "widget",
-		"priority": 40,
+		"priority": 50,
 		"data": {
 			"sidebar": "home-1",
 			"widget": "marketify_widget_price_table",
@@ -56,7 +55,7 @@
 	{
 		"id": "widget-feature-callout-2",
 		"type": "widget",
-		"priority": 50,
+		"priority": 80,
 		"data": {
 			"sidebar": "home-1",
 			"widget": "marketify_widget_feature_callout",
@@ -113,5 +112,4 @@
 			"title": "Product Details"
 		}
 	}
-
 ]

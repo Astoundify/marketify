@@ -23,10 +23,12 @@ $steps[ 'install-plugins' ] = array(
 	'completed' => class_exists( 'Easy_Digital_Downloads' )
 );
 
-$steps[ 'import-content' ] = array(
-	'title' => __( 'Import Content', 'marketify' ),
-	'completed' => false
-);
+if ( current_user_can( 'import' ) ) {
+	$steps[ 'import-content' ] = array(
+		'title' => __( 'Import Content', 'marketify' ),
+		'completed' => get_option( 'marketify_content_imported' )
+	);
+}
 
 $steps[ 'customize-theme' ] = array(
 	'title' => __( 'Customize', 'marketify' ),

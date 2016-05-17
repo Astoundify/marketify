@@ -1,0 +1,51 @@
+[
+	{
+		"id": "vendor",
+		"type": "object",
+		"data": {
+			"post_type": "page",
+			"post_title": "Vendor",
+			"post_content": "[vendor]",
+			"comment_status": "closed",
+			"meta": {
+				"_wp_page_template": "page-templates/vendor.php"
+			}
+		}
+	},
+	{
+		"id": "vendor-dashboard",
+		"type": "object",
+		"data": {
+			"post_type": "page",
+			"post_title": "Vendor Dashboard",
+			"post_content": "[fes_vendor_dashboard]",
+			"comment_status": "closed"
+		}
+	},
+	{
+		"id": "vendor-registration",
+		"type": "object",
+		"data": {
+			"post_type": "page",
+			"post_title": "Vendor Registration",
+			"post_content": "[fes_vendor_registration]",
+			"comment_status": "closed"
+		},
+		"meta": {
+			"_wp_page_template": "page-templates/minimal.php"
+		}
+	},
+	{
+		"id": "vendor-login",
+		"type": "object",
+		"data": {
+			"post_type": "page",
+			"post_title": "Vendor Login",
+			"post_content": "[fes_vendor_login]",
+			"comment_status": "closed"
+		},
+		"meta": {
+			"_wp_page_template": "page-templates/minimal.php"
+		}
+	}
+]

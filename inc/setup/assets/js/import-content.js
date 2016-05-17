@@ -32,7 +32,7 @@ jQuery(document).ready(function($) {
 					stageImport( groups );
 					runImport( items, $button.attr( 'name' ) );
 				} else {
-					console.log( 'Unable to stage files.' );
+					$( '#import-errors' ).html( '<li>' + response.data + '</li>' );
 				}
 			}
 		});
