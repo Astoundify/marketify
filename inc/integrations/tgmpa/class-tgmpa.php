@@ -3,7 +3,7 @@
 class Marketify_TGMPA {
 
     public function __construct() {
-        require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
+        require( dirname( __FILE__ ) . '/class-tgm-plugin-activation.php' );
 
         add_action( 'tgmpa_register', array( $this, 'register_plugins' ) );
     }
