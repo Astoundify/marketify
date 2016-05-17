@@ -57,18 +57,8 @@ class Marketify_Activation {
 
     public function redirect() {
         $this->set_version();
-
-		// if the current theme is a child theme find the parent
-		$current_child_theme = wp_get_theme();
-
-		if ( false !== $current_child_theme->parent() ) {
-			$current_theme = wp_get_theme( $current_child_theme->get_template() );
-		} else {
-			$current_theme = wp_get_theme();
-		}
-
-		$template = $current_theme->get_template();
-
+		
+		$template = Marketify_Setup::get_template_name();
         wp_safe_redirect( admin_url( sprintf( 'themes.php?page=%s-setup', $template ) ) );
 
         exit();

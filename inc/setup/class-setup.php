@@ -74,7 +74,7 @@ class Marketify_Setup {
 	 * @return array $screen_ids
 	 */
 	public static function uct_admin_notices_screen_id( $screen_ids ) {
-		return array( 'appearance_page_marketify-setup' );
+		return array( sprintf( 'appearance_page_%s-setup', self::get_template_name() ) );
 	}
 
 	/**
@@ -367,6 +367,21 @@ class Marketify_Setup {
 				'condition' => class_exists( 'WooThemes_Testimonials' ),
 			)
 		);
+	}
+
+	public static function get_template_name() {
+		// if the current theme is a child theme find the parent
+		$current_child_theme = wp_get_theme();
+
+		if ( false !== $current_child_theme->parent() ) {
+			$current_theme = wp_get_theme( $current_child_theme->get_template() );
+		} else {
+			$current_theme = wp_get_theme();
+		}
+
+		$template = $current_theme->get_template();
+
+		return $template;
 	}
 	
 }
