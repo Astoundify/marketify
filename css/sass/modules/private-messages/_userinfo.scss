@@ -1,0 +1,25 @@
+.pms-userinfo {
+	@include clearfix;
+}
+
+.pms-userinfo__avatar {
+	margin: 0;
+	float: left;
+	width: 60px;
+	height: 60px;
+	
+	img {
+		border-radius: 50%;
+	}
+}
+
+.pms-userinfo__author,
+.pms-userinfo__date {
+	margin: 0;
+	margin-left: 75px;
+}
+
+.pms-userinfo__author {
+	padding-top: 7px;
+	font-weight: bold;
+}
