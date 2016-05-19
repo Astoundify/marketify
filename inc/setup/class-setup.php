@@ -60,6 +60,7 @@ class Marketify_Setup {
 	 * @return string $output
 	 */
 	public static function uct_functions_php( $output ) {
+		$output = str_replace( "get_template_directory_uri() . '/style.css'", "get_stylesheet_uri()", $output );
 		$output = str_replace( "'child_enqueue_styles' );", "'child_enqueue_styles', 210 );", $output );
 
 		return $output;
