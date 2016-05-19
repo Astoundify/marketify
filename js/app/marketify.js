@@ -154,7 +154,7 @@ Marketify.App = ( function($) {
 				$( '.fes-form h1' ),
 				$( '.fes-headers' ),
 				$( '.edd_form *:not(span) > legend' ),
-				$( '.apm-section-title' )
+				$( '.pms-section-title' )
 			]
 
 			$.each(shims, function() {
