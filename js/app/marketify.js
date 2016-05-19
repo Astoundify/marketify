@@ -149,7 +149,17 @@ Marketify.App = ( function($) {
       // section title shims
       $( '.edd_form fieldset > span legend' ).unwrap();
 
-			$( '.gform_title, #bbpress-forums #bbp-user-wrapper h2.entry-title, #bbpress-forums fieldset.bbp-form legend, .fes-form h1, .fes-headers, .edd_form *:not(span) > legend' ).wrapInner( '<span></span>' );
+			var shims = [
+				$( '.gform_title' ),
+				$( '.fes-form h1' ),
+				$( '.fes-headers' ),
+				$( '.edd_form *:not(span) > legend' ),
+				$( '.apm-section-title' )
+			]
+
+			$.each(shims, function() {
+				$(this).wrapInner( '<span></span>' );
+			});
 
 			$('body').on('click.eddwlOpenModal', '.edd-add-to-wish-list', function (e) {
 				$( '#edd-wl-modal-label' ).wrapInner( '<span></span>' );
