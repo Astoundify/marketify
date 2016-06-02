@@ -135,7 +135,10 @@ class Marketify_Customizer_Output_Colors {
                 // edd
                 '.page-header .edd-submit.button.edd-add-to-cart:hover',
                 '.page-header .edd-submit.button.edd_go_to_checkout:hover',
+                '.page-header a.edd-submit.button:hover',
                 '.content-grid-download__actions .button:hover',
+                '.content-grid-download__actions .edd-submit:hover',
+                '.content-grid-download__actions a.button.edd-submit:hover',
                 '.content-grid-download__actions .edd-submit.button.edd-add-to-cart:hover',
                 '.content-grid-download__actions .edd-submit.button.edd_go_to_checkout:hover',
 
