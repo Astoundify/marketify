@@ -30,13 +30,15 @@ class Astoundify_JSONImporter extends Astoundify_AbstractImporter implements Ast
 	public function parse_files() {
 		$error = new WP_Error( 'cannot-parse-files', 'Files could not be parsed for import' );
 
-		if ( empty( $this->get_files() ) ) {
+		$files = $this->get_files();
+
+		if ( empty( $files ) ) {
 			return $error;
 		}
 
 		$file_items = false;
 
-		foreach ( $this->get_files() as $file ) {
+		foreach ( $files as $file ) {
 			$parsed_url = parse_url( $file );
 
 			if ( isset( $parsed_url[ 'path' ] ) ) {
