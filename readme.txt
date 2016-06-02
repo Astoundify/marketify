@@ -51,7 +51,7 @@ Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
 
-= 2.7.0 =
+= 2.7.0: June 2, 2016 =
 
 * New: Automatic theme updates via ThemeForest.
 * New: Automatic child theme creation while maintaining customizer settings.
