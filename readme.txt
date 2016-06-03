@@ -2,7 +2,7 @@
 Contributors: Astoundify
 Requires at least: WordPress 4.3
 Tested up to: WordPress 4.4.2
-Version: 2.7.0
+Version: 2.7.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: white, two-columns, one-column, right-sidebar, left-sidebar, fluid-layout, custom-background, custom-header, theme-options, full-width-template, featured-images, flexible-header, custom-menu, translation-ready
@@ -50,6 +50,11 @@ License: MIT
 Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
+
+= 2.7.1: June 3, 2016 = 
+
+* Fix: Update Content Importer drop-in to avoid PHP notices.
+* Fix: Remove Setup Guide images from package.
 
 = 2.7.0: June 2, 2016 =
 
