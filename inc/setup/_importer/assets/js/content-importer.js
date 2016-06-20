@@ -1,4 +1,14 @@
 jQuery(document).ready(function($) {
+	var importRunning = false;
+
+	function beforeUnload() {
+		if ( importRunning ) {
+			return 'Please do not leave while an import is in progress.';
+		}
+	};
+
+	$(window).bind( 'beforeunload', beforeUnload );
+
 	$form = $( '#astoundify-content-importer' );
 
 	$form.on( 'submit', function(e) {
@@ -59,6 +69,8 @@ jQuery(document).ready(function($) {
 		var total_to_process = items.length;
 		var $stepTitle = $( '#step-status-import-content' );
 
+		importRunning = true;
+
 		_.each(items, function(item) {
 			dfd = dfd.then(function() {
 				var type = item.type;
@@ -98,6 +110,8 @@ jQuery(document).ready(function($) {
 						total_processed_count = total_processed_count + 1;
 
 						if ( total_processed_count == total_to_process ) {
+							importRunning = false;
+
 							if ( 'import' == iterate_action ) {
 								$stepTitle.text( $stepTitle.data( 'string-complete' ) ).removeClass( 'step-incomplete' ).addClass( 'step-complete' );
 							} else {
