@@ -3,7 +3,7 @@
  */
 ?>
 
-<form id="marketify-oneclick-setup" action="" method="">
+<form id="astoundify-oneclick-setup" action="" method="">
 
 	<div style="display: none;">
 
@@ -55,7 +55,12 @@
 			<?php else : ?>
 				<span class="inactive"><span class="dashicons dashicons-no"></span></span>
 			<?php endif; ?>
-			<?php echo esc_attr( $plugin[ 'label' ] ); ?>
+
+			<?php echo $plugin[ 'label' ]; ?>
+
+			<?php if ( ! $plugin[ 'condition' ] ) : ?>
+			&mdash; <span class="inactive"><?php _e( 'Demo content for this plugin will not be imported.', 'listify' ); ?></span>
+			<?php endif; ?>
 		</li>
 		<?php endforeach; ?>
 		</ul>

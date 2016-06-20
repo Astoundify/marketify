@@ -213,7 +213,7 @@ class Marketify_Setup {
 				'theme-mod' => array( __( 'Theme Customization', 'marketify' ), __( 'Theme Customizations', 'marketify' ) ),
 				'nav-menu' => array( __( 'Navigation Menu', 'marketify' ), __( 'Navigation Menus', 'marketify' ) ),
 				'term' => array( __( 'Term', 'marketify' ), __( 'Terms', 'marketify' ) ),
-				'object' => array( __( 'Object', 'marketify' ), __( 'Objects', 'marketify' ) ),
+				'object' => array( __( 'Content', 'marketify' ), __( 'Contents', 'marketify' ) ),
 				'nav-menu-item' => array( __( 'Navigation Menu Item', 'marketify' ), __( 'Navigation Menu Items', 'marketify' ) ),
 				'widget' => array( __( 'Widget', 'marketify' ), __( 'Widgets', 'marketify' ) )
 			),
@@ -344,19 +344,19 @@ class Marketify_Setup {
 	public static function get_importable_plugins() {
 		return array(
 			'easy-digital-downloads' => array(
-				'label' => 'Easy Digital Downloads',
+				'label' => '<a href="http://marketify.dev/wp-admin/plugin-install.php?tab=plugin-information&plugin=easy-digital-downloads&TB_iframe=true&width=772&height=642" class="thickbox">Easy Digital Downloads</a>',
 				'condition' => class_exists( 'Easy_Digital_Downloads' ),
 			),
 			'frontend-submissions' => array(
-				'label' => 'Frontend Submissions',
+				'label' => '<a href="https://astoundify.com/go/frontend-submissions/">Frontend Submissions</a>',
 				'condition' => class_exists( 'EDD_Front_End_Submissions' ),
 			),
 			'woothemes-features' => array(
-				'label' => 'Features by WooThemes',
+				'label' => '<a href="http://marketify.dev/wp-admin/plugin-install.php?tab=plugin-information&plugin=features-by-woothemes&TB_iframe=true&width=772&height=642" class="thickbox">Features by WooThemes</a>',
 				'condition' => class_exists( 'WooThemes_Features' ),
 			),
 			'woothemes-testimonials' => array(
-				'label' => 'Testimonials by WooThemes',
+				'label' => '<a href="http://marketify.dev/wp-admin/plugin-install.php?tab=plugin-information&plugin=testimonials-by-woothemes&TB_iframe=true&width=772&height=642" class="thickbox">Testimonials by WooThemes</a>',
 				'condition' => class_exists( 'WooThemes_Testimonials' ),
 			)
 		);

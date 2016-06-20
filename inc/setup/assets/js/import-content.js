@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-	$form = $( '#marketify-oneclick-setup' );
+	$form = $( '#astoundify-oneclick-setup' );
 
 	$form.on( 'submit', function(e) {
 		return false;
