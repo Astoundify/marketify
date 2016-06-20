@@ -44,16 +44,6 @@ class Marketify_TGMPA {
                 'name'      => 'Nav Menu Roles',
                 'slug'      => 'nav-menu-roles',
                 'required'  => false,
-            ),
-            array(
-                'name'      => 'WordPress Importer',
-                'slug'      => 'wordpress-importer',
-                'required'  => false 
-            ),
-            array(
-                'name'      => 'Widget Importer & Exporter',
-                'slug'      => 'widget-importer-exporter',
-                'required'  => false,
             )
         );
 
