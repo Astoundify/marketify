@@ -264,4 +264,17 @@ div[id^="widget-area-page"] .marketify-widget-usage.widgetized { display: none; 
             }
         }
     }
+
+	/**
+     * widget function.
+     * 
+	 * @since 2.8.0
+     * @see WP_Widget
+     * @access public
+     * @param array $args
+     * @param array $instance
+     * @return void
+     */
+     public function widget( $args, $instance ) {}
+
 }
