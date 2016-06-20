@@ -26,6 +26,15 @@ class Astoundify_ContentImporter {
 	public static $strings = array();
 
 	/**
+	 * The URL to where the import is located.
+	 *
+	 * @since 1.1.0
+	 * @access public
+	 * @var string
+	 */
+	public static $url;
+
+	/**
 	 * Main Astoundify_Content_Importer
 	 *
 	 * Ensures only one instance of this class exists in memory at any one time.
@@ -56,6 +65,7 @@ class Astoundify_ContentImporter {
 	 */
 	public static function init() {
 		self::includes();
+		self::setup_actions();
 	}
 
 	/**
@@ -72,7 +82,7 @@ class Astoundify_ContentImporter {
 				'theme-mod' => array( __( 'Theme Customization' ), __( 'Theme Customizations' ) ),
 				'nav-menu' => array( __( 'Navigation Menu' ), __( 'Navigation Menus' ) ),
 				'term' => array( __( 'Term' ), __( 'Terms' ) ),
-				'object' => array( __( 'Object' ), __( 'Objects' ) ),
+				'object' => array( __( 'Content' ), __( 'Contents' ) ),
 				'nav-menu-item' => array( __( 'Navigation Menu Item' ), __( 'Navigation Menu Items' ) ),
 				'widget' => array( __( 'Widget' ), __( 'Widgets' ) )
 			),
@@ -93,6 +103,27 @@ class Astoundify_ContentImporter {
 		$strings = wp_parse_args( $strings, $defaults );
 
 		self::$strings = $strings;
+	}
+
+	/**
+	 * Set the URL
+	 *
+	 * @since 1.1.0
+	 * @param string $url
+	 * @return string $url
+	 */
+	public static function set_url( $url ) {
+		self::$url = $url;
+	}
+
+	/**
+	 * Get the URL
+	 *
+	 * @since 1.1.0
+	 * @return string $url
+	 */
+	public static function get_url() {
+		return self::$url;
 	}
 
 	/**
@@ -145,6 +176,44 @@ class Astoundify_ContentImporter {
 		include_once( dirname( __FILE__ ) . '/Plugin_WooThemesTestimonials.php' );
 		include_once( dirname( __FILE__ ) . '/Plugin_EasyDigitalDownloads.php' );
 		include_once( dirname( __FILE__ ) . '/Plugin_FrontendSubmissions.php' );
+		include_once( dirname( __FILE__ ) . '/Plugin_WooCommerce.php' );
+		include_once( dirname( __FILE__ ) . '/Plugin_WPJobManager.php' );
+		
+		include_once( dirname( __FILE__ ) . '/Theme_Listify.php' );
+	}
+
+	/**
+	 * Hooks/filters
+	 *
+	 * @since 1.1.0
+	 * @return void
+	 */
+	public static function setup_actions() {
+		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'admin_enqueue_scripts' ) );
+	}
+
+	/**
+	 * Enqueue import scripts
+	 *
+	 * @since 1.1.0
+	 * @return void
+	 */
+	public static function admin_enqueue_scripts() {
+		$admin_screen_id = apply_filters( 'astoundify_content_importer_screen', array() );
+		$screen = get_current_screen();
+
+		if ( ! isset( $screen->id ) || ! in_array( $screen->id, (array) $admin_screen_id ) ) {
+			return;
+		}
+
+		wp_enqueue_script( 'astoundify-content-importer', self::get_url() . '/assets/js/content-importer.js' , array( 'jquery', 'underscore' ), '', true );
+
+		wp_localize_script( 'astoundify-content-importer', 'astoundifyContentImporter', array(
+			'nonces' => array(
+				'stage' => wp_create_nonce( 'setup-guide-stage-import' )
+			),
+			'i18n' => self::get_strings()
+		) );
 	}
 
 }

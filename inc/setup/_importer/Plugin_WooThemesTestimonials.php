@@ -44,6 +44,7 @@ class Astoundify_Plugin_WooThemesTestimonials implements Astoundify_PluginInterf
 	 */
 	public static function add_widget_settings( $ItemImport ) {
 		$item_data = $ItemImport->item[ 'data' ];
+
 		$processed = $ItemImport->get_processed_item();
 
 		$widget_settings = get_option( 'widget_' . $item_data[ 'widget' ], array() );

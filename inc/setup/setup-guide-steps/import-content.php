@@ -3,7 +3,7 @@
  */
 ?>
 
-<form id="astoundify-oneclick-setup" action="" method="">
+<form id="astoundify-content-importer" action="" method="">
 
 	<div style="display: none;">
 
@@ -73,7 +73,7 @@
 </form>
 
 <style>
-#marketify-oneclick-setup .spinner {
+#astoundify-content-importer .spinner {
     float: none;
     display: inline-block;
     margin-top: -5px;

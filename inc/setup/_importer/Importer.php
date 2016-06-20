@@ -96,12 +96,14 @@ abstract class Astoundify_AbstractImporter implements Astoundify_SortableInterfa
 	 * @return array A sorted list of items
 	 */
 	public function sort() {
-		if ( empty( $this->get_items() ) ) {
-			return $this->get_items();
+		$items = $this->get_items();
+
+		if ( empty( $items ) ) {
+			return $items;
 		};
 
 		// group by type
-		foreach ( $this->get_items() as $item ) {
+		foreach ( $items as $item ) {
 			$this->item_groups[ $item[ 'type' ] ][] = $item;
 		}
 

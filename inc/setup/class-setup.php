@@ -49,6 +49,7 @@ class Marketify_Setup {
 	public static function child_theme() {
 		add_filter( 'uct_functions_php', array( __CLASS__, 'uct_functions_php' ) );
 		add_filter( 'uct_admin_notices_screen_id', array( __CLASS__, 'uct_admin_notices_screen_id' ) );
+		add_filter( 'astoundify_content_importer_screen', array( __CLASS__, 'uct_admin_notices_screen_id' ) );
 	}
 
 	/**
@@ -213,7 +214,7 @@ class Marketify_Setup {
 				'theme-mod' => array( __( 'Theme Customization', 'marketify' ), __( 'Theme Customizations', 'marketify' ) ),
 				'nav-menu' => array( __( 'Navigation Menu', 'marketify' ), __( 'Navigation Menus', 'marketify' ) ),
 				'term' => array( __( 'Term', 'marketify' ), __( 'Terms', 'marketify' ) ),
-				'object' => array( __( 'Content', 'marketify' ), __( 'Contents', 'marketify' ) ),
+				'object' => array( __( 'Content', 'marketify' ), __( 'Content', 'marketify' ) ),
 				'nav-menu-item' => array( __( 'Navigation Menu Item', 'marketify' ), __( 'Navigation Menu Items', 'marketify' ) ),
 				'widget' => array( __( 'Widget', 'marketify' ), __( 'Widgets', 'marketify' ) )
 			),
@@ -233,35 +234,16 @@ class Marketify_Setup {
 
 		Astoundify_ContentImporter::instance();
 		Astoundify_ContentImporter::set_strings( self::$content_importer_strings );
-
-		add_action( 'astoundify_setup_guide_scripts', array( __CLASS__, '_content_importer_scripts' ) );
+		Astoundify_ContentImporter::set_url( get_template_directory_uri() . '/inc/setup/_importer' );
 
 		// ajax callback
-		add_action( 'wp_ajax_astoundify_setup_guide_stage_import', array( __CLASS__, '_content_importer_stage' ) );
+		add_action( 'wp_ajax_astoundify_content_importer', array( __CLASS__, '_content_importer_stage' ) );
 	}
 
-	/**
-	 * Add scripts for importing content
-	 *
-	 * @since 2.7.0
-	 * @return void
-	 */
-	public static function _content_importer_scripts() {
-		wp_enqueue_script( 'astoundify-setup-import-content', get_template_directory_uri() . '/inc/setup/assets/js/import-content.js' , array( 'jquery', 'underscore' ), '', true );
-
-		wp_localize_script( 'astoundify-setup-import-content', 'astoundifySetupGuideImportContent', array(
-			'nonces' => array(
-				'stage' => wp_create_nonce( 'setup-guide-stage-import' )
-			),
-			'i18n' => self::$content_importer_strings
-		) );
-	}
-	
 	/**
 	 * AJAX response when content is imported in the setup guide.
 	 *
 	 * @since 2.7.0
-	 *
 	 * @return void
 	 */
 	public static function _content_importer_stage() {

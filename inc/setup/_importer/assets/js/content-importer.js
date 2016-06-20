@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-	$form = $( '#astoundify-oneclick-setup' );
+	$form = $( '#astoundify-content-importer' );
 
 	$form.on( 'submit', function(e) {
 		return false;
@@ -11,8 +11,8 @@ jQuery(document).ready(function($) {
 		var $button = $(this);
 
 		var args = {
-			action: 'astoundify_setup_guide_stage_import',
-			security: astoundifySetupGuideImportContent.nonces.stage,
+			action: 'astoundify_content_importer',
+			security: astoundifyContentImporter.nonces.stage,
 			style: $( 'input[name=demo_style]:checked' ).val()
 		};
 
@@ -116,4 +116,3 @@ jQuery(document).ready(function($) {
 		return $( '#' + type + '-' + element );
 	}
 });
-

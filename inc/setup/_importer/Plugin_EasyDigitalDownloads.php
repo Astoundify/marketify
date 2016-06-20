@@ -53,6 +53,13 @@ class Astoundify_Plugin_EasyDigitalDownloads implements Astoundify_PluginInterfa
 	 * @return true|WP_Error True if the format can be set.
 	 */
 	public static function set_download_pricing( $ItemImport ) {
+		$item_data = $ItemImport->item[ 'data' ];
+
+		// do nothing if this is not relevant to the current object type
+		if ( 'download' != $item_data[ 'post_type' ] ) {
+			return false;
+		}
+
 		$error = new WP_Error( 
 			'set-pricing', 
 			sprintf( 'Pricing for %s was not set', $ItemImport->get_id() )
@@ -66,7 +73,6 @@ class Astoundify_Plugin_EasyDigitalDownloads implements Astoundify_PluginInterfa
 		}
 
 		$download_id = $object->ID;
-		$item_data = $ItemImport->item[ 'data' ];
 
 		// single price
 		if ( isset( $item_data[ 'price' ] ) ) {
