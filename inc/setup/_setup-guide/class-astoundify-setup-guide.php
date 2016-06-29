@@ -101,12 +101,15 @@ class Astoundify_Setup_Guide {
 	 * @codeCoverageIgnore
 	 */
 	public static function setup_actions() {
-        add_action( 'admin_menu', array( __CLASS__, 'add_admin_page' ) );
-        add_action( 'admin_menu', array( __CLASS__, 'add_meta_boxes' ) );
-        add_action( 'admin_enqueue_scripts', array( __CLASS__, 'admin_scripts' ) );
+		add_action( 'admin_menu', array( __CLASS__, 'add_admin_page' ) );
+		add_action( 'admin_menu', array( __CLASS__, 'add_meta_boxes' ) );
+		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'admin_scripts' ) );
 
 		// fill in some page defaults
 		add_action( 'astoundify_setup_guide_intro', array( __CLASS__, 'output_page_intro_title' ), 5 );
+
+		// allow the menu item to be hidden
+		add_action( 'admin_init', array( __CLASS__, 'maybe_hide_menu_item' ) );
     }
 
 	/**
@@ -118,8 +121,8 @@ class Astoundify_Setup_Guide {
 	 */
 	public static function set_strings( $strings = array() ) {
 		$defaults = array(
-			'page-title' => 'Setup %s',
-			'menu-title' => 'Setup Guide',
+			'page-title' => 'Setup Guide',
+			'menu-title' => 'Getting Started',
 			'intro-title' => 'Welcome to %s',
 			'step-complete' => 'Completed',
 			'step-incomplete' => 'Not Complete'
@@ -175,6 +178,54 @@ class Astoundify_Setup_Guide {
 	}
 
 	/**
+	 * Get the Setup Guide screen ID
+	 *
+	 * @since 1.1.0
+	 * @return string $screen_id
+	 */
+	public static function get_screen_id() {
+		$screen_id = false;
+
+		if ( get_option( 'astoundify_setup_guide_hidden', false ) ) {
+			$screen_id = 'appearance_page_' . self::$template . '-setup';
+		} else {
+			$screen_id = 'toplevel_page_' . self::$template . '-setup';
+		}
+
+		return $screen_id;
+	}
+
+	/**
+	 * Get the Setup Guide page ID
+	 *
+	 * @since 1.1.0
+	 * @return string $screen_id
+	 */
+	public static function get_page_id() {
+		return self::$template . '-setup';
+	}
+
+	/**
+	 * Get the Setup Guide page URL
+	 *
+	 * @since 1.1.0
+	 * @return string $page_url
+	 */
+	public static function get_page_url() {
+		$page_args = array(
+			'page' => self::get_page_id()
+		);
+
+		if ( get_option( 'astoundify_setup_guide_hidden', false ) ) {
+			$page_base = admin_url( 'themes.php' );
+		} else {
+			$page_base = admin_url( 'admin.php' );
+		}
+
+		return esc_url( add_query_arg( $page_args, $page_base ) );
+	}
+
+	/**
 	 * Add the theme submenu page.
 	 * 
 	 * @since 1.0.0
@@ -183,13 +234,33 @@ class Astoundify_Setup_Guide {
 	 * @codeCoverageIgnore
 	 */
     public static function add_admin_page() {
-		add_theme_page( 
-			sprintf( self::get_string( 'page-title' ), self::$current_theme->get( 'Name' ) ), 
-			self::get_string( 'menu-title' ),
-			'edit_theme_options', 
-			self::$template . '-setup',
-			array( __CLASS__, 'output_admin_page' ) 
-		);
+		if ( ! get_option( 'astoundify_setup_guide_hidden', false ) ) {
+			add_menu_page( 
+				sprintf( self::get_string( 'page-title' ), self::$current_theme->get( 'Name' ) ), 
+				self::get_string( 'menu-title' ),
+				'edit_theme_options', 
+				self::get_page_id(),
+				array( __CLASS__, 'output_admin_page' ),
+				'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHdpZHRoPSI0MDBweCIgaGVpZ2h0PSI0MDBweCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQwMCA0MDA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDojRkZGRkZGO30KPC9zdHlsZT4KPGc+Cgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzk0LjYsMjQ2LjJjLTUuMi00My43LTkuMi04Ny42LTEyLTEzMS41Yy0yLjgtNDQtMjUuOS03MC4yLTY5LjEtNzguOGMtNDMuMy04LjYtODYuMy0xOC4zLTEyOS4xLTI5LjIKCQljLTQyLjgtMTAuOS03NC45LDIuOC05Ni40LDQxLjNjLTIxLjUsMzguNC00NC4xLDc2LjMtNjcuNywxMTMuNWMtMjMuNiwzNy4yLTIwLjQsNzIsOS41LDEwNC4zYzMwLDMyLjMsNTkuMSw2NS40LDg3LjIsOTkuNAoJCWMyOC4yLDMzLjksNjIuMyw0MS43LDEwMi4zLDIzLjJjNDAuMS0xOC41LDgwLjYtMzUuOCwxMjEuNy01Mi4xQzM4MS45LDMxOS45LDM5OS44LDI4OS45LDM5NC42LDI0Ni4yeiBNMTM0LjUsMzc3LjlsLTIuMS0wLjMKCQlMMTcxLjYsMjI3bC03My43LTQuOUwyNjcuNiwyOC4ybDIuMSwwLjNsLTM5LjIsMTUwLjZsNzMuNyw0LjlMMTM0LjUsMzc3Ljl6Ii8+CjwvZz4KPC9zdmc+Cg=='
+			);
+
+			add_submenu_page( 
+				self::get_page_id(),
+				sprintf( self::get_string( 'page-title' ), self::$current_theme->get( 'Name' ) ), 
+				self::get_string( 'sub-menu-title' ),
+				'edit_theme_options', 
+				self::$template . '-setup',
+				array( __CLASS__, 'output_admin_page' )
+			);
+		} else {
+			add_theme_page( 
+				sprintf( self::get_string( 'page-title' ), self::$current_theme->get( 'Name' ) ), 
+				self::get_string( 'sub-menu-title' ),
+				'edit_theme_options', 
+				self::$template . '-setup',
+				array( __CLASS__, 'output_admin_page' ) 
+			);
+		}
     }
 
 	/**
@@ -202,9 +273,9 @@ class Astoundify_Setup_Guide {
     public static function admin_scripts() {
         $screen = get_current_screen();
 
-        if ( 'appearance_page_' . self::$template . '-setup' != $screen->id ) {
-            return;
-        }
+		if ( $screen->id != self::get_screen_id() ) {
+			return;
+		}
 
 		add_thickbox();
         wp_enqueue_style( self::$template . '-setup', self::$args[ 'stylesheet_uri' ] );
@@ -311,5 +382,37 @@ class Astoundify_Setup_Guide {
         echo '<h1>' . sprintf( self::get_string( 'intro-title' ), esc_attr( self::$current_theme->get( 'Name' ) . ' ' . self::$current_theme->get( 'Version' ) ) ) . '</h1>';
 	}
 
+	/**
+	 * Generate a link that allows site admins to supress the Setup Guide menu location
+	 * under the "Appearance" tab.
+	 *
+	 * @since 1.1.0
+	 * @return string $url
+	 */
+	public static function get_hide_menu_item_url() {
+		$url = admin_url( 'admin.php?page=' . self::get_page_id() );
+
+		return esc_url( add_query_arg( array(
+			'hide_menu_item' => 1
+		) ) );
+	}
+
+	/**
+	 * Check if we want to hide the menu item.
+	 *
+	 * @since 1.1.0
+	 * @return void
+	 */
+	public static function maybe_hide_menu_item() {
+		$page = isset( $_GET[ 'page' ] ) && self::get_page_id() == $_GET[ 'page' ];
+		$hide = isset( $_GET[ 'hide_menu_item' ] );
+
+		if ( $page && $hide ) {
+			update_option( 'astoundify_setup_guide_hidden', true );
+
+			wp_safe_redirect( self::get_page_url() );
+			exit();
+		}
+	}
 }
 endif;

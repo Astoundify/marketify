@@ -95,7 +95,8 @@ class Marketify_Setup {
 			'steps_dir' => get_template_directory() . '/inc/setup/setup-guide-steps',
 			'strings' => array(
 				'page-title' => __( 'Setup %s', 'marketify' ),
-				'menu-title' => __( 'Setup Guide', 'marketify' ),
+				'menu-title' => __( 'Getting Started', 'marketify' ),
+				'sub-menu-title' => __( 'Setup Guide', 'marketify' ),
 				'intro-title' => __( 'Welcome to %s', 'marketify' ),
 				'step-complete' => __( 'Completed', 'marketify' ),
 				'step-incomplete' => __( 'Not Complete', 'marketify' )
