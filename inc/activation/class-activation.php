@@ -43,8 +43,6 @@ class Marketify_Activation {
 		// dont let EDD create pages
 		$edd_settings = get_option( 'edd_settings', array() );
 		$edd_settings[ 'purchase_page' ] = 0;
-		$edd_settings[ 'fes-vendor-dashboard-page' ] = 1;
-		$edd_settings[ 'fes-vendor-page' ] = 1;
 
 		update_option( 'edd_settings', $edd_settings );
 
