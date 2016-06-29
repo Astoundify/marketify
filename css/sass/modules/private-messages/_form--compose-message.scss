@@ -1,3 +1,9 @@
-.pms-form--compose-message .wp-editor-container {
-	border: 1px solid #ccc;
+.pm-form--compose-message{
+	.wp-editor-container {
+		border: 1px solid #ccc;
+	}
+
+	input[type=submit] {
+		@extend .button--size-large;
+	}
 }

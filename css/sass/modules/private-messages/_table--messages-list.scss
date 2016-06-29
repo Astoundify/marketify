@@ -1,4 +1,8 @@
-.pms-table--messages-list {
+.pm-table--messages-list {
+	tr:hover td {
+		background-color: rgba(0, 0, 0, .03);
+	}
+
 	td {
 		vertical-align: middle;
 	}

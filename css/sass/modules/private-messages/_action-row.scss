@@ -1,3 +1,7 @@
-.pms-action-row .pms-button {
-	@extend .button--size-small;
+.pm-action-row {
+	@include clearfix;
+
+   	.pm-button {
+		@extend .button--size-small;
+	}
 }
