@@ -54,7 +54,7 @@ class Astoundify_JSONImporter extends Astoundify_AbstractImporter implements Ast
 					return $filesystem_error;
 				}
 
-                global $wp_filesystem;
+				global $wp_filesystem;
 
 				$file = $wp_filesystem->get_contents( $file );
 

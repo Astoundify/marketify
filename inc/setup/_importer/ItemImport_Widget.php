@@ -14,6 +14,19 @@ class Astoundify_ItemImport_Widget extends Astoundify_AbstractItemImport impleme
 	}
 
 	/**
+	 * Add any pre/post actions to processing.
+	 *
+	 * @since 1.1.0
+	 * @return void
+	 */
+	public function setup_actions() {
+		add_action( 
+			'astoundify_import_content_after_import_item_type_widget', 
+			array( $this, 'set_nav_menu' ) 
+		);
+	}
+
+	/**
 	 * Get the widget ID base
 	 *
 	 * @since 1.0.0
@@ -187,6 +200,47 @@ class Astoundify_ItemImport_Widget extends Astoundify_AbstractItemImport impleme
 	 */
 	public function get_previous_import() {
 		return false;
+	}
+
+	/**
+	 * Assign the relevant setting to the widget.
+	 *
+	 * Converts the nav menu name to an ID when using the `nav_menu` widget.
+	 *
+	 * @since 1.1.0
+	 * @param array $args Import item context.
+	 * @return void
+	 */
+	public function set_nav_menu( $ItemImport ) {
+		$item_data = $ItemImport->item[ 'data' ];
+
+		$processed = $ItemImport->get_processed_item();
+
+		$widget_settings = get_option( 'widget_' . $item_data[ 'widget' ], array() );
+
+		if ( empty( $widget_settings ) ) {
+			return false;
+		}
+
+		foreach ( $widget_settings as $key => $single_widget_settings ) {
+			if ( ! is_int( $key ) ) {
+				continue;
+			}
+
+			// We have found the widget
+			if ( $single_widget_settings[ 'title' ] == $item_data[ 'title' ] ) {
+				if ( ! isset( $single_widget_settings[ 'nav_menu' ] ) ) {
+					continue;
+				}
+
+				$menu = wp_get_nav_menu_object( $item_data[ 'nav_menu' ] );
+
+				$single_widget_settings[ 'nav_menu' ] = $menu->term_id;
+				$widget_settings[ $key ] = $single_widget_settings;
+			}
+		}	
+
+		update_option( 'widget_' . $item_data[ 'widget' ], $widget_settings );
 	}
 
 }

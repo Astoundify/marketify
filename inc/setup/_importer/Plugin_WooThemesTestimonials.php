@@ -61,6 +61,11 @@ class Astoundify_Plugin_WooThemesTestimonials implements Astoundify_PluginInterf
 			// We have found the widget
 			if ( $single_widget_settings[ 'title' ] == $item_data[ 'title' ] ) {
 				$category = get_term_by( 'slug', $item_data[ 'category' ], 'testimonial-category' );
+
+				if ( ! isset( $single_widget_settings[ 'category' ] ) ) {
+					continue;
+				}
+
 				$single_widget_settings[ 'category' ] = $category->term_id;
 				$widget_settings[ $key ] = $single_widget_settings;
 			}

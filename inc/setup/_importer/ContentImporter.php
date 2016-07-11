@@ -1,7 +1,23 @@
 <?php
+/**
+ * Import content via JSON files for easier immediate reference and manipulation.
+ *
+ * @since 1.0.0
+ * @package Astoundify_ContentImporter
+ */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; 
+}
+
 if ( ! class_exists( 'Astoundify_ContentImporter' ) ) :
 /**
- * @package Astoundify_Content_Importer
+ * Main ContentImporter Class.
+ *
+ * @class Astoundify_ContentImporter
+ * @since 1.0.0
+ * @version 1.0.0 
  */
 class Astoundify_ContentImporter {
 
@@ -10,7 +26,6 @@ class Astoundify_ContentImporter {
 	 *
 	 * @since 1.0.0
 	 * @access private
-	 *
 	 * @var object
  	 */
 	private static $_instance = null;
@@ -20,7 +35,6 @@ class Astoundify_ContentImporter {
 	 *
 	 * @since 1.0.0
 	 * @access public
-	 *
 	 * @var array
 	 */
 	public static $strings = array();
@@ -35,16 +49,15 @@ class Astoundify_ContentImporter {
 	public static $url;
 
 	/**
-	 * Main Astoundify_Content_Importer
+	 * Static instance of Astoundify_ContentImporter
 	 *
 	 * Ensures only one instance of this class exists in memory at any one time.
 	 *
-	 * @see Astoundify_Content_Importer
+	 * @see Astoundify_ContentImporter
 	 *
 	 * @since 1.0.0
 	 * @static
 	 * @return object The one true Astoundify_Content_Importer
-	 * @codeCoverageIgnore
 	 */
 	public static function instance() {
 		if ( is_null( self::$_instance ) ) {
@@ -56,23 +69,9 @@ class Astoundify_ContentImporter {
 	}
 
 	/**
-	 * Set things up.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return void
-	 * @codeCoverageIgnore
-	 */
-	public static function init() {
-		self::includes();
-		self::setup_actions();
-	}
-
-	/**
 	 * Set the strings to be used inside the other drop in files.
 	 *
 	 * @since 1.0.0
-	 *
 	 * @return self::$strings
 	 */
 	public static function set_strings( $strings = array() ) {
@@ -84,7 +83,8 @@ class Astoundify_ContentImporter {
 				'term' => array( __( 'Term' ), __( 'Terms' ) ),
 				'object' => array( __( 'Content' ), __( 'Contents' ) ),
 				'nav-menu-item' => array( __( 'Navigation Menu Item' ), __( 'Navigation Menu Items' ) ),
-				'widget' => array( __( 'Widget' ), __( 'Widgets' ) )
+				'widget' => array( __( 'Widget' ), __( 'Widgets' ) ),
+				'comment' => array( __( 'Comment' ), __( 'Comments' ) )
 			),
 			'import' => array(
 				'complete' => __( 'Import Complete!' ),
@@ -143,12 +143,22 @@ class Astoundify_ContentImporter {
 	}
 
 	/**
+	 * Include necessary files and hook in to WordPres
+	 *
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public static function init() {
+		self::includes();
+		self::setup_actions();
+	}
+
+	/**
 	 * Include necessary files.
 	 *
 	 * @since 1.0.0
 	 *
 	 * @return void
-	 * @codeCoverageIgnore
 	 */
 	public static function includes() {
 		include_once( dirname( __FILE__ ) . '/SortableInterface.php' );
@@ -168,9 +178,9 @@ class Astoundify_ContentImporter {
 		include_once( dirname( __FILE__ ) . '/ItemImport_NavMenu.php' );
 		include_once( dirname( __FILE__ ) . '/ItemImport_NavMenuItem.php' );
 		include_once( dirname( __FILE__ ) . '/ItemImport_Term.php' );
-		include_once( dirname( __FILE__ ) . '/ItemImport_ThemeMod.php' );
 		include_once( dirname( __FILE__ ) . '/ItemImport_Setting.php' );
 		include_once( dirname( __FILE__ ) . '/ItemImport_Widget.php' );
+		include_once( dirname( __FILE__ ) . '/ItemImport_Comment.php' );
 
 		include_once( dirname( __FILE__ ) . '/PluginInterface.php' );
 		include_once( dirname( __FILE__ ) . '/Plugin_WooThemesTestimonials.php' );
@@ -178,6 +188,7 @@ class Astoundify_ContentImporter {
 		include_once( dirname( __FILE__ ) . '/Plugin_FrontendSubmissions.php' );
 		include_once( dirname( __FILE__ ) . '/Plugin_WooCommerce.php' );
 		include_once( dirname( __FILE__ ) . '/Plugin_WPJobManager.php' );
+		include_once( dirname( __FILE__ ) . '/Plugin_WPJobManagerProducts.php' );
 		
 		include_once( dirname( __FILE__ ) . '/Theme_Listify.php' );
 	}

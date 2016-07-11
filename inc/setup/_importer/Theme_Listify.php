@@ -66,9 +66,17 @@ class Astoundify_Theme_Listify implements Astoundify_PluginInterface {
 		$listing_id = $object->ID;
 
 		if ( isset( $item_data[ 'hours' ] ) ) {
+			$_hours = array();
 			$hours = $item_data[ 'hours' ];
 
-			update_post_meta( $listing_id, '_job_hours', $hours );
+			foreach ( $hours as $day => $times ) {
+				$_hours[ $day ] = array(
+					'start' => $times[0],
+					'end' => $times[1]
+				);
+			}
+
+			update_post_meta( $listing_id, '_job_hours', $_hours );
 		}
 
 		// needs better error checking

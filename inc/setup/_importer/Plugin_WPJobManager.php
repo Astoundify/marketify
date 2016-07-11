@@ -23,10 +23,46 @@ class Astoundify_Plugin_WPJobManager implements Astoundify_PluginInterface {
 	 * @return void
 	 */
 	public static function setup_actions() {
+		$pages = array( 'submit_job_form', 'job_dashboard' );
+
+		foreach ( $pages as $page ) {
+			add_action( 
+				'astoundify_import_content_after_import_item_' . $page, 
+				array( __CLASS__, 'add_page_option' ) 
+			);
+
+			add_action( 
+				'astoundify_import_content_after_reset_item_' . $page, 
+				array( __CLASS__, 'delete_page_option' ) 
+			);
+		}
+
 		add_action( 
 			'astoundify_import_content_after_import_item_type_object',
 			array( __CLASS__, 'set_location' ) 
 		);
+	}
+
+	/**
+	 * Assign the relevant setting.
+	 *
+	 * @since 1.1.0
+	 * @param array $args Import item context.
+	 * @return void
+	 */
+	public static function add_page_option( $ItemImport ) {
+		update_option( "job_manager_{$ItemImport->get_id()}_page_id", $ItemImport->get_processed_item()->ID );
+	}
+
+	/**
+	 * Delete the relevant setting.
+	 *
+	 * @since 1.1.0
+	 * @param array $args Import item context.
+	 * @return void
+	 */
+	public static function delete_page_option( $ItemImport ) {
+		delete_option( "job_manager_{$ItemImport->get_id()}_page_id" );
 	}
 
 	/**
@@ -64,13 +100,17 @@ class Astoundify_Plugin_WPJobManager implements Astoundify_PluginInterface {
 			$location = $item_data[ 'location' ];
 
 			if ( ! is_array( $location ) ) {
+				/**
+				 * @codeCoverageIgnore
+				 */
 				if ( class_exists( 'WP_Job_Manager_Geocode' ) ) {
 					WP_Job_Manager_Geocode::generate_location_data( $listing_id, sanitize_text_field( $location ) );
+
+					update_post_meta( $listing_id, '_job_location', $location );
 				}
-				
-				// fake for the test
-				update_post_meta( $listing_id, 'geolocated', 1 );
 			} else {
+				update_post_meta( $listing_id, '_job_location', $location[ 'address' ] );
+
 				update_post_meta( $listing_id, 'geolocated', 1 );
 				update_post_meta( $listing_id, 'geolocation_city', $location[ 'city' ] );
 				update_post_meta( $listing_id, 'geolocation_country_long', $location[ 'country_long' ] );

@@ -22,12 +22,14 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 	public function setup_actions() {
 		// add extra object components
 		$actions = array( 
+			'set_parent',
 			'set_post_format',
 			'set_featured_image',
 			'set_post_meta',
 			'set_post_terms',
 			'set_post_media',
-			'set_menu_item'
+			'set_menu_item',
+			'add_comments'
 		);
 
 		foreach ( $actions as $action ) {
@@ -74,11 +76,16 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 			return $this->get_previously_imported_error();
 		}
 
+		if ( ! isset( $this->item[ 'data' ][ 'post_content' ] ) ) {
+			$this->item[ 'data' ][ 'post_content' ] = Astoundify_Utils::get_lipsum_content();
+		} else if ( filter_var( $this->item[ 'data' ][ 'post_content' ], FILTER_VALIDATE_URL ) ) {
+			$this->item[ 'data' ][ 'post_content' ] = Astoundify_Utils::get_lipsum_content( $this->item[ 'data' ][ 'post_content' ] );
+		}
+
 		$defaults = array(
 			'post_type' => 'object' == $this->get_type() ? 'post' : $this->item[ 'data' ][ 'post_type' ],
 			'post_status' => 'publish',
-			'post_name' => $this->get_id(),
-			'post_content' => Astoundify_Utils::get_lipsum_content()
+			'post_name' => $this->get_id()
 		);
 
 		$object_atts = wp_parse_args( $this->item[ 'data' ], $defaults );
@@ -212,6 +219,49 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 		}
 
 		return $error;
+	}
+
+	/**
+	 * Set the object's parent
+	 *
+	 * @since 1.1.0
+	 * @return true|WP_Error True if the format can be set.
+	 */
+	public function set_parent() {
+		$error = new WP_Error( 
+			'set-post-parent', 
+			sprintf( 'Parent for %s was not set', $this->get_id() )
+		);
+
+		// only work with a valid processed object
+		$object = $this->get_processed_item();
+
+		if ( is_wp_error( $object ) ) {
+			return $error;
+		}
+
+		$parent = false;
+
+		if ( isset( $this->item[ 'data' ][ 'post_parent' ] ) ) {
+			global $wpdb;
+
+			$parent_name = $this->item[ 'data' ][ 'post_parent' ];
+
+			$parent = $wpdb->get_row( $wpdb->prepare( 
+				"SELECT ID FROM $wpdb->posts WHERE post_name = '%s' AND post_type = '%s'", 
+				$parent_name,
+				$this->item[ 'data' ][ 'post_type' ]
+			) );
+		}
+
+		if ( ! $parent ) {
+			return $error;
+		}
+
+		return wp_update_post( array(
+			'ID' => $object->ID,
+			'post_parent' => $parent->ID
+		), $error );
 	}
 
 	/**
@@ -467,7 +517,10 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 			$args[ 'menu-item-object' ] = $object->post_type;
 			$args[ 'menu-item-object-id' ] = $object->ID;
 			$args[ 'menu-item-type' ] = 'post_type';
-			$args[ 'menu_name' ] = $menu;
+
+			if ( ! is_numeric( $menu ) ) {
+				$args[ 'menu_name' ] = $menu;
+			}
 
 			// mock out a menu item that can be imported
 			$item = array(
@@ -476,10 +529,8 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 				'data' => $args
 			);
 
-			$item = Astoundify_ItemImportFactory::create( $item );
-			$item->set_action( 'import' );
-
-			$passed = $item->iterate();
+			$item = new Astoundify_ItemImport_NavMenuItem( $item );
+			$passed = $item->iterate( 'import' );
 		}
 
 		if ( $passed ) {
@@ -487,6 +538,53 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 		}
 
 		return $error;
+	}
+
+	/**
+	 * Add comments
+	 *
+	 * @since 1.0.0
+	 * @return true|WP_Error True if all meta can be set
+	 */
+	public function add_comments( $ItemImport ) {
+		$item_data = $ItemImport->item[ 'data' ];
+
+		if ( ! isset( $item_data[ 'comments' ] ) ) {
+			return;
+		}
+
+		$error = new WP_Error( 
+			'set-location', 
+			sprintf( 'Location for %s was not set', $ItemImport->get_id() )
+		);
+
+		// only work with a valid processed object
+		$object = $ItemImport->get_processed_item();
+
+		if ( is_wp_error( $object ) ) {
+			return $error;
+		}
+
+		$passed = true;
+		$comments = $item_data[ 'comments' ];
+
+		foreach ( $comments as $key => $comment_data ) {
+			$comment_data = array_merge( array(
+				'comment_post_ID' => $object->ID
+			), $comment_data );
+
+			$item = array(
+				'id' => sprintf( 'comment-%d-%d', $object->ID, $key ),
+				'type' => 'comment',
+				'data' => $comment_data
+			);
+
+			$item = new Astoundify_ItemImport_Comment( $item );
+
+			$passed = ! is_wp_error( $item->iterate( 'import' ) );
+		}
+
+		return $passed;
 	}
 	
 	/**

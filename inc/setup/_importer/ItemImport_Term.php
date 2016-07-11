@@ -30,6 +30,34 @@ class Astoundify_ItemImport_Term extends Astoundify_AbstractItemImport implement
 	}
 
 	/**
+	 * Get the args to change the values of the imported term
+	 *
+	 * @since 1.1.0
+	 * @return array $args
+	 */
+	private function get_args() {
+		$args = array();
+
+		if ( isset( $this->item[ 'data' ][ 'parent' ] ) && $this->get_parent() ) {
+			$args[ 'parent' ] = $this->get_parent()->term_id;
+		}
+
+		return $args;
+	}
+
+	/**
+	 * Get the parent term. Must be imported before
+	 *
+	 * @since 1.1.0
+	 * @return object WP_Term
+	 */
+	private function get_parent() {
+		$parent = get_term_by( 'name', $this->item[ 'data' ][ 'parent' ], $this->get_taxonomy() );
+
+		return $parent;
+	}
+
+	/**
 	 * Import a single item
 	 *
 	 * @since 1.0.0
@@ -46,7 +74,7 @@ class Astoundify_ItemImport_Term extends Astoundify_AbstractItemImport implement
 			return $this->get_default_error();
 		}
 
-		$result = wp_insert_term( $this->item[ 'data' ][ 'name' ], $taxonomy );
+		$result = wp_insert_term( $this->item[ 'data' ][ 'name' ], $taxonomy, $this->get_args() );
 
 		if ( ! is_wp_error( $result ) ) {
 			$result = get_term( $result[ 'term_id' ], $taxonomy );

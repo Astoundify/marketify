@@ -35,13 +35,13 @@ class Astoundify_ItemImportFactory {
 	 */
 	public static function is_valid_type( $item ) {
 		$valid = array( 
-			'theme-mod',
 			'setting',
 			'object', 
 			'nav-menu', 
 			'nav-menu-item', 
 			'term',
-			'widget'
+			'widget',
+			'comment'
 		);
 
 		$type = isset( $item[ 'type' ] ) ? esc_attr( $item[ 'type' ] ) : false;

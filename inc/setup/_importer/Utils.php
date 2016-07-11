@@ -103,8 +103,11 @@ class Astoundify_Utils {
 	 * @since 1.0.0
 	 * @return string
 	 */
-	public static function get_lipsum_content() {
-		$url = 'http://www.randomtext.me/api/gibberish/p-5/5-300';
+	public static function get_lipsum_content( $url = false ) {
+		if ( ! $url ) {
+			$url = 'http://www.randomtext.me/api/gibberish/p-3/100-200';
+		}
+
 		$response = wp_remote_get( esc_url_raw( $url ) );
 		$default = '';
 

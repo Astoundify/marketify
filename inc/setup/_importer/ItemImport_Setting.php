@@ -24,26 +24,6 @@ class Astoundify_ItemImport_Setting extends Astoundify_AbstractItemImport implem
 	}
 
 	/**
-	 * Get the setting array key for settings saved in a single value.
-	 *
-	 * @since 1.0.0
-	 * @return false|string The value string if it exists. False if it does not.
-	 */
-	private function get_option_index() {
-		if ( ! isset( $this->item[ 'data' ] ) ) {
-			return false;
-		}
-
-		$value = $this->item[ 'data' ];
-
-		if ( ! is_array( $value ) ) {
-			return false;
-		}
-
-		return key( $value );
-	}
-
-	/**
 	 * Get the theme mod value
 	 *
 	 * @since 1.0.0
@@ -56,15 +36,10 @@ class Astoundify_ItemImport_Setting extends Astoundify_AbstractItemImport implem
 
 		$value = $this->item[ 'data' ];
 
-		// handle settings saved in an array
-		// get existing options array and add our new value
-		if ( false != ( $index = $this->get_option_index() ) ) {
-			$options = get_option( $this->get_key() );
-			$options[ $index ] = current( $value );
-
-			$value = $options;
-		}
-
+		if ( is_array( $value ) ) {
+			return wp_parse_args( $value, get_option( $this->get_key() ) );
+		} 
+		
 		return $value;
 	}
 
@@ -75,10 +50,6 @@ class Astoundify_ItemImport_Setting extends Astoundify_AbstractItemImport implem
 	 * @return bool True on success
 	 */
 	public function import() {
-		if ( $this->get_previous_import() ) {
-			return $this->get_previously_imported_error();
-		}
-
 		$key = $this->get_key();
 		$value = $this->get_value();
 
@@ -104,24 +75,21 @@ class Astoundify_ItemImport_Setting extends Astoundify_AbstractItemImport implem
 	public function reset() {
 		$option = $this->get_previous_import();
 
-		if ( ! $option ) {
-			return $this->get_not_found_error();
-		}
-
 		$key = $this->get_key();
-		$value = $this->get_value();
+		$value = $this->item[ 'data' ];
 
 		if ( ! $key || ! $value ) {
 			return $this->get_default_error();
 		}
 
-		if ( false != ( $index = $this->get_option_index() ) ) {
-			$options = get_option( $this->get_key() );
-			unset( $options[ $index ] );
+		if ( is_array( $value ) ) {
+			$option = get_option( $this->get_key() );
 
-			$value = $options;
+			foreach ( $this->item[ 'data' ] as $key => $v ) {
+				unset( $option[ $key ] );
+			}
 
-			$result = update_option( $key, $value );
+			$result = update_option( $this->get_key(), $option, $value );
 		} else {
 			$result = delete_option( $key );
 		}
@@ -141,17 +109,7 @@ class Astoundify_ItemImport_Setting extends Astoundify_AbstractItemImport implem
 	 * @return Theme mod if true, or false
 	 */
 	public function get_previous_import() {
-		$option = get_option( $this->get_key() );
-
-		if ( false != ( $index = $this->get_option_index() ) ) {
-			$option = isset( $option[ $index ] ) ? $option[ $index ] : false;
-		}
-
-		if ( ! $option || '' == $option ) {
-			return false;
-		}
-
-		return $option;
+		return get_option( $this->get_key() );
 	}
 
 }

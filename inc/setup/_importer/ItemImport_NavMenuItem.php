@@ -14,6 +14,19 @@ class Astoundify_ItemImport_NavMenuItem extends Astoundify_AbstractItemImport im
 	}
 
 	/**
+	 * Add any pre/post actions to processing.
+	 *
+	 * @since 1.1.0
+	 * @return void
+	 */
+	public function setup_actions() {
+		add_action( 
+			'astoundify_import_content_after_import_item_type_nav-menu-item',
+			array( $this, 'set_nav_menu_role' ) 
+		);
+	}
+
+	/**
 	 * Get the name of the menu to deal with
 	 *
 	 * @since 1.0.0
@@ -137,7 +150,56 @@ class Astoundify_ItemImport_NavMenuItem extends Astoundify_AbstractItemImport im
 			}
 		}
 
+		/**
+		 * To set an endpoint to a URL we need to get the original object ID url and depending on
+		 * the permalink structure create a URL to set to the custom menu item.
+		 */
+		if ( isset( $menu_item_data[ 'menu-item-endpoint' ] ) ) {
+			$menu_item_data[ 'menu-item-type' ] = 'custom';
+
+			$base_url = get_permalink( $menu_item_data[ 'menu-item-object-id' ] );
+
+			if ( get_option( 'permalink_structure' ) ) {
+				$url = trailingslashit( $base_url ) . $menu_item_data[ 'menu-item-endpoint' ];
+			} else {
+				$url = add_query_arg( $menu_item_data[ 'menu-item-endpoint' ], '', $base_url );
+			}
+
+			$menu_item_data[ 'menu-item-url' ] = esc_url_raw( $url );
+		}
+
 		return $menu_item_data;
 	}
 
+	/**
+	 * Set the nav menu display role.
+	 *
+	 * @since 1.1.0
+	 * @return true|WP_Error True if the format can be set.
+	 */
+	public function set_nav_menu_role() {
+		$error = new WP_Error( 
+			'set-menu-role', 
+			sprintf( 'Display role for %s was not set', $this->get_id() )
+		);
+
+		// only work with a valid processed object
+		$object = $this->get_processed_item();
+
+		if ( is_wp_error( $object ) ) {
+			return $error;
+		}
+
+		$role = false;
+
+		if ( isset( $this->item[ 'data' ][ 'menu-item-role' ] ) ) {
+			$role = $this->item[ 'data' ][ 'menu-item-role' ];
+		}
+
+		if ( ! $role || ! in_array( $role, array( 'in', 'out' ) ) ) {
+			return $error;
+		}
+
+		add_post_meta( $object->ID, '_nav_menu_role', $role );
+	}
 }
