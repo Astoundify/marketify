@@ -17,6 +17,7 @@
 #import-errors {
 	max-height: 400px;
 	overflow-y: scroll;
+	display: none;
 }
 
 .dashicons.import-type-setting:before {

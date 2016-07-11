@@ -41,7 +41,7 @@ $steps[ 'customize-theme' ] = array(
 
 $steps[ 'support-us' ] = array(
 	'title' => __( 'Get Involved', 'marketify' ),
-	'completed' => 'na'
+	'completed' => 'n/a'
 );
 
 return $steps;

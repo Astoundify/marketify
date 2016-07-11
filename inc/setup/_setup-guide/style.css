@@ -20,7 +20,7 @@
 .step-incomplete:before {
 	font-size: 25px;
 	font-family: 'dashicons';
-	content: "\f147";
+	content: "\f529";
 	text-align: center;
 	display: inline-block;
 	vertical-align: middle;
@@ -35,9 +35,15 @@
 	color: red;
 }
 
+.step-complete:before {
+	margin-right: 5px;
+	margin-top: -4px;
+}
+
 .step-incomplete:before {
 	content: "\f335";
 	border-color: red;
+	margin-top: -2px;
 }
 
 /** Steps */

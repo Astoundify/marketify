@@ -167,18 +167,18 @@
 	}
 
 	/**
+	 * Alert users before leaving the page
+	 *
+	 * @since 1.0.0
+	 */
+	$window.bind( 'beforeunload', Astoundify_ContentImporter.beforeUnload );
+
+	/**
 	 * Bind actions to DOM
 	 *
 	 * @since 1.0.0
 	 */
 	jQuery(document).ready(function($) {
-
-		/**
-		 * Alert users before leaving the page
-		 *
-		 * @since 1.0.0
-		 */
-		$window.bind( 'beforeunload', Astoundify_ContentImporter.beforeUnload );
 
 		/**
 		 * Prevent the form event.
@@ -222,7 +222,7 @@
 						Astoundify_ContentImporter.stageImport( groups );
 						Astoundify_ContentImporter.runImport( items, $button.attr( 'name' ) );
 					} else {
-						$( '#import-errors' ).html( '<li>' + response.data + '</li>' );
+						$( '#import-errors' ).show().html( '<li>' + response.data + '</li>' );
 					}
 				}
 			});
