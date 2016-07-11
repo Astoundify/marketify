@@ -50,7 +50,8 @@ class Marketify_TGMPA {
         $config = array(
             'id'          => 'tgmpa-marketify-' . get_option( 'marketify_version', '2.0.0' ),
 			'has_notices' => false,
-			'parent_slug' => 'marketify-setup'
+			'parent_slug' => Astoundify_Setup_Guide::get_page_id(),
+			'is_automatic' => true
         );
 
         tgmpa( $plugins, $config );

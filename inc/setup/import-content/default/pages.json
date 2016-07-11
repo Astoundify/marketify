@@ -6,18 +6,19 @@
 		"data": {
 			"post_type": "page",
 			"post_title": "Your Beautiful Handcrafted Marketplace",
-			"post_content": "<a class='button' href='#'>Shop Now</a> <a class='button' href='#'>Start Selling</a>",
+			"post_content": "<a class='button' href='/downloads'>Shop Now</a> <a class='button' href='/vendor-registration'>Start Selling</a>",
 			"featured_image": "https://unsplash.it/1540/800?image=180",
 			"comment_status": "closed",
 			"meta": {
 				"_wp_page_template": "page-templates/home.php"
 			},
-			"menus": {
-				"Primary": {
+			"menus": [
+				{
 					"menu-item-title": "Marketify Pages",
-					"menu-item-position": 0
+					"menu-item-position": 0,
+					"menu_name": "Primary"
 				}
-			}
+			]
 		}
 	},
 	{
@@ -29,11 +30,12 @@
 			"post_content": "",
 			"featured_image": "https://unsplash.it/1240/600?random&blur",
 			"comment_status": "closed",
-			"menus": {
-				"Primary": {
-					"menu-item-parent-title": "Marketify Pages"
+			"menus": [
+				{
+					"menu-item-parent-title": "Marketify Pages",
+					"menu_name": "Primary"
 				}
-			}
+			]
 		}
 	},
 	{
@@ -44,11 +46,16 @@
 			"post_title": "Meet the Team",
 			"post_content": "",
 			"comment_status": "closed",
-			"menus": {
-				"Primary": {
-					"menu-item-parent-title": "Marketify Pages"
+			"menus": [
+				{
+					"menu-item-parent-title": "Marketify Pages",
+					"menu_name": "Primary"
+				},
+				{
+					"menu-item-position": 3,
+					"menu_name": "Resources"
 				}
-			},
+			],
 			"meta": {
 				"_wp_page_template": "page-templates/team.php"
 			}
@@ -62,11 +69,16 @@
 			"post_title": "Pricing",
 			"post_content": "",
 			"comment_status": "closed",
-			"menus": {
-				"Primary": {
-					"menu-item-parent-title": "Marketify Pages"
+			"menus": [
+				{
+					"menu-item-parent-title": "Marketify Pages",
+					"menu_name": "Primary"
+				},
+				{
+					"menu-item-position": 3,
+					"menu_name": "Resources"
 				}
-			},
+			],
 			"meta": {
 				"_wp_page_template": "page-templates/pricing.php"
 			}
@@ -79,11 +91,16 @@
 			"post_type": "page",
 			"post_title": "Terms of Service",
 			"comment_status": "closed",
-			"menus": {
-				"Primary": {
-					"menu-item-parent-title": "Marketify Pages"
+			"menus": [
+				{
+					"menu-item-parent-title": "Marketify Pages",
+					"menu_name": "Primary"
+				},
+				{
+					"menu-item-position": 4,
+					"menu_name": "Resources"
 				}
-			}
+			]
 		}
 	}
 ]

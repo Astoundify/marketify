@@ -1,21 +1,29 @@
 <?php
-
+/**
+ * Theme activation.
+ *
+ * @since 2.0.0
+ */
 class Marketify_Activation {
 
     public function __construct() {
         $this->theme = wp_get_theme( 'marketify' );
 
         if ( ! isset( $this->theme->Version ) ) {
-            $this->theme = wp_get_theme();
+			$current_child_theme = wp_get_theme();
+
+			if ( false !== $current_child_theme->parent() ) {
+				$this->theme = wp_get_theme( $current_child_theme->get_template() );
+			} else {
+				$this->theme = $current_child_theme;
+			}
         }
 
-        $this->version = get_option( 'marketify_version', '2.0.0' );
+		$this->version = get_option( 'marketify_version' );
 
-        if ( version_compare( $this->version, $this->theme->Version, '<' ) ) {
-            $version = str_replace( '.', '', $this->theme->Version );
-
-            $this->upgrade( $version );
-        }
+		if ( $this->version && version_compare( $this->version, '2.0.0', '<' ) ) {
+			$this->upgrade( '200' );
+		}
 
         add_action( 'after_switch_theme', array( $this, 'after_switch_theme' ), 10 );
     }
@@ -43,6 +51,8 @@ class Marketify_Activation {
 		// dont let EDD create pages
 		$edd_settings = get_option( 'edd_settings', array() );
 		$edd_settings[ 'purchase_page' ] = 0;
+		$edd_settings[ 'fes-vendor-dashboard-page' ] = 1;
+		$edd_settings[ 'fes-vendor-page' ] = 1;
 
 		update_option( 'edd_settings', $edd_settings );
 

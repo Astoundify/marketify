@@ -29,7 +29,9 @@ class Marketify_Setup {
 
 		self::theme_updater();
 		self::content_importer();
-		self::setup_guide();
+
+		// add this late so we can access plugin information
+		add_action( 'tgmpa_register', array( __CLASS__, 'setup_guide' ) );
 	}
 
 	public static function includes() {
@@ -75,7 +77,7 @@ class Marketify_Setup {
 	 * @return array $screen_ids
 	 */
 	public static function uct_admin_notices_screen_id( $screen_ids ) {
-		return array( sprintf( 'appearance_page_%s-setup', self::get_template_name() ) );
+		return array( Astoundify_Setup_Guide::get_screen_id() );
 	}
 
 	/**
@@ -212,11 +214,10 @@ class Marketify_Setup {
 		self::$content_importer_strings = array(
 			'type_labels' => array(
 				'setting' => array( __( 'Setting', 'marketify' ), __( 'Settings', 'marketify' ) ),
-				'theme-mod' => array( __( 'Theme Customization', 'marketify' ), __( 'Theme Customizations', 'marketify' ) ),
-				'nav-menu' => array( __( 'Navigation Menu', 'marketify' ), __( 'Navigation Menus', 'marketify' ) ),
 				'term' => array( __( 'Term', 'marketify' ), __( 'Terms', 'marketify' ) ),
-				'object' => array( __( 'Content', 'marketify' ), __( 'Content', 'marketify' ) ),
+				'nav-menu' => array( __( 'Navigation Menu', 'marketify' ), __( 'Navigation Menus', 'marketify' ) ),
 				'nav-menu-item' => array( __( 'Navigation Menu Item', 'marketify' ), __( 'Navigation Menu Items', 'marketify' ) ),
+				'object' => array( __( 'Content', 'marketify' ), __( 'Content', 'marketify' ) ),
 				'widget' => array( __( 'Widget', 'marketify' ), __( 'Widgets', 'marketify' ) )
 			),
 			'import' => array(

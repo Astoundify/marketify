@@ -14,5 +14,12 @@
 			"name": "Social",
 			"location": "social"
 		}
+	},
+	{
+		"id": "nav-menu-resources",
+		"type": "nav-menu",
+		"data": {
+			"name": "Resources"
+		}
 	}
 ]

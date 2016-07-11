@@ -5,8 +5,9 @@
 		"priority": 10,
 		"data": {
 			"sidebar": "footer-1",
-			"widget": "pages",
-			"title": "Sitemap"
+			"widget": "nav_menu",
+			"title": "Resources and Links",
+			"nav_menu": "Resources"
 		}
 	},
 	{

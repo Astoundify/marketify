@@ -217,6 +217,7 @@ class Astoundify_ContentImporter {
 			return;
 		}
 
+		wp_enqueue_style( 'astoundify-content-importer', self::get_url() . '/assets/css/content-importer.css' );
 		wp_enqueue_script( 'astoundify-content-importer', self::get_url() . '/assets/js/content-importer.js' , array( 'jquery', 'underscore' ), '', true );
 
 		wp_localize_script( 'astoundify-content-importer', 'astoundifyContentImporter', array(

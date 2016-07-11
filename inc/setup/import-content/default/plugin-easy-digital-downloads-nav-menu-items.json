@@ -1,5 +1,16 @@
 [
 	{
+		"id": "nav-menu-item-popular",
+		"type": "nav-menu-item",
+		"priority": 0,
+		"data": {
+			"menu_name": "Primary",
+			"menu-item-title": "Popular Items",
+			"menu-item-type": "custom",
+			"menu-item-url": "#"
+		}
+	},
+	{
 		"id": "nav-menu-item-audio",
 		"type": "nav-menu-item",
 		"data": {

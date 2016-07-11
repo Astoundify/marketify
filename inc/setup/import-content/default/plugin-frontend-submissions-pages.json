@@ -19,7 +19,16 @@
 			"post_type": "page",
 			"post_title": "Vendor Dashboard",
 			"post_content": "[fes_vendor_dashboard]",
-			"comment_status": "closed"
+			"comment_status": "closed",
+			"menus": [
+				{
+					"menu-item-parent-title": "Profile",
+					"menu-item-title": "Author Dashboard",
+					"menu-item-position": 1,
+					"menu-item-role": "in",
+					"menu_name": "Primary"
+				}
+			]
 		}
 	},
 	{
