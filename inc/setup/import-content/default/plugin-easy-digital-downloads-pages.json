@@ -90,7 +90,7 @@
 			"menus": [
 				{
 					"menu-item-title": "Sign In",
-					"menu-item-position": 90,
+					"menu-item-position": 9,
 					"menu-item-role": "out",
 					"menu_name": "Primary"
 				},
@@ -116,7 +116,7 @@
 			"menus": [
 				{
 					"menu-item-title": "Join Now",
-					"menu-item-position": 100,
+					"menu-item-position": 10,
 					"menu-item-role": "out",
 					"menu_name": "Primary"
 				},
@@ -134,7 +134,7 @@
 		"priority": 0,
 		"data": {
 			"post_type": "page",
-			"post_title": "Profile",
+			"post_title": "My Profile",
 			"post_content": "[download_history]\n[purchase_history]\n[edd_profile_editor]",
 			"comment_status": "closed",
 			"meta": {
@@ -142,6 +142,7 @@
 			},
 			"menus": [
 				{
+					"menu-item-title": "Profile",
 					"menu-item-position": 10,
 					"menu-item-role": "in",
 					"menu_name": "Primary"
