@@ -19,7 +19,8 @@
 				"file_types": "PHP, PNG, All Files",
 				"file_size": "1.82 MB",
 				"documentation": "Well Documented",
-				"edd_feature_download": true
+				"edd_feature_download": true,
+				"_edd_hide_purchase_link": true
 			}
 		}
 	},
@@ -44,7 +45,8 @@
 				"file_size": "1.82 MB",
 				"documentation": "Well Documented",
 				"demo": "http://demo.astoundify.com/campaignify",
-				"edd_feature_download": true
+				"edd_feature_download": true,
+				"_edd_hide_purchase_link": true
 			}
 		}
 	},
@@ -71,7 +73,8 @@
 				"file_size": "74 MB",
 				"documentation": "Well Documented",
 				"video": "http://vimeo.com/23237102",
-				"edd_feature_download": true
+				"edd_feature_download": true,
+				"_edd_hide_purchase_link": true
 			}
 		}
 	},
@@ -95,7 +98,8 @@
 				"date_created": "9 Jul, 2013",
 				"license": "GPL",
 				"file_types": "PHP, PNG, All Files",
-				"file_size": "1.82 MB"
+				"file_size": "1.82 MB",
+				"_edd_hide_purchase_link": true
 			}
 		}
 	},
@@ -121,7 +125,8 @@
 				"file_types": "MOV",
 				"file_size": "74 MB",
 				"documentation": "Well Documented",
-				"video": "http://vimeo.com/85272487"
+				"video": "http://vimeo.com/85272487",
+				"_edd_hide_purchase_link": true
 			}
 		}
 	}

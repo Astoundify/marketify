@@ -81,5 +81,16 @@
 			"menu-item-object": "download_category",
 			"menu-item-parent-title": "Popular Items"
 		}
-	}
+	},
+	{
+		"id": "nav-menu-item-logout",
+		"type": "nav-menu-item",
+		"priority": 20,
+		"data": {
+			"menu_name": "Primary",
+			"menu-item-title": "Sign Out",
+			"menu-item-type": "custom",
+			"menu-item-url": "/wp-login.php?action=logout"
+		}
+	},
 ]

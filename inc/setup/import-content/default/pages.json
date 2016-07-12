@@ -91,6 +91,9 @@
 			"post_type": "page",
 			"post_title": "Terms of Service",
 			"comment_status": "closed",
+			"meta": {
+				"_wp_page_template": "page-templates/single-column.php"
+			}
 			"menus": [
 				{
 					"menu-item-parent-title": "Marketify Pages",
