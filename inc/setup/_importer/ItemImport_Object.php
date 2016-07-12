@@ -377,6 +377,13 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 			$k = sanitize_key( $k );
 			$v = sanitize_meta( $k, $v, 'post' );
 
+			// maybe upload an asset
+			if ( is_string( $v ) ) {
+				if ( false !== ( $asset = Astoundify_Utils::upload_asset( $v, $object->ID ) ) ) {
+					$v = wp_get_attachment_url( $asset );
+				}
+			}
+
 			$passed = add_post_meta( $object->ID, $k, $v, true );
 		}
 
@@ -466,8 +473,6 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 		$passed = true;
 
 		foreach ( $media as $file ) {
-			$file = esc_url( $file );
-
 			$passed = Astoundify_Utils::upload_asset( $file, $object->ID );
 		}
 

@@ -122,7 +122,7 @@
 					success: function(response) {
 						// log error
 						if ( response.success == false ) {
-							$errors.prepend( '<li>' + response.data + '</li>' );
+							$errors.show().prepend( '<li>' + response.data + '</li>' );
 						}
 
 						// update group info

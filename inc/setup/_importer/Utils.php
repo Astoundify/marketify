@@ -20,20 +20,19 @@ class Astoundify_Utils {
 	 */
 	public static function upload_asset( $file, $post_id = false ) {
 		// jic
-		require_once( ABSPATH . 'wp-admin/includes/media.php' );
-		require_once( ABSPATH . 'wp-admin/includes/file.php' );
-		require_once( ABSPATH . 'wp-admin/includes/image.php' );
-		
-		$temp_file = download_url( $file, 2 );
+		require_once( ABSPATH . 'wp-admin/includes/admin.php' );
 
-		if ( is_wp_error( $temp_file ) ) {
-			return false;
-		}
-
+		$file = esc_url_raw( $file );
 		$path = parse_url( $file, PHP_URL_PATH );
 		$ext = pathinfo( $path, PATHINFO_EXTENSION );
 
 		if ( ! $path ) {
+			return false;
+		}
+		
+		$temp_file = download_url( $file, 2 );
+
+		if ( is_wp_error( $temp_file ) ) {
 			return false;
 		}
 

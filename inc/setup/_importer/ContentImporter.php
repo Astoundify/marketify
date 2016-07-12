@@ -189,6 +189,7 @@ class Astoundify_ContentImporter {
 		include_once( dirname( __FILE__ ) . '/Plugin_WooCommerce.php' );
 		include_once( dirname( __FILE__ ) . '/Plugin_WPJobManager.php' );
 		include_once( dirname( __FILE__ ) . '/Plugin_WPJobManagerProducts.php' );
+		include_once( dirname( __FILE__ ) . '/Plugin_MultiplePostThumbnails.php' );
 		
 		include_once( dirname( __FILE__ ) . '/Theme_Listify.php' );
 	}
