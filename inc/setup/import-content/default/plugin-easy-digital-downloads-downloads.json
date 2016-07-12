@@ -1,80 +1,86 @@
 [
 	{
-		"id": "photoshop-actions-bundle",
+		"id": "a-chemex-method",
 		"type": "object",
 		"data": {
-			"post_title": "190 Photoshop Actions Bundle",
-			"post_type": "download",
-			"featured_image": "https://unsplash.it/740/600?random",
-			"prices": {
-				"Get the bundle of 190 Photoshop actions": "10.00",
-				"Get an extra 200 Photoshop actions": "25.00"
-			},
-			"terms": {
-				"download_category": [ "bootstrap", "drupal", "ghost", "html", "joomla", "misc", "tumblr", "wordpress" ]
-			},
-			"meta": {
-				"date_created": "9 Jul, 2013",
-				"license": "GPL",
-				"file_types": "PHP, PNG, All Files",
-				"file_size": "1.82 MB",
-				"documentation": "Well Documented",
-				"edd_feature_download": true,
-				"_edd_hide_purchase_link": true
-			}
-		}
-	},
-	{
-		"id": "campaignify-wordpress-theme",
-		"type": "object",
-		"data": {
-			"post_title": "Campaignify WordPress Theme",
-			"post_type": "download",
-			"featured_image": "https://unsplash.it/740/600?random",
-			"prices": {
-				"Campaignify WordPress Theme": "75.00",
-				"Campaignify Theme + PSD Files": "125.00"
-			},
-			"terms": {
-				"download_category": [ "bootstrap", "drupal", "ghost", "html", "joomla", "misc", "tumblr", "wordpress" ]
-			},
-			"meta": {
-				"date_created": "9 Jul, 2013",
-				"license": "GPL",
-				"file_types": "PHP, PNG, All Files",
-				"file_size": "1.82 MB",
-				"documentation": "Well Documented",
-				"demo": "http://demo.astoundify.com/campaignify",
-				"edd_feature_download": true,
-				"_edd_hide_purchase_link": true
-			}
-		}
-	},
-	{
-		"id": "in-the-city-at-night",
-		"type": "object",
-		"data": {
-			"post_title": "In the City at Night Movie",
+			"post_title": "A Chemex Method",
 			"post_type": "download",
 			"post_format": "video",
-			"featured_image": "https://unsplash.it/740/600?random",
-			"prices": {
-				"HD 720p Version": "10.00",
-				"HD 1080p Version": "20.00"
+			"featured_image": "https://18167-presscdn-0-82-pagely.netdna-ssl.com/classic/wp-content/uploads/sites/21/edd/2014/01/chemex_bg-1920x1080.jpg",
+			"thumbnails": {
+				"download_grid-image_thumbnail_id": "https://18167-presscdn-0-82-pagely.netdna-ssl.com/classic/wp-content/uploads/sites/21/edd/2014/01/a-chemex-method.jpg"
 			},
+			"price": "50.00",
 			"terms": {
-				"download_category": [ "video" ],
-				"download_tag": [ "city", "night" ]
+				"download_category": [ "bootstrap", "drupal", "ghost", "html", "joomla", "misc", "tumblr", "video" ]
 			},
 			"meta": {
-				"date_created": "4 Nov, 2016",
+				"date_created": "9 Jul, 2013",
 				"license": "Creative Commons",
-				"file_types": "MOV",
-				"file_size": "74 MB",
-				"documentation": "Well Documented",
-				"video": "http://vimeo.com/23237102",
+				"file_types": ".mov",
+				"file_size": "84 MB",
+				"_edd_hide_purchase_link": true,
 				"edd_feature_download": true,
-				"_edd_hide_purchase_link": true
+				"video": "https://vimeo.com/17111307",
+				"edd_video": "https://vimeo.com/17111307"
+			}
+		}
+	},
+	{
+		"id": "marketify-coffee-shop",
+		"type": "object",
+		"data": {
+			"post_title": "Marketify Coffee Shop",
+			"post_type": "download",
+			"post_format": "video",
+			"featured_image": "https://18167-presscdn-0-82-pagely.netdna-ssl.com/classic/wp-content/uploads/sites/21/edd/2014/02/All-0005-1920x1080.jpg",
+			"thumbnails": {
+				"download_grid-image_thumbnail_id": "https://18167-presscdn-0-82-pagely.netdna-ssl.com/classic/wp-content/uploads/sites/21/edd/2014/02/marketify-coffee-shop-final.jpg"
+			},
+			"price": "10.00",
+			"terms": {
+				"download_category": [ "bootstrap", "drupal", "ghost", "html", "joomla", "misc", "tumblr", "wordpress" ]
+			},
+			"meta": {
+				"date_created": "9 Jul, 2013",
+				"license": "Creative Commons",
+				"file_types": ".mov",
+				"file_size": "84 MB",
+				"_edd_hide_purchase_link": true,
+				"edd_feature_download": true,
+				"video": "https://vimeo.com/85272487",
+				"edd_video": "https://vimeo.com/85272487"
+			}
+		}
+	},
+	{
+		"id": "innovation",
+		"type": "object",
+		"data": {
+			"post_title": "Innovation",
+			"post_type": "download",
+			"post_format": "audio",
+			"thumbnails": {
+				"download_grid-image_thumbnail_id": "https://18167-presscdn-0-82-pagely.netdna-ssl.com/classic/wp-content/uploads/sites/21/edd/2014/01/innovation_preview.jpg"
+			},
+			"prices": {
+				"Wav Audio Files Version": "10.00",
+				"Flac Audio Files Version": "25.00"
+			},
+			"terms": {
+				"download_category": [ "audio", "drupal", "ghost", "html", "joomla", "misc", "tumblr", "wordpress" ]
+			},
+			"meta": {
+				"date_created": "9 Jul, 2013",
+				"license": "GPL",
+				"file_types": ".wav",
+				"file_size": "1.82 MB",
+				"_edd_hide_purchase_link": true,
+				"edd_feature_download": true,
+				"preview_files|ids": [
+					"https://marketify-demos.astoundify.com/classic/wp-content/uploads/sites/21/edd/2013/12/Galaxies1.mp3",
+					"https://marketify-demos.astoundify.com/classic/wp-content/uploads/sites/21/edd/2013/12/Whistling-Good-Times.mp3"
+				]
 			}
 		}
 	},
@@ -85,8 +91,9 @@
 			"post_title": "Up Lifting Audio Pack",
 			"post_type": "download",
 			"post_format": "audio",
-			"featured_image": "https://unsplash.it/1240/600?random",
-			"media": [ "https://demo.astoundify.com/marketify/wp-content/uploads/sites/21/edd/2013/12/Freedom1.mp3" ],
+			"thumbnails": {
+				"download_grid-image_thumbnail_id": "https://18167-presscdn-0-82-pagely.netdna-ssl.com/classic/wp-content/uploads/sites/21/edd/2016/06/uplifting-preview.jpg"
+			},
 			"prices": {
 				"Wav Audio Files Version": "9.00",
 				"Flac Audio Files Version": "9.00"
@@ -96,37 +103,22 @@
 			},
 			"meta": {
 				"date_created": "9 Jul, 2013",
-				"license": "GPL",
-				"file_types": "PHP, PNG, All Files",
-				"file_size": "1.82 MB",
-				"_edd_hide_purchase_link": true
-			}
-		}
-	},
-	{
-		"id": "marketify-coffee-shop",
-		"type": "object",
-		"data": {
-			"post_title": "Marketifty Coffee Shop",
-			"post_type": "download",
-			"post_format": "video",
-			"featured_image": "https://unsplash.it/1240/600?random",
-			"prices": {
-				"HD 720p Version": "10.00",
-				"HD 1080p Version": "20.00"
-			},
-			"terms": {
-				"download_category": [ "video" ],
-				"download_tag": [ "coffee", "shop" ]
-			},
-			"meta": {
-				"date_created": "4 Nov, 2016",
 				"license": "Creative Commons",
-				"file_types": "MOV",
-				"file_size": "74 MB",
-				"documentation": "Well Documented",
-				"video": "http://vimeo.com/85272487",
-				"_edd_hide_purchase_link": true
+				"file_types": ".mp3",
+				"file_size": "1.82 MB",
+				"_edd_hide_purchase_link": true,
+				"edd_feature_download": true,
+				"preview_files|ids": [
+					"https://marketify-demos.astoundify.com/classic/wp-content/uploads/sites/21/edd/2013/12/Galaxies1.mp3",
+					"https://marketify-demos.astoundify.com/classic/wp-content/uploads/sites/21/edd/2013/12/Whistling-Good-Times.mp3"
+				]
+			}
+		},
+		"comments": {
+			"comment-astoundify": {
+				"comment_author": "Astoundify",
+				"comment_author_email": "demo@astoundify.com",
+				"comment_content": "I love what you have done with this audio pack!"
 			}
 		}
 	}

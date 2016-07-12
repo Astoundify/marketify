@@ -93,7 +93,7 @@
 			"comment_status": "closed",
 			"meta": {
 				"_wp_page_template": "page-templates/single-column.php"
-			}
+			},
 			"menus": [
 				{
 					"menu-item-parent-title": "Marketify Pages",

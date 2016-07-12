@@ -374,17 +374,42 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 		$passed = true;
 
 		foreach ( $meta as $k => $v ) {
-			$k = sanitize_key( $k );
-			$v = sanitize_meta( $k, $v, 'post' );
+			$k = $k;
+			$v = $maybe_v = sanitize_meta( $k, $v, 'post' );
 
-			// maybe upload an asset
 			if ( is_string( $v ) ) {
-				if ( false !== ( $asset = Astoundify_Utils::upload_asset( $v, $object->ID ) ) ) {
-					$v = wp_get_attachment_url( $asset );
+				$maybe_v = array( $v );
+			}
+
+			// determine what we are returning
+			$return = 'urls';
+			$parts = explode( '|', $k );
+
+			if ( count( $parts ) > 1 ) {
+				$k = $parts[0];
+				$return = $parts[1];
+			}
+
+			// potentially upload some assets
+			foreach ( $maybe_v as $sub_k => $sub_v ) {
+				if ( false === ( $asset = Astoundify_Utils::upload_asset( $sub_v, $object->ID ) ) ) {
+					continue;
+				}
+
+				unset( $maybe_v[ $sub_k ] );
+
+				if ( 'urls' == $return ) {
+					$maybe_v[ $sub_k ] = wp_get_attachment_url( $asset );
+				} else {
+					$maybe_v[ $sub_k ] = $asset;
 				}
 			}
 
-			$passed = add_post_meta( $object->ID, $k, $v, true );
+			if ( is_string( $v ) ) {
+				$maybe_v = $maybe_v[0];
+			}
+
+			$passed = add_post_meta( $object->ID, sanitize_key( $k ), $maybe_v, true );
 		}
 
 		if ( $passed ) {

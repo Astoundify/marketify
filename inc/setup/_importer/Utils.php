@@ -26,11 +26,15 @@ class Astoundify_Utils {
 		$path = parse_url( $file, PHP_URL_PATH );
 		$ext = pathinfo( $path, PATHINFO_EXTENSION );
 
+		if ( wp_oembed_get( $file ) ) {
+			return false;
+		}
+
 		if ( ! $path ) {
 			return false;
 		}
-		
-		$temp_file = download_url( $file, 2 );
+
+		$temp_file = download_url( $file );
 
 		if ( is_wp_error( $temp_file ) ) {
 			return false;
