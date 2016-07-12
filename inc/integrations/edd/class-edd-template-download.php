@@ -12,7 +12,7 @@ class Marketify_EDD_Template_Download {
         add_action( 'marketify_download_info', array( $this, 'download_price' ), 5 );
         add_action( 'marketify_download_actions', array( $this, 'demo_link' ) );
 
-        add_action( 'marketify_download_entry_meta_before_audio', array( $this, 'featured_audio' ) );
+        add_action( 'marketify_download_entry_title_before_audio', array( $this, 'featured_audio' ) );
 
         add_filter( 'post_class', array( $this, 'post_class' ), 10, 3 );
         add_filter( 'body_class', array( $this, 'body_class' ) );
