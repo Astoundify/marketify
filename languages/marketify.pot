@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Marketify 2.6.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2016-04-08 15:29:12+00:00\n"
+"POT-Creation-Date: 2016-07-13 18:07:28+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -36,7 +36,7 @@ msgstr ""
 msgid "Reviews"
 msgstr ""
 
-#: comments.php:29
+#: comments.php:29 inc/setup/_importer/ContentImporter.php:87
 msgid "Comments"
 msgstr ""
 
@@ -396,18 +396,18 @@ msgstr ""
 msgid "Purchase"
 msgstr ""
 
-#: inc/integrations/edd/class-edd-widgets.php:28
+#: inc/integrations/edd/class-edd-widgets.php:27
 msgid "Shop Sidebar"
 msgstr ""
 
-#: inc/integrations/edd/class-edd-widgets.php:37
+#: inc/integrations/edd/class-edd-widgets.php:36
 #: inc/integrations/edd/widgets/class-widget-download-details.php:13
-#: inc/integrations/edd/widgets/class-widget-download-share.php:13
 #: inc/integrations/edd-fes/widgets/class-widget-product-details.php:13
+#: inc/integrations/jetpack/widgets/class-widget-download-share.php:15
 msgid "%s Sidebar"
 msgstr ""
 
-#: inc/integrations/edd/class-edd-widgets.php:46
+#: inc/integrations/edd/class-edd-widgets.php:45
 msgid "%s Comments Sidebar"
 msgstr ""
 
@@ -421,11 +421,11 @@ msgstr ""
 
 #: inc/integrations/edd/widgets/class-widget-download-archive-sorting.php:18
 #: inc/integrations/edd/widgets/class-widget-download-details.php:18
-#: inc/integrations/edd/widgets/class-widget-download-share.php:18
 #: inc/integrations/edd/widgets/class-widget-downloads-curated.php:18
 #: inc/integrations/edd/widgets/class-widget-downloads-recent.php:18
 #: inc/integrations/edd-fes/widgets/class-widget-product-details.php:18
 #: inc/integrations/edd-product-reviews/widgets/class-widget-download-review-details.php:14
+#: inc/integrations/jetpack/widgets/class-widget-download-share.php:20
 #: inc/widgets/_widgets/class-widget-blog-posts.php:18
 #: inc/widgets/_widgets/class-widget-feature-callout.php:79
 #: inc/widgets/_widgets/class-widget-price-table.php:18
@@ -462,23 +462,11 @@ msgid "Author since: %s"
 msgstr ""
 
 #: inc/integrations/edd/widgets/class-widget-download-details.php:85
+#: inc/setup/_importer/ContentImporter.php:87
 msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] ""
 msgstr[1] ""
-
-#: inc/integrations/edd/widgets/class-widget-download-share.php:7
-msgid "Display sharing options for this product."
-msgstr ""
-
-#: inc/integrations/edd/widgets/class-widget-download-share.php:9
-msgid "Marketify - %s Sidebar: Sharing"
-msgstr ""
-
-#: inc/integrations/edd/widgets/class-widget-download-share.php:23
-#: inc/widgets/_widgets/class-widget-price-option.php:20
-msgid "Description:"
-msgstr ""
 
 #: inc/integrations/edd/widgets/class-widget-downloads-curated.php:7
 msgid "Display curated %s in a grid."
@@ -652,6 +640,23 @@ msgstr ""
 msgid "Price (Lowest)"
 msgstr ""
 
+#: inc/integrations/jetpack/widgets/class-widget-download-share.php:6
+msgid "Download"
+msgstr ""
+
+#: inc/integrations/jetpack/widgets/class-widget-download-share.php:9
+msgid "Display sharing options for this product."
+msgstr ""
+
+#: inc/integrations/jetpack/widgets/class-widget-download-share.php:11
+msgid "Marketify - %s Sidebar: Sharing"
+msgstr ""
+
+#: inc/integrations/jetpack/widgets/class-widget-download-share.php:25
+#: inc/widgets/_widgets/class-widget-price-option.php:20
+msgid "Description:"
+msgstr ""
+
 #: inc/integrations/love-it/class-love-it-archives.php:111
 msgid "%s's Likes"
 msgstr ""
@@ -680,386 +685,359 @@ msgstr ""
 msgid "Slider:"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:333
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:334
 msgid "Install Required Plugins"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:334
-#: inc/setup/steps/install-plugins.php:14
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:335
+#: inc/setup/setup-guide-steps/_step-list.php:26
+#: inc/setup/setup-guide-steps/install-plugins.php:19
 msgid "Install Plugins"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:335
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:337
+#. translators: %s: plugin name.
 msgid "Installing Plugin: %s"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:336
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:339
+#. translators: %s: plugin name.
+msgid "Updating Plugin: %s"
+msgstr ""
+
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:340
 msgid "Something went wrong with the plugin API."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:337
-msgid "This theme requires the following plugin: %1$s."
-msgid_plural "This theme requires the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:342
-msgid "This theme recommends the following plugin: %1$s."
-msgid_plural "This theme recommends the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:347
-msgid ""
-"Sorry, but you do not have the correct permissions to install the %1$s "
-"plugin."
-msgid_plural ""
-"Sorry, but you do not have the correct permissions to install the %1$s "
-"plugins."
-msgstr[0] ""
-msgstr[1] ""
-
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:352
-msgid ""
-"The following plugin needs to be updated to its latest version to ensure "
-"maximum compatibility with this theme: %1$s."
-msgid_plural ""
-"The following plugins need to be updated to their latest version to ensure "
-"maximum compatibility with this theme: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:357
-msgid "There is an update available for: %1$s."
-msgid_plural "There are updates available for the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:362
-msgid ""
-"Sorry, but you do not have the correct permissions to update the %1$s "
-"plugin."
-msgid_plural ""
-"Sorry, but you do not have the correct permissions to update the %1$s "
-"plugins."
-msgstr[0] ""
-msgstr[1] ""
-
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:367
-msgid "The following required plugin is currently inactive: %1$s."
-msgid_plural "The following required plugins are currently inactive: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:372
-msgid "The following recommended plugin is currently inactive: %1$s."
-msgid_plural "The following recommended plugins are currently inactive: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
 #: inc/integrations/tgmpa/class-tgm-plugin-activation.php:377
-msgid ""
-"Sorry, but you do not have the correct permissions to activate the %1$s "
-"plugin."
-msgid_plural ""
-"Sorry, but you do not have the correct permissions to activate the %1$s "
-"plugins."
-msgstr[0] ""
-msgstr[1] ""
-
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:382
+#. translators: 1: plugin name(s).
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:387
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:382
 msgid "Begin updating plugin"
 msgid_plural "Begin updating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:392
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:387
 msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:397
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:392
 msgid "Return to Required Plugins Installer"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:398
-msgid "Return to the dashboard"
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:393
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:920
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2626
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3673
+msgid "Return to the Dashboard"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:399
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3034
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:394
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3252
 msgid "Plugin activated successfully."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:400
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2837
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:395
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3045
 msgid "The following plugin was activated successfully:"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:401
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:397
+#. translators: 1: plugin name.
 msgid "No action taken. Plugin %1$s was already active."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:402
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:399
+#. translators: 1: plugin name.
 msgid ""
 "Plugin not activated. A higher version of %s is needed for this theme. "
 "Please update the plugin."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:403
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:401
+#. translators: 1: dashboard link.
 msgid "All plugins installed and activated successfully. %1$s"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:404
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:402
 msgid "Dismiss this notice"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:405
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:403
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr ""
+
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:404
 msgid "Please contact the administrator of this site for help."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:524
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:607
 msgid "This plugin needs to be updated to be compatible with your theme."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:525
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:608
 msgid "Update Required"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:639
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:725
 msgid "Set the parent_slug config variable instead."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:833
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3443
-msgid "Return to the Dashboard"
-msgstr ""
-
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:940
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:1027
 msgid ""
 "The remote plugin package does not contain a folder with the desired slug "
 "and renaming did not work."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:940
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:943
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:1027
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:1030
 msgid ""
 "Please contact the plugin provider and ask them to package their plugin "
 "according to the WordPress guidelines."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:943
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:1030
 msgid ""
 "The remote plugin package consists of more than one file, but the files are "
 "not packaged in a folder."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2172
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2075
+#. translators: %s: version number
+msgid "TGMPA v%s"
+msgstr ""
+
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2366
 msgid "Required"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2175
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2369
 msgid "Recommended"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2191
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2385
 msgid "WordPress Repository"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2194
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2388
 msgid "External Source"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2197
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2391
 msgid "Pre-Packaged"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2214
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2408
 msgid "Not Installed"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2218
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2412
 msgid "Installed But Not Activated"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2220
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2414
 msgid "Active"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2226
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2420
 msgid "Required Update not Available"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2229
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2423
 msgid "Requires Update"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2232
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2426
 msgid "Update recommended"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2288
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2485
+#. translators: 1: number of plugins.
 msgid "To Install <span class=\"count\">(%s)</span>"
 msgid_plural "To Install <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2291
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2489
+#. translators: 1: number of plugins.
 msgid "Update Available <span class=\"count\">(%s)</span>"
 msgid_plural "Update Available <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2294
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2493
+#. translators: 1: number of plugins.
 msgid "To Activate <span class=\"count\">(%s)</span>"
 msgid_plural "To Activate <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2384
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2583
 msgid "Installed version:"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2392
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2591
 msgid "Minimum required version:"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2404
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2603
 msgid "Available version:"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2427
-msgid ""
-"No plugins to install, update or activate. <a href=\"%1$s\">Return to the "
-"Dashboard</a>"
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2626
+msgid "No plugins to install, update or activate."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2441
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2640
 msgid "Plugin"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2442
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2641
 msgid "Source"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2443
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2642
 msgid "Type"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2447
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2646
 msgid "Version"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2448
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2647
 msgid "Status"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2575
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2696
+#. translators: %2$s: plugin name in screen reader markup
+msgid "Install %2$s"
+msgstr ""
+
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2701
+#. translators: %2$s: plugin name in screen reader markup
+msgid "Update %2$s"
+msgstr ""
+
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2707
+#. translators: %2$s: plugin name in screen reader markup
+msgid "Activate %2$s"
+msgstr ""
+
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2777
 msgid "Upgrade message from the plugin author:"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2608
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2810
 msgid "Install"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2614
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2816
 msgid "Update"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2617
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2819
 msgid "Activate"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2648
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2850
 msgid "No plugins were selected to be installed. No action taken."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2650
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2852
 msgid "No plugins were selected to be updated. No action taken."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2686
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2893
 msgid "No plugins are available to be installed at this time."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2688
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2895
 msgid "No plugins are available to be updated at this time."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2793
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3001
 msgid "No plugins were selected to be activated. No action taken."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2819
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3027
 msgid "No plugins are available to be activated at this time."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3033
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3251
 msgid "Plugin activation failed."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3367
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3591
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
 msgid "Updating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3369
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3594
+#. translators: 1: plugin name, 2: error message.
 msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3370
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3596
+#. translators: 1: plugin name.
 msgid "The installation of %1$s failed."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3374
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3600
 msgid ""
 "The installation and activation process is starting. This process may take "
 "a while on some hosts, so please be patient."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3375
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3602
+#. translators: 1: plugin name.
 msgid "%1$s installed and activated successfully."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3375
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3381
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3602
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3610
 msgid "Show Details"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3375
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3381
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3602
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3610
 msgid "Hide Details"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3376
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3603
 msgid "All installations and activations have been completed."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3377
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3605
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
 msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3380
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3608
 msgid ""
 "The installation process is starting. This process may take a while on some "
 "hosts, so please be patient."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3381
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3610
+#. translators: 1: plugin name.
 msgid "%1$s installed successfully."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3382
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3611
 msgid "All installations have been completed."
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3383
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3613
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
@@ -1071,63 +1049,127 @@ msgstr ""
 msgid "Widgets that appear on the \"%s\" page."
 msgstr ""
 
-#: inc/setup/class-setup.php:20
-msgid "Install Required &amp; Recommended Plugins"
+#: inc/setup/_child_theme/use-child-theme.php:82
+msgid "Please use a %s child theme to make changes"
 msgstr ""
 
-#: inc/setup/class-setup.php:30
-msgid "Import Demo Content"
+#: inc/setup/_child_theme/use-child-theme.php:83
+msgid "Activate now"
 msgstr ""
 
-#: inc/setup/class-setup.php:40
-msgid "Import Widgets"
+#: inc/setup/_child_theme/use-child-theme.php:130
+msgid "All done!"
 msgstr ""
 
-#: inc/setup/class-setup.php:74
-msgid "Setup Menus"
+#: inc/setup/_child_theme/use-child-theme.php:151
+msgid "Error: theme folder not writable"
 msgstr ""
 
-#: inc/setup/class-setup.php:83
-msgid "Setup Static Homepage"
+#: inc/setup/_importer/ContentImporter.php:80 inc/setup/class-setup.php:216
+msgid "Setting"
 msgstr ""
 
-#: inc/setup/class-setup.php:102
-msgid "Setup Widgets"
+#: inc/setup/_importer/ContentImporter.php:80 inc/setup/class-setup.php:216
+msgid "Settings"
 msgstr ""
 
-#: inc/setup/class-setup.php:108
-msgid "Customize"
+#: inc/setup/_importer/ContentImporter.php:81
+msgid "Theme Customization"
 msgstr ""
 
-#: inc/setup/class-setup.php:118
-msgid "Get Involved"
+#: inc/setup/_importer/ContentImporter.php:81
+msgid "Theme Customizations"
 msgstr ""
 
-#: inc/setup/class-setup.php:134
-msgid "Marketify Setup"
+#: inc/setup/_importer/ContentImporter.php:82 inc/setup/class-setup.php:218
+msgid "Navigation Menu"
 msgstr ""
 
-#: inc/setup/class-setup.php:134
+#: inc/setup/_importer/ContentImporter.php:82 inc/setup/class-setup.php:218
+msgid "Navigation Menus"
+msgstr ""
+
+#: inc/setup/_importer/ContentImporter.php:83 inc/setup/class-setup.php:217
+msgid "Term"
+msgstr ""
+
+#: inc/setup/_importer/ContentImporter.php:83 inc/setup/class-setup.php:217
+msgid "Terms"
+msgstr ""
+
+#: inc/setup/_importer/ContentImporter.php:84 inc/setup/class-setup.php:220
+msgid "Content"
+msgstr ""
+
+#: inc/setup/_importer/ContentImporter.php:84
+msgid "Contents"
+msgstr ""
+
+#: inc/setup/_importer/ContentImporter.php:85 inc/setup/class-setup.php:219
+msgid "Navigation Menu Item"
+msgstr ""
+
+#: inc/setup/_importer/ContentImporter.php:85 inc/setup/class-setup.php:219
+msgid "Navigation Menu Items"
+msgstr ""
+
+#: inc/setup/_importer/ContentImporter.php:86 inc/setup/class-setup.php:221
+msgid "Widget"
+msgstr ""
+
+#: inc/setup/_importer/ContentImporter.php:86 inc/setup/class-setup.php:221
+msgid "Widgets"
+msgstr ""
+
+#: inc/setup/_importer/ContentImporter.php:90 inc/setup/class-setup.php:224
+msgid "Import Complete!"
+msgstr ""
+
+#: inc/setup/_importer/ContentImporter.php:93
+msgid "Reset Complete"
+msgstr ""
+
+#: inc/setup/_importer/ContentImporter.php:96 inc/setup/class-setup.php:230
+msgid "Invalid process action."
+msgstr ""
+
+#: inc/setup/_importer/ContentImporter.php:97 inc/setup/class-setup.php:231
+msgid "Invalid process type."
+msgstr ""
+
+#: inc/setup/_importer/ContentImporter.php:98 inc/setup/class-setup.php:232
+msgid "Iteration process failed."
+msgstr ""
+
+#: inc/setup/_importer/ContentImporter.php:99 inc/setup/class-setup.php:233
+msgid "You do not have permission to manage content."
+msgstr ""
+
+#: inc/setup/class-setup.php:99
+msgid "Setup %s"
+msgstr ""
+
+#: inc/setup/class-setup.php:100
+msgid "Getting Started"
+msgstr ""
+
+#: inc/setup/class-setup.php:101
 msgid "Setup Guide"
 msgstr ""
 
-#: inc/setup/class-setup.php:156
-msgid "Completed!"
-msgstr ""
-
-#: inc/setup/class-setup.php:158
-msgid "Incomplete"
-msgstr ""
-
-#: inc/setup/class-setup.php:168
-msgid "You can read more and watch helpful video tutorials below:"
-msgstr ""
-
-#: inc/setup/class-setup.php:195
+#: inc/setup/class-setup.php:102
 msgid "Welcome to %s"
 msgstr ""
 
-#: inc/setup/class-setup.php:196
+#: inc/setup/class-setup.php:103
+msgid "Completed"
+msgstr ""
+
+#: inc/setup/class-setup.php:104
+msgid "Not Complete"
+msgstr ""
+
+#: inc/setup/class-setup.php:119
 msgid ""
 "Creating a digital marketplace has never been easier with "
 "Marketify&mdash;Use the steps below to start setting up your new website. "
@@ -1135,48 +1177,141 @@ msgid ""
 "documentation</a>."
 msgstr ""
 
-#: inc/setup/class-setup.php:204
+#: inc/setup/class-setup.php:124
 msgid "Search Documentation"
 msgstr ""
 
-#: inc/setup/class-setup.php:205
+#: inc/setup/class-setup.php:125
 msgid "Submit a Support Ticket"
 msgstr ""
 
-#: inc/setup/steps/import-content.php:5
+#: inc/setup/class-setup.php:150
+msgid "Cheating?"
+msgstr ""
+
+#: inc/setup/class-setup.php:151
+msgid "An API token is required."
+msgstr ""
+
+#: inc/setup/class-setup.php:152
+msgid "API error."
+msgstr ""
+
+#: inc/setup/class-setup.php:153
+msgid "Connected"
+msgstr ""
+
+#: inc/setup/class-setup.php:154
+msgid "Disconnected"
+msgstr ""
+
+#: inc/setup/class-setup.php:227
+msgid "Reset Complete!"
+msgstr ""
+
+#: inc/setup/class-setup.php:255
+msgid "You do not have permission to import content."
+msgstr ""
+
+#: inc/setup/setup-guide-steps/_step-list.php:13
+msgid "Enable Child Theme"
+msgstr ""
+
+#: inc/setup/setup-guide-steps/_step-list.php:21
+msgid "Enable Automatic Updates"
+msgstr ""
+
+#: inc/setup/setup-guide-steps/_step-list.php:32
+#: inc/setup/setup-guide-steps/import-content.php:69
+msgid "Import Content"
+msgstr ""
+
+#: inc/setup/setup-guide-steps/_step-list.php:38
+msgid "Customize"
+msgstr ""
+
+#: inc/setup/setup-guide-steps/_step-list.php:43
+msgid "Get Involved"
+msgstr ""
+
+#: inc/setup/setup-guide-steps/child-theme.php:1
 msgid ""
-"Installing the demo content is not required to use this theme. It is simply "
-"meant to provide a way to get a feel for the theme without having to "
-"manually set up all of your own content. <strong>If you choose not to "
-"import the demo content you need to make sure you manually create all "
-"necessary page templates for your website.</strong>"
+"Installing a child theme allows for an easy way to add extra customization "
+"to your website, as well as ensures any changes made are not ovewritten "
+"when your parent theme is updated. <strong>This is highly "
+"recommended.</strong>"
 msgstr ""
 
-#: inc/setup/steps/import-content.php:7
+#: inc/setup/setup-guide-steps/child-theme.php:3
+msgid "Use a Child Theme"
+msgstr ""
+
+#: inc/setup/setup-guide-steps/customize-theme.php:1
 msgid ""
-"The Marketify theme package includes multiple demo content .XML files. This "
-"is what you will upload to the WordPress importer. Depending on the plugins "
-"you have activated or the intended use of your website you may not need to "
-"upload all the .XML files."
+"Manage the appearance and behavior of various theme components with the "
+"live customizer."
 msgstr ""
 
-#: inc/setup/steps/import-content.php:9
-msgid "Begin Importing Content"
+#: inc/setup/setup-guide-steps/customize-theme.php:4
+msgid "Upload a logo"
 msgstr ""
 
-#: inc/setup/steps/import-widgets.php:5
+#: inc/setup/setup-guide-steps/customize-theme.php:5
+msgid "Change colors"
+msgstr ""
+
+#: inc/setup/setup-guide-steps/customize-theme.php:7
+msgid "Adjust download content styles and layout"
+msgstr ""
+
+#: inc/setup/setup-guide-steps/customize-theme.php:8
+msgid "Update footer text"
+msgstr ""
+
+#: inc/setup/setup-guide-steps/customize-theme.php:12
+msgid "Launch Customizer"
+msgstr ""
+
+#: inc/setup/setup-guide-steps/import-content.php:11
+msgid "Content Pack:"
+msgstr ""
+
+#: inc/setup/setup-guide-steps/import-content.php:17
+msgid "Default"
+msgstr ""
+
+#: inc/setup/setup-guide-steps/import-content.php:21
+msgid "Audio Marketplace"
+msgstr ""
+
+#: inc/setup/setup-guide-steps/import-content.php:29
+msgid "Please do not navigate away from this page."
+msgstr ""
+
+#: inc/setup/setup-guide-steps/import-content.php:31
+msgid "Summary:"
+msgstr ""
+
+#: inc/setup/setup-guide-steps/import-content.php:48
 msgid ""
-"Importing the demo widgets is not required to use this theme. It simply "
-"allows you to quickly match the same settings found on our theme demo. If "
-"you do not import the widgets you can manually manage your widgets just "
-"like a standard WordPress widget area."
+"Marketify can import content for recommended plugins, but only if they are "
+"active. Please review the list of plugins below and activate any plugins "
+"you would like the content imported for."
 msgstr ""
 
-#: inc/setup/steps/import-widgets.php:7
-msgid "Begin Importing Widgets"
+#: inc/setup/setup-guide-steps/import-content.php:48
+msgid "Install or activate plugins &rarr;"
 msgstr ""
 
-#: inc/setup/steps/install-plugins.php:5
+#: inc/setup/setup-guide-steps/import-content.php:62
+msgid "Demo content for this plugin will not be imported."
+msgstr ""
+
+#: inc/setup/setup-guide-steps/import-content.php:71
+msgid "Reset Content"
+msgstr ""
+
+#: inc/setup/setup-guide-steps/install-plugins.php:11
 msgid ""
 "Before you can use Marketify you must first install Easy Digital Downloads "
 "at minimum. You can read about <a "
@@ -1185,124 +1320,60 @@ msgid ""
 "documentation."
 msgstr ""
 
-#: inc/setup/steps/install-plugins.php:7
+#: inc/setup/setup-guide-steps/install-plugins.php:13
 msgid "Note:"
 msgstr ""
 
-#: inc/setup/steps/install-plugins.php:9
+#: inc/setup/setup-guide-steps/install-plugins.php:15
 msgid ""
 "Only free plugins/add-ons can be installed automatically. You will need to "
 "install any premium plugins/add-ons separately."
 msgstr ""
 
-#: inc/setup/steps/install-plugins.php:10
-msgid ""
-"It is recommended you install and activate any additional plugins you plan "
-"on using before importing any XML content."
-msgstr ""
-
-#: inc/setup/steps/install-plugins.php:11
+#: inc/setup/setup-guide-steps/install-plugins.php:16
 msgid ""
 "Once your plugins are installed and content is imported please review all "
 "plugin settings pages to make sure everything has been properly set up."
 msgstr ""
 
-#: inc/setup/steps/setup-edd.php:1
-msgid ""
-"When Easy Digital Downloads is activated it will automatically create pages "
-"for your store. You need to do a few things to complete this setup:"
-msgstr ""
-
-#: inc/setup/steps/setup-edd.php:4
-msgid "Add the Easy Digital Downloads pages to your Menu"
-msgstr ""
-
-#: inc/setup/steps/setup-edd.php:5
-msgid "Configure your Easy Digital Downloads settings"
-msgstr ""
-
-#: inc/setup/steps/setup-edd.php:6
-msgid "Add your first download"
-msgstr ""
-
-#: inc/setup/steps/setup-fes.php:1
-msgid ""
-"When Easy Digital Downloads - Frontend Submissions is activated it will "
-"automatically create pages for your store. You need to do a few things to "
-"complete this setup:"
-msgstr ""
-
-#: inc/setup/steps/setup-fes.php:4
-msgid "Add the Frontend Submissions pages to your Menu"
-msgstr ""
-
-#: inc/setup/steps/setup-fes.php:5
-msgid "Turn off the Frontend Submission&#39;s CSS"
-msgstr ""
-
-#: inc/setup/steps/setup-fes.php:6
-msgid "Configure your Submission form"
-msgstr ""
-
-#: inc/setup/steps/setup-fes.php:7
-msgid "Configure your Registration form"
-msgstr ""
-
-#: inc/setup/steps/setup-fes.php:8
-msgid "Configure your Profile form"
-msgstr ""
-
-#: inc/setup/steps/setup-homepage.php:5
-msgid ""
-"In order to display custom widgets on your homepage you must first assign "
-"your static page in the WordPress settings. You can also set which page "
-"will display your blog posts."
-msgstr ""
-
-#: inc/setup/steps/setup-homepage.php:7
-msgid "Reading Settings"
-msgstr ""
-
-#: inc/setup/steps/setup-menus.php:5
-msgid ""
-"Make sure you create and assign your menus to the menu locations found in "
-"the theme."
-msgstr ""
-
-#: inc/setup/steps/setup-menus.php:7
-msgid ""
-"<strong>Missing items in your menu?</strong> Make sure you have added pages "
-"that are automatically generated by Easy Digital Downloads and any "
-"applicable plugins."
-msgstr ""
-
-#: inc/setup/steps/setup-menus.php:9
-msgid "Manage Menus"
-msgstr ""
-
-#: inc/setup/steps/setup-widgets.php:1
-msgid ""
-"Manage your widgets to control what displays on your homepage, listing "
-"pages, standard pages, and more."
-msgstr ""
-
-#: inc/setup/steps/setup-widgets.php:4
-msgid ""
-"<strong>Note:</strong> Please make sure you have selected the relevant "
-"\"Customer Testimonials\" category for the <em>What People Are Saying</em> "
-"widget, and \"Companies We&#39;ve Helped\" category for the <em>Companies "
-"We&#39;ve Helped</em> widget. These settings can not be imported "
-"automatically."
-msgstr ""
-
-#: inc/setup/steps/setup-widgets.php:7
-msgid "Manage Widgets"
-msgstr ""
-
-#: inc/setup/steps/support-us.php:1
+#: inc/setup/setup-guide-steps/support-us.php:1
 msgid ""
 "Help improve Marketify by submitting a rating and helping to translate the "
 "theme to as many languages as possible!"
+msgstr ""
+
+#: inc/setup/setup-guide-steps/support-us.php:4
+msgid "Rate us on ThemeForest"
+msgstr ""
+
+#: inc/setup/setup-guide-steps/support-us.php:6
+msgid "Help Translate"
+msgstr ""
+
+#: inc/setup/setup-guide-steps/support-us.php:11
+msgid "Move this guide under the \"Appearance\" menu item"
+msgstr ""
+
+#: inc/setup/setup-guide-steps/theme-updater.php:8
+msgid ""
+"In order to receive automatic updates for your purchase please generate a "
+"personal token from ThemeForest."
+msgstr ""
+
+#: inc/setup/setup-guide-steps/theme-updater.php:10
+msgid "Generate a Token"
+msgstr ""
+
+#: inc/setup/setup-guide-steps/theme-updater.php:12
+msgid "Once generated, add the token below:"
+msgstr ""
+
+#: inc/setup/setup-guide-steps/theme-updater.php:16
+msgid "Personal Token:"
+msgstr ""
+
+#: inc/setup/setup-guide-steps/theme-updater.php:18
+msgid "Save Token"
 msgstr ""
 
 #: inc/template/class-template-comments.php:22
@@ -1325,15 +1396,24 @@ msgstr ""
 msgid "Video Header URL"
 msgstr ""
 
-#: inc/template/class-template-page-header.php:30
+#: inc/template/class-template-page-header.php:31
 msgid "Blog"
 msgstr ""
 
-#: inc/template/class-template-page-header.php:88
+#: inc/template/class-template-page-header.php:87
+msgid "Return to %s"
+msgstr ""
+
+#: inc/template/class-template-page-header.php:89
+#. translators: %s - title of parent post
+msgid "<span class=\"meta-nav\">&larr;</span> %s"
+msgstr ""
+
+#: inc/template/class-template-page-header.php:114
 msgid "All %s"
 msgstr ""
 
-#: inc/template/class-template-page-header.php:120
+#: inc/template/class-template-page-header.php:146
 msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
@@ -1485,6 +1565,10 @@ msgstr ""
 msgid ""
 "Drag \"Price Option\" widgets to the \"Price Table\" widget area to "
 "populate this widget."
+msgstr ""
+
+#: inc/widgets/_widgets/class-widget-price-table.php:36
+msgid "Add price options in \"Appearance > Widgets\""
 msgstr ""
 
 #: inc/widgets/_widgets/class-widget-slider.php:7
@@ -1666,47 +1750,29 @@ msgctxt "popular search results"
 msgid "Popular in \"%s\""
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:1121
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2833
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:1214
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3041
 msgctxt "plugin A *and* plugin B"
 msgid "and"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:1886
-msgctxt "%s = version number"
-msgid "TGMPA v%s"
-msgstr ""
-
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2240
-msgctxt "%1$s = install status, %2$s = update status"
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2435
+#. translators: 1: install status, 2: update status
+msgctxt "Install/Update Status"
 msgid "%1$s, %2$s"
 msgstr ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2285
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2481
+#. translators: 1: number of plugins.
 msgctxt "plugins"
 msgid "All <span class=\"count\">(%s)</span>"
 msgid_plural "All <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2376
+#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2575
 msgctxt "as in: \"version nr unknown\""
 msgid "unknown"
-msgstr ""
-
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2496
-msgctxt "%2$s = plugin name in screen reader markup"
-msgid "Install %2$s"
-msgstr ""
-
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2500
-msgctxt "%2$s = plugin name in screen reader markup"
-msgid "Update %2$s"
-msgstr ""
-
-#: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2505
-msgctxt "%2$s = plugin name in screen reader markup"
-msgid "Activate %2$s"
 msgstr ""
 
 #: inc/template/class-template-assets.php:57
