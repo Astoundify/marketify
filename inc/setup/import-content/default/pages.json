@@ -11,14 +11,7 @@
 			"comment_status": "closed",
 			"meta": {
 				"_wp_page_template": "page-templates/home.php"
-			},
-			"menus": [
-				{
-					"menu-item-title": "Marketify Pages",
-					"menu-item-position": 0,
-					"menu_name": "Primary"
-				}
-			]
+			}
 		}
 	},
 	{

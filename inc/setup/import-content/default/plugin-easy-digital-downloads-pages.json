@@ -98,7 +98,7 @@
 			"menus": [
 				{
 					"menu-item-title": "Sign In",
-					"menu-item-position": 9,
+					"menu-item-position": 99,
 					"menu-item-role": "out",
 					"menu_name": "Primary"
 				},
@@ -124,7 +124,7 @@
 			"menus": [
 				{
 					"menu-item-title": "Join Now",
-					"menu-item-position": 10,
+					"menu-item-position": 100,
 					"menu-item-role": "out",
 					"menu_name": "Primary"
 				},

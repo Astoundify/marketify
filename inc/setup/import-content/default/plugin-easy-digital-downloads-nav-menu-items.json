@@ -1,5 +1,17 @@
 [
 	{
+		"id": "nav-menu-item-pages",
+		"type": "nav-menu-item",
+		"priority": 0,
+		"data": {
+			"menu_name": "Primary",
+			"menu-item-title": "Marketify Pages",
+			"menu-item-type": "custom",
+			"menu-item-url": "#",
+			"menu-item-position": 2
+		}
+	},
+	{
 		"id": "nav-menu-item-products",
 		"type": "nav-menu-item",
 		"priority": 20,
