@@ -51,6 +51,11 @@ Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
 
+= 2.7.1: June 3, 2016 = 
+
+* Fix: Update Content Importer drop-in to avoid PHP notices.
+* Fix: Remove Setup Guide images from package.
+
 = 2.7.0 =
 
 * New: Automatic theme updates via ThemeForest.
