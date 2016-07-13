@@ -15,10 +15,9 @@
         }
     }
 
-    .widget-detail .edd_price {
-        @extend .widget-detail__title;
-        font-weight: normal;
-        letter-spacing: 0;
+    .widget-detail span[itemprop="price"].edd_price {
+		display: block;
+		text-align: center;
     }
 
     .widget-detail .button {
