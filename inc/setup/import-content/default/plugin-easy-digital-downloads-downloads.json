@@ -23,20 +23,32 @@
 				"edd_feature_download": true,
 				"video": "https://vimeo.com/17111307",
 				"edd_video": "https://vimeo.com/17111307"
-			}
+			},
+			"menus": [
+				{
+					"menu-item-parent-title": "Marketify Pages",
+					"menu-item-title": "Video Product Page",
+					"menu-item-position": 5,
+					"menu_name": "Primary"
+				}
+			]
 		}
 	},
 	{
-		"id": "marketify-coffee-shop",
+		"id": "beach-photo-pack",
 		"type": "object",
 		"data": {
-			"post_title": "Marketify Coffee Shop",
+			"post_title": "Beach Photo Pack",
 			"post_type": "download",
-			"post_format": "video",
-			"featured_image": "https://18167-presscdn-0-82-pagely.netdna-ssl.com/classic/wp-content/uploads/sites/21/edd/2014/02/All-0005-1920x1080.jpg",
+			"featured_image": "https://18167-presscdn-0-82-pagely.netdna-ssl.com/classic/wp-content/uploads/sites/21/edd/2013/12/1.jpg",
 			"thumbnails": {
-				"download_grid-image_thumbnail_id": "https://18167-presscdn-0-82-pagely.netdna-ssl.com/classic/wp-content/uploads/sites/21/edd/2014/02/marketify-coffee-shop-final.jpg"
+				"download_grid-image_thumbnail_id": "https://18167-presscdn-0-82-pagely.netdna-ssl.com/classic/wp-content/uploads/sites/21/edd/2013/11/beach-photo-pack-grid.jpg"
 			},
+			"media": [
+				"https://18167-presscdn-0-82-pagely.netdna-ssl.com/classic/wp-content/uploads/sites/21/edd/2013/12/2.jpg",
+				"https://18167-presscdn-0-82-pagely.netdna-ssl.com/classic/wp-content/uploads/sites/21/edd/2013/12/3.jpg",
+				"https://18167-presscdn-0-82-pagely.netdna-ssl.com/classic/wp-content/uploads/sites/21/edd/2013/12/4.jpg"
+			],
 			"price": "10.00",
 			"terms": {
 				"download_category": [ "bootstrap", "drupal", "ghost", "html", "joomla", "misc", "tumblr", "wordpress" ]
@@ -81,7 +93,15 @@
 					"https://marketify-demos.astoundify.com/classic/wp-content/uploads/sites/21/edd/2013/12/Galaxies1.mp3",
 					"https://marketify-demos.astoundify.com/classic/wp-content/uploads/sites/21/edd/2013/12/Whistling-Good-Times.mp3"
 				]
-			}
+			},
+			"menus": [
+				{
+					"menu-item-parent-title": "Marketify Pages",
+					"menu-item-title": "Audio Product Page",
+					"menu-item-position": 6,
+					"menu_name": "Primary"
+				}
+			]
 		}
 	},
 	{

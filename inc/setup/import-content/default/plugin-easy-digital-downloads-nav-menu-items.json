@@ -1,5 +1,18 @@
 [
 	{
+		"id": "nav-menu-item-products",
+		"type": "nav-menu-item",
+		"priority": 20,
+		"data": {
+			"menu_name": "Primary",
+			"menu-item-parent-title": "Marketify Pages",
+			"menu-item-title": "Products Page",
+			"menu-item-type": "post_type_archive",
+			"menu-item-object": "download",
+			"menu-item-position": 4
+		}
+	},
+	{
 		"id": "nav-menu-item-popular",
 		"type": "nav-menu-item",
 		"priority": 0,
@@ -80,20 +93,6 @@
 			"menu-item-title": "HTML",
 			"menu-item-object": "download_category",
 			"menu-item-parent-title": "Popular Items"
-		}
-	},
-	{
-		"id": "nav-menu-item-logout",
-		"type": "nav-menu-item",
-		"priority": 100,
-		"data": {
-			"menu_name": "Primary",
-			"menu-item-title": "Sign Out",
-			"menu-item-parent-title": "Profile",
-			"menu-item-type": "custom",
-			"menu-item-url": "/wp-login.php?action=logout",
-			"menu-item-position": 5,
-			"menu-item-role": "in"
 		}
 	}
 ]

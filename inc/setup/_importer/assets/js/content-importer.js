@@ -45,7 +45,7 @@
 	 * @todo This string should be translatable.
 	 */
 	Astoundify_ContentImporter.beforeUnload = function() {
-		if ( importRunning ) {
+		if ( Astoundify_ContentImporter.importRunning ) {
 			return 'Please do not leave while an import is in progress.';
 		}
 	};

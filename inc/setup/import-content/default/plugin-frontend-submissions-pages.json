@@ -42,7 +42,15 @@
 		},
 		"meta": {
 			"_wp_page_template": "page-templates/minimal.php"
-		}
+		},
+		"menus": [
+			{
+				"menu-item-parent-title": "Marketify Pages",
+				"menu-item-title": "Become an Author",
+				"menu-item-position": 3,
+				"menu_name": "Primary"
+			}
+		]
 	},
 	{
 		"id": "vendor-login",
