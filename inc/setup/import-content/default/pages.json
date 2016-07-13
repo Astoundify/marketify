@@ -21,7 +21,7 @@
 			"post_type": "page",
 			"post_title": "Blog",
 			"post_content": "",
-			"featured_image": "https://unsplash.it/1240/600?random&blur",
+			"featured_image": "",
 			"comment_status": "closed",
 			"menus": [
 				{
@@ -39,6 +39,7 @@
 			"post_type": "page",
 			"post_title": "Meet the Team",
 			"post_content": "",
+			"featured_image": "",
 			"comment_status": "closed",
 			"menus": [
 				{
@@ -63,6 +64,7 @@
 			"post_type": "page",
 			"post_title": "Pricing",
 			"post_content": "",
+			"featured_image": "",
 			"comment_status": "closed",
 			"menus": [
 				{
@@ -78,29 +80,6 @@
 			"meta": {
 				"_wp_page_template": "page-templates/pricing.php"
 			}
-		}
-	},
-	{
-		"id": "page-tos",
-		"type": "object",
-		"data": {
-			"post_type": "page",
-			"post_title": "Terms of Service",
-			"comment_status": "closed",
-			"meta": {
-				"_wp_page_template": "page-templates/single-column.php"
-			},
-			"menus": [
-				{
-					"menu-item-parent-title": "Marketify Pages",
-					"menu-item-position": 10,
-					"menu_name": "Primary"
-				},
-				{
-					"menu-item-position": 4,
-					"menu_name": "Resources"
-				}
-			]
 		}
 	}
 ]

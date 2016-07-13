@@ -6,6 +6,7 @@
 			"post_type": "page",
 			"post_title": "Vendor",
 			"post_content": "[vendor]",
+			"featured_image": "",
 			"comment_status": "closed",
 			"meta": {
 				"_wp_page_template": "page-templates/vendor.php"
@@ -19,6 +20,7 @@
 			"post_type": "page",
 			"post_title": "Vendor Dashboard",
 			"post_content": "[fes_vendor_dashboard]",
+			"featured_image": "",
 			"comment_status": "closed",
 			"menus": [
 				{
@@ -38,6 +40,7 @@
 			"post_type": "page",
 			"post_title": "Vendor Registration",
 			"post_content": "[fes_vendor_registration]",
+			"featured_image": "",
 			"comment_status": "closed"
 		},
 		"meta": {
@@ -59,6 +62,7 @@
 			"post_type": "page",
 			"post_title": "Vendor Login",
 			"post_content": "[fes_vendor_login]",
+			"featured_image": "",
 			"comment_status": "closed"
 		},
 		"meta": {

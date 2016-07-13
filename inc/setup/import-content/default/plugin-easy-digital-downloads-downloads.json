@@ -46,8 +46,7 @@
 			},
 			"media": [
 				"https://18167-presscdn-0-82-pagely.netdna-ssl.com/classic/wp-content/uploads/sites/21/edd/2013/12/2.jpg",
-				"https://18167-presscdn-0-82-pagely.netdna-ssl.com/classic/wp-content/uploads/sites/21/edd/2013/12/3.jpg",
-				"https://18167-presscdn-0-82-pagely.netdna-ssl.com/classic/wp-content/uploads/sites/21/edd/2013/12/4.jpg"
+				"https://18167-presscdn-0-82-pagely.netdna-ssl.com/classic/wp-content/uploads/sites/21/edd/2013/12/3.jpg"
 			],
 			"price": "10.00",
 			"terms": {
@@ -90,8 +89,7 @@
 				"_edd_hide_purchase_link": true,
 				"edd_feature_download": true,
 				"preview_files|ids": [
-					"https://marketify-demos.astoundify.com/classic/wp-content/uploads/sites/21/edd/2013/12/Galaxies1.mp3",
-					"https://marketify-demos.astoundify.com/classic/wp-content/uploads/sites/21/edd/2013/12/Whistling-Good-Times.mp3"
+					"https://marketify-demos.astoundify.com/classic/wp-content/uploads/sites/21/edd/2013/12/Galaxies1.mp3"
 				]
 			},
 			"menus": [
@@ -129,7 +127,6 @@
 				"_edd_hide_purchase_link": true,
 				"edd_feature_download": true,
 				"preview_files|ids": [
-					"https://marketify-demos.astoundify.com/classic/wp-content/uploads/sites/21/edd/2013/12/Galaxies1.mp3",
 					"https://marketify-demos.astoundify.com/classic/wp-content/uploads/sites/21/edd/2013/12/Whistling-Good-Times.mp3"
 				]
 			}
