@@ -104,7 +104,7 @@
 				},
 				{
 					"menu-item-title": "Sign In",
-					"menu-item-position": 2,
+					"menu-item-position": 3,
 					"menu_name": "Resources"
 				}
 			]
@@ -130,7 +130,7 @@
 				},
 				{
 					"menu-item-title": "Join Now",
-					"menu-item-position": 1,
+					"menu-item-position": 4,
 					"menu_name": "Resources"
 				}
 			]
