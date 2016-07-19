@@ -61,28 +61,32 @@
 	margin-bottom: 0;
 }
 
+.marketify-parent-comment,
 .comment.depth-1 .comment-content {
 	margin-left: 120px;
+}
 
-    &:after,
-    &:before {
-        width: 0;
-        height: 0;
-        border-top: 14px solid transparent;
-        border-bottom: 14px solid transparent;
-        border-right: 14px solid #fff;
-        content: ' ';
-        position: absolute;
-        top: 32px;
-        left: -14px;
-    }
+.marketify-parent-comment:after,
+.marketify-parent-comment:before,
+.comment.depth-1 .comment-content:after,
+.comment.depth-1 .comment-content:before {
+	width: 0;
+	height: 0;
+	border-top: 14px solid transparent;
+	border-bottom: 14px solid transparent;
+	border-right: 14px solid #fff;
+	content: ' ';
+	position: absolute;
+	top: 32px;
+	left: -14px;
+}
 
-    &:before {
-        border-top: 14px solid transparent;
-        border-bottom: 14px solid transparent;
-        border-right: 14px solid #bdc3c7;
-        left: -15px;
-    }
+.marketify-parent-comment:before,
+.comment.depth-1 .comment-content:before {
+	border-top: 14px solid transparent;
+	border-bottom: 14px solid transparent;
+	border-right: 14px solid #bdc3c7;
+	left: -15px;
 }
 
 .comment-list .children {
@@ -125,6 +129,7 @@
 	word-wrap: break-word;
 }
 
+.marketify-comment-author-name,
 .comment-author .fn,
 .comment-metadata .fn {
     @include montserrat(400, 10px);

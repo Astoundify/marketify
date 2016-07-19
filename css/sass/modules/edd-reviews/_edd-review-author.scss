@@ -1,0 +1,7 @@
+.edd-review-author {
+	@extend .comment-meta;
+}
+
+.edd-review-author .fn {
+	@extend .marketify-comment-author-name
+}
