@@ -37,7 +37,7 @@ class Astoundify_ItemImport_Setting extends Astoundify_AbstractItemImport implem
 		$value = $this->item[ 'data' ];
 
 		if ( is_array( $value ) ) {
-			return wp_parse_args( $value, get_option( $this->get_key() ) );
+			return wp_parse_args( $value, get_option( $this->get_key(), array() ) );
 		} 
 		
 		return $value;

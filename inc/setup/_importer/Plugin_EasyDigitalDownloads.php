@@ -24,6 +24,11 @@ class Astoundify_Plugin_EasyDigitalDownloads implements Astoundify_PluginInterfa
 	 */
 	public static function setup_actions() {
 		add_action( 
+			'astoundify_import_content_before_import_item_edd_settings',
+			array( '__CLASS__', 'remove_sanitization_filter' )
+		);
+
+		add_action( 
 			'astoundify_import_content_after_import_item_type_object',
 			array( __CLASS__, 'set_download_pricing' ) 
 		);
@@ -41,6 +46,18 @@ class Astoundify_Plugin_EasyDigitalDownloads implements Astoundify_PluginInterfa
 				array( __CLASS__, 'delete_page_option' ) 
 			);
 		}
+	}
+
+	/**
+	 * Remove edd_settings_sanitize filter so we can update options outside
+	 * of the EDD setting screen.
+	 *
+	 * @since 1.2.0
+	 * @param $ItemImport
+	 * @return void
+	 */
+	public static function remove_sanitization_filter( $ItemImport ) {
+		remove_filter( 'sanitize_option_edd_settings', 'edd_settings_sanitize' );
 	}
 
 	/**
@@ -107,7 +124,10 @@ class Astoundify_Plugin_EasyDigitalDownloads implements Astoundify_PluginInterfa
 	 * @return void
 	 */
 	public static function add_page_option( $ItemImport ) {
-		edd_update_option( "{$ItemImport->get_id()}_page", $ItemImport->get_processed_item()->ID );
+		$edd_settings = get_option( 'edd_settings', array() );
+		$edd_settings[ "{$ItemImport->get_id()}_page" ] = $ItemImport->get_processed_item()->ID;
+
+		return update_option( 'edd_settings', $edd_settings );
 	}
 
 	/**
@@ -119,7 +139,13 @@ class Astoundify_Plugin_EasyDigitalDownloads implements Astoundify_PluginInterfa
 	 * @return void
 	 */
 	public static function delete_page_option( $ItemImport ) {
-		edd_delete_option( "{$ItemImport->get_id()}_page" );
+		$edd_settings = get_option( 'edd_settings', array() );
+
+		if ( isset( $edd_settings[ "{$ItemImport->get_id()}_page" ] ) ) {
+			unset( $edd_settings[ "{$ItemImport->get_id()}_page" ] );
+		}
+
+		return update_option( $edd_settings );
 	}
 
 }

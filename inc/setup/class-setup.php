@@ -63,7 +63,16 @@ class Marketify_Setup {
 	 * @return string $output
 	 */
 	public static function uct_functions_php( $output ) {
-		$output = str_replace( "'child_enqueue_styles' );", "'child_enqueue_styles', 210 );", $output );
+$output = "<?php
+/**
+ * Marketify child theme.
+ */
+function marketify_child_styles() {
+    wp_enqueue_style( 'marketify-child', get_stylesheet_uri() );
+}
+add_action( 'wp_enqueue_scripts', 'marketify_child_styles', 999 );
+
+/** Place any new code below this line */";
 
 		return $output;
 	}
