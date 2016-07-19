@@ -25,9 +25,7 @@ if ( post_password_required() || ! ( comments_open() || get_comments_number() ) 
     <div class="<?php echo ! is_active_sidebar( 'sidebar-download-single-comments' ) || ! is_singular( 'download' ) ? 'col-xs-12' : 'col-sm-8 col-xs-12'; ?>">
 
         <?php if ( have_comments() ) : ?>
-            <h2 class="comments-title section-title"><span>
-                <?php echo marketify()->get( 'edd-product-reviews' ) ? __( 'Reviews', 'marketify' ) : __( 'Comments', 'marketify' ); ?>
-            </span></h2>
+            <h2 class="comments-title section-title"><span><?php _e( 'Comments', 'marketify' ); ?></span></h2>
 
             <ol class="comment-list">
                 <?php
