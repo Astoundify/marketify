@@ -106,12 +106,15 @@ class Walker_Marketify_EDD_Review extends Walker_Comment {
 
 							<?php echo $verified; ?> 
 
-							<?php edit_comment_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
+							<?php edit_comment_link( __( 'Edit', 'marketify' ), '<span class="edit-link">&mdash; ', '</span>' ); ?>
 
 							<?php
 							edd_reviews()->reviews_reply_link( array_merge( $args, array(
 								'depth'      => $depth,
 								'max_depth'  => $args['max_depth'],
+								'before' => '<span class="reply-link">&mdash; ',
+								'after' => '</span>',
+								'reply_text' => __( 'Reply', 'marketify' )
 							) ) );
 							?>
 						</p>

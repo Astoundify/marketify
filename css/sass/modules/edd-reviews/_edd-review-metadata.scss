@@ -1,3 +1,7 @@
 .edd-review-metadata {
 	@extend .comment-metadata;
+
+	b {
+		text-transform: uppercase;
+	}
 }

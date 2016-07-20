@@ -15,6 +15,7 @@ class Marketify_Widgets {
             require_once( dirname( __FILE__ ) . '/_widgets/' . $widget );
         }
 
+		add_filter( 'widget_text', 'do_shortcode' );
         add_action( 'widgets_init', array( $this, 'register_widgets' ) );
         add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
     }

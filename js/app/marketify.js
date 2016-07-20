@@ -156,7 +156,8 @@ Marketify.App = ( function($) {
 				$( '.edd_form *:not(span) > legend' ),
 				$( '.pm-section-title' ),
 				$( '.edd-reviews-title' ),
-				$( '.edd-reviews-heading' )
+				$( '.edd-reviews-heading' ),
+				$( '.edd-reviews-vendor-feedback-item h4' )
 			]
 
 			$.each(shims, function() {
