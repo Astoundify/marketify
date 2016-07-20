@@ -154,7 +154,7 @@ class Marketify_Template_Page_Header {
         $defaults = apply_filters( 'marketify_page_header_defaults', array(
             'class' => array( 'header-outer' ),
             'object_ids' => false,
-            'size' => 'large',
+            'size' => 'full',
             'style' => array()
         ) );
 
