@@ -2,7 +2,7 @@
 Contributors: Astoundify
 Requires at least: WordPress 4.3
 Tested up to: WordPress 4.4.2
-Version: 2.5.0
+Version: 2.8.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: white, two-columns, one-column, right-sidebar, left-sidebar, fluid-layout, custom-background, custom-header, theme-options, full-width-template, featured-images, flexible-header, custom-menu, translation-ready
@@ -50,6 +50,14 @@ License: MIT
 Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
+
+= 2.8.8: July 28, 2016 =
+
+* New: EDD Reviews 2.0 support.
+* New: Audio download preview play button to the left of the download title.
+* New: Discounts Pro support.
+* Fix: Improve content importer.
+* Fix: Ensure mobile menu and menu dropdowns appear above page titles.
 
 = 2.7.1: June 3, 2016 = 
 
