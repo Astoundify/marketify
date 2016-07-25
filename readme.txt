@@ -51,7 +51,7 @@ Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
 
-= 2.8.8: July 28, 2016 =
+= 2.8.0: July 25, 2016 =
 
 * New: EDD Reviews 2.0 support.
 * New: Audio download preview play button to the left of the download title.

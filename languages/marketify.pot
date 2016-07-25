@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
-"Project-Id-Version: Marketify 2.6.0\n"
+"Project-Id-Version: Marketify 2.8.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2016-07-13 18:07:28+00:00\n"
+"POT-Creation-Date: 2016-07-25 14:10:21+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,23 +32,19 @@ msgstr ""
 msgid "Search for:"
 msgstr ""
 
-#: comments.php:29
-msgid "Reviews"
-msgstr ""
-
-#: comments.php:29 inc/setup/_importer/ContentImporter.php:87
+#: comments.php:28 inc/setup/_importer/ContentImporter.php:87
 msgid "Comments"
 msgstr ""
 
-#: comments.php:43
+#: comments.php:41
 msgid "Comment navigation"
 msgstr ""
 
-#: comments.php:44
+#: comments.php:42
 msgid "Older Comments"
 msgstr ""
 
-#: comments.php:45
+#: comments.php:43
 msgid "Newer Comments"
 msgstr ""
 
@@ -74,6 +70,7 @@ msgid "% Comments"
 msgstr ""
 
 #: content-entry-meta.php:25 content-single.php:21
+#: inc/integrations/edd-product-reviews/class-edd-product-reviews-walker.php:109
 #: inc/template/class-template-comments.php:51
 msgid "Edit"
 msgstr ""
@@ -336,7 +333,7 @@ msgstr ""
 #: inc/integrations/edd/widgets/class-widget-downloads-taxonomy-stylized.php:20
 #: inc/widgets/_widgets/class-widget-blog-posts.php:13
 #: inc/widgets/_widgets/class-widget-price-table.php:13
-#: inc/widgets/class-widgets.php:41
+#: inc/widgets/class-widgets.php:42
 msgid "Home"
 msgstr ""
 
@@ -610,6 +607,18 @@ msgstr ""
 
 #: inc/integrations/edd-fes/widgets/class-widget-vendor.php:9
 msgid "Marketify - Vendor: Name + Avatar"
+msgstr ""
+
+#: inc/integrations/edd-product-reviews/class-edd-product-reviews-walker.php:80
+msgid "Verified Purchase"
+msgstr ""
+
+#: inc/integrations/edd-product-reviews/class-edd-product-reviews-walker.php:117
+msgid "Reply"
+msgstr ""
+
+#: inc/integrations/edd-product-reviews/class-edd-product-reviews-walker.php:124
+msgid "Your review is awaiting moderation."
 msgstr ""
 
 #: inc/integrations/edd-product-reviews/widgets/class-widget-download-review-details.php:7
@@ -1065,11 +1074,11 @@ msgstr ""
 msgid "Error: theme folder not writable"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:80 inc/setup/class-setup.php:216
+#: inc/setup/_importer/ContentImporter.php:80 inc/setup/class-setup.php:225
 msgid "Setting"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:80 inc/setup/class-setup.php:216
+#: inc/setup/_importer/ContentImporter.php:80 inc/setup/class-setup.php:225
 msgid "Settings"
 msgstr ""
 
@@ -1081,23 +1090,23 @@ msgstr ""
 msgid "Theme Customizations"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:82 inc/setup/class-setup.php:218
+#: inc/setup/_importer/ContentImporter.php:82 inc/setup/class-setup.php:227
 msgid "Navigation Menu"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:82 inc/setup/class-setup.php:218
+#: inc/setup/_importer/ContentImporter.php:82 inc/setup/class-setup.php:227
 msgid "Navigation Menus"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:83 inc/setup/class-setup.php:217
+#: inc/setup/_importer/ContentImporter.php:83 inc/setup/class-setup.php:226
 msgid "Term"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:83 inc/setup/class-setup.php:217
+#: inc/setup/_importer/ContentImporter.php:83 inc/setup/class-setup.php:226
 msgid "Terms"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:84 inc/setup/class-setup.php:220
+#: inc/setup/_importer/ContentImporter.php:84 inc/setup/class-setup.php:229
 msgid "Content"
 msgstr ""
 
@@ -1105,23 +1114,23 @@ msgstr ""
 msgid "Contents"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:85 inc/setup/class-setup.php:219
+#: inc/setup/_importer/ContentImporter.php:85 inc/setup/class-setup.php:228
 msgid "Navigation Menu Item"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:85 inc/setup/class-setup.php:219
+#: inc/setup/_importer/ContentImporter.php:85 inc/setup/class-setup.php:228
 msgid "Navigation Menu Items"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:86 inc/setup/class-setup.php:221
+#: inc/setup/_importer/ContentImporter.php:86 inc/setup/class-setup.php:230
 msgid "Widget"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:86 inc/setup/class-setup.php:221
+#: inc/setup/_importer/ContentImporter.php:86 inc/setup/class-setup.php:230
 msgid "Widgets"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:90 inc/setup/class-setup.php:224
+#: inc/setup/_importer/ContentImporter.php:90 inc/setup/class-setup.php:233
 msgid "Import Complete!"
 msgstr ""
 
@@ -1129,47 +1138,47 @@ msgstr ""
 msgid "Reset Complete"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:96 inc/setup/class-setup.php:230
+#: inc/setup/_importer/ContentImporter.php:96 inc/setup/class-setup.php:239
 msgid "Invalid process action."
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:97 inc/setup/class-setup.php:231
+#: inc/setup/_importer/ContentImporter.php:97 inc/setup/class-setup.php:240
 msgid "Invalid process type."
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:98 inc/setup/class-setup.php:232
+#: inc/setup/_importer/ContentImporter.php:98 inc/setup/class-setup.php:241
 msgid "Iteration process failed."
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:99 inc/setup/class-setup.php:233
+#: inc/setup/_importer/ContentImporter.php:99 inc/setup/class-setup.php:242
 msgid "You do not have permission to manage content."
 msgstr ""
 
-#: inc/setup/class-setup.php:99
+#: inc/setup/class-setup.php:108
 msgid "Setup %s"
 msgstr ""
 
-#: inc/setup/class-setup.php:100
+#: inc/setup/class-setup.php:109
 msgid "Getting Started"
 msgstr ""
 
-#: inc/setup/class-setup.php:101
+#: inc/setup/class-setup.php:110
 msgid "Setup Guide"
 msgstr ""
 
-#: inc/setup/class-setup.php:102
+#: inc/setup/class-setup.php:111
 msgid "Welcome to %s"
 msgstr ""
 
-#: inc/setup/class-setup.php:103
+#: inc/setup/class-setup.php:112
 msgid "Completed"
 msgstr ""
 
-#: inc/setup/class-setup.php:104
+#: inc/setup/class-setup.php:113
 msgid "Not Complete"
 msgstr ""
 
-#: inc/setup/class-setup.php:119
+#: inc/setup/class-setup.php:128
 msgid ""
 "Creating a digital marketplace has never been easier with "
 "Marketify&mdash;Use the steps below to start setting up your new website. "
@@ -1177,39 +1186,39 @@ msgid ""
 "documentation</a>."
 msgstr ""
 
-#: inc/setup/class-setup.php:124
+#: inc/setup/class-setup.php:133
 msgid "Search Documentation"
 msgstr ""
 
-#: inc/setup/class-setup.php:125
+#: inc/setup/class-setup.php:134
 msgid "Submit a Support Ticket"
 msgstr ""
 
-#: inc/setup/class-setup.php:150
+#: inc/setup/class-setup.php:159
 msgid "Cheating?"
 msgstr ""
 
-#: inc/setup/class-setup.php:151
+#: inc/setup/class-setup.php:160
 msgid "An API token is required."
 msgstr ""
 
-#: inc/setup/class-setup.php:152
+#: inc/setup/class-setup.php:161
 msgid "API error."
 msgstr ""
 
-#: inc/setup/class-setup.php:153
+#: inc/setup/class-setup.php:162
 msgid "Connected"
 msgstr ""
 
-#: inc/setup/class-setup.php:154
+#: inc/setup/class-setup.php:163
 msgid "Disconnected"
 msgstr ""
 
-#: inc/setup/class-setup.php:227
+#: inc/setup/class-setup.php:236
 msgid "Reset Complete!"
 msgstr ""
 
-#: inc/setup/class-setup.php:255
+#: inc/setup/class-setup.php:264
 msgid "You do not have permission to import content."
 msgstr ""
 
@@ -1591,43 +1600,43 @@ msgstr ""
 msgid "Choose Image"
 msgstr ""
 
-#: inc/widgets/class-widgets.php:32
+#: inc/widgets/class-widgets.php:33
 msgid "Sidebar"
 msgstr ""
 
-#: inc/widgets/class-widgets.php:42
+#: inc/widgets/class-widgets.php:43
 msgid "Widgets that appear on the \"Page: Home\" Page Template"
 msgstr ""
 
-#: inc/widgets/class-widgets.php:52
+#: inc/widgets/class-widgets.php:53
 msgid "Footer Left"
 msgstr ""
 
-#: inc/widgets/class-widgets.php:53
+#: inc/widgets/class-widgets.php:54
 msgid "The left footer widget area"
 msgstr ""
 
-#: inc/widgets/class-widgets.php:62
+#: inc/widgets/class-widgets.php:63
 msgid "Footer Center"
 msgstr ""
 
-#: inc/widgets/class-widgets.php:63
+#: inc/widgets/class-widgets.php:64
 msgid "The center footer widget area"
 msgstr ""
 
-#: inc/widgets/class-widgets.php:72
+#: inc/widgets/class-widgets.php:73
 msgid "Footer Right"
 msgstr ""
 
-#: inc/widgets/class-widgets.php:73
+#: inc/widgets/class-widgets.php:74
 msgid "The right footer widget area"
 msgstr ""
 
-#: inc/widgets/class-widgets.php:83
+#: inc/widgets/class-widgets.php:84
 msgid "Price Table"
 msgstr ""
 
-#: inc/widgets/class-widgets.php:85
+#: inc/widgets/class-widgets.php:86
 msgid ""
 "Drag multiple \"Price Option\" widgets here. Then drag the \"Pricing "
 "Table\" widget to the \"Homepage\" Widget Area."
@@ -1750,6 +1759,12 @@ msgctxt "popular search results"
 msgid "Popular in \"%s\""
 msgstr ""
 
+#: inc/integrations/edd-product-reviews/class-edd-product-reviews-walker.php:103
+#: inc/template/class-template-comments.php:37
+msgctxt "1: date, 2: time"
+msgid "%1$s at %2$s"
+msgstr ""
+
 #: inc/integrations/tgmpa/class-tgm-plugin-activation.php:1214
 #: inc/integrations/tgmpa/class-tgm-plugin-activation.php:3041
 msgctxt "plugin A *and* plugin B"
@@ -1791,11 +1806,6 @@ msgstr ""
 #. * own language.
 msgctxt "Montserrat font: on or off"
 msgid "on"
-msgstr ""
-
-#: inc/template/class-template-comments.php:37
-msgctxt "1: date, 2: time"
-msgid "%1$s at %2$s"
 msgstr ""
 
 #: inc/template/class-template-navigation.php:53
