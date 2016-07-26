@@ -19,7 +19,7 @@ class Marketify_Activation {
 			}
         }
 
-		$this->version = get_option( 'marketify_version' );
+		$this->version = get_option( 'marketify_version', false );
 
 		if ( $this->version && version_compare( $this->version, '2.0.0', '<' ) ) {
 			$this->upgrade( '200' );
@@ -101,8 +101,6 @@ class Marketify_Activation {
                     break;
                 case 'grid-height' :
                     set_theme_mod( 'downloads-archives-grid-height', $value );
-                    remove_theme_mod( 'grid-width' );
-                    remove_theme_mod( 'grid-crop' );
                     break;
                 case 'product-display-columns' :
                     set_theme_mod( 'downloads-archives-columns', $value );
@@ -120,7 +118,6 @@ class Marketify_Activation {
                     break;
                 case 'product-display-truncate-title' :
                     set_theme_mod( 'downloads-archives-truncate-title', $value );
-                    remove_theme_mod( 'product-display-show-buy' );
                     break;
                 case 'footer-contact-address' :
                     set_theme_mod( 'footer-contact-us-adddress', $value );
@@ -141,8 +138,6 @@ class Marketify_Activation {
                     //
                     break;
             }
-
-            remove_theme_mod( $mod );
         }
     }
 
