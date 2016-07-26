@@ -48,6 +48,12 @@ module.exports = () ->
           'js/widgets/testimonials.js': 'js/widgets/testimonials.coffee'
           'inc/integrations/facetwp/js/facetwp.js': 'inc/integrations/facetwp/js/facetwp.coffee'
 
+    jsonlint:
+      dist:
+        src: [ 'inc/setup/import-content/**/*.json' ]
+        options:
+          formatter: 'prose'
+
     uglify:
       dist:
         options:
@@ -122,6 +128,7 @@ module.exports = () ->
   @loadNpmTasks 'grunt-exec'
   @loadNpmTasks 'grunt-potomo'
   @loadNpmTasks 'grunt-checktextdomain'
+  @loadNpmTasks 'grunt-jsonlint'
 
   @registerTask 'default', ['watch']
 
@@ -129,4 +136,4 @@ module.exports = () ->
   @registerTask 'pushTranslation', [ 'makepot', 'exec:txpush' ]
   @registerTask 'checkTranslation', [ 'checktextdomain' ]
 
-  @registerTask 'build', [ 'uglify', 'coffee', 'sass', 'concat:initial', 'cssmin', 'concat:header', 'getTranslations', 'pushTranslation' ]
+  @registerTask 'build', [ 'jsonlint', 'uglify', 'coffee', 'sass', 'concat:initial', 'cssmin', 'concat:header', 'getTranslations', 'pushTranslation' ]
