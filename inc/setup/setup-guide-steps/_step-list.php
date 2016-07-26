@@ -36,7 +36,7 @@ if ( current_user_can( 'import' ) ) {
 
 $steps[ 'customize-theme' ] = array(
 	'title' => __( 'Customize', 'marketify' ),
-	'completed' => get_option( 'theme_mods_marketify' ),
+	'completed' => 'n/a'
 );
 
 $steps[ 'support-us' ] = array(
