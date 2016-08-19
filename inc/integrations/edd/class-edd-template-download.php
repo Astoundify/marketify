@@ -337,28 +337,45 @@ class Marketify_EDD_Template_Download {
     }
 
     public function featured_video() {
-        $field = apply_filters( 'marketify_video_field', 'video' );
-        $video = get_post()->$field;
-
-        if ( ! $video ) {
-            return;
-		}
-
-        if ( is_array( $video ) ) {
-            $video = current( $video );
-        }
+		$video = $this->_get_video();
 
         $info = wp_check_filetype( $video );
+		$atts = apply_filters( 'marketify_featured_video_embed_atts', '' );
 
         if ( '' == $info[ 'ext' ] ) {
             global $wp_embed;
 
-            $output = $wp_embed->run_shortcode( '[embed]' . $video . '[/embed]' );
+            $output = $wp_embed->run_shortcode( sprintf( '[embed %s]%s[/embed]', $atts, $video ) );
         } else {
-            $output = do_shortcode( sprintf( '[video %s="%s"]', $info[ 'ext' ], $video ) );
+            $output = do_shortcode( sprintf( '[video %s="%s" %s]', $info[ 'ext' ], $video, $atts ) );
         }
 
         echo '<div class="download-video">' . $output . '</div>';
     }
+
+	/**
+	 * Find an associated video for the download.
+	 *
+	 * @since 2.9.0
+	 * @return mixed Video URL or false
+	 */
+	public function _get_video() {
+		$video = false;
+
+		$field = apply_filters( 'marketify_video_field', 'video' );
+		$video = get_post()->$field;
+
+		// query attached media
+        if ( ! $video || '' == $video ) {
+            $video = get_attached_media( 'video', get_post()->ID );
+
+            if ( ! empty( $video ) ) {
+				$video = current( $video );
+				$video = wp_get_attachment_url( $video->ID );
+            }
+        }
+
+        return $video;
+	}
 
 }
