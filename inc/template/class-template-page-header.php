@@ -113,7 +113,9 @@ class Marketify_Template_Page_Header {
             if ( did_action( 'marketify_downloads_before' ) ) {
                 $title = sprintf( __( 'All %s', 'marketify' ), $title );
             }
-        }
+		} else if ( function_exists( 'fes_get_vendor' ) && fes_get_vendor() ) {
+			$title = sprintf( __( 'Recent %s', 'marketify' ), edd_get_label_plural() );
+		}
 
         return $title;
     }
