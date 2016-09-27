@@ -110,6 +110,37 @@ Marketify.App = ( function($) {
 		});
 	}
 
+	function initSectionTitles() {
+		$( '.edd-slg-login-wrapper' ).each(function() {
+			var link  = $(this).find( 'a' );
+			var title = link.attr( 'title' );
+
+			link.html(title).prepend( '<span></span' );
+		});
+
+		// section title shims
+		$( '.edd_form fieldset > span legend' ).unwrap();
+
+		var shims = [
+			$( '.gform_title' ),
+			$( '.fes-form h1' ),
+			$( '.fes-headers' ),
+			$( '.edd_form *:not(span) > legend' ),
+			$( '.pm-section-title' ),
+			$( '.edd-reviews-title' ),
+			$( '.edd-reviews-heading' ),
+			$( '.edd-reviews-vendor-feedback-item h4' )
+		]
+
+		$.each(shims, function() {
+			$(this).wrapInner( '<span></span>' );
+		});
+
+		$('body').on('click.eddwlOpenModal', '.edd-add-to-wish-list', function (e) {
+			$( '#edd-wl-modal-label' ).wrapInner( '<span></span>' );
+		});
+	}
+
 	return {
 		init : function() {
       menuToggle();
@@ -118,6 +149,7 @@ Marketify.App = ( function($) {
 			soliloquySliders();
       initVideos();
 			initPurchaseForms();
+			initSectionTitles();
 
 			$(window).resize(function() {
 				footerHeight();
@@ -137,37 +169,11 @@ Marketify.App = ( function($) {
 				});
 			});
 
+			$( 'body' ).on( 'edd_gateway_loaded', function() {
+				initSectionTitles();
+			});
+
 			$( '.edd_download.content-grid-download' ).attr( 'style', '' );
-
-			$( '.edd-slg-login-wrapper' ).each(function() {
-				var link  = $(this).find( 'a' );
-				var title = link.attr( 'title' );
-
-				link.html(title).prepend( '<span></span' );
-			});
-
-      // section title shims
-      $( '.edd_form fieldset > span legend' ).unwrap();
-
-			var shims = [
-				$( '.gform_title' ),
-				$( '.fes-form h1' ),
-				$( '.fes-headers' ),
-				$( '.edd_form *:not(span) > legend' ),
-				$( '.pm-section-title' ),
-				$( '.edd-reviews-title' ),
-				$( '.edd-reviews-heading' ),
-				$( '.edd-reviews-vendor-feedback-item h4' )
-			]
-
-			$.each(shims, function() {
-				$(this).wrapInner( '<span></span>' );
-			});
-
-			$('body').on('click.eddwlOpenModal', '.edd-add-to-wish-list', function (e) {
-				$( '#edd-wl-modal-label' ).wrapInner( '<span></span>' );
-			});
-
 
       // sorting widget
 			$( '.download-sorting input, .download-sorting select' ).change(function(){
