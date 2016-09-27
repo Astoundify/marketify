@@ -39,6 +39,10 @@ class Marketify_Integrations {
 				class_exists( 'EDD_Wish_Lists' ),
 				'Marketify_EDD_Wish_Lists'
 			),
+			'edd-bookings' => array(
+				defined( 'EDD_BK_VERSION' ),
+				'Marketify_EDD_Bookings'
+			),
 			'facetwp' => array(
 				class_exists( 'FacetWP' ),
 				'Marketify_FacetWP'
