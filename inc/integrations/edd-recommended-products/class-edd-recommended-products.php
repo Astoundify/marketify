@@ -34,14 +34,13 @@ class Marketify_EDD_Recommended_Products extends Marketify_Integration {
             $suggestion_data = edd_rp_get_multi_suggestions( $post_ids, $user_id );
         }
 
-        // if ( ! is_array( $suggestion_data ) || empty( $suggestion_data ) ) {
-        //     return;
-        // }
+        if ( ! is_array( $suggestion_data ) || empty( $suggestion_data ) ) {
+            return;
+        }
 
         $suggestions = array_keys( $suggestion_data );
         $suggestions = array_splice( $suggestions, edd_get_option( 'edd_rp_suggestions_count' ) );
         $suggestions = implode( ',', $suggestions );
-		$suggestions = '85';
 		
 		add_filter( 'edd_add_schema_microdata', '__return_false' );
     ?>
