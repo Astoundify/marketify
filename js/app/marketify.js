@@ -129,11 +129,14 @@ Marketify.App = ( function($) {
 			$( '.pm-section-title' ),
 			$( '.edd-reviews-title' ),
 			$( '.edd-reviews-heading' ),
-			$( '.edd-reviews-vendor-feedback-item h4' )
+			$( '.edd-reviews-vendor-feedback-item h4' ),
+			$( '.edd-csau-products h2' )
 		]
 
 		$.each(shims, function() {
-			$(this).wrapInner( '<span></span>' );
+			if ( 0 === $(this).find( 'span' ).length ) {
+				$(this).wrapInner( '<span></span>' );
+			}
 		});
 
 		$('body').on('click.eddwlOpenModal', '.edd-add-to-wish-list', function (e) {

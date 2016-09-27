@@ -37,7 +37,7 @@
     border-top: 1px solid #eee;
 }
 
-.single-download .content-area,
+.single-download .content-area > .download-audio,
 .single-download .page-header {
 	.wp-video,
     .wp-playlist,
@@ -99,7 +99,7 @@
     }
 }
 
-.single-download .content-area {
+.single-download .content-area > .download-audio {
     .wp-playlist-tracks,
     .mejs-controls {
         border-color: $accent;

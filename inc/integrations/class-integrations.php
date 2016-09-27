@@ -32,7 +32,7 @@ class Marketify_Integrations {
 				'Marketify_EDD_Recommended_Products'
 			),
 			'edd-cross-sell-upsell' => array(
-				defined( 'edd_csau_version' ),
+				defined( 'EDD_CSAU_VERSION' ),
 				'Marketify_EDD_Cross_Sell_UpSell'
 			),
 			'edd-wish-lists' => array(
