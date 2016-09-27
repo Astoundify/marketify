@@ -41,6 +41,8 @@ class Marketify_EDD_Recommended_Products extends Marketify_Integration {
         $suggestions = array_keys( $suggestion_data );
         $suggestions = array_splice( $suggestions, edd_get_option( 'edd_rp_suggestions_count' ) );
         $suggestions = implode( ',', $suggestions );
+		
+		add_filter( 'edd_add_schema_microdata', '__return_false' );
     ?>
 
         <div class="edd-recommended-products">
@@ -49,6 +51,7 @@ class Marketify_EDD_Recommended_Products extends Marketify_Integration {
             <?php echo do_shortcode( "[downloads ids={$suggestions}]" ); ?>
         </div>
     <?php
+		remove_filter( 'edd_add_schema_microdata', '__return_false' );
     }
 
 }
