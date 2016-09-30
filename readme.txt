@@ -2,7 +2,7 @@
 Contributors: Astoundify
 Requires at least: WordPress 4.3
 Tested up to: WordPress 4.4.2
-Version: 2.8.1
+Version: 2.9.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: white, two-columns, one-column, right-sidebar, left-sidebar, fluid-layout, custom-background, custom-header, theme-options, full-width-template, featured-images, flexible-header, custom-menu, translation-ready
@@ -50,6 +50,21 @@ License: MIT
 Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
+
+= 2.9.0: October 4, 2016 =
+
+* New: EDD Cross Sells and Upsells integration. https://easydigitaldownloads.com/downloads/edd-cross-sell-and-upsell/
+* New: EDD Upload File integration. https://easydigitaldownloads.com/downloads/edd-upload-file/
+* New: EDD Booking integration. https://easydigitaldownloads.com/downloads/edd-bookings/
+* New: Allow page header tags to be filtered for preferred SEO technique.
+* New: Allow shortcodes to be parsed in Footer Contact text area.
+* New: Allow featured video to be pulled from attached media.
+* Fix: Ensure customizer panels load in the correct order.
+* Fix: Checkout section title display when switching payment gateways.
+* Fix: Disable duplicate recommended products from displaying when switching payment gateways.
+* Fix: Disable schema micro data on recommended products.
+* Fix: Use correct FES shortcodes on import.
+* Fix: Ensure function exists before using in dynamic widget title.
 
 = 2.8.1: July 26, 2016 =
 
