@@ -2,7 +2,17 @@
 
 class Marketify_Template_Page_Header {
 
+	/**
+	 * The HTML tag to use for the page title.
+	 *
+	 * @since 2.9.0
+	 * @var $tag string
+	 */
+	protected $tag;
+
     public function __construct() {
+		$this->tag = apply_filters( 'marketify_page_header_tag', 'h2' );
+
         add_filter( 'marketify_page_header', array( $this, 'tag_atts' ) );
         add_action( 'marketify_entry_before', array( $this, 'close_div' ), 10 ); // close the .page-header div opened in each callback
         add_action( 'marketify_entry_before', array( $this, 'close_div' ), 20 ); // close the .header-outer div opened in header.php
@@ -22,13 +32,24 @@ class Marketify_Template_Page_Header {
         echo '</div>';
     }
 
+	/**
+	 * Get the tag to wrap page headers with.
+	 *
+	 * @since 2.9.0
+	 *
+	 * @return string $tag
+	 */
+	public function get_tag() {
+		return esc_attr( $this->tag );
+	}
+
     public function blog_title() {
         if ( ! is_home() ) {
             return;
         }
 ?>
 <div class="page-header container">
-    <h2 class="page-title"><?php echo get_option( 'page_for_posts' ) ? get_the_title( get_option( 'page_for_posts' ) ) : __( 'Blog', 'marketify' ); ?></h2>
+	<<?php echo $this->get_tag(); ?> class="page-title"><?php echo get_option( 'page_for_posts' ) ? get_the_title( get_option( 'page_for_posts' ) ) : __( 'Blog', 'marketify' ); ?></<?php echo $this->get_tag(); ?>>
 <?php
     }
 
@@ -62,7 +83,7 @@ class Marketify_Template_Page_Header {
         the_post();
 ?>
 <div class="page-header page-header--singular container">
-    <h2 class="page-title"><?php the_title(); ?></h2>
+    <<?php echo $this->get_tag(); ?> class="page-title"><?php the_title(); ?></<?php echo $this->get_tag(); ?>>
 <?php
         rewind_posts();
     }
@@ -84,10 +105,10 @@ class Marketify_Template_Page_Header {
 		$post = get_post();
 ?>
 <div class="page-header page-header--singular container">
-    <h2 class="page-title"><a href="<?php echo esc_url( get_permalink( $post->post_parent ) ); ?>" title="<?php echo esc_attr( sprintf( __( 'Return to %s', 'marketify' ), strip_tags( get_the_title( $post->post_parent ) ) ) ); ?>" rel="gallery"><?php
+    <<?php echo $this->get_tag(); ?> class="page-title"><a href="<?php echo esc_url( get_permalink( $post->post_parent ) ); ?>" title="<?php echo esc_attr( sprintf( __( 'Return to %s', 'marketify' ), strip_tags( get_the_title( $post->post_parent ) ) ) ); ?>" rel="gallery"><?php
 		/* translators: %s - title of parent post */
 		printf( __( '<span class="meta-nav">&larr;</span> %s', 'marketify' ), get_the_title( $post->post_parent ) );
-	?></a></h2>
+	?></a></<?php echo $this->get_tag(); ?>>
 <?php
         rewind_posts();
     }
@@ -98,7 +119,7 @@ class Marketify_Template_Page_Header {
         }
 ?>
 <div class="page-header container">
-    <h2 class="page-title"><?php the_archive_title(); ?></h2>
+    <<?php echo $this->get_tag(); ?> class="page-title"><?php the_archive_title(); ?></<?php echo $this->get_tag(); ?>>
 <?php
     }
 
@@ -113,7 +134,9 @@ class Marketify_Template_Page_Header {
             if ( did_action( 'marketify_downloads_before' ) ) {
                 $title = sprintf( __( 'All %s', 'marketify' ), $title );
             }
-        }
+		} else if ( function_exists( 'fes_get_vendor' ) && fes_get_vendor() ) {
+			$title = sprintf( __( 'Recent %s', 'marketify' ), edd_get_label_plural() );
+		}
 
         return $title;
     }
@@ -128,7 +151,7 @@ class Marketify_Template_Page_Header {
         $social = marketify()->template->entry->social_profiles();
 ?>
 <div class="page-header page-header--single container">
-    <h2 class="page-title"><?php the_title(); ?></h2>
+    <<?php echo $this->get_tag(); ?> class="page-title"><?php the_title(); ?></<?php echo $this->get_tag(); ?>>
 
     <div class="page-header__entry-meta page-header__entry-meta--date entry-meta entry-meta--hentry">
         <?php get_template_part( 'content', 'entry-meta' ); ?>
@@ -143,7 +166,7 @@ class Marketify_Template_Page_Header {
         }
 ?>
 <div class="page-header page-header--singular container">
-    <h2 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'marketify' ); ?></h2>
+    <<?php echo $this->get_tag(); ?> class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'marketify' ); ?></<?php echo $this->get_tag(); ?>>
 <?php
     }
 

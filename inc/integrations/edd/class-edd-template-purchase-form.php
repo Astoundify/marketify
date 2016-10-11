@@ -4,7 +4,7 @@ class Marketify_EDD_Template_Purchase_Form {
 	
     public function __construct() {
         add_action( 'marketify_download_actions', array( $this, 'purchase_link' ) );
-        add_action( 'marketify_download_content_actions_before', array( $this, 'purchase_link' ) );
+		add_action( 'marketify_download_content_actions_before', array( $this, 'purchase_link' ) );
 
         add_filter( 'edd_purchase_download_form', array( $this, 'download_form_class' ), 10, 2 );
         add_filter( 'edd_button_colors', array( $this, 'button_colors' ) );
@@ -26,7 +26,7 @@ class Marketify_EDD_Template_Purchase_Form {
 
         $in_cart = edd_item_in_cart( $download_id );
 
-        if ( ! $variable || $sold_out != false || ( $in_cart ) ) {
+        if ( ( ! $variable || $sold_out != false || ( $in_cart ) ) && apply_filters( 'marketify_disable_buy_popup', true ) ) {
             echo $form;
         } else {
             $button = ! empty( $edd_options[ 'add_to_cart_text' ] ) ? $edd_options[ 'add_to_cart_text' ] : __( 'Purchase', 'marketify' );

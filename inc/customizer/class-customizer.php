@@ -23,15 +23,12 @@ class Marketify_Customizer {
 
     public function setup_actions() {
         add_action( 'customize_register', array( $this, 'custom_controls' ) );
-        add_action( 'customize_register', array( $this, 'init_panels' ) );
+
+        $this->panels = new Marketify_Customizer_Panels();
     }
 
     public function custom_controls() {
         include_once( dirname( __FILE__) . '/control/class-control-multicheck.php' );
-    }
-
-    public function init_panels() {
-        $this->panels = new Marketify_Customizer_Panels();
     }
 
 }

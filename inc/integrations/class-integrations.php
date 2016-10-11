@@ -32,12 +32,16 @@ class Marketify_Integrations {
 				'Marketify_EDD_Recommended_Products'
 			),
 			'edd-cross-sell-upsell' => array(
-				defined( 'edd_csau_version' ),
+				defined( 'EDD_CSAU_VERSION' ),
 				'Marketify_EDD_Cross_Sell_UpSell'
 			),
 			'edd-wish-lists' => array(
 				class_exists( 'EDD_Wish_Lists' ),
 				'Marketify_EDD_Wish_Lists'
+			),
+			'edd-bookings' => array(
+				defined( 'EDD_BK_VERSION' ),
+				'Marketify_EDD_Bookings'
 			),
 			'facetwp' => array(
 				class_exists( 'FacetWP' ),
