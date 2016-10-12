@@ -51,7 +51,7 @@ Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
 
-= 2.9.0: October 4, 2016 =
+= 2.9.0: October 12, 2016 =
 
 * New: EDD Cross Sells and Upsells integration. https://easydigitaldownloads.com/downloads/edd-cross-sell-and-upsell/
 * New: EDD Upload File integration. https://easydigitaldownloads.com/downloads/edd-upload-file/
