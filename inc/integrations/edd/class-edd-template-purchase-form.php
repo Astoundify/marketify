@@ -29,9 +29,9 @@ class Marketify_EDD_Template_Purchase_Form {
         if ( ! $variable || $sold_out != false || ( $in_cart ) ) {
             echo $form;
         } else {
-			
-			$button_text = apply_filters( 'marketify_purchase_button_text', __( 'Purchase', 'marketify' ), $download_id );
-			
+
+            $button_text = apply_filters( 'marketify_purchase_button_text', __( 'Purchase', 'marketify' ), $download_id );
+
             $button = ! empty( $edd_options[ 'add_to_cart_text' ] ) ? $edd_options[ 'add_to_cart_text' ] : $button_text;
             $class = 'button buy-now popup-trigger';
 
