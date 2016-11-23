@@ -339,6 +339,10 @@ class Marketify_EDD_Template_Download {
     public function featured_video() {
 		$video = $this->_get_video();
 
+		if ( '' == $video || empty( $video ) ) {
+			return;
+		}
+
         $info = wp_check_filetype( $video );
 		$atts = apply_filters( 'marketify_featured_video_embed_atts', '' );
 
