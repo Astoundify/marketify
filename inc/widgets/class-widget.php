@@ -144,10 +144,21 @@ div[id^="widget-area-page"] .marketify-widget-usage.widgetized { display: none; 
 
             switch ( $setting[ 'type' ] ) {
                 case 'widget-area' :
-                ?>
-                    <p class="marketify-widget-usage <?php echo $key; ?>"><em><?php printf( __( 'Only for use in the <strong>%s</strong> widget area.', 'marketify' ), $setting[ 'std' ] ); ?></em></p>
-                <?php
-                break;
+					// allow multiple sidebars to be defined
+					if ( isset( $setting[ 'sidebars' ] ) ) {
+						$key = implode( ' ', $setting[ 'sidebars' ] );
+					}
+
+					// combine multiple labels
+					if ( is_array( $setting[ 'std' ] ) ) {
+						$value = implode( ', ', $setting[ 'std' ] );
+					}
+?>
+
+	<p class="marketify-widget-usage <?php echo $key; ?>"><em><?php printf( __( 'Only for use in the <strong>%s</strong> widget area.', 'marketify' ), $value ); ?></em></p>
+
+<?php
+					break;
                 case 'description' :
                     ?>
                     <p class="description"><?php echo $value; ?></p>

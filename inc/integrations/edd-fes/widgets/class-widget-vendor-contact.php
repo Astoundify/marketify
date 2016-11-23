@@ -8,9 +8,10 @@ class Marketify_Widget_FES_Vendor_Contact extends Marketify_Widget {
         $this->widget_id          = 'marketify_widget_fes_vendor_contact';
         $this->widget_name        = __( 'Marketify - Vendor: Contact', 'marketify' );
         $this->settings           = array(
-            'sidebar-vendor' => array(
+            'widget-areas' => array(
                 'type' => 'widget-area',
-                'std'  => __( 'Vendor Sidebar', 'marketify' )
+				'std'  => array( __( 'Vendor Sidebar', 'marketify' ), __( 'Download Sidebar', 'marketify' ) ),
+				'sidebars' => array( 'sidebar-vendor', 'sidebar-download-single' )
             ),
             'extras' => array(
                 'type'  => 'description',

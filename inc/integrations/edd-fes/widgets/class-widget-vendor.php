@@ -10,7 +10,8 @@ class Marketify_Widget_FES_Vendor extends Marketify_Widget {
         $this->settings           = array(
             'sidebar-vendor' => array(
                 'type' => 'widget-area',
-                'std'  => __( 'Vendor Sidebar', 'marketify' )
+				'std'  => array( __( 'Vendor Sidebar', 'marketify' ), __( 'Download Sidebar', 'marketify' ) ),
+				'sidebars' => array( 'sidebar-vendor', 'sidebar-download-single' )
             ),
             'desc' => array(
                 'type'  => 'description',
