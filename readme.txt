@@ -1,8 +1,8 @@
 === Marketify ===
 Contributors: Astoundify
-Requires at least: WordPress 4.3
-Tested up to: WordPress 4.4.2
-Version: 2.9.0
+Requires at least: WordPress 4.5
+Tested up to: WordPress 4.7.0
+Version: 2.10.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: white, two-columns, one-column, right-sidebar, left-sidebar, fluid-layout, custom-background, custom-header, theme-options, full-width-template, featured-images, flexible-header, custom-menu, translation-ready
@@ -50,6 +50,13 @@ License: MIT
 Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
+
+= 2.10.0: December, 2016 =
+
+* New: Allow vendor widgets to be placed on download sidebar (contact, description, about).
+* Fix: Do not output empty video error when no video exists.
+* Fix: Add filter to "Purchase" button so other plugins can update when needed.
+* Fix: Ensure close button is visible on popups taller than the window.
 
 = 2.9.0: October 12, 2016 =
 

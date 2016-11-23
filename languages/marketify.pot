@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
-"Project-Id-Version: Marketify 2.9.0\n"
+"Project-Id-Version: Marketify 2.10.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2016-09-30 14:05:37+00:00\n"
+"POT-Creation-Date: 2016-11-23 16:41:00+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -388,7 +388,7 @@ msgstr ""
 msgid "Checkout"
 msgstr ""
 
-#: inc/integrations/edd/class-edd-template-purchase-form.php:32
+#: inc/integrations/edd/class-edd-template-purchase-form.php:33
 #: inc/integrations/edd/widgets/class-widget-download-details.php:78
 msgid "Purchase"
 msgstr ""
@@ -454,7 +454,7 @@ msgid "Hide purchase count"
 msgstr ""
 
 #: inc/integrations/edd/widgets/class-widget-download-details.php:68
-#: inc/integrations/edd-fes/widgets/class-widget-vendor.php:40
+#: inc/integrations/edd-fes/widgets/class-widget-vendor.php:41
 msgid "Author since: %s"
 msgstr ""
 
@@ -584,7 +584,13 @@ msgstr ""
 msgid "Marketify - Vendor: Contact"
 msgstr ""
 
-#: inc/integrations/edd-fes/widgets/class-widget-vendor-contact.php:17
+#: inc/integrations/edd-fes/widgets/class-widget-vendor-contact.php:13
+#: inc/integrations/edd-fes/widgets/class-widget-vendor-description.php:13
+#: inc/integrations/edd-fes/widgets/class-widget-vendor.php:13
+msgid "Download Sidebar"
+msgstr ""
+
+#: inc/integrations/edd-fes/widgets/class-widget-vendor-contact.php:18
 msgid "This widget has no options."
 msgstr ""
 
@@ -596,8 +602,8 @@ msgstr ""
 msgid "Marketify - Vendor: Biography"
 msgstr ""
 
-#: inc/integrations/edd-fes/widgets/class-widget-vendor-description.php:17
-#: inc/integrations/edd-fes/widgets/class-widget-vendor.php:17
+#: inc/integrations/edd-fes/widgets/class-widget-vendor-description.php:18
+#: inc/integrations/edd-fes/widgets/class-widget-vendor.php:18
 msgid "This widget has no options"
 msgstr ""
 
@@ -1596,11 +1602,11 @@ msgstr ""
 msgid "Slider Shortcode"
 msgstr ""
 
-#: inc/widgets/class-widget.php:148
+#: inc/widgets/class-widget.php:158
 msgid "Only for use in the <strong>%s</strong> widget area."
 msgstr ""
 
-#: inc/widgets/class-widget.php:250
+#: inc/widgets/class-widget.php:261
 msgid "Choose Image"
 msgstr ""
 
@@ -1794,7 +1800,7 @@ msgctxt "as in: \"version nr unknown\""
 msgid "unknown"
 msgstr ""
 
-#: inc/template/class-template-assets.php:57
+#: inc/template/class-template-assets.php:65
 #. Translators: If there are characters in your language that are not
 #. * supported by Source Sans Pro, translate this to 'off'. Do not
 #. translate
@@ -1803,7 +1809,7 @@ msgctxt "Source Sans Pro font: on or off"
 msgid "on"
 msgstr ""
 
-#: inc/template/class-template-assets.php:63
+#: inc/template/class-template-assets.php:71
 #. Translators: If there are characters in your language that are not
 #. * supported by Montserrat, translate this to 'off'. Do not
 #. translate into your

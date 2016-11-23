@@ -2,5 +2,5 @@
 Thumbs.db
 /node_modules/
 /.sass-cache/
-npm-debug.log
+*.log
 css/style.css
