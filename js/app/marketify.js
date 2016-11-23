@@ -1,4 +1,4 @@
-var Marketify = {};
+var Marketify = Marketify || {};
 
 Marketify.App = ( function($) {
   function menuToggle() {

@@ -35,7 +35,7 @@ jQuery ($) ->
         else
           $inner.parent().slick(
             autoplay: true
-            autoplaySpeed: 3000
+            autoplaySpeed: Marketify.widgets.testimonials.individualSliderSpeed
             slidesToShow: 2
             slidesToScroll: 2
             arrows: false

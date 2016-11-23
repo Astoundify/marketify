@@ -16,6 +16,14 @@ class Marketify_Template_Assets {
 
         wp_enqueue_script( 'marketify', get_template_directory_uri() . '/js/marketify.min.js', array( 'jquery' ), '20160107', true );
         wp_enqueue_script( 'salvattore', get_template_directory_uri() . '/js/vendor/salvattore/salvattore.min.js', array( 'marketify' ), '20151120', true );
+
+		wp_localize_script( 'marketify', 'Marketify', apply_filters( 'marketify_js', array(
+			'widgets' => array(
+				'testimonials' => array(
+					'individualSliderSpeed' => 3000
+				)
+			)
+		) ) );
     }
 
     public function enqueue_styles() {
