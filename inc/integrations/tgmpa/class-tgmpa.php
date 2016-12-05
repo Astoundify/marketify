@@ -41,8 +41,8 @@ class Marketify_TGMPA {
                 'required'  => false
             ),
             array(
-                'name'      => 'Nav Menu Roles',
-                'slug'      => 'nav-menu-roles',
+                'name'      => 'If Menu',
+                'slug'      => 'if-menu',
                 'required'  => false,
             )
         );
