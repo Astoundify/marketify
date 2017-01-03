@@ -13,6 +13,13 @@ input[type=submit].edd-submit {
 // ludacris
 .content-grid-download__actions .edd-submit.button,
 .page-header .edd-submit.button {
+	@extend .button--color-white;
+
+	&:hover {
+		background-color: #fff;
+		border-color: #fff;
+	}
+
     &.edd-add-to-cart,
     &.edd_go_to_checkout {
         @extend .button--color-white;
