@@ -155,7 +155,9 @@ add_action( 'wp_enqueue_scripts', 'marketify_child_styles', 999 );
 	public static function theme_updater() {
 		// start the updater
 		$updater = Astoundify_ThemeForest_Updater::instance();
-		$updater::set_strings( array(
+
+		// For PHP 5.2.4
+		call_user_func( array( $updater, 'set_strings' ), array(
 			'cheating' => __( 'Cheating?', 'marketify' ),
 			'no-token' => __( 'An API token is required.', 'marketify' ),
 			'api-error' => __( 'API error.', 'marketify' ),
