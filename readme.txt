@@ -54,6 +54,7 @@ Source: https://github.com/driftyco/ionicons
 = 2.10.0: December, 2016 =
 
 * New: Allow vendor widgets to be placed on download sidebar (contact, description, about).
+* Fix: Easy Digital Downloads - External Products style fixes.
 * Fix: Do not output empty video error when no video exists.
 * Fix: Add filter to "Purchase" button so other plugins can update when needed.
 * Fix: Ensure close button is visible on popups taller than the window.

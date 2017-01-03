@@ -1,14 +1,14 @@
-# Copyright (C) 2016 Astoundify
+# Copyright (C) 2017 Astoundify
 # This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
 "Project-Id-Version: Marketify 2.10.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2016-11-23 16:41:00+00:00\n"
+"POT-Creation-Date: 2017-01-03 15:11:31+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.4.9\n"
@@ -1080,11 +1080,11 @@ msgstr ""
 msgid "Error: theme folder not writable"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:80 inc/setup/class-setup.php:225
+#: inc/setup/_importer/ContentImporter.php:80 inc/setup/class-setup.php:227
 msgid "Setting"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:80 inc/setup/class-setup.php:225
+#: inc/setup/_importer/ContentImporter.php:80 inc/setup/class-setup.php:227
 msgid "Settings"
 msgstr ""
 
@@ -1096,23 +1096,23 @@ msgstr ""
 msgid "Theme Customizations"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:82 inc/setup/class-setup.php:227
+#: inc/setup/_importer/ContentImporter.php:82 inc/setup/class-setup.php:229
 msgid "Navigation Menu"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:82 inc/setup/class-setup.php:227
+#: inc/setup/_importer/ContentImporter.php:82 inc/setup/class-setup.php:229
 msgid "Navigation Menus"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:83 inc/setup/class-setup.php:226
+#: inc/setup/_importer/ContentImporter.php:83 inc/setup/class-setup.php:228
 msgid "Term"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:83 inc/setup/class-setup.php:226
+#: inc/setup/_importer/ContentImporter.php:83 inc/setup/class-setup.php:228
 msgid "Terms"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:84 inc/setup/class-setup.php:229
+#: inc/setup/_importer/ContentImporter.php:84 inc/setup/class-setup.php:231
 msgid "Content"
 msgstr ""
 
@@ -1120,23 +1120,23 @@ msgstr ""
 msgid "Contents"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:85 inc/setup/class-setup.php:228
+#: inc/setup/_importer/ContentImporter.php:85 inc/setup/class-setup.php:230
 msgid "Navigation Menu Item"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:85 inc/setup/class-setup.php:228
+#: inc/setup/_importer/ContentImporter.php:85 inc/setup/class-setup.php:230
 msgid "Navigation Menu Items"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:86 inc/setup/class-setup.php:230
+#: inc/setup/_importer/ContentImporter.php:86 inc/setup/class-setup.php:232
 msgid "Widget"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:86 inc/setup/class-setup.php:230
+#: inc/setup/_importer/ContentImporter.php:86 inc/setup/class-setup.php:232
 msgid "Widgets"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:90 inc/setup/class-setup.php:233
+#: inc/setup/_importer/ContentImporter.php:90 inc/setup/class-setup.php:235
 msgid "Import Complete!"
 msgstr ""
 
@@ -1144,19 +1144,19 @@ msgstr ""
 msgid "Reset Complete"
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:96 inc/setup/class-setup.php:239
+#: inc/setup/_importer/ContentImporter.php:96 inc/setup/class-setup.php:241
 msgid "Invalid process action."
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:97 inc/setup/class-setup.php:240
+#: inc/setup/_importer/ContentImporter.php:97 inc/setup/class-setup.php:242
 msgid "Invalid process type."
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:98 inc/setup/class-setup.php:241
+#: inc/setup/_importer/ContentImporter.php:98 inc/setup/class-setup.php:243
 msgid "Iteration process failed."
 msgstr ""
 
-#: inc/setup/_importer/ContentImporter.php:99 inc/setup/class-setup.php:242
+#: inc/setup/_importer/ContentImporter.php:99 inc/setup/class-setup.php:244
 msgid "You do not have permission to manage content."
 msgstr ""
 
@@ -1200,31 +1200,31 @@ msgstr ""
 msgid "Submit a Support Ticket"
 msgstr ""
 
-#: inc/setup/class-setup.php:159
+#: inc/setup/class-setup.php:161
 msgid "Cheating?"
 msgstr ""
 
-#: inc/setup/class-setup.php:160
+#: inc/setup/class-setup.php:162
 msgid "An API token is required."
 msgstr ""
 
-#: inc/setup/class-setup.php:161
+#: inc/setup/class-setup.php:163
 msgid "API error."
 msgstr ""
 
-#: inc/setup/class-setup.php:162
+#: inc/setup/class-setup.php:164
 msgid "Connected"
 msgstr ""
 
-#: inc/setup/class-setup.php:163
+#: inc/setup/class-setup.php:165
 msgid "Disconnected"
 msgstr ""
 
-#: inc/setup/class-setup.php:236
+#: inc/setup/class-setup.php:238
 msgid "Reset Complete!"
 msgstr ""
 
-#: inc/setup/class-setup.php:264
+#: inc/setup/class-setup.php:266
 msgid "You do not have permission to import content."
 msgstr ""
 
