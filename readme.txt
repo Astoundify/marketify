@@ -119,7 +119,7 @@ Source: https://github.com/driftyco/ionicons
 = 2.3.1: January 13, 2015 =
 
 * Fix: Error on minimal page template when no featured image is enabled.
-* Fix: Correct URL on loading assetes in integrations.
+* Fix: Correct URL on loading assets in integrations.
 * Fix: Invalid HTML in archive-download.php template file.
 * Fix: Remove invalid sanitize_callback on customizer checkboxes.
 * Fix: Placeholder color in Chrome and Safari.
