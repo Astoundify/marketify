@@ -51,7 +51,7 @@ Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
 
-= 2.10.0: December, 2016 =
+= 2.10.0: January 30, 2017 =
 
 * New: Allow vendor widgets to be placed on download sidebar (contact, description, about).
 * Fix: Easy Digital Downloads - External Products style fixes.

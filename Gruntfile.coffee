@@ -1,139 +1,134 @@
 module.exports = () ->
 
-  @initConfig
-    watch:
-      options:
-        livereload: 12344
-      css:
-        files: [
-          'css/sass/*.scss'
-          'css/sass/**/*.scss'
-        ]
-        tasks: [ 'sass', 'concat:initial', 'cssmin', 'concat:header' ]
-      js:
-        files: [
-          'Gruntfile.*'
-          'js/**/*.coffee',
-          'js/app/*.js',
-          'inc/**/*.coffee'
-        ]
-        tasks: [ 'coffee', 'uglify' ]
+	@initConfig
+		watch:
+			options:
+				livereload: 12344
+			css:
+				files: [
+					'css/sass/*.scss'
+					'css/sass/**/*.scss'
+				]
+				tasks: [ 'sass', 'concat:initial', 'cssmin', 'concat:header' ]
+			js:
+				files: [
+					'Gruntfile.*'
+					'js/**/*.coffee',
+					'js/app/*.js',
+					'inc/**/*.coffee'
+				]
+				tasks: [ 'coffee', 'uglify' ]
 
-    sass:
-      dist:
-        options:
-          style: 'compressed'
-        files:
-          'css/style.css': 'css/sass/style.scss'
+		sass:
+			dist:
+				options:
+					style: 'compressed'
+				files:
+					'css/style.css': 'css/sass/style.scss'
 
-    concat:
-      initial:
-        files:
-          'css/style.css': [ 'css/vendor/**/*.css', 'js/vendor/**/*.css', 'css/style.css']
-      header:
-        files:
-          'style.css': [ 'css/_theme.css', 'css/style.min.css' ]
+		concat:
+			initial:
+				files:
+					'css/style.css': [ 'css/vendor/**/*.css', 'js/vendor/**/*.css', 'css/style.css']
+			header:
+				files:
+					'style.css': [ 'css/_theme.css', 'css/style.min.css' ]
 
-    cssmin:
-      dist:
-        files: 'css/style.min.css': [ 'css/style.css' ]
+		cssmin:
+			dist:
+				files: 'css/style.min.css': [ 'css/style.css' ]
 
-    coffee:
-      dist:
-        files:
-          'js/download/download.js': 'js/download/download.coffee'
-          'js/page-header-video/page-header-video-admin.js': 'js/page-header-video/page-header-video-admin.coffee'
-          'js/page-header-video/page-header-video.js': 'js/page-header-video/page-header-video.coffee'
-          'js/widgets/featured-popular.js': 'js/widgets/featured-popular.coffee'
-          'js/widgets/testimonials.js': 'js/widgets/testimonials.coffee'
-          'inc/integrations/facetwp/js/facetwp.js': 'inc/integrations/facetwp/js/facetwp.coffee'
+		coffee:
+			dist:
+				files:
+					'js/download/download.js': 'js/download/download.coffee'
+					'js/page-header-video/page-header-video-admin.js': 'js/page-header-video/page-header-video-admin.coffee'
+					'js/page-header-video/page-header-video.js': 'js/page-header-video/page-header-video.coffee'
+					'js/widgets/featured-popular.js': 'js/widgets/featured-popular.coffee'
+					'js/widgets/testimonials.js': 'js/widgets/testimonials.coffee'
+					'inc/integrations/facetwp/js/facetwp.js': 'inc/integrations/facetwp/js/facetwp.coffee'
 
-    jsonlint:
-      dist:
-        src: [ 'inc/setup/import-content/**/*.json' ]
-        options:
-          formatter: 'prose'
+		jsonlint:
+			dist:
+				src: [ 'inc/setup/import-content/**/*.json' ]
+				options:
+					formatter: 'prose'
 
-    uglify:
-      dist:
-        options:
-          sourceMap: true
-        files:
-          'js/marketify.min.js': [
-            'js/vendor/**/*.js'
-            'js/app/marketify.js'
-            'js/widgets/featured-popular.js'
-            'js/widgets/testimonials.js'
-            'js/page-header-video/page-header-video.js'
-            '!js/vendor/salvattore/*.js'
-          ]
+		uglify:
+			dist:
+				options:
+					sourceMap: true
+				files:
+					'js/marketify.min.js': [
+						'js/vendor/**/*.js'
+						'js/app/marketify.js'
+						'js/widgets/featured-popular.js'
+						'js/widgets/testimonials.js'
+						'js/page-header-video/page-header-video.js'
+						'!js/vendor/salvattore/*.js'
+					]
 
-    makepot:
-      theme:
-        options:
-          type: 'wp-theme'
+		makepot:
+			theme:
+				options:
+					type: 'wp-theme'
 
-    exec:
-      txpull:
-        cmd: 'tx pull -a --minimum-perc=75'
-      txpush:
-        cmd: 'tx push -s'
+		checktextdomain:
+			dist:
+				options:
+					text_domain: 'marketify'
+					keywords: [
+						'__:1,2d'
+						'_e:1,2d'
+						'_x:1,2c,3d'
+						'esc_html__:1,2d'
+						'esc_html_e:1,2d'
+						'esc_html_x:1,2c,3d'
+						'esc_attr__:1,2d'
+						'esc_attr_e:1,2d'
+						'esc_attr_x:1,2c,3d'
+						'_ex:1,2c,3d'
+						'_n:1,2,4d'
+						'_nx:1,2,4c,5d'
+						'_n_noop:1,2,3d'
+						'_nx_noop:1,2,3c,4d'
+					]
+				files: [{
+					src: [ '**/*.php' ]
+					expand: true
+				}]
 
-    potomo:
-      dist:
-        options:
-          poDel: false 
-        files: [
-          expand: true
-          cwd: 'languages'
-          src: ['*.po']
-          dest: 'languages'
-          ext: '.mo'
-          nonull: true
-        ]
+		glotpress_download:
+			theme:
+				options:
+					url: 'http://astoundify.com/glotpress'
+					domainPath: 'languages'
+					slug: 'marketify'
+					textdomain: 'marketify'
+					formats: [ 'mo', 'po' ]
+					file_format: '%domainPath%/%wp_locale%.%format%'
+					filter:
+						translation_sets: false
+						minimum_percentage: 50
+						waiting_strings: false
 
-    checktextdomain:
-      dist:
-        options:
-          text_domain: 'marketify'
-          keywords: [
-            '__:1,2d'
-            '_e:1,2d'
-            '_x:1,2c,3d'
-            'esc_html__:1,2d'
-            'esc_html_e:1,2d'
-            'esc_html_x:1,2c,3d'
-            'esc_attr__:1,2d'
-            'esc_attr_e:1,2d'
-            'esc_attr_x:1,2c,3d'
-            '_ex:1,2c,3d'
-            '_n:1,2,4d'
-            '_nx:1,2,4c,5d'
-            '_n_noop:1,2,3d'
-            '_nx_noop:1,2,3c,4d'
-          ]
-        files: [{
-          src: [ '**/*.php' ]
-          expand: true
-        }]
+	@loadNpmTasks 'grunt-contrib-watch'
+	@loadNpmTasks 'grunt-contrib-coffee'
+	@loadNpmTasks 'grunt-contrib-uglify'
+	@loadNpmTasks 'grunt-contrib-sass'
+	@loadNpmTasks 'grunt-contrib-cssmin'
+	@loadNpmTasks 'grunt-contrib-concat'
+	@loadNpmTasks 'grunt-contrib-concat'
+	@loadNpmTasks 'grunt-wp-i18n'
+	@loadNpmTasks 'grunt-exec'
+	@loadNpmTasks 'grunt-potomo'
+	@loadNpmTasks 'grunt-checktextdomain'
+	@loadNpmTasks 'grunt-jsonlint'
+	@loadNpmTasks 'grunt-glotpress'
 
-  @loadNpmTasks 'grunt-contrib-watch'
-  @loadNpmTasks 'grunt-contrib-coffee'
-  @loadNpmTasks 'grunt-contrib-uglify'
-  @loadNpmTasks 'grunt-contrib-sass'
-  @loadNpmTasks 'grunt-contrib-cssmin'
-  @loadNpmTasks 'grunt-contrib-concat'
-  @loadNpmTasks 'grunt-contrib-concat'
-  @loadNpmTasks 'grunt-wp-i18n'
-  @loadNpmTasks 'grunt-exec'
-  @loadNpmTasks 'grunt-potomo'
-  @loadNpmTasks 'grunt-checktextdomain'
-  @loadNpmTasks 'grunt-jsonlint'
+	@registerTask 'default', [ 'watch' ]
 
-  @registerTask 'default', ['watch']
+	@registerTask 'i18n', [ 'makepot', 'glotpress_download' ]
+	@registerTask 'checkTranslation', [ 'checktextdomain' ]
 
-  @registerTask 'getTranslations', [ 'exec:txpull', 'potomo' ]
-  @registerTask 'pushTranslation', [ 'makepot', 'exec:txpush' ]
-  @registerTask 'checkTranslation', [ 'checktextdomain' ]
-
-  @registerTask 'build', [ 'jsonlint', 'uglify', 'coffee', 'sass', 'concat:initial', 'cssmin', 'concat:header', 'pushTranslation', 'getTranslations' ]
+	@registerTask 'build', [ 'jsonlint', 'uglify', 'coffee', 'sass', 'concat:initial', 'cssmin', 'concat:header', 'i18n' ]
