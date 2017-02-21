@@ -9,6 +9,7 @@ class Marketify_Template_Header {
 
     public function add_header_support() {
         add_theme_support( 'custom-header', array(
+			'default-text-color' => 'ffffff',
             'width' => 150,
             'height' => 55,
             'flex-height' => true,
