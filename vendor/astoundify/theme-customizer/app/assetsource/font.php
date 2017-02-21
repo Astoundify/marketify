@@ -92,6 +92,10 @@ class Astoundify_ThemeCustomizer_AssetSource_Font extends Astoundify_ThemeCustom
 		$type_controls = astoundify_themecustomizer_get_control_group_defaults( 'typography-font-pack' );
 		$fonts = array();
 
+		if ( empty( $type_controls ) ) {
+			return $fonts;
+		}
+
 		foreach ( $type_controls as $theme_mod_key => $value ) {
 			$fonts[] = astoundify_themecustomizer_get_typography_mod( $theme_mod_key );
 		}
