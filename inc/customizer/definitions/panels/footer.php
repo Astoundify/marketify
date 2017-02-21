@@ -2,7 +2,7 @@
 /**
  * Footer
  *
- * @since 3.5.0
+ * @since 2.11.0
  */
 
 if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager ) {
@@ -10,6 +10,6 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 }
 
 $wp_customize->add_panel( 'footer', array(
-	'title' => _x( 'Footer', 'customizer panel title', 'jobify' ),
+	'title' => _x( 'Footer', 'customizer panel title', 'marketify' ),
 	'priority' => 30
 ) );
