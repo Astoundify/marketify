@@ -3,8 +3,6 @@
 class Marketify_Template_Header {
 
     public function __construct() {
-        $this->css = new Marketify_Customizer_CSS;
-
         add_action( 'after_setup_theme', array( $this, 'add_header_support' ) );
         add_action( 'marketify_output_customizer_css', array( $this, 'navigation_color' ), 10 );
     }
@@ -44,7 +42,7 @@ class Marketify_Template_Header {
     }
 
     public function navigation_color() {
-        $this->css->add( array(
+        astoundify_themecustomizer_add_css( array(
             'selectors' => array(
                 '.nav-menu--primary li a',
                 '.nav-menu--primary.nav-menu li:after'
@@ -55,7 +53,7 @@ class Marketify_Template_Header {
             'media' => 'screen and (min-width: 992px)'
         ) );
 
-        $this->css->add( array(
+        astoundify_themecustomizer_add_css( array(
             'selectors' => array(
                 '.nav-menu li:hover:not(.menu-item-has-children):not(.page_item_has_children)'
             ),

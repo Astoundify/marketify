@@ -15,8 +15,6 @@ class Marketify {
 
     public $helpers;
 
-    public $customizer;
-
     public $activation;
 
     public $integrations;
@@ -76,8 +74,6 @@ class Marketify {
 
     private function setup() {
         $this->helpers = new Marketify_Helpers();
-
-        $this->customizer = new Marketify_Customizer();
 
         $this->activation = new Marketify_Activation();
 

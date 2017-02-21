@@ -24,7 +24,7 @@ class Marketify_EDD_Shortcode {
 	 * @return mixed
 	 */
 	public function output() {
-		$per_page = absint( marketify_theme_mod( 'downloads-archives-per-page' ) );
+		$per_page = absint( get_theme_mod( 'downloads-archives-per-page', 12 ) );
 
 		// if the current page has its own shortcode use that instead
 		if ( is_singular( 'page' ) && has_shortcode( get_the_content(), 'downloads' ) ) {
@@ -43,7 +43,7 @@ class Marketify_EDD_Shortcode {
         $out[ 'buy_button' ]   = 'no';
 
         if ( ! isset( $atts[ 'columns' ] ) ) {
-            $out[ 'columns' ] = marketify_theme_mod( 'downloads-archives-columns' );
+            $out[ 'columns' ] = get_theme_mod( 'downloads-archives-columns', 3 );
         }
 
         if ( isset( $atts[ 'flat' ] ) && $atts[ 'flat' ] == true ) {

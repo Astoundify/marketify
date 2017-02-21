@@ -25,7 +25,7 @@ class Marketify_EDD_Popular {
     }
 
     public function show_popular() {
-        if ( 'on' != marketify_theme_mod( 'downloads-archives-popular' ) ) {
+        if ( 'on' != get_theme_mod( 'downloads-archives-popular', 'on' ) ) {
             return false;
         }
 
