@@ -250,7 +250,6 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-    @include montserrat(700, 13px);
 	text-decoration: none;
 	padding: 10px 20px;
 	border: 2px solid transparent;

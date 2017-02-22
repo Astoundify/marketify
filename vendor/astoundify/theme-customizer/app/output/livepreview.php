@@ -95,11 +95,7 @@ class Astoundify_ThemeCustomizer_Output_LivePreview extends Astoundify_ModuleLoa
 		// let things know we are in a live preview
 		do_action( 'astoundify_themecustomizer_output_customizer_preview_css' );
 
-		$controls = (array) $_POST[ 'astoundify-themecustomizer-font-family-controls' ];
-		$controls = array_map( 'esc_attr', $controls );
-
 		$json = array();
-		$fonts = array_values( $controls );
 
 		// gather google
 		$source = astoundify_themecustomizer_get_assetsource( 'googlefonts' );

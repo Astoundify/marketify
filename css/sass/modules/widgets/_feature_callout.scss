@@ -2,7 +2,8 @@
 	position: relative;
 
 	h2 {
-        @include montserrat(700, 32px);
+		font-size: 32px;
+		font-weight: bold;
 	}
 }
 

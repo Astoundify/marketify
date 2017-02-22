@@ -2,7 +2,6 @@ button,
 input[type=reset],
 input[type=submit],
 .button {
-    @include montserrat(700, 13px);
     text-decoration: none;
     text-shadow: none;
     text-align: center;

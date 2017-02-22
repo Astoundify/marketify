@@ -88,7 +88,6 @@ class Astoundify_ThemeCustomizer_AssetSource_Font extends Astoundify_ThemeCustom
 	 * @since 1.1.0
 	 */
 	public function get_fonts_used() {
-		// only works with controls containing `font-family`
 		$type_controls = astoundify_themecustomizer_get_control_group_defaults( 'typography-font-pack' );
 		$fonts = array();
 

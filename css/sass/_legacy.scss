@@ -2,7 +2,8 @@
 
 .feature-title,
 .individual-testimonial .author span:first-child {
-    @include montserrat(700, 16px);
+	font-size: 16px;
+	font-weight: bold;
 	margin-top: 1.25em;
 }
 
@@ -30,7 +31,8 @@
 
 .pricing-table-widget-description h2,
 .pricing-table-widget-description h3 {
-    @include montserrat(700, 50px);
+	font-size: 50px;
+	font-weight: bold;
 	margin: 0;
 }
 
