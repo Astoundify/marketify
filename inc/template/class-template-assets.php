@@ -7,6 +7,11 @@ class Marketify_Template_Assets {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ), 200 ); // late because plugins are crazy
 
 		add_filter( 'mce_css', array( $this, 'mce_css' ) );
+
+		// Remove the auto output of inline styles that happen too early by default.
+		// @see https://github.com/Astoundify/theme-customizer/blob/master/app/output/manager.php#L50
+		$customizer = new Astoundify_ThemeCustomizer_Manager();
+		remove_action( 'wp_enqueue_scripts', array( $customizer->output(), 'wp_enqueue_scripts' ), 20 );
 	}
 
 	public function enqueue_scripts() {
@@ -34,6 +39,7 @@ class Marketify_Template_Assets {
 		}
 
 		wp_enqueue_style( 'marketify-base', get_template_directory_uri() . '/style.css', array(), '20151121' );
+		wp_add_inline_style( 'marketify-base', astoundify_themecustomizer_get_css() );
 	}
 
 	public function mce_css( $mce_css ) {

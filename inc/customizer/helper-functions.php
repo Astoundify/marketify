@@ -28,7 +28,7 @@ function marketify_theme_mod( $key, $default = null ) {
  * @param $deprecated
  * @return string $mod
  */
-function marketify_theme_color( $key, $deprecated ) {
+function marketify_theme_color( $key, $deprecated = false ) {
 	return astoundify_themecustomizer_get_colorscheme_mod( $key );
 }
 
