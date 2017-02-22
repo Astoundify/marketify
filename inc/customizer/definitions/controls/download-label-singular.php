@@ -10,11 +10,12 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 }
 
 $wp_customize->add_setting( 'download-label-singular', array(
-	'default' => 'Download'
+	'default' => 'Download',
+	'sanitize_callback' => 'esc_attr'
 ) );
 
 $wp_customize->add_control( 'download-label-singular', array(
 	'label'   => __( 'Singular Label', 'marketify' ),
-	'section' => 'download-label',
+	'section' => 'download-labels',
 	'priority' => 10
 ) );

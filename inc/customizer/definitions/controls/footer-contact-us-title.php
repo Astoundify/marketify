@@ -10,7 +10,8 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 }
 
 $wp_customize->add_setting( 'footer-contact-us-title', array(
-	'default' => 'Contact Us'
+	'default' => 'Contact Us',
+	'sanitize_callback' => 'esc_attr'
 ) );
 
 $wp_customize->add_control( 'footer-contact-us-title', array(

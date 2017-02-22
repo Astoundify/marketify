@@ -11,7 +11,8 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 
 $wp_customize->add_setting( 'typography-font-pack', array(
 	'default' => 'default',
-	'transport' => 'postMessage'
+	'transport' => 'postMessage',
+	'sanitize_callback' => 'esc_attr'
 ) );
 
 $wp_customize->add_control( new Astoundify_ThemeCustomizer_Control_ControlGroup( 
