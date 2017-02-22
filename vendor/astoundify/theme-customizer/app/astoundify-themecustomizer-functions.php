@@ -303,6 +303,18 @@ function astoundify_themecustomizer_darken_hex( $hex, $steps ) {
 }
 
 /**
+ * Transform a HEX value to RGB.
+ *
+ * @since 1.3.0
+ *
+ * @param string $hex
+ * @return string $hex
+ */
+function astoundify_themecustomizer_hex_to_rgb( $hex ) {
+	return Astoundify_ThemeCustomizer_Output_CSSGenerator::hex_to_rgb( $hex );
+}
+
+/**
  * Add an asset source.
  *
  * @since 1.1.0

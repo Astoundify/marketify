@@ -104,3 +104,33 @@ astoundify_themecustomizer_add_css( array(
 		'border-color' => '#ffffff'
 	)
 ) );
+
+astoundify_themecustomizer_add_css( array(
+	'selectors' => array(
+		'.content-grid-download__entry-image:hover .content-grid-download__overlay',
+		'.content-grid-download__entry-image.hover .content-grid-download__overlay'
+	),
+	'declarations' => array(
+		'background' => 'rgba(' . astoundify_themecustomizer_hex_to_rgb( $primary ) . ',.80)',
+		'border' => '1px solid rgba(' . astoundify_themecustomizer_hex_to_rgb( $primary ) . ',.80)',
+	)
+) );
+
+astoundify_themecustomizer_add_css( array(
+	'selectors' => array(
+		'.search-form-overlay',
+		'.download-gallery-navigation__image.slick-active:before'
+	),
+	'declarations' => array(
+		'background-color' => 'rgba(' . astoundify_themecustomizer_hex_to_rgb( $primary ) . ', .90)',
+	)
+) );
+
+astoundify_themecustomizer_add_css( array(
+	'selectors' => array(
+		'.nav-menu--primary li li a'
+	),
+	'declarations' => array(
+		'color' => esc_attr( $primary )
+	)
+) );
