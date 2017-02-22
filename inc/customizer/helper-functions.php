@@ -75,7 +75,6 @@ function marketify_themecustomizer_get_typography_elements() {
 		'entry-title' => _x( 'Blog Post Titles', 'customizer section title', 'marketify' ),
 		'widget-title' => _x( 'Widget Titles', 'customizer section title', 'marketify' ),
 		'home-widget-title' => _x( 'Homepage Widget Titles', 'customizer section title', 'marketify' ),
-		'home-widget-description' => _x( 'Homepage Widget Descriptions', 'customizer section title', 'marketify' ),
 		'button' => _x( 'Buttons', 'customizer section title', 'marketify' ),
 		'input' => _x( 'Inputs', 'customizer section title', 'marketify' ),
 	);

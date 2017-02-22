@@ -20,7 +20,7 @@ class Marketify_Customize {
 
 		astoundify_themecustomizer( array(
 			'stylesheet' => 'marketify-base', 
-			'install_url' => get_template_directory_uri() . '/vendor/astoundify/theme-customizer',
+			'install_url' => get_template_directory_uri() . '/vendor/astoundify/theme-customizer/app',
 			'definitions_dir' => get_template_directory() . '/inc/customizer/definitions'
 		) );
 	}
