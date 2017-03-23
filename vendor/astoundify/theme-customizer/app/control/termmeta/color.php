@@ -62,7 +62,7 @@ class Astoundify_ThemeCustomizer_Control_TermMeta_Color extends Astoundify_Theme
 		<span class="customize-control-title">{{{data.termLabel}}}</span>
 		<div class="customize-control-content">
 			<input class="color-picker-hex" type="text" value="{{{data.termId}}}" data-customize-setting-link="{{{data.termId}}}" maxlength="7" />
-			<a class="js-listify-remove-term button button-secondary button-small"><?php _e( 'Remove', 'listify' ); ?></a>
+			<a class="js-listify-remove-term button button-secondary button-small"><?php _e( 'Remove', 'marketify' ); ?></a>
 		</div>
 	</label>
 </script>

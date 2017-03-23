@@ -6,7 +6,7 @@
  */
 $groups = array(
 	'default' => array(
-		'title' => __( 'Default', 'jobify' ),
+		'title' => __( 'Default', 'marketify' ),
 		'controls' => array(
 			'background_color' => '#ffffff',
 			'header_textcolor' => '#ffffff',

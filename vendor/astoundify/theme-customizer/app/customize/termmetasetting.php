@@ -171,7 +171,7 @@ class Astoundify_ThemeCustomizer_TermMetaSetting extends WP_Customize_Setting {
 			$values = array( $meta_value );
 		} else {
 			if ( ! is_array( $meta_value ) ) {
-				return $has_setting_validation ? new WP_Error( 'expected_array', sprintf( __( 'Expected array value for non-single "%s" meta.', 'customize-posts' ), $meta_key ) ) : null;
+				return $has_setting_validation ? new WP_Error( 'expected_array', sprintf( __( 'Expected array value for non-single "%s" meta.', 'marketify' ), $meta_key ) ) : null;
 			}
 			$values = $meta_value;
 		}
