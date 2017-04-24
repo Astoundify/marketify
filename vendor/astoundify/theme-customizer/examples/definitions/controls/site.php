@@ -17,7 +17,7 @@ $wp_customize->add_control( new Astoundify_ThemeCustomizer_Control_ControlGroup(
 	$wp_customize,
 	'site', 
 	array(
-		'label' => _x( 'Site', 'customizer control title', 'listify' ),
+		'label' => _x( 'Site', 'customizer control title', 'marketify' ),
 		'section' => 'title_tagline',
 		'priority' => 1
 	)

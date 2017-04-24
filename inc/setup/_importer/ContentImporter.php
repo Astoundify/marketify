@@ -77,26 +77,26 @@ class Astoundify_ContentImporter {
 	public static function set_strings( $strings = array() ) {
 		$defaults = array(
 			'type_labels' => array(
-				'setting' => array( __( 'Setting' ), __( 'Settings' ) ),
-				'theme-mod' => array( __( 'Theme Customization' ), __( 'Theme Customizations' ) ),
-				'nav-menu' => array( __( 'Navigation Menu' ), __( 'Navigation Menus' ) ),
-				'term' => array( __( 'Term' ), __( 'Terms' ) ),
-				'object' => array( __( 'Content' ), __( 'Contents' ) ),
-				'nav-menu-item' => array( __( 'Navigation Menu Item' ), __( 'Navigation Menu Items' ) ),
-				'widget' => array( __( 'Widget' ), __( 'Widgets' ) ),
-				'comment' => array( __( 'Comment' ), __( 'Comments' ) )
+				'setting' => array( __( 'Setting', 'marketify' ), __( 'Settings', 'marketify' ) ),
+				'theme-mod' => array( __( 'Theme Customization', 'marketify' ), __( 'Theme Customizations', 'marketify' ) ),
+				'nav-menu' => array( __( 'Navigation Menu', 'marketify' ), __( 'Navigation Menus', 'marketify' ) ),
+				'term' => array( __( 'Term', 'marketify' ), __( 'Terms', 'marketify' ) ),
+				'object' => array( __( 'Content', 'marketify' ), __( 'Contents', 'marketify' ) ),
+				'nav-menu-item' => array( __( 'Navigation Menu Item', 'marketify' ), __( 'Navigation Menu Items', 'marketify' ) ),
+				'widget' => array( __( 'Widget', 'marketify' ), __( 'Widgets', 'marketify' ) ),
+				'comment' => array( __( 'Comment', 'marketify' ), __( 'Comments', 'marketify' ) )
 			),
 			'import' => array(
-				'complete' => __( 'Import Complete!' ),
+				'complete' => __( 'Import Complete!', 'marketify' ),
 			),
 			'reset' => array(
-				'complete' => __( 'Reset Complete' )
+				'complete' => __( 'Reset Complete', 'marketify' )
 			),
 			'errors' => array(
-				'process_action' => __( 'Invalid process action.' ),
-				'process_type' => __( 'Invalid process type.' ),
-				'iterate' => __( 'Iteration process failed.' ),
-				'cap_check_fail' => __( 'You do not have permission to manage content.' )
+				'process_action' => __( 'Invalid process action.', 'marketify' ),
+				'process_type' => __( 'Invalid process type.', 'marketify' ),
+				'iterate' => __( 'Iteration process failed.', 'marketify' ),
+				'cap_check_fail' => __( 'You do not have permission to manage content.', 'marketify' )
 			)
 		);
 

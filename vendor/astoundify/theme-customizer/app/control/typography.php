@@ -131,7 +131,7 @@ class Astoundify_ThemeCustomizer_Control_Typography extends WP_Customize_Control
 				'step' => 1
 			),
 			'priority' => $this->priority + 1,
-			'description' => __( 'Only affects large-screen devices' ),
+			'description' => __( 'Only affects large-screen devices', 'marketify' ),
 			'section' => $this->section
 		) ) );
 	}

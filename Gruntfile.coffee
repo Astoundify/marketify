@@ -76,7 +76,10 @@ module.exports = () ->
 		checktextdomain:
 			dist:
 				options:
+					force: true
 					text_domain: 'marketify'
+					create_report_file: false
+					correct_domain: true
 					keywords: [
 						'__:1,2d'
 						'_e:1,2d'
@@ -94,7 +97,7 @@ module.exports = () ->
 						'_nx_noop:1,2,3c,4d'
 					]
 				files: [{
-					src: [ '**/*.php' ]
+					src: [ '**/*.php', '!node_modules/**' ]
 					expand: true
 				}]
 

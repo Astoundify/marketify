@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 }
 
 $wp_customize->add_section( 'typography-font-pack', array(
-	'title' => _x( 'Font Pack', 'customizer section title', 'jobify' ),
+	'title' => _x( 'Font Pack', 'customizer section title', 'marketify' ),
 	'panel' => 'typography',
 	'priority' => 10
 ) );

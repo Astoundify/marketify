@@ -10,6 +10,6 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 }
 
 $wp_customize->add_panel( 'general', array(
-	'title' => _x( 'General', 'customizer panel title', 'jobify' ),
+	'title' => _x( 'General', 'customizer panel title', 'marketify' ),
 	'priority' => 1
 ) );
