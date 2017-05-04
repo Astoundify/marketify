@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
-"Project-Id-Version: Marketify 2.10.0\n"
+"Project-Id-Version: Marketify 2.11.0-beta\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-01-30 21:18:36+00:00\n"
+"POT-Creation-Date: 2017-05-04 16:46:59+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -99,232 +99,203 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
-#: inc/customizer/class-customizer-panels.php:16
-msgid "General"
+#: inc/customizer/definitions/control-groups/color-scheme.php:9
+#: inc/customizer/definitions/control-groups/typography-font-pack.php:9
+#: inc/setup/setup-guide-steps/import-content.php:17
+msgid "Default"
 msgstr ""
 
-#: inc/customizer/class-customizer-panels.php:22
-msgid "Appearance"
+#: inc/customizer/definitions/controls/background_color.php:15
+msgid "Page Background"
 msgstr ""
 
-#: inc/customizer/class-customizer-panels.php:25
-msgid "Colors"
+#: inc/customizer/definitions/controls/color-accent.php:22
+msgid "Accent"
 msgstr ""
 
-#: inc/customizer/class-customizer-panels.php:28
-#: inc/customizer/class-customizer-panels.php:58
-msgid "Footer"
-msgstr ""
-
-#: inc/customizer/class-customizer-panels.php:39
-msgid "Labels & Behavior"
-msgstr ""
-
-#: inc/customizer/class-customizer-panels.php:42
-#: inc/integrations/edd/widgets/class-widget-download-archive-sorting.php:13
-msgid "Shop"
-msgstr ""
-
-#: inc/customizer/class-customizer-panels.php:45
-msgid "Standard %s"
-msgstr ""
-
-#: inc/customizer/class-customizer-panels.php:48
-msgid "Audio %s"
-msgstr ""
-
-#: inc/customizer/class-customizer-panels.php:51
-msgid "Video %s"
-msgstr ""
-
-#: inc/customizer/class-customizer-panels.php:61
-msgid "Contact Us"
-msgstr ""
-
-#: inc/customizer/class-customizer-panels.php:64
-#: inc/customizer/controls/class-controls-copyright.php:29
-msgid "Copyright"
-msgstr ""
-
-#: inc/customizer/class-customizer-panels.php:112
-msgid "Site Logo"
-msgstr ""
-
-#: inc/customizer/class-customizer-panels.php:113
-msgid "Header & Navigation Text Color"
-msgstr ""
-
-#: inc/customizer/controls/class-controls-colors.php:20
-msgid "Page Header Background Color"
-msgstr ""
-
-#: inc/customizer/controls/class-controls-colors.php:25
-msgid "Primary Color"
-msgstr ""
-
-#: inc/customizer/controls/class-controls-colors.php:30
-msgid "Accent Color"
-msgstr ""
-
-#: inc/customizer/controls/class-controls-colors.php:35
+#: inc/customizer/definitions/controls/color-footer-background.php:22
 msgid "Footer Background Color"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-contact-us.php:20
-msgid "Display \"Contact Us\" Section"
+#: inc/customizer/definitions/controls/color-navigation-text.php:22
+msgid "Navigation Text"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-contact-us.php:25
-#: inc/integrations/edd/class-edd-sorting.php:21
-msgid "Title"
+#: inc/customizer/definitions/controls/color-page-header-background.php:22
+msgid "Page Header Background"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-contact-us.php:30
-msgid "Contact Address/Information"
+#: inc/customizer/definitions/controls/color-primary.php:22
+msgid "Primary"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-copyright.php:20
-msgid "Display \"Copyright\" Section"
-msgstr ""
-
-#: inc/customizer/controls/class-controls-copyright.php:24
-msgid "Logo"
-msgstr ""
-
-#: inc/customizer/controls/class-controls-download-archives.php:20
+#: inc/customizer/definitions/controls/download-archives-per-page.php:18
 msgid "%s Per Page"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-download-archives.php:22
+#: inc/customizer/definitions/controls/download-archives-per-page.php:20
 msgid ""
 "Can be overwritten by passing <code>number</code> to the "
 "<code>[downloads]</code> shortcode"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-download-archives.php:26
+#: inc/customizer/definitions/controls/download-audio-feature-area.php:18
+#: inc/customizer/definitions/controls/download-standard-feature-area.php:18
+#: inc/customizer/definitions/controls/download-video-feature-area.php:18
+msgid "Image Gallery Location"
+msgstr ""
+
+#: inc/customizer/definitions/controls/download-audio-feature-area.php:21
+#: inc/customizer/definitions/controls/download-standard-feature-area.php:21
+#: inc/customizer/definitions/controls/download-video-feature-area.php:21
+msgid "Page Header"
+msgstr ""
+
+#: inc/customizer/definitions/controls/download-audio-feature-area.php:22
+#: inc/customizer/definitions/controls/download-standard-feature-area.php:22
+#: inc/customizer/definitions/controls/download-video-feature-area.php:22
+msgid "Page Content"
+msgstr ""
+
+#: inc/customizer/definitions/controls/download-audio-feature-image.php:18
+#: inc/customizer/definitions/controls/download-standard-feature-image.php:18
+#: inc/customizer/definitions/controls/download-video-feature-image.php:18
+msgid "Featured Image Display"
+msgstr ""
+
+#: inc/customizer/definitions/controls/download-audio-feature-image.php:21
+#: inc/customizer/definitions/controls/download-standard-feature-image.php:21
+#: inc/customizer/definitions/controls/download-video-feature-image.php:21
+msgid "Header Background"
+msgstr ""
+
+#: inc/customizer/definitions/controls/download-audio-feature-image.php:22
+#: inc/customizer/definitions/controls/download-standard-feature-image.php:22
+#: inc/customizer/definitions/controls/download-video-feature-image.php:22
+msgid "None"
+msgstr ""
+
+#: inc/customizer/definitions/controls/download-label-generate.php:17
+msgid "Generate Permalinks"
+msgstr ""
+
+#: inc/customizer/definitions/controls/download-label-generate.php:19
+msgid ""
+"Use these labels to create updated permalinks. Visit <a "
+"href=\"%s\">Settings ▸ Permalinks</a> once saved."
+msgstr ""
+
+#: inc/customizer/definitions/controls/download-label-plural.php:18
+msgid "Plural Label"
+msgstr ""
+
+#: inc/customizer/definitions/controls/download-label-singular.php:18
+msgid "Singular Label"
+msgstr ""
+
+#: inc/customizer/definitions/controls/downloads-archives-columns.php:18
 msgid "Number of Columns"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-download-archives.php:29
+#: inc/customizer/definitions/controls/downloads-archives-columns.php:20
 msgid ""
 "Can be overwritten by passing <code>columns</code> to the "
 "<code>[downloads]</code> shortcode. Max 4"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-download-archives.php:33
-msgid "Display \"Popular Items\" above results"
-msgstr ""
-
-#: inc/customizer/controls/class-controls-download-archives.php:37
+#: inc/customizer/definitions/controls/downloads-archives-excerpt.php:18
 msgid "Display excerpt below title"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-download-archives.php:41
-msgid "Truncate item titles"
-msgstr ""
-
-#: inc/customizer/controls/class-controls-download-archives.php:45
+#: inc/customizer/definitions/controls/downloads-archives-meta.php:18
 msgid "Display Titles & Meta"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-download-archives.php:47
+#: inc/customizer/definitions/controls/downloads-archives-meta.php:20
 msgid "<strong>Always</strong> will display on featured and popular sliders."
 msgstr ""
 
-#: inc/customizer/controls/class-controls-download-archives.php:49
+#: inc/customizer/definitions/controls/downloads-archives-meta.php:22
 msgid "Auto"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-download-archives.php:50
+#: inc/customizer/definitions/controls/downloads-archives-meta.php:23
 msgid "Always"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-download-archives.php:51
+#: inc/customizer/definitions/controls/downloads-archives-meta.php:24
 msgid "Never"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-download-single-audio.php:20
-msgid "Audio Player Location"
+#: inc/customizer/definitions/controls/downloads-archives-popular.php:18
+msgid "Display \"Popular Items\" above results"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-download-single-audio.php:23
-#: inc/customizer/controls/class-controls-download-single-standard.php:23
-#: inc/customizer/controls/class-controls-download-single-video.php:23
-msgid "Page Header"
+#: inc/customizer/definitions/controls/downloads-archives-truncate-title.php:18
+msgid "Truncate item titles"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-download-single-audio.php:24
-#: inc/customizer/controls/class-controls-download-single-standard.php:24
-#: inc/customizer/controls/class-controls-download-single-video.php:24
-msgid "Page Content"
+#: inc/customizer/definitions/controls/footer-appearance.php:18
+msgid "Display Style"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-download-single-audio.php:29
-#: inc/customizer/controls/class-controls-download-single-standard.php:29
-#: inc/customizer/controls/class-controls-download-single-video.php:29
-msgid "Featured Image Display"
-msgstr ""
-
-#: inc/customizer/controls/class-controls-download-single-audio.php:32
-#: inc/customizer/controls/class-controls-download-single-standard.php:32
-#: inc/customizer/controls/class-controls-download-single-video.php:32
-msgid "Header Background"
-msgstr ""
-
-#: inc/customizer/controls/class-controls-download-single-audio.php:33
-msgid "Below Audio Player"
-msgstr ""
-
-#: inc/customizer/controls/class-controls-download-single-audio.php:34
-#: inc/customizer/controls/class-controls-download-single-standard.php:33
-#: inc/customizer/controls/class-controls-download-single-video.php:34
-msgid "None"
-msgstr ""
-
-#: inc/customizer/controls/class-controls-download-single-standard.php:20
-msgid "Image Gallery Location"
-msgstr ""
-
-#: inc/customizer/controls/class-controls-download-single-video.php:20
-msgid "Video Location"
-msgstr ""
-
-#: inc/customizer/controls/class-controls-download-single-video.php:33
-msgid "Below Video Player"
-msgstr ""
-
-#: inc/customizer/controls/class-controls-downloads-behavior.php:20
-msgid "Singular Download Label"
-msgstr ""
-
-#: inc/customizer/controls/class-controls-downloads-behavior.php:25
-msgid "Plural Download Label"
-msgstr ""
-
-#: inc/customizer/controls/class-controls-downloads-behavior.php:30
-msgid "Generate Permalinks"
-msgstr ""
-
-#: inc/customizer/controls/class-controls-downloads-behavior.php:32
-msgid ""
-"Use these labels to create updated permalinks. Visit <a "
-"href=\"%s\">Settings &rarr; Permalinks</a> once saved."
-msgstr ""
-
-#: inc/customizer/controls/class-controls-footer.php:20
-msgid "Background"
-msgstr ""
-
-#: inc/customizer/controls/class-controls-footer.php:23
+#: inc/customizer/definitions/controls/footer-appearance.php:21
 msgid "Transparent"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-footer.php:24
-msgid "Color"
+#: inc/customizer/definitions/controls/footer-appearance.php:22
+msgid "Dark"
 msgstr ""
 
-#: inc/customizer/controls/class-controls-footer.php:27
-msgid "Set a color in \"Appearance &rarr; Colors\""
+#: inc/customizer/definitions/controls/footer-contaact-us-address.php:18
+#: inc/customizer/definitions/controls/footer-copyright-text.php:17
+msgid "Text"
+msgstr ""
+
+#: inc/customizer/definitions/controls/footer-contact-us-display.php:18
+#: inc/customizer/definitions/controls/footer-copyright-display.php:18
+msgid "Enable"
+msgstr ""
+
+#: inc/customizer/definitions/controls/footer-contact-us-title.php:18
+#: inc/integrations/edd/class-edd-sorting.php:21
+msgid "Title"
+msgstr ""
+
+#: inc/customizer/definitions/controls/footer-copyright-logo.php:21
+msgid "Logo"
+msgstr ""
+
+#: inc/customizer/definitions/controls/header_textcolor.php:14
+msgid "Header Text"
+msgstr ""
+
+#: inc/customizer/helper-functions.php:45
+msgid "Font Family"
+msgstr ""
+
+#: inc/customizer/helper-functions.php:46
+msgid "Search for a font..."
+msgstr ""
+
+#: inc/customizer/helper-functions.php:49
+msgid "Font Size"
+msgstr ""
+
+#: inc/customizer/helper-functions.php:52
+msgid "Font Weight"
+msgstr ""
+
+#: inc/customizer/helper-functions.php:54
+msgid "Normal"
+msgstr ""
+
+#: inc/customizer/helper-functions.php:55
+msgid "Bold"
+msgstr ""
+
+#: inc/customizer/helper-functions.php:59
+msgid "Line Height"
 msgstr ""
 
 #: inc/integrations/bbpress/class-bbpress.php:14
@@ -388,7 +359,7 @@ msgstr ""
 msgid "Checkout"
 msgstr ""
 
-#: inc/integrations/edd/class-edd-template-purchase-form.php:33
+#: inc/integrations/edd/class-edd-template-purchase-form.php:37
 #: inc/integrations/edd/widgets/class-widget-download-details.php:78
 msgid "Purchase"
 msgstr ""
@@ -414,6 +385,10 @@ msgstr ""
 
 #: inc/integrations/edd/widgets/class-widget-download-archive-sorting.php:9
 msgid "Marketify - Shop: Download Sorting"
+msgstr ""
+
+#: inc/integrations/edd/widgets/class-widget-download-archive-sorting.php:13
+msgid "Shop"
 msgstr ""
 
 #: inc/integrations/edd/widgets/class-widget-download-archive-sorting.php:18
@@ -1291,10 +1266,6 @@ msgstr ""
 msgid "Content Pack:"
 msgstr ""
 
-#: inc/setup/setup-guide-steps/import-content.php:17
-msgid "Default"
-msgstr ""
-
 #: inc/setup/setup-guide-steps/import-content.php:21
 msgid "Audio Marketplace"
 msgstr ""
@@ -1686,6 +1657,18 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
+#: vendor/astoundify/theme-customizer/app/control/termmeta/color.php:65
+msgid "Remove"
+msgstr ""
+
+#: vendor/astoundify/theme-customizer/app/control/typography.php:134
+msgid "Only affects large-screen devices"
+msgstr ""
+
+#: vendor/astoundify/theme-customizer/app/customize/termmetasetting.php:174
+msgid "Expected array value for non-single \"%s\" meta."
+msgstr ""
+
 #. Theme Name of the plugin/theme
 msgid "Marketify"
 msgstr ""
@@ -1759,6 +1742,151 @@ msgctxt "label"
 msgid "Search for:"
 msgstr ""
 
+#: inc/customizer/definitions/controls/color-scheme.php:22
+msgctxt "customizer control title"
+msgid "Color Scheme"
+msgstr ""
+
+#: inc/customizer/definitions/controls/typography-font-pack.php:22
+msgctxt "customizer control title"
+msgid "Font Pack"
+msgstr ""
+
+#: vendor/astoundify/theme-customizer/examples/definitions/controls/site.php:20
+msgctxt "customizer control title"
+msgid "Site"
+msgstr ""
+
+#: inc/customizer/definitions/panels/colors.php:13
+msgctxt "customizer panel title"
+msgid "Colors"
+msgstr ""
+
+#: inc/customizer/definitions/panels/footer.php:13
+msgctxt "customizer panel title"
+msgid "Footer"
+msgstr ""
+
+#: inc/customizer/definitions/panels/general.php:13
+msgctxt "customizer panel title"
+msgid "General"
+msgstr ""
+
+#: inc/customizer/definitions/panels/typography.php:14
+msgctxt "customizer panel title"
+msgid "Typography"
+msgstr ""
+
+#: inc/customizer/definitions/sections/static_front_page.php:15
+msgctxt "customizer panel title"
+msgid "Homepage Display"
+msgstr ""
+
+#: inc/customizer/definitions/sections/title_tagline.php:14
+msgctxt "customizer panel title"
+msgid "Site Logo & Header"
+msgstr ""
+
+#: inc/customizer/definitions/sections/color-scheme.php:13
+msgctxt "customizer section title (colors)"
+msgid "Scheme"
+msgstr ""
+
+#: inc/customizer/definitions/sections/colors-footer.php:13
+msgctxt "customizer section title (colors)"
+msgid "Footer"
+msgstr ""
+
+#: inc/customizer/definitions/sections/colors-global.php:13
+msgctxt "customizer section title (colors)"
+msgid "Global"
+msgstr ""
+
+#: inc/customizer/definitions/sections/colors-header.php:13
+msgctxt "customizer section title (colors)"
+msgid "Header/Navigation"
+msgstr ""
+
+#: inc/customizer/definitions/sections/downloads-archive.php:13
+msgctxt "customizer section title (colors)"
+msgid "Shop"
+msgstr ""
+
+#: inc/customizer/definitions/sections/downloads-audio.php:13
+msgctxt "customizer section title (colors)"
+msgid "Audio %s"
+msgstr ""
+
+#: inc/customizer/definitions/sections/downloads-labels-behavior.php:13
+msgctxt "customizer section title (colors)"
+msgid "Labels &amp; Behavior"
+msgstr ""
+
+#: inc/customizer/definitions/sections/downloads-standard.php:13
+msgctxt "customizer section title (colors)"
+msgid "Standard %s"
+msgstr ""
+
+#: inc/customizer/definitions/sections/downloads-video.php:13
+msgctxt "customizer section title (colors)"
+msgid "Video %s"
+msgstr ""
+
+#: inc/customizer/definitions/sections/footer-appearance.php:13
+msgctxt "customizer section title (colors)"
+msgid "Appearance"
+msgstr ""
+
+#: inc/customizer/definitions/sections/footer-contact-us.php:13
+msgctxt "customizer section title (colors)"
+msgid "Contact Us"
+msgstr ""
+
+#: inc/customizer/definitions/sections/footer-copyright.php:13
+msgctxt "customizer section title (colors)"
+msgid "Copyright"
+msgstr ""
+
+#: inc/customizer/definitions/sections/typography-font-pack.php:14
+msgctxt "customizer section title"
+msgid "Font Pack"
+msgstr ""
+
+#: inc/customizer/helper-functions.php:73
+msgctxt "customizer section title"
+msgid "Global"
+msgstr ""
+
+#: inc/customizer/helper-functions.php:74
+msgctxt "customizer section title"
+msgid "Page Headers"
+msgstr ""
+
+#: inc/customizer/helper-functions.php:75
+msgctxt "customizer section title"
+msgid "Blog Post Titles"
+msgstr ""
+
+#: inc/customizer/helper-functions.php:76
+msgctxt "customizer section title"
+msgid "Widget Titles"
+msgstr ""
+
+#: inc/customizer/helper-functions.php:77
+msgctxt "customizer section title"
+msgid "Homepage Widget Titles"
+msgstr ""
+
+#: inc/customizer/helper-functions.php:78
+msgctxt "customizer section title"
+msgid "Buttons"
+msgstr ""
+
+#: inc/customizer/helper-functions.php:79
+msgctxt "customizer section title"
+msgid "Inputs"
+msgstr ""
+
 #: inc/integrations/edd/class-edd-popular.php:6
 msgctxt "URL slug to determine category sorting"
 msgid "popular"
@@ -1798,24 +1926,6 @@ msgstr[1] ""
 #: inc/integrations/tgmpa/class-tgm-plugin-activation.php:2575
 msgctxt "as in: \"version nr unknown\""
 msgid "unknown"
-msgstr ""
-
-#: inc/template/class-template-assets.php:65
-#. Translators: If there are characters in your language that are not
-#. * supported by Source Sans Pro, translate this to 'off'. Do not
-#. translate
-#. * into your own language.
-msgctxt "Source Sans Pro font: on or off"
-msgid "on"
-msgstr ""
-
-#: inc/template/class-template-assets.php:71
-#. Translators: If there are characters in your language that are not
-#. * supported by Montserrat, translate this to 'off'. Do not
-#. translate into your
-#. * own language.
-msgctxt "Montserrat font: on or off"
-msgid "on"
 msgstr ""
 
 #: inc/template/class-template-navigation.php:53
