@@ -30,8 +30,8 @@
           return;
         }
         return $('.featured-popular-slick .edd_downloads_list').slick({
-          autoPlay: Boolean(typeof marketifyFeaturedPopular !== "undefined" && marketifyFeaturedPopular !== null ? marketifyFeaturedPopular.autoPlay : void 0),
-          autoPlaySpeed: parseInt(typeof marketifyFeaturedPopular !== "undefined" && marketifyFeaturedPopular !== null ? marketifyFeaturedPopular.autoPlaySpeed : void 0),
+          autoplay: Boolean(typeof marketifyFeaturedPopular !== "undefined" && marketifyFeaturedPopular !== null ? marketifyFeaturedPopular.autoPlay : void 0),
+          autoplaySpeed: parseInt(typeof marketifyFeaturedPopular !== "undefined" && marketifyFeaturedPopular !== null ? marketifyFeaturedPopular.autoPlaySpeed : void 0),
           slidesToShow: 3,
           slidesToScroll: 3,
           arrows: false,
