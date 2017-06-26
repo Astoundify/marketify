@@ -51,7 +51,7 @@ Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
 
-= 2.11.0: May 4, 2017 =
+= 2.11.0: June 23, 2017 =
 
 * New: Enhanced customization of colors and typography in "Appearance ▸ Customize"
 * Fix: EDD Bookings compatibility.
