@@ -2,7 +2,7 @@
 Contributors: Astoundify
 Requires at least: WordPress 4.5
 Tested up to: WordPress 4.7.0
-Version: 2.11.0-beta
+Version: 2.11.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: white, two-columns, one-column, right-sidebar, left-sidebar, fluid-layout, custom-background, custom-header, theme-options, full-width-template, featured-images, flexible-header, custom-menu, translation-ready
@@ -51,7 +51,13 @@ Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
 
-= 2.11.0: June 23, 2017 =
+= 2.11.1: June 26, 2017 =
+
+* Fix: Avoid PHP error in theme customizer.
+* Fix: Ensure download type settings are backwards compatible.
+* Fix: Borders around download details widget.
+
+= 2.11.0: May 4, 2017 =
 
 * New: Enhanced customization of colors and typography in "Appearance ▸ Customize"
 * Fix: EDD Bookings compatibility.
