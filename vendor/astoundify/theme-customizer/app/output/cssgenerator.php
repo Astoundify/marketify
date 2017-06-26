@@ -276,7 +276,7 @@ class Astoundify_ThemeCustomizer_Output_CSSGenerator {
 	 * @param string $hex
 	 * @return string $rgb
 	 */
-	function hex_to_rgb( $hex ) {
+	public static function hex_to_rgb( $hex ) {
 		$hex = str_replace( '#', '', $hex );
 
 		if ( strlen( $hex ) == 3 ) {
