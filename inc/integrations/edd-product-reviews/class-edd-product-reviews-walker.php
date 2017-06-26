@@ -77,7 +77,7 @@ class Walker_Marketify_EDD_Review extends Walker_Comment {
 		$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
 
 		if ( edd_reviews()->has_user_purchased( $comment->user_id, $comment->comment_post_ID ) ) {
-			$verified = ' <span class="edd-reviews-verified-purchase">(' . __( 'Verified Purchase', 'edd-reviews' ) . ')</span> ';
+			$verified = ' <span class="edd-reviews-verified-purchase">(' . __( 'Verified Purchase', 'marketify' ) . ')</span> ';
 		} else {
 			$verified = ' ';
 		}
@@ -100,7 +100,7 @@ class Walker_Marketify_EDD_Review extends Walker_Comment {
 						<p>
 							<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID, $args ) ); ?>">
 								<time datetime="<?php comment_time( 'c' ); ?>">
-									<?php printf( _x( '%1$s at %2$s', '1: date, 2: time', 'edd-reviews' ), get_comment_date(), get_comment_time() ); ?>
+									<?php printf( _x( '%1$s at %2$s', '1: date, 2: time', 'marketify' ), get_comment_date(), get_comment_time() ); ?>
 								</time>
 							</a> 
 
@@ -121,7 +121,7 @@ class Walker_Marketify_EDD_Review extends Walker_Comment {
 					</div><!-- .comment-metadata -->
 
 					<?php if ( '0' == $comment->comment_approved ) : ?>
-					<p class="edd-review-awaiting-moderation"><i><?php _e( 'Your review is awaiting moderation.', 'edd-reviews' ); ?></i></p>
+					<p class="edd-review-awaiting-moderation"><i><?php _e( 'Your review is awaiting moderation.', 'marketify' ); ?></i></p>
 					<?php endif; ?>
 
 					<?php edd_reviews()->comment_rating( $comment ); ?>

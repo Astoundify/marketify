@@ -35,7 +35,7 @@
 
         a {
             color: $accent;
-            @include montserrat(400, 14px);
+			font-size: 14px;
             text-decoration: none;
             margin: 0 0 -3px;
             padding: 12px 17px;

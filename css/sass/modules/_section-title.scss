@@ -1,5 +1,6 @@
 .section-title__inner {
-    @include montserrat(700, 15px);
+	font-size: 15px;
+	font-weight: bold;
     color: $accent;
     line-height: 1;
     padding: 14px 20px;

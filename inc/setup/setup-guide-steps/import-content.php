@@ -59,7 +59,7 @@
 			<?php echo $plugin[ 'label' ]; ?>
 
 			<?php if ( ! $plugin[ 'condition' ] ) : ?>
-			&mdash; <span class="inactive"><?php _e( 'Demo content for this plugin will not be imported.', 'listify' ); ?></span>
+			&mdash; <span class="inactive"><?php _e( 'Demo content for this plugin will not be imported.', 'marketify' ); ?></span>
 			<?php endif; ?>
 		</li>
 		<?php endforeach; ?>

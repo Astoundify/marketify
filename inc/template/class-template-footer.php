@@ -54,7 +54,7 @@ class Marketify_Template_Footer {
     }
 
     private function has_contact_address() {
-        return marketify_theme_mod( 'footer-contact-us-display' );
+        return get_theme_mod( 'footer-contact-us-display', 'on' );
     }
 
     public function contact_address() {
@@ -63,29 +63,29 @@ class Marketify_Template_Footer {
         }
     ?>
         <div class="<?php echo $this->get_column_class(); ?>">
-            <h3 class="widget-title widget-title--site-footer"><?php echo esc_attr( marketify_theme_mod( 'footer-contact-us-title' ) ); ?></h3>
+            <h3 class="widget-title widget-title--site-footer"><?php echo esc_attr( get_theme_mod( 'footer-contact-us-title', 'Contact Us' ) ); ?></h3>
 
-            <?php echo do_shortcode( wp_kses_post( marketify_theme_mod( 'footer-contact-us-address' ) ) ); ?>
+            <?php echo do_shortcode( wp_kses_post( get_theme_mod( 'footer-contact-us-address', '393 Bay Street, 2nd Floor Toronto, Ontario, Canada, L9T8S2' ) ) ); ?>
         </div>
     <?php
     }
 
     public function has_site_info() {
-        return marketify_theme_mod( 'footer-copyright-display' );
+        return get_theme_mod( 'footer-copyright-display', 'on' );
     }
 
     public function site_info() {
     ?>
         <div class="<?php echo $this->get_column_class(); ?>">
             <h3 class="site-title site-title--footer"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                <?php if ( esc_attr( marketify_theme_mod( 'footer-copyright-logo' ) ) ) : ?>
-                    <img src="<?php echo esc_attr( marketify_theme_mod( 'footer-copyright-logo' ) ); ?>" />
+                <?php if ( esc_attr( get_theme_mod( 'footer-copyright-logo', false ) ) ) : ?>
+                    <img src="<?php echo esc_attr( get_theme_mod( 'footer-copyright-logo', '' ) ); ?>" />
                 <?php else : ?>
                     <?php bloginfo( 'name' ); ?>
                 <?php endif; ?>
             </a></h3>
 
-            <?php echo wp_kses_post( marketify_theme_mod( 'footer-copyright-text' ) ); ?>
+            <?php echo wp_kses_post( get_theme_mod( 'footer-copyright-text', sprintf( 'Copyright &copy; %s %s', date( 'Y' ), get_bloginfo( 'name' ) ) ) ); ?>
         </div>
     <?php
     }

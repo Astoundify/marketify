@@ -1,34 +1,40 @@
 <?php
 /**
- * @todo Redo
+ * Bootstrap the customizer library.
+ *
+ * @see https://github.com/Astoundify/theme-customizer
+ *
+ * @package Marketify
+ * @subpackage Customize
+ * @since 2.11.0
  */
-class Marketify_Customizer {
+class Marketify_Customize {
 
-    public function __construct() {
-        $files = array(
-            'helper-functions.php',
-            'class-customizer-priority.php',
-            'class-customizer-panels.php',
-            'class-customizer-controls.php',
-            'class-customizer-css.php',
-            'output/class-customizer-output-colors.php'
-        );
+	/**
+	 * Start things up.
+	 *
+	 * @since 2.11.0
+	 */
+	public function __construct() {
+		$this->includes();
 
-        foreach ( $files as $file ) {
-            include_once( trailingslashit( dirname( __FILE__) ) . $file );
-        }
+		astoundify_themecustomizer( array(
+			'stylesheet' => 'marketify-base', 
+			'install_url' => get_template_directory_uri() . '/vendor/astoundify/theme-customizer/app',
+			'definitions_dir' => get_template_directory() . '/inc/customizer/definitions'
+		) );
+	}
 
-        $this->setup_actions();
-    }
-
-    public function setup_actions() {
-        add_action( 'customize_register', array( $this, 'custom_controls' ) );
-
-        $this->panels = new Marketify_Customizer_Panels();
-    }
-
-    public function custom_controls() {
-        include_once( dirname( __FILE__) . '/control/class-control-multicheck.php' );
-    }
+	/**
+	 * Include libs and files.
+	 *
+	 * @since 2.11.0
+	 */
+	public function includes() {
+		require_once( get_template_directory() . '/vendor/astoundify/theme-customizer/astoundify-themecustomizer.php' );
+		require_once( trailingslashit( dirname( __FILE__) ) . 'helper-functions.php' );
+	}
 
 }
+
+new Marketify_Customize();

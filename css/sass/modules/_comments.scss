@@ -132,7 +132,8 @@
 .marketify-comment-author-name,
 .comment-author .fn,
 .comment-metadata .fn {
-    @include montserrat(400, 10px);
+	font-size: 10px;
+	font-weight: normal;
     font-style: normal;
 	margin-top: 8px;
 	display: block;

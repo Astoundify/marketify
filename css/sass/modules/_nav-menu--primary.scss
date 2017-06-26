@@ -179,7 +179,8 @@
         a {
             color: #fff;
 
-            @include montserrat(700, 13px);
+			font-size: 13px;
+			font-weight: bold;
             text-decoration: none;
             text-shadow: none;
             text-align: center;

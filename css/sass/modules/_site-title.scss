@@ -1,5 +1,6 @@
 .site-title {
-    @include montserrat(700, 26px);
+	font-size: 26px;
+	font-weight: bold;
     margin: 0;
     clear: none;
     display: inline-block;

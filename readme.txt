@@ -2,7 +2,7 @@
 Contributors: Astoundify
 Requires at least: WordPress 4.5
 Tested up to: WordPress 4.7.0
-Version: 2.10.0
+Version: 2.11.0-beta
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: white, two-columns, one-column, right-sidebar, left-sidebar, fluid-layout, custom-background, custom-header, theme-options, full-width-template, featured-images, flexible-header, custom-menu, translation-ready
@@ -50,6 +50,12 @@ License: MIT
 Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
+
+= 2.11.0: June 23, 2017 =
+
+* New: Enhanced customization of colors and typography in "Appearance ▸ Customize"
+* Fix: EDD Bookings compatibility.
+* Fix: EDD Custom Prices compatibility.
 
 = 2.10.0: January 30, 2017 =
 

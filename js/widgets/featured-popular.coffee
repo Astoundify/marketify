@@ -25,8 +25,8 @@ jQuery ($) ->
       if ! $( '.featured-popular-slick .edd_downloads_list' ).length then return
 
       $( '.featured-popular-slick .edd_downloads_list' ).slick(
-        autoPlay: Boolean marketifyFeaturedPopular?.autoPlay
-        autoPlaySpeed: parseInt marketifyFeaturedPopular?.autoPlaySpeed
+        autoplay: Boolean marketifyFeaturedPopular?.autoPlay
+        autoplaySpeed: parseInt marketifyFeaturedPopular?.autoPlaySpeed
         slidesToShow: 3
         slidesToScroll: 3
         arrows: false

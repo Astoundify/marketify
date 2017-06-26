@@ -54,7 +54,8 @@
 
     .fes-display-field-table th,
     .fes-display-field-table tr td:first-child {
-        @include montserrat(700, 14px);
+		font-size: 14px;
+		font-weight: bold;
         width: 100%;
     }
 

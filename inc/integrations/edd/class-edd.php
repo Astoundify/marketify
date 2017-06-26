@@ -49,13 +49,13 @@ class Marketify_EDD extends Marketify_Integration {
 
     public function get_labels() {
         return array(
-            'singular' => esc_attr( marketify_theme_mod( 'download-label-singular' ) ),
-            'plural' => esc_attr( marketify_theme_mod( 'download-label-plural' ) )
+            'singular' => esc_attr( get_theme_mod( 'download-label-singular', 'Download' ) ),
+            'plural' => esc_attr( get_theme_mod( 'download-label-plural', 'Downloads' ) )
         );
     }
 
     public function update_slug() {
-        if ( 'on' != esc_attr( marketify_theme_mod( 'download-label-generate' ) ) ) {
+        if ( 'on' != esc_attr( get_theme_mod( 'download-label-generate', 'on' ) ) ) {
             return;
         }
 
