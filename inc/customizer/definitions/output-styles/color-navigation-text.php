@@ -26,7 +26,7 @@ astoundify_themecustomizer_add_css( array(
 astoundify_themecustomizer_add_css( array(
 	'selectors' => array(
 		'.nav-menu--primary-toggle',
-		'.page-title'
+		'.page-title',
 	),
 	'declarations' => array(
 		'color' => esc_attr( $text )
