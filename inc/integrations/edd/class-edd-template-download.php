@@ -174,7 +174,7 @@ class Marketify_EDD_Template_Download {
         }
 
         $format = $this->get_post_format();
-        $setting = esc_attr( get_theme_mod( "download-{$format}-feature-image", 'background' ) );
+        $setting = esc_attr( get_theme_mod( "downloads-{$format}-feature-image", 'background' ) );
 
         if ( in_array( $setting, $style ) ) {
             return true;

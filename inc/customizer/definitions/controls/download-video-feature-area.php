@@ -9,12 +9,12 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 	exit; // Exit if accessed directly.
 }
 
-$wp_customize->add_setting( 'downloads-video-feature-area', array(
+$wp_customize->add_setting( 'download-video-feature-area', array(
 	'default' => 'top',
 	'sanitize_callback' => 'esc_attr'
 ) );
 
-$wp_customize->add_control( 'downloads-video-feature-area', array(
+$wp_customize->add_control( 'download-video-feature-area', array(
 	'label' => __( 'Image Gallery Location', 'marketify' ),
 	'type' => 'select',
 	'choices' => array(

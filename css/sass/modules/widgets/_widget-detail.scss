@@ -1,5 +1,4 @@
 .widget-detail {
-    border-bottom: 1px solid #bdc3c7;
     position: relative;
     clear: left;
     padding: 25px;
@@ -51,6 +50,8 @@
 }
 
 .widget-detail--author {
+    border-bottom: 1px solid #bdc3c7;
+
     .author-link,
     .author-link img,
     .author-joined {
