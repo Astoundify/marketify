@@ -1,7 +1,7 @@
 === Marketify ===
 Contributors: Astoundify
 Requires at least: WordPress 4.5
-Tested up to: WordPress 4.7.0
+Tested up to: WordPress 4.8.0
 Version: 2.11.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -54,8 +54,9 @@ Source: https://github.com/driftyco/ionicons
 = 2.11.1: June 26, 2017 =
 
 * Fix: Avoid PHP error in theme customizer.
-* Fix: Ensure download type settings are backwards compatible.
 * Fix: Borders around download details widget.
+* Fix: Ensure download type settings are backwards compatible.
+* Fix: Ensure customizer navigation text color is respected.
 
 = 2.11.0: May 4, 2017 =
 
