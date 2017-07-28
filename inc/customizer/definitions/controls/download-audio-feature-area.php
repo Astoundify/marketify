@@ -15,7 +15,7 @@ $wp_customize->add_setting( 'download-audio-feature-area', array(
 ) );
 
 $wp_customize->add_control( 'download-audio-feature-area', array(
-	'label' => __( 'Image Gallery Location', 'marketify' ),
+	'label' => __( 'Audio Player Location', 'marketify' ),
 	'type' => 'select',
 	'choices' => array(
 		'top' => __( 'Page Header', 'marketify' ),
