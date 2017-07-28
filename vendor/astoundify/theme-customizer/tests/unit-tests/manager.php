@@ -9,7 +9,7 @@ namespace Astoundify\ThemeCustomizer\Tests;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 /**
@@ -26,7 +26,7 @@ class Manager extends \Astoundify_ThemeCustomizer_TestCase {
 	public function test_first_instantiation_has_no_options() {
 		astoundify_themecustomizer();
 
-		$this->assertEqualSets( 
+		$this->assertEqualSets(
 			array(),
 			astoundify_themecustomizer_get_options()
 		);
@@ -47,7 +47,7 @@ class Manager extends \Astoundify_ThemeCustomizer_TestCase {
 	 */
 	public function test_set_options_on_instantiation() {
 		astoundify_themecustomizer( array(
-			'asset_url' => 'http://test.com'
+			'asset_url' => 'http://test.com',
 		) );
 
 		$this->assertEquals( 'http://test.com', astoundify_themecustomizer_get_option( 'asset_url' ) );
@@ -58,7 +58,7 @@ class Manager extends \Astoundify_ThemeCustomizer_TestCase {
 	 */
 	public function test_change_option_after_instantiation() {
 		astoundify_themecustomizer( array(
-			'asset_url' => 'http://foo.com'
+			'asset_url' => 'http://foo.com',
 		) );
 
 		astoundify_themecustomizer_set_option( 'asset_url', 'http://test.com' );

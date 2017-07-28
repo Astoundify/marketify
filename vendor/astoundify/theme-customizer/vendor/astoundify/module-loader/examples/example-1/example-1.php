@@ -26,7 +26,7 @@ function astoundify_moduleloader_example_1( $class ) {
 
 	// Where to start searching for files.
 	$base_dir = dirname( __FILE__ );
-	
+
 	// Include the autoloader
 	astoundify_moduleloader_autoload( $class, $prefix, $base_dir );
 }

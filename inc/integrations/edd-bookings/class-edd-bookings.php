@@ -13,9 +13,9 @@ class Marketify_EDD_Bookings extends Marketify_Integration {
 	 *
 	 * @return void
 	 */
-    public function __construct() {
-        parent::__construct( dirname( __FILE__ ) );
-    }
+	public function __construct() {
+		parent::__construct( dirname( __FILE__ ) );
+	}
 
 	/**
 	 * Hook in to WordPress.
@@ -24,14 +24,14 @@ class Marketify_EDD_Bookings extends Marketify_Integration {
 	 *
 	 * @return void
 	 */
-    public function setup_actions() {
+	public function setup_actions() {
 		add_filter( 'marketify_disable_buy_popup', array( $this, 'maybe_enable_buy_popup' ) );
-    }
+	}
 
 	/**
 	 * Maybe enable the Buy Options popup.
 	 *
-	 * If bookings are enabled we need to force the popup to display as this 
+	 * If bookings are enabled we need to force the popup to display as this
 	 * is where the actual calendar is output when a standalone button is used.
 	 *
 	 * @since 2.9.0

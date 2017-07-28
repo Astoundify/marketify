@@ -23,27 +23,27 @@ class Astoundify_Plugin_EasyDigitalDownloads implements Astoundify_PluginInterfa
 	 * @return void
 	 */
 	public static function setup_actions() {
-		add_action( 
+		add_action(
 			'astoundify_import_content_before_import_item_edd_settings',
 			array( '__CLASS__', 'remove_sanitization_filter' )
 		);
 
-		add_action( 
+		add_action(
 			'astoundify_import_content_after_import_item_type_object',
-			array( __CLASS__, 'set_download_pricing' ) 
+			array( __CLASS__, 'set_download_pricing' )
 		);
-		
+
 		$pages = array( 'purchase', 'success', 'failure', 'purchase_history' );
 
 		foreach ( $pages as $page ) {
-			add_action( 
-				'astoundify_import_content_after_import_item_' . $page, 
-				array( __CLASS__, 'add_page_option' ) 
+			add_action(
+				'astoundify_import_content_after_import_item_' . $page,
+				array( __CLASS__, 'add_page_option' )
 			);
 
-			add_action( 
-				'astoundify_import_content_after_reset_item_' . $page, 
-				array( __CLASS__, 'delete_page_option' ) 
+			add_action(
+				'astoundify_import_content_after_reset_item_' . $page,
+				array( __CLASS__, 'delete_page_option' )
 			);
 		}
 	}
@@ -70,15 +70,15 @@ class Astoundify_Plugin_EasyDigitalDownloads implements Astoundify_PluginInterfa
 	 * @return true|WP_Error True if the format can be set.
 	 */
 	public static function set_download_pricing( $ItemImport ) {
-		$item_data = $ItemImport->item[ 'data' ];
+		$item_data = $ItemImport->item['data'];
 
 		// do nothing if this is not relevant to the current object type
-		if ( 'download' != $item_data[ 'post_type' ] ) {
+		if ( 'download' != $item_data['post_type'] ) {
 			return false;
 		}
 
-		$error = new WP_Error( 
-			'set-pricing', 
+		$error = new WP_Error(
+			'set-pricing',
 			sprintf( 'Pricing for %s was not set', $ItemImport->get_id() )
 		);
 
@@ -92,15 +92,15 @@ class Astoundify_Plugin_EasyDigitalDownloads implements Astoundify_PluginInterfa
 		$download_id = $object->ID;
 
 		// single price
-		if ( isset( $item_data[ 'price' ] ) ) {
-			$price = $item_data[ 'price' ];
+		if ( isset( $item_data['price'] ) ) {
+			$price = $item_data['price'];
 
 			update_post_meta( $download_id, 'edd_price', $price );
 			update_post_meta( $download_id, '_variable_pricing', 0 );
 		}
 
-		if ( isset( $item_data[ 'prices' ] ) ) {
-			$prices = $item_data[ 'prices' ];
+		if ( isset( $item_data['prices'] ) ) {
+			$prices = $item_data['prices'];
 			$_prices = array();
 
 			foreach ( $prices as $name => $amount ) {

@@ -1,12 +1,12 @@
 <?php
-	
+
 class Marketify_EDD_Template {
 
 	public function __construct() {
 		$this->navigation = new Marketify_EDD_Template_Navigation();
 		$this->purchase_form = new Marketify_EDD_Template_Purchase_Form();
 		$this->download = new Marketify_EDD_Template_Download();
-    }
+	}
 
 	public function author_url( $user_id ) {
 		$fes = marketify()->get( 'edd-fes' );

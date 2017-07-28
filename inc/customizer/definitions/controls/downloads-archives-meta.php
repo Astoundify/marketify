@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 
 $wp_customize->add_setting( 'downloads-archives-meta', array(
 	'default' => 'auto',
-	'sanitize_callback' => 'esc_attr'
+	'sanitize_callback' => 'esc_attr',
 ) );
 
 $wp_customize->add_control( 'downloads-archives-meta', array(
@@ -21,8 +21,8 @@ $wp_customize->add_control( 'downloads-archives-meta', array(
 	'choices' => array(
 		'auto' => __( 'Auto', 'marketify' ),
 		'always' => __( 'Always', 'marketify' ),
-		'never' => __( 'Never', 'marketify' )
+		'never' => __( 'Never', 'marketify' ),
 	),
 	'section' => 'download-archives',
-	'priority' => 60
+	'priority' => 60,
 ) );

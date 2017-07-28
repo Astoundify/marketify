@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 
 $wp_customize->add_setting( 'footer-contact-us-title', array(
 	'default' => 'Contact Us',
-	'sanitize_callback' => 'esc_attr'
+	'sanitize_callback' => 'esc_attr',
 ) );
 
 $wp_customize->add_control( 'footer-contact-us-title', array(
 	'label'   => __( 'Title', 'marketify' ),
 	'section' => 'footer-contact-us',
-	'priority' => 20
+	'priority' => 20,
 ) );

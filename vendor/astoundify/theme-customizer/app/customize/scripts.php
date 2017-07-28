@@ -9,7 +9,7 @@
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 /**
@@ -56,7 +56,7 @@ class Astoundify_ThemeCustomizer_Customize_Scripts extends Astoundify_ModuleLoad
 		wp_enqueue_script( 'astoundify-themecustomizer', $install_url . '/assets/js/customizer-admin.js', array( 'jquery' ) );
 
 		wp_localize_script( 'astoundify-themecustomizer', 'astoundifyThemeCustomizer', apply_filters( 'astoundify_themecustomizer_scripts', array(
-			'BigChoices' => array()
+			'BigChoices' => array(),
 		) ) );
 	}
 

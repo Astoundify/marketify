@@ -66,10 +66,10 @@ $api = Astoundify_Envato_Market_API::instance();
 
 <style>
 #theme-updater .spinner {
-    float: none;
-    display: inline-block;
-    margin-top: -2px;
-    vertical-align: middle;
+	float: none;
+	display: inline-block;
+	margin-top: -2px;
+	vertical-align: middle;
 }
 
 #marketify-add-update-token p {

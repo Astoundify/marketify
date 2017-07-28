@@ -12,5 +12,5 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 $wp_customize->add_section( 'colors-scheme', array(
 	'title' => _x( 'Scheme', 'customizer section title (colors)', 'marketify' ),
 	'panel' => 'colors',
-	'priority' => 1
+	'priority' => 1,
 ) );

@@ -7,7 +7,7 @@
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 /**
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-class Astoundify_ThemeCustomizer_TestCase extends \WP_UnitTestCase { 
+class Astoundify_ThemeCustomizer_TestCase extends \WP_UnitTestCase {
 
 	public function setUp() {
 		astoundify_themecustomizer();

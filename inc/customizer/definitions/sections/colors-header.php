@@ -12,5 +12,5 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 $wp_customize->add_section( 'colors-header', array(
 	'title' => _x( 'Header/Navigation', 'customizer section title (colors)', 'marketify' ),
 	'panel' => 'colors',
-	'priority' => 20
+	'priority' => 20,
 ) );

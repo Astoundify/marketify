@@ -8,7 +8,7 @@
 $post_type = get_query_var( 'post_type' );
 
 if ( 'download' == $post_type ) {
-    locate_template( array( 'archive-download.php' ), true );
+	locate_template( array( 'archive-download.php' ), true );
 } else {
-    locate_template( array( 'index.php' ), true );
+	locate_template( array( 'index.php' ), true );
 }

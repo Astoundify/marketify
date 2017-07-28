@@ -22,7 +22,7 @@ astoundify_themecustomizer_add_css( array(
 		'font-family' => astoundify_themecustomizer_get_font_stack( $family, 'googlefonts' ),
 		'font-weight' => $weight,
 		'line-height' => $line,
-	)
+	),
 ) );
 
 astoundify_themecustomizer_add_css( array(
@@ -30,7 +30,7 @@ astoundify_themecustomizer_add_css( array(
 		'.page-title'
 	),
 	'declarations' => array(
-		'font-size' => $size . 'px'
+		'font-size' => $size . 'px',
 	),
-	'media' => 'screen and (min-width: 1200px)'
+	'media' => 'screen and (min-width: 1200px)',
 ) );

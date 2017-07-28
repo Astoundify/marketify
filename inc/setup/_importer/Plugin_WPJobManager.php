@@ -26,20 +26,20 @@ class Astoundify_Plugin_WPJobManager implements Astoundify_PluginInterface {
 		$pages = array( 'submit_job_form', 'job_dashboard' );
 
 		foreach ( $pages as $page ) {
-			add_action( 
-				'astoundify_import_content_after_import_item_' . $page, 
-				array( __CLASS__, 'add_page_option' ) 
+			add_action(
+				'astoundify_import_content_after_import_item_' . $page,
+				array( __CLASS__, 'add_page_option' )
 			);
 
-			add_action( 
-				'astoundify_import_content_after_reset_item_' . $page, 
-				array( __CLASS__, 'delete_page_option' ) 
+			add_action(
+				'astoundify_import_content_after_reset_item_' . $page,
+				array( __CLASS__, 'delete_page_option' )
 			);
 		}
 
-		add_action( 
+		add_action(
 			'astoundify_import_content_after_import_item_type_object',
-			array( __CLASS__, 'set_location' ) 
+			array( __CLASS__, 'set_location' )
 		);
 	}
 
@@ -75,15 +75,15 @@ class Astoundify_Plugin_WPJobManager implements Astoundify_PluginInterface {
 	 * @return true|WP_Error True if the format can be set.
 	 */
 	public static function set_location( $ItemImport ) {
-		$item_data = $ItemImport->item[ 'data' ];
+		$item_data = $ItemImport->item['data'];
 
 		// do nothing if this is not relevant to the current object type
-		if ( 'job_listing' != $item_data[ 'post_type' ] ) {
+		if ( 'job_listing' != $item_data['post_type'] ) {
 			return false;
 		}
 
-		$error = new WP_Error( 
-			'set-location', 
+		$error = new WP_Error(
+			'set-location',
 			sprintf( 'Location for %s was not set', $ItemImport->get_id() )
 		);
 
@@ -96,8 +96,8 @@ class Astoundify_Plugin_WPJobManager implements Astoundify_PluginInterface {
 
 		$listing_id = $object->ID;
 
-		if ( isset( $item_data[ 'location' ] ) ) {
-			$location = $item_data[ 'location' ];
+		if ( isset( $item_data['location'] ) ) {
+			$location = $item_data['location'];
 
 			if ( ! is_array( $location ) ) {
 				/**
@@ -109,20 +109,20 @@ class Astoundify_Plugin_WPJobManager implements Astoundify_PluginInterface {
 					update_post_meta( $listing_id, '_job_location', $location );
 				}
 			} else {
-				update_post_meta( $listing_id, '_job_location', $location[ 'address' ] );
+				update_post_meta( $listing_id, '_job_location', $location['address'] );
 
 				update_post_meta( $listing_id, 'geolocated', 1 );
-				update_post_meta( $listing_id, 'geolocation_city', $location[ 'city' ] );
-				update_post_meta( $listing_id, 'geolocation_country_long', $location[ 'country_long' ] );
-				update_post_meta( $listing_id, 'geolocation_country_short', $location[ 'country_short' ] );
-				update_post_meta( $listing_id, 'geolocation_formatted_address', $location[ 'address' ] );
-				update_post_meta( $listing_id, 'geolocation_lat', $location[ 'latitude' ] );
-				update_post_meta( $listing_id, 'geolocation_long', $location[ 'longitude' ] );
-				update_post_meta( $listing_id, 'geolocation_state_long', $location[ 'state' ] );
-				update_post_meta( $listing_id, 'geolocation_state_short', $location[ 'state_short' ] );
-				update_post_meta( $listing_id, 'geolocation_street', $location[ 'street' ] );
-				update_post_meta( $listing_id, 'geolocation_street_number', $location[ 'street_number' ] );
-				update_post_meta( $listing_id, 'geolocation_postcode', $location[ 'postcode' ] );
+				update_post_meta( $listing_id, 'geolocation_city', $location['city'] );
+				update_post_meta( $listing_id, 'geolocation_country_long', $location['country_long'] );
+				update_post_meta( $listing_id, 'geolocation_country_short', $location['country_short'] );
+				update_post_meta( $listing_id, 'geolocation_formatted_address', $location['address'] );
+				update_post_meta( $listing_id, 'geolocation_lat', $location['latitude'] );
+				update_post_meta( $listing_id, 'geolocation_long', $location['longitude'] );
+				update_post_meta( $listing_id, 'geolocation_state_long', $location['state'] );
+				update_post_meta( $listing_id, 'geolocation_state_short', $location['state_short'] );
+				update_post_meta( $listing_id, 'geolocation_street', $location['street'] );
+				update_post_meta( $listing_id, 'geolocation_street_number', $location['street_number'] );
+				update_post_meta( $listing_id, 'geolocation_postcode', $location['postcode'] );
 			}
 		}
 

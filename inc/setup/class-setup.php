@@ -63,7 +63,7 @@ class Marketify_Setup {
 	 * @return string $output
 	 */
 	public static function uct_functions_php( $output ) {
-$output = "<?php
+		$output = "<?php
 /**
  * Marketify child theme.
  */
@@ -110,7 +110,7 @@ add_action( 'wp_enqueue_scripts', 'marketify_child_styles', 999 );
 				'sub-menu-title' => __( 'Setup Guide', 'marketify' ),
 				'intro-title' => __( 'Welcome to %s', 'marketify' ),
 				'step-complete' => __( 'Completed', 'marketify' ),
-				'step-incomplete' => __( 'Not Complete', 'marketify' )
+				'step-incomplete' => __( 'Not Complete', 'marketify' ),
 			),
 			'stylesheet_uri' => get_template_directory_uri() . '/inc/setup/_setup-guide/style.css',
 		) );
@@ -162,7 +162,7 @@ add_action( 'wp_enqueue_scripts', 'marketify_child_styles', 999 );
 			'no-token' => __( 'An API token is required.', 'marketify' ),
 			'api-error' => __( 'API error.', 'marketify' ),
 			'api-connected' => __( 'Connected', 'marketify' ),
-			'api-disconnected' => __( 'Disconnected', 'marketify' )
+			'api-disconnected' => __( 'Disconnected', 'marketify' ),
 		) );
 
 		// set a filter for the token
@@ -196,7 +196,7 @@ add_action( 'wp_enqueue_scripts', 'marketify_child_styles', 999 );
 	public static function _theme_updater_set_token() {
 		check_ajax_referer( 'marketify-add-token', 'security' );
 
-		$token = isset( $_POST[ 'token' ] ) ? esc_attr( $_POST[ 'token' ] ) : false;
+		$token = isset( $_POST['token'] ) ? esc_attr( $_POST['token'] ) : false;
 		$api = Astoundify_Envato_Market_API::instance();
 
 		update_option( 'marketify_themeforest_updater_token', $token );
@@ -208,7 +208,7 @@ add_action( 'wp_enqueue_scripts', 'marketify_child_styles', 999 );
 		wp_send_json_success( array(
 			'token' => $token,
 			'can_request' => $api->can_make_request_with_token(),
-			'request_label' => $api->connection_status_label()
+			'request_label' => $api->connection_status_label(),
 		) );
 
 		exit();
@@ -229,20 +229,20 @@ add_action( 'wp_enqueue_scripts', 'marketify_child_styles', 999 );
 				'nav-menu' => array( __( 'Navigation Menu', 'marketify' ), __( 'Navigation Menus', 'marketify' ) ),
 				'nav-menu-item' => array( __( 'Navigation Menu Item', 'marketify' ), __( 'Navigation Menu Items', 'marketify' ) ),
 				'object' => array( __( 'Content', 'marketify' ), __( 'Content', 'marketify' ) ),
-				'widget' => array( __( 'Widget', 'marketify' ), __( 'Widgets', 'marketify' ) )
+				'widget' => array( __( 'Widget', 'marketify' ), __( 'Widgets', 'marketify' ) ),
 			),
 			'import' => array(
 				'complete' => __( 'Import Complete!', 'marketify' ),
 			),
 			'reset' => array(
-				'complete' => __( 'Reset Complete!', 'marketify' )
+				'complete' => __( 'Reset Complete!', 'marketify' ),
 			),
 			'errors' => array(
 				'process_action' => __( 'Invalid process action.', 'marketify' ),
 				'process_type' => __( 'Invalid process type.', 'marketify' ),
 				'iterate' => __( 'Iteration process failed.', 'marketify' ),
-				'cap_check_fail' => __( 'You do not have permission to manage content.', 'marketify' )
-			)
+				'cap_check_fail' => __( 'You do not have permission to manage content.', 'marketify' ),
+			),
 		);
 
 		Astoundify_ContentImporter::instance();
@@ -267,7 +267,7 @@ add_action( 'wp_enqueue_scripts', 'marketify_child_styles', 999 );
 		}
 
 		// the style to use
-		$style = isset( $_POST[ 'style' ] ) ? $_POST[ 'style' ] : false;
+		$style = isset( $_POST['style'] ) ? $_POST['style'] : false;
 
 		if ( ! $style ) {
 			wp_send_json_error();
@@ -304,7 +304,7 @@ add_action( 'wp_enqueue_scripts', 'marketify_child_styles', 999 );
 		$plugins = self::get_importable_plugins();
 
 		foreach ( $plugins as $k => $plugin ) {
-			if ( false == $plugin[ 'condition' ] ) {
+			if ( false == $plugin['condition'] ) {
 				unset( $plugins[ $k ] );
 			}
 		}
@@ -353,7 +353,7 @@ add_action( 'wp_enqueue_scripts', 'marketify_child_styles', 999 );
 			'woothemes-testimonials' => array(
 				'label' => '<a href="http://marketify.dev/wp-admin/plugin-install.php?tab=plugin-information&plugin=testimonials-by-woothemes&TB_iframe=true&width=772&height=642" class="thickbox">Testimonials by WooThemes</a>',
 				'condition' => class_exists( 'WooThemes_Testimonials' ),
-			)
+			),
 		);
 	}
 
@@ -371,7 +371,7 @@ add_action( 'wp_enqueue_scripts', 'marketify_child_styles', 999 );
 
 		return $template;
 	}
-	
+
 }
 
 Marketify_Setup::init();

@@ -41,7 +41,7 @@ class Astoundify_ThemeCustomizer_Control_ControlGroup extends WP_Customize_Contr
 	 * @since 1.0.0
 	 * @param object $wp_customize Customize API
 	 * @param string $id Control Group identifier
-	 * @param array $args
+	 * @param array  $args
 	 */
 	public function __construct( $wp_customize, $id, $args = array() ) {
 		parent::__construct( $wp_customize, $id, $args );
@@ -59,7 +59,7 @@ class Astoundify_ThemeCustomizer_Control_ControlGroup extends WP_Customize_Contr
 	public function to_json() {
 		parent::to_json();
 
-		$this->json[ 'input_type' ] = $this->input_type;
+		$this->json['input_type'] = $this->input_type;
 	}
 
 	/**
@@ -81,8 +81,8 @@ class Astoundify_ThemeCustomizer_Control_ControlGroup extends WP_Customize_Contr
 
 		<p>
 			<label>
-				<input <?php $this->link(); ?> name="<?php echo esc_attr( $name ); ?>" value="<?php echo $group_id; ?>" type="radio" <?php echo $this->generate_linked_control_data( $group_data[ 'controls' ] ); ?> <?php checked( $group_id, sanitize_title( $this->value() ) ); ?> />
-				<span class="label"><?php echo esc_attr( $group_data[ 'title' ] ); ?></span>
+				<input <?php $this->link(); ?> name="<?php echo esc_attr( $name ); ?>" value="<?php echo $group_id; ?>" type="radio" <?php echo $this->generate_linked_control_data( $group_data['controls'] ); ?> <?php checked( $group_id, sanitize_title( $this->value() ) ); ?> />
+				<span class="label"><?php echo esc_attr( $group_data['title'] ); ?></span>
 			</label>
 		</p>
 
@@ -95,7 +95,7 @@ class Astoundify_ThemeCustomizer_Control_ControlGroup extends WP_Customize_Contr
 
 			<?php foreach ( $this->group as $group_id => $group_data ) : ?>
 
-				<option value="<?php echo $group_id; ?>" <?php echo $this->generate_linked_control_data( $group_data[ 'controls' ] ); ?> <?php selected( $group_id, sanitize_title( $this->value() ) ); ?>><?php echo esc_attr( $group_data[ 'title' ] ); ?></option>
+				<option value="<?php echo $group_id; ?>" <?php echo $this->generate_linked_control_data( $group_data['controls'] ); ?> <?php selected( $group_id, sanitize_title( $this->value() ) ); ?>><?php echo esc_attr( $group_data['title'] ); ?></option>
 
 			<?php endforeach; ?>
 
@@ -126,7 +126,7 @@ class Astoundify_ThemeCustomizer_Control_ControlGroup extends WP_Customize_Contr
 			$output[ $key ] = $value;
 		}
 
-		return "data-controls='" . json_encode( $output )  . "'";
+		return "data-controls='" . json_encode( $output ) . "'";
 	}
 
 	/**

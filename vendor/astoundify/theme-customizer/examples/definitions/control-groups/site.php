@@ -9,14 +9,14 @@ return array(
 		'title' => 'Default',
 		'controls' => array(
 			'site-title-color' => '#000fff',
-			'site-tags' => array( 'cool', 'awesome' )
-		)
+			'site-tags' => array( 'cool', 'awesome' ),
+		),
 	),
 	'pro' => array(
 		'title' => 'Pro',
 		'controls' => array(
 			'site-title-color' => '#000000',
-			'site-tags' => array( 'really-cool' )
-		)
-	)
+			'site-tags' => array( 'really-cool' ),
+		),
+	),
 );

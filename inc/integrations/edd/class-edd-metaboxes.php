@@ -23,7 +23,7 @@ class Marketify_EDD_Metaboxes {
 		echo EDD()->html->text( array(
 			'name'  => 'edd_video',
 			'value' => esc_url( $post->edd_video ),
-			'class' => 'large-text'
+			'class' => 'large-text',
 		) );
 	}
 
@@ -38,7 +38,7 @@ class Marketify_EDD_Metaboxes {
 		echo EDD()->html->text( array(
 			'name'  => 'edd_audio',
 			'value' => esc_url( get_post()->edd_audio ),
-			'class' => 'large-text'
+			'class' => 'large-text',
 		) );
 	}
 
@@ -48,7 +48,7 @@ class Marketify_EDD_Metaboxes {
 		echo EDD()->html->text( array(
 			'name'  => 'edd_demo',
 			'value' => esc_url( $post->edd_demo ),
-			'class' => 'large-text'
+			'class' => 'large-text',
 		) );
 	}
 

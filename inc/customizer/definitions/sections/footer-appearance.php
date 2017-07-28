@@ -12,5 +12,5 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 $wp_customize->add_section( 'footer-appearance', array(
 	'title' => _x( 'Appearance', 'customizer section title (colors)', 'marketify' ),
 	'panel' => 'footer',
-	'priority' => 5
+	'priority' => 5,
 ) );

@@ -30,16 +30,16 @@ class Astoundify_ItemImport_Setting extends Astoundify_AbstractItemImport implem
 	 * @return false|string The value string if it exists. False if it does not.
 	 */
 	private function get_value() {
-		if ( ! isset( $this->item[ 'data' ] ) ) {
+		if ( ! isset( $this->item['data'] ) ) {
 			return false;
 		}
 
-		$value = $this->item[ 'data' ];
+		$value = $this->item['data'];
 
 		if ( is_array( $value ) ) {
 			return wp_parse_args( $value, get_option( $this->get_key(), array() ) );
-		} 
-		
+		}
+
 		return $value;
 	}
 
@@ -76,7 +76,7 @@ class Astoundify_ItemImport_Setting extends Astoundify_AbstractItemImport implem
 		$option = $this->get_previous_import();
 
 		$key = $this->get_key();
-		$value = $this->item[ 'data' ];
+		$value = $this->item['data'];
 
 		if ( ! $key || ! $value ) {
 			return $this->get_default_error();
@@ -85,7 +85,7 @@ class Astoundify_ItemImport_Setting extends Astoundify_AbstractItemImport implem
 		if ( is_array( $value ) ) {
 			$option = get_option( $this->get_key() );
 
-			foreach ( $this->item[ 'data' ] as $key => $v ) {
+			foreach ( $this->item['data'] as $key => $v ) {
 				unset( $option[ $key ] );
 			}
 

@@ -23,9 +23,9 @@ class Astoundify_Plugin_WPJobManagerProducts implements Astoundify_PluginInterfa
 	 * @return void
 	 */
 	public static function setup_actions() {
-		add_action( 
+		add_action(
 			'astoundify_import_content_after_import_item_type_object',
-			array( __CLASS__, 'set_products' ) 
+			array( __CLASS__, 'set_products' )
 		);
 	}
 
@@ -37,15 +37,15 @@ class Astoundify_Plugin_WPJobManagerProducts implements Astoundify_PluginInterfa
 	 * @return true|WP_Error True if the format can be set.
 	 */
 	public static function set_products( $ItemImport ) {
-		$item_data = $ItemImport->item[ 'data' ];
+		$item_data = $ItemImport->item['data'];
 
 		// do nothing if this is not relevant to the current object type
-		if ( 'job_listing' != $item_data[ 'post_type' ] ) {
+		if ( 'job_listing' != $item_data['post_type'] ) {
 			return false;
 		}
 
-		$error = new WP_Error( 
-			'set-products', 
+		$error = new WP_Error(
+			'set-products',
 			sprintf( 'Products for %s were not set', $ItemImport->get_id() )
 		);
 
@@ -58,9 +58,9 @@ class Astoundify_Plugin_WPJobManagerProducts implements Astoundify_PluginInterfa
 
 		$listing_id = $object->ID;
 
-		if ( isset( $item_data[ 'products' ] ) ) {
+		if ( isset( $item_data['products'] ) ) {
 			$_products = array();
-			$products = $item_data[ 'products' ];
+			$products = $item_data['products'];
 
 			foreach ( $products as $product_name ) {
 				global $wpdb;

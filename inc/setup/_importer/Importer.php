@@ -13,14 +13,14 @@ abstract class Astoundify_AbstractImporter implements Astoundify_SortableInterfa
 	 * @access public
 	 * @var array
 	 */
-	public $item_groups = array( 
+	public $item_groups = array(
 		'setting' => array(),
 		'theme-mod' => array(),
 		'term' => array(),
 		'nav-menu' => array(),
 		'nav-menu-item' => array(),
 		'object' => array(),
-		'widget' => array()
+		'widget' => array(),
 	);
 
 	/**
@@ -104,7 +104,7 @@ abstract class Astoundify_AbstractImporter implements Astoundify_SortableInterfa
 
 		// group by type
 		foreach ( $items as $item ) {
-			$this->item_groups[ $item[ 'type' ] ][] = $item;
+			$this->item_groups[ $item['type'] ][] = $item;
 		}
 
 		// sort by priority
@@ -136,19 +136,19 @@ abstract class Astoundify_AbstractImporter implements Astoundify_SortableInterfa
 	 * @return int Sort order
 	 */
 	public function sort_by_priority( $a, $b ) {
-		if ( ! isset( $a[ 'priority' ] ) ) {
-			$a[ 'priority' ] = 10;
+		if ( ! isset( $a['priority'] ) ) {
+			$a['priority'] = 10;
 		}
 
-		if ( ! isset( $b[ 'priority' ] ) ) {
-			$b[ 'priority' ] = 10;
+		if ( ! isset( $b['priority'] ) ) {
+			$b['priority'] = 10;
 		}
 
-		if ( $a[ 'priority' ] == $b[ 'priority' ] ) {
+		if ( $a['priority'] == $b['priority'] ) {
 			return 0;
 		}
 
-		return ( $a[ 'priority' ] < $b[ 'priority' ] ) ? -1 : 1;
+		return ( $a['priority'] < $b['priority'] ) ? -1 : 1;
 	}
 
 }

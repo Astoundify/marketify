@@ -19,9 +19,9 @@ class Marketify_Customize {
 		$this->includes();
 
 		astoundify_themecustomizer( array(
-			'stylesheet' => 'marketify-base', 
+			'stylesheet' => 'marketify-base',
 			'install_url' => get_template_directory_uri() . '/vendor/astoundify/theme-customizer/app',
-			'definitions_dir' => get_template_directory() . '/inc/customizer/definitions'
+			'definitions_dir' => get_template_directory() . '/inc/customizer/definitions',
 		) );
 	}
 
@@ -32,7 +32,7 @@ class Marketify_Customize {
 	 */
 	public function includes() {
 		require_once( get_template_directory() . '/vendor/astoundify/theme-customizer/astoundify-themecustomizer.php' );
-		require_once( trailingslashit( dirname( __FILE__) ) . 'helper-functions.php' );
+		require_once( trailingslashit( dirname( __FILE__ ) ) . 'helper-functions.php' );
 	}
 
 }

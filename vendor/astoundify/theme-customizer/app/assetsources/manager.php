@@ -9,7 +9,7 @@
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 /**
@@ -32,7 +32,7 @@ class Astoundify_ThemeCustomizer_AssetSources_Manager {
 	 * Add a source.
 	 *
 	 * @since 1.1.0
-	 * 
+	 *
 	 * @param string $key The unique key of the source.
 	 * @param object $source Source instance.
 	 * @return object Source instance.
@@ -61,7 +61,7 @@ class Astoundify_ThemeCustomizer_AssetSources_Manager {
 	 * Get a source.
 	 *
 	 * @since 1.1.0
-	 * 
+	 *
 	 * @param string $key The unique key of the source.
 	 * @return mixed Source instance or false if not registered
 	 */

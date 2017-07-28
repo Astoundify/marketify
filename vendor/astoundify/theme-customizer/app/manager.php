@@ -16,7 +16,7 @@ class Astoundify_ThemeCustomizer_Manager extends Astoundify_ModuleLoader_Module 
 	 */
 	protected $modules = array(
 		'customize' => 'Astoundify_ThemeCustomizer_Customize_Manager',
-		'output' => 'Astoundify_ThemeCustomizer_Output_Manager'
+		'output' => 'Astoundify_ThemeCustomizer_Output_Manager',
 	);
 
 	/**
@@ -64,7 +64,7 @@ class Astoundify_ThemeCustomizer_Manager extends Astoundify_ModuleLoader_Module 
 	 *
 	 * @since 1.0.0
 	 * @param string $key
-	 * @param mixed $value
+	 * @param mixed  $value
 	 */
 	public static function set_option( $key, $value ) {
 		self::$options[ $key ] = $value;

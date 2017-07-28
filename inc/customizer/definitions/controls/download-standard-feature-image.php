@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 
 $wp_customize->add_setting( 'downloads-standard-feature-image', array(
 	'default' => 'background',
-	'sanitize_callback' => 'esc_attr'
+	'sanitize_callback' => 'esc_attr',
 ) );
 
 $wp_customize->add_control( 'downloads-standard-feature-image', array(
@@ -19,8 +19,8 @@ $wp_customize->add_control( 'downloads-standard-feature-image', array(
 	'type' => 'select',
 	'choices' => array(
 		'background' => __( 'Header Background', 'marketify' ),
-		'none' => __( 'None', 'marketify' )
+		'none' => __( 'None', 'marketify' ),
 	),
 	'section' => 'download-standard',
-	'priority' => 20
+	'priority' => 20,
 ) );

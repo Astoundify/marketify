@@ -127,8 +127,8 @@ abstract class Astoundify_AbstractItemImport {
 	 * @return mixed
 	 */
 	public function get_id() {
-		if( isset( $this->item[ 'id' ] ) ) {
-			return esc_attr( $this->item[ 'id' ] );
+		if ( isset( $this->item['id'] ) ) {
+			return esc_attr( $this->item['id'] );
 		}
 
 		return false;
@@ -141,7 +141,7 @@ abstract class Astoundify_AbstractItemImport {
 	 * @return mixed
 	 */
 	public function get_type() {
-		return isset( $this->item[ 'type' ] ) ? esc_attr( $this->item[ 'type' ] ) : false;
+		return isset( $this->item['type'] ) ? esc_attr( $this->item['type'] ) : false;
 	}
 
 	/**
@@ -152,7 +152,7 @@ abstract class Astoundify_AbstractItemImport {
 	 */
 	public function get_type_label() {
 		$strings = Astoundify_ContentImporter::get_strings();
-		$labels = $strings[ 'type_labels' ];
+		$labels = $strings['type_labels'];
 
 		return esc_attr( $labels[ $this->get_type() ][0] );
 	}
@@ -166,11 +166,11 @@ abstract class Astoundify_AbstractItemImport {
 	public function get_default_error() {
 		return new WP_Error(
 			sprintf( '%s-%s-failed', $this->get_type(), $this->get_action() ),
-			sprintf( 
-				'<strong>%1$s</strong> <code>%2$s</code> was unable to %3$s.', 
-				$this->get_type_label(), 
-				$this->get_id(), 
-				$this->get_action() 
+			sprintf(
+				'<strong>%1$s</strong> <code>%2$s</code> was unable to %3$s.',
+				$this->get_type_label(),
+				$this->get_id(),
+				$this->get_action()
 			)
 		);
 	}
@@ -184,11 +184,11 @@ abstract class Astoundify_AbstractItemImport {
 	public function get_previously_imported_error() {
 		return new WP_Error(
 			sprintf( '%s-%s-failed', $this->get_type(), $this->get_action() ),
-			sprintf( 
-				'<strong>%1$s</strong> <code>%2$s</code> was unable to %3$s. <strong>Duplicate detected.</strong>', 
-				$this->get_type_label(), 
-				$this->get_id(), 
-				$this->get_action() 
+			sprintf(
+				'<strong>%1$s</strong> <code>%2$s</code> was unable to %3$s. <strong>Duplicate detected.</strong>',
+				$this->get_type_label(),
+				$this->get_id(),
+				$this->get_action()
 			)
 		);
 	}
@@ -202,11 +202,11 @@ abstract class Astoundify_AbstractItemImport {
 	public function get_not_found_error() {
 		return new WP_Error(
 			sprintf( '%s-%s-failed', $this->get_type(), $this->get_action() ),
-			sprintf( 
-				'<strong>%1$s</strong> <code>%2$s</code> was unable to %3$s. <strong>Item not found.</strong>', 
-				$this->get_type_label(), 
-				$this->get_id(), 
-				$this->get_action() 
+			sprintf(
+				'<strong>%1$s</strong> <code>%2$s</code> was unable to %3$s. <strong>Item not found.</strong>',
+				$this->get_type_label(),
+				$this->get_id(),
+				$this->get_action()
 			)
 		);
 	}
@@ -263,7 +263,7 @@ abstract class Astoundify_AbstractItemImport {
 	 * @since 1.0.0
 	 * @param string $when Context for before/after.
 	 * @param string $what Context for the action being taken.
-	 * @param array $args
+	 * @param array  $args
 	 * @return void
 	 */
 	private function iterate_actions( $when ) {
@@ -274,8 +274,8 @@ abstract class Astoundify_AbstractItemImport {
 		do_action( "astoundify_import_content_{$when}_{$this->get_action()}_item_type_{$this->get_type()}", $this );
 
 		// object type
-		if ( isset( $this->item[ 'data' ][ 'post_type' ] ) ) {
-			$object_type = $this->item[ 'data' ][ 'post_type' ];
+		if ( isset( $this->item['data']['post_type'] ) ) {
+			$object_type = $this->item['data']['post_type'];
 
 			do_action( "astoundify_import_content_{$when}_{$this->get_action()}_item_type_{$object_type}", $this );
 		}

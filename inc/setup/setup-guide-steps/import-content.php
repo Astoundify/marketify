@@ -30,7 +30,7 @@
 
 		<p><strong id="import-status"><?php _e( 'Summary:', 'marketify' ); ?></strong></p>
 
-		<?php foreach ( Marketify_Setup::$content_importer_strings[ 'type_labels' ] as $key => $labels ) : ?>
+		<?php foreach ( Marketify_Setup::$content_importer_strings['type_labels'] as $key => $labels ) : ?>
 		<p id="import-type-<?php echo esc_attr( $key ); ?>" class="import-type">
 			<span class="dashicons import-type-<?php echo esc_attr( $key ); ?>"></span>&nbsp;
 			<strong class="process-type"><?php echo esc_attr( $labels[1] ); ?>:</strong>
@@ -50,15 +50,15 @@
 		<ul>
 		<?php foreach ( Marketify_Setup::get_importable_plugins() as $key => $plugin ) : ?>
 		<li>
-			<?php if ( $plugin[ 'condition' ] ) : ?>
+			<?php if ( $plugin['condition'] ) : ?>
 				<span class="active"><span class="dashicons dashicons-yes"></span></span>
 			<?php else : ?>
 				<span class="inactive"><span class="dashicons dashicons-no"></span></span>
 			<?php endif; ?>
 
-			<?php echo $plugin[ 'label' ]; ?>
+			<?php echo $plugin['label']; ?>
 
-			<?php if ( ! $plugin[ 'condition' ] ) : ?>
+			<?php if ( ! $plugin['condition'] ) : ?>
 			&mdash; <span class="inactive"><?php _e( 'Demo content for this plugin will not be imported.', 'marketify' ); ?></span>
 			<?php endif; ?>
 		</li>

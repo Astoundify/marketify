@@ -9,7 +9,7 @@
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 /**
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.1.0
  */
-class Astoundify_ThemeCustomizer_AssetLoader_Local extends Astoundify_ThemeCustomizer_AssetLoader_Loader implements Astoundify_ThemeCustomizer_AssetLoader_LoaderInterface { 
+class Astoundify_ThemeCustomizer_AssetLoader_Local extends Astoundify_ThemeCustomizer_AssetLoader_Loader implements Astoundify_ThemeCustomizer_AssetLoader_LoaderInterface {
 
 	/**
 	 * Load raw data from a remote file.
@@ -31,7 +31,7 @@ class Astoundify_ThemeCustomizer_AssetLoader_Local extends Astoundify_ThemeCusto
 		$raw_data = null;
 		$pathinfo = pathinfo( $file );
 
-		if ( 'json' == $pathinfo[ 'extension' ] ) {
+		if ( 'json' == $pathinfo['extension'] ) {
 			$raw_data = $this->load_json();
 		} else {
 			$raw_data = $this->load_php();

@@ -16,6 +16,6 @@ astoundify_themecustomizer_add_css( array(
 		'.widget--home-taxonomy-stylized',
 	),
 	'declarations' => array(
-		'background-color' => esc_attr( $accent )
-	)
+		'background-color' => esc_attr( $accent ),
+	),
 ) );

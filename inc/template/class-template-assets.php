@@ -25,9 +25,9 @@ class Marketify_Template_Assets {
 		wp_localize_script( 'marketify', 'Marketify', apply_filters( 'marketify_js', array(
 			'widgets' => array(
 				'testimonials' => array(
-					'individualSliderSpeed' => 3000
-				)
-			)
+					'individualSliderSpeed' => 3000,
+				),
+			),
 		) ) );
 	}
 
@@ -45,11 +45,13 @@ class Marketify_Template_Assets {
 	public function mce_css( $mce_css ) {
 		$fonts_url = $this->google_fonts_url();
 
-		if ( empty( $fonts_url ) )
+		if ( empty( $fonts_url ) ) {
 			return $mce_css;
+		}
 
-		if ( ! empty( $mce_css ) )
+		if ( ! empty( $mce_css ) ) {
 			$mce_css .= ',';
+		}
 
 		$mce_css .= esc_url_raw( str_replace( ',', '%2C', $fonts_url ) );
 

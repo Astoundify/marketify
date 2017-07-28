@@ -42,8 +42,8 @@ $groups = array(
 			'typography-input-font-size' => 15,
 			'typography-input-font-weight' => 'normal',
 			'typography-input-line-height' => 1,
-		)
-	)
+		),
+	),
 );
 
 return $groups;

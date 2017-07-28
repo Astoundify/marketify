@@ -22,42 +22,42 @@ class Astoundify_ThemeCustomizer_Control_Typography extends WP_Customize_Control
 	 * @access public
 	 * @var WP_Customize $wp_customize
 	 */
-    public $wp_customize;
+	public $wp_customize;
 
 	/**
 	 * @since 1.0.0
 	 * @access public
 	 * @var string $type
 	 */
-    public $type = 'Typography';
+	public $type = 'Typography';
 
 	/**
 	 * @since 1.0.0
 	 * @access public
 	 * @var string $format
 	 */
-    public $format = 'typography-{selector}-{setting}';
+	public $format = 'typography-{selector}-{setting}';
 
 	/**
 	 * @since 1.0.0
 	 * @access public
 	 * @var string $selector
 	 */
-    public $selector;
+	public $selector;
 
 	/**
 	 * @since 1.0.0
 	 * @access public
 	 * @var string $source
 	 */
-    public $source;
+	public $source;
 
 	/**
 	 * @since 1.0.0
 	 * @access public
 	 * @var array $controls
 	 */
-    public $controls;
+	public $controls;
 
 	public function __construct( $wp_customize, $args = array() ) {
 		$this->wp_customize = $wp_customize;
@@ -95,17 +95,17 @@ class Astoundify_ThemeCustomizer_Control_Typography extends WP_Customize_Control
 
 		$this->wp_customize->add_setting( $key, array(
 			'default' => astoundify_themecustomizer_get_typography_mod_default( $key ),
-			'transport' => 'postMessage'
+			'transport' => 'postMessage',
 		) );
 
 		$this->wp_customize->add_control( new Astoundify_ThemeCustomizer_Control_BigChoices(
 			$this->wp_customize,
 			$key,
-			array_merge( $this->controls[ 'font-family' ], array(
+			array_merge( $this->controls['font-family'], array(
 				'choices_id' => $this->source,
 				'choices' => astoundify_themecustomizer_get_assetsource_choices( $this->source ),
 				'priority' => $this->priority,
-				'section' => $this->section
+				'section' => $this->section,
 			) )
 		) );
 	}
@@ -120,19 +120,19 @@ class Astoundify_ThemeCustomizer_Control_Typography extends WP_Customize_Control
 
 		$this->wp_customize->add_setting( $key, array(
 			'default' => astoundify_themecustomizer_get_typography_mod_default( $key ),
-			'transport' => 'postMessage'
+			'transport' => 'postMessage',
 		) );
 
-		$this->wp_customize->add_control( $key, wp_parse_args( $this->controls[ 'font-size' ], array(
+		$this->wp_customize->add_control( $key, wp_parse_args( $this->controls['font-size'], array(
 			'type' => 'number',
 			'input_attrs' => array(
 				'min' => 1,
 				'max' => 78,
-				'step' => 1
+				'step' => 1,
 			),
 			'priority' => $this->priority + 1,
 			'description' => __( 'Only affects large-screen devices', 'marketify' ),
-			'section' => $this->section
+			'section' => $this->section,
 		) ) );
 	}
 
@@ -146,13 +146,13 @@ class Astoundify_ThemeCustomizer_Control_Typography extends WP_Customize_Control
 
 		$this->wp_customize->add_setting( $key, array(
 			'default' => astoundify_themecustomizer_get_typography_mod_default( $key ),
-			'transport' => 'postMessage'
+			'transport' => 'postMessage',
 		) );
 
-		$this->wp_customize->add_control( $key, wp_parse_args( $this->controls[ 'font-weight' ], array(
+		$this->wp_customize->add_control( $key, wp_parse_args( $this->controls['font-weight'], array(
 			'type' => 'select',
 			'priority' => $this->priority + 2,
-			'section' => $this->section
+			'section' => $this->section,
 		) ) );
 	}
 
@@ -166,18 +166,18 @@ class Astoundify_ThemeCustomizer_Control_Typography extends WP_Customize_Control
 
 		$this->wp_customize->add_setting( $key, array(
 			'default' => astoundify_themecustomizer_get_typography_mod_default( $key ),
-			'transport' => 'postMessage'
+			'transport' => 'postMessage',
 		) );
 
-		$this->wp_customize->add_control( $key, wp_parse_args( $this->controls[ 'line-height' ], array(
+		$this->wp_customize->add_control( $key, wp_parse_args( $this->controls['line-height'], array(
 			'type' => 'number',
 			'input_attrs' => array(
 				'min' => 1,
 				'max' => 5,
-				'step' => 0.25
+				'step' => 0.25,
 			),
 			'priority' => $this->priority + 3,
-			'section' => $this->section
+			'section' => $this->section,
 		) ) );
 	}
 }

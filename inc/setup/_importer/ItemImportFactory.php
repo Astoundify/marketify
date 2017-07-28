@@ -34,17 +34,17 @@ class Astoundify_ItemImportFactory {
 	 * @return bool True if the item is valid
 	 */
 	public static function is_valid_type( $item ) {
-		$valid = array( 
+		$valid = array(
 			'setting',
-			'object', 
-			'nav-menu', 
-			'nav-menu-item', 
+			'object',
+			'nav-menu',
+			'nav-menu-item',
 			'term',
 			'widget',
-			'comment'
+			'comment',
 		);
 
-		$type = isset( $item[ 'type' ] ) ? esc_attr( $item[ 'type' ] ) : false;
+		$type = isset( $item['type'] ) ? esc_attr( $item['type'] ) : false;
 
 		return in_array( $type, $valid ) ? $type : false;
 	}

@@ -9,7 +9,7 @@
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 /**
@@ -86,8 +86,8 @@ class Astoundify_ThemeCustomizer_AssetSources_GoogleFonts_Manager extends Astoun
 		}
 
 		if ( ! empty( $families ) ) {
-			$data[ 'google' ] = array(
-				'families' => $families
+			$data['google'] = array(
+				'families' => $families,
 			);
 		}
 
@@ -114,7 +114,7 @@ class Astoundify_ThemeCustomizer_AssetSources_GoogleFonts_Manager extends Astoun
 				continue;
 			}
 
-			$variants = isset( $item[ 'variants' ] ) ? $item[ 'variants' ] : array();
+			$variants = isset( $item['variants'] ) ? $item['variants'] : array();
 			$families[] = urlencode( $font . ':' . join( ',', $this->choose_variants( $variants ) ) );
 		}
 
@@ -135,8 +135,8 @@ class Astoundify_ThemeCustomizer_AssetSources_GoogleFonts_Manager extends Astoun
 		foreach ( $fonts as $font ) {
 			$item = $this->get_item( $font );
 
-			if ( isset( $item[ 'subsets' ] ) ) {
-				$subsets = array_merge( $subsets, $item[ 'subsets' ] );
+			if ( isset( $item['subsets'] ) ) {
+				$subsets = array_merge( $subsets, $item['subsets'] );
 			}
 		}
 

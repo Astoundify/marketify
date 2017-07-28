@@ -18,7 +18,7 @@ foreach ( $elements as $element => $label ) {
 		'selector' => $element,
 		'source' => 'googlefonts',
 		'controls' => marketify_themecustomizer_get_default_typography_controls(),
-		'section' => 'typography-' . $element
+		'section' => 'typography-' . $element,
 	) ) );
 
 }

@@ -21,9 +21,9 @@ class Astoundify_ItemImport_NavMenu extends Astoundify_AbstractItemImport implem
 	 */
 	public function setup_actions() {
 		// set location
-		add_action( 
+		add_action(
 			'astoundify_import_content_after_import_item_type_nav-menu',
-			array( $this, 'set_menu_location' ) 
+			array( $this, 'set_menu_location' )
 		);
 	}
 
@@ -34,8 +34,8 @@ class Astoundify_ItemImport_NavMenu extends Astoundify_AbstractItemImport implem
 	 * @return bool|string The menu name if set, or false.
 	 */
 	private function get_menu_name() {
-		if ( isset( $this->item[ 'data' ][ 'name' ] ) ) {
-			return esc_attr( $this->item[ 'data' ][ 'name' ] );
+		if ( isset( $this->item['data']['name'] ) ) {
+			return esc_attr( $this->item['data']['name'] );
 		}
 
 		return false;
@@ -48,8 +48,8 @@ class Astoundify_ItemImport_NavMenu extends Astoundify_AbstractItemImport implem
 	 * @return bool|string The menu name if set, or false.
 	 */
 	private function get_menu_location() {
-		if ( isset( $this->item[ 'data' ][ 'location' ] ) ) {
-			return esc_attr( $this->item[ 'data' ][ 'location' ] );
+		if ( isset( $this->item['data']['location'] ) ) {
+			return esc_attr( $this->item['data']['location'] );
 		}
 
 		return false;
@@ -82,7 +82,7 @@ class Astoundify_ItemImport_NavMenu extends Astoundify_AbstractItemImport implem
 
 		return $result;
 	}
-	
+
 	/**
 	 * Reset a single object
 	 *
@@ -127,8 +127,8 @@ class Astoundify_ItemImport_NavMenu extends Astoundify_AbstractItemImport implem
 	 * @return true|WP_Error True if the location was set
 	 */
 	public function set_menu_location() {
-		$error = new WP_Error( 
-			'set-menu-location', 
+		$error = new WP_Error(
+			'set-menu-location',
 			sprintf( 'Menu location %s was not set.', $this->get_id() )
 		);
 
@@ -142,7 +142,7 @@ class Astoundify_ItemImport_NavMenu extends Astoundify_AbstractItemImport implem
 		if ( false == ( $menu_location = $this->get_menu_location() ) ) {
 			return $error;
 		}
-	
+
 		$locations = get_theme_mod( 'nav_menu_locations' );
 		$locations[ $menu_location ] = $menu->term_id;
 

@@ -1,7 +1,7 @@
 <?php
 
 class Marketify_Widgetized_Pages {
-	
+
 	private $transient;
 
 	public function __construct() {
@@ -21,8 +21,8 @@ class Marketify_Widgetized_Pages {
 		foreach ( $pages as $page ) {
 			register_sidebar( array(
 				'name'          => sprintf( __( 'Widgetized Page: %s', 'marketify' ), get_the_title( $page ) ),
-				'description'   => sprintf( __( 'Widgets that appear on the "%s" page.', 'marketify' ), get_the_title( $page )),
-				'id'            => 'widget-area-page-'. $page,
+				'description'   => sprintf( __( 'Widgets that appear on the "%s" page.', 'marketify' ), get_the_title( $page ) ),
+				'id'            => 'widget-area-page-' . $page,
 				'before_widget' => '<aside id="%1$s" class="widget widget--home container %2$s">',
 				'after_widget'  => '</aside>',
 				'before_title'  => '<h3 class="widget-title widget-title--home section-title"><span>',
@@ -43,9 +43,9 @@ class Marketify_Widgetized_Pages {
 					array(
 						'key' => '_wp_page_template',
 						'value' => array( 'page-templates/template-widgetized.php' ),
-						'compare' => 'IN'
-					)
-				)
+						'compare' => 'IN',
+					),
+				),
 			) );
 
 			if ( ! empty( $query->posts ) ) {

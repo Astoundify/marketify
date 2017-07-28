@@ -23,12 +23,12 @@ class Astoundify_Theme_Listify implements Astoundify_PluginInterface {
 	 * @return void
 	 */
 	public static function setup_actions() {
-		add_action( 
+		add_action(
 			'astoundify_import_content_after_import_item_type_object',
-			array( __CLASS__, 'set_hours' ) 
+			array( __CLASS__, 'set_hours' )
 		);
 
-		add_action( 
+		add_action(
 			'astoundify_import_content_after_import_item_type_object',
 			array( __CLASS__, 'set_gallery' ),
 			20
@@ -44,15 +44,15 @@ class Astoundify_Theme_Listify implements Astoundify_PluginInterface {
 	 * @return true|WP_Error True if the format can be set.
 	 */
 	public static function set_hours( $ItemImport ) {
-		$item_data = $ItemImport->item[ 'data' ];
+		$item_data = $ItemImport->item['data'];
 
 		// do nothing if this is not relevant to the current object type
-		if ( 'job_listing' != $item_data[ 'post_type' ] ) {
+		if ( 'job_listing' != $item_data['post_type'] ) {
 			return false;
 		}
 
-		$error = new WP_Error( 
-			'set-hours', 
+		$error = new WP_Error(
+			'set-hours',
 			sprintf( 'Business hours for %s was not set', $ItemImport->get_id() )
 		);
 
@@ -65,14 +65,14 @@ class Astoundify_Theme_Listify implements Astoundify_PluginInterface {
 
 		$listing_id = $object->ID;
 
-		if ( isset( $item_data[ 'hours' ] ) ) {
+		if ( isset( $item_data['hours'] ) ) {
 			$_hours = array();
-			$hours = $item_data[ 'hours' ];
+			$hours = $item_data['hours'];
 
 			foreach ( $hours as $day => $times ) {
 				$_hours[ $day ] = array(
 					'start' => $times[0],
-					'end' => $times[1]
+					'end' => $times[1],
 				);
 			}
 
@@ -93,15 +93,15 @@ class Astoundify_Theme_Listify implements Astoundify_PluginInterface {
 	 * @return true|WP_Error True if the format can be set.
 	 */
 	public static function set_gallery( $ItemImport ) {
-		$item_data = $ItemImport->item[ 'data' ];
+		$item_data = $ItemImport->item['data'];
 
 		// do nothing if this is not relevant to the current object type
-		if ( 'job_listing' != $item_data[ 'post_type' ] ) {
+		if ( 'job_listing' != $item_data['post_type'] ) {
 			return false;
 		}
 
-		$error = new WP_Error( 
-			'set-gallery', 
+		$error = new WP_Error(
+			'set-gallery',
 			sprintf( 'Gallery for %s was not set', $ItemImport->get_id() )
 		);
 
@@ -115,7 +115,7 @@ class Astoundify_Theme_Listify implements Astoundify_PluginInterface {
 		$listing_id = $object->ID;
 
 		// single price
-		if ( isset( $item_data[ 'media' ] ) ) {
+		if ( isset( $item_data['media'] ) ) {
 			$images = get_attached_media( 'image', $listing_id );
 
 			if ( ! empty( $images ) ) {

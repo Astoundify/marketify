@@ -12,5 +12,5 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 $wp_customize->add_section( 'download-labels', array(
 	'title' => _x( 'Labels &amp; Behavior', 'customizer section title (colors)', 'marketify' ),
 	'panel' => 'downloads',
-	'priority' => 10
+	'priority' => 10,
 ) );

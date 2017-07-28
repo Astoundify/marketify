@@ -12,5 +12,5 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 $wp_customize->add_section( 'download-audio', array(
 	'title' => sprintf( _x( 'Audio %s', 'customizer section title (colors)', 'marketify' ), edd_get_label_singular() ),
 	'panel' => 'downloads',
-	'priority' => 40
+	'priority' => 40,
 ) );

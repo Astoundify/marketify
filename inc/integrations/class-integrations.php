@@ -9,76 +9,76 @@ class Marketify_Integrations {
 		$this->supported_integrations = array(
 			'bbpress' => array(
 				class_exists( 'bbPress' ),
-				'Marketify_bbPress'
+				'Marketify_bbPress',
 			),
 			'edd' => array(
 				class_exists( 'Easy_Digital_Downloads' ),
-				'Marketify_EDD'
+				'Marketify_EDD',
 			),
 			'edd-fes' => array(
 				class_exists( 'EDD_Front_End_Submissions' ),
-				'Marketify_EDD_FES'
+				'Marketify_EDD_FES',
 			),
 			'edd-product-reviews' => array(
 				class_exists( 'EDD_Reviews' ),
-				'Marketify_EDD_Product_Reviews'
+				'Marketify_EDD_Product_Reviews',
 			),
 			'edd-featured-downloads' => array(
 				function_exists( 'edd_fd_textdomain' ),
-				'Marketify_EDD_Featured_Downloads'
+				'Marketify_EDD_Featured_Downloads',
 			),
 			'edd-recommended-products' => array(
 				function_exists( 'edd_rp_get_suggestions' ),
-				'Marketify_EDD_Recommended_Products'
+				'Marketify_EDD_Recommended_Products',
 			),
 			'edd-cross-sell-upsell' => array(
 				defined( 'EDD_CSAU_VERSION' ),
-				'Marketify_EDD_Cross_Sell_UpSell'
+				'Marketify_EDD_Cross_Sell_UpSell',
 			),
 			'edd-wish-lists' => array(
 				class_exists( 'EDD_Wish_Lists' ),
-				'Marketify_EDD_Wish_Lists'
+				'Marketify_EDD_Wish_Lists',
 			),
 			'edd-bookings' => array(
 				defined( 'EDD_BK_VERSION' ),
-				'Marketify_EDD_Bookings'
+				'Marketify_EDD_Bookings',
 			),
 			'facetwp' => array(
 				class_exists( 'FacetWP' ),
-				'Marketify_FacetWP'
+				'Marketify_FacetWP',
 			),
 			'jetpack' => array(
 				class_exists( 'Jetpack' ),
-				'Marketify_Jetpack'
+				'Marketify_Jetpack',
 			),
 			'love-it' => array(
 				defined( 'LI_BASE_DIR' ),
-				'Marketify_Love_It'
+				'Marketify_Love_It',
 			),
 			'multiple-post-thumbnails' => array(
 				class_exists( 'MultiPostThumbnails' ),
-				'Marketify_Multiple_Post_Thumbnails'
+				'Marketify_Multiple_Post_Thumbnails',
 			),
 			'woothemes-features' => array(
 				class_exists( 'WooThemes_Features' ),
-				'Marketify_WooThemes_Features'
+				'Marketify_WooThemes_Features',
 			),
 			'woothemes-testimonials' => array(
 				class_exists( 'WooThemes_Testimonials' ),
-				'Marketify_WooThemes_Testimonials'
+				'Marketify_WooThemes_Testimonials',
 			),
 			'soliloquy' => array(
 				function_exists( 'soliloquy' ),
-				'Marketify_Soliloquy'
+				'Marketify_Soliloquy',
 			),
 			'tgmpa' => array(
 				true,
-				'Marketify_TGMPA'
+				'Marketify_TGMPA',
 			),
 			'sidekick' => array(
-				false, //defined( 'SK_API' ),
-				'Marketify_Sidekick'
-			)
+				false, // defined( 'SK_API' ),
+				'Marketify_Sidekick',
+			),
 		);
 
 		$this->load_integrations();

@@ -11,12 +11,12 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 
 $wp_customize->add_setting( 'downloads-archives-popular', array(
 	'default' => 'on',
-	'sanitize_callback' => 'esc_attr'
+	'sanitize_callback' => 'esc_attr',
 ) );
 
 $wp_customize->add_control( 'downloads-archives-popular', array(
 	'label' => __( 'Display "Popular Items" above results', 'marketify' ),
 	'type' => 'checkbox',
 	'section' => 'download-archives',
-	'priority' => 30
+	'priority' => 30,
 ) );

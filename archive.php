@@ -9,34 +9,34 @@
 
 get_header(); ?>
 
-    <?php do_action( 'marketify_entry_before' ); ?>
+	<?php do_action( 'marketify_entry_before' ); ?>
 
-    <div class="container">
-        <div id="content" class="site-content row">
+	<div class="container">
+		<div id="content" class="site-content row">
 
-            <div role="main" id="primary" class="col-xs-12 col-md-8 <?php echo ! is_active_sidebar( 'sidebar-1' ) ? 'col-md-offset-2' : '' ?>">
+			<div role="main" id="primary" class="col-xs-12 col-md-8 <?php echo ! is_active_sidebar( 'sidebar-1' ) ? 'col-md-offset-2' : '' ?>">
 
-                <?php if ( have_posts() ) : ?>
+				<?php if ( have_posts() ) : ?>
 
-                    <?php while ( have_posts() ) : the_post(); ?>
+					<?php while ( have_posts() ) : the_post(); ?>
 
-                        <?php get_template_part( 'content', get_post_format() ); ?>
+						<?php get_template_part( 'content', get_post_format() ); ?>
 
-                    <?php endwhile; ?>
+					<?php endwhile; ?>
 
-                    <?php do_action( 'marketify_loop_after' ); ?>
+					<?php do_action( 'marketify_loop_after' ); ?>
 
-                <?php else : ?>
+				<?php else : ?>
 
-                    <?php get_template_part( 'no-results', 'index' ); ?>
+					<?php get_template_part( 'no-results', 'index' ); ?>
 
-                <?php endif; ?>
+				<?php endif; ?>
 
-            </div><!-- #primary -->
+			</div><!-- #primary -->
 
-            <?php get_sidebar(); ?>
+			<?php get_sidebar(); ?>
 
-        </div>
-    </div>
+		</div>
+	</div>
 
 <?php get_footer(); ?>

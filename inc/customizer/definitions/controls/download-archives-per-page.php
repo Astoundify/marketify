@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 
 $wp_customize->add_setting( 'downloads-archives-per-pages', array(
 	'default' => 12,
-	'sanitize_callback' => 'absint'
+	'sanitize_callback' => 'absint',
 ) );
 
 $wp_customize->add_control( 'downloads-archives-per-pages', array(
@@ -19,5 +19,5 @@ $wp_customize->add_control( 'downloads-archives-per-pages', array(
 	'type' => 'number',
 	'description' => __( 'Can be overwritten by passing <code>number</code> to the <code>[downloads]</code> shortcode', 'marketify' ),
 	'section' => 'download-archives',
-	'priority' => 10
+	'priority' => 10,
 ) );

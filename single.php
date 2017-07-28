@@ -7,35 +7,35 @@
 
 get_header(); ?>
 
-    <?php do_action( 'marketify_entry_before' ); ?>
+	<?php do_action( 'marketify_entry_before' ); ?>
 
-    <div class="container">
-        <div id="content" class="site-content row">
+	<div class="container">
+		<div id="content" class="site-content row">
 
-            <div role="main" id="primary" class="col-xs-12 col-md-8 <?php echo ! is_active_sidebar( 'sidebar-1' ) ? 'col-md-offset-2' : '' ?>">
-                <main id="main" class="site-main" role="main">
+			<div role="main" id="primary" class="col-xs-12 col-md-8 <?php echo ! is_active_sidebar( 'sidebar-1' ) ? 'col-md-offset-2' : '' ?>">
+				<main id="main" class="site-main" role="main">
 
-                <?php if ( have_posts() ) : ?>
+				<?php if ( have_posts() ) : ?>
 
-                    <?php while ( have_posts() ) : the_post(); ?>
+					<?php while ( have_posts() ) : the_post(); ?>
 
-                        <?php get_template_part( 'content', 'single' ); ?>
-                        <?php comments_template(); ?>
+						<?php get_template_part( 'content', 'single' ); ?>
+						<?php comments_template(); ?>
 
-                    <?php endwhile; ?>
+					<?php endwhile; ?>
 
-                <?php else : ?>
+				<?php else : ?>
 
-                    <?php get_template_part( 'no-results', 'index' ); ?>
+					<?php get_template_part( 'no-results', 'index' ); ?>
 
-                <?php endif; ?>
+				<?php endif; ?>
 
-                </main><!-- #main -->
-            </div><!-- #primary -->
+				</main><!-- #main -->
+			</div><!-- #primary -->
 
-            <?php get_sidebar(); ?>
+			<?php get_sidebar(); ?>
 
-        </div>
-    </div>
+		</div>
+	</div>
 
 <?php get_footer(); ?>

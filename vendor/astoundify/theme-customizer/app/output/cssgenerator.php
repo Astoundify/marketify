@@ -3,6 +3,7 @@
  * Generate CSS programatically.
  *
  * ❤️  Make
+ *
  * @link https://github.com/thethemefoundry/make/blob/master/src/inc/style/css.php
  *
  * @package Astoundify
@@ -54,7 +55,7 @@ class Astoundify_ThemeCustomizer_Output_CSSGenerator {
 		if ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) {
 			self::$line_ending = "\n";
 			self::$tab = "\t";
-			self::$space = " ";
+			self::$space = ' ';
 		}
 	}
 
@@ -123,8 +124,7 @@ class Astoundify_ThemeCustomizer_Output_CSSGenerator {
 		// No matching selector set, add a new entry
 		if ( false === $match ) {
 			self::$data[ $media ][] = $entry;
-		}
-		// Yes, matching selector set, merge declarations
+		} // End if().
 		else {
 			self::$data[ $media ][ $match ]['declarations'] = array_merge( self::$data[ $media ][ $match ]['declarations'], $entry['declarations'] );
 		}
@@ -156,7 +156,9 @@ class Astoundify_ThemeCustomizer_Output_CSSGenerator {
 
 		// Make sure the 'all' array is first
 		if ( isset( self::$data['all'] ) && count( self::$data ) > 1 ) {
-			$all = array( 'all' => self::$data['all'] );
+			$all = array(
+				'all' => self::$data['all'],
+			);
 			unset( self::$data['all'] );
 			self::$data = array_merge( $all, self::$data );
 		}
@@ -190,7 +192,7 @@ class Astoundify_ThemeCustomizer_Output_CSSGenerator {
 	 * Compile the selectors in a rule into a string.
 	 *
 	 * @since 1.0.0.
-	 * @param array $selectors Selectors to combine into single selector.
+	 * @param array  $selectors Selectors to combine into single selector.
 	 * @param string $tab Tab character.
 	 * @return string Results of the selector combination.
 	 */
@@ -209,7 +211,7 @@ class Astoundify_ThemeCustomizer_Output_CSSGenerator {
 	 * Compile the declarations in a rule into a string.
 	 *
 	 * @since 1.0.0
-	 * @param array $declarations Declarations for a selector.
+	 * @param array  $declarations Declarations for a selector.
 	 * @param string $tab Tab character.
 	 * @return string The combines declarations.
 	 */
@@ -237,7 +239,7 @@ class Astoundify_ThemeCustomizer_Output_CSSGenerator {
 
 		return $output;
 	}
-	
+
 	/**
 	 * Darken a HEX value.
 	 *
@@ -245,28 +247,28 @@ class Astoundify_ThemeCustomizer_Output_CSSGenerator {
 	 * @return string
 	 */
 	public static function darken( $hex, $steps ) {
-        $steps = max(-255, min(255, $steps));
+		$steps = max( -255, min( 255, $steps ) );
 
-        $hex = str_replace('#', '', $hex);
+		$hex = str_replace( '#', '', $hex );
 
-        if (strlen($hex) == 3) {
-            $hex = str_repeat(substr($hex,0,1), 2).str_repeat(substr($hex,1,1), 2).str_repeat(substr($hex,2,1), 2);
-        }
+		if ( strlen( $hex ) == 3 ) {
+			$hex = str_repeat( substr( $hex,0,1 ), 2 ) . str_repeat( substr( $hex,1,1 ), 2 ) . str_repeat( substr( $hex,2,1 ), 2 );
+		}
 
-        $r = hexdec(substr($hex,0,2));
-        $g = hexdec(substr($hex,2,2));
-        $b = hexdec(substr($hex,4,2));
+		$r = hexdec( substr( $hex,0,2 ) );
+		$g = hexdec( substr( $hex,2,2 ) );
+		$b = hexdec( substr( $hex,4,2 ) );
 
-        $r = max(0,min(255,$r + $steps));
-        $g = max(0,min(255,$g + $steps));
-        $b = max(0,min(255,$b + $steps));
+		$r = max( 0,min( 255,$r + $steps ) );
+		$g = max( 0,min( 255,$g + $steps ) );
+		$b = max( 0,min( 255,$b + $steps ) );
 
-        $r_hex = str_pad(dechex($r), 2, '0', STR_PAD_LEFT);
-        $g_hex = str_pad(dechex($g), 2, '0', STR_PAD_LEFT);
-        $b_hex = str_pad(dechex($b), 2, '0', STR_PAD_LEFT);
+		$r_hex = str_pad( dechex( $r ), 2, '0', STR_PAD_LEFT );
+		$g_hex = str_pad( dechex( $g ), 2, '0', STR_PAD_LEFT );
+		$b_hex = str_pad( dechex( $b ), 2, '0', STR_PAD_LEFT );
 
-        return '#'.$r_hex.$g_hex.$b_hex;
-    }
+		return '#' . $r_hex . $g_hex . $b_hex;
+	}
 
 	/**
 	 * Transform a HEX value to RGB.
@@ -280,9 +282,9 @@ class Astoundify_ThemeCustomizer_Output_CSSGenerator {
 		$hex = str_replace( '#', '', $hex );
 
 		if ( strlen( $hex ) == 3 ) {
-			$r = hexdec( substr( $hex, 0, 1 ).substr( $hex, 0, 1 ) );
-			$g = hexdec( substr( $hex, 1, 1 ).substr( $hex, 1, 1 ) );
-			$b = hexdec( substr( $hex, 2, 1 ).substr( $hex, 2, 1 ) );
+			$r = hexdec( substr( $hex, 0, 1 ) . substr( $hex, 0, 1 ) );
+			$g = hexdec( substr( $hex, 1, 1 ) . substr( $hex, 1, 1 ) );
+			$b = hexdec( substr( $hex, 2, 1 ) . substr( $hex, 2, 1 ) );
 		} else {
 			$r = hexdec( substr( $hex, 0, 2 ) );
 			$g = hexdec( substr( $hex, 2, 2 ) );

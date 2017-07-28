@@ -9,7 +9,7 @@
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 /**
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.1.0
  */
-abstract class Astoundify_ThemeCustomizer_AssetLoader_Loader { 
+abstract class Astoundify_ThemeCustomizer_AssetLoader_Loader {
 
 	/**
 	 * Path/Url to the unparsed raw data.
@@ -32,7 +32,6 @@ abstract class Astoundify_ThemeCustomizer_AssetLoader_Loader {
 	 * Start things up.
 	 *
 	 * @since 1.1.0
-	 *
 	 */
 	public function __construct( $origin ) {
 		$this->set_raw_data_origin( $origin );

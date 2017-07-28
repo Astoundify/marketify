@@ -9,7 +9,7 @@
 class Marketify_Sidekick extends Marketify_Integration {
 
 	public function __construct() {
-		parent::__construct( dirname( __FILE__) );
+		parent::__construct( dirname( __FILE__ ) );
 
 		define( 'SK_PRODUCT_ID', 423 );
 		define( 'SK_ENVATO_PARTNER', 'l0+H4H71qrXslK8wNC1lpdDR1NAAs/TcvGAu7MKmfn8=' );

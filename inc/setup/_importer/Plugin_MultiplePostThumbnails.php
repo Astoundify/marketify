@@ -23,9 +23,9 @@ class Astoundify_Plugin_MultiplePostThumbnails implements Astoundify_PluginInter
 	 * @return void
 	 */
 	public static function setup_actions() {
-		add_action( 
+		add_action(
 			'astoundify_import_content_after_import_item_type_object',
-			array( __CLASS__, 'set_thumbnails' ) 
+			array( __CLASS__, 'set_thumbnails' )
 		);
 	}
 
@@ -39,10 +39,10 @@ class Astoundify_Plugin_MultiplePostThumbnails implements Astoundify_PluginInter
 	 * @return true|WP_Error True if the format can be set.
 	 */
 	public static function set_thumbnails( $ItemImport ) {
-		$item_data = $ItemImport->item[ 'data' ];
+		$item_data = $ItemImport->item['data'];
 
-		$error = new WP_Error( 
-			'set-thumbnails', 
+		$error = new WP_Error(
+			'set-thumbnails',
 			sprintf( 'Thumbnails for %s was not set', $ItemImport->get_id() )
 		);
 
@@ -53,13 +53,13 @@ class Astoundify_Plugin_MultiplePostThumbnails implements Astoundify_PluginInter
 			return $error;
 		}
 
-		if ( ! isset( $item_data[ 'thumbnails' ] ) ) {
+		if ( ! isset( $item_data['thumbnails'] ) ) {
 			return $error;
 		}
 
 		$passed = true;
 
-		foreach ( $item_data[ 'thumbnails' ] as $key => $asset ) {
+		foreach ( $item_data['thumbnails'] as $key => $asset ) {
 			if ( false !== ( $id = Astoundify_Utils::upload_asset( $asset, $object->ID ) ) ) {
 				$passed = add_post_meta( $object->ID, $key, $id, true );
 			}

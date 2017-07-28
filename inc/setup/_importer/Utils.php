@@ -15,7 +15,7 @@ class Astoundify_Utils {
 	 * @since 1.0.0
 	 *
 	 * @param string $file URL to an asset to upload.
-	 * @param int $post_id The post ID to attach the media to.
+	 * @param int    $post_id The post ID to attach the media to.
 	 * @return (int|false) The post ID on success.
 	 */
 	public static function upload_asset( $file, $post_id = false ) {
@@ -54,14 +54,14 @@ class Astoundify_Utils {
 		);
 
 		if ( '' == $ext ) {
-			$file_array[ 'type' ] = 'image/png';
-			$overrides[ 'test_type' ] = false;
+			$file_array['type'] = 'image/png';
+			$overrides['test_type'] = false;
 		}
 
 		$file = wp_handle_sideload( $file_array, $overrides );
 
-		if ( ! empty( $file[ 'error' ] ) ) {
-			@unlink( $file[ 'tmp_name' ] );
+		if ( ! empty( $file['error'] ) ) {
+			@unlink( $file['tmp_name'] );
 
 			return false;
 		} else {
@@ -69,14 +69,14 @@ class Astoundify_Utils {
 				return $file;
 			}
 
-			$url = $file[ 'url' ];
-			$type = $file[ 'type' ];
-			$file = $file[ 'file' ];
+			$url = $file['url'];
+			$type = $file['type'];
+			$file = $file['file'];
 			$title = preg_replace( '/\.[^.]+$/', '', basename( $file ) );
 			$content = '';
 
 			if ( ! $type && '' == $ext ) {
-				$type = $file_array[ 'type' ];
+				$type = $file_array['type'];
 			}
 
 			$attachment = array(
@@ -95,7 +95,7 @@ class Astoundify_Utils {
 
 				return $id;
 			}
-		}
+		}// End if().
 
 		return $file;
 	}
@@ -121,11 +121,11 @@ class Astoundify_Utils {
 		$body = wp_remote_retrieve_body( $response );
 		$body = json_decode( $body, true );
 
-		if ( ! $body[ 'text_out' ] ) {
+		if ( ! $body['text_out'] ) {
 			return $default;
 		}
 
-		return $body[ 'text_out' ];
+		return $body['text_out'];
 	}
 
 	/**
@@ -133,7 +133,7 @@ class Astoundify_Utils {
 	 *
 	 * @since 1.0.0
 	 * @param string $haystack
-	 * @param array $needs
+	 * @param array  $needs
 	 */
 	public static function strposa( $haystack, $needles ) {
 		if ( ! is_array( $needles ) ) {
@@ -146,5 +146,5 @@ class Astoundify_Utils {
 			}
 		}
 	}
-	
+
 }

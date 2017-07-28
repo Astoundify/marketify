@@ -9,7 +9,7 @@
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 /**
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.1.0
  */
-abstract class Astoundify_ThemeCustomizer_AssetSource_Source { 
+abstract class Astoundify_ThemeCustomizer_AssetSource_Source {
 
 	/**
 	 * The source data.
@@ -38,7 +38,7 @@ abstract class Astoundify_ThemeCustomizer_AssetSource_Source {
 	public $data = array();
 
 	/**
-	 * Set the raw data. 
+	 * Set the raw data.
 	 *
 	 * @since 1.1.0
 	 *
@@ -60,7 +60,7 @@ abstract class Astoundify_ThemeCustomizer_AssetSource_Source {
 	}
 
 	/**
-	 * Set the parsed data. 
+	 * Set the parsed data.
 	 *
 	 * @since 1.1.0
 	 *
@@ -107,7 +107,7 @@ abstract class Astoundify_ThemeCustomizer_AssetSource_Source {
 
 	/**
 	 * Return a super clean (even cleaner!) array of data that can be used
-	 * in a WP Customize control. 
+	 * in a WP Customize control.
 	 *
 	 * @since 1.1.0
 	 *
@@ -117,7 +117,7 @@ abstract class Astoundify_ThemeCustomizer_AssetSource_Source {
 		$choices = array();
 
 		foreach ( $this->get_data() as $item_key => $item ) {
-			$choices[ $item_key ] = $item[ 'label' ];
+			$choices[ $item_key ] = $item['label'];
 		}
 
 		return $choices;

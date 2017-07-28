@@ -16,7 +16,7 @@ abstract class Astoundify_ThemeCustomizer_Control_TermMeta extends WP_Customize_
 	 * @access public
 	 * @var string $type
 	 */
-    public $type = 'TermMeta';
+	public $type = 'TermMeta';
 
 	/**
 	 * @since 1.2.0
@@ -45,8 +45,8 @@ abstract class Astoundify_ThemeCustomizer_Control_TermMeta extends WP_Customize_
 	 * @since 1.2.0
 	 *
 	 * @param WP_Customize $manager
-	 * @param string $id
-	 * @param array $args
+	 * @param string       $id
+	 * @param array        $args
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
 		parent::__construct( $manager, $id, $args );
@@ -62,9 +62,9 @@ abstract class Astoundify_ThemeCustomizer_Control_TermMeta extends WP_Customize_
 	public function to_json() {
 		parent::to_json();
 
-		$this->json[ 'values' ] = $this->values;
-		$this->json[ 'taxonomy' ] = $this->taxonomy;
-		$this->json[ 'labels' ] = $this->labels;
+		$this->json['values'] = $this->values;
+		$this->json['taxonomy'] = $this->taxonomy;
+		$this->json['labels'] = $this->labels;
 	}
 
 	/**
@@ -89,7 +89,7 @@ abstract class Astoundify_ThemeCustomizer_Control_TermMeta extends WP_Customize_
 	<?php do_action( "astoundify_themecustomizer_control_termmeta_input_{$this->id}", $this ); ?>
 
 	<p>
-		<a href="#" class="js-astoundify-themecustomizer-add-term button"><?php echo esc_html( $this->labels[ 'add' ] ); ?></a>
+		<a href="#" class="js-astoundify-themecustomizer-add-term button"><?php echo esc_html( $this->labels['add'] ); ?></a>
 	</p>
 
 <?php

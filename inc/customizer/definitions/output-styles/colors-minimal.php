@@ -18,8 +18,8 @@ astoundify_themecustomizer_add_css( array(
 		'.custom-background.minimal',
 	),
 	'declarations' => array(
-		'background-color' => esc_attr( $page_header_background )
-	)
+		'background-color' => esc_attr( $page_header_background ),
+	),
 ) );
 
 astoundify_themecustomizer_add_css( array(
@@ -29,12 +29,12 @@ astoundify_themecustomizer_add_css( array(
 		'.minimal .edd_form fieldset legend span',
 		'.minimal #edd_checkout_form_wrap .edd_form fieldset > span legend',
 		'.minimal .entry-content .edd-slg-social-container > span legend',
-		'.minimal .fes-headers span'
+		'.minimal .fes-headers span',
 	),
 	'declarations' => array(
 		'background-color' => esc_attr( $page_header_background ),
-		'color' => '#fff'
-	)
+		'color' => '#fff',
+	),
 ) );
 
 astoundify_themecustomizer_add_css( array(
@@ -50,8 +50,8 @@ astoundify_themecustomizer_add_css( array(
 	'declarations' => array(
 		'background-color' => esc_attr( $accent ),
 		'border-color' => esc_attr( $accent ),
-		'color' => '#fff'
-	)
+		'color' => '#fff',
+	),
 ) );
 
 astoundify_themecustomizer_add_css( array(
@@ -60,13 +60,13 @@ astoundify_themecustomizer_add_css( array(
 		'.minimal #edd_login_form input[type=submit]:hover',
 		'.minimal #edd_register_form input[type=submit]:hover',
 		'.minimal #edd-purchase-button.button.edd-submit:hover',
-		
+
 		// fes
 		'.minimal .fes-submit .edd-submit.button:hover',
 	),
 	'declarations' => array(
 		'background-color' => 'transparent',
 		'border-color' => esc_attr( $accent ),
-		'color' => esc_attr( $accent )
-	)
+		'color' => esc_attr( $accent ),
+	),
 ) );
