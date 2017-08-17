@@ -44,6 +44,7 @@ class Marketify_Widget_Footer_Copyright extends Marketify_Widget {
 				'type'  => 'textarea',
 				'std'   => get_theme_mod( 'footer-copyright-text', sprintf( 'Copyright &copy; %s %s', date( 'Y' ), get_bloginfo( 'name' ) ) ),
 				'label' => __( 'Copyright:', 'marketify' ),
+				'rows'  => 2,
 			),
 		);
 

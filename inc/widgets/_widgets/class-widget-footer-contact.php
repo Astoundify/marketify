@@ -43,6 +43,7 @@ class Marketify_Widget_Footer_Contact extends Marketify_Widget {
 				'type'  => 'textarea',
 				'std'   => get_theme_mod( 'footer-contact-us-address', '393 Bay Street, 2nd Floor Toronto, Ontario, Canada, L9T8S2' ),
 				'label' => __( 'Information:', 'marketify' ),
+				'rows'  => 2,
 			),
 		);
 
