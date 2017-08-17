@@ -1,19 +1,29 @@
 .widget--site-footer {
-    padding: 3em 2em;
-    border-bottom: 1px solid $accent;
+	flex: 0 1 100%;
+	border-bottom: 1px solid $accent;
 
-    &:last-child {
-        border-bottom: 0;
-    }
+	&:last-child {
+		border-bottom: 0;
+	}
 
     @include bp(md) {
-	    border-right: 1px solid $accent;
-        border-bottom: 0;
+		flex-basis: 33.333%;
+		border-right: 1px solid $accent;
+		border-bottom: 0;
 
-        &:last-child {
-            border-right: 0;
-        }
+		&:last-child {
+			border-right: 0;
+		}
     }
+
+	aside {
+		padding: 3em 2em;
+		border-bottom: 1px solid $accent;
+
+		&:last-child {
+			border-bottom: 0;
+		}
+	}
 }
 
 .widget-title--site-footer {

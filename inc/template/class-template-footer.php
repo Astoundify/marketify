@@ -17,7 +17,7 @@ class Marketify_Template_Footer {
 	?>
 		<div class="footer-widget-areas row">
 		<?php for ( $i = 1; $i <= 3; $i++ ) : ?>
-			<div class="widget widget--site-footer col-xs-12 col-md-4">
+			<div class="widget widget--site-footer">
 				<?php dynamic_sidebar( 'footer-' . $i ); ?>
 			</div>
 		<?php endfor; ?>
@@ -34,21 +34,23 @@ class Marketify_Template_Footer {
 			return;
 		}
 	?>
-		<div class="<?php echo $this->get_column_class(); ?>">
-			<h3 class="widget-title widget-title--site-footer"><?php echo marketify()->template->navigation->get_theme_menu_name( 'social' ); ?></h3>
-			<?php
-				$social = wp_nav_menu( array(
-					'theme_location'  => 'social',
-					'container_class' => 'footer-social',
-					'items_wrap'      => '%3$s',
-					'depth'           => 1,
-					'echo'            => false,
-					'link_before'     => '<span class="screen-reader-text">',
-					'link_after'      => '</span>',
-				) );
+		<div class="widget widget--site-footer">
+			<aside>
+				<h3 class="widget-title widget-title--site-footer"><?php echo marketify()->template->navigation->get_theme_menu_name( 'social' ); ?></h3>
+				<?php
+					$social = wp_nav_menu( array(
+						'theme_location'  => 'social',
+						'container_class' => 'footer-social',
+						'items_wrap'      => '%3$s',
+						'depth'           => 1,
+						'echo'            => false,
+						'link_before'     => '<span class="screen-reader-text">',
+						'link_after'      => '</span>',
+					) );
 
-				echo strip_tags( $social, '<a><div><span>' );
-			?>
+					echo strip_tags( $social, '<a><div><span>' );
+				?>
+			</aside>
 		</div>
 	<?php
 	}
@@ -62,10 +64,12 @@ class Marketify_Template_Footer {
 			return;
 		}
 	?>
-		<div class="<?php echo $this->get_column_class(); ?>">
-			<h3 class="widget-title widget-title--site-footer"><?php echo esc_attr( get_theme_mod( 'footer-contact-us-title', 'Contact Us' ) ); ?></h3>
+		<div class="widget widget--site-footer">
+			<aside>
+				<h3 class="widget-title widget-title--site-footer"><?php echo esc_attr( get_theme_mod( 'footer-contact-us-title', 'Contact Us' ) ); ?></h3>
 
-			<?php echo do_shortcode( wp_kses_post( get_theme_mod( 'footer-contact-us-address', '393 Bay Street, 2nd Floor Toronto, Ontario, Canada, L9T8S2' ) ) ); ?>
+				<?php echo do_shortcode( wp_kses_post( get_theme_mod( 'footer-contact-us-address', '393 Bay Street, 2nd Floor Toronto, Ontario, Canada, L9T8S2' ) ) ); ?>
+			</aside>
 		</div>
 	<?php
 	}
@@ -76,40 +80,20 @@ class Marketify_Template_Footer {
 
 	public function site_info() {
 	?>
-		<div class="<?php echo $this->get_column_class(); ?>">
-			<h3 class="site-title site-title--footer"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-				<?php if ( esc_attr( get_theme_mod( 'footer-copyright-logo', false ) ) ) : ?>
-					<img src="<?php echo esc_attr( get_theme_mod( 'footer-copyright-logo', '' ) ); ?>" />
-				<?php else : ?>
-					<?php bloginfo( 'name' ); ?>
-				<?php endif; ?>
-			</a></h3>
+		<div class="widget widget--site-footer">
+			<aside>
+				<h3 class="site-title site-title--footer"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+					<?php if ( esc_attr( get_theme_mod( 'footer-copyright-logo', false ) ) ) : ?>
+						<img src="<?php echo esc_attr( get_theme_mod( 'footer-copyright-logo', '' ) ); ?>" />
+					<?php else : ?>
+						<?php bloginfo( 'name' ); ?>
+					<?php endif; ?>
+				</a></h3>
 
-			<?php echo wp_kses_post( get_theme_mod( 'footer-copyright-text', sprintf( 'Copyright &copy; %s %s', date( 'Y' ), get_bloginfo( 'name' ) ) ) ); ?>
+				<?php echo wp_kses_post( get_theme_mod( 'footer-copyright-text', sprintf( 'Copyright &copy; %s %s', date( 'Y' ), get_bloginfo( 'name' ) ) ) ); ?>
+			</aside>
 		</div>
 	<?php
-	}
-
-	private function get_column_span() {
-		$columns = 3;
-
-		if ( ! $this->has_social_menu() ) {
-			$columns--;
-		}
-
-		if ( ! $this->has_contact_address() ) {
-			$columns--;
-		}
-
-		if ( ! $this->has_site_info() ) {
-			$columns--;
-		}
-
-		return floor( 12 / $columns );
-	}
-
-	private function get_column_class() {
-		return sprintf( 'widget--site-footer col-xs-12 col-sm-6 col-md-%s', $this->get_column_span() );
 	}
 
 }
