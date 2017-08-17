@@ -11,6 +11,7 @@ class Marketify_Widgets {
 			'class-widget-feature-callout.php',
 			'class-widget-footer-social-icons.php',
 			'class-widget-footer-contact.php',
+			'class-widget-footer-copyright.php',
 		);
 
 		foreach ( $widgets as $widget ) {
@@ -30,6 +31,7 @@ class Marketify_Widgets {
 		register_widget( 'Marketify_Widget_Feature_Callout' );
 		register_widget( 'Marketify_Widget_Footer_Social_Icons' );
 		register_widget( 'Marketify_Widget_Footer_Contact' );
+		register_widget( 'Marketify_Widget_Footer_Copyright' );
 	}
 
 	public function register_sidebars() {

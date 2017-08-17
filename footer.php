@@ -46,19 +46,16 @@
 				<div class="widget widget--site-footer">
 					<?php dynamic_sidebar( 'footer-3' ); ?>
 
-					<div class="widget widget--site-footer">
-						<aside>
-							<h3 class="site-title site-title--footer"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-								<?php if ( esc_attr( get_theme_mod( 'footer-copyright-logo', false ) ) ) : ?>
-									<img src="<?php echo esc_attr( get_theme_mod( 'footer-copyright-logo', '' ) ); ?>" />
-								<?php else : ?>
-									<?php bloginfo( 'name' ); ?>
-								<?php endif; ?>
-							</a></h3>
-
-							<?php echo wp_kses_post( get_theme_mod( 'footer-copyright-text', sprintf( 'Copyright &copy; %s %s', date( 'Y' ), get_bloginfo( 'name' ) ) ) ); ?>
-						</aside>
-					</div>
+					<?php
+					if ( ! is_active_widget( false, false, 'marketify-widget-footer-copyright', true ) ) {
+						the_widget( 'Marketify_Widget_Footer_Copyright', array(), array(
+							'before_widget' => '<aside>',
+							'after_widget'  => '</aside>',
+							'before_title'  => '<h3 class="widget-title widget-title--site-footer">',
+							'after_title'   => '</h3>',
+						) );
+					}
+					?>
 				</div>
 			</div>
 
