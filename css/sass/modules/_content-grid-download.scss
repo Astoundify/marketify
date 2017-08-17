@@ -7,10 +7,10 @@
 .content-grid-download {
 	@extend .no-backface;
 	margin-bottom: 30px;
-	
+
 	.edd_download_quantity_wrapper,
-    .edd-cart-ajax-alert,
-    .edd_purchase_tax_rate {
+	.edd-cart-ajax-alert,
+	.edd_purchase_tax_rate {
 		display: none;
 	}
 }
@@ -38,9 +38,6 @@ div[data-columns].edd_downloads_list .content-grid-download {
 	&:hover,
 	&.hover {
 		.content-grid-download__actions {
-			top: 35%;
-			bottom: auto;
-
 			.item-price {
 				margin-top: 10px;
 				margin-bottom: 20px;
@@ -65,26 +62,19 @@ div[data-columns].edd_downloads_list .content-grid-download {
 	background: transparent;
 	opacity: 0;
 	border: 1px solid transparent;
-
-	-webkit-transition: all 0.3s;
-	-moz-transition:    all 0.3s;
-	transition:         all 0.3s;
+	transition: all 0.3s;
+	display: flex;
+	align-items: center;
 }
 
 .content-grid-download__actions {
 	@extend .no-backface;
 	width: 100%;
-	height: 42px;
-	position: absolute;
-	top: 50%;
-	bottom: 10%;
-
-	-webkit-transition: all 0.3s;
-	-moz-transition:    all 0.3s;
-	transition:         all 0.3s;
+	transition: all 0.3s;
 
 	.button {
 		@extend .button--color-white;
+		margin: 2px 5px;
 		padding-left: 10px;
 		padding-right: 10px;
 	}
@@ -99,10 +89,7 @@ div[data-columns].edd_downloads_list .content-grid-download {
 	.item-price {
 		display: block;
 		width: 100%;
-
-		-webkit-transition: all 0.25s;
-		-moz-transition:    all 0.25s;
-		transition:         all 0.25s;
+		transition: all 0.25s;
 
 		span {
 			font-size: 13px;
@@ -123,8 +110,8 @@ div[data-columns].edd_downloads_list .content-grid-download {
 	overflow: hidden;
 
 	.entry-title {
-        font-size: 16px;
-        font-weight: 400;
+		font-size: 16px;
+		font-weight: 400;
 		text-transform: none;
 		margin: 0;
 
@@ -142,17 +129,17 @@ div[data-columns].edd_downloads_list .content-grid-download {
 
 .content-grid-download .entry-excerpt {
 	font-size: 90%;
-    line-height: 90%;
-    margin: 1em 0 0.5em;
+	line-height: 90%;
+	margin: 1em 0 0.5em;
 }
 
 .content-grid-download .entry-meta {
 	font-size: 13px;
-    margin-top: 0.5em;
+	margin-top: 0.5em;
 
-    &:empty {
-        display: none;
-    }
+	&:empty {
+		display: none;
+	}
 }
 
 .content-grid-download .entry-meta a {
@@ -160,9 +147,9 @@ div[data-columns].edd_downloads_list .content-grid-download {
 }
 
 .entry-meta .byline {
-    margin-top: 0.5em;
-    display: inline-block;
-    vertical-align: middle;
+	margin-top: 0.5em;
+	display: inline-block;
+	vertical-align: middle;
 }
 
 .byline img {
@@ -179,6 +166,6 @@ div[data-columns].edd_downloads_list .content-grid-download {
 }
 
 .edd_download_inner {
-    padding: 0;
-    margin: 0;
+	padding: 0;
+	margin: 0;
 }
