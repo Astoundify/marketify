@@ -9,6 +9,7 @@ class Marketify_Widgets {
 			'class-widget-price-table.php',
 			'class-widget-slider.php',
 			'class-widget-feature-callout.php',
+			'class-widget-footer-social-icons.php',
 		);
 
 		foreach ( $widgets as $widget ) {
@@ -26,6 +27,7 @@ class Marketify_Widgets {
 		register_widget( 'Marketify_Widget_Price_Option' );
 		register_widget( 'Marketify_Widget_Recent_Posts' );
 		register_widget( 'Marketify_Widget_Feature_Callout' );
+		register_widget( 'Marketify_Widget_Footer_Social_Icons' );
 	}
 
 	public function register_sidebars() {

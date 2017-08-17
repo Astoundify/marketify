@@ -39,11 +39,19 @@ class Marketify_Widget extends WP_Widget {
 ?>
 <style>
 .marketify-widget-usage { display: block; color: #a00; }
+
 #sidebar-download-single .marketify-widget-usage.sidebar-download-single { display: none; }
 #sidebar-download .marketify-widget-usage.sidebar-download { display: none; }
 #sidebar-vendor .marketify-widget-usage.sidebar-vendor { display: none; }
 #home-1 .marketify-widget-usage.home-1 { display: none; }
 div[id^="widget-area-page"] .marketify-widget-usage.widgetized { display: none; }
+
+#footer-1 .marketify-widget-usage.footer-1 { display: none; }
+#footer-2 .marketify-widget-usage.footer-2 { display: none; }
+#footer-3 .marketify-widget-usage.footer-3 { display: none; }
+div[id^="widget-area-footer-1"] .marketify-widget-usage.widgetized { display: none; }
+div[id^="widget-area-footer-2"] .marketify-widget-usage.widgetized { display: none; }
+div[id^="widget-area-footer-3"] .marketify-widget-usage.widgetized { display: none; }
 </style>
 <?php
 	}
