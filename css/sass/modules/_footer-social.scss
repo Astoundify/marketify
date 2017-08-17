@@ -1,94 +1,91 @@
 .footer-social {
-    padding-top: 1px;
-}
+	a {
+		font-size: 29px;
+		margin-right: 15px;
+		display: inline-block;
+		vertical-align: middle;
 
-.footer-social a {
-    font-size: 29px;
-    margin-right: 15px;
-    display: inline-block;
-    vertical-align: middle;
-}
+		&:before {
+			@extend .ion;
+		}
+	}
 
-.footer-social a:before {
-    @extend .ion;
-}
+	/** Facebook */
+	[href*="facebook.com"]::before {
+		content: $ionicon-var-social-facebook;
 
-/** Facebook */
-.footer-social a[href*="facebook.com"]::before {
-	content: $ionicon-var-social-facebook;
-}
+		&:hover:before {
+			color: #3b5998;
+		}
+	}
 
-.footer-social a:hover[href*="facebook.com"]::before {
-	color: #3b5998;
-}
+	/** Twitter */
+	[href*="twitter.com"]::before {
+		content: $ionicon-var-social-twitter;
 
-/** Twitter */
-.footer-social a[href*="twitter.com"]::before {
-	content: $ionicon-var-social-twitter;
-}
+		&:hover:before {
+			color: #33ccff;
+		}
+	}
 
-.footer-social a:hover[href*="twitter.com"]::before {
-	color: #33ccff;
-}
+	/** Google Plus */
+	[href*="plus.google.com"]::before {
+		content: $ionicon-var-social-googleplus;
 
-/** Google Plus */
-.footer-social a[href*="plus.google.com"]::before {
-	content: $ionicon-var-social-googleplus;
-}
+		&:hover:before {
+			color: #dd4b39;
+		}
+	}
 
-.footer-social a:hover[href*="plus.google.com"]::before {
-	color: #dd4b39;
-}
+	/** Linkedin */
+	[href*="linkedin.com"]::before {
+		content: $ionicon-var-social-linkedin;
+		&:hover:before {
+			color: #069;
+		}
+	}
 
-/** Linkedin */
-.footer-social a[href*="linkedin.com"]::before {
-	content: $ionicon-var-social-linkedin;
-}
+	/** Instagram */
+	[href*="instagram.com"]::before {
+		content: $ionicon-var-social-instagram;
 
-.footer-social a:hover[href*="linkedin.com"]::before {
-	color: #069;
-}
+		&:hover:before {
+			color: #3f729b;
+		}
+	}
 
-/** Instagram */
-.footer-social a[href*="instagram.com"]::before {
-	content: $ionicon-var-social-instagram;
-}
+	/** Pinterest */
+	[href*="pinterest.com"]::before {
+		content: $ionicon-var-social-pinterest;
 
-.footer-social a:hover[href*="instagram.com"]::before {
-	color: #3f729b;
-}
+		&:hover:before {
+			color: #c8232c;
+		}
+	}
 
-/** Pinterest */
-.footer-social a[href*="pinterest.com"]::before {
-	content: $ionicon-var-social-pinterest;
-}
+	/** Vimeo */
+	[href*="vimeo.com"]::before {
+		content: $ionicon-var-social-vimeo;
 
-.footer-social a:hover[href*="pinterest.com"]::before {
-	color: #c8232c;
-}
+		&:hover:before {
+			color: #1AB7EA;
+		}
+	}
 
-/** Vimeo */
-.footer-social a[href*="vimeo.com"]::before {
-	content: $ionicon-var-social-vimeo;
-}
+	/** RSS */
+	[href$=".rss"]::before {
+		content: $ionicon-var-social-rss;
 
-.footer-social a:hover[href*="vimeo.com"]::before {
-	color: #1AB7EA;
-}
+		&:hover:before {
+			color: #FF6600;
+		}
+	}
 
-/** RSS */
-.footer-social a[href$=".rss"]::before {
-	content: $ionicon-var-social-rss;
-}
+	[href*="youtube.com"]::before {
+		content: $ionicon-var-social-youtube;
 
-.footer-social a:hover[href$=".rss"]::before {
-	color: #FF6600;
-}
-
-.footer-social a[href*="youtube.com"]::before {
-	content: $ionicon-var-social-youtube;
-}
-
-.footer-social a:hover[href*="youtube.com"]::before {
-	color: #cd201f;
+		&:before {
+			color: #cd201f;
+		}
+	}
 }
