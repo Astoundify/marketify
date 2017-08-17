@@ -31,13 +31,16 @@
 				<div class="widget widget--site-footer">
 					<?php dynamic_sidebar( 'footer-2' ); ?>
 
-					<div class="widget widget--site-footer">
-						<aside>
-							<h3 class="widget-title widget-title--site-footer"><?php echo esc_attr( get_theme_mod( 'footer-contact-us-title', 'Contact Us' ) ); ?></h3>
-
-							<?php echo do_shortcode( wp_kses_post( get_theme_mod( 'footer-contact-us-address', '393 Bay Street, 2nd Floor Toronto, Ontario, Canada, L9T8S2' ) ) ); ?>
-						</aside>
-					</div>
+					<?php
+					if ( ! is_active_widget( false, false, 'marketify-widget-footer-contact', true ) ) {
+						the_widget( 'Marketify_Widget_Footer_Contact', array(), array(
+							'before_widget' => '<aside>',
+							'after_widget'  => '</aside>',
+							'before_title'  => '<h3 class="widget-title widget-title--site-footer">',
+							'after_title'   => '</h3>',
+						) );
+					}
+					?>
 				</div>
 
 				<div class="widget widget--site-footer">

@@ -1,6 +1,6 @@
 <?php
 /**
- * Widget: Footer Social Widgets.
+ * Widget: Footer social icons.
  *
  * @since 2.12.0
  *
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Widget: Footer Social Widgets.
+ * Widget: Footer social icons.
  *
  * @since 2.12.0
  */
