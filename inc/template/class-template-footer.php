@@ -3,10 +3,6 @@
 class Marketify_Template_Footer {
 
 	public function __construct() {
-		add_action( 'marketify_footer_site_info', array( $this, 'social_menu' ), 10 );
-		add_action( 'marketify_footer_site_info', array( $this, 'contact_address' ), 20 );
-		add_action( 'marketify_footer_site_info', array( $this, 'site_info' ), 30 );
-
 		add_action( 'marketify_footer_above', array( $this, 'footer_widget_areas' ) );
 	}
 
@@ -15,28 +11,14 @@ class Marketify_Template_Footer {
 			return;
 		}
 	?>
-		<div class="footer-widget-areas row">
-		<?php for ( $i = 1; $i <= 3; $i++ ) : ?>
-			<div class="widget widget--site-footer">
-				<?php dynamic_sidebar( 'footer-' . $i ); ?>
-			</div>
-		<?php endfor; ?>
-		</div>
-	<?php
-	}
 
-	private function has_social_menu() {
-		return has_nav_menu( 'social' );
-	}
+<div class="footer-widget-areas">
+	<div class="widget widget--site-footer">
+		<?php dynamic_sidebar( 'footer-1' ); ?>
 
-	public function social_menu() {
-		if ( ! $this->has_social_menu() ) {
-			return;
-		}
-	?>
 		<div class="widget widget--site-footer">
 			<aside>
-				<h3 class="widget-title widget-title--site-footer"><?php echo marketify()->template->navigation->get_theme_menu_name( 'social' ); ?></h3>
+				<h3 class="widget-title widget-title--site-footer"><?php echo esc_attr( marketify()->template->navigation->get_theme_menu_name( 'social' ) ); ?></h3>
 				<?php
 					$social = wp_nav_menu( array(
 						'theme_location'  => 'social',
@@ -52,18 +34,11 @@ class Marketify_Template_Footer {
 				?>
 			</aside>
 		</div>
-	<?php
-	}
+	</div>
 
-	private function has_contact_address() {
-		return get_theme_mod( 'footer-contact-us-display', 'on' );
-	}
+	<div class="widget widget--site-footer">
+		<?php dynamic_sidebar( 'footer-2' ); ?>
 
-	public function contact_address() {
-		if ( ! $this->has_contact_address() ) {
-			return;
-		}
-	?>
 		<div class="widget widget--site-footer">
 			<aside>
 				<h3 class="widget-title widget-title--site-footer"><?php echo esc_attr( get_theme_mod( 'footer-contact-us-title', 'Contact Us' ) ); ?></h3>
@@ -71,15 +46,11 @@ class Marketify_Template_Footer {
 				<?php echo do_shortcode( wp_kses_post( get_theme_mod( 'footer-contact-us-address', '393 Bay Street, 2nd Floor Toronto, Ontario, Canada, L9T8S2' ) ) ); ?>
 			</aside>
 		</div>
-	<?php
-	}
+	</div>
 
-	public function has_site_info() {
-		return get_theme_mod( 'footer-copyright-display', 'on' );
-	}
+	<div class="widget widget--site-footer">
+		<?php dynamic_sidebar( 'footer-3' ); ?>
 
-	public function site_info() {
-	?>
 		<div class="widget widget--site-footer">
 			<aside>
 				<h3 class="site-title site-title--footer"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -93,6 +64,9 @@ class Marketify_Template_Footer {
 				<?php echo wp_kses_post( get_theme_mod( 'footer-copyright-text', sprintf( 'Copyright &copy; %s %s', date( 'Y' ), get_bloginfo( 'name' ) ) ) ); ?>
 			</aside>
 		</div>
+	</div>
+</div>
+
 	<?php
 	}
 
