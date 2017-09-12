@@ -112,7 +112,10 @@ Marketify.App = ( function($) {
 			$( '.edd-reviews-heading' ),
 			$( '.edd-reviews-vendor-feedback-item h4' ),
 			$( '.edd-csau-products h2' ),
-			$( '#edd_checkout_user_info legend' )
+			$( '#edd_checkout_user_info legend' ),
+			$( '#edd_cc_fields legend' ),
+			$( '#edd_cc_address legend' ),
+			$( '#edd_register_account_fields legend' ),
 		]
 
 		$.each(shims, function() {
