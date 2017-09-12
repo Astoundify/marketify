@@ -1,17 +1,17 @@
-# Copyright (C) 2017 Astoundify
-# This file is distributed under the GNU General Public License.
+# <!=Copyright (C) 2017 Astoundify
+# This file is distributed under the GNU General Public License.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Marketify 2.11.1\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-07-10 15:55:08+00:00\n"
+"Project-Id-Version: Marketify 2.12.0-beta\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
+"POT-Creation-Date: 2017-09-12 17:48:43+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n 0.4.9\n"
+"X-Generator: grunt-wp-i18n1.0.0\n"
 
 #: 404.php:20
 msgid ""
@@ -19,7 +19,7 @@ msgid ""
 "links below or a search?"
 msgstr ""
 
-#: 404.php:31
+#: 404.php:34
 msgid "Most Used Categories"
 msgstr ""
 
@@ -70,7 +70,7 @@ msgid "% Comments"
 msgstr ""
 
 #: content-entry-meta.php:25 content-single.php:21
-#: inc/integrations/edd-product-reviews/class-edd-product-reviews-walker.php:109
+#: inc/integrations/edd-product-reviews/class-edd-product-reviews-walker.php:110
 #: inc/template/class-template-comments.php:51
 msgid "Edit"
 msgstr ""
@@ -140,9 +140,7 @@ msgid ""
 msgstr ""
 
 #: inc/customizer/definitions/controls/download-audio-feature-area.php:18
-#: inc/customizer/definitions/controls/download-standard-feature-area.php:18
-#: inc/customizer/definitions/controls/download-video-feature-area.php:18
-msgid "Image Gallery Location"
+msgid "Audio Player Location"
 msgstr ""
 
 #: inc/customizer/definitions/controls/download-audio-feature-area.php:21
@@ -191,6 +189,11 @@ msgstr ""
 
 #: inc/customizer/definitions/controls/download-label-singular.php:18
 msgid "Singular Label"
+msgstr ""
+
+#: inc/customizer/definitions/controls/download-standard-feature-area.php:18
+#: inc/customizer/definitions/controls/download-video-feature-area.php:18
+msgid "Image Gallery Location"
 msgstr ""
 
 #: inc/customizer/definitions/controls/downloads-archives-columns.php:18
@@ -247,25 +250,6 @@ msgstr ""
 msgid "Dark"
 msgstr ""
 
-#: inc/customizer/definitions/controls/footer-contaact-us-address.php:18
-#: inc/customizer/definitions/controls/footer-copyright-text.php:17
-msgid "Text"
-msgstr ""
-
-#: inc/customizer/definitions/controls/footer-contact-us-display.php:18
-#: inc/customizer/definitions/controls/footer-copyright-display.php:18
-msgid "Enable"
-msgstr ""
-
-#: inc/customizer/definitions/controls/footer-contact-us-title.php:18
-#: inc/integrations/edd/class-edd-sorting.php:21
-msgid "Title"
-msgstr ""
-
-#: inc/customizer/definitions/controls/footer-copyright-logo.php:21
-msgid "Logo"
-msgstr ""
-
 #: inc/customizer/definitions/controls/header_textcolor.php:14
 msgid "Header Text"
 msgstr ""
@@ -304,7 +288,7 @@ msgstr ""
 #: inc/integrations/edd/widgets/class-widget-downloads-taxonomy-stylized.php:20
 #: inc/widgets/_widgets/class-widget-blog-posts.php:13
 #: inc/widgets/_widgets/class-widget-price-table.php:13
-#: inc/widgets/class-widgets.php:42
+#: inc/widgets/class-widgets.php:48
 msgid "Home"
 msgstr ""
 
@@ -343,6 +327,10 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
+#: inc/integrations/edd/class-edd-sorting.php:21
+msgid "Title"
+msgstr ""
+
 #: inc/integrations/edd/class-edd-sorting.php:22
 msgid "Price"
 msgstr ""
@@ -355,7 +343,7 @@ msgstr ""
 msgid "Demo"
 msgstr ""
 
-#: inc/integrations/edd/class-edd-template-navigation.php:30
+#: inc/integrations/edd/class-edd-template-navigation.php:32
 msgid "Checkout"
 msgstr ""
 
@@ -400,6 +388,8 @@ msgstr ""
 #: inc/integrations/jetpack/widgets/class-widget-download-share.php:20
 #: inc/widgets/_widgets/class-widget-blog-posts.php:18
 #: inc/widgets/_widgets/class-widget-feature-callout.php:79
+#: inc/widgets/_widgets/class-widget-footer-contact.php:40
+#: inc/widgets/_widgets/class-widget-footer-social-icons.php:40
 #: inc/widgets/_widgets/class-widget-price-table.php:18
 msgid "Title:"
 msgstr ""
@@ -533,7 +523,7 @@ msgid "<span class=\"byline\"> by %1$s</span>"
 msgstr ""
 
 #: inc/integrations/edd-fes/class-edd-fes-vendors.php:31
-msgid "View all %s by %s"
+msgid "View all %1$s by %2$s"
 msgstr ""
 
 #: inc/integrations/edd-fes/class-edd-fes-widgets.php:19
@@ -590,15 +580,15 @@ msgstr ""
 msgid "Marketify - Vendor: Name + Avatar"
 msgstr ""
 
-#: inc/integrations/edd-product-reviews/class-edd-product-reviews-walker.php:80
+#: inc/integrations/edd-product-reviews/class-edd-product-reviews-walker.php:81
 msgid "Verified Purchase"
 msgstr ""
 
-#: inc/integrations/edd-product-reviews/class-edd-product-reviews-walker.php:117
+#: inc/integrations/edd-product-reviews/class-edd-product-reviews-walker.php:118
 msgid "Reply"
 msgstr ""
 
-#: inc/integrations/edd-product-reviews/class-edd-product-reviews-walker.php:124
+#: inc/integrations/edd-product-reviews/class-edd-product-reviews-walker.php:125
 msgid "Your review is awaiting moderation."
 msgstr ""
 
@@ -1051,7 +1041,7 @@ msgstr ""
 msgid "All done!"
 msgstr ""
 
-#: inc/setup/_child_theme/use-child-theme.php:151
+#: inc/setup/_child_theme/use-child-theme.php:150
 msgid "Error: theme folder not writable"
 msgstr ""
 
@@ -1378,10 +1368,6 @@ msgstr ""
 msgid "Footer Social"
 msgstr ""
 
-#: inc/template/class-template-page-header-video.php:45
-msgid "Video Header URL"
-msgstr ""
-
 #: inc/template/class-template-page-header.php:52
 msgid "Blog"
 msgstr ""
@@ -1529,6 +1515,42 @@ msgstr ""
 msgid "Image:"
 msgstr ""
 
+#: inc/widgets/_widgets/class-widget-footer-contact.php:30
+msgid "Marketify - Footer: Contact"
+msgstr ""
+
+#: inc/widgets/_widgets/class-widget-footer-contact.php:31
+msgid "Display contact/address information."
+msgstr ""
+
+#: inc/widgets/_widgets/class-widget-footer-contact.php:45
+msgid "Information:"
+msgstr ""
+
+#: inc/widgets/_widgets/class-widget-footer-copyright.php:30
+msgid "Marketify - Footer: Copyright"
+msgstr ""
+
+#: inc/widgets/_widgets/class-widget-footer-copyright.php:31
+msgid "Display copyright information."
+msgstr ""
+
+#: inc/widgets/_widgets/class-widget-footer-copyright.php:40
+msgid "Logo:"
+msgstr ""
+
+#: inc/widgets/_widgets/class-widget-footer-copyright.php:46
+msgid "Copyright:"
+msgstr ""
+
+#: inc/widgets/_widgets/class-widget-footer-social-icons.php:30
+msgid "Marketify - Footer: Social Icons"
+msgstr ""
+
+#: inc/widgets/_widgets/class-widget-footer-social-icons.php:31
+msgid "Display the social profile menu with icons."
+msgstr ""
+
 #: inc/widgets/_widgets/class-widget-price-option.php:7
 msgid "Create a price option for the pricing table."
 msgstr ""
@@ -1573,51 +1595,51 @@ msgstr ""
 msgid "Slider Shortcode"
 msgstr ""
 
-#: inc/widgets/class-widget.php:158
+#: inc/widgets/class-widget.php:172
 msgid "Only for use in the <strong>%s</strong> widget area."
 msgstr ""
 
-#: inc/widgets/class-widget.php:261
+#: inc/widgets/class-widget.php:275
 msgid "Choose Image"
 msgstr ""
 
-#: inc/widgets/class-widgets.php:33
+#: inc/widgets/class-widgets.php:39
 msgid "Sidebar"
 msgstr ""
 
-#: inc/widgets/class-widgets.php:43
+#: inc/widgets/class-widgets.php:49
 msgid "Widgets that appear on the \"Page: Home\" Page Template"
 msgstr ""
 
-#: inc/widgets/class-widgets.php:53
+#: inc/widgets/class-widgets.php:59
 msgid "Footer Left"
 msgstr ""
 
-#: inc/widgets/class-widgets.php:54
+#: inc/widgets/class-widgets.php:60
 msgid "The left footer widget area"
 msgstr ""
 
-#: inc/widgets/class-widgets.php:63
+#: inc/widgets/class-widgets.php:69
 msgid "Footer Center"
 msgstr ""
 
-#: inc/widgets/class-widgets.php:64
+#: inc/widgets/class-widgets.php:70
 msgid "The center footer widget area"
 msgstr ""
 
-#: inc/widgets/class-widgets.php:73
+#: inc/widgets/class-widgets.php:79
 msgid "Footer Right"
 msgstr ""
 
-#: inc/widgets/class-widgets.php:74
+#: inc/widgets/class-widgets.php:80
 msgid "The right footer widget area"
 msgstr ""
 
-#: inc/widgets/class-widgets.php:84
+#: inc/widgets/class-widgets.php:90
 msgid "Price Table"
 msgstr ""
 
-#: inc/widgets/class-widgets.php:86
+#: inc/widgets/class-widgets.php:92
 msgid ""
 "Drag multiple \"Price Option\" widgets here. Then drag the \"Pricing "
 "Table\" widget to the \"Homepage\" Widget Area."
@@ -1643,7 +1665,7 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: page-templates/wishlist.php:47
+#: page-templates/wishlist.php:49
 msgid "Love"
 msgid_plural "Loves"
 msgstr[0] ""
@@ -1837,16 +1859,6 @@ msgctxt "customizer section title (colors)"
 msgid "Appearance"
 msgstr ""
 
-#: inc/customizer/definitions/sections/footer-contact-us.php:13
-msgctxt "customizer section title (colors)"
-msgid "Contact Us"
-msgstr ""
-
-#: inc/customizer/definitions/sections/footer-copyright.php:13
-msgctxt "customizer section title (colors)"
-msgid "Copyright"
-msgstr ""
-
 #: inc/customizer/definitions/sections/typography-font-pack.php:14
 msgctxt "customizer section title"
 msgid "Font Pack"
@@ -1897,7 +1909,7 @@ msgctxt "popular search results"
 msgid "Popular in \"%s\""
 msgstr ""
 
-#: inc/integrations/edd-product-reviews/class-edd-product-reviews-walker.php:103
+#: inc/integrations/edd-product-reviews/class-edd-product-reviews-walker.php:104
 #: inc/template/class-template-comments.php:37
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"

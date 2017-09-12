@@ -2,7 +2,7 @@
 Contributors: Astoundify
 Requires at least: WordPress 4.5
 Tested up to: WordPress 4.8.0
-Version: 2.11.1
+Version: 2.12.0-beta
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: white, two-columns, one-column, right-sidebar, left-sidebar, fluid-layout, custom-background, custom-header, theme-options, full-width-template, featured-images, flexible-header, custom-menu, translation-ready
@@ -50,6 +50,14 @@ License: MIT
 Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
+
+= 2.12.0: September 14, 2017 =
+
+* New: Update coding standards.
+* New: Convert footer to use all widgets.
+* Fix: Check correct customizer setting for outputting download sidebar details.
+* Fix: Title truncation checks.
+* Fix: Easy Digital Downloads 2.8.6 compatibility.
 
 = 2.11.1: June 26, 2017 =
 
