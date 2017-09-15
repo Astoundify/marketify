@@ -1,7 +1,7 @@
 {
   "name": "marketify",
   "title": "Marketify",
-  "version": "2.12.0-beta",
+  "version": "2.12.0",
   "description": "Your beautiful handcrafted digital marketplace.",
   "homepage": "https://github.com/Astoundify/marketify",
   "main": "Gruntfile.coffee",
