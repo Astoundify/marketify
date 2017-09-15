@@ -9,7 +9,7 @@
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 /**
@@ -52,7 +52,7 @@ class Astoundify_ThemeCustomizer_Output_LivePreview extends Astoundify_ModuleLoa
 		wp_enqueue_script( 'astoundify-themecustomizer-preview', astoundify_themecustomizer_get_option( 'install_url' ) . '/assets/js/customizer-preview.js', array( 'jquery', 'underscore', 'webfontloader' ), time(), true );
 
 		wp_localize_script( 'astoundify-themecustomizer-preview', 'astoundifyThemeCustomizerPreview', array(
-			'stylesheet' => astoundify_themecustomizer_get_option( 'stylesheet' )
+			'stylesheet' => astoundify_themecustomizer_get_option( 'stylesheet' ),
 		) );
 	}
 
@@ -114,11 +114,11 @@ class Astoundify_ThemeCustomizer_Output_LivePreview extends Astoundify_ModuleLoa
 	 * @since 1.0.0
 	 */
 	public function preview_thememods() {
-		if ( ! isset( $_POST[ 'astoundify-themecustomizer-style-controls' ] ) ) {
+		if ( ! isset( $_POST['astoundify-themecustomizer-style-controls'] ) ) {
 			return;
 		}
 
-		$preview = (array) $_POST[ 'astoundify-themecustomizer-style-controls' ];
+		$preview = (array) $_POST['astoundify-themecustomizer-style-controls'];
 
 		foreach ( $preview as $setting_id => $value ) {
 			add_filter( 'theme_mod_' . sanitize_key( $setting_id ), array( $this, 'preview_thememod_value' ) );
@@ -134,11 +134,11 @@ class Astoundify_ThemeCustomizer_Output_LivePreview extends Astoundify_ModuleLoa
 	 * @return mixed $value
 	 */
 	public function preview_thememod_value( $value ) {
-		if ( ! isset( $_POST[ 'astoundify-themecustomizer-style-controls' ] ) ) {
+		if ( ! isset( $_POST['astoundify-themecustomizer-style-controls'] ) ) {
 			return $value;
 		}
 
-		$preview = (array) $_POST[ 'astoundify-themecustomizer-style-controls' ];
+		$preview = (array) $_POST['astoundify-themecustomizer-style-controls'];
 
 		$setting_id = str_replace( 'theme_mod_', '', current_filter() );
 
@@ -148,5 +148,5 @@ class Astoundify_ThemeCustomizer_Output_LivePreview extends Astoundify_ModuleLoa
 
 		return $value;
 	}
-	
+
 }

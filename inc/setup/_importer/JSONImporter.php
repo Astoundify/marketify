@@ -41,7 +41,7 @@ class Astoundify_JSONImporter extends Astoundify_AbstractImporter implements Ast
 		foreach ( $files as $file ) {
 			$parsed_url = parse_url( $file );
 
-			if ( isset( $parsed_url[ 'path' ] ) ) {
+			if ( isset( $parsed_url['path'] ) ) {
 				$filesystem_error = new WP_Error( 'cannot-parse-files', 'Cannot read files on system' );
 
 				if ( 'direct' != get_filesystem_method() ) {
@@ -61,7 +61,7 @@ class Astoundify_JSONImporter extends Astoundify_AbstractImporter implements Ast
 				if ( $file ) {
 					$file_items = json_decode( $file, true );
 				}
-			} else if ( isset( $parsed_url[ 'scheme' ] ) ) {
+			} elseif ( isset( $parsed_url['scheme'] ) ) {
 				$file = wp_remote_fopen( $file );
 
 				if ( $file ) {
@@ -74,7 +74,7 @@ class Astoundify_JSONImporter extends Astoundify_AbstractImporter implements Ast
 					$this->items[] = $item;
 				}
 			}
-		}
+		}// End foreach().
 
 		return $this->get_items();
 	}

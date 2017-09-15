@@ -21,7 +21,7 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 	 */
 	public function setup_actions() {
 		// add extra object components
-		$actions = array( 
+		$actions = array(
 			'set_parent',
 			'set_post_format',
 			'set_featured_image',
@@ -29,7 +29,7 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 			'set_post_terms',
 			'set_post_media',
 			'set_menu_item',
-			'add_comments'
+			'add_comments',
 		);
 
 		foreach ( $actions as $action ) {
@@ -41,27 +41,27 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 		}
 
 		// remove attachments
-		add_action( 
+		add_action(
 			'astoundify_import_content_after_reset_item_type_object',
-			array( $this, 'delete_attachments' ) 
+			array( $this, 'delete_attachments' )
 		);
 
 		// actually delete the post
-		add_action( 
+		add_action(
 			'astoundify_import_content_after_reset_item_type_object',
 			array( $this, 'delete_post' ),
 			99
 		);
 
 		// set homepage and blog
-		add_action( 
+		add_action(
 			'astoundify_import_content_after_import_item_home',
-			array( $this, 'set_page_on_front' ) 
+			array( $this, 'set_page_on_front' )
 		);
 
-		add_action( 
+		add_action(
 			'astoundify_import_content_after_import_item_blog',
-			array( $this, 'set_page_for_posts' ) 
+			array( $this, 'set_page_for_posts' )
 		);
 	}
 
@@ -76,19 +76,19 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 			return $this->get_previously_imported_error();
 		}
 
-		if ( ! isset( $this->item[ 'data' ][ 'post_content' ] ) ) {
-			$this->item[ 'data' ][ 'post_content' ] = Astoundify_Utils::get_lipsum_content();
-		} else if ( filter_var( $this->item[ 'data' ][ 'post_content' ], FILTER_VALIDATE_URL ) ) {
-			$this->item[ 'data' ][ 'post_content' ] = Astoundify_Utils::get_lipsum_content( $this->item[ 'data' ][ 'post_content' ] );
+		if ( ! isset( $this->item['data']['post_content'] ) ) {
+			$this->item['data']['post_content'] = Astoundify_Utils::get_lipsum_content();
+		} elseif ( filter_var( $this->item['data']['post_content'], FILTER_VALIDATE_URL ) ) {
+			$this->item['data']['post_content'] = Astoundify_Utils::get_lipsum_content( $this->item['data']['post_content'] );
 		}
 
 		$defaults = array(
-			'post_type' => 'object' == $this->get_type() ? 'post' : $this->item[ 'data' ][ 'post_type' ],
+			'post_type' => 'object' == $this->get_type() ? 'post' : $this->item['data']['post_type'],
 			'post_status' => 'publish',
-			'post_name' => $this->get_id()
+			'post_name' => $this->get_id(),
 		);
 
-		$object_atts = wp_parse_args( $this->item[ 'data' ], $defaults );
+		$object_atts = wp_parse_args( $this->item['data'], $defaults );
 
 		$object_id = wp_insert_post( $object_atts );
 
@@ -100,11 +100,11 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 
 		return $result;
 	}
-	
+
 	/**
 	 * Reset a single item
 	 *
-	 * This actually does not reset anything as it will destroy and 
+	 * This actually does not reset anything as it will destroy and
 	 * relationships with parent or child items. Instead we actually reset
 	 * in a post processing action that fires at the very end.
 	 *
@@ -132,20 +132,20 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 	public function get_previous_import() {
 		global $wpdb;
 
-		if ( ! isset( $this->item[ 'data' ] ) || ! isset( $this->item[ 'data' ][ 'post_type' ] ) ) {
-			$this->item[ 'data' ][ 'post_type' ] = 'post';
+		if ( ! isset( $this->item['data'] ) || ! isset( $this->item['data']['post_type'] ) ) {
+			$this->item['data']['post_type'] = 'post';
 		}
 
-		$post_name = $this->item[ 'id' ];
+		$post_name = $this->item['id'];
 
-		if ( isset( $this->item[ 'data' ][ 'post_name' ] ) ) {
-			$post_name = $this->item[ 'data' ][ 'post_name' ];
+		if ( isset( $this->item['data']['post_name'] ) ) {
+			$post_name = $this->item['data']['post_name'];
 		}
 
-		$object = $wpdb->get_row( $wpdb->prepare( 
-			"SELECT ID FROM $wpdb->posts WHERE post_name = '%s' AND post_type = '%s'", 
+		$object = $wpdb->get_row( $wpdb->prepare(
+			"SELECT ID FROM $wpdb->posts WHERE post_name = '%s' AND post_type = '%s'",
 			$post_name,
-			$this->item[ 'data' ][ 'post_type' ]
+			$this->item['data']['post_type']
 		) );
 
 		if ( null == $object ) {
@@ -191,13 +191,13 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 	public function delete_attachments() {
 		global $wpdb;
 
-		$error = new WP_Error( 
-			'delete-attachments', 
+		$error = new WP_Error(
+			'delete-attachments',
 			sprintf( 'Attachments for %s not deleted', $this->get_id() )
 		);
 
-		$attachments = $wpdb->get_results( $wpdb->prepare( 
-			"SELECT ID FROM $wpdb->posts WHERE post_type = 'attachment' AND post_parent = '%s'", 
+		$attachments = $wpdb->get_results( $wpdb->prepare(
+			"SELECT ID FROM $wpdb->posts WHERE post_type = 'attachment' AND post_parent = '%s'",
 			$this->get_processed_item()->ID
 		) );
 
@@ -228,8 +228,8 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 	 * @return true|WP_Error True if the format can be set.
 	 */
 	public function set_parent() {
-		$error = new WP_Error( 
-			'set-post-parent', 
+		$error = new WP_Error(
+			'set-post-parent',
 			sprintf( 'Parent for %s was not set', $this->get_id() )
 		);
 
@@ -242,15 +242,15 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 
 		$parent = false;
 
-		if ( isset( $this->item[ 'data' ][ 'post_parent' ] ) ) {
+		if ( isset( $this->item['data']['post_parent'] ) ) {
 			global $wpdb;
 
-			$parent_name = $this->item[ 'data' ][ 'post_parent' ];
+			$parent_name = $this->item['data']['post_parent'];
 
-			$parent = $wpdb->get_row( $wpdb->prepare( 
-				"SELECT ID FROM $wpdb->posts WHERE post_name = '%s' AND post_type = '%s'", 
+			$parent = $wpdb->get_row( $wpdb->prepare(
+				"SELECT ID FROM $wpdb->posts WHERE post_name = '%s' AND post_type = '%s'",
 				$parent_name,
-				$this->item[ 'data' ][ 'post_type' ]
+				$this->item['data']['post_type']
 			) );
 		}
 
@@ -260,7 +260,7 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 
 		return wp_update_post( array(
 			'ID' => $object->ID,
-			'post_parent' => $parent->ID
+			'post_parent' => $parent->ID,
 		), $error );
 	}
 
@@ -271,8 +271,8 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 	 * @return true|WP_Error True if the format can be set.
 	 */
 	public function set_post_format() {
-		$error = new WP_Error( 
-			'set-post-format', 
+		$error = new WP_Error(
+			'set-post-format',
 			sprintf( 'Format for %s was not set', $this->get_id() )
 		);
 
@@ -285,8 +285,8 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 
 		$format = false;
 
-		if ( isset( $this->item[ 'data' ][ 'post_format' ] ) ) {
-			$format = $this->item[ 'data' ][ 'post_format' ];
+		if ( isset( $this->item['data']['post_format'] ) ) {
+			$format = $this->item['data']['post_format'];
 		}
 
 		if ( ! $format ) {
@@ -309,8 +309,8 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 	 * @return true|WP_Error True if the format can be set.
 	 */
 	public function set_featured_image() {
-		$error = new WP_Error( 
-			'set-post-featured-image', 
+		$error = new WP_Error(
+			'set-post-featured-image',
 			sprintf( 'Featured image for %s was not set', $this->get_id() )
 		);
 
@@ -323,8 +323,8 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 
 		$featured_image = false;
 
-		if ( isset( $this->item[ 'data' ][ 'featured_image' ] ) ) {
-			$featured_image = $this->item[ 'data' ][ 'featured_image' ];
+		if ( isset( $this->item['data']['featured_image'] ) ) {
+			$featured_image = $this->item['data']['featured_image'];
 		}
 
 		if ( ! $featured_image ) {
@@ -349,8 +349,8 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 	 * @return true|WP_Error True if all meta can be set
 	 */
 	public function set_post_meta() {
-		$error = new WP_Error( 
-			'set-post-meta', 
+		$error = new WP_Error(
+			'set-post-meta',
 			sprintf( 'Meta for %s was not set', $this->get_id() )
 		);
 
@@ -363,8 +363,8 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 
 		$meta = false;
 
-		if ( isset( $this->item[ 'data' ][ 'meta' ] ) ) {
-			$meta = $this->item[ 'data' ][ 'meta' ];
+		if ( isset( $this->item['data']['meta'] ) ) {
+			$meta = $this->item['data']['meta'];
 		}
 
 		if ( ! $meta ) {
@@ -410,7 +410,7 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 			}
 
 			$passed = add_post_meta( $object->ID, sanitize_key( $k ), $maybe_v, true );
-		}
+		}// End foreach().
 
 		if ( $passed ) {
 			return true;
@@ -426,8 +426,8 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 	 * @return true|WP_Error True if the terms can be set
 	 */
 	public function set_post_terms() {
-		$error = new WP_Error( 
-			'set-post-terms', 
+		$error = new WP_Error(
+			'set-post-terms',
 			sprintf( 'Terms for %s was not set', $this->get_id() )
 		);
 
@@ -440,8 +440,8 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 
 		$terms = false;
 
-		if ( isset( $this->item[ 'data' ][ 'terms' ] ) ) {
-			$terms = $this->item[ 'data' ][ 'terms' ];
+		if ( isset( $this->item['data']['terms'] ) ) {
+			$terms = $this->item['data']['terms'];
 		}
 
 		if ( ! $terms ) {
@@ -473,8 +473,8 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 	 * @return true|WP_Error True if the media was added
 	 */
 	public function set_post_media() {
-		$error = new WP_Error( 
-			'set-post-media', 
+		$error = new WP_Error(
+			'set-post-media',
 			sprintf( 'Media for %s was not set', $this->get_id() )
 		);
 
@@ -487,8 +487,8 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 
 		$media = false;
 
-		if ( isset( $this->item[ 'data' ][ 'media' ] ) ) {
-			$media = $this->item[ 'data' ][ 'media' ];
+		if ( isset( $this->item['data']['media'] ) ) {
+			$media = $this->item['data']['media'];
 		}
 
 		if ( ! $media ) {
@@ -515,8 +515,8 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 	 * @return true|WP_Error True if the media was added
 	 */
 	public function set_menu_item() {
-		$error = new WP_Error( 
-			'set-menu-item', 
+		$error = new WP_Error(
+			'set-menu-item',
 			sprintf( 'Menu item for %s was not set', $this->get_id() )
 		);
 
@@ -529,8 +529,8 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 
 		$menus = false;
 
-		if ( isset( $this->item[ 'data' ][ 'menus' ] ) ) {
-			$menus = $this->item[ 'data' ][ 'menus' ];
+		if ( isset( $this->item['data']['menus'] ) ) {
+			$menus = $this->item['data']['menus'];
 		}
 
 		if ( ! $menus ) {
@@ -540,23 +540,23 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 		$passed = true;
 
 		foreach ( $menus as $menu => $args ) {
-			if ( ! isset( $args[ 'menu-item-title' ] ) ) {
-				$args[ 'menu-item-title' ] = $object->post_title;
+			if ( ! isset( $args['menu-item-title'] ) ) {
+				$args['menu-item-title'] = $object->post_title;
 			}
 
-			$args[ 'menu-item-object' ] = $object->post_type;
-			$args[ 'menu-item-object-id' ] = $object->ID;
-			$args[ 'menu-item-type' ] = 'post_type';
+			$args['menu-item-object'] = $object->post_type;
+			$args['menu-item-object-id'] = $object->ID;
+			$args['menu-item-type'] = 'post_type';
 
 			if ( ! is_numeric( $menu ) ) {
-				$args[ 'menu_name' ] = $menu;
+				$args['menu_name'] = $menu;
 			}
 
 			// mock out a menu item that can be imported
 			$item = array(
 				'id' => $this->get_id() . '-nav-menu-item',
 				'type' => 'nav-menu-item',
-				'data' => $args
+				'data' => $args,
 			);
 
 			$item = new Astoundify_ItemImport_NavMenuItem( $item );
@@ -577,14 +577,14 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 	 * @return true|WP_Error True if all meta can be set
 	 */
 	public function add_comments( $ItemImport ) {
-		$item_data = $ItemImport->item[ 'data' ];
+		$item_data = $ItemImport->item['data'];
 
-		if ( ! isset( $item_data[ 'comments' ] ) ) {
+		if ( ! isset( $item_data['comments'] ) ) {
 			return;
 		}
 
-		$error = new WP_Error( 
-			'set-location', 
+		$error = new WP_Error(
+			'set-location',
 			sprintf( 'Location for %s was not set', $ItemImport->get_id() )
 		);
 
@@ -596,17 +596,17 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 		}
 
 		$passed = true;
-		$comments = $item_data[ 'comments' ];
+		$comments = $item_data['comments'];
 
 		foreach ( $comments as $key => $comment_data ) {
 			$comment_data = array_merge( array(
-				'comment_post_ID' => $object->ID
+				'comment_post_ID' => $object->ID,
 			), $comment_data );
 
 			$item = array(
 				'id' => sprintf( 'comment-%d-%d', $object->ID, $key ),
 				'type' => 'comment',
-				'data' => $comment_data
+				'data' => $comment_data,
 			);
 
 			$item = new Astoundify_ItemImport_Comment( $item );
@@ -616,7 +616,7 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 
 		return $passed;
 	}
-	
+
 	/**
 	 * Set the homepage.
 	 *
@@ -626,8 +626,8 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 	 * @return true|WP_Error True if the media was added
 	 */
 	public function set_page_on_front() {
-		$error = new WP_Error( 
-			'set-homepage', 
+		$error = new WP_Error(
+			'set-homepage',
 			sprintf( 'Page %s was not set as homepage', $this->get_id() )
 		);
 
@@ -659,8 +659,8 @@ class Astoundify_ItemImport_Object extends Astoundify_AbstractItemImport impleme
 	 * @return true|WP_Error True if the media was added
 	 */
 	public function set_page_for_posts() {
-		$error = new WP_Error( 
-			'set-blog', 
+		$error = new WP_Error(
+			'set-blog',
 			sprintf( 'Page %s was not set as blog', $this->get_id() )
 		);
 

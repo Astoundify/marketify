@@ -9,7 +9,7 @@
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 /**
@@ -43,7 +43,7 @@ class Astoundify_ThemeCustomizer_Customize_Register extends Astoundify_ModuleLoa
 	}
 
 	/**
-	 * Load customizer items. 
+	 * Load customizer items.
 	 *
 	 * This includes panels, sections, and controls.
 	 *
@@ -51,7 +51,7 @@ class Astoundify_ThemeCustomizer_Customize_Register extends Astoundify_ModuleLoa
 	 * @param object $wp_customize Customize API
 	 */
 	public function customize_register_items( $wp_customize ) {
-		foreach ( array( 'panels', 'sections', 'controls' ) as $item ) { 
+		foreach ( array( 'panels', 'sections', 'controls' ) as $item ) {
 			foreach ( glob( trailingslashit( astoundify_themecustomizer_get_option( 'definitions_dir' ) ) . $item . '/*.php' ) as $file ) {
 				include_once( $file );
 			}

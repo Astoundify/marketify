@@ -48,7 +48,7 @@ class Astoundify_ImporterFactory {
 
 		foreach ( $files as $file ) {
 			$path_parts = pathinfo( $file );
-			$ext = $path_parts[ 'extension' ];
+			$ext = $path_parts['extension'];
 
 			if ( $previous_ext && ( $previous_ext != $ext ) ) {
 				return false;
@@ -71,7 +71,7 @@ class Astoundify_ImporterFactory {
 		$valid = array( 'json' );
 
 		$path_parts = pathinfo( $file );
-		$ext = $path_parts[ 'extension' ];
+		$ext = $path_parts['extension'];
 
 		return in_array( $ext, $valid ) ? $ext : false;
 	}

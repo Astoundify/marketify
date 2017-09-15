@@ -10,7 +10,7 @@
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 /**
@@ -27,7 +27,7 @@ class Astoundify_ThemeCustomizer_Output_Manager extends Astoundify_ModuleLoader_
 	 */
 	protected $modules = array(
 		'cssgenerator' => 'Astoundify_ThemeCustomizer_Output_CSSGenerator',
-		'livepreview' => 'Astoundify_ThemeCustomizer_Output_LivePreview'
+		'livepreview' => 'Astoundify_ThemeCustomizer_Output_LivePreview',
 	);
 
 	/**
@@ -36,7 +36,7 @@ class Astoundify_ThemeCustomizer_Output_Manager extends Astoundify_ModuleLoader_
 	 * @since 1.1.0
 	 */
 	public function hook() {
-		if ( $this->is_hooked() ) { 
+		if ( $this->is_hooked() ) {
 			return;
 		}
 

@@ -17,8 +17,8 @@ astoundify_themecustomizer_add_css( array(
 	),
 	'declarations' => array(
 		'border-color' => esc_attr( $primary ),
-		'color' => esc_attr( $primary )
-	)
+		'color' => esc_attr( $primary ),
+	),
 ) );
 
 astoundify_themecustomizer_add_css( array(
@@ -41,13 +41,13 @@ astoundify_themecustomizer_add_css( array(
 		'.edd-wl-button',
 		'a.edd-wl-button',
 		'.edd-wl-button.edd-wl-action',
-		'a.edd-wl-button.edd-wl-action'
+		'a.edd-wl-button.edd-wl-action',
 	),
 	'declarations' => array(
 		'color' => esc_attr( $primary ),
 		'border-color' => esc_attr( $primary ),
-		'background' => '#ffffff'
-	)
+		'background' => '#ffffff',
+	),
 ) );
 
 astoundify_themecustomizer_add_css( array(
@@ -73,8 +73,8 @@ astoundify_themecustomizer_add_css( array(
 	'declarations' => array(
 		'color' => '#ffffff',
 		'background-color' => esc_attr( $primary ),
-		'border-color' => esc_attr( $primary )
-	)
+		'border-color' => esc_attr( $primary ),
+	),
 ) );
 
 
@@ -96,34 +96,34 @@ astoundify_themecustomizer_add_css( array(
 		'body .marketify_widget_slider_hero .soliloquy-container .soliloquy-caption-outer .button:hover',
 
 		// feature callout
-		'.feature-callout-cover .button:hover'
+		'.feature-callout-cover .button:hover',
 	),
 	'declarations' => array(
 		'color' => esc_attr( $primary ),
 		'background-color' => '#ffffff',
-		'border-color' => '#ffffff'
-	)
+		'border-color' => '#ffffff',
+	),
 ) );
 
 astoundify_themecustomizer_add_css( array(
 	'selectors' => array(
 		'.content-grid-download__entry-image:hover .content-grid-download__overlay',
-		'.content-grid-download__entry-image.hover .content-grid-download__overlay'
+		'.content-grid-download__entry-image.hover .content-grid-download__overlay',
 	),
 	'declarations' => array(
 		'background' => 'rgba(' . astoundify_themecustomizer_hex_to_rgb( $primary ) . ',.80)',
 		'border' => '1px solid rgba(' . astoundify_themecustomizer_hex_to_rgb( $primary ) . ',.80)',
-	)
+	),
 ) );
 
 astoundify_themecustomizer_add_css( array(
 	'selectors' => array(
 		'.search-form-overlay',
-		'.download-gallery-navigation__image.slick-active:before'
+		'.download-gallery-navigation__image.slick-active:before',
 	),
 	'declarations' => array(
 		'background-color' => 'rgba(' . astoundify_themecustomizer_hex_to_rgb( $primary ) . ', .90)',
-	)
+	),
 ) );
 
 astoundify_themecustomizer_add_css( array(
@@ -131,6 +131,6 @@ astoundify_themecustomizer_add_css( array(
 		'.nav-menu--primary li li a'
 	),
 	'declarations' => array(
-		'color' => esc_attr( $primary )
-	)
+		'color' => esc_attr( $primary ),
+	),
 ) );

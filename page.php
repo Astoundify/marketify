@@ -12,32 +12,32 @@
 
 get_header(); ?>
 
-    <?php do_action( 'marketify_entry_before' ); ?>
+	<?php do_action( 'marketify_entry_before' ); ?>
 
-    <div class="container">
-        <div id="content" class="site-content row">
+	<div class="container">
+		<div id="content" class="site-content row">
 
-            <div role="main" class="col-md-<?php echo is_active_sidebar( 'sidebar-1' ) ? '8' : '12'; ?> col-xs-12">
+			<div role="main" class="col-md-<?php echo is_active_sidebar( 'sidebar-1' ) ? '8' : '12'; ?> col-xs-12">
 
-                <?php if ( have_posts() ) : ?>
+				<?php if ( have_posts() ) : ?>
 
-                    <?php while ( have_posts() ) : the_post(); ?>
+					<?php while ( have_posts() ) : the_post(); ?>
 
-                        <?php get_template_part( 'content', 'page' ); ?>
-                        <?php comments_template(); ?>
+						<?php get_template_part( 'content', 'page' ); ?>
+						<?php comments_template(); ?>
 
-                    <?php endwhile; ?>
+					<?php endwhile; ?>
 
-                <?php else : ?>
+				<?php else : ?>
 
-                    <?php get_template_part( 'no-results', 'index' ); ?>
+					<?php get_template_part( 'no-results', 'index' ); ?>
 
-                <?php endif; ?>
+				<?php endif; ?>
 
-            </div><!-- #primary -->
+			</div><!-- #primary -->
 
-            <?php get_sidebar(); ?>
-        </div>
-    </div>
+			<?php get_sidebar(); ?>
+		</div>
+	</div>
 
 <?php get_footer(); ?>

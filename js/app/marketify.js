@@ -16,25 +16,6 @@ Marketify.App = ( function($) {
 		});
 	}
 
-	function footerHeight() {
-		var checks = $( '.site-info, .footer-widget-areas' );
-
-		checks.each(function() {
-			var min      = 0;
-			var children = $(this).children();
-
-			children.each(function() {
-				if ( $(this).outerHeight() > min )
-					min = $(this).outerHeight();
-			});
-
-			if ( $(window).width() < 978 )
-				children.css( 'height', 'auto' );
-			else
-				children.css( 'height', min );
-		});
-	}
-
 	function soliloquySliders() {
 		if ( $(window).width() < 500 ) {
 			var sliders = $( '.soliloquy' );
@@ -131,7 +112,10 @@ Marketify.App = ( function($) {
 			$( '.edd-reviews-heading' ),
 			$( '.edd-reviews-vendor-feedback-item h4' ),
 			$( '.edd-csau-products h2' ),
-			$( '#edd_checkout_user_info legend' )
+			$( '#edd_checkout_user_info legend' ),
+			$( '#edd_cc_fields legend' ),
+			$( '#edd_cc_address legend' ),
+			$( '#edd_register_account_fields legend' ),
 		]
 
 		$.each(shims, function() {
@@ -149,14 +133,12 @@ Marketify.App = ( function($) {
 		init : function() {
       menuToggle();
 			menuSearch();
-			footerHeight();
 			soliloquySliders();
       initVideos();
 			initPurchaseForms();
 			initSectionTitles();
 
 			$(window).resize(function() {
-				footerHeight();
 				soliloquySliders();
 			});
 

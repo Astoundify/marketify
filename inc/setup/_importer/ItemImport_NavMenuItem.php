@@ -20,9 +20,9 @@ class Astoundify_ItemImport_NavMenuItem extends Astoundify_AbstractItemImport im
 	 * @return void
 	 */
 	public function setup_actions() {
-		add_action( 
+		add_action(
 			'astoundify_import_content_after_import_item_type_nav-menu-item',
-			array( $this, 'set_nav_menu_role' ) 
+			array( $this, 'set_nav_menu_role' )
 		);
 	}
 
@@ -33,8 +33,8 @@ class Astoundify_ItemImport_NavMenuItem extends Astoundify_AbstractItemImport im
 	 * @return bool|string The menu name if set, or false.
 	 */
 	private function get_menu_name() {
-		if ( isset( $this->item[ 'data' ][ 'menu_name' ] ) ) {
-			return esc_attr( $this->item[ 'data' ][ 'menu_name' ] );
+		if ( isset( $this->item['data']['menu_name'] ) ) {
+			return esc_attr( $this->item['data']['menu_name'] );
 		}
 
 		return false;
@@ -57,7 +57,7 @@ class Astoundify_ItemImport_NavMenuItem extends Astoundify_AbstractItemImport im
 		}
 
 		// fill in any missing data
-		$menu_item_data = $this->item[ 'data' ];
+		$menu_item_data = $this->item['data'];
 		$menu_item_data = $this->_decorate_menu_item_data( $menu_item_data );
 
 		// create a menu item
@@ -91,13 +91,13 @@ class Astoundify_ItemImport_NavMenuItem extends Astoundify_AbstractItemImport im
 	public function get_previous_import() {
 		global $wpdb;
 
-		$menu_item_data = $this->item[ 'data' ];
+		$menu_item_data = $this->item['data'];
 
-		if ( ! isset( $menu_item_data[ 'menu-item-title' ] ) ) {
+		if ( ! isset( $menu_item_data['menu-item-title'] ) ) {
 			return false;
 		}
 
-		$menu_item = $wpdb->get_row( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = '%s' AND post_type = 'nav_menu_item'", $menu_item_data[ 'menu-item-title' ] ) );
+		$menu_item = $wpdb->get_row( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = '%s' AND post_type = 'nav_menu_item'", $menu_item_data['menu-item-title'] ) );
 
 		if ( null == $menu_item ) {
 			return false;
@@ -108,10 +108,10 @@ class Astoundify_ItemImport_NavMenuItem extends Astoundify_AbstractItemImport im
 
 	private function _decorate_menu_item_data( $menu_item_data ) {
 		// remove the menu name
-		unset( $menu_item_data[ 'menu_name' ] );
+		unset( $menu_item_data['menu_name'] );
 
 		// set the status
-		$menu_item_data[ 'menu-item-status' ] = 'publish';
+		$menu_item_data['menu-item-status'] = 'publish';
 
 		/**
 		 * To set a parent we need to know the ID of the menu item we want as our ancestor.
@@ -119,17 +119,17 @@ class Astoundify_ItemImport_NavMenuItem extends Astoundify_AbstractItemImport im
 		 * the menu item object. Because of this if a menu item is going to have children it
 		 * must explicitly set a its own `menu-item-title` so it can be queried against.
 		 */
-		if ( isset( $menu_item_data[ 'menu-item-parent-title' ] ) ) {
+		if ( isset( $menu_item_data['menu-item-parent-title'] ) ) {
 			global $wpdb;
 
-			$parent_item = $wpdb->get_row( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = '%s' AND post_type = 'nav_menu_item'", $menu_item_data[ 'menu-item-parent-title' ] ) );
+			$parent_item = $wpdb->get_row( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = '%s' AND post_type = 'nav_menu_item'", $menu_item_data['menu-item-parent-title'] ) );
 
 			if ( $parent_item ) {
-				$menu_item_data[ 'menu-item-parent-id' ] = $parent_item->ID;
-				unset( $menu_item_data[ 'menu-item-parent-title' ] );
+				$menu_item_data['menu-item-parent-id'] = $parent_item->ID;
+				unset( $menu_item_data['menu-item-parent-title'] );
 			} else {
-				unset( $menu_item_data[ 'menu-item-parent-id' ] );
-				unset( $menu_item_data[ 'menu-item-parent-title' ] );
+				unset( $menu_item_data['menu-item-parent-id'] );
+				unset( $menu_item_data['menu-item-parent-title'] );
 			}
 		}
 
@@ -137,16 +137,16 @@ class Astoundify_ItemImport_NavMenuItem extends Astoundify_AbstractItemImport im
 		 * To set a term archive we need to know the ID of the term. However, we don't have this.
 		 * So we pass `menu-item-object-title` and use this to find the term object.
 		 */
-		if ( 'taxonomy' == $menu_item_data[ 'menu-item-type' ] && isset( $menu_item_data[ 'menu-item-object-title' ] ) ) {
-			$term = get_term_by( 'name', $menu_item_data[ 'menu-item-object-title' ], $menu_item_data[ 'menu-item-object' ], 'raw' );
+		if ( 'taxonomy' == $menu_item_data['menu-item-type'] && isset( $menu_item_data['menu-item-object-title'] ) ) {
+			$term = get_term_by( 'name', $menu_item_data['menu-item-object-title'], $menu_item_data['menu-item-object'], 'raw' );
 
 			if ( $term ) {
-				$menu_item_data[ 'menu-item-object-id' ] = $term->term_id;
-				unset( $menu_item_data[ 'menu-item-object-title' ] );
+				$menu_item_data['menu-item-object-id'] = $term->term_id;
+				unset( $menu_item_data['menu-item-object-title'] );
 			} else {
 				// set to an invalid menu so it fails early
 				$menu->term_id = 0;
-				unset( $menu_item_data[ 'menu-item-object-title' ] );
+				unset( $menu_item_data['menu-item-object-title'] );
 			}
 		}
 
@@ -154,18 +154,18 @@ class Astoundify_ItemImport_NavMenuItem extends Astoundify_AbstractItemImport im
 		 * To set an endpoint to a URL we need to get the original object ID url and depending on
 		 * the permalink structure create a URL to set to the custom menu item.
 		 */
-		if ( isset( $menu_item_data[ 'menu-item-endpoint' ] ) ) {
-			$menu_item_data[ 'menu-item-type' ] = 'custom';
+		if ( isset( $menu_item_data['menu-item-endpoint'] ) ) {
+			$menu_item_data['menu-item-type'] = 'custom';
 
-			$base_url = get_permalink( $menu_item_data[ 'menu-item-object-id' ] );
+			$base_url = get_permalink( $menu_item_data['menu-item-object-id'] );
 
 			if ( get_option( 'permalink_structure' ) ) {
-				$url = trailingslashit( $base_url ) . $menu_item_data[ 'menu-item-endpoint' ];
+				$url = trailingslashit( $base_url ) . $menu_item_data['menu-item-endpoint'];
 			} else {
-				$url = add_query_arg( $menu_item_data[ 'menu-item-endpoint' ], '', $base_url );
+				$url = add_query_arg( $menu_item_data['menu-item-endpoint'], '', $base_url );
 			}
 
-			$menu_item_data[ 'menu-item-url' ] = esc_url_raw( $url );
+			$menu_item_data['menu-item-url'] = esc_url_raw( $url );
 		}
 
 		return $menu_item_data;
@@ -178,8 +178,8 @@ class Astoundify_ItemImport_NavMenuItem extends Astoundify_AbstractItemImport im
 	 * @return true|WP_Error True if the format can be set.
 	 */
 	public function set_nav_menu_role() {
-		$error = new WP_Error( 
-			'set-menu-role', 
+		$error = new WP_Error(
+			'set-menu-role',
 			sprintf( 'Display role for %s was not set', $this->get_id() )
 		);
 
@@ -192,8 +192,8 @@ class Astoundify_ItemImport_NavMenuItem extends Astoundify_AbstractItemImport im
 
 		$role = false;
 
-		if ( isset( $this->item[ 'data' ][ 'menu-item-role' ] ) ) {
-			$role = $this->item[ 'data' ][ 'menu-item-role' ];
+		if ( isset( $this->item['data']['menu-item-role'] ) ) {
+			$role = $this->item['data']['menu-item-role'];
 		}
 
 		if ( ! $role || ! in_array( $role, array( 'in', 'out' ) ) ) {

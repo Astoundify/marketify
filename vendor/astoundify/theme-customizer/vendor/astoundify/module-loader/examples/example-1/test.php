@@ -11,7 +11,7 @@ class Your_Plugin_Test extends Astoundify_ModuleLoader_Module {
 	 */
 	protected $modules = array(
 		// create a `foo` module from file `/foo/manager.php`
-		'foo' => 'Your_Plugin_Foo_Manager'
+		'foo' => 'Your_Plugin_Foo_Manager',
 	);
 
 	/**

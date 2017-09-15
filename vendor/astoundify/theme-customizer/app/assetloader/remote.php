@@ -13,7 +13,7 @@
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 /**
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.1.0
  */
-class Astoundify_ThemeCustomizer_AssetLoader_Remote extends Astoundify_ThemeCustomizer_AsestLoader_Loader implements Astoundify_ThemeCustomizer_AssetLoader_LoaderInterface { 
+class Astoundify_ThemeCustomizer_AssetLoader_Remote extends Astoundify_ThemeCustomizer_AsestLoader_Loader implements Astoundify_ThemeCustomizer_AssetLoader_LoaderInterface {
 
 	/**
 	 * Load raw data from a remote file.

@@ -21,7 +21,7 @@ class Astoundify_ItemImport_Comment extends Astoundify_AbstractItemImport implem
 	 */
 	public function setup_actions() {
 		// add extra object components
-		$actions = array( 
+		$actions = array(
 			'set_comment_meta'
 		);
 
@@ -47,10 +47,10 @@ class Astoundify_ItemImport_Comment extends Astoundify_AbstractItemImport implem
 
 		$defaults = array(
 			'comment_parent' => 0,
-			'comment_approved' => 1
+			'comment_approved' => 1,
 		);
 
-		$comment_atts = wp_parse_args( $this->item[ 'data' ], $defaults );
+		$comment_atts = wp_parse_args( $this->item['data'], $defaults );
 
 		$comment_id = wp_insert_comment( $comment_atts );
 
@@ -62,7 +62,7 @@ class Astoundify_ItemImport_Comment extends Astoundify_AbstractItemImport implem
 
 		return $result;
 	}
-	
+
 	/**
 	 * Reset a single item
 	 *
@@ -87,9 +87,9 @@ class Astoundify_ItemImport_Comment extends Astoundify_AbstractItemImport implem
 	public function get_previous_import() {
 		global $wpdb;
 
-		$comment = $wpdb->get_row( $wpdb->prepare( 
-			"SELECT comment_ID FROM $wpdb->comments WHERE comment_content = '%s'", 
-			$this->item[ 'data' ][ 'comment_content' ]
+		$comment = $wpdb->get_row( $wpdb->prepare(
+			"SELECT comment_ID FROM $wpdb->comments WHERE comment_content = '%s'",
+			$this->item['data']['comment_content']
 		) );
 
 		if ( null == $comment ) {
@@ -106,8 +106,8 @@ class Astoundify_ItemImport_Comment extends Astoundify_AbstractItemImport implem
 	 * @return true|WP_Error True if all meta can be set
 	 */
 	public function set_comment_meta() {
-		$error = new WP_Error( 
-			'set-comment-meta', 
+		$error = new WP_Error(
+			'set-comment-meta',
 			sprintf( 'Meta for %s was not set', $this->get_id() )
 		);
 
@@ -120,8 +120,8 @@ class Astoundify_ItemImport_Comment extends Astoundify_AbstractItemImport implem
 
 		$meta = false;
 
-		if ( isset( $this->item[ 'data' ][ 'meta' ] ) ) {
-			$meta = $this->item[ 'data' ][ 'meta' ];
+		if ( isset( $this->item['data']['meta'] ) ) {
+			$meta = $this->item['data']['meta'];
 		}
 
 		if ( ! $meta ) {

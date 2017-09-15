@@ -6,5 +6,5 @@
  */
 interface Astoundify_SortableInterface {
 	public function sort();
-	public function sort_by_priority($a, $b);
+	public function sort_by_priority( $a, $b);
 }

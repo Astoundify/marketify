@@ -26,20 +26,20 @@ class Astoundify_Plugin_FrontendSubmissions implements Astoundify_PluginInterfac
 		$pages = array( 'vendor', 'vendor-dashboard' );
 
 		foreach ( $pages as $page ) {
-			add_action( 
-				'astoundify_import_content_after_import_item_' . $page, 
-				array( __CLASS__, 'add_page_option' ) 
+			add_action(
+				'astoundify_import_content_after_import_item_' . $page,
+				array( __CLASS__, 'add_page_option' )
 			);
 
-			add_action( 
-				'astoundify_import_content_after_reset_item_' . $page, 
-				array( __CLASS__, 'delete_page_option' ) 
+			add_action(
+				'astoundify_import_content_after_reset_item_' . $page,
+				array( __CLASS__, 'delete_page_option' )
 			);
 		}
 
-		add_action( 
+		add_action(
 			'astoundify_import_content_after_import_item_type_object',
-			array( __CLASS__, 'set_form_settings' ) 
+			array( __CLASS__, 'set_form_settings' )
 		);
 	}
 
@@ -73,15 +73,15 @@ class Astoundify_Plugin_FrontendSubmissions implements Astoundify_PluginInterfac
 	 * @return true|WP_Error True if the terms can be set
 	 */
 	public static function set_form_settings( $ItemImport ) {
-		$item_data = $ItemImport->item[ 'data' ];
+		$item_data = $ItemImport->item['data'];
 
 		// do nothing if this is not relevant to the current object type
-		if ( 'fes-forms' != $item_data[ 'post_type' ] ) {
+		if ( 'fes-forms' != $item_data['post_type'] ) {
 			return false;
 		}
 
-		$error = new WP_Error( 
-			'set-form-settings', 
+		$error = new WP_Error(
+			'set-form-settings',
 			sprintf( 'Settings for %s was not set', $ItemImport->get_id() )
 		);
 
@@ -94,8 +94,8 @@ class Astoundify_Plugin_FrontendSubmissions implements Astoundify_PluginInterfac
 
 		$form = false;
 
-		if ( isset( $item_data[ 'form' ] ) ) {
-			$form = $item_data[ 'form' ];
+		if ( isset( $item_data['form'] ) ) {
+			$form = $item_data['form'];
 		}
 
 		if ( ! $form ) {
@@ -103,7 +103,7 @@ class Astoundify_Plugin_FrontendSubmissions implements Astoundify_PluginInterfac
 		}
 
 		$edd_options = get_option( 'edd_settings' );
-		$fes_form = isset( $edd_options[ 'fes-submission-form' ] ) ? $edd_options[ 'fes-submission-form' ] : false;
+		$fes_form = isset( $edd_options['fes-submission-form'] ) ? $edd_options['fes-submission-form'] : false;
 
 		// create the initial form from this object
 		if ( ! $fes_form ) {
@@ -112,7 +112,7 @@ class Astoundify_Plugin_FrontendSubmissions implements Astoundify_PluginInterfac
 			update_post_meta( $object->ID, 'fes-form-class', 'FES_Submission_Form' );
 
 			// update the setting
-			$fes_form = $edd_options[ 'fes-submission-form' ] = $object->ID;
+			$fes_form = $edd_options['fes-submission-form'] = $object->ID;
 		}
 
 		update_post_meta( $fes_form, 'fes-form', $form );

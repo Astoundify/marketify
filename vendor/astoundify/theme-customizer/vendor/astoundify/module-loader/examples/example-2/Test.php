@@ -14,7 +14,7 @@ class Test extends \Astoundify_ModuleLoader_Module {
 	 */
 	protected $modules = array(
 		// create a `bar` module from file `/bar/manager.php`
-		'bar' => 'Your\Plugin\Bar\Manager'
+		'bar' => 'Your\Plugin\Bar\Manager',
 	);
 
 	/**

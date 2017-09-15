@@ -24,7 +24,7 @@ function marketify_theme_mod( $key, $default = null ) {
  *
  * @since 3.5.0
  *
- * @param string $key
+ * @param string     $key
  * @param $deprecated
  * @return string $mod
  */
@@ -43,21 +43,21 @@ function marketify_themecustomizer_get_default_typography_controls() {
 	return array(
 		'font-family' => array(
 			'label' => __( 'Font Family', 'marketify' ),
-			'placeholder' => __( 'Search for a font...', 'marketify' )
+			'placeholder' => __( 'Search for a font...', 'marketify' ),
 		),
 		'font-size' => array(
-			'label' => __( 'Font Size', 'marketify' )
+			'label' => __( 'Font Size', 'marketify' ),
 		),
 		'font-weight' => array(
 			'label' => __( 'Font Weight', 'marketify' ),
 			'choices' => array(
 				'normal' => __( 'Normal', 'marketify' ),
-				'bold' => __( 'Bold', 'marketify' )
-			)
+				'bold' => __( 'Bold', 'marketify' ),
+			),
 		),
 		'line-height' => array(
-			'label' => __( 'Line Height', 'marketify' )
-		)
+			'label' => __( 'Line Height', 'marketify' ),
+		),
 	);
 }
 
@@ -69,7 +69,7 @@ function marketify_themecustomizer_get_default_typography_controls() {
  * @return array $elements
  */
 function marketify_themecustomizer_get_typography_elements() {
-	$elements = array( 
+	$elements = array(
 		'body' => _x( 'Global', 'customizer section title', 'marketify' ),
 		'page-header' => _x( 'Page Headers', 'customizer section title', 'marketify' ),
 		'entry-title' => _x( 'Blog Post Titles', 'customizer section title', 'marketify' ),

@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 $source = 'ionicons';
 
 $wp_customize->add_setting( 'site-icon', array(
-	'default' => 'flash'
+	'default' => 'flash',
 ) );
 
 $wp_customize->add_control( new Astoundify_ThemeCustomizer_Control_BigChoices(
@@ -30,6 +30,6 @@ $wp_customize->add_control( new Astoundify_ThemeCustomizer_Control_BigChoices(
 		'choices_id' => $source,
 		'choices' => astoundify_themecustomizer_get_assetsource_choices( $source ),
 		'priority' => 31,
-		'section' => 'title_tagline'
-	) 
+		'section' => 'title_tagline',
+	)
 ) );

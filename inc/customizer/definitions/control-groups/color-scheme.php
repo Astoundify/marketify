@@ -15,8 +15,8 @@ $groups = array(
 			'color-navigation-text' => '#ffffff',
 			'color-page-header-background' => '#515a63',
 			'color-footer-dark-background' => '#515a63',
-		)
-	)
+		),
+	),
 );
 
 return $groups;

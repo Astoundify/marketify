@@ -48,13 +48,13 @@ astoundify_themecustomizer_add_css( array(
 		'.gform_title span',
 		'.section-title span',
 		'.section-title__inner',
-		'.widget-title--blog span'
+		'.widget-title--blog span',
 	),
 	'declarations' => array(
 		'font-family' => astoundify_themecustomizer_get_font_stack( $family, 'googlefonts' ),
 		'font-weight' => $weight,
 		'line-height' => $line,
-	)
+	),
 ) );
 
 astoundify_themecustomizer_add_css( array(
@@ -91,10 +91,10 @@ astoundify_themecustomizer_add_css( array(
 		'.gform_title span',
 		'.section-title span',
 		'.section-title__inner',
-		'.widget-title--blog span'
+		'.widget-title--blog span',
 	),
 	'declarations' => array(
-		'font-size' => $size . 'px'
+		'font-size' => $size . 'px',
 	),
-	'media' => 'screen and (min-width: 1200px)'
+	'media' => 'screen and (min-width: 1200px)',
 ) );

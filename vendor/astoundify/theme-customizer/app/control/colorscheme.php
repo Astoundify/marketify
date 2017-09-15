@@ -28,9 +28,9 @@ class Astoundify_ThemeCustomizer_Control_ColorScheme extends Astoundify_ThemeCus
 
 	<p>
 		<label>
-			<input <?php $this->link(); ?> name="<?php echo esc_attr( $name ); ?>" value="<?php echo $group_id; ?>" type="radio" <?php echo $this->generate_linked_control_data( $group_data[ 'controls' ] ); ?> <?php checked( $group_id, sanitize_title( $this->value() ) ); ?> />
-			<?php echo $this->generate_scheme_preview( $group_data[ 'controls' ] ); ?>
-			<span class="label"><?php echo esc_attr( $group_data[ 'title' ] ); ?></span>
+			<input <?php $this->link(); ?> name="<?php echo esc_attr( $name ); ?>" value="<?php echo $group_id; ?>" type="radio" <?php echo $this->generate_linked_control_data( $group_data['controls'] ); ?> <?php checked( $group_id, sanitize_title( $this->value() ) ); ?> />
+			<?php echo $this->generate_scheme_preview( $group_data['controls'] ); ?>
+			<span class="label"><?php echo esc_attr( $group_data['title'] ); ?></span>
 		</label>
 	</p>
 

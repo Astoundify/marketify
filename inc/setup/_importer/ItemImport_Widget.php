@@ -20,9 +20,9 @@ class Astoundify_ItemImport_Widget extends Astoundify_AbstractItemImport impleme
 	 * @return void
 	 */
 	public function setup_actions() {
-		add_action( 
-			'astoundify_import_content_after_import_item_type_widget', 
-			array( $this, 'set_nav_menu' ) 
+		add_action(
+			'astoundify_import_content_after_import_item_type_widget',
+			array( $this, 'set_nav_menu' )
 		);
 	}
 
@@ -33,8 +33,8 @@ class Astoundify_ItemImport_Widget extends Astoundify_AbstractItemImport impleme
 	 * @return false|string The ID base if set, false if it does not exist
 	 */
 	private function get_widget_id_base() {
-		if ( isset( $this->item[ 'data' ][ 'widget' ] ) ) {
-			return $this->item[ 'data' ][ 'widget' ];
+		if ( isset( $this->item['data']['widget'] ) ) {
+			return $this->item['data']['widget'];
 		}
 
 		return false;
@@ -49,8 +49,8 @@ class Astoundify_ItemImport_Widget extends Astoundify_AbstractItemImport impleme
 	private function get_sidebar() {
 		global $wp_registered_sidebars;
 
-		if ( isset( $this->item[ 'data' ][ 'sidebar' ] ) ) {
-			$sidebar = $this->item[ 'data' ][ 'sidebar' ];
+		if ( isset( $this->item['data']['sidebar'] ) ) {
+			$sidebar = $this->item['data']['sidebar'];
 
 			if ( ! isset( $wp_registered_sidebars[ $sidebar ] ) ) {
 				return false;
@@ -78,26 +78,28 @@ class Astoundify_ItemImport_Widget extends Astoundify_AbstractItemImport impleme
 
 		$sidebar_widgets = get_option( 'sidebars_widgets', array() );
 
-		$single_widget_instances = get_option( 'widget_' . $widget_id_base, array( '_multiwidget' => 1 ) );
+		$single_widget_instances = get_option( 'widget_' . $widget_id_base, array(
+			'_multiwidget' => 1,
+		) );
 
 		// save initial data
-		$old_data = $this->item[ 'data' ];
+		$old_data = $this->item['data'];
 
 		// remove sidebar from args, this is not a setting
-		unset( $this->item[ 'data' ][ 'sidebar' ] );
-		unset( $this->item[ 'data' ][ 'widget' ] );
+		unset( $this->item['data']['sidebar'] );
+		unset( $this->item['data']['widget'] );
 
-		$single_widget_instances[] = $this->item[ 'data' ];
+		$single_widget_instances[] = $this->item['data'];
 
 		// restore all data
-		$this->item[ 'data' ] = $old_data;
+		$this->item['data'] = $old_data;
 
 		end( $single_widget_instances );
 		$new_instance_id_number = key( $single_widget_instances );
 
 		if ( '0' === strval( $new_instance_id_number ) ) {
 			$new_instance_id_number = 1;
-			$single_widget_instances[$new_instance_id_number] = $single_widget_instances[0];
+			$single_widget_instances[ $new_instance_id_number ] = $single_widget_instances[0];
 			unset( $single_widget_instances[0] );
 		}
 
@@ -143,13 +145,13 @@ class Astoundify_ItemImport_Widget extends Astoundify_AbstractItemImport impleme
 		if ( ! $sidebar_id || ! $widget_id_base ) {
 			return $this->get_default_error();
 		}
-		
+
 		// get list of widget settings
 		$single_widget_instances = get_option( 'widget_' . $widget_id_base, array() );
 
 		$sidebar_instance_key = false;
 		$multi_instance_name = '';
-		
+
 		// get the sidebar widgets
 		$sidebars_widgets = get_option( 'sidebars_widgets' );
 		$sidebar_widgets = $sidebars_widgets[ $sidebar_id ];
@@ -212,11 +214,11 @@ class Astoundify_ItemImport_Widget extends Astoundify_AbstractItemImport impleme
 	 * @return void
 	 */
 	public function set_nav_menu( $ItemImport ) {
-		$item_data = $ItemImport->item[ 'data' ];
+		$item_data = $ItemImport->item['data'];
 
 		$processed = $ItemImport->get_processed_item();
 
-		$widget_settings = get_option( 'widget_' . $item_data[ 'widget' ], array() );
+		$widget_settings = get_option( 'widget_' . $item_data['widget'], array() );
 
 		if ( empty( $widget_settings ) ) {
 			return false;
@@ -228,19 +230,19 @@ class Astoundify_ItemImport_Widget extends Astoundify_AbstractItemImport impleme
 			}
 
 			// We have found the widget
-			if ( $single_widget_settings[ 'title' ] == $item_data[ 'title' ] ) {
-				if ( ! isset( $single_widget_settings[ 'nav_menu' ] ) ) {
+			if ( $single_widget_settings['title'] == $item_data['title'] ) {
+				if ( ! isset( $single_widget_settings['nav_menu'] ) ) {
 					continue;
 				}
 
-				$menu = wp_get_nav_menu_object( $item_data[ 'nav_menu' ] );
+				$menu = wp_get_nav_menu_object( $item_data['nav_menu'] );
 
-				$single_widget_settings[ 'nav_menu' ] = $menu->term_id;
+				$single_widget_settings['nav_menu'] = $menu->term_id;
 				$widget_settings[ $key ] = $single_widget_settings;
 			}
-		}	
+		}
 
-		update_option( 'widget_' . $item_data[ 'widget' ], $widget_settings );
+		update_option( 'widget_' . $item_data['widget'], $widget_settings );
 	}
 
 }

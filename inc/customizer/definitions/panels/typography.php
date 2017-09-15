@@ -12,5 +12,5 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 
 $wp_customize->add_panel( 'typography', array(
 	'title' => _x( 'Typography', 'customizer panel title', 'marketify' ),
-	'priority' => 22
+	'priority' => 22,
 ) );

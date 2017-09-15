@@ -31,9 +31,9 @@ class Astoundify_ThemeCustomizer_Control_Multiselect extends WP_Customize_Contro
 	 * Set our custom arguments to class properties, and other things.
 	 *
 	 * @since 1.0.0
-	 * @param oject $manager WP_Customize_Manager
+	 * @param oject  $manager WP_Customize_Manager
 	 * @param string $id
-	 * @param array $args
+	 * @param array  $args
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
 		parent::__construct( $manager, $id, $args );
@@ -50,16 +50,16 @@ class Astoundify_ThemeCustomizer_Control_Multiselect extends WP_Customize_Contro
 	public function to_json() {
 		parent::to_json();
 
-		$this->json[ 'selection' ] = $this->get_saved_value();
-		$this->json[ 'placeholder' ] = esc_attr( $this->placeholder );
- 	}
+		$this->json['selection'] = $this->get_saved_value();
+		$this->json['placeholder'] = esc_attr( $this->placeholder );
+	}
 
 	/**
 	 * Output the control HTML
 	 *
 	 * @since 1.0.0
 	 */
-    public function render_content() {
+	public function render_content() {
 		if ( empty( $this->choices ) ) {
 			return;
 		}
@@ -71,7 +71,7 @@ class Astoundify_ThemeCustomizer_Control_Multiselect extends WP_Customize_Contro
 	<?php if ( ! empty( $this->label ) ) : ?>
 		<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
 	<?php endif;
-	if ( ! empty( $this->description ) ) : ?>
+if ( ! empty( $this->description ) ) : ?>
 		<span class="description customize-control-description"><?php echo $this->description; ?></span>
 	<?php endif; ?>
 
@@ -85,7 +85,7 @@ class Astoundify_ThemeCustomizer_Control_Multiselect extends WP_Customize_Contro
 </label>
 
 <?php
-    }
+	}
 
 	/**
 	 * Allow backwards compatibility for comma separated lists.

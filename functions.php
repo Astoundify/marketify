@@ -64,7 +64,7 @@ class Marketify {
 			'pages/class-page-settings.php',
 			'pages/class-widgetized-page.php',
 
-			'deprecated.php'
+			'deprecated.php',
 		);
 
 		foreach ( $this->files as $file ) {
@@ -85,7 +85,6 @@ class Marketify {
 		$this->widgetized_pages = new Marketify_Widgetized_Pages();
 
 		// $this->page_settings = new Marketify_Page_Settings();
-
 		add_action( 'after_setup_theme', array( $this, 'setup_theme' ) );
 	}
 

@@ -258,7 +258,7 @@ class Astoundify_ThemeCustomizer_TermMetaSetting extends WP_Customize_Setting {
 			}
 
 			return true;
-		}
+		}// End if().
 	}
 
 }

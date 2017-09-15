@@ -15,14 +15,14 @@ class Astoundify_ThemeCustomizer_Control_TermMeta_Color extends Astoundify_Theme
 	 * @access public
 	 * @var string $type
 	 */
-    public $type = 'TermMetaColor';
+	public $type = 'TermMetaColor';
 
 	/**
 	 * @since 1.2.0
 	 *
 	 * @param WP_Customize $manager
-	 * @param string $id
-	 * @param array $args
+	 * @param string       $id
+	 * @param array        $args
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
 		add_action( "astoundify_themecustomizer_control_termmeta_input_{$id}", array( $this, 'meta_setter' ) );
@@ -40,7 +40,7 @@ class Astoundify_ThemeCustomizer_Control_TermMeta_Color extends Astoundify_Theme
 
 <p>
 	<label>
-		<?php echo esc_attr( $this->labels[ 'choose' ] ); ?>
+		<?php echo esc_attr( $this->labels['choose'] ); ?>
 		<input type="text" class="<?php echo $this->id; ?>-color-picker color-picker-hex" value="#000000" data-hide="false" />
 	</label>
 </p>

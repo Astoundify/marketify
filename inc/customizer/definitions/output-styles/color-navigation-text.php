@@ -18,7 +18,7 @@ astoundify_themecustomizer_add_css( array(
 		'.nav-menu li.page_item_has_children:after',
 	),
 	'declarations' => array(
-		'color' => esc_attr( $text )
+		'color' => esc_attr( $text ),
 	),
 	'media' => 'screen and (min-width: 992px)',
 ) );
@@ -29,6 +29,6 @@ astoundify_themecustomizer_add_css( array(
 		'.page-title',
 	),
 	'declarations' => array(
-		'color' => esc_attr( $text )
+		'color' => esc_attr( $text ),
 	),
 ) );

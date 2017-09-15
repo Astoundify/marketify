@@ -12,15 +12,15 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 $wp_customize->add_setting( 'color-navigation-text', array(
 	'default' => astoundify_themecustomizer_get_colorscheme_mod_default( 'color-navigation-text' ),
 	'transport' => 'postMessage',
-	'sanitize_callback' => 'sanitize_hex_color'
+	'sanitize_callback' => 'sanitize_hex_color',
 ) );
 
 $wp_customize->add_control( new WP_Customize_Color_Control(
 	$wp_customize,
-	'color-navigation-text', 
+	'color-navigation-text',
 	array(
 		'label'   => __( 'Navigation Text', 'marketify' ),
 		'section' => 'colors-header',
-		'priority' => 15
-	) 
+		'priority' => 15,
+	)
 ) );

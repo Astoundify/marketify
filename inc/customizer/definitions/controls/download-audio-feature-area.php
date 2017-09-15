@@ -11,16 +11,16 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 
 $wp_customize->add_setting( 'download-audio-feature-area', array(
 	'default' => 'top',
-	'sanitize_callback' => 'esc_attr'
+	'sanitize_callback' => 'esc_attr',
 ) );
 
 $wp_customize->add_control( 'download-audio-feature-area', array(
-	'label' => __( 'Image Gallery Location', 'marketify' ),
+	'label' => __( 'Audio Player Location', 'marketify' ),
 	'type' => 'select',
 	'choices' => array(
 		'top' => __( 'Page Header', 'marketify' ),
-		'inline' => __( 'Page Content', 'marketify' )
+		'inline' => __( 'Page Content', 'marketify' ),
 	),
 	'section' => 'download-audio',
-	'priority' => 10
+	'priority' => 10,
 ) );

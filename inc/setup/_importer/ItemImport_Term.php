@@ -20,8 +20,8 @@ class Astoundify_ItemImport_Term extends Astoundify_AbstractItemImport implement
 	 * @return string|false The taxonomy slug or false if the taxonomy does not exist
 	 */
 	private function get_taxonomy() {
-		if ( isset( $this->item[ 'data' ][ 'taxonomy' ] ) ) {
-			$tax = $this->item[ 'data' ][ 'taxonomy' ];
+		if ( isset( $this->item['data']['taxonomy'] ) ) {
+			$tax = $this->item['data']['taxonomy'];
 
 			return taxonomy_exists( $tax ) ? $tax : false;
 		}
@@ -38,8 +38,8 @@ class Astoundify_ItemImport_Term extends Astoundify_AbstractItemImport implement
 	private function get_args() {
 		$args = array();
 
-		if ( isset( $this->item[ 'data' ][ 'parent' ] ) && $this->get_parent() ) {
-			$args[ 'parent' ] = $this->get_parent()->term_id;
+		if ( isset( $this->item['data']['parent'] ) && $this->get_parent() ) {
+			$args['parent'] = $this->get_parent()->term_id;
 		}
 
 		return $args;
@@ -52,7 +52,7 @@ class Astoundify_ItemImport_Term extends Astoundify_AbstractItemImport implement
 	 * @return object WP_Term
 	 */
 	private function get_parent() {
-		$parent = get_term_by( 'name', $this->item[ 'data' ][ 'parent' ], $this->get_taxonomy() );
+		$parent = get_term_by( 'name', $this->item['data']['parent'], $this->get_taxonomy() );
 
 		return $parent;
 	}
@@ -74,10 +74,10 @@ class Astoundify_ItemImport_Term extends Astoundify_AbstractItemImport implement
 			return $this->get_default_error();
 		}
 
-		$result = wp_insert_term( $this->item[ 'data' ][ 'name' ], $taxonomy, $this->get_args() );
+		$result = wp_insert_term( $this->item['data']['name'], $taxonomy, $this->get_args() );
 
 		if ( ! is_wp_error( $result ) ) {
-			$result = get_term( $result[ 'term_id' ], $taxonomy );
+			$result = get_term( $result['term_id'], $taxonomy );
 		}
 
 		return $result;
@@ -119,11 +119,11 @@ class Astoundify_ItemImport_Term extends Astoundify_AbstractItemImport implement
 			return false;
 		}
 
-		if ( ! isset( $this->item[ 'data' ][ 'name' ] ) ) {
+		if ( ! isset( $this->item['data']['name'] ) ) {
 			return false;
 		}
 
-		$term_name = $this->item[ 'data' ][ 'name' ];
+		$term_name = $this->item['data']['name'];
 
 		$term = get_term_by( 'name', $term_name, $taxonomy );
 

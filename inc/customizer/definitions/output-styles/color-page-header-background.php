@@ -16,11 +16,11 @@ astoundify_themecustomizer_add_css( array(
 		'.header-outer',
 		'.minimal',
 		'.custom-background.minimal',
-		'.wp-playlist .mejs-controls .mejs-time-rail .mejs-time-current'
+		'.wp-playlist .mejs-controls .mejs-time-rail .mejs-time-current',
 	),
 	'declarations' => array(
-		'background-color' => esc_attr( $page_header_background )
-	)
+		'background-color' => esc_attr( $page_header_background ),
+	),
 ) );
 
 astoundify_themecustomizer_add_css( array(
@@ -29,9 +29,9 @@ astoundify_themecustomizer_add_css( array(
 		'.page-header .button.button--color-white:hover',
 		'.home .page-header .button:hover', // backwards compat
 		'.page-header .edd-submit.button.edd_go_to_checkout:hover', // when an item is in the cart
-		'.site-footer--light .site-title--footer a'
+		'.site-footer--light .site-title--footer a',
 	),
 	'declarations' => array(
-		'color' => esc_attr( $page_header_background )
-	)
+		'color' => esc_attr( $page_header_background ),
+	),
 ) );

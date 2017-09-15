@@ -9,7 +9,7 @@
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 /**
@@ -17,6 +17,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.1.0
  */
-interface Astoundify_ThemeCustomizer_AssetLoader_LoaderInterface { 
+interface Astoundify_ThemeCustomizer_AssetLoader_LoaderInterface {
 	public function load_data();
 }

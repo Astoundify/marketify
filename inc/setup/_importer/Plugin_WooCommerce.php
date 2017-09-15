@@ -26,34 +26,34 @@ class Astoundify_Plugin_WooCommerce implements Astoundify_PluginInterface {
 		$pages = array( 'myaccount', 'checkout', 'cart', 'shop' );
 
 		foreach ( $pages as $page ) {
-			add_action( 
-				'astoundify_import_content_after_import_item_' . $page, 
-				array( __CLASS__, 'add_page_option' ) 
+			add_action(
+				'astoundify_import_content_after_import_item_' . $page,
+				array( __CLASS__, 'add_page_option' )
 			);
 
-			add_action( 
-				'astoundify_import_content_after_reset_item_' . $page, 
-				array( __CLASS__, 'delete_page_option' ) 
+			add_action(
+				'astoundify_import_content_after_reset_item_' . $page,
+				array( __CLASS__, 'delete_page_option' )
 			);
 		}
 
-		add_action( 
+		add_action(
 			'astoundify_import_content_after_import_item_type_object',
-			array( __CLASS__, 'set_product_defaults' ) 
+			array( __CLASS__, 'set_product_defaults' )
 		);
 
-		add_action( 
+		add_action(
 			'astoundify_import_content_after_import_item_type_object',
-			array( __CLASS__, 'set_price' ) 
+			array( __CLASS__, 'set_price' )
 		);
 
-		add_action( 
+		add_action(
 			'astoundify_import_content_after_import_item_type_object',
-			array( __CLASS__, 'set_product_type' ) 
+			array( __CLASS__, 'set_product_type' )
 		);
 
 		// this needs to happen after images have had a chance to be attached
-		add_action( 
+		add_action(
 			'astoundify_import_content_after_import_item_type_object',
 			array( __CLASS__, 'set_product_gallery' ),
 			20
@@ -90,15 +90,15 @@ class Astoundify_Plugin_WooCommerce implements Astoundify_PluginInterface {
 	 * @return true|WP_Error True if the format can be set.
 	 */
 	public static function set_product_defaults( $ItemImport ) {
-		$item_data = $ItemImport->item[ 'data' ];
+		$item_data = $ItemImport->item['data'];
 
 		// do nothing if this is not relevant to the current object type
-		if ( 'product' != $item_data[ 'post_type' ] ) {
+		if ( 'product' != $item_data['post_type'] ) {
 			return false;
 		}
 
-		$error = new WP_Error( 
-			'set-product-defaults', 
+		$error = new WP_Error(
+			'set-product-defaults',
 			sprintf( 'Product options for %s were not set', $ItemImport->get_id() )
 		);
 
@@ -141,15 +141,15 @@ class Astoundify_Plugin_WooCommerce implements Astoundify_PluginInterface {
 	 * @return true|WP_Error True if the format can be set.
 	 */
 	public static function set_price( $ItemImport ) {
-		$item_data = $ItemImport->item[ 'data' ];
+		$item_data = $ItemImport->item['data'];
 
 		// do nothing if this is not relevant to the current object type
-		if ( 'product' != $item_data[ 'post_type' ] ) {
+		if ( 'product' != $item_data['post_type'] ) {
 			return false;
 		}
 
-		$error = new WP_Error( 
-			'set-pricing', 
+		$error = new WP_Error(
+			'set-pricing',
 			sprintf( 'Pricing for %s was not set', $ItemImport->get_id() )
 		);
 
@@ -163,8 +163,8 @@ class Astoundify_Plugin_WooCommerce implements Astoundify_PluginInterface {
 		$product_id = $object->ID;
 
 		// single price
-		if ( isset( $item_data[ 'price' ] ) ) {
-			$price = $item_data[ 'price' ];
+		if ( isset( $item_data['price'] ) ) {
+			$price = $item_data['price'];
 
 			update_post_meta( $product_id, '_regular_price', $price );
 			update_post_meta( $product_id, '_price', $price );
@@ -183,15 +183,15 @@ class Astoundify_Plugin_WooCommerce implements Astoundify_PluginInterface {
 	 * @return true|WP_Error True if the format can be set.
 	 */
 	public static function set_product_type( $ItemImport ) {
-		$item_data = $ItemImport->item[ 'data' ];
+		$item_data = $ItemImport->item['data'];
 
 		// do nothing if this is not relevant to the current object type
-		if ( 'product' != $item_data[ 'post_type' ] ) {
+		if ( 'product' != $item_data['post_type'] ) {
 			return false;
 		}
 
-		$error = new WP_Error( 
-			'set-type', 
+		$error = new WP_Error(
+			'set-type',
 			sprintf( 'Product type for %s was not set', $ItemImport->get_id() )
 		);
 
@@ -205,8 +205,8 @@ class Astoundify_Plugin_WooCommerce implements Astoundify_PluginInterface {
 		$product_id = $object->ID;
 
 		// single price
-		if ( isset( $item_data[ 'type' ] ) ) {
-			$type = $item_data[ 'type' ];
+		if ( isset( $item_data['type'] ) ) {
+			$type = $item_data['type'];
 
 			wp_set_object_terms( $product_id, $type, 'product_type' );
 		} else {
@@ -227,15 +227,15 @@ class Astoundify_Plugin_WooCommerce implements Astoundify_PluginInterface {
 	 * @return true|WP_Error True if the format can be set.
 	 */
 	public static function set_product_gallery( $ItemImport ) {
-		$item_data = $ItemImport->item[ 'data' ];
+		$item_data = $ItemImport->item['data'];
 
 		// do nothing if this is not relevant to the current object type
-		if ( 'product' != $item_data[ 'post_type' ] ) {
+		if ( 'product' != $item_data['post_type'] ) {
 			return false;
 		}
 
-		$error = new WP_Error( 
-			'set-gallery', 
+		$error = new WP_Error(
+			'set-gallery',
 			sprintf( 'Product gallery for %s was not set', $ItemImport->get_id() )
 		);
 
@@ -249,7 +249,7 @@ class Astoundify_Plugin_WooCommerce implements Astoundify_PluginInterface {
 		$product_id = $object->ID;
 
 		// single price
-		if ( isset( $item_data[ 'media' ] ) ) {
+		if ( isset( $item_data['media'] ) ) {
 			$images = get_attached_media( 'image', $product_id );
 
 			if ( ! empty( $images ) ) {

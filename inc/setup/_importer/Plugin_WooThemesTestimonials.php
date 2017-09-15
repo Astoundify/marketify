@@ -26,9 +26,9 @@ class Astoundify_Plugin_WooThemesTestimonials implements Astoundify_PluginInterf
 		$widgets = array( 'widget-testimonials', 'widget-companies' );
 
 		foreach ( $widgets as $widget ) {
-			add_action( 
-				'astoundify_import_content_after_import_item_' . $widget, 
-				array( __CLASS__, 'add_widget_settings' ) 
+			add_action(
+				'astoundify_import_content_after_import_item_' . $widget,
+				array( __CLASS__, 'add_widget_settings' )
 			);
 		}
 	}
@@ -43,11 +43,11 @@ class Astoundify_Plugin_WooThemesTestimonials implements Astoundify_PluginInterf
 	 * @return void
 	 */
 	public static function add_widget_settings( $ItemImport ) {
-		$item_data = $ItemImport->item[ 'data' ];
+		$item_data = $ItemImport->item['data'];
 
 		$processed = $ItemImport->get_processed_item();
 
-		$widget_settings = get_option( 'widget_' . $item_data[ 'widget' ], array() );
+		$widget_settings = get_option( 'widget_' . $item_data['widget'], array() );
 
 		if ( empty( $widget_settings ) ) {
 			return false;
@@ -59,19 +59,19 @@ class Astoundify_Plugin_WooThemesTestimonials implements Astoundify_PluginInterf
 			}
 
 			// We have found the widget
-			if ( $single_widget_settings[ 'title' ] == $item_data[ 'title' ] ) {
-				$category = get_term_by( 'slug', $item_data[ 'category' ], 'testimonial-category' );
+			if ( $single_widget_settings['title'] == $item_data['title'] ) {
+				$category = get_term_by( 'slug', $item_data['category'], 'testimonial-category' );
 
-				if ( ! isset( $single_widget_settings[ 'category' ] ) ) {
+				if ( ! isset( $single_widget_settings['category'] ) ) {
 					continue;
 				}
 
-				$single_widget_settings[ 'category' ] = $category->term_id;
+				$single_widget_settings['category'] = $category->term_id;
 				$widget_settings[ $key ] = $single_widget_settings;
 			}
-		}	
+		}
 
-		update_option( 'widget_' . $item_data[ 'widget' ], $widget_settings );
+		update_option( 'widget_' . $item_data['widget'], $widget_settings );
 	}
 
 }

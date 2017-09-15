@@ -37,14 +37,14 @@ astoundify_themecustomizer_add_css( array(
 		'a.edd-wl-button',
 		'a.edd-wl-button.edd-wl-action',
 		'body .marketify_widget_slider_hero .soliloquy-container .soliloquy-caption-outer .button',
-		'.edd-submit'
+		'.edd-submit',
 	),
 	'declarations' => array(
 		'font-family' => astoundify_themecustomizer_get_font_stack( $family, 'googlefonts' ),
 		'font-weight' => $weight,
 		'line-height' => $line,
-		'text-transform' => 'uppercase'
-	)
+		'text-transform' => 'uppercase',
+	),
 ) );
 
 astoundify_themecustomizer_add_css( array(
@@ -70,10 +70,10 @@ astoundify_themecustomizer_add_css( array(
 		'a.edd-wl-button',
 		'a.edd-wl-button.edd-wl-action',
 		'body .marketify_widget_slider_hero .soliloquy-container .soliloquy-caption-outer .button',
-		'.edd-submit'
+		'.edd-submit',
 	),
 	'declarations' => array(
-		'font-size' => $size . 'px'
+		'font-size' => $size . 'px',
 	),
-	'media' => 'screen and (min-width: 1200px)'
+	'media' => 'screen and (min-width: 1200px)',
 ) );

@@ -7,24 +7,24 @@
 
 get_header( 'minimal' ); ?>
 
-    <div class="site-content container">
-        <div id="content" class="content-area col-lg-6 col-lg-offset-3 col-sm-8 col-sm-offset-2" role="main">
+	<div class="site-content container">
+		<div id="content" class="content-area col-lg-6 col-lg-offset-3 col-sm-8 col-sm-offset-2" role="main">
 
-            <?php if ( have_posts() ) : ?>
+			<?php if ( have_posts() ) : ?>
 
-                <?php while ( have_posts() ) : the_post(); ?>
+				<?php while ( have_posts() ) : the_post(); ?>
 
-                    <?php get_template_part( 'content', 'page' ); ?>
+					<?php get_template_part( 'content', 'page' ); ?>
 
-                <?php endwhile; ?>
+				<?php endwhile; ?>
 
-            <?php else : ?>
+			<?php else : ?>
 
-                <?php get_template_part( 'no-results', 'index' ); ?>
+				<?php get_template_part( 'no-results', 'index' ); ?>
 
-            <?php endif; ?>
+			<?php endif; ?>
 
-        </div>
-    </div>
+		</div>
+	</div>
 	
 <?php get_footer( 'minimal' ); ?>

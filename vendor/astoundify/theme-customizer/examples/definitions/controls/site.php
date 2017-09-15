@@ -10,15 +10,15 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 }
 
 $wp_customize->add_setting( 'site', array(
-	'default' => 'default'
+	'default' => 'default',
 ) );
 
-$wp_customize->add_control( new Astoundify_ThemeCustomizer_Control_ControlGroup( 
+$wp_customize->add_control( new Astoundify_ThemeCustomizer_Control_ControlGroup(
 	$wp_customize,
-	'site', 
+	'site',
 	array(
 		'label' => _x( 'Site', 'customizer control title', 'marketify' ),
 		'section' => 'title_tagline',
-		'priority' => 1
+		'priority' => 1,
 	)
 ) );

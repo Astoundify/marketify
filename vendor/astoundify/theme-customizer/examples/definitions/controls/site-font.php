@@ -25,5 +25,5 @@ $wp_customize->add_control( new Astoundify_ThemeCustomizer_Control_Typography( $
 	'source' => $source,
 	'controls' => astoundify_themecustomizer_get_default_typography_controls(),
 	'priority' => 100,
-	'section' => 'title_tagline'
+	'section' => 'title_tagline',
 ) ) );

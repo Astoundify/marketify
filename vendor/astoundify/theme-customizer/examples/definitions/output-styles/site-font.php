@@ -22,6 +22,6 @@ $body = astoundify_themecustomizer_get_typography_mod( 'site-font-family' );
 astoundify_themecustomizer_add_css( array(
 	'selectors' => 'body',
 	'declarations' => array(
-		'font-family' => astoundify_themecustomizer_get_font_stack( $body, $source )
-	)
+		'font-family' => astoundify_themecustomizer_get_font_stack( $body, $source ),
+	),
 ) );

@@ -74,7 +74,7 @@ class Astoundify_ModuleLoader_SubModuleLoader {
 			$submodule = $args[0];
 			return $submodule->$submodule();
 		}
-		
+
 		return $this->modules[ $submodule_name ];
 	}
 

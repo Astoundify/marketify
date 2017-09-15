@@ -15,7 +15,7 @@ namespace Astoundify\ThemeCustomizer\Tests\Control;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 /**
@@ -34,8 +34,8 @@ class ControlGroup extends \Astoundify_ThemeCustomizer_TestCase {
 	public function setUp() {
 		// setup customize api
 		require_once( ABSPATH . WPINC . '/class-wp-customize-manager.php' );
-		$GLOBALS[ 'wp_customize' ] = new \WP_Customize_Manager();
-		$this->wp_customize = $GLOBALS[ 'wp_customize' ];
+		$GLOBALS['wp_customize'] = new \WP_Customize_Manager();
+		$this->wp_customize = $GLOBALS['wp_customize'];
 
 		do_action( 'customize_register', $this->wp_customize );
 	}
@@ -47,11 +47,11 @@ class ControlGroup extends \Astoundify_ThemeCustomizer_TestCase {
 		$control = $this->wp_customize->add_control( new \Astoundify_ThemeCustomizer_Control_ControlGroup(
 			$this->wp_customize,
 			'no-setting',
-			array() 
+			array()
 		) );
 
 		$controls = array(
-			'foo' => 'bar'
+			'foo' => 'bar',
 		);
 
 		$this->assertEquals( "data-controls='{\"foo\":\"bar\"}'", $control->generate_linked_control_data( $controls ) );
@@ -64,7 +64,7 @@ class ControlGroup extends \Astoundify_ThemeCustomizer_TestCase {
 		$control = $this->wp_customize->add_control( new \Astoundify_ThemeCustomizer_Control_ControlGroup(
 			$this->wp_customize,
 			'no-setting',
-			array() 
+			array()
 		) );
 
 		do_action( 'customize_controls_enqueue_scripts' );

@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 
 $wp_customize->add_setting( 'site-title-color', array(
 	'default' => '#000fff',
-	'transport' => 'postMessage'
+	'transport' => 'postMessage',
 ) );
 
 $wp_customize->add_control( new WP_Customize_Color_Control(
@@ -21,6 +21,6 @@ $wp_customize->add_control( new WP_Customize_Color_Control(
 	array(
 		'label' => 'Site Title Color',
 		'priority' => 10,
-		'section' => 'title_tagline'
-	) 
+		'section' => 'title_tagline',
+	)
 ) );

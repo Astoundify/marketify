@@ -11,7 +11,7 @@ return array(
 			'site-font-family' => 'Acme',
 			'site-font-size' => 60,
 			'site-font-weight' => 'bold',
-			'site-line-height' => 1
-		)
-	)
+			'site-line-height' => 1,
+		),
+	),
 );

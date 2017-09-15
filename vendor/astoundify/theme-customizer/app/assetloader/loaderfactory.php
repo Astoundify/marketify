@@ -9,7 +9,7 @@
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 /**
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.1.0
  */
-class Astoundify_ThemeCustomizer_AssetLoader_LoaderFactory { 
+class Astoundify_ThemeCustomizer_AssetLoader_LoaderFactory {
 
 	/**
 	 * Try to load the origin file for the source.
@@ -56,11 +56,11 @@ class Astoundify_ThemeCustomizer_AssetLoader_LoaderFactory {
 	public static function get_loader_class( $origin ) {
 		if ( ! $origin || '' == $origin ) {
 			return false;
-		} 
+		}
 
 		if ( is_file( $origin ) ) {
 			$classname = 'Local';
-		} else if ( false !== filter_var( $origin, FILTER_VALIDATE_URL ) ) {
+		} elseif ( false !== filter_var( $origin, FILTER_VALIDATE_URL ) ) {
 			$classname = 'Remote';
 		}
 

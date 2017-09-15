@@ -18,21 +18,21 @@ class Astoundify_ThemeCustomizer_Control_BigChoices extends WP_Customize_Control
 	 * @access public
 	 * @var string $type
 	 */
-    public $type = 'BigChoices';
+	public $type = 'BigChoices';
 
 	/**
 	 * @since 1.0.0
 	 * @access public
 	 * @var string $choices_id
 	 */
-    public $choices_id;
+	public $choices_id;
 
 	/**
 	 * @since 1.0.0
 	 * @access public
 	 * @var array $choices
 	 */
-    public $choices = array();
+	public $choices = array();
 
 	public function __construct( $manager, $id, $args = array() ) {
 		parent::__construct( $manager, $id, $args );
@@ -48,7 +48,7 @@ class Astoundify_ThemeCustomizer_Control_BigChoices extends WP_Customize_Control
 	public function to_json() {
 		parent::to_json();
 
-		$this->json[ 'choices_id' ] = $this->choices_id;
+		$this->json['choices_id'] = $this->choices_id;
 	}
 
 	/**
@@ -72,8 +72,8 @@ class Astoundify_ThemeCustomizer_Control_BigChoices extends WP_Customize_Control
 	 * @return array $data
 	 */
 	public function set_big_choices( $data ) {
-		if ( isset( $data[ 'BigChoices' ] ) && ! isset( $data[ 'BigChoices' ][ $this->choices_id ] ) ) {
-			$data[ 'BigChoices' ][ $this->choices_id ] = $this->choices;
+		if ( isset( $data['BigChoices'] ) && ! isset( $data['BigChoices'][ $this->choices_id ] ) ) {
+			$data['BigChoices'][ $this->choices_id ] = $this->choices;
 		}
 
 		return $data;
@@ -96,14 +96,14 @@ class Astoundify_ThemeCustomizer_Control_BigChoices extends WP_Customize_Control
 	 *
 	 * @since 1.0.0
 	 */
-    public function render_content() {
+	public function render_content() {
 ?>
 
 <label>
 	<?php if ( ! empty( $this->label ) ) : ?>
 		<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
 	<?php endif;
-	if ( ! empty( $this->description ) ) : ?>
+if ( ! empty( $this->description ) ) : ?>
 		<span class="description customize-control-description"><?php echo $this->description; ?></span>
 	<?php endif; ?>
 
@@ -112,6 +112,6 @@ class Astoundify_ThemeCustomizer_Control_BigChoices extends WP_Customize_Control
 	</select>
 </label>
 <?php
-    }
+	}
 
 }

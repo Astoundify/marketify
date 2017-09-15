@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 }
 
 $wp_customize->add_setting( 'download-label-generate', array(
-	'default' => 'on'
+	'default' => 'on',
 ) );
 
 $wp_customize->add_control( 'download-label-generate', array(
@@ -18,5 +18,5 @@ $wp_customize->add_control( 'download-label-generate', array(
 	'type' => 'checkbox',
 	'description' => sprintf( __( 'Use these labels to create updated permalinks. Visit <a href="%s">Settings ▸ Permalinks</a> once saved.', 'marketify' ), admin_url( 'options-permalink.php' ) ),
 	'section' => 'download-labels',
-	'priority' => 30
+	'priority' => 30,
 ) );

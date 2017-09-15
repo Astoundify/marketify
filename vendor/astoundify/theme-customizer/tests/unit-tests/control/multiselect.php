@@ -14,7 +14,7 @@ namespace Astoundify\ThemeCustomizer\Tests\Control;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 /**
@@ -33,8 +33,8 @@ class Multiselect extends \Astoundify_ThemeCustomizer_TestCase {
 	public function setUp() {
 		// setup customize api
 		require_once( ABSPATH . WPINC . '/class-wp-customize-manager.php' );
-		$GLOBALS[ 'wp_customize' ] = new \WP_Customize_Manager();
-		$this->wp_customize = $GLOBALS[ 'wp_customize' ];
+		$GLOBALS['wp_customize'] = new \WP_Customize_Manager();
+		$this->wp_customize = $GLOBALS['wp_customize'];
 
 		do_action( 'customize_register', $this->wp_customize );
 	}
@@ -47,8 +47,8 @@ class Multiselect extends \Astoundify_ThemeCustomizer_TestCase {
 			$this->wp_customize,
 			'no-setting',
 			array(
-				'placeholder' => 'Choose a tag...'
-			) 
+				'placeholder' => 'Choose a tag...',
+			)
 		) );
 
 		$this->assertEquals( 'Choose a tag...', $control->placeholder );
@@ -64,7 +64,7 @@ class Multiselect extends \Astoundify_ThemeCustomizer_TestCase {
 		$control = $this->wp_customize->add_control( new \Astoundify_ThemeCustomizer_Control_Multiselect(
 			$this->wp_customize,
 			'old-data',
-			array() 
+			array()
 		) );
 
 		$this->assertEqualSets( array( 'one', 'two', 'three' ), $control->get_saved_value() );
@@ -77,7 +77,7 @@ class Multiselect extends \Astoundify_ThemeCustomizer_TestCase {
 		$control = $this->wp_customize->add_control( new \Astoundify_ThemeCustomizer_Control_Multiselect(
 			$this->wp_customize,
 			'no-setting',
-			array() 
+			array()
 		) );
 
 		do_action( 'customize_controls_enqueue_scripts' );

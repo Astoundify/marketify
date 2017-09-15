@@ -9,7 +9,7 @@
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 /**
@@ -41,7 +41,7 @@ class Astoundify_ThemeCustomizer_AssetSource_Font extends Astoundify_ThemeCustom
 			'sans-serif' => '"Helvetica Neue",Helvetica,Arial,sans-serif',
 			'display' => 'Copperplate,Copperplate Gothic Light,fantasy',
 			'handwriting' => 'Brush Script MT,cursive',
-			'monospace' => 'Monaco,"Lucida Sans Typewriter","Lucida Typewriter","Courier New",Courier,monospace'
+			'monospace' => 'Monaco,"Lucida Sans Typewriter","Lucida Typewriter","Courier New",Courier,monospace',
 		);
 	}
 
@@ -73,7 +73,7 @@ class Astoundify_ThemeCustomizer_AssetSource_Font extends Astoundify_ThemeCustom
 	 */
 	public function get_font_stack( $font ) {
 		$font_data = $this->get_item( $font );
-		$category = isset( $font_data[ 'category' ] ) ? $font_data[ 'category' ] : 'sans-serif';
+		$category = isset( $font_data['category'] ) ? $font_data['category'] : 'sans-serif';
 		$stack = $this->get_fallback_stack( $category );
 
 		return "\"{$font}\",{$stack}";

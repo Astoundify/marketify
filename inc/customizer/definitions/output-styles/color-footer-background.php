@@ -16,6 +16,6 @@ astoundify_themecustomizer_add_css( array(
 		'.site-footer.site-footer--dark'
 	),
 	'declarations' => array(
-		'background-color' => esc_attr( $footer )
-	)
+		'background-color' => esc_attr( $footer ),
+	),
 ) );

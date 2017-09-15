@@ -167,7 +167,7 @@ function astoundify_themecustomizer_get_control_group( $group_id ) {
  *
  * @since 1.0.0
  * @param string $group_id
- * @param bool $group
+ * @param bool   $group
  * @return mixed Array of default values or false.
  */
 function astoundify_themecustomizer_get_control_group_defaults( $group_id, $group = false ) {
@@ -179,7 +179,7 @@ function astoundify_themecustomizer_get_control_group_defaults( $group_id, $grou
 			$group = key( $groups );
 		}
 
-		return $groups[ $group ][ 'controls' ];
+		return $groups[ $group ]['controls'];
 	}
 
 	return false;
@@ -295,7 +295,7 @@ function astoundify_themecustomizer_get_css() {
  *
  * @since 1.0.0
  * @param string $hex
- * @param int $steps
+ * @param int    $steps
  * @return string $hex
  */
 function astoundify_themecustomizer_darken_hex( $hex, $steps ) {
@@ -413,11 +413,11 @@ function astoundify_themecustomizer_get_default_typography_controls() {
 			'label' => 'Font Weight',
 			'choices' => array(
 				'normal' => 'Normal',
-				'bold' => 'Bold'
-			)
+				'bold' => 'Bold',
+			),
 		),
 		'line-height' => array(
 			'label' => 'Line Height',
-		)
+		),
 	);
 }

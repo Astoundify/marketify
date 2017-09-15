@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 
 $wp_customize->add_setting( 'download-video-feature-area', array(
 	'default' => 'top',
-	'sanitize_callback' => 'esc_attr'
+	'sanitize_callback' => 'esc_attr',
 ) );
 
 $wp_customize->add_control( 'download-video-feature-area', array(
@@ -19,8 +19,8 @@ $wp_customize->add_control( 'download-video-feature-area', array(
 	'type' => 'select',
 	'choices' => array(
 		'top' => __( 'Page Header', 'marketify' ),
-		'inline' => __( 'Page Content', 'marketify' )
+		'inline' => __( 'Page Content', 'marketify' ),
 	),
 	'section' => 'download-video',
-	'priority' => 10
+	'priority' => 10,
 ) );

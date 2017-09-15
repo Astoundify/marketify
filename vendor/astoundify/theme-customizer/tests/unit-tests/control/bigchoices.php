@@ -14,7 +14,7 @@ namespace Astoundify\ThemeCustomizer\Tests\Control;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 /**
@@ -33,8 +33,8 @@ class BigChoices extends \Astoundify_ThemeCustomizer_TestCase {
 	public function setUp() {
 		// setup customize api
 		require_once( ABSPATH . WPINC . '/class-wp-customize-manager.php' );
-		$GLOBALS[ 'wp_customize' ] = new \WP_Customize_Manager();
-		$this->wp_customize = $GLOBALS[ 'wp_customize' ];
+		$GLOBALS['wp_customize'] = new \WP_Customize_Manager();
+		$this->wp_customize = $GLOBALS['wp_customize'];
 
 		do_action( 'customize_register', $this->wp_customize );
 
@@ -49,8 +49,8 @@ class BigChoices extends \Astoundify_ThemeCustomizer_TestCase {
 			$this->wp_customize,
 			'choice_id_is_set',
 			array(
-				'choices_id' => 'numbers'
-			) 
+				'choices_id' => 'numbers',
+			)
 		) );
 
 		$this->assertEquals( 'numbers', $control->choices_id );
@@ -64,8 +64,8 @@ class BigChoices extends \Astoundify_ThemeCustomizer_TestCase {
 			$this->wp_customize,
 			'choices_are_set',
 			array(
-				'choices' => array( 1, 2, 3 )
-			) 
+				'choices' => array( 1, 2, 3 ),
+			)
 		) );
 
 		$this->assertEqualSets( array( 1, 2, 3 ), $control->choices );
@@ -80,8 +80,8 @@ class BigChoices extends \Astoundify_ThemeCustomizer_TestCase {
 			'choices_set_in_source',
 			array(
 				'choices_id' => 'more-numbers',
-				'choices' => array( 1, 2, 3 )
-			) 
+				'choices' => array( 1, 2, 3 ),
+			)
 		) );
 
 		do_action( 'customize_controls_enqueue_scripts', 9 );
@@ -90,8 +90,8 @@ class BigChoices extends \Astoundify_ThemeCustomizer_TestCase {
 			'BigChoices' => array(),
 		) );
 
-		$this->assertTrue( isset( $opts[ 'BigChoices' ][ 'more-numbers' ] ) );
-		$this->assertEqualSets( array( 1, 2, 3 ), $opts[ 'BigChoices' ][ 'more-numbers' ] );
+		$this->assertTrue( isset( $opts['BigChoices']['more-numbers'] ) );
+		$this->assertEqualSets( array( 1, 2, 3 ), $opts['BigChoices']['more-numbers'] );
 	}
 
 	/**
@@ -101,7 +101,7 @@ class BigChoices extends \Astoundify_ThemeCustomizer_TestCase {
 		$control = $this->wp_customize->add_control( new \Astoundify_ThemeCustomizer_Control_BigChoices(
 			$this->wp_customize,
 			'scripts_are_enqueued',
-			array() 
+			array()
 		) );
 
 		do_action( 'customize_controls_enqueue_scripts' );

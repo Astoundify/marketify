@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 }
 
 $wp_customize->add_setting( 'site-number', array(
-	'default' => 20
+	'default' => 20,
 ) );
 
 $wp_customize->add_control( new Astoundify_ThemeCustomizer_Control_BigChoices(
@@ -23,6 +23,6 @@ $wp_customize->add_control( new Astoundify_ThemeCustomizer_Control_BigChoices(
 		'choices_id' => 'numbers',
 		'choices' => range( 0, 1000 ),
 		'priority' => 32,
-		'section' => 'title_tagline'
-	) 
+		'section' => 'title_tagline',
+	)
 ) );

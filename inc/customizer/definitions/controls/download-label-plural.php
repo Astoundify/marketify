@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) || ! $wp_customize instanceof WP_Customize_Manager )
 
 $wp_customize->add_setting( 'download-label-plural', array(
 	'default' => 'Downloads',
-	'sanitize_callback' => 'esc_attr'
+	'sanitize_callback' => 'esc_attr',
 ) );
 
 $wp_customize->add_control( 'download-label-plural', array(
 	'label'   => __( 'Plural Label', 'marketify' ),
 	'section' => 'download-labels',
-	'priority' => 20
+	'priority' => 20,
 ) );

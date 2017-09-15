@@ -9,7 +9,7 @@
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 /**
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.1.0
  */
-class Astoundify_ThemeCustomizer_AssetSource_SourceFactory { 
+class Astoundify_ThemeCustomizer_AssetSource_SourceFactory {
 
 	/**
 	 * Try to create a new instance of the source.
@@ -25,7 +25,7 @@ class Astoundify_ThemeCustomizer_AssetSource_SourceFactory {
 	 * @since 1.1.0
 	 *
 	 * @param string $source_key
-	 * @return mixed 
+	 * @return mixed
 	 */
 	public static function get_source( $source_key ) {
 		try {
@@ -58,7 +58,7 @@ class Astoundify_ThemeCustomizer_AssetSource_SourceFactory {
 
 		if ( ! $source_key || '' == $source_key ) {
 			return $class;
-		} 
+		}
 
 		// dont modify custom source keys, use as class.
 		$prefix = 'Astoundify_ThemeCustomizer_';

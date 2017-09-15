@@ -9,7 +9,7 @@
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; 
+	exit;
 }
 
 /**
@@ -26,7 +26,7 @@ class Astoundify_ThemeCustomizer_Customize_Manager extends Astoundify_ModuleLoad
 	 */
 	protected $modules = array(
 		'register' => 'Astoundify_ThemeCustomizer_Customize_Register',
-		'scripts' => 'Astoundify_ThemeCustomizer_Customize_Scripts'
+		'scripts' => 'Astoundify_ThemeCustomizer_Customize_Scripts',
 	);
 
 	/**
@@ -49,17 +49,17 @@ class Astoundify_ThemeCustomizer_Customize_Manager extends Astoundify_ModuleLoad
 	 *
 	 * @param string $class Setting class.
 	 * @param string $setting_id Setting ID.
-	 * @param array $args Setting args.
+	 * @param array  $args Setting args.
 	 *
 	 * @return string
 	 */
 	public function filter_customize_dynamic_setting_class( $class, $setting_id, $args ) {
 		unset( $setting_id );
 
-		if ( isset( $args[ 'type' ] ) ) {
-			if ( 'post' === $args[ 'type' ] ) {
+		if ( isset( $args['type'] ) ) {
+			if ( 'post' === $args['type'] ) {
 				$class = 'WP_Customize_Post_Setting';
-			} elseif ( 'postmeta' === $args[ 'type' ] ) {
+			} elseif ( 'postmeta' === $args['type'] ) {
 				if ( isset( $args['setting_class'] ) ) {
 					$class = $args['setting_class'];
 				} else {
