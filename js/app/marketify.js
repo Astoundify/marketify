@@ -1,13 +1,13 @@
 var Marketify = Marketify || {};
 
 Marketify.App = ( function($) {
-  function menuToggle() {
+	function menuToggle() {
 		$( '.js-toggle-nav-menu--primary' ).click(function(e) {
 			e.preventDefault();
 
 			$( '.nav-menu--primary' ).toggleClass( 'active' );
 		});
-  }
+	}
 	function menuSearch() {
 		$( '.js-toggle-search' ).click(function(e) {
 			e.preventDefault();
@@ -22,9 +22,7 @@ Marketify.App = ( function($) {
 
 			$.each(sliders, function() {
 				var image = $(this).find( 'img' ),
-				    src   = image.prop( 'src' );
-
-				console.log( src );
+					src   = image.prop( 'src' );
 
 				$(this)
 					.find( 'li' )
@@ -39,33 +37,33 @@ Marketify.App = ( function($) {
 		}
 	}
 
-  function initVideos() {
-    var video = $( '.header-outer .wp-video video' ).get(0);
+	function initVideos() {
+		var video = $( '.header-outer .wp-video video' ).get(0);
 
-    if ( typeof video === 'undefined' ) {
-      return;
-    }
+		if ( typeof video === 'undefined' ) {
+			return;
+		}
 
-    var vide = $( '.header-outer .wp-video' ).vide();
+		var vide = $( '.header-outer .wp-video' ).vide();
 
-    vide.resize();
+		vide.resize();
 
-    function adjustHeight() {
-      if ( $(window).width() < 768 ) {
-        $( video ).hide();
-      } else {
-        $( video ).show();
-      }
-    }
+		function adjustHeight() {
+			if ( $(window).width() < 768 ) {
+				$( video ).hide();
+			} else {
+				$( video ).show();
+			}
+		}
 
-    adjustHeight();
+		adjustHeight();
 
-    $(window).resize(function() {
-      adjustHeight();
-    });
+		$(window).resize(function() {
+			adjustHeight();
+		});
 
-    return;
-  }
+		return;
+	}
 
 	function initPurchaseForms() {
 		$( '.buy-now.popup-trigger' ).on( 'click', function(e) {
@@ -131,10 +129,10 @@ Marketify.App = ( function($) {
 
 	return {
 		init : function() {
-      menuToggle();
+			menuToggle();
 			menuSearch();
 			soliloquySliders();
-      initVideos();
+			initVideos();
 			initPurchaseForms();
 			initSectionTitles();
 
@@ -161,7 +159,7 @@ Marketify.App = ( function($) {
 
 			$( '.edd_download.content-grid-download' ).attr( 'style', '' );
 
-      // sorting widget
+			// sorting widget
 			$( '.download-sorting input, .download-sorting select' ).change(function(){
 				$(this).closest( 'form' ).submit();
 			});
@@ -178,26 +176,26 @@ Marketify.App = ( function($) {
 
 			$( '.individual-testimonial .avatar' ).wrap( '<div class="avatar-wrap"></div>' );
 
-      function pagi() {
-        $( '.edd_downloads_list' ).each(function() {
-          var pagi = $(this).find( $( '#edd_download_pagination' ) );
+			function pagi() {
+				$( '.edd_downloads_list' ).each(function() {
+					var pagi = $(this).find( $( '#edd_download_pagination' ) );
 
-          pagi.insertAfter( '.edd_downloads_list' );
-        });
+					pagi.insertAfter( '.edd_downloads_list' );
+				});
 
-      }
+			}
 
-      pagi();
+			pagi();
 
-      $( '.download-gallery__image' ).magnificPopup({
-        delegate: 'a',
-        type: 'image',
-        gallery: {
-          enabled: true,
-          navigateByImgClick: true,
-          preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-        }
-      });
+			$( '.download-gallery__image' ).magnificPopup({
+				delegate: 'a',
+				type: 'image',
+				gallery: {
+					enabled: true,
+					navigateByImgClick: true,
+					preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+				}
+			});
 
 		},
 
