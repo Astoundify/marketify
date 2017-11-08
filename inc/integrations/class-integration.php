@@ -48,10 +48,7 @@ abstract class Marketify_Integration {
 	}
 
 	private function get_slug() {
-		$pieces = explode( '/', $this->directory );
-		$slug = end( $pieces );
-
-		return $slug;
+		return basename( $this->directory );
 	}
 
 	public function get_url() {
