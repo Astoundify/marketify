@@ -21,7 +21,7 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<div class="the-team row" data-columns>
+			<div class="the-team">
 				<?php
 					$users = array();
 					$roles = apply_filters( 'marketify_the_team_roles', array( 'author', 'shop_worker', 'shop_manager', 'editor', 'administrator' ) );

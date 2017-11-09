@@ -73,10 +73,6 @@ class Marketify_EDD_Shortcode {
 	}
 
 	public function grid_wrapper_columns( $output, $atts ) {
-		if ( ! isset( $atts['salvattore'] ) || 'no' != $atts['salvattore'] ) {
-			$output = str_replace( 'class="edd_downloads_list', 'data-columns class="edd_downloads_list', $output );
-		}
-
 		$output = str_replace( '<div style="clear:both;"></div>', '', $output );
 
 		return $output;
