@@ -40,7 +40,7 @@ class Marketify_EDD_Template_Download {
 	}
 
 	public function enqueue_scripts() {
-		wp_enqueue_script( 'marketify-download', get_template_directory_uri() . '/js/download/download.js', array( 'marketify' ) );
+		wp_enqueue_script( 'marketify-download', get_template_directory_uri() . '/js/download/download.js', array( 'marketify' ), marketify_version() );
 	}
 
 	public function download_price() {
