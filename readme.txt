@@ -33,10 +33,6 @@ Slick.js v1.5.7, Copyright 2015 Ken Wheeler
 Licenses: MIT/GPL2
 Source: https://github.com/kenwheeler/slick/
 
-salvattore.js Copyright (c) 2013-2015 Rolando Murillo and Giorgio Leveroni
-License: MIT/GPL2
-Source: https://github.com/rnmp/salvattore/
-
 Magnific-Popup Copyright (c) 2014-2015 Dmitry Semenov (http://dimsemenov.com)
 Licenses: MIT
 Source: https://github.com/dimsemenov/Magnific-Popup

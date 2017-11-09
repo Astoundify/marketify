@@ -13,13 +13,52 @@
 }
 
 .features {
-	overflow: hidden;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 0 -15px;
+
+	.fix {
+		display: none;
+	}
 }
 
-.feature {
+.features .feature {
 	text-align: center;
+	width: calc(100% - 30px);
+	margin: 0 15px 30px;
+
+	a {
+		display: inline-block;
+	}
 }
 
-.feature a {
-	display: inline-block;
+.features.columns-2 .feature {
+	@include bp(pt) {
+		width: calc(50% - 30px);
+	}
+}
+
+.features.columns-3 .feature {
+	@include bp(pt) {
+		width: calc(50% - 30px);
+	}
+
+	@include bp(md) {
+		width: calc(33.33% - 30px);
+	}
+}
+
+.features.columns-4 .feature {
+	@include bp(pt) {
+		width: calc(50% - 30px);
+	}
+
+	@include bp(md) {
+		width: calc(33.33% - 30px);
+	}
+
+	@include bp(lg) {
+		width: calc(25% - 30px);
+	}
 }
