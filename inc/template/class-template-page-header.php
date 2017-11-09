@@ -193,7 +193,7 @@ class Marketify_Template_Page_Header {
 		return $output;
 	}
 
-	private function build_tag_atts( $args ) {
+	public function build_tag_atts( $args ) {
 		$args = $this->add_background_image( $args );
 		$args = $this->add_background_video( $args );
 
@@ -205,7 +205,7 @@ class Marketify_Template_Page_Header {
 		return $atts;
 	}
 
-	private function add_background_image( $args ) {
+	public function add_background_image( $args ) {
 		$background_image = $this->find_background_image( $args );
 
 		if ( $background_image ) {
@@ -218,7 +218,7 @@ class Marketify_Template_Page_Header {
 		return $args;
 	}
 
-	private function add_background_video( $args ) {
+	public function add_background_video( $args ) {
 		$video = true;
 
 		if ( $video ) {
@@ -228,7 +228,7 @@ class Marketify_Template_Page_Header {
 		return $args;
 	}
 
-	private function find_background_image( $args ) {
+	public function find_background_image( $args ) {
 		$background_image = false;
 		$format_style_is_background = false;
 
