@@ -1,8 +1,8 @@
 === Marketify ===
 Contributors: Astoundify
-Requires at least: WordPress 4.5
-Tested up to: WordPress 4.8.1
-Version: 2.12.0
+Requires at least: WordPress 4.8.0
+Tested up to: WordPress 4.9.0
+Version: 2.13.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: white, two-columns, one-column, right-sidebar, left-sidebar, fluid-layout, custom-background, custom-header, theme-options, full-width-template, featured-images, flexible-header, custom-menu, translation-ready
@@ -33,10 +33,6 @@ Slick.js v1.5.7, Copyright 2015 Ken Wheeler
 Licenses: MIT/GPL2
 Source: https://github.com/kenwheeler/slick/
 
-salvattore.js Copyright (c) 2013-2015 Rolando Murillo and Giorgio Leveroni
-License: MIT/GPL2
-Source: https://github.com/rnmp/salvattore/
-
 Magnific-Popup Copyright (c) 2014-2015 Dmitry Semenov (http://dimsemenov.com)
 Licenses: MIT
 Source: https://github.com/dimsemenov/Magnific-Popup
@@ -50,6 +46,12 @@ License: MIT
 Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
+
+= 2.13.0: November 29, 2017 =
+
+* New: Use CSS flexbox for simpler more response columns (fixes support for download grid and FacetWP).
+* New: Use theme version for asset versioning to help clear caches.
+* Fix: Integration file loading on Windows-powered machines.
 
 = 2.12.0: September 15, 2017 =
 

@@ -12,12 +12,8 @@
 	}
 }
 
-.featured-popular-tabs {
-    margin-top: 5em;
-
-    .slick-dots {
-        top: -44px;
-    }
+.featured-popular-tabs .slick-dots {
+	top: -44px;
 }
 
 .featured-popular-switcher span {
@@ -47,8 +43,10 @@
 
 #items-popular,
 #items-featured {
-	.edd_download {
-		margin: 0 15px;
+	.slick-list,
+	.slick-track {
+		width: 100%;
+		display: flex;
 	}
 
 	#edd_download_pagination {

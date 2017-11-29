@@ -70,7 +70,7 @@ class Marketify_Widget_Recent_Posts extends Marketify_Widget {
 			echo $before_title . esc_attr( $title ) . $after_title;
 		}
 ?>
-		<div class="row widget--blog-posts <?php echo 'grid' == $style ? 'widget--blog-posts-grid' : 'widget--blog-posts-list' ?>" data-columns>
+		<div class="widget--blog-posts <?php echo 'grid' == $style ? 'widget--blog-posts-grid' : 'widget--blog-posts-list' ?>">
 			<?php while ( $posts->have_posts() ) : $posts->the_post(); ?>
 				<?php get_template_part( 'content', 'grid' == $style ? 'grid' : get_post_format() ); ?>
 			<?php endwhile; ?>

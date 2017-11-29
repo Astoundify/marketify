@@ -266,7 +266,7 @@ div[id^="widget-area-footer-3"] .marketify-widget-usage.widgetized { display: no
 				break;
 				case 'image' :
 					wp_enqueue_media();
-					wp_enqueue_script( 'app-image-widget-admin', get_template_directory_uri() . '/js/app/app-image-widget-admin.js', array( 'jquery' ), '', true );
+					wp_enqueue_script( 'app-image-widget-admin', get_template_directory_uri() . '/js/app/app-image-widget-admin.js', array( 'jquery' ), marketify_version(), true );
 				?>
 					<p style="margin-bottom: 0;">
 						<label for="<?php echo $this->get_field_id( $key ); ?>"><?php echo $setting['label']; ?></label>

@@ -117,3 +117,19 @@ function marketify() {
 }
 
 marketify();
+
+
+/**
+ * Get Theme Version.
+ *
+ * @since 2.13.0
+ * @link https://developer.wordpress.org/reference/functions/wp_get_theme/
+ *
+ * @return string
+ */
+function marketify_version() {
+	// Current active theme data.
+	$theme = wp_get_theme( get_template() );
+
+	return $theme->Version;
+}

@@ -1,10 +1,10 @@
-.the-team {
+.widget--blog-posts {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 }
 
-.team-member {
+.widget--blog-posts .post {
 	width: calc(100% - 30px);
 	margin: 0 15px 30px;
 
@@ -14,9 +14,5 @@
 
 	@include bp(md) {
 		width: calc(33.33% - 30px);
-	}
-
-	@include bp(lg) {
-		width: calc(25% - 30px);
 	}
 }
