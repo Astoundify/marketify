@@ -47,7 +47,7 @@ Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
 
-= 2.13.0: November 14, 2017 =
+= 2.13.0: November 29, 2017 =
 
 * New: Use CSS flexbox for simpler more response columns (fixes support for download grid and FacetWP).
 * New: Use theme version for asset versioning to help clear caches.
