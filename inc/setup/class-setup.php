@@ -37,7 +37,7 @@ class Marketify_Setup {
 	public static function includes() {
 		include_once( dirname( __FILE__ ) . '/_setup-guide/class-astoundify-setup-guide.php' );
 		include_once( dirname( __FILE__ ) . '/_importer/ContentImporter.php' );
-		include_once( dirname( __FILE__ ) . '/_updater/class-astoundify-themeforest-updater.php' );
+		include_once( dirname( __FILE__ ) . '/_updater/astoundify-themeforestupdater.php' );
 		include_once( dirname( __FILE__ ) . '/_child_theme/use-child-theme.php' );
 	}
 
