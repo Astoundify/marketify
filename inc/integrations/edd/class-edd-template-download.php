@@ -229,6 +229,7 @@ class Marketify_EDD_Template_Download {
 		<?php foreach ( $images as $image ) : ?>
 			<div class="download-gallery__image"><a href="<?php echo esc_url( wp_get_attachment_url( $image->ID ) ); ?>"><?php echo wp_get_attachment_image( $image->ID, $size ); ?></a></div>
 		<?php endforeach; ?>
+		<?php echo $after; ?>
 	<?php
 		}
 
