@@ -229,6 +229,7 @@ class Marketify_EDD_Template_Download {
 		<?php foreach ( $images as $image ) : ?>
 			<div class="download-gallery__image"><a href="<?php echo esc_url( wp_get_attachment_url( $image->ID ) ); ?>"><?php echo wp_get_attachment_image( $image->ID, $size ); ?></a></div>
 		<?php endforeach; ?>
+		<?php echo $after; ?>
 	<?php
 		}
 
@@ -372,11 +373,16 @@ class Marketify_EDD_Template_Download {
 		// query attached media
 		if ( ! $video || '' == $video ) {
 			$video = get_attached_media( 'video', get_post()->ID );
+			$video = current( $video );
+			$video = $video->ID;
+		}
 
-			if ( ! empty( $video ) ) {
-				$video = current( $video );
-				$video = wp_get_attachment_url( $video->ID );
-			}
+		if ( is_array( $video ) && ! empty( $video ) ) {
+			$video = current( $video );
+		}
+
+		if ( $video && is_numeric( $video ) ) {
+			$video = wp_get_attachment_url( $video );
 		}
 
 		return $video;
