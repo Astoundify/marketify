@@ -188,12 +188,16 @@ class Marketify_EDD_Template_Download {
 			return;
 		}
 
+		remove_action( 'loop_start', 'edd_microdata_wrapper_open', 10 );
+
 		the_post();
 	?>
 		<div class="page-header page-header--download download-header container">
 			<h1 class="page-title"><?php the_title(); ?></h1>
 	<?php
 		rewind_posts();
+
+		add_action( 'loop_start', 'edd_microdata_wrapper_open', 10 );
 	}
 
 	public function featured_area_header_actions() {
@@ -222,14 +226,15 @@ class Marketify_EDD_Template_Download {
 
 		if ( empty( $images ) && has_post_thumbnail( get_the_ID() ) ) {
 			echo get_the_post_thumbnail( get_the_ID(), $size );
-			echo $after;
-			return;
 		} else {
 	?>
 		<?php foreach ( $images as $image ) : ?>
-			<div class="download-gallery__image"><a href="<?php echo esc_url( wp_get_attachment_url( $image->ID ) ); ?>"><?php echo wp_get_attachment_image( $image->ID, $size ); ?></a></div>
+			<div class="download-gallery__image">
+				<a href="<?php echo esc_url( wp_get_attachment_url( $image->ID ) ); ?>">
+					<?php echo wp_get_attachment_image( $image->ID, $size ); ?>
+				</a>
+			</div>
 		<?php endforeach; ?>
-		<?php echo $after; ?>
 	<?php
 		}
 
