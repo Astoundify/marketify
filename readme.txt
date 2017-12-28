@@ -47,6 +47,10 @@ Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
 
+= 2.14.1: December 28, 2017 =
+
+* Fix: Better EDD 2.8.16 compatibility for all download types and options.
+
 = 2.14.0: December 22, 2017 =
 
 * New: Allow File Upload field in FES to be used to set a video.
