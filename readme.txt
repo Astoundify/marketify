@@ -2,7 +2,7 @@
 Contributors: Astoundify
 Requires at least: WordPress 4.8.0
 Tested up to: WordPress 4.9.1
-Version: 2.14.0
+Version: 2.14.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: white, two-columns, one-column, right-sidebar, left-sidebar, fluid-layout, custom-background, custom-header, theme-options, full-width-template, featured-images, flexible-header, custom-menu, translation-ready
@@ -46,6 +46,10 @@ License: MIT
 Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
+
+= 2.14.2: January 15, 2017 =
+
+* Fix: Update Media Element playlist controls.
 
 = 2.14.1: December 28, 2017 =
 
