@@ -47,6 +47,10 @@ Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
 
+= 2.14.2: January 15, 2017 =
+
+* Fix: Update Media Element playlist controls.
+
 = 2.14.1: December 28, 2017 =
 
 * Fix: Better EDD 2.8.16 compatibility for all download types and options.
