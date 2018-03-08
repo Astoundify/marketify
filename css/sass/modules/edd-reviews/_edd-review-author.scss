@@ -5,3 +5,10 @@
 .edd-review-author .fn {
 	@extend .marketify-comment-author-name
 }
+
+.widget {
+	.edd-review-author {
+		width: auto;
+		float: none;
+	}
+}

@@ -24,6 +24,8 @@ if ( post_password_required() ) {
 
 	<div class="<?php echo ! is_active_sidebar( 'sidebar-download-single-comments' ) || ! is_singular( 'download' ) ? 'col-xs-12' : 'col-sm-8 col-xs-12'; ?>">
 
+		<?php do_action( 'marketify_comments_before' ); ?>
+
 		<?php if ( have_comments() ) : ?>
 			<h2 class="comments-title section-title"><span><?php _e( 'Comments', 'marketify' ); ?></span></h2>
 
@@ -45,6 +47,8 @@ if ( post_password_required() ) {
 			<?php endif; // check for comment navigation ?>
 
 		<?php endif; // have_comments() ?>
+
+		<?php do_action( 'marketify_comments_after' ); ?>
 
 		<?php
 			comment_form( array(
