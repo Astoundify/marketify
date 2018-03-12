@@ -1,8 +1,8 @@
 === Marketify ===
 Contributors: Astoundify
 Requires at least: WordPress 4.8.0
-Tested up to: WordPress 4.9.1
-Version: 2.14.2
+Tested up to: WordPress 4.9.4
+Version: 2.15.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: white, two-columns, one-column, right-sidebar, left-sidebar, fluid-layout, custom-background, custom-header, theme-options, full-width-template, featured-images, flexible-header, custom-menu, translation-ready
@@ -46,6 +46,12 @@ License: MIT
 Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
+
+= 2.15.0: March 14, 2018 =
+
+* New: Full support for Easy Digital Downloads - Reviews.
+* Fix: Featured/Popular mobile slider height.
+* Fix: Do not use custom per page arguments on auto output [downloads] shortcode.
 
 = 2.14.2: January 15, 2017 =
 
