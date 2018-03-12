@@ -24,15 +24,13 @@ class Marketify_EDD_Shortcode {
 	 * @return mixed
 	 */
 	public function output() {
-		$per_page = absint( get_theme_mod( 'downloads-archives-per-page', 12 ) );
-
 		// if the current page has its own shortcode use that instead
 		if ( is_singular( 'page' ) && has_shortcode( get_the_content(), 'downloads' ) ) {
 			the_post();
 			the_content();
 			rewind_posts();
 		} else {
-			echo do_shortcode( sprintf( '[downloads number="%s"]', $per_page ) );
+			echo do_shortcode( '[downloads]' );
 		}
 	}
 
