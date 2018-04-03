@@ -47,7 +47,7 @@ Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
 
-= 2.15.0: March 14, 2018 =
+= 2.15.0: April 3, 2018 =
 
 * New: Full support for Easy Digital Downloads - Reviews.
 * Fix: Featured/Popular mobile slider height.
