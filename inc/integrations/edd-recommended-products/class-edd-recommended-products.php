@@ -8,8 +8,14 @@ class Marketify_EDD_Recommended_Products extends Marketify_Integration {
 
 	public function setup_actions() {
 		add_action( 'init', array( $this, 'remove_auto_output' ), 12 );
-		add_action( 'marketify_single_download_after', array( $this, 'output' ) );
-		add_action( 'edd_before_purchase_form', array( $this, 'output' ) );
+
+		if ( edd_get_option( 'edd_rp_display_single', false ) ) {
+			add_action( 'marketify_single_download_after', array( $this, 'output' ) );
+		}
+
+		if ( edd_get_option( 'edd_rp_display_checkout', false ) ) {
+			add_action( 'edd_before_purchase_form', array( $this, 'output' ) );
+		}
 	}
 
 	public function remove_auto_output() {
