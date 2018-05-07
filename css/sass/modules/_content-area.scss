@@ -1,8 +1,10 @@
 .content-area {
-    @extend .section;
+	order: 2;
+	@extend .section;
 
-    @include bp(md) {
-        margin-top: 0;
-        margin-bottom: 0;
-    }
+	@include bp(md) {
+		margin-top: 0;
+		margin-bottom: 0;
+		order: 1;
+	}
 }
