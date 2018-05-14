@@ -118,19 +118,19 @@ class Marketify_Widget_Feature_Callout extends Marketify_Widget {
 
 			<?php if ( 'pull' == $background ) : ?>
 				<div class="container">
-					<div class="col-xs-12 col-sm-6 <?php echo ( 'right' == $text_align ) ? 'col-sm-offset-6' : ''; ?>">
+					<div class="col-xs-12 col-sm-6 <?php echo ( 'right' == $text_align ) ? 'offset-sm-6' : ''; ?>">
 						<?php echo $content; ?>
 					</div>
 				</div>
 
-				<div class="col-xs-12 col-sm-6 <?php echo ( 'left' == $text_align ) ? 'col-sm-offset-6' : ''; ?> feature-callout-image-pull" style="background-image:url(<?php echo $image; ?>); ?>; background-position: <?php echo $background_position; ?>"></div>
+				<div class="col-xs-12 col-sm-6 <?php echo ( 'left' == $text_align ) ? 'offset-sm-6' : ''; ?> feature-callout-image-pull" style="background-image:url(<?php echo $image; ?>); ?>; background-position: <?php echo $background_position; ?>"></div>
 			<?php else : ?>
 
 				<div class="feature-callout-cover <?php echo $overlay; ?>" style="background-image:url(<?php echo $image; ?>); ?>; background-position: <?php echo $background_position; ?>">
 
 					<div class="container">
 						<div class="row">
-							<div class="col-xs-12 <?php echo ( in_array( $text_align, array( 'left', 'right' ) ) ) ? 'col-sm-8 col-md-6' : ''; ?> <?php echo ( 'right' == $text_align ) ? 'col-sm-offset-4 col-md-offset-6' : ''; ?>">
+							<div class="col-xs-12 <?php echo ( in_array( $text_align, array( 'left', 'right' ) ) ) ? 'col-sm-8 col-md-6' : ''; ?> <?php echo ( 'right' == $text_align ) ? 'offset-sm-4 offset-md-6' : ''; ?>">
 								<?php echo $content; ?>
 							</div>
 						</div>

@@ -18,7 +18,7 @@ get_header(); ?>
 	<div class="container">
 		<div class="site-content row">
 
-			<div role="main" id="primary" class="col-xs-12 col-md-8 <?php echo ! is_active_sidebar( 'sidebar-1' ) ? 'col-md-offset-2' : '' ?>">
+			<div role="main" id="primary" class="col-xs-12 col-md-8 <?php echo ! is_active_sidebar( 'sidebar-1' ) ? 'offset-md-2' : '' ?>">
 
 				<?php if ( have_posts() ) : ?>
 
