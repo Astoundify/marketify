@@ -44,6 +44,10 @@ class Marketify_EDD_Shortcode {
 			$out['columns'] = get_theme_mod( 'downloads-archives-columns', 3 );
 		}
 
+    if ( ! isset( $atts['number'] ) ) {
+      $out['number'] = get_theme_mod( 'downloads-archives-per-page', 12 );
+    }
+
 		if ( isset( $atts['flat'] ) && $atts['flat'] == true ) {
 			$out['salvattore'] = 'no';
 		}

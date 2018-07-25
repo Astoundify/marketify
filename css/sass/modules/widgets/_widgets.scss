@@ -35,12 +35,14 @@
 }
 
 .widget-area {
-    @extend .section;
+	order: 1;
+	@extend .section;
 
-    @include bp(md) {
-        margin-top: 0;
-        margin-bottom: 0;
-    }
+	@include bp(md) {
+		order: 2;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
 }
 
 /** still need to split out more -- or better naming or something */
