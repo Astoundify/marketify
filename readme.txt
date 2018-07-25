@@ -1,8 +1,8 @@
 === Marketify ===
 Contributors: Astoundify
 Requires at least: WordPress 4.8.0
-Tested up to: WordPress 4.9.4
-Version: 2.15.0
+Tested up to: WordPress 4.9.7
+Version: 2.16.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: white, two-columns, one-column, right-sidebar, left-sidebar, fluid-layout, custom-background, custom-header, theme-options, full-width-template, featured-images, flexible-header, custom-menu, translation-ready
@@ -46,6 +46,13 @@ License: MIT
 Source: https://github.com/driftyco/ionicons
 
 == Changelog ==
+
+= 2.16.0: July 25, 2018 =
+
+* New: Update to Bootstrap v4. Needs heavy testing for columns, layout, etc.
+* Fix: Safari grid overflow.
+* Fix: Respect downloads per page setting in customizer.
+* Fix: Minimal page template background height on mobile.
 
 = 2.15.0: April 3, 2018 =
 
