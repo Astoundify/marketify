@@ -272,18 +272,11 @@ div[id^="widget-area-footer-3"] .marketify-widget-usage.widgetized { display: no
 						<label for="<?php echo $this->get_field_id( $key ); ?>"><?php echo $setting['label']; ?></label>
 					</p>
 					<p style="margin-top: 3px;">
-						<a href="#" class="button-secondary <?php echo esc_attr( $this->get_field_id( $key ) ); ?>-add"><?php _e( 'Choose Image', 'marketify' ); ?></a>
+						<a href="#" class="button-secondary <?php echo esc_attr( $this->get_field_id( $key ) ); ?>-add js-widget-settings-add-media" data-target="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>"><?php _e( 'Choose Image', 'marketify' ); ?></a>
 					</p>
 					<p>
 						<input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo $this->get_field_name( $key ); ?>"value="<?php echo $value; ?>" placeholder="http://" />
 					</p>
-					<script>
-						jQuery(document).on( 'ready', function($) {
-							var <?php echo $key; ?> = new cImageWidget.MediaManager({
-								target: '<?php echo esc_attr( $this->get_field_id( $key ) ); ?>',
-							});
-						});
-					</script>
 				<?php
 				break;
 			}// End switch().

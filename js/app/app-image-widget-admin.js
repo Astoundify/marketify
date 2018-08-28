@@ -1,71 +1,52 @@
 window.cImageWidget = window.cImageWidget || {};
 
-(function( window, $, wp, undefined ) {
+( function( window, undefined ) {
 
-	cImageWidget.MediaManager = function(options) {
-		this.options = options;
-		this.media = this;
-		this.target = options.target;
+	window.wp = window.wp || {};
+	var document = window.document;
+	var $ = window.jQuery;
 
-		this.$target = $( '#' + this.options.target );
-		this.$trigger = $( '.' + this.options.target + '-add' );
+	var imageSetting = function( $trigger ) {
+		var $target = $( '#' + $trigger.data( 'target' ) );
 
-		this.setFrame();
-		this.bindEvents();
-	}
-
-	cImageWidget.MediaManager.prototype.bindEvents = function() {
-		var self = this;
-
-		$(document).on( 'widget-added widget-updated', function(event, $widget) {
-			var widgetNumber = $widget.find( 'input.multi_number' ).val();
-			self.target = self.options.target.replace( '__i__', widgetNumber );
-
-			self.$target = $( '#' + self.target );
-			self.$trigger = $( '.' + self.target + '-add' );
-
-			self.$trigger.on( 'click', function(e) {
-				e.preventDefault();
-
-				self.bindFrame();
-			});
-		});
-
-		this.$trigger.on( 'click', function(e) {
-			e.preventDefault();
-
-			self.bindFrame();
-		});
-	}
-
-	cImageWidget.MediaManager.prototype.bindFrame = function() {
-		var self = this;
-
-		this.frame.open();
-
-		this.frame.on( 'select', function() {
-			self.media.attachItem();
-		});
-	}
-
-	cImageWidget.MediaManager.prototype.setFrame = function() {
-		this.frame = wp.media.frames._frame = wp.media({
+		var frame = wp.media.frames._frame = wp.media( {
 			title: 'Choose an Image',
 			button: {
 				text: 'Use Image'
 			},
 			multiple: false
-		});
+		} );
+
+		var bindFrame = function( e ) {
+			e.stopPropagation();
+
+			frame.open();
+
+			frame.on( 'select', function() {
+				var attachment = frame
+					.state()
+					.get( 'selection' )
+					.first()
+					.toJSON();
+
+				$target.val( attachment.sizes.full.url );
+				$target.trigger( 'change' );
+			} );
+		}
+
+		$trigger.on( 'click', bindFrame );
 	}
 
-	cImageWidget.MediaManager.prototype.attachItem = function($el) {
-		var attachment = this.frame
-			.state()
-			.get( 'selection' )
-			.first()
-			.toJSON();
+	var bindButtons = function() {
+		$( '.js-widget-settings-add-media' ).each( function() {
+			return imageSetting( $( this ) )
+		} );
+	};
 
-		this.$target.val(attachment.sizes.full.url);
-	}
+	$( function() {
+		bindButtons();
 
-})( this, jQuery, wp );
+		$( document ).on( 'widget-added', bindButtons );
+	} );
+
+} )( window );
