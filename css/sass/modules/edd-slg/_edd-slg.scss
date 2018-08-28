@@ -102,3 +102,11 @@
 .edd-slg-social-login-vk {
 	background: #45668E;
 }
+
+.edd-slg-social-login-instagram {
+	background: #405de6;
+}
+
+.edd-slg-social-login-instagram span:before {
+	content: $ionicon-var-social-instagram;
+}
